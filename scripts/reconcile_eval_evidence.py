@@ -50,13 +50,34 @@ for e in data['evaluations']:
     e['note']='各条件目标100；尚未完成，不作为最终成功率。unknown_or_pending混合字段不当作已验收未知数。'
 
 recent=json.loads((AUDIT/'recent.json').read_text())
+inc_file=AUDIT/'incremental.json'
+incs={i['conversation_id']:i for i in json.loads(inc_file.read_text())} if inc_file.exists() else {}
 coverage=[]
 for a in recent:
     p=json.loads((AUDIT/(a['conversation_id']+'-older.json')).read_text())
-    coverage.append({'conversation_id':a['conversation_id'],'visible_messages_read':p['count']+a['count'],'min_id':p['pages'][-1]['min_id'],'max_id':a['range'][1],'reached_start':not p['pages'][-1]['has_more'],'latest_read_status':a['status']})
+    pages=p['pages']
+    assert p['count']==sum(page['count'] for page in pages)
+    assert pages[0]['max_id']<a['range'][0]
+    assert all(pages[i]['max_id']<pages[i-1]['min_id'] for i in range(1,len(pages)))
+    inc=incs.get(a['conversation_id'],{})
+    delta_pages=inc.get('pages',[])
+    assert not delta_pages or delta_pages[0]['min_id']>a['range'][1]
+    assert all(delta_pages[i]['min_id']>delta_pages[i-1]['max_id'] for i in range(1,len(delta_pages)))
+    assert inc.get('count',0)==sum(page['count'] for page in delta_pages)
+    coverage.append({'conversation_id':a['conversation_id'],'visible_messages_read':p['count']+a['count']+inc.get('count',0),'historical_messages_read':p['count']+a['count'],'incremental_messages_read':inc.get('count',0),'min_id':pages[-1]['min_id'],'max_id':inc.get('max_id',a['range'][1]),'reached_start':not pages[-1]['has_more'],'pagination_checked':True,'caught_up':inc.get('caught_up',False),'checked_at':inc.get('checked_at'),'latest_read_status':inc.get('status',a['status'])})
+    agent=next((agent for agent in data['agents'] if agent['id']==a['conversation_id']),None)
+    if agent:
+        agent.update(read_count=coverage[-1]['visible_messages_read'],read_range=[coverage[-1]['min_id'],coverage[-1]['max_id']],checked_at=inc.get('checked_at',agent['checked_at']))
+        messages=[m for m in inc.get('messages',[]) if m.get('text')]
+        if messages:
+            latest=max(messages,key=lambda m:m['id'])
+            agent.update(last_message=latest['text'],last_message_id=latest['id'],summary=latest['text'].split('\n')[0][:400])
+        agent['status']='会话运行中（作业状态需独立核对）' if inc.get('status',{}).get('is_running') else '会话已结束／后台作业需另核对'
+
 assert len(coverage)==8 and all(c['reached_start'] for c in coverage)
 data['evaluation_audit']={'checked_at':datetime.now(timezone.utc).isoformat(),'coverage':coverage,'visible_messages_read':sum(c['visible_messages_read'] for c in coverage),'added_or_reconciled_evaluations':added,'limitations':['仅覆盖读取时刻的8个会话可见历史；运行中的会话此后可能有新消息。','五任务TTC尚无已核对的权重/结果；用户澄清可能尚未评测，状态待确认。','初始基线的交付缺项不等于没有训练或没有评测。']}
 data['coverage_notes']=[{'task':'5','method':'TTC（ours）','state':'五任务评测状态待确认','note':'用户澄清五任务TTC可能尚未评测。当前尚未核对到对应数据版本、相机、权重交付和4/8步成绩；请训练同学补交付后进入待测清单，不作为已评测结果。'}]
+data['read_coverage']={'recent':sum(a['count'] for a in recent),'older':sum(c['historical_messages_read'] for c in coverage)-sum(a['count'] for a in recent),'incremental':sum(c['incremental_messages_read'] for c in coverage)}
 # Keep the imported snapshot timestamp; the separate audit timestamp identifies this reconciliation.
 (SITE/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'new_reports':len(added),'evaluations':len(data['evaluations']),'messages_read':sum(c['visible_messages_read'] for c in coverage),'conversations':len(coverage)},ensure_ascii=False))

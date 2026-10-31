@@ -1854,17 +1854,17 @@
     {
       "id": "8ux1kbdbzbznpvtkrnrd6zpxa",
       "title": "单/并发真实成功率",
-      "status": "运行中",
+      "status": "会话已结束／后台作业需另核对",
       "dataset": "3-v13",
-      "summary": "1200条配对方案；旧任务与探针已终止；已查明漏接着色器缓存，保持物理参数重提；尚无新成功率",
-      "last_message": "启动对照已结束：2线程加缓存约118秒通过初始验收；8线程无缓存约256秒；2线程无缓存在300秒诊断上限内未通过。新版因此只补缓存复用，保持2线程及物理参数不变。\n\n新版六组清单、原始判据和缓存复用检查均已通过，正在重新提交。此前任务和探针都已终止，没有遗留占卡。",
-      "last_message_id": 19376133,
-      "read_count": 107,
+      "summary": "**目前还没有证据说明单环境和并发环境的成功率有差异。** 我刚核对：已验收96条，但全部属于单环境组，并发组尚未开始。上一条表格展示的是不同方法、4步与8步之间的差异，我没有把这一点说清楚。",
+      "last_message": "**目前还没有证据说明单环境和并发环境的成功率有差异。** 我刚核对：已验收96条，但全部属于单环境组，并发组尚未开始。上一条表格展示的是不同方法、4步与8步之间的差异，我没有把这一点说清楚。\n\n4步和8步本来就可能不同：模型每次预测一段动作，分别执行4步或8步后重新观察、规划，反馈频率不同，会影响抓取和倾倒。加上目前各组完成的场景数量、左右分布不同，中途比例不能直接比较。\n\n真正要验证的是：**同一模型、同一步数、同一场景和随机种子，在两种并行度下是否得到一致结果。** 这轮会按这个口径逐条配对；现在还不能宣布多环境问题已经解决，也不能把当前差异归因于串光。",
+      "last_message_id": 19385398,
+      "read_count": 3836,
       "read_range": [
-        19371611,
-        19376155
+        18834843,
+        19385398
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.277465+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
@@ -1875,12 +1875,12 @@
       "summary": "本地实际进度较会话更新：2000/2000；不能用会话done代替GPU任务终态",
       "last_message": "**LIBERO-10 最新能核对的 Mem-0 记录是：119/160，成功率74.38%。**\n\n| 权重 | 实际执行步数 | 成功率 |\n|---|---:|---:|\n| 30k | 15步 | 68.13%（109/160） |\n| 30k | 20步 | 70.63%（113/160） |\n| **50k** | **20步** | **74.38%（119/160）** |\n\n50k配置：预测30步，高层任务＋当前子任务输入，学习得到的 planner，完成阈值0.5、累计2次触发；seed=42，每任务16条，共160条。**不是5-seed平均。**\n\n数据来自服务器保留的验收文档 `libero_exp/OFFICIAL_PLANNER.md` 和 `README.md`；本次未能重新读取原始逐条评测文件。",
       "last_message_id": 19300944,
-      "read_count": 50,
+      "read_count": 1323,
       "read_range": [
-        19246546,
+        18981662,
         19300944
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.269631+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
@@ -1891,44 +1891,44 @@
       "summary": "同输入接口一致；尚未确认唯一根因；专家执行成功不计模型SR",
       "last_message": "你的判断对：**如果初始状态、物理参数和执行的动作完全相同，姿态应当非常接近。** 但“训练与测试配置一致”，并不保证模型输出的动作和采集时的专家动作一致。\n\n目前要区分两个阶段：\n\n**初始姿态没有发现明显偏差。** 已检查的六次物理对照中，初始13维关节角和目标关节角完全相同。因此，目前没有证据表明机器人一开始就摆错了。\n\n**偏差是在执行动作后出现的。** 模型即使收到训练观测，预测动作也没有完全拟合专家动作：已有对照中，前8步手臂动作的均方根误差约为 **0.007 rad，即0.4°**。目标角有差异，执行后的实测关节自然也会产生差异；接触烧杯后，还可能进一步改变抓取和物体运动。\n\n这里我需要纠正前面表述中的因果关系：**测到的0.0056 rad关节偏差，是运行过程中已经产生的偏差，不是初始误差，也没有证明它是最先发生的问题。** 扰动实验说明模型可能无法有效纠正这种偏差，不能说明偏差最初由什么引起。\n\n所以现在真正需要定位的是：**第一次偏离发生在哪个控制步——先是预测动作偏离专家，还是相同目标动作执行出了不同姿态。** 现有结果更支持前者参与其中，但尚未把两者的贡献分清，不能直接归结为模型鲁棒性不足。",
       "last_message_id": 19371468,
-      "read_count": 50,
+      "read_count": 1572,
       "read_range": [
-        19252157,
-        19371468
+        18981108,
+        19379555
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.275693+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
       "id": "ik1mdrvyn830s4d4skxajr452",
       "title": "ours 切换与动作诊断",
-      "status": "运行中",
+      "status": "会话运行中（作业状态需独立核对）",
       "dataset": "3-v13",
-      "summary": "阈值、放回阶段步数与机械臂/手指拆分；小样本结果不外推总体SR",
-      "last_message": "四卡那轮已完成独立复核，四条诊断轨迹为2成功、2失败。不过，成功案例在启用30步之前，动作和分类器分数就已与对照分叉，因此不能据此认定“30步修好了问题”。我正在补一组固定指令对照，单独验证初始抓取姿态是否会导致后续滑脱。",
-      "last_message_id": 19376073,
-      "read_count": 114,
+      "summary": "[四路同步诊断面板已上线](https://asimfish.github.io/psibot-dashboard/ours_threshold_sweep/sr_retest/diagnosis/mechanical/)，公开页面的全部文件、播放、逐帧定位和手机布局已核验。新的抓取前缀两路视频也已完成，正在做发布审查；实时模型对照则继续准备中。",
+      "last_message": "[四路同步诊断面板已上线](https://asimfish.github.io/psibot-dashboard/ours_threshold_sweep/sr_retest/diagnosis/mechanical/)，公开页面的全部文件、播放、逐帧定位和手机布局已核验。新的抓取前缀两路视频也已完成，正在做发布审查；实时模型对照则继续准备中。",
+      "last_message_id": 19387789,
+      "read_count": 6200,
       "read_range": [
-        19371531,
-        19376226
+        18964209,
+        19387977
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.284329+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
       "id": "tc4svfqatqlepu5ydrtcgel9e",
       "title": "七任务闭环与Completion",
-      "status": "运行中",
+      "status": "会话运行中（作业状态需独立核对）",
       "dataset": "7-weigh",
-      "summary": "B修复/对照0/12；C候选0/4，对照1/4；归位漏判与提前切换仍有反例",
-      "last_message": "四段输入上，新增位置保护挡住了错误归位，也恢复了真实漏判，正确切换仍保留。但部分时段的定位误差超标，暂不能进入正式评测。我已补入已有的临界归位样例重新校准，四段输入继续全部留作验证；另一张卡同步验证 B 漏判的视觉特征修复。\n",
-      "last_message_id": 19375696,
-      "read_count": 83,
+      "summary": "结果已核验：四卡任务成功结束，对照组和 B 归位新判定组均为 2/12，成功率 16.7%。同一历史重放中，新判定让一条归位后卡住的案例正确进入 A 任务，另一条成功案例的切换保持一致；但这还没有转化为整体成功率提升。正在保存结果和视频，明确区分局部机制修复与整段任务表现。",
+      "last_message": "结果已核验：四卡任务成功结束，对照组和 B 归位新判定组均为 2/12，成功率 16.7%。同一历史重放中，新判定让一条归位后卡住的案例正确进入 A 任务，另一条成功案例的切换保持一致；但这还没有转化为整体成功率提升。正在保存结果和视频，明确区分局部机制修复与整段任务表现。",
+      "last_message_id": 19387785,
+      "read_count": 3738,
       "read_range": [
-        19350206,
-        19376220
+        18832295,
+        19387898
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.550880+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
@@ -1939,44 +1939,44 @@
       "summary": "原预处理600次均0；新训练输入诊断已完：H4为1/2，H8/H30为0/2；专家2/2，不能混作自主SR",
       "last_message": "已完成五任务 Mem-0 30k 的训练输入试测：正、反向各取一条完整训练轨迹，输入训练图像、实测关节角和真实子任务，再对预测动作做物理验收。\n\n| 执行步数 | 完整五阶段成功率 |\n|---|---:|\n| 4步 | **1/2（50%）** |\n| 8步 | **0/2**，反向完成了4个阶段 |\n| 30步 | **0/2** |\n\n专家动作对照 **2/2成功**；训练观测下，模型在 **10/10个阶段**都能触发完成判定。全部物理结果已独立核对。\n\n这说明模型并非完全不会识别完成状态，但训练输入下的预测动作也未全部通过，**目前不能只归因于测试图像差异**。这是每配置两条的诊断试验，不是100条自主闭环成功率。\n\n[成功视频](/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/training_input_eval_20261031/videos/episode_000000_model_h4.mp4) · [完整报告](/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/training_input_eval_20261031/TRAINING_INPUT_RESULTS.txt)",
       "last_message_id": 19375641,
-      "read_count": 92,
+      "read_count": 614,
       "read_range": [
-        19370968,
+        19203552,
         19375641
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.538394+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
       "id": "2vcshjjj8jfcm5ujxllodkvx2",
       "title": "长任务采集主线",
-      "status": "运行中",
+      "status": "会话运行中（作业状态需独立核对）",
       "dataset": "collection",
-      "summary": "4条新轨迹均过原始CPU验收及二次独立复核；去重已完成；相机补图/画面验收/导出仍待完成，归档计数不增",
-      "last_message": "干燥箱实测已再次完成真实对向抓握，并保存完整状态；开门路径检查正在收尾，还不能算开门成功。相机对照也已完成具体启动审核，接下来会直接检查实际前臂遮挡和透明杯渲染，不用几何推算代替画面结果。",
-      "last_message_id": 19376024,
-      "read_count": 145,
+      "summary": "干燥箱这轮已结束：仍因原300秒阶段上限失败，但完整终态已保存。原生计时显示，4720次tick中，嵌套的记录/观测调用耗98.27秒，约占tick耗时62%；物理步进仅11.36秒，期间没有渲染或模型调用。下一步会沿记录/观测链优化，并验证从已保存阶段接续，避免反复冷启动。",
+      "last_message": "干燥箱这轮已结束：仍因原300秒阶段上限失败，但完整终态已保存。原生计时显示，4720次tick中，嵌套的记录/观测调用耗98.27秒，约占tick耗时62%；物理步进仅11.36秒，期间没有渲染或模型调用。下一步会沿记录/观测链优化，并验证从已保存阶段接续，避免反复冷启动。",
+      "last_message_id": 19386604,
+      "read_count": 33798,
       "read_range": [
-        19371513,
-        19376219
+        17652420,
+        19387957
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.539581+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     },
     {
       "id": "cfo23w0edu88exmkh5utredn2",
       "title": "长任务采集分支",
-      "status": "运行中",
+      "status": "会话运行中（作业状态需独立核对）",
       "dataset": "collection",
-      "summary": "V42全部五步与结束校验通过；独立物理检查、完整视频及数据格式待完成；合格条数未增",
-      "last_message": "V42 已完成全部五步，结束校验也通过了，正在自动执行独立物理检查。007 场景的 5mm 抓取偏移已完成配置和执行链回归，正启动另一张卡上的完整复测。完整视频和数据格式验收仍待完成，因此合格条数暂未增加。",
-      "last_message_id": 19376053,
-      "read_count": 150,
+      "summary": "009 场景的新路径通过了数值检查，但在接入原重定时流程时被拒绝，尚未完成采集，也没有计入成功条数。我会继续排查这处衔接。",
+      "last_message": "009 场景的新路径通过了数值检查，但在接入原重定时流程时被拒绝，尚未完成采集，也没有计入成功条数。我会继续排查这处衔接。\n\n新版本包已完整传到目标端并通过哈希核对；解包操作超过了连接等待时间，正在核实目标端状态，保留已传文件继续处理。\n",
+      "last_message_id": 19387443,
+      "read_count": 7067,
       "read_range": [
-        19373167,
-        19376172
+        19026499,
+        19388026
       ],
-      "checked_at": "2026-10-31T08:30:48.955Z",
+      "checked_at": "2026-10-31T10:12:19.537670+00:00",
       "source": "AnyGent只读接口；未向这些agent发送指令"
     }
   ],
@@ -2073,10 +2073,9 @@
     }
   ],
   "read_coverage": {
-    "recent": 791,
-    "older": 200,
-    "conversations": 8,
-    "detail": "每会话最近50条；另外对三任务新旧、ours、七任务、旧五任务各追溯50条。会话归属均校验；未读取system/platform。"
+    "recent": 400,
+    "older": 57590,
+    "incremental": 158
   },
   "change_log": [
     {
@@ -2090,27 +2089,37 @@
     "confirmed_by": "用户2026-10-31明确确认"
   },
   "evaluation_audit": {
-    "checked_at": "2026-10-31T10:05:37.033149+00:00",
+    "checked_at": "2026-10-31T10:14:58.601819+00:00",
     "coverage": [
       {
         "conversation_id": "8ux1kbdbzbznpvtkrnrd6zpxa",
-        "visible_messages_read": 3831,
+        "visible_messages_read": 3836,
+        "historical_messages_read": 3831,
+        "incremental_messages_read": 5,
         "min_id": 18834843,
-        "max_id": 19379641,
+        "max_id": 19385398,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.277465+00:00",
         "latest_read_status": {
           "is_running": 0,
           "done": true,
-          "message_count": 3882,
-          "last_message_seq": 3881
+          "message_count": 3887,
+          "last_message_seq": 3886
         }
       },
       {
         "conversation_id": "1fn173yr3a09usvylr95nceue",
         "visible_messages_read": 1323,
+        "historical_messages_read": 1323,
+        "incremental_messages_read": 0,
         "min_id": 18981662,
         "max_id": 19300944,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.269631+00:00",
         "latest_read_status": {
           "is_running": 0,
           "done": true,
@@ -2121,9 +2130,14 @@
       {
         "conversation_id": "8dldjz02s0enza7mn9l0e4510",
         "visible_messages_read": 1572,
+        "historical_messages_read": 1572,
+        "incremental_messages_read": 0,
         "min_id": 18981108,
         "max_id": 19379555,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.275693+00:00",
         "latest_read_status": {
           "is_running": 0,
           "done": true,
@@ -2133,36 +2147,51 @@
       },
       {
         "conversation_id": "ik1mdrvyn830s4d4skxajr452",
-        "visible_messages_read": 6164,
+        "visible_messages_read": 6200,
+        "historical_messages_read": 6164,
+        "incremental_messages_read": 36,
         "min_id": 18964209,
-        "max_id": 19384292,
+        "max_id": 19387977,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.284329+00:00",
         "latest_read_status": {
           "is_running": 1,
           "done": false,
-          "message_count": 6226,
-          "last_message_seq": 6225
+          "message_count": 6262,
+          "last_message_seq": 6261
         }
       },
       {
         "conversation_id": "tc4svfqatqlepu5ydrtcgel9e",
-        "visible_messages_read": 3718,
+        "visible_messages_read": 3738,
+        "historical_messages_read": 3718,
+        "incremental_messages_read": 20,
         "min_id": 18832295,
-        "max_id": 19384459,
+        "max_id": 19387898,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.550880+00:00",
         "latest_read_status": {
           "is_running": 1,
           "done": false,
-          "message_count": 3773,
-          "last_message_seq": 3784
+          "message_count": 3793,
+          "last_message_seq": 3804
         }
       },
       {
         "conversation_id": "ardgka9i1sacv6sl89mo5rdg0",
         "visible_messages_read": 614,
+        "historical_messages_read": 614,
+        "incremental_messages_read": 0,
         "min_id": 19203552,
         "max_id": 19375641,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.538394+00:00",
         "latest_read_status": {
           "is_running": 0,
           "done": true,
@@ -2172,32 +2201,42 @@
       },
       {
         "conversation_id": "2vcshjjj8jfcm5ujxllodkvx2",
-        "visible_messages_read": 33755,
+        "visible_messages_read": 33798,
+        "historical_messages_read": 33755,
+        "incremental_messages_read": 43,
         "min_id": 17652420,
-        "max_id": 19384469,
+        "max_id": 19387957,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.539581+00:00",
         "latest_read_status": {
           "is_running": 1,
           "done": false,
-          "message_count": 34048,
-          "last_message_seq": 34424
+          "message_count": 34468,
+          "last_message_seq": 34467
         }
       },
       {
         "conversation_id": "cfo23w0edu88exmkh5utredn2",
-        "visible_messages_read": 7013,
+        "visible_messages_read": 7067,
+        "historical_messages_read": 7013,
+        "incremental_messages_read": 54,
         "min_id": 19026499,
-        "max_id": 19384525,
+        "max_id": 19388026,
         "reached_start": true,
+        "pagination_checked": true,
+        "caught_up": true,
+        "checked_at": "2026-10-31T10:12:19.537670+00:00",
         "latest_read_status": {
           "is_running": 1,
           "done": false,
-          "message_count": 7087,
-          "last_message_seq": 7086
+          "message_count": 7141,
+          "last_message_seq": 7140
         }
       }
     ],
-    "visible_messages_read": 57990,
+    "visible_messages_read": 58148,
     "added_or_reconciled_evaluations": [
       "sr-v13-mem0-4",
       "sr-v13-mem0-8",

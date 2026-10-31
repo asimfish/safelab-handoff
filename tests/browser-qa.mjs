@@ -32,6 +32,8 @@ try{
  await run(`document.querySelector('.handoff-matrix [data-detail="3-v13-ours@20000"]').click()`);
  assert(await run('document.querySelector("#detail").open&&document.querySelector("#detail-body").innerText.includes("20,000")'),'matrix checkpoint opens its matching handoff details');
  await run('document.querySelector("#detail").close()');
+ await go('coverage');
+ assert(await run('document.querySelectorAll("#main tbody tr").length===8&&document.body.innerText.includes("58,148")&&document.body.innerText.includes("不是后台自动跟踪")'),'coverage page exposes eight session cutoffs and exact limits');
  await go('queue');
  assert(await run('document.querySelectorAll("[data-pending]").length===HandoffModel.pendingRows(board).length&&document.querySelectorAll("[data-packet]").length>0'),'global queue contains every delivered untested checkpoint with deployment packet');
  await go('task/3');

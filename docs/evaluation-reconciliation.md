@@ -3,7 +3,7 @@
 The first overview indexed only selected recent assistant messages and six original
 source reports. Missing sources were too easily interpreted as untested methods.
 The revised audit reads all eight supplied conversations back to their first
-visible message (57,990 visible messages at the read boundary, excluding platform
+visible message (57,990 initial visible messages plus 158 incremental messages (58,148 total) at the read boundary, excluding platform
 and system messages). Audit ranges and counts are in data.json/evaluation_audit.
 Only assistant text was retained privately; no raw conversation or credentials
 are published. Running agents may have new messages after this boundary.
@@ -35,3 +35,10 @@ This evidence gap is distinct from the confirmed three-task TTC and pi0.5 tests.
 Reproduce original report ingestion with scripts/reconcile_eval_evidence.py on
 the workstation that holds the source paths. This never starts/stops other jobs
 or changes another agent's files.
+
+The coverage panel records per-conversation lower/upper IDs, message counts,
+backward/forward page boundary checks, caught-up flags and timestamps. This is
+manual evidence reconciliation with an explicit cutoff, not unattended memory
+polling. Tool summaries are not full tool-output audits. The newest seven-task
+2/12-vs-2/12 diagnostic and three-task partial paired counts remain separate from
+completed formal100 success rates.

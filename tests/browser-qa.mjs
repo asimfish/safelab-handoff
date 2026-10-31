@@ -41,7 +41,7 @@ try{
  await run('document.querySelector(\'[data-edit="3-v13-mem0@30000"]\').click()');
  assert(await run('document.querySelector("#editor").open&&document.querySelector(\'[name="path"]\').disabled'),'editing freezes existing weight identity');
  await run('document.querySelector("#editor").close()');
- await go('task/5');assert(await run('document.querySelectorAll(".version-tabs a").length===2'),'five-task fixed and pos1cm split');assert(await run('document.body.innerText.includes("用户报告已评测")'),'five-task TTC reported evaluation remains visible while artifacts are unresolved');
+ await go('task/5');assert(await run('document.querySelectorAll(".version-tabs a").length===2'),'five-task fixed and pos1cm split');assert(await run('document.body.innerText.includes("五任务评测状态待确认")'),'five-task TTC remains unconfirmed without inventing completed results');
  await go('task/7');assert(await run('document.querySelectorAll(".version-tabs a").length===1'),'seven-task separate version');
  await go('task/10');assert(await run('document.querySelectorAll("#main tbody tr").length===2&&document.body.innerText.includes("待评测")'),'ten-task distinct pending checkpoint rows');
  await run('document.querySelector("#add").click()');

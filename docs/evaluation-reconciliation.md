@@ -27,11 +27,10 @@ metric, not improved model performance on the original strict test. The overview
 labels SR and strict results explicitly; all prior batches remain in details.
 No threshold-study or camera-candidate rates are pooled with other campaigns.
 
-Five-task TTC is reported as tested by the user. No corresponding specific
-dataset version, camera, checkpoint and final scores were located in the retained
-assistant histories or known source reports. It is flagged as reported-tested,
-results awaiting archival, rather than classified definitely untested. This is an
-open evidence gap, not a claim that the test did not occur.
+Five-task TTC has no verified dataset/weight delivery or evaluation report in this
+inventory. Its evaluation status is unconfirmed; it is not counted as evaluated.
+A concrete trained checkpoint is needed before adding it to the deployment queue.
+This evidence gap is distinct from the confirmed three-task TTC and pi0.5 tests.
 
 Reproduce original report ingestion with scripts/reconcile_eval_evidence.py on
 the workstation that holds the source paths. This never starts/stops other jobs

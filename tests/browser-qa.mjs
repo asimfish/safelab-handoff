@@ -23,7 +23,7 @@ try{
  for(let i=0;i<100;i++){if(await run('!!document.querySelector(".camera-group")'))break;await sleep(100);}
 
  const go=async hash=>{await run('location.hash='+JSON.stringify(hash));await sleep(180);};
- assert(await run('document.querySelectorAll(".overview-table").length===4&&document.body.innerText.includes("24.8")'),'landing shows all tasks and method scores together');
+ assert(await run('document.querySelectorAll(".overview-table").length===4&&document.body.innerText.includes("44.0")'),'landing shows all tasks and method scores together');
  fs.writeFileSync(path.join(Q,'overview.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
  await go('queue');
  assert(await run('document.querySelectorAll("[data-pending]").length===HandoffModel.pendingRows(board).length&&document.querySelectorAll("[data-packet]").length>0'),'global queue contains every delivered untested checkpoint with deployment packet');
@@ -33,7 +33,7 @@ try{
  assert(await run('document.querySelector(\'[data-row="3-latest-chest@30000"]\').innerText.includes("尚无已核对结果")'),'chest does not inherit third person score');
  fs.writeFileSync(path.join(Q,'desktop.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
  await go('task/3/3-v13');
- assert(await run('document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("24.8")&&document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("评测中")'),'same checkpoint shows completed five-seed score and ongoing retest');
+ assert(await run('document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("44.0")&&document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("评测中")'),'same checkpoint shows labeled SR result and ongoing retest');
  assert(await run('document.querySelector(\'[data-row="3-v13-pi05@30000"]\').innerText.includes("0.0")'),'confirmed zero success stays a numeric result');
  await run('document.querySelector(\'[data-detail="3-v13-mem0@30000"]\').click()');
  assert(await run('document.querySelector("#detail").open&&document.querySelector("#detail-body").innerText.includes("21/100")&&document.querySelector("#detail-body").innerText.includes("历史共享场景")'),'details retain earlier protocol-specific evidence');
@@ -41,7 +41,7 @@ try{
  await run('document.querySelector(\'[data-edit="3-v13-mem0@30000"]\').click()');
  assert(await run('document.querySelector("#editor").open&&document.querySelector(\'[name="path"]\').disabled'),'editing freezes existing weight identity');
  await run('document.querySelector("#editor").close()');
- await go('task/5');assert(await run('document.querySelectorAll(".version-tabs a").length===2'),'five-task fixed and pos1cm split');
+ await go('task/5');assert(await run('document.querySelectorAll(".version-tabs a").length===2'),'five-task fixed and pos1cm split');assert(await run('document.body.innerText.includes("用户报告已评测")'),'five-task TTC reported evaluation remains visible while artifacts are unresolved');
  await go('task/7');assert(await run('document.querySelectorAll(".version-tabs a").length===1'),'seven-task separate version');
  await go('task/10');assert(await run('document.querySelectorAll("#main tbody tr").length===2&&document.body.innerText.includes("待评测")'),'ten-task distinct pending checkpoint rows');
  await run('document.querySelector("#add").click()');

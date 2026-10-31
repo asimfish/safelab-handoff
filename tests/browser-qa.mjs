@@ -22,11 +22,16 @@ try{
  await cmd('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
  for(let i=0;i<100;i++){if(await run('!!document.querySelector(".camera-group")'))break;await sleep(100);}
 
+ const go=async hash=>{await run('location.hash='+JSON.stringify(hash));await sleep(180);};
+ assert(await run('document.querySelectorAll(".overview-table").length===4&&document.body.innerText.includes("24.8")'),'landing shows all tasks and method scores together');
+ fs.writeFileSync(path.join(Q,'overview.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ await go('queue');
+ assert(await run('document.querySelectorAll("[data-pending]").length===HandoffModel.pendingRows(board).length&&document.querySelectorAll("[data-packet]").length>0'),'global queue contains every delivered untested checkpoint with deployment packet');
+ await go('task/3');
  assert(await run('document.querySelectorAll(".version-tabs a").length===3'),'three distinct data versions for task3');
  assert(await run('Array.from(document.querySelectorAll(".group-title h2")).some(e=>e.textContent==="第三人称")&&Array.from(document.querySelectorAll(".group-title h2")).some(e=>e.textContent==="胸部相机")'),'latest chest and third person kept separate');
  assert(await run('document.querySelector(\'[data-row="3-latest-chest@30000"]\').innerText.includes("尚无已核对结果")'),'chest does not inherit third person score');
  fs.writeFileSync(path.join(Q,'desktop.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
- const go=async hash=>{await run('location.hash='+JSON.stringify(hash));await sleep(180);};
  await go('task/3/3-v13');
  assert(await run('document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("24.8")&&document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("评测中")'),'same checkpoint shows completed five-seed score and ongoing retest');
  assert(await run('document.querySelector(\'[data-row="3-v13-pi05@30000"]\').innerText.includes("0.0")'),'confirmed zero success stays a numeric result');

@@ -60,6 +60,8 @@ function buildBoard(data,edits=[]){
  return {datasets,rows:rows.filter(r=>r.path||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
 }
 function issueBody(edit){validateEdit(edit);return '## SafeLab 共享交接记录\n\n提交后回到面板点击「同步更新」。修改本单请保留下面的数据块。不要填写密码、Token 或私钥。\n\n```safelab-handoff\n'+JSON.stringify(edit,null,2)+'\n```';}
-const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,buildBoard,issueBody};
+function pendingRows(board){return board.rows.filter(r=>r.path&&r.state==='untested');}
+function handoffPacket(board,row){const d=board.datasets.find(d=>d.id===row.dataset);return {task:row.task,method:row.method,dataset_version:d?.version||row.dataset,training_dataset:d?.path||null,camera:row.camera,checkpoint_step:row.step,checkpoint_path:row.path,delivery_document:row.doc||null,training_run:row.run||null,normalization_hash:row.record?.norm||null,training_config:row.training,owner:row.owner,execution_horizons_to_test:[4,8],test_protocol:'请根据该数据版本的交付文档确认泛化、控制频率和成功验收条件，不沿用其他版本',availability:row.availability,shared_handoff:row.shared?.url||null};}
+const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,buildBoard,issueBody,pendingRows,handoffPacket};
 if(typeof module!=='undefined')module.exports=api;root.HandoffModel=api;
 })(typeof window==='undefined'?globalThis:window);

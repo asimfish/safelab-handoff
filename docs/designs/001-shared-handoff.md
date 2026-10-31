@@ -38,3 +38,12 @@ GitHub issue paths or validated HTTPS links. External accounts need repository
 collaborator membership or maintainer approval. GitHub is the audit/edit authority.
 Rate-limit/offline errors retain the imported snapshot and clearly identify the
 missing shared feed; no claim of successful save before GitHub confirmation.
+
+## Presentation revision: single editable table
+
+The user explicitly replaced the multi-page information architecture with one
+flat table. Task, exact dataset version/camera, method, weight, training/delivery,
+evaluation state and rates are direct columns. Filters narrow the same table;
+historical evidence is a row dialog, not a separate dashboard. Shared storage and
+GitHub authorization remain unchanged. Identity edits preserve the original row
+and create a new weight entry; training placeholders can be completed in place.

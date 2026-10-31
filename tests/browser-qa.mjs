@@ -20,53 +20,36 @@ try{
  const assert=(yes,label)=>{if(!yes)throw Error('QA failed: '+label);checks.push(label);};
  await cmd('Runtime.enable');await cmd('Page.enable');
  await cmd('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
- for(let i=0;i<100;i++){if(await run('!!document.querySelector(".camera-group")'))break;await sleep(100);}
+ for(let i=0;i<100;i++){if(await run('!!document.querySelector("#rows [data-row]")'))break;await sleep(100);}
 
- const go=async hash=>{await run('location.hash='+JSON.stringify(hash));await sleep(180);};
- assert(await run('document.querySelectorAll(".overview-table").length===4&&document.body.innerText.includes("44.0")'),'landing shows all tasks and method scores together');
- fs.writeFileSync(path.join(Q,'overview.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
- await go('matrix');
- assert(await run(`document.querySelectorAll(".handoff-matrix thead th").length===8&&document.querySelectorAll('[data-matrix-version="3-latest"]').length===3`),'single handoff matrix includes seven methods and camera-specific version rows');
- assert(await run('document.querySelector(".handoff-matrix").innerText.includes("MemoryVLA")&&document.querySelector(".handoff-matrix").innerText.includes("训练中")&&document.querySelector(".handoff-matrix").innerText.includes("对齐削弱版")'),'matrix preserves unbound training and all supplied ablation columns');
- fs.writeFileSync(path.join(Q,'matrix.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
- await run(`document.querySelector('.handoff-matrix [data-detail="3-v13-ours@20000"]').click()`);
- assert(await run('document.querySelector("#detail").open&&document.querySelector("#detail-body").innerText.includes("20,000")'),'matrix checkpoint opens its matching handoff details');
- await run('document.querySelector("#detail").close()');
- await go('coverage');
- assert(await run('document.querySelectorAll("#main tbody tr").length===8&&document.body.innerText.includes("58,148")&&document.body.innerText.includes("不是后台自动跟踪")'),'coverage page exposes eight session cutoffs and exact limits');
- await go('queue');
- assert(await run('document.querySelectorAll("[data-pending]").length===HandoffModel.pendingRows(board).length&&document.querySelectorAll("[data-packet]").length>0'),'global queue contains every delivered untested checkpoint with deployment packet');
- await go('task/3');
- assert(await run('document.querySelectorAll(".version-tabs a").length===3'),'three distinct data versions for task3');
- assert(await run('Array.from(document.querySelectorAll(".group-title h2")).some(e=>e.textContent==="第三人称")&&Array.from(document.querySelectorAll(".group-title h2")).some(e=>e.textContent==="胸部相机")'),'latest chest and third person kept separate');
- assert(await run('document.querySelector(\'[data-row="3-latest-chest@30000"]\').innerText.includes("尚无已核对结果")'),'chest does not inherit third person score');
- fs.writeFileSync(path.join(Q,'desktop.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
- await go('task/3/3-v13');
- assert(await run('document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("44.0")&&document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("评测中")'),'same checkpoint shows labeled SR result and ongoing retest');
- assert(await run('document.querySelector(\'[data-row="3-v13-pi05@30000"]\').innerText.includes("0.0")'),'confirmed zero success stays a numeric result');
- await run('document.querySelector(\'[data-detail="3-v13-mem0@30000"]\').click()');
- assert(await run('document.querySelector("#detail").open&&document.querySelector("#detail-body").innerText.includes("21/100")&&document.querySelector("#detail-body").innerText.includes("历史共享场景")'),'details retain earlier protocol-specific evidence');
- await run('document.querySelector("#detail").close()');
- await run('document.querySelector(\'[data-edit="3-v13-mem0@30000"]\').click()');
- assert(await run('document.querySelector("#editor").open&&document.querySelector(\'[name="path"]\').disabled'),'editing freezes existing weight identity');
- await run('document.querySelector("#editor").close()');
- await go('task/5');assert(await run('document.querySelectorAll(".version-tabs a").length===2'),'five-task fixed and pos1cm split');assert(await run('document.body.innerText.includes("五任务评测状态待确认")'),'five-task TTC remains unconfirmed without inventing completed results');
- await go('task/7');assert(await run('document.querySelectorAll(".version-tabs a").length===1'),'seven-task separate version');
- await go('task/10');assert(await run('document.querySelectorAll("#weight-groups tbody tr").length===2&&document.body.innerText.includes("待评测")'),'ten-task distinct pending checkpoint rows');
- await run('document.querySelector("#add").click()');
- await run('document.querySelector(\'[name="method"]\').value="Mem-0";document.querySelector(\'[name="step"]\').value="40000";document.querySelector(\'[name="path"]\').value="/weights/new40k.pt";document.querySelector(\'[name="owner"]\').value="Test trainer";window.open=(url)=>{window.savedIssueURL=String(url)};document.querySelector("#edit-form").requestSubmit()');
- assert(await run('new URL(window.savedIssueURL).hostname==="github.com"&&new URL(window.savedIssueURL).searchParams.get("body").includes("/weights/new40k.pt")'),'web form prepares shared GitHub record with no in-browser token');
- await run('document.querySelector("#editor").close()');
- await go('updates');assert(await run('document.body.innerText.includes("Submit new issue")'),'shared confirmation and collaborator rules explained');
+
+ assert(await run('document.querySelectorAll("#main table").length===1&&!document.querySelector("aside")'),'one table only, no sidebar');
+ assert(await run('document.querySelectorAll("#rows [data-row]").length===board.rows.length'),'every training and weight entry present in one table');
+ assert(await run('document.querySelector(\'[data-row="3-v13-ours@30000"]\').innerText.includes("24.0%")&&document.querySelector(\'[data-row="3-v13-pi05@30000"]\').innerText.includes("0.0%")'),'TTC and pi0.5 real scores visible in their rows');
+ assert(await run('document.querySelector(\'[data-row="3-latest-chest@30000"]\').querySelectorAll(".score").length===0'),'untested chest never inherits third person score');
+ assert(await run('document.querySelector(\'[data-row="3-v13-ours@30000"] [data-copy]\').dataset.copy.includes("safelab_mem")'),'training dataset full path can be copied');
+ fs.writeFileSync(path.join(Q,'single-table.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ await run('document.querySelector("#filter-task").value="5";document.querySelector("#filter-task").dispatchEvent(new Event("change"))');
+ assert(await run('document.querySelectorAll("#rows [data-row]").length===3'),'all five-task old and new dataset weights filter together');
+ await run('document.querySelector(\'[data-detail="5-fixed-mem0@30000"]\').click()');
+ assert(await run('document.querySelector("#detail-body").innerText.includes("1/2")&&document.querySelector("#detail-body").innerText.includes("非正式成绩")'),'training input diagnosis retained behind row details, no formal score pollution');
+ await run('document.querySelector("#detail").close();document.querySelector("#filter-task").value="10";document.querySelector("#filter-task").dispatchEvent(new Event("change"))');
+ assert(await run('document.querySelector(\'[data-row="10-ours-training-unconfirmed@0"]\').innerText.includes("训练中（待确认）")&&!document.querySelector(\'[data-row="10-ours-training-unconfirmed@0"]\').querySelector(".score")'),'ten-task TTC possibly training, no invented checkpoint or results');
+ await run('document.querySelector(\'[data-edit="10-ours-training-unconfirmed@0"]\').click()');
+ assert(await run('document.querySelector("#editor").open&&document.querySelector(\'[name="state"]\').value==="training"&&document.querySelector(\'[name="step"]\').value==="0"&&!document.querySelector(\'[name="path"]\').disabled'),'training placeholder editable before checkpoint exists');
+ await run('window.open=url=>{window.savedIssueURL=String(url)};document.querySelector("#edit-form").requestSubmit()');
+ assert(await run('new URL(window.savedIssueURL).searchParams.get("body").includes("training")&&new URL(window.savedIssueURL).searchParams.get("body").includes("10-ours-training-unconfirmed@0")'),'shared editor accepts unfinished training without path');
+ await run('document.querySelector("#editor").close();document.querySelector("#filter-task").value="all";document.querySelector("#filter-task").dispatchEvent(new Event("change"));document.querySelector(\'[data-edit="3-v13-ours@30000"]\').click()');
+ assert(await run('!document.querySelector(\'[name="path"]\').disabled&&!document.querySelector(\'[name="data_path"]\').disabled'),'weight and training dataset locations editable');await run('document.querySelector("#editor").close()');
  for(let i=0;i<250;i++){if(await run('!document.querySelector("#sync").disabled'))break;await sleep(100);}
- // Inject hostile shared JSON through the actual sync/render path; never save to production.
- await run(`window.originalFetch=window.fetch;window.fetch=async(url)=>String(url).startsWith('data.json')?({ok:true,json:async()=>data}):({ok:true,json:async()=>[{number:999,body:HandoffModel.issueBody({schema:2,kind:'checkpoint',target:'',task:'3',dataset:'3-latest',version:'latest',data_path:'/data',camera:'chest',method:'<img src=x onerror=window.xss=1>',step:40000,path:'/weights/40k.pt',doc:'',owner:'Trainer',run:'',protocol:'',note:'<script>window.xss=1</script>',h4:'',h8:'',h4unknown:0,h8unknown:0,state:'untested'}),updated_at:'2026-10-31T10:00:00Z',user:{login:'trainer'},author_association:'COLLABORATOR',labels:[]}]});document.querySelector('#sync').click()`);
- await sleep(200);await go('task/3/3-latest');
- assert(await run('document.querySelector(\'[data-row="issue-999"]\').textContent.includes("<img")&&!document.querySelector(\'[data-row="issue-999"] img\')&&!window.xss'),'hostile issue strings display as text, never HTML');
+ await run(`window.originalFetch=window.fetch;window.nextSnapshot=JSON.parse(JSON.stringify(data));window.nextSnapshot.evaluations.find(e=>e.id==='sr-v13-mem0-4').success=41;window.fetch=async url=>String(url).startsWith('data.json')?{ok:true,json:async()=>window.nextSnapshot}:{ok:true,json:async()=>[]};document.querySelector('#sync').click()`);await sleep(200);
+ assert(await run('document.querySelector(\'[data-row="3-v13-mem0@30000"]\').innerText.includes("41.0%")'),'refresh updates baseline and shared data in the same table');
+ await run('document.querySelector(\'[data-detail="3-v13-mem0@30000"]\').click()');assert(await run('document.querySelector("#detail-body").innerText.includes("41/100")'),'table and history detail agree after refresh');await run('document.querySelector("#detail").close()');
+ await run(`window.fetch=async url=>String(url).startsWith('data.json')?{ok:true,json:async()=>data}:({ok:true,json:async()=>[{number:999,body:HandoffModel.issueBody({schema:2,kind:'checkpoint',target:'',task:'3',dataset:'3-latest',version:'latest',data_path:'/data',camera:'chest',method:'<img src=x onerror=window.xss=1>',step:40000,path:'/weights/40k.pt',doc:'',owner:'Trainer',run:'',protocol:'',note:'<script>window.xss=1</script>',h4:'',h8:'',h4unknown:0,h8unknown:0,state:'untested'}),updated_at:'2026-10-31T10:00:00Z',user:{login:'trainer'},author_association:'COLLABORATOR',labels:[]}]});document.querySelector('#sync').click()`);await sleep(200);
+ assert(await run('document.querySelector(\'[data-row="issue-999"]\').textContent.includes("<img")&&!document.querySelector(\'[data-row="issue-999"] img\')&&!window.xss'),'shared text never executes HTML');
  await run('window.fetch=window.originalFetch');
- await cmd('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await sleep(200);
- assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile page does not overflow');
- fs.writeFileSync(path.join(Q,'mobile.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ await cmd('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await sleep(100);
+ assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile page contained, only table scrolls');
  assert(errors.length===0,'no uncaught page exceptions');
  const result={passed:true,checks,errors,at:new Date().toISOString()};fs.writeFileSync(path.join(Q,'BROWSER_QA.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
 }finally{if(ws)ws.close();browser.kill('SIGTERM');}

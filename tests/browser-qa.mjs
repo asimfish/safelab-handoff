@@ -25,6 +25,13 @@ try{
  const go=async hash=>{await run('location.hash='+JSON.stringify(hash));await sleep(180);};
  assert(await run('document.querySelectorAll(".overview-table").length===4&&document.body.innerText.includes("44.0")'),'landing shows all tasks and method scores together');
  fs.writeFileSync(path.join(Q,'overview.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ await go('matrix');
+ assert(await run(`document.querySelectorAll(".handoff-matrix thead th").length===8&&document.querySelectorAll('[data-matrix-version="3-latest"]').length===3`),'single handoff matrix includes seven methods and camera-specific version rows');
+ assert(await run('document.querySelector(".handoff-matrix").innerText.includes("MemoryVLA")&&document.querySelector(".handoff-matrix").innerText.includes("训练中")&&document.querySelector(".handoff-matrix").innerText.includes("对齐削弱版")'),'matrix preserves unbound training and all supplied ablation columns');
+ fs.writeFileSync(path.join(Q,'matrix.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ await run(`document.querySelector('.handoff-matrix [data-detail="3-v13-ours@20000"]').click()`);
+ assert(await run('document.querySelector("#detail").open&&document.querySelector("#detail-body").innerText.includes("20,000")'),'matrix checkpoint opens its matching handoff details');
+ await run('document.querySelector("#detail").close()');
  await go('queue');
  assert(await run('document.querySelectorAll("[data-pending]").length===HandoffModel.pendingRows(board).length&&document.querySelectorAll("[data-packet]").length>0'),'global queue contains every delivered untested checkpoint with deployment packet');
  await go('task/3');

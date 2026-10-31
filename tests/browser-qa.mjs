@@ -52,7 +52,7 @@ try{
  await run('document.querySelector("#editor").close()');
  await go('task/5');assert(await run('document.querySelectorAll(".version-tabs a").length===2'),'five-task fixed and pos1cm split');assert(await run('document.body.innerText.includes("五任务评测状态待确认")'),'five-task TTC remains unconfirmed without inventing completed results');
  await go('task/7');assert(await run('document.querySelectorAll(".version-tabs a").length===1'),'seven-task separate version');
- await go('task/10');assert(await run('document.querySelectorAll("#main tbody tr").length===2&&document.body.innerText.includes("待评测")'),'ten-task distinct pending checkpoint rows');
+ await go('task/10');assert(await run('document.querySelectorAll("#weight-groups tbody tr").length===2&&document.body.innerText.includes("待评测")'),'ten-task distinct pending checkpoint rows');
  await run('document.querySelector("#add").click()');
  await run('document.querySelector(\'[name="method"]\').value="Mem-0";document.querySelector(\'[name="step"]\').value="40000";document.querySelector(\'[name="path"]\').value="/weights/new40k.pt";document.querySelector(\'[name="owner"]\').value="Test trainer";window.open=(url)=>{window.savedIssueURL=String(url)};document.querySelector("#edit-form").requestSubmit()');
  assert(await run('new URL(window.savedIssueURL).hostname==="github.com"&&new URL(window.savedIssueURL).searchParams.get("body").includes("/weights/new40k.pt")'),'web form prepares shared GitHub record with no in-browser token');
@@ -60,7 +60,7 @@ try{
  await go('updates');assert(await run('document.body.innerText.includes("Submit new issue")'),'shared confirmation and collaborator rules explained');
  for(let i=0;i<250;i++){if(await run('!document.querySelector("#sync").disabled'))break;await sleep(100);}
  // Inject hostile shared JSON through the actual sync/render path; never save to production.
- await run(`window.originalFetch=window.fetch;window.fetch=async()=>({ok:true,json:async()=>[{number:999,body:HandoffModel.issueBody({schema:2,kind:'checkpoint',target:'',task:'3',dataset:'3-latest',version:'latest',data_path:'/data',camera:'chest',method:'<img src=x onerror=window.xss=1>',step:40000,path:'/weights/40k.pt',doc:'',owner:'Trainer',run:'',protocol:'',note:'<script>window.xss=1</script>',h4:'',h8:'',h4unknown:0,h8unknown:0,state:'untested'}),updated_at:'2026-10-31T10:00:00Z',user:{login:'trainer'},author_association:'COLLABORATOR',labels:[]}]});document.querySelector('#sync').click()`);
+ await run(`window.originalFetch=window.fetch;window.fetch=async(url)=>String(url).startsWith('data.json')?({ok:true,json:async()=>data}):({ok:true,json:async()=>[{number:999,body:HandoffModel.issueBody({schema:2,kind:'checkpoint',target:'',task:'3',dataset:'3-latest',version:'latest',data_path:'/data',camera:'chest',method:'<img src=x onerror=window.xss=1>',step:40000,path:'/weights/40k.pt',doc:'',owner:'Trainer',run:'',protocol:'',note:'<script>window.xss=1</script>',h4:'',h8:'',h4unknown:0,h8unknown:0,state:'untested'}),updated_at:'2026-10-31T10:00:00Z',user:{login:'trainer'},author_association:'COLLABORATOR',labels:[]}]});document.querySelector('#sync').click()`);
  await sleep(200);await go('task/3/3-latest');
  assert(await run('document.querySelector(\'[data-row="issue-999"]\').textContent.includes("<img")&&!document.querySelector(\'[data-row="issue-999"] img\')&&!window.xss'),'hostile issue strings display as text, never HTML');
  await run('window.fetch=window.originalFetch');

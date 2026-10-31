@@ -49,6 +49,17 @@ for e in data['evaluations']:
     e.update(completed=sum(int(r['audited']) for r in parts),status='评测进行中（中途计数）',source=str(source),progress=[{'condition':r['condition'],'success':int(r['success']),'audited':int(r['audited']),'target':int(r['planned'])} for r in parts])
     e['note']='各条件目标100；尚未完成，不作为最终成功率。unknown_or_pending混合字段不当作已验收未知数。'
 
+# Diagnostic outcomes are indexed alongside task records without replacing formal rates.
+diag_source=OPS/'safelab_mem0_5b_single_gpu8_eval_20261029/training_input_eval_20261031/TRAINING_INPUT_RESULTS.json'
+diag=json.loads(diag_source.read_text())
+assert diag['complete'] and not diag['autonomous_closed_loop']
+diags=[]
+for h,c in diag['physical_success_rates'].items():
+    diags.append(dict(id='five-training-input-'+h,record='5-fixed-mem0',dataset='5-fixed',camera='third_person',method='Mem-0',checkpoint=diag['checkpoint_step'],horizon=int(h),success=c['successes'],trials=c['trials'],unknown=0,completed=c['trials'],status='诊断已完成',kind='训练观测回放诊断（非自主闭环）',protocol='固定布局正反各一条；训练RGB+实测关节+GT子任务边界；模型预测动作进入原物理验收；不是100条自主成功率',source=str(diag_source),source_hash=hashlib.sha256(diag_source.read_bytes()).hexdigest(),note='独立专家动作对照2/2；本结果不替代正式600条基线。'))
+for suffix,title in [('baseline','对照组'),('candidate','B归位新判定组')]:
+    diags.append(dict(id='seven-b-return-'+suffix,record='7-mem0',dataset='7-weigh',camera='chest',method='Mem-0',checkpoint=None,horizon=None,success=2,trials=12,unknown=0,completed=12,status='诊断已完成（会话报告）',kind='归位判定诊断 · '+title,protocol='会话报告四卡24条试验，两组各12条；执行步数与具体checkpoint仍待报告文件核对；不并入原100条成功率',source='AnyGent tc4svfqatqlepu5ydrtcgel9e / 消息19387785',note='仅登记已核对的会话结果，不猜测权重步数与执行步数。'))
+data['diagnostics']=diags
+
 recent=json.loads((AUDIT/'recent.json').read_text())
 inc_file=AUDIT/'incremental.json'
 incs={i['conversation_id']:i for i in json.loads(inc_file.read_text())} if inc_file.exists() else {}

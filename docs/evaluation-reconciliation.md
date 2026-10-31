@@ -42,3 +42,24 @@ manual evidence reconciliation with an explicit cutoff, not unattended memory
 polling. Tool summaries are not full tool-output audits. The newest seven-task
 2/12-vs-2/12 diagnostic and three-task partial paired counts remain separate from
 completed formal100 success rates.
+
+## Classification consistency repair
+
+Reproduction at the previous release showed two failures: a task classification
+had no complete task-level evaluation list, and Sync only fetched GitHub Issues,
+leaving the loaded data.json unchanged. Diagnostics noted in agent summaries were
+also absent from the category records.
+
+The shared evaluation index now contains every original campaign, latest shared
+score and separately tagged diagnostic. Task classifications list all versions by
+default, with dataset/method/type filters and original evidence links. Details use
+the same index. Explicit Sync and periodic Sync refresh both the baseline and
+shared Issues; a shared-feed failure does not hide a successful baseline refresh.
+Versioned script URLs prevent a newly loaded page from mixing stale application
+code with the updated baseline.
+
+`node tests/classification-consistency.mjs` was RED for both original symptoms,
+then GREEN for the original two checks plus cross-view score/status checks and
+five-/seven-task diagnostic visibility. The test changes a fetched score only in
+the browser fixture and verifies category, overview and detail agreement; it
+never modifies production results or creates a shared issue.

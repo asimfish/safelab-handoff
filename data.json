@@ -2089,7 +2089,7 @@
     "confirmed_by": "用户2026-10-31明确确认"
   },
   "evaluation_audit": {
-    "checked_at": "2026-10-31T10:14:58.601819+00:00",
+    "checked_at": "2026-10-31T10:21:08.613463+00:00",
     "coverage": [
       {
         "conversation_id": "8ux1kbdbzbznpvtkrnrd6zpxa",
@@ -2261,6 +2261,101 @@
       "method": "TTC（ours）",
       "state": "五任务评测状态待确认",
       "note": "用户澄清五任务TTC可能尚未评测。当前尚未核对到对应数据版本、相机、权重交付和4/8步成绩；请训练同学补交付后进入待测清单，不作为已评测结果。"
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "five-training-input-4",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "success": 1,
+      "trials": 2,
+      "unknown": 0,
+      "completed": 2,
+      "status": "诊断已完成",
+      "kind": "训练观测回放诊断（非自主闭环）",
+      "protocol": "固定布局正反各一条；训练RGB+实测关节+GT子任务边界；模型预测动作进入原物理验收；不是100条自主成功率",
+      "source": "/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/training_input_eval_20261031/TRAINING_INPUT_RESULTS.json",
+      "source_hash": "a953cfa7ba0abcd3cfc6c842c1862e74899ad30acbe6e0a49c93a3fc601becf8",
+      "note": "独立专家动作对照2/2；本结果不替代正式600条基线。"
+    },
+    {
+      "id": "five-training-input-8",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "success": 0,
+      "trials": 2,
+      "unknown": 0,
+      "completed": 2,
+      "status": "诊断已完成",
+      "kind": "训练观测回放诊断（非自主闭环）",
+      "protocol": "固定布局正反各一条；训练RGB+实测关节+GT子任务边界；模型预测动作进入原物理验收；不是100条自主成功率",
+      "source": "/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/training_input_eval_20261031/TRAINING_INPUT_RESULTS.json",
+      "source_hash": "a953cfa7ba0abcd3cfc6c842c1862e74899ad30acbe6e0a49c93a3fc601becf8",
+      "note": "独立专家动作对照2/2；本结果不替代正式600条基线。"
+    },
+    {
+      "id": "five-training-input-30",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "success": 0,
+      "trials": 2,
+      "unknown": 0,
+      "completed": 2,
+      "status": "诊断已完成",
+      "kind": "训练观测回放诊断（非自主闭环）",
+      "protocol": "固定布局正反各一条；训练RGB+实测关节+GT子任务边界；模型预测动作进入原物理验收；不是100条自主成功率",
+      "source": "/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/training_input_eval_20261031/TRAINING_INPUT_RESULTS.json",
+      "source_hash": "a953cfa7ba0abcd3cfc6c842c1862e74899ad30acbe6e0a49c93a3fc601becf8",
+      "note": "独立专家动作对照2/2；本结果不替代正式600条基线。"
+    },
+    {
+      "id": "seven-b-return-baseline",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": null,
+      "horizon": null,
+      "success": 2,
+      "trials": 12,
+      "unknown": 0,
+      "completed": 12,
+      "status": "诊断已完成（会话报告）",
+      "kind": "归位判定诊断 · 对照组",
+      "protocol": "会话报告四卡24条试验，两组各12条；执行步数与具体checkpoint仍待报告文件核对；不并入原100条成功率",
+      "source": "AnyGent tc4svfqatqlepu5ydrtcgel9e / 消息19387785",
+      "note": "仅登记已核对的会话结果，不猜测权重步数与执行步数。"
+    },
+    {
+      "id": "seven-b-return-candidate",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": null,
+      "horizon": null,
+      "success": 2,
+      "trials": 12,
+      "unknown": 0,
+      "completed": 12,
+      "status": "诊断已完成（会话报告）",
+      "kind": "归位判定诊断 · B归位新判定组",
+      "protocol": "会话报告四卡24条试验，两组各12条；执行步数与具体checkpoint仍待报告文件核对；不并入原100条成功率",
+      "source": "AnyGent tc4svfqatqlepu5ydrtcgel9e / 消息19387785",
+      "note": "仅登记已核对的会话结果，不猜测权重步数与执行步数。"
     }
   ]
 }

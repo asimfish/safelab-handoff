@@ -58,11 +58,23 @@ function buildBoard(data,edits=[]){
   Object.assign(row,{state:e.state,owner:e.owner||'未指定',doc:e.doc,run:e.run,note:e.note,updated:e.updated,shared:e});
   for(const h of ['h4','h8'])if(e[h])row[h]={...parseScore(e[h]),unknown:e[h+'unknown'],label:'团队填报',protocol:e.protocol,rows:[],reported:true};
  }
- return {datasets,rows:rows.filter(r=>r.path||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
+ return {datasets,diagnostics:data.diagnostics||[],rows:rows.filter(r=>r.path||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
 }
 function issueBody(edit){validateEdit(edit);return '## SafeLab 共享交接记录\n\n提交后回到面板点击「同步更新」。修改本单请保留下面的数据块。不要填写密码、Token 或私钥。\n\n```safelab-handoff\n'+JSON.stringify(edit,null,2)+'\n```';}
+function evaluationIndex(board){
+ const index=[];
+ for(const row of board.rows){
+  for(const e of row.evaluations)index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.success===null?'progress':'formal'});
+  for(const horizon of [4,8]){const score=row['h'+horizon];if(score?.reported)index.push({id:'shared-'+row.shared.issue+'-'+horizon,rowKey:row.key,task:row.task,dataset:row.dataset,camera:row.camera,method:row.method,checkpoint:row.step,horizon,success:score.success,trials:score.trials,unknown:score.unknown,completed:score.trials,status:'团队填报',kind:'团队共享评测',phase:'reported',protocol:score.protocol,source:row.shared.url,report_url:row.shared.url,note:'团队填报成绩；原始验收证据请见共享交接单。'});}
+ }
+ for(const d of board.diagnostics){
+  const dataset=board.datasets.find(x=>x.id===d.dataset),row=board.rows.find(r=>r.record?.id===d.record&&r.step===d.checkpoint);
+  index.push({...d,phase:'diagnostic',rowKey:row?.key||null,task:dataset?.task||'other',camera:d.camera||row?.camera||'unknown'});
+ }
+ return index;
+}
 function pendingRows(board){return board.rows.filter(r=>r.path&&r.state==='untested');}
 function handoffPacket(board,row){const d=board.datasets.find(d=>d.id===row.dataset);return {task:row.task,method:row.method,dataset_version:d?.version||row.dataset,training_dataset:d?.path||null,camera:row.camera,checkpoint_step:row.step,checkpoint_path:row.path,delivery_document:row.doc||null,training_run:row.run||null,normalization_hash:row.record?.norm||null,training_config:row.training,owner:row.owner,execution_horizons_to_test:[4,8],test_protocol:'请根据该数据版本的交付文档确认泛化、控制频率和成功验收条件，不沿用其他版本',availability:row.availability,shared_handoff:row.shared?.url||null};}
-const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,buildBoard,issueBody,pendingRows,handoffPacket};
+const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
 if(typeof module!=='undefined')module.exports=api;root.HandoffModel=api;
 })(typeof window==='undefined'?globalThis:window);

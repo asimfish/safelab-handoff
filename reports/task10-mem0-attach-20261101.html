@@ -12,7 +12,7 @@ main{max-width:1180px}h1{font-size:25px}h2{font-size:17px;margin-top:28px}.repor
 <main>
 <a href="../#task10">← 返回十任务交接表</a>
 <h1>十任务 Mem-0：稳抓后固定约束对照</h1>
-<p><a href="task10-mem0-20261101.html">查看原始物理接触基线</a>。两组使用分片并行与现有双卡Pro，最多72路独立单环境，分别统计。</p>
+<p><a href="task10-mem0-20261101.html">查看原始物理接触基线</a>。两组使用分片并行与现有双卡Pro，最多104路独立单环境，分别统计。</p>
 <p>20k / 30k × 执行4 / 8 / 30步，每配置5个seed×100条，共500条；本条件共3000条。每seed正序、逆序各50条。</p>
 <div class="report-summary" aria-live="polite">
 <strong id="status">正在读取评测进度…</strong><p id="progress"></p><p id="resources"></p><p id="updated" class="note"></p>
@@ -23,7 +23,7 @@ main{max-width:1180px}h1{font-size:25px}h2{font-size:17px;margin-top:28px}.repor
 <p class="note">进行中的成功数为暂记；两种接触条件的6000条及证据审计完成前不发布最终百分比。较早结束的失败条目不能代表全部样本。物理阶段10/10才可能计为全程成功。</p>
 <h2>各seed的100条结果</h2>
 <p class="note">评测seed为910100、920100、930100、940100、950100；每条轨迹使用seed+序号派生RNG。汇总列按5组等权计算均值和样本标准差。未全量验收时只展示已结束数与暂记成功数。</p>
-<div style="overflow:auto"><table><thead><tr><th>权重</th><th>执行步数</th><th>评测seed</th><th>已结束</th><th>成功数（暂记）</th><th>成功率</th></tr></thead><tbody id="seeds"></tbody></table></div>
+<div style="overflow:auto"><table><thead><tr><th>权重</th><th>执行步数</th><th>评测seed</th><th>执行中</th><th>已结束</th><th>成功数（暂记）</th><th>成功率</th></tr></thead><tbody id="seeds"></tbody></table></div>
 <h2>评测口径</h2><p id="protocol"></p>
 <p>权重、交付包与基座均完成 SHA256 核对。正式场景逐条核对初始图像与训练参考，平均像素差上限3/255；每帧原始图像与实测关节角均做传输哈希核对。</p>
 <p>另有12条短流程接口检查，以及通过相同15Hz控制接口完成全部10阶段的示教回放。这些检查不计入模型成功数，也不计入3000条正式评测。</p>
@@ -57,7 +57,7 @@ const load=async()=>{
   byId('seeds').replaceChildren();
   for(const count of data.per_seed_counts){
    const tr=document.createElement('tr');
-   for(const value of [count.checkpoint_step/1000+'k',count.execution_horizon,count.evaluation_seed,count.completed+'/100',count.successes,data.final_verified?count.success_rate_pct.toFixed(1)+'%':'待全量验收']){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}
+   for(const value of [count.checkpoint_step/1000+'k',count.execution_horizon,count.evaluation_seed,count.active_model_lanes??0,count.completed+'/100',count.successes,data.final_verified?count.success_rate_pct.toFixed(1)+'%':'待全量验收']){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}
    byId('seeds').append(tr);
   }
   byId('error').textContent='';

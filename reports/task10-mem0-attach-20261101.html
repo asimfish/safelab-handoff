@@ -12,7 +12,7 @@ main{max-width:1180px}h1{font-size:25px}h2{font-size:17px;margin-top:28px}.repor
 <main>
 <a href="../#task10">← 返回十任务交接表</a>
 <h1>十任务 Mem-0：稳抓后固定约束对照</h1>
-<p><a href="task10-mem0-20261101.html">查看原始物理接触基线</a>。两组共用四卡、最多32路独立单环境，分别统计。</p>
+<p><a href="task10-mem0-20261101.html">查看原始物理接触基线</a>。两组使用分片并行与现有双卡Pro，最多72路独立单环境，分别统计。</p>
 <p>20k / 30k × 执行4 / 8 / 30步，每组100条，共600条。每组正序、逆序各50条。</p>
 <div class="report-summary" aria-live="polite">
 <strong id="status">正在读取评测进度…</strong><p id="progress"></p><p id="resources"></p><p id="updated" class="note"></p>
@@ -41,7 +41,7 @@ const load=async()=>{
   if(data.id!=='task10-mem0-attach-20261101'||data.target!==600||data.counts.length!==6)throw Error('评测汇总格式不正确。');
   byId('status').textContent=data.final_verified?'全部评测和证据审计已完成':['requires_inspection','interrupted'].includes(data.status)?'评测中断，需要检查；已归档结果保留':data.completed===600?'全部轨迹已结束，正在核对证据':'评测进行中，尚无最终成功率';
   byId('progress').textContent=`已结束 ${data.completed}/${data.target}；累计完整十阶段成功 ${data.provisional_successes}${data.final_verified?'':'（暂记）'}；已观察到的最高阶段 ${data.max_physical_phase}/10。`;
-  byId('resources').textContent=`${data.gpus}卡低优 Pro6000，当前${data.active_apps}路独立单环境，最多${data.max_parallel_apps}路并发。任务：${data.job_id}`;
+  byId('resources').textContent=(data.resource_note||`${data.gpus}卡低优 Pro6000，最多${data.max_parallel_apps}路并发。`)+` 当前${data.active_apps}路独立单环境。任务：${data.job_id}`;
   byId('updated').textContent='进度快照（北京时间）：'+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.updated_at))+'。页面每5分钟重读已发布快照。';
   byId('protocol').textContent=data.protocol;
   byId('results').replaceChildren();

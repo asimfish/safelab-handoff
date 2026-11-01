@@ -15,9 +15,10 @@ function validateEdit(x){
  if(!Number.isInteger(x.step)||x.step<0||x.step>1000000000||!x.version.trim()||!x.method.trim())throw Error('版本、方法或步数未填写');
  if(!['training','verify','blocked'].includes(x.state)&&(!x.path.trim()||x.step<1))throw Error('已交付权重需要路径和训练步数');
  for(const h of ['h4','h8']){const score=parseScore(x[h]);const u=x[h+'unknown'];if(!Number.isInteger(u)||u<0||(!score&&u!==0)||(score&&u>score.trials-score.success))throw Error('无法判定数与成绩不一致');}
- if((x.h4||x.h8)&&(!x.path.trim()||x.step<1))throw Error('评测成绩必须对应明确的权重路径和训练步数');
- if((x.h4||x.h8)&&!x.protocol.trim())throw Error('填写成绩时必须说明泛化、环境和验收条件');
- if(x.state==='results'&&!x.h4&&!x.h8&&!x.target)throw Error('已有结果至少填写4步或8步成绩');
+ if(x.h30!==undefined||x.h30unknown!==undefined){if(!safeText(x.h30,1200))throw Error('字段无效：h30');const score=parseScore(x.h30),u=x.h30unknown;if(!Number.isInteger(u)||u<0||(!score&&u!==0)||(score&&u>score.trials-score.success))throw Error('无法判定数与成绩不一致');}
+ if((x.h4||x.h8||x.h30)&&(!x.path.trim()||x.step<1))throw Error('评测成绩必须对应明确的权重路径和训练步数');
+ if((x.h4||x.h8||x.h30)&&!x.protocol.trim())throw Error('填写成绩时必须说明泛化、环境和验收条件');
+ if(x.state==='results'&&!x.h4&&!x.h8&&!x.h30&&!x.target)throw Error('已有结果至少填写4步、8步或30步成绩');
  return x;
 }
 function parseIssue(issue){
@@ -34,16 +35,20 @@ function resultFor(evaluations,horizon){
  const chosen=five.length?five:[rows.find(e=>e.id.startsWith('single-')||e.id.endsWith('-single'))||rows.find(e=>e.kind==='自主闭环')||rows[0]];
  return {success:chosen.reduce((s,e)=>s+e.success,0),trials:chosen.reduce((s,e)=>s+e.trials,0),unknown:chosen.reduce((s,e)=>s+e.unknown,0),label:five.length?five.length+'轮汇总':chosen[0].result_label||chosen[0].kind,protocol:chosen[0].protocol,rows:chosen,reported:false};
 }
+function progressFor(evaluations,horizon){
+ const rows=evaluations.filter(e=>e.horizon===horizon&&e.success===null&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
+ return rows.sort((a,b)=>(b.display_priority||0)-(a.display_priority||0)||String(b.updated_at||'').localeCompare(String(a.updated_at||'')))[0]||null;
+}
 function buildBoard(data,edits=[]){
  const datasets=data.datasets.map(d=>({...d,task:TASKS.find(t=>t.versions.includes(d.id))?.id||'other',version:VERSIONS[d.id]||d.label}));
  const rows=[];
  for(const record of data.records){
   for(const w of record.weights.length?record.weights:[null]){
    const evaluations=w?data.evaluations.filter(e=>e.record===record.id&&e.checkpoint===w.step):[];
-   const h4=resultFor(evaluations,4),h8=resultFor(evaluations,8);
+   const h4=resultFor(evaluations,4),h8=resultFor(evaluations,8),h30=resultFor(evaluations,30);
    const pending=evaluations.filter(e=>e.success===null);
    let state=pending.length?'evaluating':h4||h8||evaluations.some(e=>e.success!==null)?'results':/历史.*核验/.test(w?.status||'')?'verify':w?'untested':/训练中/.test(record.delivery)?'training':'verify';
-   rows.push({key:key(record.id,w?.step||0),record,dataset:record.dataset,task:datasets.find(d=>d.id===record.dataset)?.task||(['3','5','7','10'].includes(record.task_hint)?record.task_hint:'other'),camera:CAMERAS[record.camera]?record.camera:'unknown',method:record.method,step:w?.step||0,path:w?.path||'',doc:record.doc||'',state,h4,h8,pending,evaluations,owner:'未指定',run:record.training?.executor_run||'',note:record.note||'',updated:data.updated_at,availability:w?.availability||record.delivery,training:record.training||{},source:record.source,shared:null});
+   rows.push({key:key(record.id,w?.step||0),record,dataset:record.dataset,task:datasets.find(d=>d.id===record.dataset)?.task||(['3','5','7','10'].includes(record.task_hint)?record.task_hint:'other'),camera:CAMERAS[record.camera]?record.camera:'unknown',method:record.method,step:w?.step||0,path:w?.path||'',doc:record.doc||'',state,h4,h8,h30,pending,evaluations,owner:'未指定',run:record.training?.executor_run||'',note:record.note||'',updated:data.updated_at,availability:w?.availability||record.delivery,training:record.training||{},source:record.source,shared:null});
   }
  }
  const ordered=edits.filter(e=>e.trusted).sort((a,b)=>a.updated.localeCompare(b.updated)||a.issue-b.issue);
@@ -59,9 +64,9 @@ function buildBoard(data,edits=[]){
   }
   if(existingDataset&&e.data_path)existingDataset.path=e.data_path;
   if(!existingDataset&&e.dataset!=='unknown')datasets.push({id:e.dataset,label:e.version,version:e.version,task:e.task,path:e.data_path,episodes:null,frames:null,note:'团队新增版本，数据规模待核对',camera:e.camera});
-  if(!row){row={key:'issue-'+e.issue,record:null,dataset:e.dataset,task:e.task,camera:e.camera,method:e.method,step:e.step,path:e.path,doc:e.doc,evaluations:[],pending:[],training:{},availability:'团队新增交付',source:'GitHub共享交接单',h4:null,h8:null};rows.push(row);}
+  if(!row){row={key:'issue-'+e.issue,record:null,dataset:e.dataset,task:e.task,camera:e.camera,method:e.method,step:e.step,path:e.path,doc:e.doc,evaluations:[],pending:[],training:{},availability:'团队新增交付',source:'GitHub共享交接单',h4:null,h8:null,h30:null};rows.push(row);}
   Object.assign(row,{state:e.state,owner:e.owner||'未指定',doc:e.doc,run:e.run,note:e.note,updated:e.updated,shared:e});
-  for(const h of ['h4','h8'])if(e[h])row[h]={...parseScore(e[h]),unknown:e[h+'unknown'],label:'团队填报',protocol:e.protocol,rows:[],reported:true};
+  for(const h of ['h4','h8','h30'])if(e[h])row[h]={...parseScore(e[h]),unknown:e[h+'unknown'],label:'团队填报',protocol:e.protocol,rows:[],reported:true};
  }
  return {datasets,diagnostics:data.diagnostics||[],rows:rows.filter(r=>r.path||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
 }
@@ -70,7 +75,7 @@ function evaluationIndex(board){
  const index=[];
  for(const row of board.rows){
   for(const e of row.evaluations)index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.success===null?'progress':'formal'});
-  for(const horizon of [4,8]){const score=row['h'+horizon];if(score?.reported)index.push({id:'shared-'+row.shared.issue+'-'+horizon,rowKey:row.key,task:row.task,dataset:row.dataset,camera:row.camera,method:row.method,checkpoint:row.step,horizon,success:score.success,trials:score.trials,unknown:score.unknown,completed:score.trials,status:'团队填报',kind:'团队共享评测',phase:'reported',protocol:score.protocol,source:row.shared.url,report_url:row.shared.url,note:'团队填报成绩；原始验收证据请见共享交接单。'});}
+  for(const horizon of [4,8,30]){const score=row['h'+horizon];if(score?.reported)index.push({id:'shared-'+row.shared.issue+'-'+horizon,rowKey:row.key,task:row.task,dataset:row.dataset,camera:row.camera,method:row.method,checkpoint:row.step,horizon,success:score.success,trials:score.trials,unknown:score.unknown,completed:score.trials,status:'团队填报',kind:'团队共享评测',phase:'reported',protocol:score.protocol,source:row.shared.url,report_url:row.shared.url,note:'团队填报成绩；原始验收证据请见共享交接单。'});}
  }
  for(const d of board.diagnostics){
   const dataset=board.datasets.find(x=>x.id===d.dataset),row=board.rows.find(r=>r.record?.id===d.record&&r.step===d.checkpoint);
@@ -80,6 +85,6 @@ function evaluationIndex(board){
 }
 function pendingRows(board){return board.rows.filter(r=>r.path&&r.state==='untested');}
 function handoffPacket(board,row){const d=board.datasets.find(d=>d.id===row.dataset);return {task:row.task,method:row.method,dataset_version:d?.version||row.dataset,training_dataset:d?.path||row.shared?.data_path||null,camera:row.camera,checkpoint_step:row.step,checkpoint_path:row.path,delivery_document:row.doc||null,training_run:row.run||null,normalization_hash:row.record?.norm||null,training_config:row.training,owner:row.owner,execution_horizons_to_test:[4,8],test_protocol:'请根据该数据版本的交付文档确认泛化、控制频率和成功验收条件，不沿用其他版本',availability:row.availability,shared_handoff:row.shared?.url||null};}
-const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
+const api={STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
 if(typeof module!=='undefined')module.exports=api;root.HandoffModel=api;
 })(typeof window==='undefined'?globalThis:window);

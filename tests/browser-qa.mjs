@@ -1,6 +1,7 @@
 import {spawn} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+const BASE=process.env.SAFELAB_QA_BASE_URL||'http://127.0.0.1:8770/';
 const R=process.cwd(),Q=path.join(R,'.qa');fs.mkdirSync(Q,{recursive:true});
 const browser=spawn('/usr/bin/google-chrome',['--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port=0','--user-data-dir='+'/dev/shm/safelab_handoff_browser_'+process.pid+'_'+Date.now(),'about:blank'],{stdio:['ignore','ignore','pipe']});
 let stderr='';browser.stderr.on('data',b=>{stderr+=b.toString();});browser.on('exit',(code,signal)=>{fs.writeFileSync(path.join(Q,'chrome_last_exit.json'),JSON.stringify({code,signal,stderr:stderr.slice(-12000)}));});
@@ -11,7 +12,7 @@ try{
  for(let i=0;i<600;i++){const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){endpoint=m[1];break;}await sleep(50);}
  if(!endpoint){fs.writeFileSync(path.join(Q,'chrome_startup_stderr.txt'),stderr);throw Error('Chrome debug endpoint unavailable: '+stderr.slice(-800));}
  const port=new URL(endpoint).port;
- const target=await (await fetch('http://127.0.0.1:'+port+'/json/new?http://127.0.0.1:8770/',{method:'PUT'})).json();
+ const target=await (await fetch('http://127.0.0.1:'+port+'/json/new?'+BASE,{method:'PUT'})).json();
  ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
  let id=0;const pending=new Map();ws.addEventListener('close',()=>{for(const p of pending.values())p.reject(Error('Chrome CDP closed: '+stderr.slice(-600)));pending.clear();});
  ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);if(p){pending.delete(m.id);m.error?p.reject(Error(JSON.stringify(m.error))):p.resolve(m.result);}}else if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails.text+' '+(m.params.exceptionDetails.exception?.description??''));});
@@ -35,6 +36,15 @@ try{
  assert(await run('document.querySelector("#detail-body").innerText.includes("1/2")&&document.querySelector("#detail-body").innerText.includes("非正式成绩")'),'training input diagnosis retained behind row details, no formal score pollution');
  await run('document.querySelector("#detail").close();document.querySelector("#filter-task").value="10";document.querySelector("#filter-task").dispatchEvent(new Event("change"))');
  assert(await run('document.querySelector(\'[data-row="10-ours-training-unconfirmed@0"]\').innerText.includes("训练中（待确认）")&&!document.querySelector(\'[data-row="10-ours-training-unconfirmed@0"]\').querySelector(".score")'),'ten-task TTC possibly training, no invented checkpoint or results');
+ assert(await run('!!document.querySelector("#main th")&&[...document.querySelectorAll("#main th")].some(e=>e.textContent==="30步成功率")'),'H30 is visible in main table');
+ assert(await run('document.querySelector(".campaign-strip").innerText.includes("已完成")&&document.querySelector(\'[data-row="10-mem0@30000"] [data-horizon="30"]\').innerText.includes("已完成")'),'Task10 campaign and H30 partial progress are visible');
+ assert(await run('document.querySelectorAll(\'[data-row^="10-mem0@"] .score\').length===0'),'unfinished Task10 never displays a final percentage');
+ await run('document.querySelector(\'[data-edit="10-mem0@30000"]\').click();window.open=url=>{window.savedIssueURL=String(url)};document.querySelector(\'[name="h30"]\').value="5/100";document.querySelector(\'[name="protocol"]\').value="N1 full10 test";document.querySelector(\'[name="state"]\').value="results";document.querySelector("#edit-form").requestSubmit()');
+ assert(await run('new URL(window.savedIssueURL).searchParams.get("body").includes(\'"h30": "5/100"\')'),'shared editor preserves a valid H30 result');
+ await run('document.querySelector(\'[name="path"]\').value="/weights/new-task10.pt";document.querySelector(\'[name="path"]\').dispatchEvent(new Event("change"))');
+ assert(await run('document.querySelector(\'[name="h30"]\').value===""&&document.querySelector(\'[name="state"]\').value==="untested"'),'changing the weight clears H30 scores');
+ await run('document.querySelector("#editor").close()');
+ fs.writeFileSync(path.join(Q,'task10-progress.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
  await run('document.querySelector(\'[data-edit="10-ours-training-unconfirmed@0"]\').click()');
  assert(await run('document.querySelector("#editor").open&&document.querySelector(\'[name="state"]\').value==="training"&&document.querySelector(\'[name="step"]\').value==="0"&&!document.querySelector(\'[name="path"]\').disabled'),'training placeholder editable before checkpoint exists');
  await run('window.open=url=>{window.savedIssueURL=String(url)};document.querySelector("#edit-form").requestSubmit()');
@@ -50,6 +60,12 @@ try{
  await run('window.fetch=window.originalFetch');
  await cmd('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await sleep(100);
  assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile page contained, only table scrolls');
+ await cmd('Page.navigate',{url:new URL('reports/task10-mem0-20261101.html',BASE).href});
+ for(let i=0;i<100;i++){if(await run('document.querySelectorAll("#results tr").length===6'))break;await sleep(100);}
+ assert(await run('document.querySelectorAll("#results tr").length===6&&document.querySelector("#status").textContent.includes("尚无最终")'),'report shows all six configurations without a premature final rate');
+ assert(await run('document.querySelectorAll("video").length===2'),'report provides both representative video views');
+ assert(await run('Promise.all([...document.querySelectorAll("video")].map(async v=>(await fetch(v.src,{method:"HEAD"})).status===200)).then(results=>results.every(Boolean))'),'both report videos are served');
+ assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile report remains contained');
  assert(errors.length===0,'no uncaught page exceptions');
  const result={passed:true,checks,errors,at:new Date().toISOString()};fs.writeFileSync(path.join(Q,'BROWSER_QA.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
 }finally{if(ws)ws.close();browser.kill('SIGTERM');}

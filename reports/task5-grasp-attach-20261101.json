@@ -2,7 +2,7 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-01T16:00:27.748510+00:00",
+  "updated_at": "2026-11-01T16:02:54.825429+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "running",
@@ -10,9 +10,9 @@
   "audited": 484,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 31,
+  "active_apps": 20,
   "max_parallel_apps": 60,
-  "gpus": 8,
+  "gpus": 4,
   "global_low_priority_GPU_cap": 12,
   "execution_class": "low_priority",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
@@ -1496,18 +1496,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793548813.8318264,
+        "epoch": 1793548950.8241417,
         "status": "running",
-        "completed": 347,
+        "completed": 348,
         "target": 900,
         "memory": {
           "limit": "858993459200",
-          "current": "358448791552",
+          "current": "346040725504",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 59292520448
+          "shm_used": 59377393664
         },
-        "gpu": "0, 49390, 48\n1, 48722, 47\n2, 31463, 47\n3, 27261, 50\n"
+        "gpu": "0, 49556, 49\n1, 44255, 55\n2, 31221, 47\n3, 31277, 50\n"
       },
       "startup_gates": 4
     },
@@ -1559,10 +1559,10 @@
       "publish": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_stable_attach_20261101/mixed_parallel/revision2/r0_added_retry1/attachment",
       "legacy": false,
       "gpus": 4,
-      "platform_status": "RUNNING",
+      "platform_status": "FAILED",
       "runtime_status": "running",
       "completed": 237,
-      "active_apps": 11,
+      "active_apps": 0,
       "error": false,
       "audit_error": false,
       "historical": false,
@@ -10826,9 +10826,7 @@
   "trials_per_group": 500,
   "first_seed_preserved": true,
   "seed_protocol": "同100场景五轮独立推理噪声种子；不是五次重新训练。正反布局每轮各50条。",
-  "shared_physical_jobs": [
-    "job-dsckcvihr1qe"
-  ],
+  "shared_physical_jobs": [],
   "resource_policy": "同一4卡任务在各模型内轮流执行原始与辅助条件，各条件单独保存原始轨迹并独立验收。共享物理任务按job_id去重，两个面板的卡数不能相加；本轮低优总上限12卡。",
   "learned_native_validation": {
     "case_id": "attach__old30_mem0_30000_h8_reverse_000",

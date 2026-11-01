@@ -2,15 +2,15 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-01T21:10:19.923980+00:00",
+  "updated_at": "2026-11-01T21:19:54.072728+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "running",
-  "completed": 1033,
-  "audited": 1033,
+  "completed": 1044,
+  "audited": 1044,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 39,
+  "active_apps": 36,
   "max_parallel_apps": 60,
   "gpus": 12,
   "global_low_priority_GPU_cap": 12,
@@ -24,22 +24,105 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
+      "completed": 97,
+      "audited": 97,
+      "target": 500,
+      "successes": 0,
+      "physical_phases": {
+        "2": 9,
+        "0": 34,
+        "1": 49,
+        "3": 5
+      },
+      "trials_attached": 88,
+      "attach_events": 146,
+      "policy_release_events": 136,
+      "layouts": {
+        "forward": 49,
+        "reverse": 48
+      },
+      "final_verified": false,
+      "seeds": [
+        {
+          "repeat": 0,
+          "run_seed": 0,
+          "completed": 81,
+          "audited": 81,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 1,
+          "run_seed": 1,
+          "completed": 16,
+          "audited": 16,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 2,
+          "run_seed": 2,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 3,
+          "run_seed": 3,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 4,
+          "run_seed": 4,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        }
+      ],
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "mean_success_rate": null,
+      "std_success_rate": null,
+      "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组100条，共1800条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。"
+    },
+    {
+      "variant": "old30",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
       "completed": 96,
       "audited": 96,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "2": 9,
-        "0": 33,
-        "1": 49,
-        "3": 5
+        "3": 8,
+        "1": 38,
+        "2": 17,
+        "0": 33
       },
-      "trials_attached": 87,
-      "attach_events": 144,
-      "policy_release_events": 134,
+      "trials_attached": 72,
+      "attach_events": 132,
+      "policy_release_events": 121,
       "layouts": {
-        "forward": 49,
-        "reverse": 47
+        "reverse": 47,
+        "forward": 49
       },
       "final_verified": false,
       "seeds": [
@@ -106,97 +189,14 @@
       "dataset": "5-fixed",
       "method": "Mem-0",
       "checkpoint_step": 30000,
-      "execution_horizon": 8,
-      "completed": 95,
-      "audited": 95,
-      "target": 500,
-      "successes": 0,
-      "physical_phases": {
-        "3": 8,
-        "1": 38,
-        "2": 17,
-        "0": 32
-      },
-      "trials_attached": 72,
-      "attach_events": 132,
-      "policy_release_events": 121,
-      "layouts": {
-        "reverse": 47,
-        "forward": 48
-      },
-      "final_verified": false,
-      "seeds": [
-        {
-          "repeat": 0,
-          "run_seed": 0,
-          "completed": 80,
-          "audited": 80,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 1,
-          "run_seed": 1,
-          "completed": 15,
-          "audited": 15,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 2,
-          "run_seed": 2,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 3,
-          "run_seed": 3,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 4,
-          "run_seed": 4,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        }
-      ],
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "mean_success_rate": null,
-      "std_success_rate": null,
-      "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组100条，共1800条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。"
-    },
-    {
-      "variant": "old30",
-      "record": "5-fixed-mem0",
-      "dataset": "5-fixed",
-      "method": "Mem-0",
-      "checkpoint_step": 30000,
       "execution_horizon": 30,
-      "completed": 96,
-      "audited": 96,
+      "completed": 98,
+      "audited": 98,
       "target": 500,
       "successes": 0,
       "physical_phases": {
         "1": 27,
-        "0": 56,
+        "0": 58,
         "3": 3,
         "2": 10
       },
@@ -204,16 +204,16 @@
       "attach_events": 103,
       "policy_release_events": 101,
       "layouts": {
-        "forward": 48,
-        "reverse": 48
+        "forward": 49,
+        "reverse": 49
       },
       "final_verified": false,
       "seeds": [
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 80,
-          "audited": 80,
+          "completed": 82,
+          "audited": 82,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -434,19 +434,19 @@
       "method": "Mem-0",
       "checkpoint_step": 20000,
       "execution_horizon": 30,
-      "completed": 63,
-      "audited": 63,
+      "completed": 64,
+      "audited": 64,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 62,
+        "0": 63,
         "1": 1
       },
       "trials_attached": 9,
       "attach_events": 10,
       "policy_release_events": 8,
       "layouts": {
-        "forward": 31,
+        "forward": 32,
         "reverse": 32
       },
       "final_verified": false,
@@ -454,8 +454,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 53,
-          "audited": 53,
+          "completed": 54,
+          "audited": 54,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -515,17 +515,99 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 75,
-      "audited": 75,
+      "completed": 76,
+      "audited": 76,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 74,
+        "0": 75,
         "1": 1
       },
       "trials_attached": 24,
       "attach_events": 26,
       "policy_release_events": 14,
+      "layouts": {
+        "forward": 38,
+        "reverse": 38
+      },
+      "final_verified": false,
+      "seeds": [
+        {
+          "repeat": 0,
+          "run_seed": 0,
+          "completed": 65,
+          "audited": 65,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 1,
+          "run_seed": 1,
+          "completed": 11,
+          "audited": 11,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 2,
+          "run_seed": 2,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 3,
+          "run_seed": 3,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 4,
+          "run_seed": 4,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        }
+      ],
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "mean_success_rate": null,
+      "std_success_rate": null,
+      "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组100条，共1800条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。"
+    },
+    {
+      "variant": "new30",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "completed": 75,
+      "audited": 75,
+      "target": 500,
+      "successes": 0,
+      "physical_phases": {
+        "1": 7,
+        "0": 67,
+        "2": 1
+      },
+      "trials_attached": 24,
+      "attach_events": 26,
+      "policy_release_events": 20,
       "layouts": {
         "forward": 38,
         "reverse": 37
@@ -595,19 +677,19 @@
       "dataset": "5-pos",
       "method": "Mem-0",
       "checkpoint_step": 30000,
-      "execution_horizon": 8,
+      "execution_horizon": 30,
       "completed": 74,
       "audited": 74,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "1": 7,
-        "0": 66,
+        "0": 72,
+        "1": 1,
         "2": 1
       },
-      "trials_attached": 24,
-      "attach_events": 26,
-      "policy_release_events": 20,
+      "trials_attached": 4,
+      "attach_events": 5,
+      "policy_release_events": 5,
       "layouts": {
         "forward": 37,
         "reverse": 37
@@ -617,90 +699,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 63,
-          "audited": 63,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 1,
-          "run_seed": 1,
-          "completed": 11,
-          "audited": 11,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 2,
-          "run_seed": 2,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 3,
-          "run_seed": 3,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 4,
-          "run_seed": 4,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        }
-      ],
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "mean_success_rate": null,
-      "std_success_rate": null,
-      "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组100条，共1800条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。"
-    },
-    {
-      "variant": "new30",
-      "record": "5-pos-mem0",
-      "dataset": "5-pos",
-      "method": "Mem-0",
-      "checkpoint_step": 30000,
-      "execution_horizon": 30,
-      "completed": 73,
-      "audited": 73,
-      "target": 500,
-      "successes": 0,
-      "physical_phases": {
-        "0": 71,
-        "1": 1,
-        "2": 1
-      },
-      "trials_attached": 4,
-      "attach_events": 5,
-      "policy_release_events": 5,
-      "layouts": {
-        "forward": 36,
-        "reverse": 37
-      },
-      "final_verified": false,
-      "seeds": [
-        {
-          "repeat": 0,
-          "run_seed": 0,
-          "completed": 63,
-          "audited": 63,
+          "completed": 64,
+          "audited": 64,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -840,18 +840,18 @@
       "method": "Mem-0 · 削弱版",
       "checkpoint_step": 20000,
       "execution_horizon": 8,
-      "completed": 57,
-      "audited": 57,
+      "completed": 58,
+      "audited": 58,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 57
+        "0": 58
       },
       "trials_attached": 3,
       "attach_events": 3,
       "policy_release_events": 3,
       "layouts": {
-        "reverse": 28,
+        "reverse": 29,
         "forward": 29
       },
       "final_verified": false,
@@ -859,8 +859,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 57,
-          "audited": 57,
+          "completed": 58,
+          "audited": 58,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1401,27 +1401,27 @@
       "method": "TTC · 对齐loss",
       "checkpoint_step": 30000,
       "execution_horizon": 30,
-      "completed": 26,
-      "audited": 26,
+      "completed": 28,
+      "audited": 28,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 26
+        "0": 28
       },
       "trials_attached": 1,
       "attach_events": 1,
       "policy_release_events": 1,
       "layouts": {
-        "forward": 13,
-        "reverse": 13
+        "forward": 14,
+        "reverse": 14
       },
       "final_verified": false,
       "seeds": [
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 26,
-          "audited": 26,
+          "completed": 28,
+          "audited": 28,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1486,8 +1486,8 @@
       "gpus": 4,
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 592,
-      "active_apps": 20,
+      "completed": 599,
+      "active_apps": 17,
       "error": false,
       "audit_error": false,
       "historical": false,
@@ -1501,27 +1501,27 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793567384.7600853,
+        "epoch": 1793567955.971353,
         "status": "running",
-        "completed": 592,
+        "completed": 599,
         "target": 900,
         "memory": {
           "limit": "858993459200",
-          "current": "399286796288",
+          "current": "396982685696",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 80126468096
+          "shm_used": 79613059072
         },
-        "gpu": "0, 48955, 51\n1, 48818, 48\n2, 31308, 47\n3, 31245, 51\n"
+        "gpu": "0, 46660, 43\n1, 46582, 43\n2, 29071, 55\n3, 31181, 51\n"
       },
       "startup_gates": 4,
       "progress_observation": {
         "published_complete": 247,
-        "recovered_audited": 345,
-        "observed_complete": 592,
-        "fresh_running_Apps": 20,
+        "recovered_audited": 352,
+        "observed_complete": 599,
+        "fresh_running_Apps": 17,
         "result_awaiting_audit": 0,
-        "canonical_case_directories": 612,
+        "canonical_case_directories": 618,
         "only_assigned_result_and_matching_raw_audit_pairs": true,
         "aggregate_counters_never_counted_as_trial_evidence": true
       }
@@ -1576,7 +1576,7 @@
       "gpus": 4,
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 333,
+      "completed": 336,
       "active_apps": 8,
       "error": false,
       "audit_error": false,
@@ -1591,18 +1591,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793567407.5381653,
+        "epoch": 1793567964.391142,
         "status": "running",
-        "completed": 523,
+        "completed": 531,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "417972273152",
+          "current": "421805502464",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 52822618112
+          "shm_used": 54442385408
         },
-        "gpu": "0, 62351, 51\n1, 68328, 52\n2, 69391, 38\n3, 50557, 52\n"
+        "gpu": "0, 68556, 51\n1, 68098, 43\n2, 69358, 64\n3, 50557, 46\n"
       },
       "startup_gates": 4
     },
@@ -1616,7 +1616,7 @@
       "gpus": 4,
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 108,
+      "completed": 109,
       "active_apps": 11,
       "error": false,
       "audit_error": false,
@@ -1631,18 +1631,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793567413.3014553,
+        "epoch": 1793567988.9876273,
         "status": "running",
-        "completed": 220,
+        "completed": 223,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "346508247040",
+          "current": "358714589184",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 44941094912
+          "shm_used": 46206767104
         },
-        "gpu": "0, 49113, 48\n1, 48594, 43\n2, 31181, 48\n3, 26649, 55\n"
+        "gpu": "0, 48951, 48\n1, 48594, 49\n2, 31181, 44\n3, 31309, 53\n"
       },
       "startup_gates": 4
     }
@@ -6658,6 +6658,25 @@
       "attempt_priority": 0
     },
     {
+      "id": "attach__new20_mem0_20000_h30_forward_026",
+      "variant": "new20",
+      "checkpoint_step": 20000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 729026,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "888c422da821a37ee0f7efa5f5cff8b74a3294be8d1765103f7c08bfcc3948c8",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
       "id": "attach__new20_mem0_20000_h30_reverse_012",
       "variant": "new20",
       "checkpoint_step": 20000,
@@ -8482,6 +8501,25 @@
       "attempt_priority": 0
     },
     {
+      "id": "attach__new30_mem0_30000_h30_forward_031",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 729031,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "774badcb9e59fe2e8d2370f4351d9f134fbe38db294c597e216bc6a0f59c4749",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
       "id": "attach__new30_mem0_30000_h30_reverse_014",
       "variant": "new30",
       "checkpoint_step": 30000,
@@ -9527,6 +9565,25 @@
       "attempt_priority": 0
     },
     {
+      "id": "attach__new30_mem0_30000_h4_reverse_032",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 730032,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 25.608333333333334,
+      "physics_sha256": "a375c2e2877497187409b3d6644c0a582c527f6809258688d4ed16551c375db2",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
       "id": "attach__new30_mem0_30000_h8_forward_013",
       "variant": "new30",
       "checkpoint_step": 30000,
@@ -9865,6 +9922,25 @@
       "physics_sha256": "a5eeab6b7dce8a2f7dae3f602ad245110a75411f373732b787d881df8eb95087",
       "attach_events": 1,
       "policy_release_events": 1,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
+      "id": "attach__new30_mem0_30000_h8_forward_031",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "forward",
+      "seed": 729031,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "3fc0d043b9e06432829242bb20319f32100482b5b8fd500263571fa2dd16e7cf",
+      "attach_events": 0,
+      "policy_release_events": 0,
       "source_job_id": "job-48kdzo0da4wh",
       "attempt_priority": 0
     },
@@ -10648,6 +10724,25 @@
       "attempt_priority": 0
     },
     {
+      "id": "attach__old30_mem0_30000_h30_forward_040",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 529040,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "e2a6b270f0b10b226da7863b8136edf9b2dcc13c2bd1f6c9108771f343d3eb68",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
       "id": "attach__old30_mem0_30000_h30_reverse_017",
       "variant": "old30",
       "checkpoint_step": 30000,
@@ -11081,6 +11176,25 @@
       "physics_sha256": "6fe651149007f00b80d6aa123a87cd10cfcc0b18f2cc60ac222f7652e26ec5ac",
       "attach_events": 2,
       "policy_release_events": 2,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
+      "id": "attach__old30_mem0_30000_h30_reverse_041",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 529091,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 36.18333333333333,
+      "physics_sha256": "e5e3e00f11940121708fbf59c1ab79ed67a8a422c8ac12546ae2e7cb4b79f60a",
+      "attach_events": 0,
+      "policy_release_events": 0,
       "source_job_id": "job-48kdzo0da4wh",
       "attempt_priority": 0
     },
@@ -12468,6 +12582,25 @@
       "physics_sha256": "2d569be0f9103c7d89d003f2cc275caa3f31c6d28ce577a9f319e069bc597f85",
       "attach_events": 1,
       "policy_release_events": 1,
+      "source_job_id": "job-48kdzo0da4wh",
+      "attempt_priority": 0
+    },
+    {
+      "id": "attach__old30_mem0_30000_h8_forward_040",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "forward",
+      "seed": 529040,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "194187b6c3d94cf122d407d27585d3eadd269bff0a4a81c0f79e288cbc442c32",
+      "attach_events": 0,
+      "policy_release_events": 0,
       "source_job_id": "job-48kdzo0da4wh",
       "attempt_priority": 0
     },
@@ -19103,6 +19236,25 @@
       "attempt_priority": 102
     },
     {
+      "id": "attach__ours30_mem0_30000_h30_forward_013",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 729013,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "01a88c2c2095adb92a15111ad0add01b39f670497b8ac3daea77843ab189a8b4",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
       "id": "attach__weak30_mem0_30000_h4_reverse_012",
       "variant": "weak30",
       "checkpoint_step": 30000,
@@ -19217,6 +19369,25 @@
       "attempt_priority": 102
     },
     {
+      "id": "attach__weak20_mem0_20000_h8_reverse_028",
+      "variant": "weak20",
+      "checkpoint_step": 20000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 730028,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "5ed9ce3b37b26874d5f9f6dec64bced908836c342b531fcd2013f92ee05db728",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
       "id": "attach__weak20_mem0_20000_h30_reverse_028",
       "variant": "weak20",
       "checkpoint_step": 20000,
@@ -19249,6 +19420,25 @@
       "physical_phases": 0,
       "sim_seconds": 31.483333333333334,
       "physics_sha256": "2ddec8e04254ac7660f7504a16cfe8388ad874c8048dec3dd34c46083cf75304",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
+      "id": "attach__ours30_mem0_30000_h30_reverse_013",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 730013,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 61.15833333333333,
+      "physics_sha256": "116e000113ff7f1bf3dc5eee1ceac19d951464446dbb9266594aa03094247948",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-i4e2b4uq0eb4",
@@ -21263,6 +21453,25 @@
       "physical_phases": 1,
       "sim_seconds": 240.0,
       "physics_sha256": "29bbea7807a559dd01cdf80212f599c93ac4299c23395d139faf56b8feac964d",
+      "attach_events": 2,
+      "policy_release_events": 2,
+      "source_job_id": "job-h2rsd5zfs3xd",
+      "attempt_priority": 100
+    },
+    {
+      "id": "r1__attach__old30_mem0_30000_h4_reverse_007",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 1152049401,
+      "repeat": 1,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "87158d34ac9b13766a9f78b366550c236ad341db094230781aae5b0818639714",
       "attach_events": 2,
       "policy_release_events": 2,
       "source_job_id": "job-h2rsd5zfs3xd",

@@ -2,7 +2,7 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-01T14:35:23.885625+00:00",
+  "updated_at": "2026-11-01T14:37:49.368584+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "requires_inspection",
@@ -12,7 +12,7 @@
   "provisional_successes": 0,
   "active_apps": 20,
   "max_parallel_apps": 60,
-  "gpus": 8,
+  "gpus": 4,
   "global_low_priority_GPU_cap": 12,
   "execution_class": "low_priority",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
@@ -1496,18 +1496,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793543665.6224804,
+        "epoch": 1793543852.6583014,
         "status": "running",
-        "completed": 280,
+        "completed": 281,
         "target": 900,
         "memory": {
           "limit": "858993459200",
-          "current": "349768069120",
+          "current": "351403454464",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 54222286848
+          "shm_used": 54446866432
         },
-        "gpu": "0, 49044, 73\n1, 48659, 66\n2, 31243, 49\n3, 29268, 79\n"
+        "gpu": "0, 49328, 50\n1, 48824, 47\n2, 31245, 49\n3, 31405, 53\n"
       },
       "startup_gates": 4
     },
@@ -1559,7 +1559,7 @@
       "publish": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_stable_attach_20261101/mixed_parallel/r0_added/attachment",
       "legacy": false,
       "gpus": 4,
-      "platform_status": "ERROR",
+      "platform_status": "FAILED",
       "runtime_status": "infrastructure_error",
       "completed": 227,
       "active_apps": 0,
@@ -10636,9 +10636,7 @@
   "trials_per_group": 500,
   "first_seed_preserved": true,
   "seed_protocol": "同100场景五轮独立推理噪声种子；不是五次重新训练。正反布局每轮各50条。",
-  "shared_physical_jobs": [
-    "job-k0atwfsimiiu"
-  ],
+  "shared_physical_jobs": [],
   "resource_policy": "同一4卡任务在各模型内轮流执行原始与辅助条件，各条件单独保存原始轨迹并独立验收。共享物理任务按job_id去重，两个面板的卡数不能相加；本轮低优总上限12卡。",
   "learned_native_validation": {
     "case_id": "attach__old30_mem0_30000_h8_reverse_000",

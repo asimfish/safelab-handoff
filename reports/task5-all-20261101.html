@@ -2,19 +2,19 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>五任务 · 全部1800条评测</title><link rel="stylesheet" href="../style.css">
+<title>五任务 · 全部9000条评测</title><link rel="stylesheet" href="../style.css">
 <style>main{max-width:1240px}h1{font-size:26px}h2{font-size:18px}.summary{padding:18px;background:white;border:1px solid var(--line);border-radius:8px;margin:20px 0}.summary p{margin:9px 0}.counts{overflow:auto;background:white;border:1px solid var(--line);border-radius:8px}.note{font-size:12px;color:#687b70}#error{color:#a43c25}#protocol{line-height:1.9}td{white-space:normal;min-width:75px}</style>
 </head><body><main>
 <a href="../#task5">← 返回五任务交接表</a>
 <h1>五任务：原版 Mem-0、削弱版与 TTC</h1>
-<p>6份权重 × 执行4 / 8 / 30步，每组100条，共1800条；每组正向、反向布局各50条。</p>
+<p>6份权重 × 执行4 / 8 / 30步，每组5个seed×100条=500条，共9000条；每轮正向、反向布局各50条。</p>
 <div class="summary" aria-live="polite"><strong id="status">正在读取评测进度…</strong><p id="progress"></p><p id="resources"></p><p id="updated" class="note"></p><button id="refresh">刷新进度</button> <a href="task5-all-20261101.json">下载逐条核验结果 JSON</a><p id="error" role="alert"></p></div>
-<div class="counts"><table><thead><tr><th>训练版本 / 方法</th><th>权重</th><th>执行步数</th><th>已结束</th><th>已核验</th><th>全程成功数</th><th>已核验的物理阶段</th><th>最终成功率</th></tr></thead><tbody id="results"></tbody></table></div>
-<p class="note">全程成功数来自已核验的五阶段物理证据。进行中不显示最终百分比：较早结束的失败条目不代表全部100条。未完成核验的条目不会被当作成功。每套900条结果需完成原始证据复算、清理和任务终态核对后，才归档对应组的最终成功率。</p>
-<h2>评测口径</h2><p id="protocol"></p>
+<div class="counts"><table><thead><tr><th>训练版本 / 方法</th><th>权重</th><th>执行步数</th><th>已结束</th><th>已核验</th><th>全程成功数</th><th>已核验的物理阶段</th><th>五轮平均成功率 ± 样本标准差</th></tr></thead><tbody id="results"></tbody></table></div>
+<p class="note">全程成功数来自已核验的五阶段物理证据。进行中不显示最终百分比：较早结束的失败条目不代表全部500条。未完成核验的条目不会被当作成功。每套900条结果需完成原始证据复算、清理和任务终态核对后，才归档对应组的最终成功率。</p>
+<h2>各seed逐轮进度</h2><p>同100个配对场景，5组独立推理噪声种子；每轮正反布局各50条。已完成第一轮保留，新增轮次在12卡共享队列中运行。</p><div class="counts"><table><thead><tr><th>方法 / 权重</th><th>执行步数</th><th>Seed轮次</th><th>已结束 / 已核验</th><th>全程成功数</th><th>该轮成功率</th></tr></thead><tbody id="seed-results"></tbody></table></div><h2>评测口径</h2><p id="protocol"></p>
 <p>旧 fixed 版使用固定训练布局；pos1cm 原版、削弱版和 TTC 共享相同100个±1cm场景及噪声种子。所有模型均使用交付文档确认的第三人称相机。预测30步，分别取4、8或30步执行。</p>
 <p>每个进程运行一个独立单环境；每卡4个进程。原始复测与稳定抓取连接辅助评测共用12卡低优上限；部分分片按计划暂停，空卡后按原冻结协议续跑。每个槽位结束后立即接下一条；已完成且核验通过的结果会在资源恢复时保留。</p>
-<p>原始预处理下的旧版600条评测，以及训练输入、示教回放等诊断，仍在主表详情中保留；它们不计入本轮1800条。共享单 #2、#4 中此前未确定的相机和真实权重，已按交付文件与实际GPU推理核对。</p>
+<p>原始预处理下的旧版600条评测，以及训练输入、示教回放等诊断，仍在主表详情中保留；它们不计入本轮9000条。共享单 #2、#4 中此前未确定的相机和真实权重，已按交付文件与实际GPU推理核对。</p>
 </main><script>
 'use strict';
 let loading=false;const byId=id=>document.getElementById(id);
@@ -22,17 +22,17 @@ const load=async()=>{
  if(loading)return;loading=true;byId('refresh').disabled=true;
  try{
   const response=await fetch('task5-all-20261101.json',{cache:'no-store',signal:AbortSignal.timeout(20000)});if(!response.ok)throw Error('无法读取已发布的五任务进度。');
-  const data=await response.json();if(data.id!=='task5-all-20261101'||data.target!==1800||data.counts.length!==18)throw Error('五任务汇总格式不正确。');
-  byId('status').textContent=data.final_verified?'全部1800条评测与证据核验已完成':data.status==='requires_inspection'?'部分任务中断或待检查；已核验结果保留':'五任务并行评测中，尚无全量最终成功率';
+  const data=await response.json();if(data.id!=='task5-all-20261101'||data.target!==9000||data.counts.length!==18)throw Error('五任务汇总格式不正确。');
+  byId('status').textContent=data.final_verified?'全部9000条评测与证据核验已完成':data.status==='requires_inspection'?'部分任务中断或待检查；已核验结果保留':'五任务并行评测中，尚无全量最终成功率';
   byId('progress').textContent=`已结束 ${data.completed}/${data.target}；已核验 ${data.audited}；全程成功 ${data.provisional_successes}${data.final_verified?'':'（已核验条目中的暂记数）'}。`;
   byId('resources').textContent=`当前${data.gpus}卡低优 Pro6000，${data.active_apps}路独立单环境；最多${data.max_parallel_apps}路。`;
   byId('updated').textContent='快照更新时间（北京时间）：'+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.updated_at))+'。页面每5分钟重读已发布进度。';
-  byId('protocol').textContent=data.protocol;byId('results').replaceChildren();
+  byId('protocol').textContent=data.protocol;byId('results').replaceChildren();byId('seed-results').replaceChildren();
   for(const count of data.counts){
    const tr=document.createElement('tr'),version=count.dataset==='5-fixed'?'1023 fixed':'1025 pos1cm';tr.dataset.variant=count.variant;tr.dataset.horizon=count.execution_horizon;
    const bins=Object.entries(count.physical_phases).map(([phase,n])=>`${phase}/5：${n}条`).join('；')||'暂无已核验条目';
-   const values=[version+' · '+count.method,count.checkpoint_step/1000+'k',count.execution_horizon,count.completed+'/100',count.audited+'/100',String(count.successes)+(count.final_verified?'':'（暂记）'),bins,count.final_verified?(100*count.successes/100).toFixed(1)+'%':'待全量核验'];
-   for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td);}byId('results').append(tr);
+   const values=[version+' · '+count.method,count.checkpoint_step/1000+'k',count.execution_horizon,count.completed+'/'+count.target,count.audited+'/'+count.target,String(count.successes)+(count.final_verified?'':'（暂记）'),bins,count.final_verified?(100*count.mean_success_rate).toFixed(1)+'% ± '+(100*count.std_success_rate).toFixed(1)+'百分点':'待全量核验'];
+   for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td);}byId('results').append(tr);for(const seed of count.seeds){const sr=document.createElement('tr');for(const value of [count.method+' '+count.checkpoint_step/1000+'k',count.execution_horizon,'Seed '+(seed.repeat+1),seed.completed+'/100 · 核验'+seed.audited+'/100',seed.successes+(seed.final_verified?'':'（暂记）'),seed.final_verified?(100*seed.success_rate).toFixed(1)+'%':'待100条完整核验']){const td=document.createElement('td');td.textContent=value;sr.append(td);}byId('seed-results').append(sr);}
   }
   byId('error').textContent='';
  }catch(error){byId('error').textContent=error.message;}finally{loading=false;byId('refresh').disabled=false;}

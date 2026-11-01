@@ -2,9 +2,9 @@
   "id": "task7-all-20261101",
   "title": "七任务 · Mem-0 / TTC基础版 / 对齐loss / 削弱版",
   "task": "7",
-  "updated_at": "2026-11-01T13:57:47.664078+00:00",
+  "updated_at": "2026-11-01T14:02:53.418649+00:00",
   "final_verified": false,
-  "status": "paused",
+  "status": "queued",
   "completed": 1808,
   "audited": 1808,
   "target": 2100,
@@ -533,8 +533,8 @@
       "completion": "原Gen + next/DAG",
       "protocol": "V180四杯前七阶段；chest原始RGB640×480及实测13维关节角(rad)；固定训练布局，位置扰动0；每组100条，1234/4321各50；15Hz观测、120Hz物理，预测30步，去噪8次，分别执行4/8/30步；独立N1进程；原七阶段严格物理验收。",
       "source_evidence": {
-        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours20k_v1/EVALUATION_STATUS.json",
-        "sha256": "d19587b581faf180d40cc2ec2c49716215b09364ef23b0af5721e50ab07334e3"
+        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/BASELINE_OURS20K_PROGRESS.json",
+        "sha256": "855fd9e612f0945c106d2e265caf4b7b4807660e993a7502c74f994cce3c74ab"
       }
     },
     {
@@ -553,8 +553,8 @@
       "completion": "原Gen + next/DAG",
       "protocol": "V180四杯前七阶段；chest原始RGB640×480及实测13维关节角(rad)；固定训练布局，位置扰动0；每组100条，1234/4321各50；15Hz观测、120Hz物理，预测30步，去噪8次，分别执行4/8/30步；独立N1进程；原七阶段严格物理验收。",
       "source_evidence": {
-        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours20k_v1/EVALUATION_STATUS.json",
-        "sha256": "d19587b581faf180d40cc2ec2c49716215b09364ef23b0af5721e50ab07334e3"
+        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/BASELINE_OURS20K_PROGRESS.json",
+        "sha256": "855fd9e612f0945c106d2e265caf4b7b4807660e993a7502c74f994cce3c74ab"
       }
     },
     {
@@ -573,18 +573,17 @@
       "completion": "原Gen + next/DAG",
       "protocol": "V180四杯前七阶段；chest原始RGB640×480及实测13维关节角(rad)；固定训练布局，位置扰动0；每组100条，1234/4321各50；15Hz观测、120Hz物理，预测30步，去噪8次，分别执行4/8/30步；独立N1进程；原七阶段严格物理验收。",
       "source_evidence": {
-        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours20k_v1/EVALUATION_STATUS.json",
-        "sha256": "d19587b581faf180d40cc2ec2c49716215b09364ef23b0af5721e50ab07334e3"
+        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/BASELINE_OURS20K_PROGRESS.json",
+        "sha256": "855fd9e612f0945c106d2e265caf4b7b4807660e993a7502c74f994cce3c74ab"
       }
     }
   ],
-  "status_label": "已验收baseline保留 · 20k待恢复",
-  "resource_note": "这些历史baseline任务均已结束；20k按12卡上限暂停，8条已验收、292条待续。当前附着评测并行进度见独立面板。",
+  "status_label": "20k基线续测已排队 · 已验收结果保留",
+  "resource_note": "原20k任务STOPPED仅为历史；当前续测与附着模型共用新作业，基线段使用2卡，只有本段原生门槛通过且有活跃App时显示运行。基线段完成并清理后即可发布成绩，无需等待同作业后续附着段。",
   "job_ids": [
     "job-cdim53y0tafl",
     "job-ykyq3yheophs",
-    "job-njtyouzan6z5",
-    "job-7qwqs3f3e4oy"
+    "job-njtyouzan6z5"
   ],
   "position_jitter_m": 0,
   "camera": "chest",
@@ -592,7 +591,7 @@
   "scope_notes": [
     "原交付预处理与训练缩放对齐是独立配置，成绩不合并。",
     "训练缩放对齐h8采用新配对随机种子，未宣称与原h4/h30逐条同种子。",
-    "基础ours20k按用户12卡新上限计划性暂停，已验收结果全部保留，其余待续；附着物理配置另行评测。",
+    "基础ours20k原8条已验收试验保留，原300条场景在新多模型作业续测；这是历史每步数100条基线，未并入附着5seed结果。",
     "低优实例故障与模型失败分开记账；已结束并通过验收的失败样本保留，不重跑择优。",
     "每格仅在100条完整验收并核对收尾后给出最终百分比。",
     "历史baseline每格100条，未改标为500条；附着配置另按5个seed、每seed100条统计。终态成绩经逐条审计、平台成功及清理证明核验后复用；暂停进度为历史快照，不代表当前活跃进程。"
@@ -600,7 +599,7 @@
   "observation_sources": {
     "weak": {
       "runtime_epoch": 1793533820.2345374,
-      "runtime_age_seconds": 7647.424482822418,
+      "runtime_age_seconds": 7953.179725646973,
       "platform_status": "SUCCEEDED",
       "current_runtime_observation": false,
       "kind": "verified_immutable_terminal",
@@ -610,7 +609,7 @@
     },
     "training_resize": {
       "runtime_epoch": 1793536256.672569,
-      "runtime_age_seconds": 5210.987970352173,
+      "runtime_age_seconds": 5516.743212223053,
       "platform_status": "SUCCEEDED",
       "current_runtime_observation": false,
       "kind": "verified_immutable_terminal",
@@ -619,12 +618,17 @@
       "platform_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours_basic_trainresize_h4h30_v1/PLATFORM_TERMINAL.json"
     },
     "ours20k": {
-      "runtime_epoch": 1793541452.9302447,
-      "runtime_age_seconds": 14.734993934631348,
-      "platform_status": "STOPPED",
+      "kind": "resumed_baseline_segment",
+      "source_path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/BASELINE_OURS20K_PROGRESS.json",
+      "runtime_epoch": 1793541637.5793471,
       "current_runtime_observation": false,
-      "kind": "historical_stopped_snapshot",
-      "platform_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours20k_v1/PLATFORM_TERMINAL.json"
+      "platform_status": null,
+      "platform_job_id": null,
+      "platform_observation_fresh": true,
+      "baseline_GPUs": 0,
+      "max_parallel_apps": 0,
+      "original_job_terminal_is_historical": true,
+      "segment_final_verified": false
     }
   },
   "historical_N4": [
@@ -750,11 +754,11 @@
     "id": "task7-grasp-attach-20261101",
     "title": "七任务 · 稳定抓起后固定关节（独立辅助条件）",
     "task": "7",
-    "updated_at": "2026-11-01T13:57:47.705942+00:00",
+    "updated_at": "2026-11-01T14:02:53.456271+00:00",
     "metric_role": "assisted",
     "condition": "stable_grasp_fixed_joint_v2_restanchor",
     "status": "running",
-    "status_label": "辅助物理配置 · 模型闭环评测中",
+    "status_label": "多模型并行 · 一致性检查与闭环评测中",
     "completed": 159,
     "audited": 159,
     "target": 10500,
@@ -770,7 +774,7 @@
     "std_convention": "sample, ddof=1",
     "provisional_successes": 3,
     "final_verified": false,
-    "active_apps": 5,
+    "active_apps": 6,
     "max_parallel_apps": 78,
     "gpus": 2,
     "new_low_priority_gpus": 0,
@@ -789,28 +793,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 26,
-          "4321": 26
-        },
-        "trials_attached": 50,
-        "attachment_activations": 140,
-        "policy_releases": 139,
-        "physical_phases": {
-          "0": 2,
-          "1": 2,
-          "2": 33,
-          "3": 2,
-          "4": 8,
-          "5": 2,
-          "6": 3,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -832,69 +819,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 26,
+          "4321": 26
+        },
+        "trials_attached": 50,
+        "attachment_activations": 140,
+        "policy_releases": 139,
+        "physical_phases": {
+          "0": 2,
+          "1": 2,
+          "2": 33,
+          "3": 2,
+          "4": 8,
+          "5": 2,
+          "6": 3,
+          "7": 0
+        },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -907,28 +915,11 @@
         "successes": 1,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 27,
-          "4321": 24
-        },
-        "trials_attached": 48,
-        "attachment_activations": 148,
-        "policy_releases": 147,
-        "physical_phases": {
-          "0": 6,
-          "1": 4,
-          "2": 24,
-          "3": 2,
-          "4": 6,
-          "5": 5,
-          "6": 3,
-          "7": 1
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -950,69 +941,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 27,
+          "4321": 24
+        },
+        "trials_attached": 48,
+        "attachment_activations": 148,
+        "policy_releases": 147,
+        "physical_phases": {
+          "0": 6,
+          "1": 4,
+          "2": 24,
+          "3": 2,
+          "4": 6,
+          "5": 5,
+          "6": 3,
+          "7": 1
+        },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1025,28 +1037,11 @@
         "successes": 2,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 28,
-          "4321": 28
-        },
-        "trials_attached": 53,
-        "attachment_activations": 141,
-        "policy_releases": 140,
-        "physical_phases": {
-          "0": 7,
-          "1": 16,
-          "2": 17,
-          "3": 7,
-          "4": 5,
-          "5": 2,
-          "6": 0,
-          "7": 2
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1068,69 +1063,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 28,
+          "4321": 28
+        },
+        "trials_attached": 53,
+        "attachment_activations": 141,
+        "policy_releases": 140,
+        "physical_phases": {
+          "0": 7,
+          "1": 16,
+          "2": 17,
+          "3": 7,
+          "4": 5,
+          "5": 2,
+          "6": 0,
+          "7": 2
+        },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1143,28 +1159,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1186,69 +1185,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours",
         "method": "TTC · 基础版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1261,28 +1281,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1304,69 +1307,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours",
         "method": "TTC · 基础版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1379,28 +1403,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1422,69 +1429,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours",
         "method": "TTC · 基础版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1497,28 +1525,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1540,69 +1551,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours-trainresize",
         "method": "TTC · 训练缩放对齐",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1615,28 +1647,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1658,69 +1673,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours-trainresize",
         "method": "TTC · 训练缩放对齐",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1733,28 +1769,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1776,69 +1795,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours-trainresize",
         "method": "TTC · 训练缩放对齐",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1851,28 +1891,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -1894,69 +1917,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-aligned",
         "method": "TTC · 对齐loss",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -1969,28 +2013,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2012,69 +2039,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-aligned",
         "method": "TTC · 对齐loss",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2087,28 +2135,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2130,69 +2161,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-aligned",
         "method": "TTC · 对齐loss",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2205,28 +2257,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2248,69 +2283,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-mem0-weak",
         "method": "Mem-0 · 削弱版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2323,28 +2379,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2366,69 +2405,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-mem0-weak",
         "method": "Mem-0 · 削弱版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2441,28 +2501,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2484,69 +2527,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-mem0-weak",
         "method": "Mem-0 · 削弱版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2559,28 +2623,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2602,69 +2649,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2677,28 +2745,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2720,69 +2771,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2795,28 +2867,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2838,69 +2893,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -2913,28 +2989,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -2956,69 +3015,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours",
         "method": "TTC · 基础版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -3031,28 +3111,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -3074,69 +3137,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours",
         "method": "TTC · 基础版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       },
       {
@@ -3149,28 +3233,11 @@
         "successes": 0,
         "final_verified": false,
         "final_success_rate": null,
-        "orders": {
-          "1234": 0,
-          "4321": 0
-        },
-        "trials_attached": 0,
-        "attachment_activations": 0,
-        "policy_releases": 0,
-        "physical_phases": {
-          "0": 0,
-          "1": 0,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "seed_count": 5,
-        "trials_per_seed": 100,
         "mean_success_rate": null,
         "std_success_rate": null,
         "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
         "seeds": [
           {
             "repeat": 0,
@@ -3192,69 +3259,90 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           },
           {
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "target": 100,
             "completed": 0,
             "audited": 0,
+            "target": 100,
             "successes": 0,
             "orders": {
               "1234": 0,
               "4321": 0
             },
             "final_verified": false,
+            "original_group_preserved": false,
             "success_rate": null
           }
         ],
+        "orders": {
+          "1234": 0,
+          "4321": 0
+        },
+        "trials_attached": 0,
+        "attachment_activations": 0,
+        "policy_releases": 0,
+        "physical_phases": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
         "record": "7-ours",
         "method": "TTC · 基础版",
         "metric_role": "assisted",
         "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-          "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
         }
       }
     ],
@@ -3282,10 +3370,10 @@
       }
     },
     "source_evidence": {
-      "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/five_seed_v1/ASSISTED_PROGRESS.json",
-      "sha256": "c764a58b30e10bc6f070993bac62e26e6380b50e87483a94feded8ecf507bfae"
+      "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+      "sha256": "a8de520581e2703caa5102ea3e3e23a02847ec69afc1ad9b052eb25f7b318743"
     },
-    "resource_note": "复用现有双卡Pro，按实时显存余量准入；低优分片在旧评测释放卡后启动，自有低优卡总量上限12。",
+    "resource_note": "现有双卡Pro继续运行；三路四卡低优任务各运行两个独立双卡模型worker，按显存余量准入N1仿真；低优总量上限12。原20k baseline续测单列，不混入附着成绩。",
     "baseline_metrics_preserved": true
   }
 }

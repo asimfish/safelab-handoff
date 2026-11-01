@@ -6007,7 +6007,8 @@
         "CPU_roundtrip_median_ms_before": 157.7798598445952,
         "CPU_roundtrip_median_ms_after": 40.19351955503225,
         "scope": "Same-machine frozen-image CPU codec benchmark, not whole-evaluation speedup"
-      }
+      },
+      "shared_resource_note": "当前8张低优Pro6000运行，另用既有双卡Pro（running）；分片共用最多72路独立N1，低优卡上限12。"
     },
     {
       "id": "task10-mem0-attach-20261101",
@@ -6095,7 +6096,26 @@
       ],
       "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
       "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html"
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "shared_resource_note": "当前8张低优Pro6000运行，另用既有双卡Pro（running）；分片共用最多72路独立N1，低优卡上限12。",
+      "mechanism_validation": {
+        "passed": true,
+        "scored": false,
+        "model_calls": 0,
+        "source_full10_physical_phases": 10,
+        "real_joint_activations": 10,
+        "real_joint_releases": 10,
+        "relative_translation_error_m": 5.502744734643056e-06,
+        "relative_rotation_error_rad": 4.6983056415591234e-05
+      },
+      "inference_microbenchmark": {
+        "passed_numeric_parity": true,
+        "observations_compared": 576,
+        "action_chunks_compared": 96,
+        "max_action_error_rad": 0.0,
+        "median_speedup": 1.550433248523491,
+        "scope": "Offline captured inputs with native classifier/memory and 4/8/30 action cadence; no simulator or full policy/Planner throughput claim"
+      }
     }
   ],
   "handoff_resolutions": [

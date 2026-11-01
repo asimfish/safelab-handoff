@@ -16,7 +16,7 @@ const $=id=>document.getElementById(id);
 const fill=(body,rows)=>{body.replaceChildren();for(const values of rows){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}body.append(tr);}};
 async function refresh(){try{
  const response=await fetch('task7-all-20261101.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('结果请求失败：'+response.status);const data=await response.json();
- $('status').textContent=data.final_verified?'全部评测及核验完成':'部分配置已有完整成绩，其余并行评测中';
+ $('status').textContent=data.final_verified?'全部评测及核验完成':data.status==='requires_inspection'?'部分任务需检查，已验收结果保留':'部分配置已有完整成绩，其余并行评测中';
  $('progress').textContent='已验收 '+data.audited+'/'+data.target+' 条；完整配置 '+data.counts.filter(c=>c.final_verified).length+'/'+data.counts.length+' 组。';
  $('resources').textContent=data.gpus+'卡低优任务；'+data.active_apps+'路已启动独立单环境，上限'+data.max_parallel_apps+'路。'+data.resource_note;
  $('updated').textContent='快照更新：'+new Date(data.updated_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})+'（北京时间）；每5分钟重读已发布快照。';

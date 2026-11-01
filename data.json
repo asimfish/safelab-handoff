@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-01T08:38:50.020536+00:00",
+  "updated_at": "2026-11-01T08:42:24.836775+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -465,10 +465,11 @@
         "planner": "LoRA r8 / alpha16；25epochs；global128；lr1e-4（已列配方的版本）",
         "planner_cutoff": 4096
       },
-      "note": "原始物理接触基线：已结束69/600。原任务中断后保留57条已结束轨迹；仅续跑缺项。与稳抓attach组共用四卡、最多32路独立N1。完整证据验收前不发布最终成功率。",
+      "note": "原始物理接触基线：已结束74/600。原任务中断后保留57条已结束轨迹；仅续跑缺项。与稳抓attach组共用四卡、最多32路独立N1。完整证据验收前不发布最终成功率。",
       "evidence_level": "交付文件和基座SHA256 + 实际闭环观测/物理结果",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html"
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "raw_runtime_source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json"
     },
     {
       "id": "3-v13-pi05",
@@ -754,7 +755,7 @@
       },
       "note": "辅助接触对照，独立于原始物理接触成绩。20k/30k × 执行4/8/30步各100条；相同种子与顺序。只有真实抓稳并抬升才建立固定约束，张手释放后按原条件验收。示教回放视频不计模型成功率。",
       "evidence_level": "交付文件和基座SHA256 + 实际闭环观测/物理结果",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html"
     },
     {
@@ -2953,325 +2954,6 @@
       "campaign": "task5-grasp-attach-20261101"
     },
     {
-      "id": "task10-mem0-20261101-20000-4",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 4,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 11,
-      "unknown": 0,
-      "physical_phases": {
-        "3": 1,
-        "1": 5,
-        "0": 5
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
-    },
-    {
-      "id": "task10-mem0-20261101-20000-8",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 8,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 11,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 5,
-        "0": 6
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
-    },
-    {
-      "id": "task10-mem0-20261101-20000-30",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 30,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 10,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 8,
-        "1": 2
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
-    },
-    {
-      "id": "task10-mem0-20261101-30000-4",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 4,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 12,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 3,
-        "2": 2,
-        "1": 6,
-        "4": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
-    },
-    {
-      "id": "task10-mem0-20261101-30000-8",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 8,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 13,
-      "unknown": 0,
-      "physical_phases": {
-        "2": 3,
-        "0": 2,
-        "1": 7,
-        "3": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
-    },
-    {
-      "id": "task10-mem0-20261101-30000-30",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 30,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 12,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 8,
-        "2": 1,
-        "1": 3
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
-    },
-    {
-      "id": "task10-mem0-attach-20261101-20000-4",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 4,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 2,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 1,
-        "0": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
-    },
-    {
-      "id": "task10-mem0-attach-20261101-20000-8",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 8,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 2,
-      "unknown": 0,
-      "physical_phases": {
-        "2": 1,
-        "0": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
-    },
-    {
-      "id": "task10-mem0-attach-20261101-20000-30",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 30,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 3,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 3
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
-    },
-    {
-      "id": "task10-mem0-attach-20261101-30000-4",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 4,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 0,
-      "unknown": 0,
-      "physical_phases": {},
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
-    },
-    {
-      "id": "task10-mem0-attach-20261101-30000-8",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 8,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 2,
-      "unknown": 0,
-      "physical_phases": {
-        "2": 1,
-        "1": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
-    },
-    {
-      "id": "task10-mem0-attach-20261101-30000-30",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 30,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 100,
-      "completed": 3,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 3
-      },
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/eval_paired_v1/FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
-    },
-    {
       "id": "7-base-4",
       "record": "7-mem0",
       "dataset": "7-weigh",
@@ -3837,6 +3519,326 @@
       "result_label": "N1严格七阶段",
       "updated_at": "2026-11-01T08:38:50.020536+00:00",
       "note": "未结束或未验收的样本不计为失败。不同预处理及诊断结果分别保存。"
+    },
+    {
+      "id": "task10-mem0-20261101-20000-4",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 11,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 5,
+        "1": 5,
+        "3": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task10-mem0-20261101-20000-8",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 13,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 7,
+        "1": 5,
+        "2": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task10-mem0-20261101-20000-30",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 11,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 9,
+        "1": 2
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task10-mem0-20261101-30000-4",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 13,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 3,
+        "1": 7,
+        "2": 2,
+        "4": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task10-mem0-20261101-30000-8",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 13,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 2,
+        "1": 7,
+        "2": 3,
+        "3": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task10-mem0-20261101-30000-30",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 13,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 9,
+        "1": 3,
+        "2": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/eval_cloud/FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task10-mem0-attach-20261101-20000-4",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 2,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 1,
+        "1": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
+    },
+    {
+      "id": "task10-mem0-attach-20261101-20000-8",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 2,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 1,
+        "2": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
+    },
+    {
+      "id": "task10-mem0-attach-20261101-20000-30",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 3,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 3
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
+    },
+    {
+      "id": "task10-mem0-attach-20261101-30000-4",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 0,
+      "unknown": 0,
+      "physical_phases": {},
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
+    },
+    {
+      "id": "task10-mem0-attach-20261101-30000-8",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 2,
+      "unknown": 0,
+      "physical_phases": {
+        "1": 1,
+        "2": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
+    },
+    {
+      "id": "task10-mem0-attach-20261101-30000-30",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 100,
+      "completed": 3,
+      "unknown": 0,
+      "physical_phases": {
+        "1": 3
+      },
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "note": "与原始接触成绩分开。真实物理回放检查不计成功数。"
     }
   ],
   "agents": [
@@ -4348,192 +4350,6 @@
     }
   ],
   "campaigns": [
-    {
-      "id": "task10-mem0-20261101",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "final_verified": false,
-      "status": "interrupted",
-      "completed": 69,
-      "target": 600,
-      "provisional_successes": 0,
-      "active_apps": 22,
-      "max_parallel_apps": 32,
-      "gpus": 4,
-      "job_id": "job-8vag96og2w0j",
-      "execution_class": "low_priority",
-      "shared_with_other_contact_condition": true,
-      "max_physical_phase": 4,
-      "launched": 91,
-      "counts": [
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "3": 1,
-            "1": 5,
-            "0": 5
-          }
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 5,
-            "0": 6
-          }
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "completed": 10,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 8,
-            "1": 2
-          }
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 3,
-            "2": 2,
-            "1": 6,
-            "4": 1
-          }
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "completed": 13,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 3,
-            "0": 2,
-            "1": 7,
-            "3": 1
-          }
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 8,
-            "2": 1,
-            "1": 3
-          }
-        }
-      ],
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
-      "grasp_attachment": "off",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "lossless_transport_optimization": {
-        "PNG_compress_level_before": 6,
-        "PNG_compress_level_after": 1,
-        "raw_RGB_bitwise_equal": true,
-        "model_control_and_acceptance_unchanged": true,
-        "CPU_roundtrip_median_ms_before": 157.7798598445952,
-        "CPU_roundtrip_median_ms_after": 40.19351955503225,
-        "scope": "Same-machine frozen-image CPU codec benchmark, not whole-evaluation speedup"
-      }
-    },
-    {
-      "id": "task10-mem0-attach-20261101",
-      "updated_at": "2026-11-01T08:11:58.310964+00:00",
-      "final_verified": false,
-      "status": "interrupted",
-      "completed": 12,
-      "target": 600,
-      "provisional_successes": 0,
-      "active_apps": 22,
-      "max_parallel_apps": 32,
-      "gpus": 4,
-      "job_id": "job-8vag96og2w0j",
-      "execution_class": "low_priority",
-      "shared_with_other_contact_condition": true,
-      "max_physical_phase": 2,
-      "launched": 34,
-      "counts": [
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          }
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 1,
-            "0": 1
-          }
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "completed": 3,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 3
-          }
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "completed": 0,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {}
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 1,
-            "1": 1
-          }
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "completed": 3,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3
-          }
-        }
-      ],
-      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html"
-    },
     {
       "id": "task5-all-20261101",
       "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
@@ -6050,6 +5866,193 @@
         "低优实例故障与模型失败分开记账；已结束并通过验收的失败样本保留，不重跑择优。",
         "每格仅在100条完整验收并核对收尾后给出最终百分比。"
       ]
+    },
+    {
+      "id": "task10-mem0-20261101",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "final_verified": false,
+      "status": "running",
+      "completed": 74,
+      "target": 600,
+      "provisional_successes": 0,
+      "active_apps": 44,
+      "max_parallel_apps": 32,
+      "gpus": 4,
+      "job_id": "job-tssnsiayrgtw, job-lz445mljuhil",
+      "execution_class": "low_priority",
+      "shared_with_other_contact_condition": true,
+      "max_physical_phase": 4,
+      "launched": 118,
+      "counts": [
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 5,
+            "3": 1
+          }
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "completed": 13,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 7,
+            "1": 5,
+            "2": 1
+          }
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 9,
+            "1": 2
+          }
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 13,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3,
+            "1": 7,
+            "2": 2,
+            "4": 1
+          }
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 13,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2,
+            "1": 7,
+            "2": 3,
+            "3": 1
+          }
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 13,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 9,
+            "1": 3,
+            "2": 1
+          }
+        }
+      ],
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。",
+      "grasp_attachment": "off",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "lossless_transport_optimization": {
+        "PNG_compress_level_before": 6,
+        "PNG_compress_level_after": 1,
+        "raw_RGB_bitwise_equal": true,
+        "model_control_and_acceptance_unchanged": true,
+        "CPU_roundtrip_median_ms_before": 157.7798598445952,
+        "CPU_roundtrip_median_ms_after": 40.19351955503225,
+        "scope": "Same-machine frozen-image CPU codec benchmark, not whole-evaluation speedup"
+      }
+    },
+    {
+      "id": "task10-mem0-attach-20261101",
+      "updated_at": "2026-11-01T08:42:24.836775+00:00",
+      "final_verified": false,
+      "status": "running",
+      "completed": 12,
+      "target": 600,
+      "provisional_successes": 0,
+      "active_apps": 44,
+      "max_parallel_apps": 32,
+      "gpus": 4,
+      "job_id": "job-tssnsiayrgtw, job-lz445mljuhil",
+      "execution_class": "low_priority",
+      "shared_with_other_contact_condition": true,
+      "max_physical_phase": 2,
+      "launched": 56,
+      "counts": [
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1,
+            "1": 1
+          }
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1,
+            "2": 1
+          }
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "completed": 3,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3
+          }
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {}
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "2": 1
+          }
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 3,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3
+          }
+        }
+      ],
+      "protocol": "固定训练布局，无位置泛化；正序12345/逆序54321各50条；独立N1、CPU PhysX；chest世界系固定机位，640×480原始RGB+13维实测弧度；15Hz观测、120Hz物理；预测30步、去噪8步，按本格执行4/8/30步；原交付SDK预处理和累计完成判定；十阶段有序上秤/归位、释放、稳定支撑、全部五杯最终归位才算成功。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html"
     }
   ],
   "handoff_resolutions": [

@@ -2,16 +2,16 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-01T14:37:49.324399+00:00",
+  "updated_at": "2026-11-01T14:40:53.489543+00:00",
   "final_verified": false,
-  "status": "requires_inspection",
-  "completed": 929,
-  "audited": 929,
+  "status": "running",
+  "completed": 930,
+  "audited": 930,
   "target": 9000,
   "provisional_successes": 0,
   "active_apps": 16,
   "max_parallel_apps": 60,
-  "gpus": 4,
+  "gpus": 8,
   "execution_class": "low_priority",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
   "counts": [
@@ -512,17 +512,17 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 86,
-      "audited": 86,
+      "completed": 87,
+      "audited": 87,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 80,
+        "0": 81,
         "1": 6
       },
       "layouts": {
         "forward": 41,
-        "reverse": 45
+        "reverse": 46
       },
       "final_verified": false,
       "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -530,8 +530,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 86,
-          "audited": 86,
+          "completed": 87,
+          "audited": 87,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1479,25 +1479,25 @@
       "gpus": 4,
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 395,
+      "completed": 396,
       "active_apps": 16,
       "error": false,
       "audit_error": false,
       "historical": false,
       "capacity": null,
       "resources": {
-        "epoch": 1793543798.7947187,
+        "epoch": 1793544007.8950593,
         "status": "running",
-        "completed": 395,
+        "completed": 396,
         "target": 450,
         "memory": {
           "limit": "858993459200",
-          "current": "288039968768",
+          "current": "286760669184",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 42481369088
+          "shm_used": 41982156800
         },
-        "gpu": "0, 43851, 54\n1, 43978, 59\n2, 26305, 49\n3, 26114, 44\n"
+        "gpu": "0, 39894, 46\n1, 44074, 42\n2, 26305, 47\n3, 26114, 42\n"
       },
       "startup_gates": 8
     },
@@ -1662,43 +1662,22 @@
       "startup_gates": 4
     },
     {
-      "job_id": "job-k0atwfsimiiu",
+      "job_id": "job-dsckcvihr1qe",
       "family": "added",
       "condition": "baseline",
       "repeat": 0,
-      "publish": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_stable_attach_20261101/mixed_parallel/r0_added/baseline",
+      "publish": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_stable_attach_20261101/mixed_parallel/revision2/r0_added_retry1/baseline",
       "legacy": false,
       "gpus": 4,
-      "platform_status": "FAILED",
-      "runtime_status": "infrastructure_error",
-      "completed": 84,
+      "platform_status": "PENDING",
+      "runtime_status": "starting",
+      "completed": 0,
       "active_apps": 0,
-      "error": true,
+      "error": false,
       "audit_error": false,
       "historical": false,
-      "capacity": {
-        "slots_per_GPU": 5,
-        "native_Apps": 20,
-        "pids_max": "629145",
-        "minimum_free_vram_before_parity_MiB": 6000,
-        "max_low_priority_GPUs_across_campaign": 12,
-        "measured_prior_four_slot_peak_MiB": 59261,
-        "fifth_slot_added_after_private_model_parity": true
-      },
-      "resources": {
-        "epoch": 1793542545.520816,
-        "status": "running",
-        "completed": 311,
-        "target": 1800,
-        "memory": {
-          "limit": "858993459200",
-          "current": "59152261120",
-          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
-          "shm_total": 858993459200,
-          "shm_used": 23867133952
-        },
-        "gpu": "0, 21666, 3\n1, 21666, 3\n2, 20710, 4\n3, 5575, 2\n"
-      },
+      "capacity": null,
+      "resources": null,
       "startup_gates": 0
     }
   ],
@@ -9214,6 +9193,25 @@
       "physical_phases": 0,
       "sim_seconds": 20.066666666666666,
       "physics_sha256": "952eea2093651af319436b113090068c1c815df9c5b2f130083d3c04b712eb90",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-vkjtbkvzqkmt",
+      "attempt_priority": 0
+    },
+    {
+      "id": "new30_mem0_30000_h4_reverse_040",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 730040,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 29.55,
+      "physics_sha256": "21f96dac4dfb097004d0c76d7c471fe738f9f6e96b86e4eb2e5831805a7f0bc5",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-vkjtbkvzqkmt",
@@ -17785,8 +17783,8 @@
       "physics_sha256": "d9177fefe20d9fcf173a9bd7b00faff4b9bb4fccce217f8a53eb067171f242de",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_forward_000",
@@ -17804,8 +17802,8 @@
       "physics_sha256": "000f225574f74e68648da3b752d2c64a563581b55c79276e2defbbb59751bd1d",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_reverse_002",
@@ -17823,8 +17821,8 @@
       "physics_sha256": "8aa6567493ab17e426db3379417f11c3afc7ff0297b92618a7d2cb6fdcac9dac",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_reverse_002",
@@ -17842,8 +17840,8 @@
       "physics_sha256": "4a01ac6a563ffce5cf7bea6594d093a2bfe3ee7881f75abccb8d6122235936e2",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_000",
@@ -17861,8 +17859,8 @@
       "physics_sha256": "d9177fefe20d9fcf173a9bd7b00faff4b9bb4fccce217f8a53eb067171f242de",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_002",
@@ -17880,8 +17878,8 @@
       "physics_sha256": "1054c4b42f4c1cd2911aaf2f3e422a324abb827cfd231a7e849fbc0d940f8d7f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_forward_004",
@@ -17899,8 +17897,8 @@
       "physics_sha256": "6ad7db7de6ff13597ba815196d1bb2043b39e5f23c6e8613de52a9d0226e7e1e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_004",
@@ -17918,8 +17916,8 @@
       "physics_sha256": "6ad7db7de6ff13597ba815196d1bb2043b39e5f23c6e8613de52a9d0226e7e1e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_forward_000",
@@ -17937,8 +17935,8 @@
       "physics_sha256": "a82724a8bf2b3617ce71b1920dae6928207c7a0dae93207b7289f0c63cca09a3",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_forward_000",
@@ -17956,8 +17954,8 @@
       "physics_sha256": "a7e93894a3153dea2c6e97c299a786b09de33fe86a243e912d8d5fe2e447071d",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_forward_000",
@@ -17975,8 +17973,8 @@
       "physics_sha256": "acc5ba72845faa8912305a8e62706d694fd5ede3877a5cc5544adf79b28de5e8",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_reverse_002",
@@ -17994,8 +17992,8 @@
       "physics_sha256": "4a8c9f5cc18502143455071dff80602b42440a35b219f66f33a87d0cdab4e5fc",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h4_forward_000",
@@ -18013,8 +18011,8 @@
       "physics_sha256": "ed15819c6457c9f943cb12679b686528eb16bfaa0c944f7b5d89d14c630f1a49",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h8_forward_000",
@@ -18032,8 +18030,8 @@
       "physics_sha256": "1348bd0ffe9973f57873ad517c0c0c400407112d76ff486c1bb2f3154bf3aa71",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h30_forward_000",
@@ -18051,8 +18049,8 @@
       "physics_sha256": "dff31712f9f49ddaa385923f00de4d9d221fa767ac9ed66e0473c02a7f56c439",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h4_reverse_002",
@@ -18070,8 +18068,8 @@
       "physics_sha256": "7a30723cde5741cb1245fad85d9ff0fdc3ff2d811d97027e8f1823a9cce791ea",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_forward_004",
@@ -18089,8 +18087,8 @@
       "physics_sha256": "6ad7db7de6ff13597ba815196d1bb2043b39e5f23c6e8613de52a9d0226e7e1e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_006",
@@ -18108,8 +18106,8 @@
       "physics_sha256": "687aafa9576fe418597b18c08ae6a35f9737423aec26b083bc03cd9da480e914",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_002",
@@ -18127,8 +18125,8 @@
       "physics_sha256": "1dc39c37bc81baf1c69862de6cb0db595e8e4a3d045aa33d67f924ee20762cf3",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_010",
@@ -18146,8 +18144,8 @@
       "physics_sha256": "d7db59f9bcb9db64aaeac0d54bf6a43fe7ec2a650883fe92ef04042991475fb1",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-j0ykn5uqq4r7",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h8_forward_001",
@@ -18165,8 +18163,8 @@
       "physics_sha256": "9738cc617acf1325b1baf2c8eaad0805bec22ef8a3372d82cb9fa297dcfb63dc",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_forward_001",
@@ -18184,8 +18182,8 @@
       "physics_sha256": "2657f261abf9d45d0aed91678138b1542869b8d595778c95e9d0fb5f7672ef8b",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_forward_001",
@@ -18203,8 +18201,8 @@
       "physics_sha256": "d4b49d2fb067bf1851ed36e9bbf54431a1086dc9efc889bf20fd7a8bf6676dbe",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_reverse_003",
@@ -18222,8 +18220,8 @@
       "physics_sha256": "d4091b6d3bb9224232b5253e647d873753e1ac2fc9af3b9805c6037208dee90b",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_reverse_003",
@@ -18241,8 +18239,8 @@
       "physics_sha256": "d7723463af322e0753be9e12b0906e69dd07dd5885b8eb3bce72a3469e145844",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_001",
@@ -18260,8 +18258,8 @@
       "physics_sha256": "2657f261abf9d45d0aed91678138b1542869b8d595778c95e9d0fb5f7672ef8b",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_003",
@@ -18279,8 +18277,8 @@
       "physics_sha256": "6a7df16c2833dd60484734cc6b2efc91e6a11e0634322e17baea97bf35ae9980",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_forward_005",
@@ -18298,8 +18296,8 @@
       "physics_sha256": "d3dccead1144573caea0cedd52b2baa71be68af02b66b1020dd8730c0e4adedc",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_005",
@@ -18317,8 +18315,8 @@
       "physics_sha256": "f5244fe0b37592d80265fe288ea340d75797e9dc3f7a6935425386294ba5c41c",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_forward_001",
@@ -18336,8 +18334,8 @@
       "physics_sha256": "4b68164cc929f2433febde5e56645e2fedf960a16e64b32bdf1e6b4eac24dd6e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_forward_001",
@@ -18355,8 +18353,8 @@
       "physics_sha256": "cf3f249963f4d0d92b0794fd3442710bba4ddd43b563ec1e5f5fb5571aa618a3",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_reverse_003",
@@ -18374,8 +18372,8 @@
       "physics_sha256": "8da6537da1d9b6b812469a7a8343e8c1febd0146f3583f4e8b957e4eb6500fba",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_reverse_003",
@@ -18393,8 +18391,8 @@
       "physics_sha256": "be68cb861f98a26be521f6973a9c3dec4cf6e1d61caa606f856f980b56b9459e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_forward_001",
@@ -18412,8 +18410,8 @@
       "physics_sha256": "f5917aeca5ac2512dfa298e8291b40bed611425c05b7fd2925577c3d7caf558e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_003",
@@ -18431,8 +18429,8 @@
       "physics_sha256": "1b824b52d58d85cd6ec63868600f9fddd16609859f6497b7468a82d90bc06146",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_forward_005",
@@ -18450,8 +18448,8 @@
       "physics_sha256": "5d17c6ba0447925d9e3117f7d664b877ade4d4f92129569c22d731a5defce16b",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_forward_005",
@@ -18469,8 +18467,8 @@
       "physics_sha256": "8e80d9aa87cc7073ee5803a46b691aba98d6fab6d27ebc0685ca76abe87b4237",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-dichs1bhgbfr",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_000",
@@ -18488,8 +18486,8 @@
       "physics_sha256": "52dc2b1c067d298afb169b0d30251d0805f3f691c42d67faa67efa3a721babea",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h4_reverse_000",
@@ -18507,8 +18505,8 @@
       "physics_sha256": "ed4515b15592358d822addbde6155e0a26acb263e2d05537813ef06e9cb2662a",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h8_reverse_000",
@@ -18526,8 +18524,8 @@
       "physics_sha256": "fa1d45759135862da908ef378c413698f5dda207b6972c421f17d577d3203660",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h30_reverse_000",
@@ -18545,8 +18543,8 @@
       "physics_sha256": "115cc31528b41eb4514453dc5b11569946c3929d4804e8bafe4eea41c808841a",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_reverse_000",
@@ -18564,8 +18562,8 @@
       "physics_sha256": "1f19e607e70fb1e0479a4e17a119305c0e198c2e3323aa94fef1a76f5c39450e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_forward_002",
@@ -18583,8 +18581,8 @@
       "physics_sha256": "7a33798db2337cf8dbdcf7d2a2c8a6db26b440da03402636b413fdf846d53754",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_002",
@@ -18602,8 +18600,8 @@
       "physics_sha256": "66ae42e29a7855fc3e132a547dd5822ed009821cfbaeff864067c21ccc857a1a",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_forward_002",
@@ -18621,8 +18619,8 @@
       "physics_sha256": "19ea69951439f5b62b09ce1e8d0462a4601a2a64850773d1423d46ef8b54bb97",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_reverse_000",
@@ -18640,8 +18638,8 @@
       "physics_sha256": "5bba28b25cce7e05b0d65ca928a15d27188e9b3451b137150d6ff5de9d31a926",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_reverse_004",
@@ -18659,8 +18657,8 @@
       "physics_sha256": "1420619793f0179f08d73f8111c6d3732995d4dd4d70ecf5239331d4d08a3724",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_reverse_004",
@@ -18678,8 +18676,8 @@
       "physics_sha256": "a02d32e3021e516fcf1f23116bf2e418ad9ffd56d8dd3591133b3a2d0b61a77d",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_004",
@@ -18697,8 +18695,8 @@
       "physics_sha256": "2d53451a5f926ac0c11105b00335c1c268fee24a26440025fd447cf4528e96ed",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_reverse_000",
@@ -18716,8 +18714,8 @@
       "physics_sha256": "ff69fee63d7367a7953bd1763f2672f78984c41bfc68508fc4ba333067a2fea0",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_000",
@@ -18735,8 +18733,8 @@
       "physics_sha256": "93e26f8766b99a9f6c733918a466ddb4b3f43d9a57b16ddaf14101bc12a5ba6f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_forward_002",
@@ -18754,8 +18752,8 @@
       "physics_sha256": "45b85d5fed72b4942899419856f98892c075fcb0cd4856d5f0b7df2af0e8eae8",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_forward_002",
@@ -18773,8 +18771,8 @@
       "physics_sha256": "13442bb429ac4e9d367f585b332f3603769f3a32a46b07859bce9c1d9a0f623f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_reverse_000",
@@ -18792,8 +18790,8 @@
       "physics_sha256": "05078a480b9647a574c028a05f26e4b2ab2b21665bbd716ca4147dbc976b69f6",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_forward_002",
@@ -18811,8 +18809,8 @@
       "physics_sha256": "532fca0281eb6a998afe78ca9049f88a5cc9a379c30d7f408d6afa50d0c3a142",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_reverse_004",
@@ -18830,8 +18828,8 @@
       "physics_sha256": "6166c19a6b3f4fbbea5df71a1dd65f1622eed0105a8d44dc383355c6a3259713",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_reverse_004",
@@ -18849,8 +18847,8 @@
       "physics_sha256": "f5fe3254a4848b6483509cd5818f985c26828ca17aee99a1f037a4d6ed9ce8e3",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_004",
@@ -18868,8 +18866,8 @@
       "physics_sha256": "dece9d1d71ef2c63db6fc589848052661f7be89dabc96f5062cca468c408786d",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_008",
@@ -18887,8 +18885,8 @@
       "physics_sha256": "04c2cb7f7bd4b99445b86922dcfdce7e1a5d093e41894450ab75f3e0f0bfe3c4",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-5gesijkgo3nx",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_001",
@@ -18906,8 +18904,8 @@
       "physics_sha256": "9311405400a20fd746cf014bbe1e478a4088bfbc51bb3108dd3b64993c7a6c02",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h4_reverse_001",
@@ -18925,8 +18923,8 @@
       "physics_sha256": "55c101cb0d61198e9d5d781619cfd88da2ea355d3d579f5abfd48e78f63b466c",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h8_reverse_001",
@@ -18944,8 +18942,8 @@
       "physics_sha256": "35be198e8ec027350228f672782154cd5295c30b1e541348ea4ed15ade397d7e",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "ours30_mem0_30000_h30_reverse_001",
@@ -18963,8 +18961,8 @@
       "physics_sha256": "6747df01ec179cbb9e2f7cebfb7038d351dadf7b86c4efe1f5dfd9349b30c640",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_reverse_001",
@@ -18982,8 +18980,8 @@
       "physics_sha256": "37b7320f8370e6d51a49e29d125e47bc8c175bab15c11b0d4412fa10fcf9e4f4",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_001",
@@ -19001,8 +18999,8 @@
       "physics_sha256": "23d84be0d297bc4214e3796d7ba70d636ab0e8661ed6f05d440d759f1235038d",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_forward_003",
@@ -19020,8 +19018,8 @@
       "physics_sha256": "88feaff61f8deba077643ca1bb4c1ba377c5baa8bb1795ea2b29930b75b5fdcd",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_forward_003",
@@ -19039,8 +19037,8 @@
       "physics_sha256": "26fe97be0a877bbf5cac15118c6ca86dfac4c378a582d8592256c18e527522c7",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_reverse_001",
@@ -19058,8 +19056,8 @@
       "physics_sha256": "093320e1f03ff0e72f21ebd7a985e088a8cefc4827e37a9ca05df6ea83f5753f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_forward_003",
@@ -19077,8 +19075,8 @@
       "physics_sha256": "ce37d9c3efd1cd831a8c7f8679983d80b5f1759edfbc45f3e0474f454dfd0547",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h4_reverse_005",
@@ -19096,8 +19094,8 @@
       "physics_sha256": "88be91f1cf342387cd1415b23208382bc0d95c09be6a6f3dc5cf95170b493146",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h8_reverse_005",
@@ -19115,8 +19113,8 @@
       "physics_sha256": "c2bf8a786ac234c32ccb65e0de3b30e0d4aa83209e4e42f3f15ede2f2d376101",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_reverse_001",
@@ -19134,8 +19132,8 @@
       "physics_sha256": "e4e1cfb69089938032d480b3a12162f0e031e9d94da2dcf6b4eef654306b3d04",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_forward_003",
@@ -19153,8 +19151,8 @@
       "physics_sha256": "7354e51e85793f7adf05b674be887714ee52c9b80fabc45f303714c1f9eb6088",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_003",
@@ -19172,8 +19170,8 @@
       "physics_sha256": "7354e51e85793f7adf05b674be887714ee52c9b80fabc45f303714c1f9eb6088",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_forward_003",
@@ -19191,8 +19189,8 @@
       "physics_sha256": "e6aa0475fac37f6ababe9c2c2a3cc522d5d107942b444c695556985eabb4e344",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_reverse_001",
@@ -19210,8 +19208,8 @@
       "physics_sha256": "d617d8cc32ae25bbf269303a076cd427a9a2620f4c45fd98bc44db5a34a7a77f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_reverse_005",
@@ -19229,8 +19227,8 @@
       "physics_sha256": "5f39e7b3352a92b602a87b0b8977561f0fcd443013f1ce3bd6c672ed0b699bf7",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_reverse_005",
@@ -19248,8 +19246,8 @@
       "physics_sha256": "e3f9464d01ac3a8fda75807638fa040969ab185be4160489ea3baf123ada9d2f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_005",
@@ -19267,8 +19265,8 @@
       "physics_sha256": "6f49bb0b6a8b915c35518106357b42ff3b426890f15f70013508fe1b3132282b",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h4_forward_007",
@@ -19286,8 +19284,8 @@
       "physics_sha256": "2f967a73c7703818c49a1914e2c84d422f1355d411e26cfc29fd831908efba83",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_005",
@@ -19305,8 +19303,8 @@
       "physics_sha256": "c70c99e5a593b11b16fcd09c8a912faf81b86f609d28b0501e52ad57bcbfeb02",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h8_forward_007",
@@ -19324,8 +19322,8 @@
       "physics_sha256": "2f967a73c7703818c49a1914e2c84d422f1355d411e26cfc29fd831908efba83",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak20_mem0_20000_h30_reverse_009",
@@ -19343,8 +19341,8 @@
       "physics_sha256": "3ad512c8b87676494c6264bbfa80d06be9f928a56c624733ac3f0a2d6e0e468f",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     },
     {
       "id": "weak30_mem0_30000_h30_reverse_009",
@@ -19362,8 +19360,8 @@
       "physics_sha256": "9488764099c5566ee4ff8fe0b454d748f3d3c8aefe2a3d44eddb24f21864a6eb",
       "attach_events": 0,
       "policy_release_events": 0,
-      "source_job_id": "job-k0atwfsimiiu",
-      "attempt_priority": 100
+      "source_job_id": "job-21ukiwpuynkz",
+      "attempt_priority": 0
     }
   ],
   "source_status_epochs": [
@@ -19377,5 +19375,7 @@
   "trials_per_group": 500,
   "first_seed_preserved": true,
   "seed_protocol": "同100场景五轮独立推理噪声种子；不是五次重新训练。正反布局每轮各50条。",
-  "shared_physical_jobs": []
+  "shared_physical_jobs": [
+    "job-dsckcvihr1qe"
+  ]
 }

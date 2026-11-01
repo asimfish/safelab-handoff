@@ -26,6 +26,7 @@ const load=async()=>{
   byId('status').textContent=data.final_verified?'全部9000条评测与证据核验已完成':data.status==='requires_inspection'?'部分任务中断或待检查；已核验结果保留':'五任务并行评测中，尚无全量最终成功率';
   byId('progress').textContent=`已结束 ${data.completed}/${data.target}；已核验 ${data.audited}；全程成功 ${data.provisional_successes}${data.final_verified?'':'（已核验条目中的暂记数）'}。`;
   byId('resources').textContent=`当前${data.gpus}卡低优 Pro6000，${data.active_apps}路独立单环境；最多${data.max_parallel_apps}路。`;
+  if(data.shared_physical_jobs?.length)byId('resources').textContent+=' 与另一物理条件共享部分任务，两面板卡数不可相加；低优合计不超过12卡。';
   byId('updated').textContent='快照更新时间（北京时间）：'+new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',dateStyle:'short',timeStyle:'medium'}).format(new Date(data.updated_at))+'。页面每5分钟重读已发布进度。';
   byId('protocol').textContent=data.protocol;byId('results').replaceChildren();byId('seed-results').replaceChildren();
   for(const count of data.counts){

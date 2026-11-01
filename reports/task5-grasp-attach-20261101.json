@@ -2,7 +2,7 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-01T14:04:18.835951+00:00",
+  "updated_at": "2026-11-01T14:06:11.744808+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "running",
@@ -12,7 +12,7 @@
   "provisional_successes": 0,
   "active_apps": 20,
   "max_parallel_apps": 60,
-  "gpus": 4,
+  "gpus": 8,
   "global_low_priority_GPU_cap": 12,
   "execution_class": "low_priority",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
@@ -1496,18 +1496,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793541682.8812156,
+        "epoch": 1793541948.4133117,
         "status": "running",
-        "completed": 255,
+        "completed": 258,
         "target": 900,
         "memory": {
           "limit": "858993459200",
-          "current": "333086597120",
+          "current": "351791230976",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 48879300608
+          "shm_used": 52372119552
         },
-        "gpu": "0, 49179, 19\n1, 40656, 36\n2, 27022, 19\n3, 24843, 19\n"
+        "gpu": "0, 49013, 44\n1, 48758, 49\n2, 29397, 47\n3, 31115, 55\n"
       },
       "startup_gates": 4
     },
@@ -1525,7 +1525,7 @@
       "active_apps": 0,
       "error": false,
       "audit_error": false,
-      "historical": false,
+      "historical": true,
       "capacity": {
         "slots_per_GPU": 5,
         "native_Apps": 20,
@@ -1550,6 +1550,25 @@
         "gpu": "0, 68450, 47\n1, 68554, 52\n2, 69488, 42\n3, 50557, 46\n"
       },
       "startup_gates": 4
+    },
+    {
+      "job_id": "job-k0atwfsimiiu",
+      "family": "added",
+      "condition": "attachment",
+      "repeat": 0,
+      "publish": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_stable_attach_20261101/mixed_parallel/r0_added/attachment",
+      "legacy": false,
+      "gpus": 4,
+      "platform_status": "RUNNING",
+      "runtime_status": "starting",
+      "completed": 0,
+      "active_apps": 0,
+      "error": false,
+      "audit_error": false,
+      "historical": false,
+      "capacity": null,
+      "resources": null,
+      "startup_gates": 0
     }
   ],
   "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组5个seed×100条=500条，共9000条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五轮使用相同配对场景及独立推理随机种子，报告五轮各自成功率、均值及样本标准差。 原始与辅助条件在同一4卡模型组内公平交替调度，使用各自冻结的物理代码和独立原始审计器；复用已验收轨迹并在接续任务中重做原始证据复算。",
@@ -10596,7 +10615,9 @@
   "trials_per_group": 500,
   "first_seed_preserved": true,
   "seed_protocol": "同100场景五轮独立推理噪声种子；不是五次重新训练。正反布局每轮各50条。",
-  "shared_physical_jobs": [],
+  "shared_physical_jobs": [
+    "job-k0atwfsimiiu"
+  ],
   "resource_policy": "同一4卡任务在各模型内轮流执行原始与辅助条件，各条件单独保存原始轨迹并独立验收。共享物理任务按job_id去重，两个面板的卡数不能相加；本轮低优总上限12卡。",
   "learned_native_validation": {
     "case_id": "attach__old30_mem0_30000_h8_reverse_000",

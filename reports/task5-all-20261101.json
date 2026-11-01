@@ -2,11 +2,11 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-01T11:19:33.583129+00:00",
+  "updated_at": "2026-11-01T11:21:49.975307+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 803,
-  "audited": 803,
+  "completed": 804,
+  "audited": 804,
   "target": 9000,
   "provisional_successes": 0,
   "active_apps": 16,
@@ -188,18 +188,18 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 30,
-      "completed": 58,
-      "audited": 58,
+      "completed": 59,
+      "audited": 59,
       "target": 500,
       "successes": 0,
       "physical_phases": {
         "1": 8,
-        "0": 49,
+        "0": 50,
         "2": 1
       },
       "layouts": {
         "forward": 29,
-        "reverse": 29
+        "reverse": 30
       },
       "final_verified": false,
       "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -207,8 +207,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 58,
-          "audited": 58,
+          "completed": 59,
+          "audited": 59,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -6124,6 +6124,23 @@
       "sim_seconds": 24.3,
       "failure_reason": "object_toppled",
       "physics_sha256": "f88e976541c456e61d4a1ea5f3000501b9eee42decc43a455fd342eeeeb436e1",
+      "repeat": 0,
+      "condition": "baseline"
+    },
+    {
+      "id": "old30_mem0_30000_h30_reverse_010",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 529060,
+      "status": "physical_failure",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 19.008333333333333,
+      "failure_reason": "object_toppled",
+      "physics_sha256": "70aabd9c13f6e13427d23303dcd7fba1ae8c9e0011cf6f89948c6e058a2f4b8c",
       "repeat": 0,
       "condition": "baseline"
     },
@@ -15207,8 +15224,8 @@
     }
   ],
   "source_status_epochs": [
-    1793531959.8036516,
-    1793531964.655442
+    1793532088.5893865,
+    1793532094.8122532
   ],
   "global_low_priority_GPU_cap": 12,
   "resource_policy": "原始baseline与稳定抓取后固定关节辅助配置共用12卡低优上限。部分原始分片按计划暂停，已验收数据保留；全局队列在有空卡后按原冻结协议续跑。各面板的并发上限共享卡池，不可相加。",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-01T07:22:21.299709+00:00",
+  "updated_at": "2026-11-01T07:24:22.224751+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -285,8 +285,8 @@
         {
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/weights/executor_step30000.pt",
-          "status": "已测",
-          "availability": "交付文档已索引；当前READY/HANDOFF尚未重新核验"
+          "status": "闭环评测中",
+          "availability": "实际模型与输入/输出已核验；正式评测进度已同步"
         }
       ],
       "doc": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/FINAL_DELIVERY.md",
@@ -305,9 +305,10 @@
         "denoising_steps": 8,
         "training": "连续训练30k正常结束；执行器无holdout"
       },
-      "note": "已完成原预处理600次单/并行对照。首次图像缩放训练双线性抗锯齿、推理双三次存在差异；对齐后的闭环复测仍在诊断。",
+      "note": "旧预处理600条单环境/并发结果保留为历史，不代表本轮训练对齐复测。当前训练对齐的五任务闭环评测：执行4/8/30步，每组100条；进度和验收口径见五任务报告。",
       "evidence_level": "训练交付文档实读",
-      "source": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/FINAL_DELIVERY.md"
+      "source": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/FINAL_DELIVERY.md",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html"
     },
     {
       "id": "5-pos-mem0",
@@ -319,14 +320,14 @@
         {
           "step": 20000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/weights/executor_step20000.pt",
-          "status": "已交付待测",
-          "availability": "交付文档已索引；当前READY/HANDOFF尚未重新核验"
+          "status": "闭环评测中",
+          "availability": "实际模型与输入/输出已核验；正式评测进度已同步"
         },
         {
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/weights/executor_step30000.pt",
-          "status": "已交付待测",
-          "availability": "交付文档已索引；当前READY/HANDOFF尚未重新核验"
+          "status": "闭环评测中",
+          "availability": "实际模型与输入/输出已核验；正式评测进度已同步"
         }
       ],
       "doc": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/FINAL_DELIVERY.md",
@@ -343,9 +344,10 @@
         "executor_lr": "交付Markdown未列出，待训练配置原件",
         "planner": "25epochs /100updates；450train/50heldout；r8/alpha16；cutoff2048"
       },
-      "note": "两权重实际Planner+动作块GPU接口通过；尚未找到完整环境成功率。",
+      "note": "当前训练对齐的五任务闭环评测：执行4/8/30步，每组100条；进度和验收口径见五任务报告。",
       "evidence_level": "训练交付文档实读",
-      "source": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/FINAL_DELIVERY.md"
+      "source": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/FINAL_DELIVERY.md",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html"
     },
     {
       "id": "7-mem0",
@@ -627,6 +629,75 @@
       "note": "用户提示十任务TTC可能仍在训练。训练状态、数据版本、输入相机和权重路径均待训练同学确认；不登记为已交付或已评测。",
       "evidence_level": "用户提示 / 待训练同学确认",
       "source": "用户当前交接要求"
+    },
+    {
+      "id": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "camera": "third_person",
+      "delivery": "权重、配置和原生GPU推理已核验",
+      "weights": [
+        {
+          "step": 20000,
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak/weights/executor_step20000.pt",
+          "sha256": "13f54a1623a4a419f44308d0e15c85fec9fcb7fe12732b10d24376dec1e15993",
+          "status": "闭环评测中",
+          "availability": "实际模型与输入/输出已核验；正式评测进度已同步"
+        },
+        {
+          "step": 30000,
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak/weights/executor_step30000.pt",
+          "sha256": "c6fdfbf195e612d84cc89c1b8017e32dbb9c221aec361c28b69fa28a61c97045",
+          "status": "闭环评测中",
+          "availability": "实际模型与输入/输出已核验；正式评测进度已同步"
+        }
+      ],
+      "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak/START_HERE.md",
+      "runtime": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak",
+      "norm": "d54007664757049f0994a9cdf031f481e713757175b1a2ba538e1da878706623",
+      "training": {
+        "input": "第三人称原始RGB + 13维实测弧度 + 高层任务",
+        "prediction_horizon": 30,
+        "observation_hz": 15,
+        "action": "13维绝对关节目标 / current_row",
+        "denoising_steps": 8,
+        "planner": "学习得到的next子任务Planner；不接收物理验收反馈"
+      },
+      "note": "当前训练对齐的五任务闭环评测：执行4/8/30步，每组100条；进度和验收口径见五任务报告。",
+      "evidence_level": "实际交付文件SHA256 + 原生SDK GPU推理一致性 + 逐条原始物理验收",
+      "source": "https://github.com/asimfish/safelab-handoff/issues/4",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html"
+    },
+    {
+      "id": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "camera": "third_person",
+      "delivery": "权重、配置和原生GPU推理已核验",
+      "weights": [
+        {
+          "step": 30000,
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_5b_obstruction_pos1cm_v1_20261025/ours/third_person/executor_step30000.pt",
+          "sha256": "15552d968a55f46a477af7a059f5fdef8b82e64ef6c1512d13ee8d5546faa3ca",
+          "status": "闭环评测中",
+          "availability": "实际模型与输入/输出已核验；正式评测进度已同步"
+        }
+      ],
+      "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours/third_person/START_HERE.md",
+      "runtime": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours/third_person",
+      "norm": "936d572a775758c3b50395e9449fd13b2ed2f12a1fdedf2378cb8cb74d60eb05",
+      "training": {
+        "input": "第三人称原始RGB + 13维实测弧度 + 高层任务",
+        "prediction_horizon": 30,
+        "observation_hz": 15,
+        "action": "13维绝对关节目标 / current_row",
+        "denoising_steps": 8,
+        "planner": "原生Gen2.1-311 + 学习得到的next与DAG Planner；不接收物理验收反馈"
+      },
+      "note": "当前训练对齐的五任务闭环评测：执行4/8/30步，每组100条；进度和验收口径见五任务报告。",
+      "evidence_level": "实际交付文件SHA256 + 原生SDK GPU推理一致性 + 逐条原始物理验收",
+      "source": "https://github.com/asimfish/safelab-handoff/issues/2",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html"
     }
   ],
   "evaluations": [
@@ -924,7 +995,8 @@
       "kind": "自主闭环",
       "status": "已完成",
       "source": "/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/VERIFIED_SUCCESS_RATES.json",
-      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。"
+      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。",
+      "result_label": "旧预处理·历史成绩"
     },
     {
       "id": "5fixed-4-parallel",
@@ -942,7 +1014,8 @@
       "kind": "自主闭环",
       "status": "已完成",
       "source": "会话ardgka9i1sacv6sl89mo5rdg0 · 消息19370897",
-      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。"
+      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。",
+      "result_label": "旧预处理·历史成绩"
     },
     {
       "id": "5fixed-8-single",
@@ -960,7 +1033,8 @@
       "kind": "自主闭环",
       "status": "已完成",
       "source": "/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/VERIFIED_SUCCESS_RATES.json",
-      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。"
+      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。",
+      "result_label": "旧预处理·历史成绩"
     },
     {
       "id": "5fixed-8-parallel",
@@ -978,7 +1052,8 @@
       "kind": "自主闭环",
       "status": "已完成",
       "source": "会话ardgka9i1sacv6sl89mo5rdg0 · 消息19370897",
-      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。"
+      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。",
+      "result_label": "旧预处理·历史成绩"
     },
     {
       "id": "5fixed-30-single",
@@ -996,7 +1071,8 @@
       "kind": "自主闭环",
       "status": "已完成",
       "source": "/home/liyufeng/ops/safelab_mem0_5b_single_gpu8_eval_20261029/VERIFIED_SUCCESS_RATES.json",
-      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。"
+      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。",
+      "result_label": "旧预处理·历史成绩"
     },
     {
       "id": "5fixed-30-parallel",
@@ -1014,7 +1090,8 @@
       "kind": "自主闭环",
       "status": "已完成",
       "source": "会话ardgka9i1sacv6sl89mo5rdg0 · 消息19370897",
-      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。"
+      "note": "图像缩放对齐候选尚无新的完整闭环成功率；不能把旧600条当作对齐后结果。",
+      "result_label": "旧预处理·历史成绩"
     },
     {
       "id": "7-base-4",
@@ -2028,6 +2105,456 @@
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
       "updated_at": "2026-11-01T07:22:21.299709+00:00",
       "note": "完整600条及平台终态、输入哈希和全部成功物理证据核对后发布最终百分比；短检查、示教与诊断不计入。"
+    },
+    {
+      "id": "task5-all-20261101-old30-h4",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 21,
+      "audited": 21,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-old30-h8",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 21,
+      "audited": 21,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-old30-h30",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 23,
+      "audited": 23,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-new20-h4",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 87,
+      "audited": 87,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-new20-h8",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 86,
+      "audited": 86,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-new20-h30",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 88,
+      "audited": 88,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-new30-h4",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 74,
+      "audited": 74,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-new30-h8",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 73,
+      "audited": 73,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-new30-h30",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 71,
+      "audited": 71,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-weak20-h4",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 1,
+      "audited": 1,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-weak20-h8",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 2,
+      "audited": 2,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-weak20-h30",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 5,
+      "audited": 5,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-weak30-h4",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "audited": 0,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-weak30-h8",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "audited": 0,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-weak30-h30",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 4,
+      "audited": 3,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-ours30-h4",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 2,
+      "audited": 2,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-ours30-h8",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 3,
+      "audited": 3,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
+    },
+    {
+      "id": "task5-all-20261101-ours30-h30",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "prediction": 30,
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 2,
+      "audited": 2,
+      "provisional_successes": 0,
+      "status": "闭环评测中",
+      "kind": "自主闭环 · 训练对齐复测",
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "note": "全程成功仅依据五阶段物理验收；较早结束的失败条目不代表最终100条。原预处理历史成绩另存。",
+      "display_priority": 200,
+      "result_label": "训练对齐·原严格验收",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "campaign": "task5-all-20261101"
     }
   ],
   "agents": [
@@ -2636,6 +3163,481 @@
         "expert_controller_scored": false,
         "initial24_RGB_MAE_max_0_255": 2.0167763233184814
       }
+    },
+    {
+      "id": "task5-all-20261101",
+      "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
+      "task": "5",
+      "updated_at": "2026-11-01T07:24:22.224751+00:00",
+      "final_verified": false,
+      "status": "running",
+      "completed": 563,
+      "audited": 562,
+      "target": 1800,
+      "provisional_successes": 0,
+      "active_apps": 96,
+      "max_parallel_apps": 96,
+      "gpus": 24,
+      "execution_class": "low_priority",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-all-20261101.html",
+      "counts": [
+        {
+          "variant": "old30",
+          "record": "5-fixed-mem0",
+          "dataset": "5-fixed",
+          "method": "Mem-0",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 21,
+          "audited": 21,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 7,
+            "0": 6,
+            "1": 5,
+            "3": 3
+          },
+          "layouts": {
+            "forward": 11,
+            "reverse": 10
+          },
+          "final_verified": false,
+          "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "old30",
+          "record": "5-fixed-mem0",
+          "dataset": "5-fixed",
+          "method": "Mem-0",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 21,
+          "audited": 21,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 6,
+            "0": 6,
+            "3": 4,
+            "1": 5
+          },
+          "layouts": {
+            "forward": 10,
+            "reverse": 11
+          },
+          "final_verified": false,
+          "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "old30",
+          "record": "5-fixed-mem0",
+          "dataset": "5-fixed",
+          "method": "Mem-0",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 23,
+          "audited": 23,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 5,
+            "0": 18
+          },
+          "layouts": {
+            "forward": 11,
+            "reverse": 12
+          },
+          "final_verified": false,
+          "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "new20",
+          "record": "5-pos-mem0",
+          "dataset": "5-pos",
+          "method": "Mem-0",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "completed": 87,
+          "audited": 87,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 82,
+            "1": 5
+          },
+          "layouts": {
+            "forward": 43,
+            "reverse": 44
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "new20",
+          "record": "5-pos-mem0",
+          "dataset": "5-pos",
+          "method": "Mem-0",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "completed": 86,
+          "audited": 86,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 81,
+            "1": 5
+          },
+          "layouts": {
+            "forward": 43,
+            "reverse": 43
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "new20",
+          "record": "5-pos-mem0",
+          "dataset": "5-pos",
+          "method": "Mem-0",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "completed": 88,
+          "audited": 88,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 88
+          },
+          "layouts": {
+            "forward": 42,
+            "reverse": 46
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "new30",
+          "record": "5-pos-mem0",
+          "dataset": "5-pos",
+          "method": "Mem-0",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 74,
+          "audited": 74,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 69,
+            "1": 5
+          },
+          "layouts": {
+            "forward": 35,
+            "reverse": 39
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "new30",
+          "record": "5-pos-mem0",
+          "dataset": "5-pos",
+          "method": "Mem-0",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 73,
+          "audited": 73,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 2,
+            "0": 71
+          },
+          "layouts": {
+            "forward": 35,
+            "reverse": 38
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "new30",
+          "record": "5-pos-mem0",
+          "dataset": "5-pos",
+          "method": "Mem-0",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 71,
+          "audited": 71,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 71
+          },
+          "layouts": {
+            "forward": 34,
+            "reverse": 37
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "weak20",
+          "record": "5-pos-mem0-weak",
+          "dataset": "5-pos",
+          "method": "Mem-0 · 削弱版",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "completed": 1,
+          "audited": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "layouts": {
+            "reverse": 1
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "weak20",
+          "record": "5-pos-mem0-weak",
+          "dataset": "5-pos",
+          "method": "Mem-0 · 削弱版",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "completed": 2,
+          "audited": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "layouts": {
+            "reverse": 2
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "weak20",
+          "record": "5-pos-mem0-weak",
+          "dataset": "5-pos",
+          "method": "Mem-0 · 削弱版",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "completed": 5,
+          "audited": 5,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5
+          },
+          "layouts": {
+            "reverse": 5
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "weak30",
+          "record": "5-pos-mem0-weak",
+          "dataset": "5-pos",
+          "method": "Mem-0 · 削弱版",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 0,
+          "audited": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {},
+          "layouts": {},
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "weak30",
+          "record": "5-pos-mem0-weak",
+          "dataset": "5-pos",
+          "method": "Mem-0 · 削弱版",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 0,
+          "audited": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {},
+          "layouts": {},
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "weak30",
+          "record": "5-pos-mem0-weak",
+          "dataset": "5-pos",
+          "method": "Mem-0 · 削弱版",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 4,
+          "audited": 3,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3
+          },
+          "layouts": {
+            "reverse": 4
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "ours30",
+          "record": "5-pos-ours-aligned",
+          "dataset": "5-pos",
+          "method": "TTC · 对齐loss",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 2,
+          "audited": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "layouts": {
+            "reverse": 2
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "ours30",
+          "record": "5-pos-ours-aligned",
+          "dataset": "5-pos",
+          "method": "TTC · 对齐loss",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 3,
+          "audited": 3,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3
+          },
+          "layouts": {
+            "forward": 1,
+            "reverse": 2
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        },
+        {
+          "variant": "ours30",
+          "record": "5-pos-ours-aligned",
+          "dataset": "5-pos",
+          "method": "TTC · 对齐loss",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 2,
+          "audited": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "layouts": {
+            "reverse": 2
+          },
+          "final_verified": false,
+          "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
+        }
+      ],
+      "jobs": [
+        {
+          "job_id": "job-8mvbavgq4dc0",
+          "shard": 0,
+          "suite": "original",
+          "gpus": 4,
+          "platform_status": "RUNNING",
+          "runtime_status": "running",
+          "active_apps": 16
+        },
+        {
+          "job_id": "job-dypifliwsrzh",
+          "shard": 1,
+          "suite": "original",
+          "gpus": 4,
+          "platform_status": "RUNNING",
+          "runtime_status": "running",
+          "active_apps": 16
+        },
+        {
+          "job_id": "job-j0ykn5uqq4r7",
+          "shard": 0,
+          "suite": "added",
+          "gpus": 4,
+          "platform_status": "RUNNING",
+          "runtime_status": "running",
+          "active_apps": 16
+        },
+        {
+          "job_id": "job-dichs1bhgbfr",
+          "shard": 1,
+          "suite": "added",
+          "gpus": 4,
+          "platform_status": "RUNNING",
+          "runtime_status": "running",
+          "active_apps": 16
+        },
+        {
+          "job_id": "job-5gesijkgo3nx",
+          "shard": 2,
+          "suite": "added",
+          "gpus": 4,
+          "platform_status": "RUNNING",
+          "runtime_status": "running",
+          "active_apps": 16
+        },
+        {
+          "job_id": "job-21ukiwpuynkz",
+          "shard": 3,
+          "suite": "added",
+          "gpus": 4,
+          "platform_status": "RUNNING",
+          "runtime_status": "running",
+          "active_apps": 16
+        }
+      ],
+      "protocol": "6份权重×执行4/8/30步，每组100条，共1800条。旧fixed模型复测不加位置扰动；其余采用同100个±1cm场景，各组正反布局各50条。第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。",
+      "checks": {
+        "prediction_horizon": 30,
+        "denoising_steps": 8,
+        "max_sim_seconds": 240,
+        "environments_per_App": 1,
+        "Apps_per_GPU": 4,
+        "physical_phases_for_success": 5,
+        "accepted_cases_only_for_provisional_success": true,
+        "unscored_startup_checks_excluded": true
+      }
+    }
+  ],
+  "handoff_resolutions": [
+    {
+      "issue": 2,
+      "issue_updated_at": "2026-11-01T04:36:10Z",
+      "record": "5-pos-ours-aligned",
+      "verified_at": "2026-11-01T07:24:22.224751+00:00",
+      "note": "交付相机、真实权重及推理已经核验；仅替代此时间戳的旧空权重登记。后续共享单修改仍会应用。"
+    },
+    {
+      "issue": 4,
+      "issue_updated_at": "2026-11-01T04:36:14Z",
+      "record": "5-pos-mem0-weak",
+      "verified_at": "2026-11-01T07:24:22.224751+00:00",
+      "note": "交付相机、真实权重及推理已经核验；仅替代此时间戳的旧空权重登记。后续共享单修改仍会应用。"
     }
   ]
 }

@@ -53,6 +53,8 @@ function buildBoard(data,edits=[]){
  }
  const ordered=edits.filter(e=>e.trusted).sort((a,b)=>a.updated.localeCompare(b.updated)||a.issue-b.issue);
  for(const e of ordered){
+  const resolved=data.handoff_resolutions?.find(r=>r.issue===e.issue&&r.issue_updated_at===e.updated);
+  if(resolved&&!e.path&&!e.h4&&!e.h8&&!e.h30&&data.records.some(r=>r.id===resolved.record&&r.weights.some(w=>w.path)))continue;
   let row=e.target?rows.find(r=>r.key===e.target):rows.find(r=>r.key==='issue-'+e.issue||e.path&&r.path===e.path&&r.dataset===e.dataset&&r.camera===e.camera&&r.method===e.method&&r.step===e.step);
   if(e.target&&!row)continue;
   const existingDataset=datasets.find(d=>d.id===e.dataset);

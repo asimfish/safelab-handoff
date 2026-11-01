@@ -31,7 +31,7 @@ try{
  assert(await run('document.querySelector(\'[data-row="3-v13-ours@30000"] [data-copy]\').dataset.copy.includes("safelab_mem")'),'training dataset full path can be copied');
  fs.writeFileSync(path.join(Q,'single-table.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
  await run('document.querySelector("#filter-task").value="5";document.querySelector("#filter-task").dispatchEvent(new Event("change"))');
- assert(await run('document.querySelectorAll("#rows [data-row]").length===3'),'all five-task old and new dataset weights filter together');
+ assert(await run('document.querySelectorAll("#rows [data-row]").length===board.rows.filter(r=>r.task==="5").length'),'all five-task old and new dataset weights filter together');
  await run('document.querySelector(\'[data-detail="5-fixed-mem0@30000"]\').click()');
  assert(await run('document.querySelector("#detail-body").innerText.includes("1/2")&&document.querySelector("#detail-body").innerText.includes("非正式成绩")'),'training input diagnosis retained behind row details, no formal score pollution');
  await run('document.querySelector("#detail").close();document.querySelector("#filter-task").value="10";document.querySelector("#filter-task").dispatchEvent(new Event("change"))');
@@ -65,6 +65,11 @@ try{
  assert(await run('document.querySelectorAll("#results tr").length===6&&document.querySelector("#status").textContent.includes("尚无最终")'),'report shows all six configurations without a premature final rate');
  assert(await run('document.querySelectorAll("video").length===2'),'report provides both representative video views');
  assert(await run('Promise.all([...document.querySelectorAll("video")].map(async v=>(await fetch(v.src,{method:"HEAD"})).status===200)).then(results=>results.every(Boolean))'),'both report videos are served');
+ await cmd('Page.navigate',{url:new URL('reports/task5-all-20261101.html',BASE).href});
+ for(let i=0;i<100;i++){if(await run('document.querySelectorAll("#results tr").length===18'))break;await sleep(100);}
+ assert(await run('document.querySelectorAll("#results tr").length===18&&document.querySelector("#progress").textContent.includes("已核验")'),'five-task report shows all18 configurations and audited counts');
+ assert(await run('document.querySelector("#status").textContent.includes("尚无全量")'),'unfinished five-task report does not claim final success rate');
+
  assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile report remains contained');
  assert(errors.length===0,'no uncaught page exceptions');
  const result={passed:true,checks,errors,at:new Date().toISOString()};fs.writeFileSync(path.join(Q,'BROWSER_QA.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));

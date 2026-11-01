@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-01T14:15:50.590261+00:00",
+  "updated_at": "2026-11-01T14:16:17.892995+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -465,7 +465,7 @@
         "planner": "LoRA r8 / alpha16；25epochs；global128；lr1e-4（已列配方的版本）",
         "planner_cutoff": 4096
       },
-      "note": "原始物理接触基线：已结束688/3000。已结束的轨迹全部保留；仅续跑缺项。与稳抓attach组共享分片资源。完整证据验收前不发布最终成功率。",
+      "note": "原始物理接触基线：已结束697/3000。已结束的轨迹全部保留；仅续跑缺项。与稳抓attach组共享分片资源。完整证据验收前不发布最终成功率。",
       "evidence_level": "交付文件和基座SHA256 + 实际闭环观测/物理结果",
       "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
@@ -4898,1337 +4898,6 @@
       "campaign": "task5-grasp-attach-20261101"
     },
     {
-      "id": "task10-mem0-20261101-20000-4",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 4,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 113,
-      "unknown": 0,
-      "physical_phases": {
-        "3": 1,
-        "1": 55,
-        "0": 57
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 92,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "3": 1,
-            "1": 47,
-            "0": 44
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 7,
-            "1": 4
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 5,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-20261101-20000-8",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 8,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 116,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 49,
-        "0": 62,
-        "2": 5
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 93,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 39,
-            "0": 49,
-            "2": 5
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 8,
-            "1": 4
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 7,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2,
-            "1": 5
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-20261101-20000-30",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 30,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 117,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 90,
-        "1": 25,
-        "2": 2
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 93,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 71,
-            "1": 20,
-            "2": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3,
-            "0": 9
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 2,
-            "0": 6
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-20261101-30000-4",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 4,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 114,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 27,
-        "2": 18,
-        "1": 56,
-        "4": 3,
-        "6": 1,
-        "3": 5,
-        "5": 4
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 92,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 25,
-            "2": 14,
-            "1": 42,
-            "4": 3,
-            "6": 1,
-            "3": 5,
-            "5": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 4
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 8,
-            "2": 3,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 1,
-            "5": 1,
-            "1": 5,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "5": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-20261101-30000-8",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 8,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 112,
-      "unknown": 0,
-      "physical_phases": {
-        "2": 19,
-        "0": 28,
-        "1": 50,
-        "3": 7,
-        "5": 3,
-        "4": 2,
-        "8": 1,
-        "6": 2
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 90,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 15,
-            "0": 21,
-            "1": 42,
-            "3": 6,
-            "5": 3,
-            "4": 1,
-            "8": 1,
-            "6": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 5
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 4,
-            "1": 4,
-            "0": 2,
-            "4": 1,
-            "3": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 7,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 3,
-            "1": 3,
-            "6": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-20261101-30000-30",
-      "record": "10-mem0",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 30,
-      "kind": "自主闭环",
-      "status": "评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 116,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 54,
-        "2": 11,
-        "1": 51
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "result_label": "完整十阶段 · N1 · 固定布局",
-      "display_priority": 200,
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 92,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 39,
-            "2": 8,
-            "1": 45
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 6,
-            "1": 3,
-            "2": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 5,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-attach-20261101-20000-4",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 4,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 107,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 37,
-        "0": 70
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 88,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 32,
-            "0": 56
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 8
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 8,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 6,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 4,
-            "1": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-attach-20261101-20000-8",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 8,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 109,
-      "unknown": 0,
-      "physical_phases": {
-        "2": 5,
-        "0": 75,
-        "1": 29
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 89,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 4,
-            "0": 61,
-            "1": 24
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 6
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 11
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 6,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3,
-            "0": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-attach-20261101-20000-30",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 20000,
-      "horizon": 30,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 117,
-      "unknown": 0,
-      "physical_phases": {
-        "0": 85,
-        "1": 30,
-        "2": 2
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 94,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 68,
-            "1": 25,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 9,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 6,
-            "2": 1,
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-attach-20261101-30000-4",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 4,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 98,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 34,
-        "0": 47,
-        "2": 15,
-        "5": 1,
-        "8": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 83,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 30,
-            "0": 38,
-            "2": 13,
-            "5": 1,
-            "8": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 13
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 10,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 6,
-            "1": 2,
-            "2": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 4,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 2,
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 4
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 0,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {},
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-attach-20261101-30000-8",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 8,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 105,
-      "unknown": 0,
-      "physical_phases": {
-        "2": 24,
-        "1": 41,
-        "0": 31,
-        "3": 3,
-        "5": 5,
-        "4": 1
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 87,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 23,
-            "1": 33,
-            "0": 27,
-            "3": 2,
-            "5": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 8
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 5,
-            "3": 1,
-            "0": 3,
-            "5": 2,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 5,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3,
-            "4": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 0,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {},
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "5": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
-      "id": "task10-mem0-attach-20261101-30000-30",
-      "record": "10-mem0-attach",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "checkpoint": 30000,
-      "horizon": 30,
-      "kind": "自主闭环 · 稳抓attach",
-      "status": "稳抓attach评测中（非最终成绩）",
-      "success": null,
-      "provisional_successes": 0,
-      "trials": 500,
-      "completed": 114,
-      "unknown": 0,
-      "physical_phases": {
-        "1": 61,
-        "0": 40,
-        "2": 13
-      },
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
-      "display_priority": 200,
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "per_seed": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 91,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 47,
-            "0": 33,
-            "2": 11
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 8,
-            "2": 1,
-            "0": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2,
-            "1": 5,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1,
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "success_rate_mean_pct": null,
-      "success_rate_std_pct": null
-    },
-    {
       "id": "7-base-4",
       "record": "7-mem0",
       "dataset": "7-weigh",
@@ -9209,6 +7878,1339 @@
       "result_label": "稳定抓起后固定关节",
       "updated_at": "2026-11-01T14:15:50.590261+00:00",
       "note": "辅助物理条件，与原baseline分开；未结束样本不记为失败。"
+    },
+    {
+      "id": "task10-mem0-20261101-20000-4",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 115,
+      "unknown": 0,
+      "physical_phases": {
+        "3": 1,
+        "1": 56,
+        "0": 58
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 93,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "3": 1,
+            "1": 48,
+            "0": 44
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 4
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 7,
+            "1": 4
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-20261101-20000-8",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 118,
+      "unknown": 0,
+      "physical_phases": {
+        "1": 50,
+        "0": 63,
+        "2": 5
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 94,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 40,
+            "0": 49,
+            "2": 5
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 8,
+            "1": 4
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3,
+            "1": 5
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-20261101-20000-30",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 120,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 93,
+        "1": 25,
+        "2": 2
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 95,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 73,
+            "1": 20,
+            "2": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3,
+            "0": 9
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 9,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 2,
+            "0": 7
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-20261101-30000-4",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 115,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 27,
+        "2": 18,
+        "1": 57,
+        "4": 3,
+        "6": 1,
+        "3": 5,
+        "5": 4
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 93,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 25,
+            "2": 14,
+            "1": 43,
+            "4": 3,
+            "6": 1,
+            "3": 5,
+            "5": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 8,
+            "2": 3,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 1,
+            "5": 1,
+            "1": 5,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "5": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-20261101-30000-8",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 113,
+      "unknown": 0,
+      "physical_phases": {
+        "2": 19,
+        "0": 29,
+        "1": 50,
+        "3": 7,
+        "5": 3,
+        "4": 2,
+        "8": 1,
+        "6": 2
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 91,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 15,
+            "0": 22,
+            "1": 42,
+            "3": 6,
+            "5": 3,
+            "4": 1,
+            "8": 1,
+            "6": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 5
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 4,
+            "1": 4,
+            "0": 2,
+            "4": 1,
+            "3": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 7,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3,
+            "1": 3,
+            "6": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-20261101-30000-30",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "kind": "自主闭环",
+      "status": "评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 116,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 54,
+        "2": 11,
+        "1": 51
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "result_label": "完整十阶段 · N1 · 固定布局",
+      "display_priority": 200,
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 92,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 39,
+            "2": 8,
+            "1": 45
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 4
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 6,
+            "1": 3,
+            "2": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-attach-20261101-20000-4",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 110,
+      "unknown": 0,
+      "physical_phases": {
+        "1": 37,
+        "0": 73
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 90,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 32,
+            "0": 58
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 6
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 8,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 7,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-attach-20261101-20000-8",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 111,
+      "unknown": 0,
+      "physical_phases": {
+        "2": 5,
+        "0": 76,
+        "1": 30
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 91,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 4,
+            "0": 62,
+            "1": 25
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 5
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 11
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 6,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3,
+            "0": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-attach-20261101-20000-30",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 119,
+      "unknown": 0,
+      "physical_phases": {
+        "0": 87,
+        "1": 30,
+        "2": 2
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 95,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 69,
+            "1": 25,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 9,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 6,
+            "2": 1,
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-attach-20261101-30000-4",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 100,
+      "unknown": 0,
+      "physical_phases": {
+        "1": 35,
+        "0": 48,
+        "2": 15,
+        "5": 1,
+        "8": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 84,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 30,
+            "0": 39,
+            "2": 13,
+            "5": 1,
+            "8": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 12
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 10,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 6,
+            "1": 2,
+            "2": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 5,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3,
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {},
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-attach-20261101-30000-8",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 106,
+      "unknown": 0,
+      "physical_phases": {
+        "2": 24,
+        "1": 42,
+        "0": 31,
+        "3": 3,
+        "5": 5,
+        "4": 1
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 87,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 23,
+            "1": 33,
+            "0": 27,
+            "3": 2,
+            "5": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 9
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 5,
+            "3": 1,
+            "0": 3,
+            "5": 2,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 6,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 4,
+            "4": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {},
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "5": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
+    },
+    {
+      "id": "task10-mem0-attach-20261101-30000-30",
+      "record": "10-mem0-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "kind": "自主闭环 · 稳抓attach",
+      "status": "稳抓attach评测中（非最终成绩）",
+      "success": null,
+      "provisional_successes": 0,
+      "trials": 500,
+      "completed": 117,
+      "unknown": 0,
+      "physical_phases": {
+        "1": 63,
+        "0": 41,
+        "2": 13
+      },
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "result_label": "辅助接触 · 稳抓attach · 完整十阶段",
+      "display_priority": 200,
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/CANONICAL_FINAL_RESULTS.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "note": "5seed×100；每seed正逆各50条；完整6000条证据验收后发布总成功数/500及seed均值±样本标准差。",
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "per_seed": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 93,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 48,
+            "0": 34,
+            "2": 11
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 8,
+            "2": 1,
+            "0": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2,
+            "1": 5,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1,
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1,
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "success_rate_mean_pct": null,
+      "success_rate_std_pct": null
     }
   ],
   "agents": [
@@ -13039,1248 +13041,6 @@
       }
     },
     {
-      "id": "task10-mem0-20261101",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "final_verified": false,
-      "status": "running",
-      "completed": 688,
-      "target": 3000,
-      "provisional_successes": 0,
-      "active_apps": 103,
-      "active_by_seed": {
-        "910100": 59,
-        "920100": 5,
-        "930100": 17,
-        "940100": 8,
-        "950100": 8
-      },
-      "active_configurations": 12,
-      "active_seed_configurations": 37,
-      "max_parallel_apps": 104,
-      "gpus": 12,
-      "low_priority_GPUs_active": 12,
-      "resource_note": "当前分配12张低优Pro6000，另用既有双卡Pro（running）；最多104路独立N1，低优卡上限12。12配置与5seed交错派发，近两分钟有模型动作的seed为5/5组。",
-      "job_id": "job-hadgeut0kj2j, job-o9kk5wcw8p45, job-3kiixvrj0y7m",
-      "execution_class": "low_priority",
-      "shared_with_other_contact_condition": true,
-      "max_physical_phase": 8,
-      "launched": 791,
-      "counts": [
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "completed": 113,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "3": 1,
-            "1": 55,
-            "0": 57
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 7
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "completed": 116,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "1": 49,
-            "0": 62,
-            "2": 5
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 4
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "completed": 117,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "0": 90,
-            "1": 25,
-            "2": 2
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 2
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "completed": 114,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "0": 27,
-            "2": 18,
-            "1": 56,
-            "4": 3,
-            "6": 1,
-            "3": 5,
-            "5": 4
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 6
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "completed": 112,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "2": 19,
-            "0": 28,
-            "1": 50,
-            "3": 7,
-            "5": 3,
-            "4": 2,
-            "8": 1,
-            "6": 2
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 7
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "completed": 116,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "0": 54,
-            "2": 11,
-            "1": 51
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 3
-        }
-      ],
-      "per_seed_counts": [
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 92,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "3": 1,
-            "1": 47,
-            "0": 44
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 7,
-            "1": 4
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 5,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 93,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 39,
-            "0": 49,
-            "2": 5
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 8,
-            "1": 4
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 7,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2,
-            "1": 5
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 93,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 71,
-            "1": 20,
-            "2": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3,
-            "0": 9
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 2,
-            "0": 6
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 92,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 25,
-            "2": 14,
-            "1": 42,
-            "4": 3,
-            "6": 1,
-            "3": 5,
-            "5": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 4
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 8,
-            "2": 3,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 1,
-            "5": 1,
-            "1": 5,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "5": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 90,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 15,
-            "0": 21,
-            "1": 42,
-            "3": 6,
-            "5": 3,
-            "4": 1,
-            "8": 1,
-            "6": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 5
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 4,
-            "1": 4,
-            "0": 2,
-            "4": 1,
-            "3": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 7,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 3,
-            "1": 3,
-            "6": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 92,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 39,
-            "2": 8,
-            "1": 45
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 6,
-            "1": 3,
-            "2": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 5,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "off",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "evaluation_seeds": [
-        910100,
-        920100,
-        930100,
-        940100,
-        950100
-      ],
-      "trials_per_seed": 100,
-      "trials_per_configuration": 500,
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
-      "grasp_attachment": "off",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
-      "lossless_transport_optimization": {
-        "PNG_compress_level_before": 6,
-        "PNG_compress_level_after": 1,
-        "raw_RGB_bitwise_equal": true,
-        "model_control_and_acceptance_unchanged": true,
-        "CPU_roundtrip_median_ms_before": 157.7798598445952,
-        "CPU_roundtrip_median_ms_after": 40.19351955503225,
-        "scope": "Same-machine frozen-image CPU codec benchmark, not whole-evaluation speedup"
-      }
-    },
-    {
-      "id": "task10-mem0-attach-20261101",
-      "updated_at": "2026-11-01T14:12:18.334240+00:00",
-      "final_verified": false,
-      "status": "running",
-      "completed": 650,
-      "target": 3000,
-      "provisional_successes": 0,
-      "active_apps": 103,
-      "active_by_seed": {
-        "910100": 59,
-        "920100": 5,
-        "930100": 17,
-        "940100": 8,
-        "950100": 8
-      },
-      "active_configurations": 12,
-      "active_seed_configurations": 37,
-      "max_parallel_apps": 104,
-      "gpus": 12,
-      "low_priority_GPUs_active": 12,
-      "resource_note": "当前分配12张低优Pro6000，另用既有双卡Pro（running）；最多104路独立N1，低优卡上限12。12配置与5seed交错派发，近两分钟有模型动作的seed为5/5组。",
-      "job_id": "job-hadgeut0kj2j, job-o9kk5wcw8p45, job-3kiixvrj0y7m",
-      "execution_class": "low_priority",
-      "shared_with_other_contact_condition": true,
-      "max_physical_phase": 8,
-      "launched": 753,
-      "counts": [
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "completed": 107,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "1": 37,
-            "0": 70
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 14
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "completed": 109,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "2": 5,
-            "0": 75,
-            "1": 29
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 11
-        },
-        {
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "completed": 117,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "0": 85,
-            "1": 30,
-            "2": 2
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 3
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "completed": 98,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "1": 34,
-            "0": 47,
-            "2": 15,
-            "5": 1,
-            "8": 1
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 22
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "completed": 105,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "2": 24,
-            "1": 41,
-            "0": 31,
-            "3": 3,
-            "5": 5,
-            "4": 1
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 14
-        },
-        {
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "completed": 114,
-          "target": 500,
-          "successes": 0,
-          "physical_phases": {
-            "1": 61,
-            "0": 40,
-            "2": 13
-          },
-          "seed_count": 5,
-          "trials_per_seed": 100,
-          "success_rate_mean_pct": null,
-          "success_rate_std_pct": null,
-          "final_verified": false,
-          "active_model_lanes": 4
-        }
-      ],
-      "per_seed_counts": [
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 88,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 32,
-            "0": 56
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 8
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 8,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 6,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 4,
-            "1": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 89,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 4,
-            "0": 61,
-            "1": 24
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 6
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 11,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 11
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 6,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3,
-            "0": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 94,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 68,
-            "1": 25,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 9,
-            "1": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 6,
-            "2": 1,
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 20000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 910100,
-          "completed": 83,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 30,
-            "0": 38,
-            "2": 13,
-            "5": 1,
-            "8": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 13
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 920100,
-          "completed": 10,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 6,
-            "1": 2,
-            "2": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 930100,
-          "completed": 4,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 2,
-            "0": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 4
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 4,
-          "evaluation_seed": 950100,
-          "completed": 0,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {},
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 910100,
-          "completed": 87,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "2": 23,
-            "1": 33,
-            "0": 27,
-            "3": 2,
-            "5": 2
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 8
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 5,
-            "3": 1,
-            "0": 3,
-            "5": 2,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 930100,
-          "completed": 5,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 3,
-            "4": 1,
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 940100,
-          "completed": 0,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {},
-          "success_rate_pct": null,
-          "active_model_lanes": 2
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 8,
-          "evaluation_seed": 950100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "5": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 910100,
-          "completed": 91,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 47,
-            "0": 33,
-            "2": 11
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 3
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 920100,
-          "completed": 12,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "1": 8,
-            "2": 1,
-            "0": 3
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 930100,
-          "completed": 8,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 2,
-            "1": 5,
-            "2": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
-          "completed": 1,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 1
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v1",
-          "checkpoint_step": 30000,
-          "execution_horizon": 30,
-          "evaluation_seed": 950100,
-          "completed": 2,
-          "target": 100,
-          "successes": 0,
-          "physical_phases": {
-            "0": 1,
-            "1": 1
-          },
-          "success_rate_pct": null,
-          "active_model_lanes": 0
-        }
-      ],
-      "evaluation_seeds": [
-        910100,
-        920100,
-        930100,
-        940100,
-        950100
-      ],
-      "trials_per_seed": 100,
-      "trials_per_configuration": 500,
-      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
-      "grasp_attachment": "stable_grasp_fixed_joint_v1",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html"
-    },
-    {
       "id": "task7-all-20261101",
       "title": "七任务 · Mem-0 / TTC基础版 / 对齐loss / 削弱版",
       "task": "7",
@@ -17595,6 +16355,1250 @@
         "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/CLOUD_DISPATCH_STATE.json",
         "sha256": "e49c4227e53989812cebf20782545dcf118793e3042f55e7060f8070e912f72e"
       }
+    },
+    {
+      "id": "task10-mem0-20261101",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "final_verified": false,
+      "status": "running",
+      "completed": 697,
+      "target": 3000,
+      "provisional_successes": 0,
+      "active_apps": 96,
+      "active_by_seed": {
+        "910100": 55,
+        "920100": 7,
+        "930100": 16,
+        "940100": 8,
+        "950100": 7
+      },
+      "active_configurations": 12,
+      "active_seed_configurations": 39,
+      "max_parallel_apps": 104,
+      "gpus": 12,
+      "low_priority_GPUs_active": 12,
+      "resource_note": "当前分配12张低优Pro6000，另用既有双卡Pro（running）；最多104路独立N1，低优卡上限12。12配置与5seed交错派发，近两分钟有模型动作的seed为5/5组。",
+      "job_id": "job-hadgeut0kj2j, job-o9kk5wcw8p45, job-3kiixvrj0y7m",
+      "execution_class": "low_priority",
+      "shared_with_other_contact_condition": true,
+      "max_physical_phase": 8,
+      "launched": 793,
+      "counts": [
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "completed": 115,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "3": 1,
+            "1": 56,
+            "0": 58
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 8
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "completed": 118,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "1": 50,
+            "0": 63,
+            "2": 5
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 3
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "completed": 120,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "0": 93,
+            "1": 25,
+            "2": 2
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 2
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 115,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "0": 27,
+            "2": 18,
+            "1": 57,
+            "4": 3,
+            "6": 1,
+            "3": 5,
+            "5": 4
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 7
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 113,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "2": 19,
+            "0": 29,
+            "1": 50,
+            "3": 7,
+            "5": 3,
+            "4": 2,
+            "8": 1,
+            "6": 2
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 8
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 116,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "0": 54,
+            "2": 11,
+            "1": 51
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 5
+        }
+      ],
+      "per_seed_counts": [
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 93,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "3": 1,
+            "1": 48,
+            "0": 44
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 4
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 7,
+            "1": 4
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 94,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 40,
+            "0": 49,
+            "2": 5
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 8,
+            "1": 4
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3,
+            "1": 5
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 95,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 73,
+            "1": 20,
+            "2": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3,
+            "0": 9
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 9,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 2,
+            "0": 7
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 93,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 25,
+            "2": 14,
+            "1": 43,
+            "4": 3,
+            "6": 1,
+            "3": 5,
+            "5": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 8,
+            "2": 3,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 1,
+            "5": 1,
+            "1": 5,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "5": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 91,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 15,
+            "0": 22,
+            "1": 42,
+            "3": 6,
+            "5": 3,
+            "4": 1,
+            "8": 1,
+            "6": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 5
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 4,
+            "1": 4,
+            "0": 2,
+            "4": 1,
+            "3": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 7,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 3,
+            "1": 3,
+            "6": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 92,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 39,
+            "2": 8,
+            "1": 45
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 4
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 6,
+            "1": 3,
+            "2": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "off",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "evaluation_seeds": [
+        910100,
+        920100,
+        930100,
+        940100,
+        950100
+      ],
+      "trials_per_seed": 100,
+      "trials_per_configuration": 500,
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。",
+      "grasp_attachment": "off",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-20261101.html",
+      "lossless_transport_optimization": {
+        "PNG_compress_level_before": 6,
+        "PNG_compress_level_after": 1,
+        "raw_RGB_bitwise_equal": true,
+        "model_control_and_acceptance_unchanged": true,
+        "CPU_roundtrip_median_ms_before": 157.7798598445952,
+        "CPU_roundtrip_median_ms_after": 40.19351955503225,
+        "scope": "Same-machine frozen-image CPU codec benchmark, not whole-evaluation speedup"
+      }
+    },
+    {
+      "id": "task10-mem0-attach-20261101",
+      "updated_at": "2026-11-01T14:16:17.892995+00:00",
+      "final_verified": false,
+      "status": "running",
+      "completed": 663,
+      "target": 3000,
+      "provisional_successes": 0,
+      "active_apps": 96,
+      "active_by_seed": {
+        "910100": 55,
+        "920100": 7,
+        "930100": 16,
+        "940100": 8,
+        "950100": 7
+      },
+      "active_configurations": 12,
+      "active_seed_configurations": 39,
+      "max_parallel_apps": 104,
+      "gpus": 12,
+      "low_priority_GPUs_active": 12,
+      "resource_note": "当前分配12张低优Pro6000，另用既有双卡Pro（running）；最多104路独立N1，低优卡上限12。12配置与5seed交错派发，近两分钟有模型动作的seed为5/5组。",
+      "job_id": "job-hadgeut0kj2j, job-o9kk5wcw8p45, job-3kiixvrj0y7m",
+      "execution_class": "low_priority",
+      "shared_with_other_contact_condition": true,
+      "max_physical_phase": 8,
+      "launched": 759,
+      "counts": [
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "completed": 110,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "1": 37,
+            "0": 73
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 11
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "completed": 111,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "2": 5,
+            "0": 76,
+            "1": 30
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 10
+        },
+        {
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "completed": 119,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "0": 87,
+            "1": 30,
+            "2": 2
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 2
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "completed": 100,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "1": 35,
+            "0": 48,
+            "2": 15,
+            "5": 1,
+            "8": 1
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 20
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "completed": 106,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "2": 24,
+            "1": 42,
+            "0": 31,
+            "3": 3,
+            "5": 5,
+            "4": 1
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 14
+        },
+        {
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "completed": 117,
+          "target": 500,
+          "successes": 0,
+          "physical_phases": {
+            "1": 63,
+            "0": 41,
+            "2": 13
+          },
+          "seed_count": 5,
+          "trials_per_seed": 100,
+          "success_rate_mean_pct": null,
+          "success_rate_std_pct": null,
+          "final_verified": false,
+          "active_model_lanes": 3
+        }
+      ],
+      "per_seed_counts": [
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 90,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 32,
+            "0": 58
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 6
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 8,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 7,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 5,
+            "1": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 91,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 4,
+            "0": 62,
+            "1": 25
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 5
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 11,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 11
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 6,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3,
+            "0": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 95,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 69,
+            "1": 25,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 9,
+            "1": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 6,
+            "2": 1,
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 20000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 910100,
+          "completed": 84,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 30,
+            "0": 39,
+            "2": 13,
+            "5": 1,
+            "8": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 12
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 920100,
+          "completed": 10,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 6,
+            "1": 2,
+            "2": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 930100,
+          "completed": 5,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 3,
+            "0": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 940100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 4,
+          "evaluation_seed": 950100,
+          "completed": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {},
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 910100,
+          "completed": 87,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "2": 23,
+            "1": 33,
+            "0": 27,
+            "3": 2,
+            "5": 2
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 9
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 5,
+            "3": 1,
+            "0": 3,
+            "5": 2,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 930100,
+          "completed": 6,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 4,
+            "4": 1,
+            "0": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 940100,
+          "completed": 0,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {},
+          "success_rate_pct": null,
+          "active_model_lanes": 2
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 8,
+          "evaluation_seed": 950100,
+          "completed": 1,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "5": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 1
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 910100,
+          "completed": 93,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 48,
+            "0": 34,
+            "2": 11
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 3
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 920100,
+          "completed": 12,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "1": 8,
+            "2": 1,
+            "0": 3
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 930100,
+          "completed": 8,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 2,
+            "1": 5,
+            "2": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1,
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v1",
+          "checkpoint_step": 30000,
+          "execution_horizon": 30,
+          "evaluation_seed": 950100,
+          "completed": 2,
+          "target": 100,
+          "successes": 0,
+          "physical_phases": {
+            "0": 1,
+            "1": 1
+          },
+          "success_rate_pct": null,
+          "active_model_lanes": 0
+        }
+      ],
+      "evaluation_seeds": [
+        910100,
+        920100,
+        930100,
+        940100,
+        950100
+      ],
+      "trials_per_seed": 100,
+      "trials_per_configuration": 500,
+      "protocol": "固定训练布局，无位置泛化；5个评测seed：910100/920100/930100/940100/950100；每seed每配置100条，正序12345/逆序54321各50条；轨迹RNG=评测seed+轨迹序号0..99，不同权重、执行步数和接触条件使用配对RNG；每配置共500条。独立N1、CPU PhysX；chest原始RGB640×480+13维实测弧度；15Hz观测/120Hz物理；预测30步、去噪8步；使用原交付SDK预处理和完成判定；完整十阶段释放并稳定归位验收。 实验条件：真实抬升至少15mm、拇指与其他手指接触且相对姿态连续稳定0.2秒后，建立手掌与烧杯固定约束；冻结六个受控手指目标为实测抓姿，过滤本手与该杯碰撞；张手时解除并恢复碰撞。仍要求脱离约束后通过原稳定支撑验收。",
+      "grasp_attachment": "stable_grasp_fixed_joint_v1",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-mem0-attach-20261101.html"
     }
   ],
   "handoff_resolutions": [

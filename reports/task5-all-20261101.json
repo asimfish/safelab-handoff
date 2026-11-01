@@ -2,11 +2,11 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-01T08:09:00.505190+00:00",
+  "updated_at": "2026-11-01T08:14:58.626745+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 697,
-  "audited": 697,
+  "completed": 701,
+  "audited": 701,
   "target": 1800,
   "provisional_successes": 0,
   "active_apps": 16,
@@ -22,19 +22,19 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 32,
-      "audited": 32,
+      "completed": 35,
+      "audited": 35,
       "target": 100,
       "successes": 0,
       "physical_phases": {
-        "2": 8,
-        "0": 8,
+        "2": 9,
+        "0": 10,
         "1": 11,
         "3": 5
       },
       "layouts": {
-        "forward": 16,
-        "reverse": 16
+        "forward": 17,
+        "reverse": 18
       },
       "final_verified": false,
       "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
@@ -46,18 +46,18 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 8,
-      "completed": 33,
-      "audited": 33,
+      "completed": 34,
+      "audited": 34,
       "target": 100,
       "successes": 0,
       "physical_phases": {
-        "2": 7,
+        "2": 8,
         "0": 11,
         "3": 6,
         "1": 9
       },
       "layouts": {
-        "forward": 17,
+        "forward": 18,
         "reverse": 16
       },
       "final_verified": false,
@@ -9660,6 +9660,66 @@
       "physics_sha256": "383e1e3885dac9c13b1623c078b785b09d8f6728dcec754daab33a89d0648655"
     },
     {
+      "id": "old30_mem0_30000_h4_forward_025",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "forward",
+      "seed": 529025,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 2,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "56b5600002d0556d9bf7d789449fef630015bf444136a272d67ab236a4c37974"
+    },
+    {
+      "id": "old30_mem0_30000_h4_reverse_025",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 529075,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "d339afa5bb20b82c85720ab98b1891f2c735312f7827f768dedb7e51a4c6c268"
+    },
+    {
+      "id": "old30_mem0_30000_h8_forward_025",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "forward",
+      "seed": 529025,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 2,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "a54d6d9114d0ccbce51fc9d6397ddcaadf57bfb0325609c98db3b47f0145ebe5"
+    },
+    {
+      "id": "old30_mem0_30000_h4_reverse_027",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 529077,
+      "status": "physical_failure",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 96.50833333333334,
+      "failure_reason": "object_toppled",
+      "physics_sha256": "2b7f8e06130420429928087a575e5110db3ddbb14da4958774a23493500ca485"
+    },
+    {
       "id": "old30_mem0_30000_h8_forward_027",
       "variant": "old30",
       "checkpoint_step": 30000,
@@ -10936,8 +10996,8 @@
     }
   ],
   "source_status_epochs": [
-    1793520501.9638555,
-    1793520530.0707502
+    1793520838.4589512,
+    1793520840.4852989
   ],
   "global_low_priority_GPU_cap": 12,
   "resource_policy": "原始baseline与稳定抓取后固定关节辅助配置共用12卡低优上限。部分原始分片按计划暂停，已验收数据保留；全局队列在有空卡后按原冻结协议续跑。各面板的并发上限共享卡池，不可相加。"

@@ -62,7 +62,7 @@ try{
  assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile page contained, only table scrolls');
  await cmd('Page.navigate',{url:new URL('reports/task10-mem0-20261101.html',BASE).href});
  for(let i=0;i<100;i++){if(await run('document.querySelectorAll("#results tr").length===6'))break;await sleep(100);}
- assert(await run('document.querySelectorAll("#results tr").length===6&&document.querySelector("#status").textContent.includes("尚无最终")'),'report shows all six configurations without a premature final rate');
+ assert(await run('document.querySelectorAll("#results tr").length===6&&[...document.querySelectorAll("#results tr")].every(r=>r.lastElementChild.textContent==="待全部完成")'),'report shows all six configurations without a premature final rate');
  assert(await run('document.querySelectorAll("video").length===2'),'report provides both representative video views');
  assert(await run('Promise.all([...document.querySelectorAll("video")].map(async v=>(await fetch(v.src,{method:"HEAD"})).status===200)).then(results=>results.every(Boolean))'),'both report videos are served');
  await cmd('Page.navigate',{url:new URL('reports/task5-all-20261101.html',BASE).href});
@@ -70,6 +70,12 @@ try{
  assert(await run('document.querySelectorAll("#results tr").length===18&&document.querySelector("#progress").textContent.includes("已核验")'),'five-task report shows all18 configurations and audited counts');
  assert(await run('document.querySelector("#status").textContent.includes("尚无全量")'),'unfinished five-task report does not claim final success rate');
 
+ await cmd('Page.navigate',{url:new URL('reports/task7-all-20261101.html',BASE).href});
+ for(let i=0;i<100;i++){if(await run('document.querySelectorAll("#results tr").length===21'))break;await sleep(100);}
+ assert(await run('document.querySelectorAll("#results tr").length===21&&document.querySelector("#progress").textContent.includes("/2100")'),'seven-task report contains all21 cohorts and a fixed2100 target');
+ assert(await run('document.querySelector("#status").textContent.includes("部分配置")&&[...document.querySelectorAll("#results tr")].some(r=>r.cells[5].textContent==="12.0%")&&[...document.querySelectorAll("#results tr")].some(r=>r.cells[5].textContent==="进行中")'),'seven-task final scores and pending progress are visually distinct');
+ assert(await run('[...document.querySelectorAll("#results tr")].filter(r=>r.cells[4].textContent.includes("暂记")).every(r=>!r.cells[5].textContent.includes("%"))'),'unfinished seven-task cohorts never display a final percentage');
+ fs.writeFileSync(path.join(Q,'task7-progress.png'),Buffer.from((await cmd('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
  assert(await run('document.documentElement.scrollWidth<=innerWidth'),'mobile report remains contained');
  assert(errors.length===0,'no uncaught page exceptions');
  const result={passed:true,checks,errors,at:new Date().toISOString()};fs.writeFileSync(path.join(Q,'BROWSER_QA.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));

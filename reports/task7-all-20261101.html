@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>七任务 · 各方法完整成绩与评测进度</title><link rel="stylesheet" href="../style.css"><style>main{max-width:1280px}h1{font-size:26px}h2{font-size:19px}.summary,.table-wrap{background:#fff;border:1px solid var(--line);border-radius:8px;margin:20px 0;padding:16px}.table-wrap{overflow:auto;padding:0}td{white-space:normal;min-width:80px}.note{color:#65776d;font-size:13px;line-height:1.8}#error{color:#a43c25}#notes li{margin:8px 0}</style></head>
+<body><main><a href="../#task7">← 返回七任务交接表</a><h1>七任务：Mem-0、TTC 基础版、对齐 loss 与削弱版</h1>
+<p>胸部相机，V180 四杯称重前七阶段。分别执行 4、8、30 步，每组 100 条，1234 / 4321 各 50 条。原交付预处理与训练缩放对齐分别列出。</p>
+<section class="summary" aria-live="polite"><strong id="status">正在读取结果…</strong><p id="progress"></p><p id="resources"></p><p id="updated" class="note"></p><button id="refresh">刷新进度</button> <a href="task7-all-20261101.json">下载评测结果快照 JSON</a><p id="error" role="alert"></p></section>
+<div class="table-wrap"><table><thead><tr><th>方法 / 配置</th><th>权重</th><th>执行步数</th><th>已验收</th><th>全程成功数</th><th>最终成功率</th><th>推理图像处理</th></tr></thead><tbody id="results"></tbody></table></div>
+<p class="note">进行中只展示已验收数量与暂记成功数；没有跑满的失败条目不代表全部 100 条。每格验收及收尾完成后才显示最终百分比。仅完成全部七个物理阶段才算全程成功。</p>
+<h2>评测口径</h2><p id="protocol"></p><ul id="notes"></ul>
+<p>严格验收要求：XY 误差≤25mm，Z 误差≤12mm，直立程度≥0.97，存在目标支撑接触且右手已松开，连续稳定121个物理tick，漂移≤1mm、旋转变化≤0.02rad；前三杯归位，第四杯留在秤盘，其余烧杯保持归位。</p>
+<h2>历史四环境结果</h2><p class="note">下表保留历史 N4 结果。其观测与独立 N1 存在渲染差异，不能混入上面的 N1 汇总。</p><div class="table-wrap"><table><thead><tr><th>方法</th><th>权重</th><th>执行步数</th><th>历史成功数 / 总数</th></tr></thead><tbody id="n4"></tbody></table></div>
+<h2>结果来源</h2><p id="diagnostic" class="note"></p><p class="note">JSON 快照中保存来源文件标识及 SHA256。权重与交付文档可在主表逐行复制；文档里的 GPU 接口检查与100条闭环评测分别记录。</p>
+</main><script>
+'use strict';
+const $=id=>document.getElementById(id);
+const fill=(body,rows)=>{body.replaceChildren();for(const values of rows){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=String(value);tr.append(td);}body.append(tr);}};
+async function refresh(){try{
+ const response=await fetch('task7-all-20261101.json?t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('结果请求失败：'+response.status);const data=await response.json();
+ $('status').textContent=data.final_verified?'全部评测及核验完成':'部分配置已有完整成绩，其余并行评测中';
+ $('progress').textContent='已验收 '+data.audited+'/'+data.target+' 条；完整配置 '+data.counts.filter(c=>c.final_verified).length+'/'+data.counts.length+' 组。';
+ $('resources').textContent=data.gpus+'卡低优任务；'+data.active_apps+'路已启动独立单环境，上限'+data.max_parallel_apps+'路。'+data.resource_note;
+ $('updated').textContent='快照更新：'+new Date(data.updated_at).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'})+'（北京时间）；每5分钟重读已发布快照。';
+ fill($('results'),data.counts.map(c=>[c.method,c.checkpoint_step+' step',c.execution_horizon,c.audited+'/'+c.target,c.successes+(c.final_verified?'':'（暂记）'),c.final_verified?(100*c.final_success_rate).toFixed(1)+'%':c.completed===0?'待测 / 准备中':'进行中',c.actor_preprocessing]));
+ $('protocol').textContent=data.protocol;$('notes').replaceChildren();for(const note of data.scope_notes){const li=document.createElement('li');li.textContent=note;$('notes').append(li);}
+ fill($('n4'),data.historical_N4.map(c=>[c.method,c.checkpoint_step+' step',c.execution_horizon,c.successes+'/'+c.trials]));$('diagnostic').textContent=data.diagnostic_note;$('error').textContent='';
+}catch(error){$('error').textContent=error.message;}}
+$('refresh').onclick=refresh;refresh();setInterval(refresh,300000);
+</script></body></html>

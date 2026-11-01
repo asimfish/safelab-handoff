@@ -2,14 +2,14 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-01T09:48:35.251551+00:00",
+  "updated_at": "2026-11-01T09:59:31.827087+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 770,
-  "audited": 770,
+  "completed": 775,
+  "audited": 775,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 4,
+  "active_apps": 16,
   "max_parallel_apps": 60,
   "gpus": 4,
   "execution_class": "low_priority",
@@ -22,19 +22,19 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 56,
-      "audited": 56,
+      "completed": 58,
+      "audited": 58,
       "target": 500,
       "successes": 0,
       "physical_phases": {
         "2": 16,
-        "0": 15,
+        "0": 16,
         "1": 18,
-        "3": 7
+        "3": 8
       },
       "layouts": {
-        "forward": 28,
-        "reverse": 28
+        "forward": 29,
+        "reverse": 29
       },
       "final_verified": false,
       "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -42,8 +42,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 56,
-          "audited": 56,
+          "completed": 58,
+          "audited": 58,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -105,19 +105,19 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 8,
-      "completed": 56,
-      "audited": 56,
+      "completed": 58,
+      "audited": 58,
       "target": 500,
       "successes": 0,
       "physical_phases": {
         "2": 9,
         "0": 18,
-        "3": 11,
-        "1": 18
+        "3": 12,
+        "1": 19
       },
       "layouts": {
-        "forward": 28,
-        "reverse": 28
+        "forward": 29,
+        "reverse": 29
       },
       "final_verified": false,
       "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -125,8 +125,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 56,
-          "audited": 56,
+          "completed": 58,
+          "audited": 58,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -432,15 +432,15 @@
       "method": "Mem-0",
       "checkpoint_step": 20000,
       "execution_horizon": 30,
-      "completed": 88,
-      "audited": 88,
+      "completed": 89,
+      "audited": 89,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 88
+        "0": 89
       },
       "layouts": {
-        "forward": 42,
+        "forward": 43,
         "reverse": 46
       },
       "final_verified": false,
@@ -449,8 +449,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 88,
-          "audited": 88,
+          "completed": 89,
+          "audited": 89,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1487,7 +1487,7 @@
       "platform_status": "RUNNING",
       "planned_pause_for_shared12_cap": false,
       "runtime_status": "running",
-      "active_apps": 4
+      "active_apps": 16
     },
     {
       "job_id": "job-j0ykn5uqq4r7",
@@ -13171,6 +13171,74 @@
       "condition": "baseline"
     },
     {
+      "id": "old30_mem0_30000_h4_forward_049",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "forward",
+      "seed": 529049,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "ac1606a471dd3953c74972a965e15d91d1a77b53d422ff9e345986bea084d902",
+      "repeat": 0,
+      "condition": "baseline"
+    },
+    {
+      "id": "old30_mem0_30000_h4_reverse_049",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 529099,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 3,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "2323076a6157f8da5132e62b408ab55f06eb001c6e2daa93ba8cfe608089ae6d",
+      "repeat": 0,
+      "condition": "baseline"
+    },
+    {
+      "id": "old30_mem0_30000_h8_forward_049",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "forward",
+      "seed": 529049,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 1,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "cb80182ae4619198e438a2415389dda0a6cf41b2ba845f1c4825888067ae77a0",
+      "repeat": 0,
+      "condition": "baseline"
+    },
+    {
+      "id": "old30_mem0_30000_h8_reverse_049",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 529099,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 3,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "ffa551e5ebc1b4949c3ad2d32fb57a42c0e59a6f5adaf3042b0fb00f8b44ead1",
+      "repeat": 0,
+      "condition": "baseline"
+    },
+    {
       "id": "old30_mem0_30000_h30_forward_049",
       "variant": "old30",
       "checkpoint_step": 30000,
@@ -13201,6 +13269,23 @@
       "sim_seconds": 23.925,
       "failure_reason": "object_toppled",
       "physics_sha256": "d811ff099b3141ed75ee18e08f612983555fad3eca739d6923541a939db6eda9",
+      "repeat": 0,
+      "condition": "baseline"
+    },
+    {
+      "id": "new20_mem0_20000_h30_forward_041",
+      "variant": "new20",
+      "checkpoint_step": 20000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 729041,
+      "status": "physical_failure",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 12.191666666666666,
+      "failure_reason": "object_toppled",
+      "physics_sha256": "b8ace134058c17e2ee0b67f7d785f72c8ed06b588a45d6836e717bc319e9d97b",
       "repeat": 0,
       "condition": "baseline"
     },
@@ -14634,8 +14719,8 @@
     }
   ],
   "source_status_epochs": [
-    1793526495.1462002,
-    1793526485.5815744
+    1793527157.9212372,
+    1793527148.2933023
   ],
   "global_low_priority_GPU_cap": 12,
   "resource_policy": "原始baseline与稳定抓取后固定关节辅助配置共用12卡低优上限。部分原始分片按计划暂停，已验收数据保留；全局队列在有空卡后按原冻结协议续跑。各面板的并发上限共享卡池，不可相加。",

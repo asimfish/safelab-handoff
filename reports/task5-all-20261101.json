@@ -2,11 +2,11 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-01T08:14:58.626745+00:00",
+  "updated_at": "2026-11-01T08:22:52.481808+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 701,
-  "audited": 701,
+  "completed": 705,
+  "audited": 705,
   "target": 1800,
   "provisional_successes": 0,
   "active_apps": 16,
@@ -46,19 +46,19 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 8,
-      "completed": 34,
-      "audited": 34,
+      "completed": 35,
+      "audited": 35,
       "target": 100,
       "successes": 0,
       "physical_phases": {
         "2": 8,
         "0": 11,
         "3": 6,
-        "1": 9
+        "1": 10
       },
       "layouts": {
         "forward": 18,
-        "reverse": 16
+        "reverse": 17
       },
       "final_verified": false,
       "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
@@ -70,17 +70,17 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 30,
-      "completed": 32,
-      "audited": 32,
+      "completed": 35,
+      "audited": 35,
       "target": 100,
       "successes": 0,
       "physical_phases": {
         "1": 6,
-        "0": 26
+        "0": 29
       },
       "layouts": {
-        "forward": 16,
-        "reverse": 16
+        "forward": 17,
+        "reverse": 18
       },
       "final_verified": false,
       "protocol": "固定训练布局，不加位置扰动；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。"
@@ -9705,6 +9705,51 @@
       "physics_sha256": "a54d6d9114d0ccbce51fc9d6397ddcaadf57bfb0325609c98db3b47f0145ebe5"
     },
     {
+      "id": "old30_mem0_30000_h8_reverse_025",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 529075,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 1,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "1612d0aecf84b8c9e261fbe799458608ab7d50b15a434ac8bc5aca935d1e4079"
+    },
+    {
+      "id": "old30_mem0_30000_h30_forward_025",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 529025,
+      "status": "time_limit",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "failure_reason": null,
+      "physics_sha256": "0d66d2963636dbc842f8b0bc5242bd8ecb29661530cba8ca04780a65092cb7ba"
+    },
+    {
+      "id": "old30_mem0_30000_h30_reverse_025",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 529075,
+      "status": "physical_failure",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 198.48333333333332,
+      "failure_reason": "object_toppled",
+      "physics_sha256": "6eb9284d63189c57b9a8bc5ce010276601ab69e11897373e5d208d3d9d48959f"
+    },
+    {
       "id": "old30_mem0_30000_h4_reverse_027",
       "variant": "old30",
       "checkpoint_step": 30000,
@@ -9733,6 +9778,21 @@
       "sim_seconds": 41.916666666666664,
       "failure_reason": "object_toppled",
       "physics_sha256": "ba5c114615f0587df74254ae6d18fd5122ed6b53ae1f7b1651c09e33b5203722"
+    },
+    {
+      "id": "old30_mem0_30000_h30_reverse_029",
+      "variant": "old30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 529079,
+      "status": "physical_failure",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 21.858333333333334,
+      "failure_reason": "object_toppled",
+      "physics_sha256": "bf8911aea9e63fb7dfb7475d6f4ea1f95c00cc8b64c829f798a834b55228f6d5"
     },
     {
       "id": "weak20_mem0_20000_h4_forward_000",
@@ -10996,8 +11056,8 @@
     }
   ],
   "source_status_epochs": [
-    1793520838.4589512,
-    1793520840.4852989
+    1793521362.533593,
+    1793521355.8800313
   ],
   "global_low_priority_GPU_cap": 12,
   "resource_policy": "原始baseline与稳定抓取后固定关节辅助配置共用12卡低优上限。部分原始分片按计划暂停，已验收数据保留；全局队列在有空卡后按原冻结协议续跑。各面板的并发上限共享卡池，不可相加。"

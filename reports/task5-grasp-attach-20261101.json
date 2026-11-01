@@ -2,12 +2,12 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-01T08:13:12.945011+00:00",
+  "updated_at": "2026-11-01T08:22:26.367195+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "running",
-  "completed": 0,
-  "audited": 0,
+  "completed": 2,
+  "audited": 2,
   "target": 1800,
   "provisional_successes": 0,
   "active_apps": 40,
@@ -132,15 +132,19 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 0,
-      "audited": 0,
+      "completed": 1,
+      "audited": 1,
       "target": 100,
       "successes": 0,
-      "physical_phases": {},
+      "physical_phases": {
+        "0": 1
+      },
       "trials_attached": 0,
       "attach_events": 0,
       "policy_release_events": 0,
-      "layouts": {},
+      "layouts": {
+        "reverse": 1
+      },
       "final_verified": false
     },
     {
@@ -150,15 +154,19 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 8,
-      "completed": 0,
-      "audited": 0,
+      "completed": 1,
+      "audited": 1,
       "target": 100,
       "successes": 0,
-      "physical_phases": {},
+      "physical_phases": {
+        "0": 1
+      },
       "trials_attached": 0,
       "attach_events": 0,
       "policy_release_events": 0,
-      "layouts": {},
+      "layouts": {
+        "reverse": 1
+      },
       "final_verified": false
     },
     {
@@ -349,7 +357,7 @@
       "gpus": 4,
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 0,
+      "completed": 2,
       "active_apps": 20,
       "capacity": {
         "slots_per_GPU": 5,
@@ -361,18 +369,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793520774.0908973,
+        "epoch": 1793521326.0835536,
         "status": "running",
-        "completed": 0,
+        "completed": 2,
         "target": 900,
         "memory": {
           "limit": "858993459200",
-          "current": "260129591296",
+          "current": "283460067328",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 17750986752
+          "shm_used": 29849128960
         },
-        "gpu": "0, 29431, 3\n1, 28822, 3\n2, 11184, 3\n3, 11184, 3\n"
+        "gpu": "0, 49587, 26\n1, 43996, 61\n2, 26579, 28\n3, 31469, 72\n"
       },
       "startup_gates": 4,
       "error": false,
@@ -396,18 +404,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793520751.4533553,
+        "epoch": 1793521333.7221856,
         "status": "running",
         "completed": 0,
         "target": 900,
         "memory": {
           "limit": "858993459200",
-          "current": "148089573376",
+          "current": "306935545856",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 613322752
+          "shm_used": 15145091072
         },
-        "gpu": "0, 46920, 0\n1, 48238, 3\n2, 47320, 0\n3, 28922, 1\n"
+        "gpu": "0, 68485, 44\n1, 68353, 45\n2, 69278, 41\n3, 50555, 53\n"
       },
       "startup_gates": 4,
       "error": false,
@@ -445,5 +453,38 @@
     "native_drive_targets_verified": true,
     "unscored_canary_excluded": true
   },
-  "cases": []
+  "cases": [
+    {
+      "id": "attach__new30_mem0_30000_h4_reverse_000",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 730000,
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 29.0,
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "attached_ticks": 0,
+      "physics_sha256": "8e5c084783b2e87f35b8e976eeffbab8fd0b9b2454c00a5e3d78b41dd134da8c"
+    },
+    {
+      "id": "attach__new30_mem0_30000_h8_reverse_000",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 730000,
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 30.016666666666666,
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "attached_ticks": 0,
+      "physics_sha256": "ff2f752c59da02fb78c958a4a24a7961c24ab106a0887e95b1615abfe9ca876e"
+    }
+  ]
 }

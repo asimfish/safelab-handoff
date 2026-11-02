@@ -12,7 +12,7 @@ video{display:block;width:100%;max-width:640px;background:#171d24}details{border
 <a href="../index.html">← 返回评测面板</a>
 <h1>十任务 · Mem-0削弱版与对齐Loss</h1>
 <p id="summary">正在读取进度…</p>
-<p class="note">每版30k：执行4/8/30步 × 原始接触/稳抓attach v2 × 5seed × 100条，共3000条。每进程1个独立原生环境，每卡最多8个仿真进程。附着v2原配置为机械臂请求128、场景上限32，实际请求被裁剪；修正上限的版本将另列，与旧版附着结果分开。未完成独立审计前只显示暂记成功数。</p>
+<p class="note">每版30k：执行4/8/30步 × 原始接触/稳抓attach v2 × 5seed × 100条，共3000条。每进程1个独立原生环境，每卡最多8个仿真进程。附着v2为机械臂原生读回128、场景配置上限32；这个上限对原生控制接口的实际影响仍在验证，不能据此认定故障根因。候选版本另列，与旧版附着结果分开。未完成独立审计前只显示暂记成功数。</p>
 <p id="attachment-validation" class="note">附着配置的修正正在做独立回放核验；回放不计入模型成绩。</p>
 <div class="scroll"><table>
 <thead><tr><th>方法</th><th>接触条件</th><th>执行步数</th><th>有效已测 / 目标</th><th>约束异常待处理</th><th>完整十阶段成功数</th><th>状态</th></tr></thead>
@@ -24,7 +24,7 @@ video{display:block;width:100%;max-width:640px;background:#171d24}details{border
 <div id="examples"></div>
 <script>
 const methodName=m=>m==='mem0_weak'?'Mem-0 削弱版':'对齐 Loss';
-const contactName=m=>m==='off'?'原始接触':'稳抓attach v2（场景限32）';
+const contactName=m=>m==='off'?'原始接触':'稳抓attach v2（关节128/场景上限32）';
 fetch('task10-new-variants-20261102.json',{cache:'no-store',signal:AbortSignal.timeout(20000)})
 .then(r=>{if(!r.ok)throw Error(r.status);return r.json()})
 .then(d=>{

@@ -2,7 +2,7 @@
   "id": "task7-all-20261101",
   "title": "七任务 · Mem-0 / TTC基础版 / 对齐loss / 削弱版",
   "task": "7",
-  "updated_at": "2026-11-02T05:55:59.014339+00:00",
+  "updated_at": "2026-11-02T10:02:48.036692+00:00",
   "final_verified": false,
   "status": "paused",
   "completed": 1808,
@@ -600,7 +600,7 @@
   "observation_sources": {
     "weak": {
       "runtime_epoch": 1793533820.2345374,
-      "runtime_age_seconds": 65138.77536940575,
+      "runtime_age_seconds": 79947.7977502346,
       "platform_status": "SUCCEEDED",
       "current_runtime_observation": false,
       "kind": "verified_immutable_terminal",
@@ -610,7 +610,7 @@
     },
     "training_resize": {
       "runtime_epoch": 1793536256.672569,
-      "runtime_age_seconds": 62702.33891224861,
+      "runtime_age_seconds": 77511.36126828194,
       "platform_status": "SUCCEEDED",
       "current_runtime_observation": false,
       "kind": "verified_immutable_terminal",
@@ -620,7 +620,7 @@
     },
     "ours20k": {
       "runtime_epoch": 1793598451.9738395,
-      "runtime_age_seconds": 507.0413360595703,
+      "runtime_age_seconds": 15316.063846588135,
       "platform_status": "STOPPED",
       "current_runtime_observation": false,
       "kind": "historical_stopped_snapshot",
@@ -750,13 +750,13 @@
     "id": "task7-grasp-attach-20261101",
     "title": "七任务 · 稳定抓起后固定关节（独立辅助条件）",
     "task": "7",
-    "updated_at": "2026-11-02T05:55:59.055319+00:00",
+    "updated_at": "2026-11-02T10:02:48.077894+00:00",
     "metric_role": "assisted",
     "condition": "stable_grasp_fixed_joint_v2_restanchor",
     "status": "partially_interrupted",
-    "status_label": "5种模型继续运行 · 2种中断待恢复",
-    "completed": 1009,
-    "audited": 1009,
+    "status_label": "4种模型继续运行 · 3种中断待恢复",
+    "completed": 1239,
+    "audited": 1239,
     "target": 10500,
     "seed_count": 5,
     "trials_per_seed": 100,
@@ -768,9 +768,9 @@
       779000
     ],
     "std_convention": "sample, ddof=1",
-    "provisional_successes": 9,
+    "provisional_successes": 11,
     "final_verified": false,
-    "active_apps": 20,
+    "active_apps": 16,
     "max_parallel_apps": 24,
     "gpus": 12,
     "new_low_priority_gpus": 12,
@@ -783,8 +783,8 @@
         "variant": "mem0_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 4,
-        "completed": 90,
-        "audited": 90,
+        "completed": 99,
+        "audited": 99,
         "target": 500,
         "successes": 1,
         "final_verified": false,
@@ -815,12 +815,12 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "completed": 14,
-            "audited": 14,
+            "completed": 23,
+            "audited": 23,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 13,
+              "1234": 22,
               "4321": 1
             },
             "final_verified": false,
@@ -877,20 +877,20 @@
           }
         ],
         "orders": {
-          "1234": 63,
+          "1234": 72,
           "4321": 27
         },
-        "trials_attached": 88,
-        "attachment_activations": 264,
-        "policy_releases": 257,
+        "trials_attached": 97,
+        "attachment_activations": 287,
+        "policy_releases": 280,
         "physical_phases": {
-          "0": 3,
+          "0": 4,
           "1": 6,
-          "2": 52,
+          "2": 58,
           "3": 2,
-          "4": 13,
+          "4": 14,
           "5": 7,
-          "6": 6,
+          "6": 7,
           "7": 1
         },
         "record": "7-mem0",
@@ -898,21 +898,21 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
-        "runtime_status": "running",
-        "status_label": "运行中",
+        "runtime_status": "interrupted",
+        "status_label": "中断待恢复",
         "runtime_sources": [
           {
             "worker": "0",
             "source": "formal:mem0_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
+            "status": "interrupted",
+            "status_label": "观测过期 · 中断待恢复",
+            "active_apps": 0,
             "job_id": "job-rc28p5wx2i9q",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598910.6047907,
-            "source_heartbeat_age_s": 48.451525926589966
+            "source_heartbeat_epoch": 1793609919.8082476,
+            "source_heartbeat_age_s": 3848.2702481746674
           }
         ]
       },
@@ -920,10 +920,10 @@
         "variant": "mem0_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 8,
-        "completed": 114,
-        "audited": 114,
+        "completed": 133,
+        "audited": 133,
         "target": 500,
-        "successes": 2,
+        "successes": 4,
         "final_verified": false,
         "final_success_rate": null,
         "mean_success_rate": null,
@@ -952,12 +952,12 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "completed": 25,
-            "audited": 25,
+            "completed": 44,
+            "audited": 44,
             "target": 100,
-            "successes": 0,
+            "successes": 2,
             "orders": {
-              "1234": 24,
+              "1234": 43,
               "4321": 1
             },
             "final_verified": false,
@@ -1014,42 +1014,42 @@
           }
         ],
         "orders": {
-          "1234": 74,
+          "1234": 93,
           "4321": 40
         },
-        "trials_attached": 109,
-        "attachment_activations": 317,
-        "policy_releases": 314,
+        "trials_attached": 127,
+        "attachment_activations": 388,
+        "policy_releases": 384,
         "physical_phases": {
-          "0": 13,
+          "0": 15,
           "1": 13,
-          "2": 54,
-          "3": 6,
-          "4": 10,
-          "5": 12,
+          "2": 59,
+          "3": 10,
+          "4": 12,
+          "5": 16,
           "6": 4,
-          "7": 2
+          "7": 4
         },
         "record": "7-mem0",
         "method": "Mem-0",
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
-        "runtime_status": "running",
-        "status_label": "运行中",
+        "runtime_status": "interrupted",
+        "status_label": "中断待恢复",
         "runtime_sources": [
           {
             "worker": "0",
             "source": "formal:mem0_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
+            "status": "interrupted",
+            "status_label": "观测过期 · 中断待恢复",
+            "active_apps": 0,
             "job_id": "job-rc28p5wx2i9q",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598910.6047907,
-            "source_heartbeat_age_s": 48.451525926589966
+            "source_heartbeat_epoch": 1793609919.8082476,
+            "source_heartbeat_age_s": 3848.2702481746674
           }
         ]
       },
@@ -1057,8 +1057,8 @@
         "variant": "mem0_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 30,
-        "completed": 92,
-        "audited": 92,
+        "completed": 101,
+        "audited": 101,
         "target": 500,
         "successes": 2,
         "final_verified": false,
@@ -1089,12 +1089,12 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "completed": 14,
-            "audited": 14,
+            "completed": 23,
+            "audited": 23,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 13,
+              "1234": 22,
               "4321": 1
             },
             "final_verified": false,
@@ -1151,17 +1151,17 @@
           }
         ],
         "orders": {
-          "1234": 63,
+          "1234": 72,
           "4321": 29
         },
-        "trials_attached": 85,
-        "attachment_activations": 217,
-        "policy_releases": 216,
+        "trials_attached": 94,
+        "attachment_activations": 237,
+        "policy_releases": 236,
         "physical_phases": {
           "0": 12,
-          "1": 32,
-          "2": 27,
-          "3": 9,
+          "1": 38,
+          "2": 28,
+          "3": 11,
           "4": 6,
           "5": 2,
           "6": 2,
@@ -1172,21 +1172,21 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
-        "runtime_status": "running",
-        "status_label": "运行中",
+        "runtime_status": "interrupted",
+        "status_label": "中断待恢复",
         "runtime_sources": [
           {
             "worker": "0",
             "source": "formal:mem0_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
+            "status": "interrupted",
+            "status_label": "观测过期 · 中断待恢复",
+            "active_apps": 0,
             "job_id": "job-rc28p5wx2i9q",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598910.6047907,
-            "source_heartbeat_age_s": 48.451525926589966
+            "source_heartbeat_epoch": 1793609919.8082476,
+            "source_heartbeat_age_s": 3848.2702481746674
           }
         ]
       },
@@ -1194,8 +1194,8 @@
         "variant": "ours_native_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 4,
-        "completed": 25,
-        "audited": 25,
+        "completed": 35,
+        "audited": 35,
         "target": 500,
         "successes": 0,
         "final_verified": false,
@@ -1210,12 +1210,12 @@
             "repeat": 0,
             "evaluation_seed": 739000,
             "run_seed": 739000,
-            "completed": 21,
-            "audited": 21,
+            "completed": 31,
+            "audited": 31,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 20,
+              "1234": 30,
               "4321": 1
             },
             "final_verified": false,
@@ -1288,16 +1288,16 @@
           }
         ],
         "orders": {
-          "1234": 22,
+          "1234": 32,
           "4321": 3
         },
-        "trials_attached": 11,
-        "attachment_activations": 13,
-        "policy_releases": 13,
+        "trials_attached": 18,
+        "attachment_activations": 21,
+        "policy_releases": 21,
         "physical_phases": {
-          "0": 14,
-          "1": 10,
-          "2": 1,
+          "0": 17,
+          "1": 16,
+          "2": 2,
           "3": 0,
           "4": 0,
           "5": 0,
@@ -1309,7 +1309,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "running",
         "status_label": "运行中",
@@ -1322,8 +1322,8 @@
             "active_apps": 4,
             "job_id": "job-9algmr9m5qnx",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1354601,
-            "source_heartbeat_age_s": 38.92085647583008
+            "source_heartbeat_epoch": 1793613683.706735,
+            "source_heartbeat_age_s": 84.37176084518433
           }
         ]
       },
@@ -1331,8 +1331,8 @@
         "variant": "ours_native_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 8,
-        "completed": 37,
-        "audited": 37,
+        "completed": 55,
+        "audited": 55,
         "target": 500,
         "successes": 0,
         "final_verified": false,
@@ -1347,12 +1347,12 @@
             "repeat": 0,
             "evaluation_seed": 739000,
             "run_seed": 739000,
-            "completed": 34,
-            "audited": 34,
+            "completed": 51,
+            "audited": 51,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 33,
+              "1234": 50,
               "4321": 1
             },
             "final_verified": false,
@@ -1363,12 +1363,12 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "completed": 2,
-            "audited": 2,
+            "completed": 3,
+            "audited": 3,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 1,
+              "1234": 2,
               "4321": 1
             },
             "final_verified": false,
@@ -1425,15 +1425,15 @@
           }
         ],
         "orders": {
-          "1234": 35,
+          "1234": 53,
           "4321": 2
         },
-        "trials_attached": 27,
-        "attachment_activations": 28,
-        "policy_releases": 28,
+        "trials_attached": 37,
+        "attachment_activations": 38,
+        "policy_releases": 38,
         "physical_phases": {
-          "0": 11,
-          "1": 26,
+          "0": 19,
+          "1": 36,
           "2": 0,
           "3": 0,
           "4": 0,
@@ -1446,7 +1446,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "running",
         "status_label": "运行中",
@@ -1459,8 +1459,8 @@
             "active_apps": 4,
             "job_id": "job-9algmr9m5qnx",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1354601,
-            "source_heartbeat_age_s": 38.92085647583008
+            "source_heartbeat_epoch": 1793613683.706735,
+            "source_heartbeat_age_s": 84.37176084518433
           }
         ]
       },
@@ -1468,8 +1468,8 @@
         "variant": "ours_native_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 30,
-        "completed": 26,
-        "audited": 26,
+        "completed": 36,
+        "audited": 36,
         "target": 500,
         "successes": 1,
         "final_verified": false,
@@ -1484,12 +1484,12 @@
             "repeat": 0,
             "evaluation_seed": 739000,
             "run_seed": 739000,
-            "completed": 21,
-            "audited": 21,
+            "completed": 31,
+            "audited": 31,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 20,
+              "1234": 30,
               "4321": 1
             },
             "final_verified": false,
@@ -1562,19 +1562,19 @@
           }
         ],
         "orders": {
-          "1234": 23,
+          "1234": 33,
           "4321": 3
         },
-        "trials_attached": 21,
-        "attachment_activations": 49,
-        "policy_releases": 49,
+        "trials_attached": 25,
+        "attachment_activations": 68,
+        "policy_releases": 68,
         "physical_phases": {
-          "0": 5,
-          "1": 13,
+          "0": 11,
+          "1": 14,
           "2": 4,
           "3": 1,
           "4": 1,
-          "5": 1,
+          "5": 4,
           "6": 0,
           "7": 1
         },
@@ -1583,7 +1583,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "running",
         "status_label": "运行中",
@@ -1596,8 +1596,8 @@
             "active_apps": 4,
             "job_id": "job-9algmr9m5qnx",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1354601,
-            "source_heartbeat_age_s": 38.92085647583008
+            "source_heartbeat_epoch": 1793613683.706735,
+            "source_heartbeat_age_s": 84.37176084518433
           }
         ]
       },
@@ -1720,7 +1720,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "interrupted",
         "status_label": "中断待恢复",
@@ -1734,7 +1734,7 @@
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793573705.9555767,
-            "source_heartbeat_age_s": 25253.100739955902
+            "source_heartbeat_age_s": 40062.12291908264
           }
         ]
       },
@@ -1857,7 +1857,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "interrupted",
         "status_label": "中断待恢复",
@@ -1871,7 +1871,7 @@
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793573705.9555767,
-            "source_heartbeat_age_s": 25253.100739955902
+            "source_heartbeat_age_s": 40062.12291908264
           }
         ]
       },
@@ -1994,7 +1994,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "interrupted",
         "status_label": "中断待恢复",
@@ -2008,7 +2008,7 @@
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793573705.9555767,
-            "source_heartbeat_age_s": 25253.100739955902
+            "source_heartbeat_age_s": 40062.12291908264
           }
         ]
       },
@@ -2131,7 +2131,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "interrupted",
         "status_label": "中断待恢复",
@@ -2140,12 +2140,12 @@
             "worker": "4",
             "source": "formal:ours_aligned_30k",
             "status": "interrupted",
-            "status_label": "运行检查未通过 · 中断待恢复",
+            "status_label": "观测过期 · 中断待恢复",
             "active_apps": 0,
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793598864.2990308,
-            "source_heartbeat_age_s": 94.75728583335876
+            "source_heartbeat_age_s": 14903.779464960098
           }
         ]
       },
@@ -2268,7 +2268,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "interrupted",
         "status_label": "中断待恢复",
@@ -2277,12 +2277,12 @@
             "worker": "4",
             "source": "formal:ours_aligned_30k",
             "status": "interrupted",
-            "status_label": "运行检查未通过 · 中断待恢复",
+            "status_label": "观测过期 · 中断待恢复",
             "active_apps": 0,
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793598864.2990308,
-            "source_heartbeat_age_s": 94.75728583335876
+            "source_heartbeat_age_s": 14903.779464960098
           }
         ]
       },
@@ -2405,7 +2405,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "interrupted",
         "status_label": "中断待恢复",
@@ -2414,12 +2414,12 @@
             "worker": "4",
             "source": "formal:ours_aligned_30k",
             "status": "interrupted",
-            "status_label": "运行检查未通过 · 中断待恢复",
+            "status_label": "观测过期 · 中断待恢复",
             "active_apps": 0,
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793598864.2990308,
-            "source_heartbeat_age_s": 94.75728583335876
+            "source_heartbeat_age_s": 14903.779464960098
           }
         ]
       },
@@ -2427,967 +2427,8 @@
         "variant": "mem0_weak_30k",
         "checkpoint_step": 30000,
         "execution_horizon": 4,
-        "completed": 33,
-        "audited": 33,
-        "target": 500,
-        "successes": 0,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 25,
-            "audited": 25,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 24,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 28,
-          "4321": 5
-        },
-        "trials_attached": 31,
-        "attachment_activations": 74,
-        "policy_releases": 73,
-        "physical_phases": {
-          "0": 3,
-          "1": 3,
-          "2": 21,
-          "3": 3,
-          "4": 3,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "record": "7-mem0-weak",
-        "method": "Mem-0 · 削弱版",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "5",
-            "source": "formal:mem0_weak_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-0kanmdq74b8k",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598945.4086719,
-            "source_heartbeat_age_s": 13.647644758224487
-          }
-        ]
-      },
-      {
-        "variant": "mem0_weak_30k",
-        "checkpoint_step": 30000,
-        "execution_horizon": 8,
-        "completed": 56,
-        "audited": 56,
-        "target": 500,
-        "successes": 1,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 48,
-            "audited": 48,
-            "target": 100,
-            "successes": 1,
-            "orders": {
-              "1234": 47,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 51,
-          "4321": 5
-        },
-        "trials_attached": 53,
-        "attachment_activations": 127,
-        "policy_releases": 125,
-        "physical_phases": {
-          "0": 6,
-          "1": 12,
-          "2": 28,
-          "3": 7,
-          "4": 1,
-          "5": 1,
-          "6": 0,
-          "7": 1
-        },
-        "record": "7-mem0-weak",
-        "method": "Mem-0 · 削弱版",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "5",
-            "source": "formal:mem0_weak_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-0kanmdq74b8k",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598945.4086719,
-            "source_heartbeat_age_s": 13.647644758224487
-          }
-        ]
-      },
-      {
-        "variant": "mem0_weak_30k",
-        "checkpoint_step": 30000,
-        "execution_horizon": 30,
-        "completed": 34,
-        "audited": 34,
-        "target": 500,
-        "successes": 0,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 26,
-            "audited": 26,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 25,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 2,
-            "audited": 2,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 1,
-              "4321": 1
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 29,
-          "4321": 5
-        },
-        "trials_attached": 30,
-        "attachment_activations": 63,
-        "policy_releases": 63,
-        "physical_phases": {
-          "0": 6,
-          "1": 15,
-          "2": 8,
-          "3": 1,
-          "4": 3,
-          "5": 1,
-          "6": 0,
-          "7": 0
-        },
-        "record": "7-mem0-weak",
-        "method": "Mem-0 · 削弱版",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "5",
-            "source": "formal:mem0_weak_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-0kanmdq74b8k",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598945.4086719,
-            "source_heartbeat_age_s": 13.647644758224487
-          }
-        ]
-      },
-      {
-        "variant": "mem0_20k",
-        "checkpoint_step": 20000,
-        "execution_horizon": 4,
-        "completed": 62,
-        "audited": 62,
-        "target": 500,
-        "successes": 0,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 33,
-            "audited": 33,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 29,
-              "4321": 4
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 8,
-            "audited": 8,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 4
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 45,
-          "4321": 17
-        },
-        "trials_attached": 58,
-        "attachment_activations": 109,
-        "policy_releases": 100,
-        "physical_phases": {
-          "0": 5,
-          "1": 28,
-          "2": 22,
-          "3": 7,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "record": "7-mem0",
-        "method": "Mem-0",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "1",
-            "source": "formal:mem0_20k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-rc28p5wx2i9q",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598934.2913418,
-            "source_heartbeat_age_s": 24.76497483253479
-          }
-        ]
-      },
-      {
-        "variant": "mem0_20k",
-        "checkpoint_step": 20000,
-        "execution_horizon": 8,
-        "completed": 79,
-        "audited": 79,
-        "target": 500,
-        "successes": 0,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 50,
-            "audited": 50,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 46,
-              "4321": 4
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 8,
-            "audited": 8,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 4
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 62,
-          "4321": 17
-        },
-        "trials_attached": 71,
-        "attachment_activations": 143,
-        "policy_releases": 129,
-        "physical_phases": {
-          "0": 12,
-          "1": 33,
-          "2": 18,
-          "3": 16,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "record": "7-mem0",
-        "method": "Mem-0",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "1",
-            "source": "formal:mem0_20k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-rc28p5wx2i9q",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598934.2913418,
-            "source_heartbeat_age_s": 24.76497483253479
-          }
-        ]
-      },
-      {
-        "variant": "mem0_20k",
-        "checkpoint_step": 20000,
-        "execution_horizon": 30,
-        "completed": 64,
-        "audited": 64,
-        "target": 500,
-        "successes": 0,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 34,
-            "audited": 34,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 30,
-              "4321": 4
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 9,
-            "audited": 9,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 5,
-              "4321": 4
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 7,
-            "audited": 7,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 4,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 47,
-          "4321": 17
-        },
-        "trials_attached": 48,
-        "attachment_activations": 77,
-        "policy_releases": 77,
-        "physical_phases": {
-          "0": 28,
-          "1": 23,
-          "2": 9,
-          "3": 3,
-          "4": 1,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "record": "7-mem0",
-        "method": "Mem-0",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "1",
-            "source": "formal:mem0_20k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-rc28p5wx2i9q",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598934.2913418,
-            "source_heartbeat_age_s": 24.76497483253479
-          }
-        ]
-      },
-      {
-        "variant": "ours_native_20k",
-        "checkpoint_step": 20000,
-        "execution_horizon": 4,
-        "completed": 47,
-        "audited": 47,
-        "target": 500,
-        "successes": 0,
-        "final_verified": false,
-        "final_success_rate": null,
-        "mean_success_rate": null,
-        "std_success_rate": null,
-        "std_convention": "sample, ddof=1",
-        "seed_count": 5,
-        "trials_per_seed": 100,
-        "seeds": [
-          {
-            "repeat": 0,
-            "evaluation_seed": 739000,
-            "run_seed": 739000,
-            "completed": 23,
-            "audited": 23,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 20,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": true,
-            "success_rate": null
-          },
-          {
-            "repeat": 1,
-            "evaluation_seed": 749000,
-            "run_seed": 749000,
-            "completed": 6,
-            "audited": 6,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 3,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 2,
-            "evaluation_seed": 759000,
-            "run_seed": 759000,
-            "completed": 6,
-            "audited": 6,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 3,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 3,
-            "evaluation_seed": 769000,
-            "run_seed": 769000,
-            "completed": 6,
-            "audited": 6,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 3,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          },
-          {
-            "repeat": 4,
-            "evaluation_seed": 779000,
-            "run_seed": 779000,
-            "completed": 6,
-            "audited": 6,
-            "target": 100,
-            "successes": 0,
-            "orders": {
-              "1234": 3,
-              "4321": 3
-            },
-            "final_verified": false,
-            "original_group_preserved": false,
-            "success_rate": null
-          }
-        ],
-        "orders": {
-          "1234": 32,
-          "4321": 15
-        },
-        "trials_attached": 29,
-        "attachment_activations": 31,
-        "policy_releases": 28,
-        "physical_phases": {
-          "0": 19,
-          "1": 28,
-          "2": 0,
-          "3": 0,
-          "4": 0,
-          "5": 0,
-          "6": 0,
-          "7": 0
-        },
-        "record": "7-ours",
-        "method": "TTC · 基础版",
-        "metric_role": "assisted",
-        "source_evidence": {
-          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
-        },
-        "runtime_status": "running",
-        "status_label": "运行中",
-        "runtime_sources": [
-          {
-            "worker": "3",
-            "source": "formal:ours_native_20k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
-            "job_id": "job-9algmr9m5qnx",
-            "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1119766,
-            "source_heartbeat_age_s": 38.944339990615845
-          }
-        ]
-      },
-      {
-        "variant": "ours_native_20k",
-        "checkpoint_step": 20000,
-        "execution_horizon": 8,
-        "completed": 64,
-        "audited": 64,
+        "completed": 48,
+        "audited": 48,
         "target": 500,
         "successes": 0,
         "final_verified": false,
@@ -3407,8 +2448,8 @@
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 37,
-              "4321": 3
+              "1234": 39,
+              "4321": 1
             },
             "final_verified": false,
             "original_group_preserved": true,
@@ -3418,13 +2459,13 @@
             "repeat": 1,
             "evaluation_seed": 749000,
             "run_seed": 749000,
-            "completed": 6,
-            "audited": 6,
+            "completed": 2,
+            "audited": 2,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 3,
-              "4321": 3
+              "1234": 1,
+              "4321": 1
             },
             "final_verified": false,
             "original_group_preserved": false,
@@ -3434,13 +2475,13 @@
             "repeat": 2,
             "evaluation_seed": 759000,
             "run_seed": 759000,
-            "completed": 6,
-            "audited": 6,
+            "completed": 2,
+            "audited": 2,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 3,
-              "4321": 3
+              "1234": 1,
+              "4321": 1
             },
             "final_verified": false,
             "original_group_preserved": false,
@@ -3450,13 +2491,13 @@
             "repeat": 3,
             "evaluation_seed": 769000,
             "run_seed": 769000,
-            "completed": 6,
-            "audited": 6,
+            "completed": 2,
+            "audited": 2,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 3,
-              "4321": 3
+              "1234": 1,
+              "4321": 1
             },
             "final_verified": false,
             "original_group_preserved": false,
@@ -3466,13 +2507,13 @@
             "repeat": 4,
             "evaluation_seed": 779000,
             "run_seed": 779000,
-            "completed": 6,
-            "audited": 6,
+            "completed": 2,
+            "audited": 2,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 3,
-              "4321": 3
+              "1234": 1,
+              "4321": 1
             },
             "final_verified": false,
             "original_group_preserved": false,
@@ -3480,51 +2521,188 @@
           }
         ],
         "orders": {
-          "1234": 49,
-          "4321": 15
+          "1234": 43,
+          "4321": 5
         },
         "trials_attached": 45,
-        "attachment_activations": 52,
-        "policy_releases": 49,
+        "attachment_activations": 115,
+        "policy_releases": 113,
         "physical_phases": {
-          "0": 19,
-          "1": 43,
-          "2": 0,
-          "3": 2,
-          "4": 0,
+          "0": 4,
+          "1": 4,
+          "2": 28,
+          "3": 8,
+          "4": 4,
           "5": 0,
           "6": 0,
           "7": 0
         },
-        "record": "7-ours",
-        "method": "TTC · 基础版",
+        "record": "7-mem0-weak",
+        "method": "Mem-0 · 削弱版",
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "running",
         "status_label": "运行中",
         "runtime_sources": [
           {
-            "worker": "3",
-            "source": "formal:ours_native_20k",
+            "worker": "5",
+            "source": "formal:mem0_weak_30k",
             "status": "running",
             "status_label": "运行中",
             "active_apps": 4,
-            "job_id": "job-9algmr9m5qnx",
+            "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1119766,
-            "source_heartbeat_age_s": 38.944339990615845
+            "source_heartbeat_epoch": 1793613695.2879188,
+            "source_heartbeat_age_s": 72.79057693481445
           }
         ]
       },
       {
-        "variant": "ours_native_20k",
-        "checkpoint_step": 20000,
+        "variant": "mem0_weak_30k",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "completed": 84,
+        "audited": 84,
+        "target": 500,
+        "successes": 1,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 51,
+            "audited": 51,
+            "target": 100,
+            "successes": 1,
+            "orders": {
+              "1234": 50,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 27,
+            "audited": 27,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 26,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 79,
+          "4321": 5
+        },
+        "trials_attached": 80,
+        "attachment_activations": 192,
+        "policy_releases": 186,
+        "physical_phases": {
+          "0": 9,
+          "1": 18,
+          "2": 43,
+          "3": 9,
+          "4": 2,
+          "5": 2,
+          "6": 0,
+          "7": 1
+        },
+        "record": "7-mem0-weak",
+        "method": "Mem-0 · 削弱版",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "5",
+            "source": "formal:mem0_weak_30k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-0kanmdq74b8k",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613695.2879188,
+            "source_heartbeat_age_s": 72.79057693481445
+          }
+        ]
+      },
+      {
+        "variant": "mem0_weak_30k",
+        "checkpoint_step": 30000,
         "execution_horizon": 30,
-        "completed": 47,
-        "audited": 47,
+        "completed": 49,
+        "audited": 49,
         "target": 500,
         "successes": 0,
         "final_verified": false,
@@ -3539,12 +2717,560 @@
             "repeat": 0,
             "evaluation_seed": 739000,
             "run_seed": 739000,
-            "completed": 23,
-            "audited": 23,
+            "completed": 41,
+            "audited": 41,
             "target": 100,
             "successes": 0,
             "orders": {
-              "1234": 20,
+              "1234": 40,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 2,
+            "audited": 2,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 1,
+              "4321": 1
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 44,
+          "4321": 5
+        },
+        "trials_attached": 42,
+        "attachment_activations": 84,
+        "policy_releases": 84,
+        "physical_phases": {
+          "0": 12,
+          "1": 19,
+          "2": 12,
+          "3": 1,
+          "4": 4,
+          "5": 1,
+          "6": 0,
+          "7": 0
+        },
+        "record": "7-mem0-weak",
+        "method": "Mem-0 · 削弱版",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "5",
+            "source": "formal:mem0_weak_30k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-0kanmdq74b8k",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613695.2879188,
+            "source_heartbeat_age_s": 72.79057693481445
+          }
+        ]
+      },
+      {
+        "variant": "mem0_20k",
+        "checkpoint_step": 20000,
+        "execution_horizon": 4,
+        "completed": 86,
+        "audited": 86,
+        "target": 500,
+        "successes": 0,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 48,
+            "audited": 48,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 44,
+              "4321": 4
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 17,
+            "audited": 17,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 13,
+              "4321": 4
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 69,
+          "4321": 17
+        },
+        "trials_attached": 81,
+        "attachment_activations": 153,
+        "policy_releases": 144,
+        "physical_phases": {
+          "0": 6,
+          "1": 34,
+          "2": 36,
+          "3": 9,
+          "4": 1,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
+        "record": "7-mem0",
+        "method": "Mem-0",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "1",
+            "source": "formal:mem0_20k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-rc28p5wx2i9q",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613681.5921247,
+            "source_heartbeat_age_s": 86.48637104034424
+          }
+        ]
+      },
+      {
+        "variant": "mem0_20k",
+        "checkpoint_step": 20000,
+        "execution_horizon": 8,
+        "completed": 88,
+        "audited": 88,
+        "target": 500,
+        "successes": 0,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 54,
+            "audited": 54,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 50,
+              "4321": 4
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 13,
+            "audited": 13,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 9,
+              "4321": 4
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 71,
+          "4321": 17
+        },
+        "trials_attached": 80,
+        "attachment_activations": 160,
+        "policy_releases": 146,
+        "physical_phases": {
+          "0": 12,
+          "1": 38,
+          "2": 20,
+          "3": 18,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
+        "record": "7-mem0",
+        "method": "Mem-0",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "1",
+            "source": "formal:mem0_20k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-rc28p5wx2i9q",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613681.5921247,
+            "source_heartbeat_age_s": 86.48637104034424
+          }
+        ]
+      },
+      {
+        "variant": "mem0_20k",
+        "checkpoint_step": 20000,
+        "execution_horizon": 30,
+        "completed": 87,
+        "audited": 87,
+        "target": 500,
+        "successes": 0,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 48,
+            "audited": 48,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 44,
+              "4321": 4
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 18,
+            "audited": 18,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 14,
+              "4321": 4
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 7,
+            "audited": 7,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 4,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 70,
+          "4321": 17
+        },
+        "trials_attached": 67,
+        "attachment_activations": 107,
+        "policy_releases": 107,
+        "physical_phases": {
+          "0": 39,
+          "1": 32,
+          "2": 11,
+          "3": 4,
+          "4": 1,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
+        "record": "7-mem0",
+        "method": "Mem-0",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "1",
+            "source": "formal:mem0_20k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-rc28p5wx2i9q",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613681.5921247,
+            "source_heartbeat_age_s": 86.48637104034424
+          }
+        ]
+      },
+      {
+        "variant": "ours_native_20k",
+        "checkpoint_step": 20000,
+        "execution_horizon": 4,
+        "completed": 58,
+        "audited": 58,
+        "target": 500,
+        "successes": 0,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 34,
+            "audited": 34,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 31,
               "4321": 3
             },
             "final_verified": false,
@@ -3617,19 +3343,19 @@
           }
         ],
         "orders": {
-          "1234": 32,
+          "1234": 43,
           "4321": 15
         },
-        "trials_attached": 34,
-        "attachment_activations": 84,
-        "policy_releases": 83,
+        "trials_attached": 37,
+        "attachment_activations": 39,
+        "policy_releases": 36,
         "physical_phases": {
-          "0": 13,
-          "1": 14,
-          "2": 12,
-          "3": 2,
-          "4": 1,
-          "5": 5,
+          "0": 22,
+          "1": 36,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
           "6": 0,
           "7": 0
         },
@@ -3638,7 +3364,7 @@
         "metric_role": "assisted",
         "source_evidence": {
           "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-          "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
         },
         "runtime_status": "running",
         "status_label": "运行中",
@@ -3651,8 +3377,282 @@
             "active_apps": 4,
             "job_id": "job-9algmr9m5qnx",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1119766,
-            "source_heartbeat_age_s": 38.944339990615845
+            "source_heartbeat_epoch": 1793613683.7313762,
+            "source_heartbeat_age_s": 84.34711956977844
+          }
+        ]
+      },
+      {
+        "variant": "ours_native_20k",
+        "checkpoint_step": 20000,
+        "execution_horizon": 8,
+        "completed": 83,
+        "audited": 83,
+        "target": 500,
+        "successes": 0,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 53,
+            "audited": 53,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 50,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 12,
+            "audited": 12,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 9,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 68,
+          "4321": 15
+        },
+        "trials_attached": 58,
+        "attachment_activations": 65,
+        "policy_releases": 62,
+        "physical_phases": {
+          "0": 25,
+          "1": 56,
+          "2": 0,
+          "3": 2,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0
+        },
+        "record": "7-ours",
+        "method": "TTC · 基础版",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "3",
+            "source": "formal:ours_native_20k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-9algmr9m5qnx",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613683.7313762,
+            "source_heartbeat_age_s": 84.34711956977844
+          }
+        ]
+      },
+      {
+        "variant": "ours_native_20k",
+        "checkpoint_step": 20000,
+        "execution_horizon": 30,
+        "completed": 58,
+        "audited": 58,
+        "target": 500,
+        "successes": 0,
+        "final_verified": false,
+        "final_success_rate": null,
+        "mean_success_rate": null,
+        "std_success_rate": null,
+        "std_convention": "sample, ddof=1",
+        "seed_count": 5,
+        "trials_per_seed": 100,
+        "seeds": [
+          {
+            "repeat": 0,
+            "evaluation_seed": 739000,
+            "run_seed": 739000,
+            "completed": 34,
+            "audited": 34,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 31,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": true,
+            "success_rate": null
+          },
+          {
+            "repeat": 1,
+            "evaluation_seed": 749000,
+            "run_seed": 749000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 2,
+            "evaluation_seed": 759000,
+            "run_seed": 759000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 3,
+            "evaluation_seed": 769000,
+            "run_seed": 769000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          },
+          {
+            "repeat": 4,
+            "evaluation_seed": 779000,
+            "run_seed": 779000,
+            "completed": 6,
+            "audited": 6,
+            "target": 100,
+            "successes": 0,
+            "orders": {
+              "1234": 3,
+              "4321": 3
+            },
+            "final_verified": false,
+            "original_group_preserved": false,
+            "success_rate": null
+          }
+        ],
+        "orders": {
+          "1234": 43,
+          "4321": 15
+        },
+        "trials_attached": 43,
+        "attachment_activations": 98,
+        "policy_releases": 97,
+        "physical_phases": {
+          "0": 15,
+          "1": 21,
+          "2": 14,
+          "3": 2,
+          "4": 1,
+          "5": 5,
+          "6": 0,
+          "7": 0
+        },
+        "record": "7-ours",
+        "method": "TTC · 基础版",
+        "metric_role": "assisted",
+        "source_evidence": {
+          "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
+          "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
+        },
+        "runtime_status": "running",
+        "status_label": "运行中",
+        "runtime_sources": [
+          {
+            "worker": "3",
+            "source": "formal:ours_native_20k",
+            "status": "running",
+            "status_label": "运行中",
+            "active_apps": 4,
+            "job_id": "job-9algmr9m5qnx",
+            "platform_status": "RUNNING",
+            "source_heartbeat_epoch": 1793613683.7313762,
+            "source_heartbeat_age_s": 84.34711956977844
           }
         ]
       }
@@ -3682,9 +3682,9 @@
     },
     "source_evidence": {
       "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
-      "sha256": "b190a7507ca9748ebd7c28c83d81c514c8390e497944487cc9977fec8490fd07"
+      "sha256": "9361ade8a6ba02588795b331337d9ee50411940d2bf2957718817cbd8a1cde37"
     },
-    "resource_note": "云端实际运行12卡（低优12、普通优先级0）；平台排队0个任务，0组创建操作尚无job ID；已申请/预留12卡，正式评测云端上限12，含四卡原生对照验证时总上限12，低优上限12。当前观测到5种模型运行；现有双卡Pro与云端资源分列。原20k baseline续测单列，不混入附着成绩。 各模型：Mem-0 30k 运行中；TTC基础30k 运行中；TTC训练缩放对齐 中断待恢复；TTC对齐loss 中断待恢复；Mem-0削弱版 运行中；Mem-0 20k 运行中；TTC基础20k 运行中。 多环境适配器：七任务adapter已实现，102项CPU检查通过；第7代原生探针 SUCCEEDED；该探针子进程已回收；共享场景图像RGB MAE 8.287–13.79；N1重复对照 0.44–0.45；真实七任务adapter：P1/P2E1原生一致性验证通过；独立进程图像RGB MAE 0.43628–0.4476；Mem-0 30k、TTC对齐loss真实模型集成冒烟测试通过：各4lane、每lane40帧，共8lane（非计分）；原生SDK4帧对照与进程回收通过；完整任务成功率仍待正式评测；共享场景图像一致性仍未通过；正式worker已接入独立进程P2N1后端（每卡2进程、每进程1环境），正式运行仍以独立模型评测状态为准；探针不计入模型成功率；已验收成绩保持不变。",
+    "resource_note": "云端实际运行12卡（低优12、普通优先级0）；平台排队0个任务，0组创建操作尚无job ID；已申请/预留12卡，正式评测云端上限12，含四卡原生对照验证时总上限12，低优上限12。当前观测到4种模型运行；现有双卡Pro与云端资源分列。原20k baseline续测单列，不混入附着成绩。 各模型：Mem-0 30k 中断待恢复；TTC基础30k 运行中；TTC训练缩放对齐 中断待恢复；TTC对齐loss 中断待恢复；Mem-0削弱版 运行中；Mem-0 20k 运行中；TTC基础20k 运行中。 多环境适配器：七任务adapter已实现，102项CPU检查通过；第7代原生探针 SUCCEEDED；该探针子进程已回收；共享场景图像RGB MAE 8.287–13.79；N1重复对照 0.44–0.45；真实七任务adapter：P1/P2E1原生一致性验证通过；独立进程图像RGB MAE 0.43628–0.4476；Mem-0 30k、TTC对齐loss真实模型集成冒烟测试通过：各4lane、每lane40帧，共8lane（非计分）；原生SDK4帧对照与进程回收通过；完整任务成功率仍待正式评测；共享场景图像一致性仍未通过；正式worker已接入独立进程P2N1后端（每卡2进程、每进程1环境），正式运行仍以独立模型评测状态为准；探针不计入模型成功率；已验收成绩保持不变。",
     "baseline_metrics_preserved": true,
     "new_running_low_priority_gpus": 12,
     "new_standard_gpus": 0,
@@ -3700,30 +3700,29 @@
     "requested_low_priority_gpus": 12,
     "requested_standard_gpus": 0,
     "requested_cloud_gpus": 12,
-    "active_model_count": 5,
+    "active_model_count": 4,
     "active_models": [
       "mem0_20k",
-      "mem0_30k",
       "mem0_weak_30k",
       "ours_native_20k",
       "ours_native_30k"
     ],
     "model_runtime": {
       "mem0_30k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 4,
+        "status": "interrupted",
+        "status_label": "中断待恢复",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "0",
             "source": "formal:mem0_30k",
-            "status": "running",
-            "status_label": "运行中",
-            "active_apps": 4,
+            "status": "interrupted",
+            "status_label": "观测过期 · 中断待恢复",
+            "active_apps": 0,
             "job_id": "job-rc28p5wx2i9q",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598910.6047907,
-            "source_heartbeat_age_s": 48.451525926589966
+            "source_heartbeat_epoch": 1793609919.8082476,
+            "source_heartbeat_age_s": 3848.2702481746674
           }
         ]
       },
@@ -3740,8 +3739,8 @@
             "active_apps": 4,
             "job_id": "job-9algmr9m5qnx",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1354601,
-            "source_heartbeat_age_s": 38.92085647583008
+            "source_heartbeat_epoch": 1793613683.706735,
+            "source_heartbeat_age_s": 84.37176084518433
           }
         ]
       },
@@ -3759,7 +3758,7 @@
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793573705.9555767,
-            "source_heartbeat_age_s": 25253.100739955902
+            "source_heartbeat_age_s": 40062.12291908264
           }
         ]
       },
@@ -3772,12 +3771,12 @@
             "worker": "4",
             "source": "formal:ours_aligned_30k",
             "status": "interrupted",
-            "status_label": "运行检查未通过 · 中断待恢复",
+            "status_label": "观测过期 · 中断待恢复",
             "active_apps": 0,
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793598864.2990308,
-            "source_heartbeat_age_s": 94.75728583335876
+            "source_heartbeat_age_s": 14903.779464960098
           }
         ]
       },
@@ -3794,8 +3793,8 @@
             "active_apps": 4,
             "job_id": "job-0kanmdq74b8k",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598945.4086719,
-            "source_heartbeat_age_s": 13.647644758224487
+            "source_heartbeat_epoch": 1793613695.2879188,
+            "source_heartbeat_age_s": 72.79057693481445
           }
         ]
       },
@@ -3812,8 +3811,8 @@
             "active_apps": 4,
             "job_id": "job-rc28p5wx2i9q",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598934.2913418,
-            "source_heartbeat_age_s": 24.76497483253479
+            "source_heartbeat_epoch": 1793613681.5921247,
+            "source_heartbeat_age_s": 86.48637104034424
           }
         ]
       },
@@ -3830,13 +3829,14 @@
             "active_apps": 4,
             "job_id": "job-9algmr9m5qnx",
             "platform_status": "RUNNING",
-            "source_heartbeat_epoch": 1793598920.1119766,
-            "source_heartbeat_age_s": 38.944339990615845
+            "source_heartbeat_epoch": 1793613683.7313762,
+            "source_heartbeat_age_s": 84.34711956977844
           }
         ]
       }
     },
     "interrupted_models": [
+      "mem0_30k",
       "ours_aligned_30k",
       "ours_trainresize_30k"
     ],
@@ -3890,8 +3890,8 @@
     "dispatch_observation_fresh": true,
     "adapter_diagnostics": {
       "observation_status": "fresh",
-      "epoch": 1793598957.9221702,
-      "age_s": 1.1480872631072998,
+      "epoch": 1793613722.2952948,
+      "age_s": 45.79568862915039,
       "observation_fresh": true,
       "formal_activation_verified": false,
       "probe_results_scored": false,
@@ -3901,7 +3901,7 @@
       "native_probe_generation": 7,
       "native_probe_GPUs": 4,
       "model_variants": 7,
-      "current_preserved_assisted_trials": 1009,
+      "current_preserved_assisted_trials": 1239,
       "preserved_formal_target": 10500,
       "actual_vectorized_backend_activated_in_formal_campaign": false,
       "actual_independent_backend_activated_in_formal_campaign": true,
@@ -3975,12 +3975,12 @@
       "note": "多环境适配器：七任务adapter已实现，102项CPU检查通过；第7代原生探针 SUCCEEDED；该探针子进程已回收；共享场景图像RGB MAE 8.287–13.79；N1重复对照 0.44–0.45；真实七任务adapter：P1/P2E1原生一致性验证通过；独立进程图像RGB MAE 0.43628–0.4476；Mem-0 30k、TTC对齐loss真实模型集成冒烟测试通过：各4lane、每lane40帧，共8lane（非计分）；原生SDK4帧对照与进程回收通过；完整任务成功率仍待正式评测；共享场景图像一致性仍未通过；正式worker已接入独立进程P2N1后端（每卡2进程、每进程1环境），正式运行仍以独立模型评测状态为准；探针不计入模型成功率；已验收成绩保持不变。",
       "source_evidence": {
         "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/multi_env_v2/ADOPTION_STATUS.json",
-        "sha256": "779f9e728ebce7cbadca886fb49baeb696648042825cb3e38137d325ac0386eb"
+        "sha256": "05cf25910dd75ce587d88a4712b2bc9f316f0ed9be3c8f6a2014c3b28017ea79"
       }
     },
     "resource_source_evidence": {
       "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/CLOUD_DISPATCH_STATE.json",
-      "sha256": "70bcd2b3065e7d13ac25d64136c7687a1ed3163b9db1c4d68bcd2c1645f69c54"
+      "sha256": "ecb1e3732d4ab21b67d0036970f335e02976dfeb1f8736834d9142f1ee953fe4"
     }
   }
 }

@@ -1,3 +1,59 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>十任务 · Mem-0削弱版与对齐Loss</title><style>body{font:16px system-ui;max-width:1150px;margin:32px auto;padding:0 16px;color:#243244}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border-bottom:1px solid #dde3ea;text-align:left}.note{color:#657182;line-height:1.7}</style><a href="../index.html">← 返回评测面板</a><h1>十任务 · Mem-0削弱版与对齐Loss</h1><p id="summary">正在读取进度…</p><p class="note">每版30k：执行4/8/30步 × 原始接触/稳抓attach v2 × 5seed × 100条，共3000条。每进程1个独立原生环境，每卡最多8个仿真进程。新附着条件统一在持有期间使用128次原生求解迭代，释放恢复32，与旧版附着结果分开。未完成独立审计前只显示暂记成功数。</p><table><thead><tr><th>方法</th><th>接触条件</th><th>执行步数</th><th>已结束 / 目标</th><th>暂记成功数</th><th>状态</th></tr></thead><tbody id="rows"></tbody></table><p id="updated" class="note"></p><script>
-fetch('task10-new-variants-20261102.json',{cache:'no-store',signal:AbortSignal.timeout(20000)}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(d=>{document.querySelector('#summary').textContent=`已结束 ${d.completed}/${d.target}；当前 ${d.active_apps} 个原生环境运行。`;for(const m of d.methods)for(const c of m.counts){const tr=document.createElement('tr');for(const value of [m.method,c.grasp_attachment==='off'?'原始接触':'稳抓attach v2',c.execution_horizon,`${c.completed}/${c.target}`,c.provisional_successes,m.status]){const td=document.createElement('td');td.textContent=value;tr.append(td)}document.querySelector('#rows').append(tr)}document.querySelector('#updated').textContent='更新时间：'+d.updated_at}).catch(()=>{document.querySelector('#summary').textContent='暂时无法读取进度，请稍后刷新。'});
-</script></html>
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>十任务 · Mem-0削弱版与对齐Loss</title>
+<style>
+body{font:16px system-ui;max-width:1150px;margin:32px auto;padding:0 16px;color:#243244}
+table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border-bottom:1px solid #dde3ea;text-align:left}
+.note{color:#657182;line-height:1.7}.views{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+video{display:block;width:100%;max-width:640px;background:#171d24}details{border:1px solid #dde3ea;border-radius:8px;padding:12px;margin:16px 0}summary{cursor:pointer;line-height:1.8}.scroll{overflow:auto}
+</style>
+<a href="../index.html">← 返回评测面板</a>
+<h1>十任务 · Mem-0削弱版与对齐Loss</h1>
+<p id="summary">正在读取进度…</p>
+<p class="note">每版30k：执行4/8/30步 × 原始接触/稳抓attach v2 × 5seed × 100条，共3000条。每进程1个独立原生环境，每卡最多8个仿真进程。附着v2在持有期间使用128次原生求解迭代，释放恢复32，与旧版附着结果分开。未完成独立审计前只显示暂记成功数。</p>
+<div class="scroll"><table>
+<thead><tr><th>方法</th><th>接触条件</th><th>执行步数</th><th>已结束 / 目标</th><th>完整十阶段成功数</th><th>状态</th></tr></thead>
+<tbody id="rows"></tbody>
+</table></div>
+<p id="updated" class="note"></p>
+<h2>失败案例视频</h2>
+<p class="note">从两种方法、两种接触条件各抽查一条真实闭环轨迹。每条包含模型实际使用的胸部画面和同轨迹第三人称画面。这些是失败案例，不能替代完整成功率统计。</p>
+<div id="examples"></div>
+<script>
+const methodName=m=>m==='mem0_weak'?'Mem-0 削弱版':'对齐 Loss';
+const contactName=m=>m==='off'?'原始接触':'稳抓attach v2';
+fetch('task10-new-variants-20261102.json',{cache:'no-store',signal:AbortSignal.timeout(20000)})
+.then(r=>{if(!r.ok)throw Error(r.status);return r.json()})
+.then(d=>{
+ document.querySelector('#summary').textContent=`已结束 ${d.completed}/${d.target}；当前 ${d.active_apps} 个原生环境运行。`;
+ for(const m of d.methods)for(const c of m.counts){
+  const tr=document.createElement('tr');
+  for(const value of [methodName(m.method),contactName(c.grasp_attachment),c.execution_horizon,`${c.completed}/${c.target}`,`${c.provisional_successes}${m.final_verified?'':'（暂记）'}`,m.final_verified?'已完成并复核':m.status]){
+   const td=document.createElement('td');td.textContent=value;tr.append(td);
+  }
+  document.querySelector('#rows').append(tr);
+ }
+ document.querySelector('#updated').textContent='更新时间：'+d.updated_at;
+ const cases=new Map();
+ for(const clip of d.examples||[]){if(!cases.has(clip.case_id))cases.set(clip.case_id,[]);cases.get(clip.case_id).push(clip)}
+ for(const [id,clips] of cases){
+  const c=clips[0],details=document.createElement('details'),title=document.createElement('summary');
+  title.textContent=`${methodName(c.method)} · ${contactName(c.grasp_attachment)} · 执行${c.execution_horizon}步 · 已完成${c.physical_phases}/10阶段后倾倒`;
+  details.append(title);
+  const label=document.createElement('p');label.className='note';label.textContent=`seed ${c.seed}；${id}`;details.append(label);
+  const views=document.createElement('div');views.className='views';
+  for(const clip of clips){
+   if(!/^\.\.\/videos\/task10-new-variants-20261102\/case\d{2}-(chest|third)\.mp4$/.test(clip.relative_url))throw Error('invalid video URL');
+   const view=document.createElement('div'),caption=document.createElement('p'),video=document.createElement('video'),download=document.createElement('a');
+   caption.textContent=clip.camera==='chest'?'胸部相机：模型实际输入':'第三人称：观察动作';
+   video.controls=true;video.preload='none';video.src=clip.relative_url;
+   download.href=clip.relative_url;download.textContent='打开或下载视频';
+   view.append(caption,video,download);views.append(view);
+  }
+  details.append(views);document.querySelector('#examples').append(details);
+ }
+}).catch(()=>{document.querySelector('#summary').textContent='暂时无法读取进度，请稍后刷新。'});
+</script>
+</html>

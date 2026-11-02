@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T18:56:59.667114+00:00",
+  "updated_at": "2026-11-02T19:01:02.883866+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -861,7 +861,7 @@
     {
       "id": "10-mem0-weak-attach",
       "dataset": "10-weigh",
-      "method": "Mem-0 · 削弱版 · 稳抓attach v2",
+      "method": "Mem-0 · 削弱版 · 稳抓attach v2（场景限32）",
       "camera": "chest",
       "delivery": "两套专属30k权重、归一化SHA256和CPU配置绑定已核验",
       "weights": [
@@ -885,7 +885,7 @@
         "completion": "weak原生分类器 + weak子任务Planner",
         "torch": "2.7.1+cu128（评测环境，与当前基线一致）"
       },
-      "note": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。 当前任务：job-ti8136f4w885；闭环评测中。",
+      "note": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。 当前任务：job-ti8136f4w885；闭环评测中。",
       "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
@@ -927,7 +927,7 @@
     {
       "id": "10-ours-aligned-attach",
       "dataset": "10-weigh",
-      "method": "TTC · 对齐loss · 稳抓attach v2",
+      "method": "TTC · 对齐loss · 稳抓attach v2（场景限32）",
       "camera": "chest",
       "delivery": "两套专属30k权重、归一化SHA256和CPU配置绑定已核验",
       "weights": [
@@ -951,7 +951,7 @@
         "completion": "Gen2.1-311 + 在线子任务Planner + 在线DAG Planner；原生classifier只参与训练loss",
         "torch": "2.7.1+cu128（评测环境，与当前基线一致）"
       },
-      "note": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。 当前任务：job-dtng4lf4m27l；闭环评测中。",
+      "note": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。 当前任务：job-dtng4lf4m27l；闭环评测中。",
       "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
@@ -11192,11 +11192,11 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 45,
+      "completed": 46,
       "unknown": 0,
       "provisional_successes": 0,
       "physical_phases": {
-        "2": 18,
+        "2": 19,
         "1": 18,
         "0": 8,
         "4": 1
@@ -11243,14 +11243,14 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 950100,
-          "completed": 8,
+          "completed": 9,
           "target": 100,
           "provisional_successes": 0
         }
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 原始接触",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11265,11 +11265,11 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 43,
+      "completed": 45,
       "unknown": 0,
       "provisional_successes": 0,
       "physical_phases": {
-        "0": 14,
+        "0": 16,
         "2": 15,
         "1": 14
       },
@@ -11291,7 +11291,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 920100,
-          "completed": 9,
+          "completed": 10,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11315,14 +11315,14 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 950100,
-          "completed": 9,
+          "completed": 10,
           "target": 100,
           "provisional_successes": 0
         }
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 原始接触",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11337,11 +11337,11 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 45,
+      "completed": 46,
       "unknown": 0,
       "provisional_successes": 0,
       "physical_phases": {
-        "1": 14,
+        "1": 15,
         "0": 27,
         "2": 4
       },
@@ -11387,14 +11387,14 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 950100,
-          "completed": 8,
+          "completed": 9,
           "target": 100,
           "provisional_successes": 0
         }
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 原始接触",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11409,17 +11409,17 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 38,
+      "completed": 41,
       "unknown": 0,
       "provisional_successes": 0,
       "physical_phases": {
         "2": 17,
-        "0": 7,
-        "1": 14
+        "0": 8,
+        "1": 16
       },
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
       "status": "闭环评测中",
-      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
+      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
       "per_seed": [
@@ -11427,7 +11427,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 8,
+          "completed": 9,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11435,7 +11435,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 920100,
-          "completed": 7,
+          "completed": 8,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11443,7 +11443,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 930100,
-          "completed": 7,
+          "completed": 8,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11466,7 +11466,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 稳抓attach v2",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11491,7 +11491,7 @@
       },
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
       "status": "闭环评测中",
-      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
+      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
       "per_seed": [
@@ -11538,7 +11538,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 稳抓attach v2",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11563,7 +11563,7 @@
       },
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
       "status": "闭环评测中",
-      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
+      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
       "per_seed": [
@@ -11610,7 +11610,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 稳抓attach v2",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11625,13 +11625,13 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 41,
+      "completed": 43,
       "unknown": 0,
       "provisional_successes": 0,
       "physical_phases": {
-        "0": 18,
+        "0": 19,
         "1": 12,
-        "2": 7,
+        "2": 8,
         "8": 2,
         "5": 1,
         "4": 1
@@ -11646,7 +11646,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 9,
+          "completed": 10,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11670,7 +11670,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 940100,
-          "completed": 8,
+          "completed": 9,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11685,7 +11685,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 原始接触",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11759,7 +11759,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 原始接触",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11832,7 +11832,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 原始接触",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11847,18 +11847,18 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 35,
+      "completed": 38,
       "unknown": 0,
       "provisional_successes": 0,
       "physical_phases": {
-        "1": 21,
+        "1": 23,
         "3": 1,
         "0": 11,
-        "2": 2
+        "2": 3
       },
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
       "status": "闭环评测中",
-      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
+      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
       "per_seed": [
@@ -11866,7 +11866,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 8,
+          "completed": 9,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11882,7 +11882,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 930100,
-          "completed": 7,
+          "completed": 8,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11898,14 +11898,14 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 950100,
-          "completed": 7,
+          "completed": 8,
           "target": 100,
           "provisional_successes": 0
         }
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 稳抓attach v2",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -11920,11 +11920,11 @@
       "prediction": 30,
       "success": null,
       "trials": 500,
-      "completed": 42,
+      "completed": 43,
       "unknown": 2,
       "provisional_successes": 0,
       "physical_phases": {
-        "0": 19,
+        "0": 20,
         "1": 14,
         "2": 4,
         "4": 4,
@@ -11932,7 +11932,7 @@
       },
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
       "status": "闭环评测中",
-      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
+      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
       "per_seed": [
@@ -11964,7 +11964,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 940100,
-          "completed": 8,
+          "completed": 9,
           "target": 100,
           "provisional_successes": 0
         },
@@ -11979,7 +11979,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 稳抓attach v2",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -12004,7 +12004,7 @@
       },
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
       "status": "闭环评测中",
-      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2统一使用原生机械臂求解迭代128，释放后恢复32；真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
+      "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂请求128、释放恢复32，但场景求解上限仍为32，实际请求被裁剪；当前保留为该原配置对照，修正上限的版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
       "per_seed": [
@@ -12051,7 +12051,7 @@
       ],
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-new-variants-20261102.html",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
       "display_priority": 220,
       "result_label": "完整十阶段 · 稳抓attach v2",
       "note": "未完成、未审计样本不填最终成功率；不同接触条件与旧版本分别统计。"
@@ -24797,11 +24797,11 @@
     },
     {
       "id": "task10-new-variants-20261102",
-      "updated_at": "2026-11-02T18:56:59.667114+00:00",
-      "epoch": 1793645819.6671243,
+      "updated_at": "2026-11-02T19:01:02.883866+00:00",
+      "epoch": 1793646062.8838758,
       "target": 6000,
-      "completed": 509,
-      "active_apps": 50,
+      "completed": 522,
+      "active_apps": 52,
       "low_priority_gpu_limit": 12,
       "requested_low_priority_gpus": 8,
       "topology": {
@@ -24940,6 +24940,40 @@
           "success": false
         }
       ],
+      "attachment_solver_disclosure": {
+        "state": "source_confirmed_paired_replay_running",
+        "requested_articulation_iterations_while_attached": 128,
+        "scene_max_position_iterations": 32,
+        "effective_upper_bound": 32,
+        "official_installed_SDK_clamps_actor_iteration_request_to_scene_range": true,
+        "evidence": [
+          {
+            "path": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/native_source/source_overlay/psilab/source/isaaclab/isaaclab/sim/simulation_cfg.py",
+            "sha256": "aa250a25c996e4b97485d7464fe2d65cb16da220673ecd3288f85c66eb56cced",
+            "snippets": [
+              "        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_position_iteration_count, max_position_iteration_count]``.\n    \"\"\"\n\n    max_position_iteration_count: int = 255\n    \"\"\"Maximum number of solver position iterations (rigid bodies, cloth, particles etc.). Default is 255.\n\n    .. note::\n",
+              "    \"\"\"\n\n    max_position_iteration_count: int = 255\n    \"\"\"Maximum number of solver position iterations (rigid bodies, cloth, particles etc.). Default is 255.\n\n    .. note::\n\n        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_position_iteration_count, max_position_iteration_count]``.",
+              "        Each physics actor in Omniverse specifies its own solver iteration count. The solver takes\n        the number of iterations specified by the actor with the highest iteration and clamps it to\n        the range ``[min_position_iteration_count, max_position_iteration_count]``.\n    \"\"\"\n\n    min_velocity_iteration_count: int = 0\n    \"\"\"Minimum number of solver velocity iterations (rigid bodies, cloth, particles etc.). Default is 0.\n\n    .. note::\n"
+            ]
+          },
+          {
+            "path": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/native_source/source_overlay/psilab/source/isaaclab/isaaclab/sim/simulation_context.py",
+            "sha256": "23b374737d132c2a86d5564d65c94df23fc1f9bdce653b7c575dc6a5d674ec0d",
+            "snippets": [
+              "        # position iteration count\n        physx_scene_api.CreateMinPositionIterationCountAttr(self.cfg.physx.min_position_iteration_count)\n        physx_scene_api.CreateMaxPositionIterationCountAttr(self.cfg.physx.max_position_iteration_count)\n        # velocity iteration count\n        physx_scene_api.CreateMinVelocityIterationCountAttr(self.cfg.physx.min_velocity_iteration_count)\n        physx_scene_api.CreateMaxVelocityIterationCountAttr(self.cfg.physx.max_velocity_iteration_count)\n\n        # create the default physics material\n        # this material is used when no material is specified for a primitive\n        # check: https://docs.omniverse.nvidia.com/extensions/latest/ext_physics/simulation-control/physics-settings.html#physics-materials"
+            ]
+          },
+          {
+            "path": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/weigh_scene.py",
+            "sha256": "69ea6ca5523a29c8c2f4322813c5be44dc51e63553f1bfabd2e0f71b66364f34",
+            "snippets": [
+              "        self.sim=SimulationContext(SimulationCfg(dt=self.dt,device='cpu',use_fabric=True,\n            enable_scene_query_support=True,render_interval=8,\n            physx=PhysxCfg(enable_ccd=True,max_position_iteration_count=32,max_velocity_iteration_count=4,\n                gpu_max_rigid_patch_count=512*512,gpu_collision_stack_size=2**28,\n                gpu_found_lost_pairs_capacity=2**24,gpu_found_lost_aggregate_pairs_capacity=2**24,\n                gpu_total_aggregate_pairs_capacity=2**20),\n            render=RenderCfg(enable_translucency=True,antialiasing_mode='DLAA',enable_reflections=True,\n                enable_global_illumination=True,enable_dl_denoiser=True,samples_per_pixel=4)))\n        # The source SDK is older than the installed 5.1 Cloner. Its camera\n        # spawner leaves a declared scale with no value; 5.1 tries Vec3d(None)."
+            ]
+          }
+        ],
+        "paired_probe_root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/constraint_scene_cap_20261102",
+        "formal_results_unchanged": true
+      },
       "methods": [
         {
           "method": "mem0_weak",
@@ -24947,10 +24981,10 @@
           "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00",
           "status": "running",
           "error": null,
-          "completed": 257,
+          "completed": 264,
           "target": 3000,
           "quarantined": [],
-          "active_apps": 27,
+          "active_apps": 28,
           "cleanup_passed": null,
           "audit": {
             "status": "waiting_for_complete_cohort"
@@ -24961,7 +24995,7 @@
             "ended_at": null,
             "job_url": null,
             "job_id": "job-ti8136f4w885",
-            "epoch": 1793645758.3552973
+            "epoch": 1793646062.1302211
           },
           "platform_terminal": false,
           "counts": [
@@ -24969,11 +25003,11 @@
               "grasp_attachment": "off",
               "checkpoint_step": 30000,
               "execution_horizon": 4,
-              "completed": 45,
+              "completed": 46,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
-                "2": 18,
+                "2": 19,
                 "1": 18,
                 "0": 8,
                 "4": 1
@@ -24983,11 +25017,11 @@
               "grasp_attachment": "off",
               "checkpoint_step": 30000,
               "execution_horizon": 8,
-              "completed": 43,
+              "completed": 45,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
-                "0": 14,
+                "0": 16,
                 "2": 15,
                 "1": 14
               }
@@ -24996,11 +25030,11 @@
               "grasp_attachment": "off",
               "checkpoint_step": 30000,
               "execution_horizon": 30,
-              "completed": 45,
+              "completed": 46,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
-                "1": 14,
+                "1": 15,
                 "0": 27,
                 "2": 4
               }
@@ -25009,13 +25043,13 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "checkpoint_step": 30000,
               "execution_horizon": 4,
-              "completed": 38,
+              "completed": 41,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
                 "2": 17,
-                "0": 7,
-                "1": 14
+                "0": 8,
+                "1": 16
               }
             },
             {
@@ -25082,7 +25116,7 @@
               "grasp_attachment": "off",
               "execution_horizon": 4,
               "evaluation_seed": 950100,
-              "completed": 8,
+              "completed": 9,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25098,7 +25132,7 @@
               "grasp_attachment": "off",
               "execution_horizon": 8,
               "evaluation_seed": 920100,
-              "completed": 9,
+              "completed": 10,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25122,7 +25156,7 @@
               "grasp_attachment": "off",
               "execution_horizon": 8,
               "evaluation_seed": 950100,
-              "completed": 9,
+              "completed": 10,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25162,7 +25196,7 @@
               "grasp_attachment": "off",
               "execution_horizon": 30,
               "evaluation_seed": 950100,
-              "completed": 8,
+              "completed": 9,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25170,7 +25204,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 4,
               "evaluation_seed": 910100,
-              "completed": 8,
+              "completed": 9,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25178,7 +25212,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 4,
               "evaluation_seed": 920100,
-              "completed": 7,
+              "completed": 8,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25186,7 +25220,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 4,
               "evaluation_seed": 930100,
-              "completed": 7,
+              "completed": 8,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25295,7 +25329,7 @@
           "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01",
           "status": "running",
           "error": null,
-          "completed": 252,
+          "completed": 258,
           "target": 3000,
           "quarantined": [
             {
@@ -25347,7 +25381,7 @@
               "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01/runs/paired_case0229"
             }
           ],
-          "active_apps": 23,
+          "active_apps": 24,
           "cleanup_passed": null,
           "audit": {
             "status": "waiting_for_complete_cohort"
@@ -25358,7 +25392,7 @@
             "ended_at": null,
             "job_url": null,
             "job_id": "job-dtng4lf4m27l",
-            "epoch": 1793645758.479515
+            "epoch": 1793646062.2606957
           },
           "platform_terminal": false,
           "counts": [
@@ -25366,13 +25400,13 @@
               "grasp_attachment": "off",
               "checkpoint_step": 30000,
               "execution_horizon": 4,
-              "completed": 41,
+              "completed": 43,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
-                "0": 18,
+                "0": 19,
                 "1": 12,
-                "2": 7,
+                "2": 8,
                 "8": 2,
                 "5": 1,
                 "4": 1
@@ -25411,25 +25445,25 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "checkpoint_step": 30000,
               "execution_horizon": 4,
-              "completed": 35,
+              "completed": 38,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
-                "1": 21,
+                "1": 23,
                 "3": 1,
                 "0": 11,
-                "2": 2
+                "2": 3
               }
             },
             {
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "checkpoint_step": 30000,
               "execution_horizon": 8,
-              "completed": 42,
+              "completed": 43,
               "target": 500,
               "provisional_successes": 0,
               "physical_phases": {
-                "0": 19,
+                "0": 20,
                 "1": 14,
                 "2": 4,
                 "4": 4,
@@ -25455,7 +25489,7 @@
               "grasp_attachment": "off",
               "execution_horizon": 4,
               "evaluation_seed": 910100,
-              "completed": 9,
+              "completed": 10,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25479,7 +25513,7 @@
               "grasp_attachment": "off",
               "execution_horizon": 4,
               "evaluation_seed": 940100,
-              "completed": 8,
+              "completed": 9,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25575,7 +25609,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 4,
               "evaluation_seed": 910100,
-              "completed": 8,
+              "completed": 9,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25591,7 +25625,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 4,
               "evaluation_seed": 930100,
-              "completed": 7,
+              "completed": 8,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25607,7 +25641,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 4,
               "evaluation_seed": 950100,
-              "completed": 7,
+              "completed": 8,
               "target": 100,
               "provisional_successes": 0
             },
@@ -25639,7 +25673,7 @@
               "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
               "execution_horizon": 8,
               "evaluation_seed": 940100,
-              "completed": 8,
+              "completed": 9,
               "target": 100,
               "provisional_successes": 0
             },

@@ -2,14 +2,14 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-02T18:51:03.093233+00:00",
+  "updated_at": "2026-11-02T18:57:13.136625+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 2573,
-  "audited": 2573,
+  "completed": 2580,
+  "audited": 2580,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 26,
+  "active_apps": 28,
   "max_parallel_apps": 60,
   "gpus": 12,
   "execution_class": "low_priority",
@@ -836,16 +836,16 @@
       "method": "Mem-0 · 削弱版",
       "checkpoint_step": 20000,
       "execution_horizon": 8,
-      "completed": 156,
-      "audited": 156,
+      "completed": 157,
+      "audited": 157,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 156
+        "0": 157
       },
       "layouts": {
         "reverse": 78,
-        "forward": 78
+        "forward": 79
       },
       "final_verified": false,
       "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -863,8 +863,8 @@
         {
           "repeat": 1,
           "run_seed": 1,
-          "completed": 56,
-          "audited": 56,
+          "completed": 57,
+          "audited": 57,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1156,15 +1156,15 @@
       "method": "Mem-0 · 削弱版",
       "checkpoint_step": 30000,
       "execution_horizon": 30,
-      "completed": 88,
-      "audited": 88,
+      "completed": 89,
+      "audited": 89,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 88
+        "0": 89
       },
       "layouts": {
-        "forward": 44,
+        "forward": 45,
         "reverse": 44
       },
       "final_verified": false,
@@ -1173,8 +1173,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 60,
-          "audited": 60,
+          "completed": 61,
+          "audited": 61,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1236,12 +1236,93 @@
       "method": "TTC · 对齐loss",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
+      "completed": 116,
+      "audited": 116,
+      "target": 500,
+      "successes": 0,
+      "physical_phases": {
+        "0": 116
+      },
+      "layouts": {
+        "forward": 57,
+        "reverse": 59
+      },
+      "final_verified": false,
+      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
+      "seeds": [
+        {
+          "repeat": 0,
+          "run_seed": 0,
+          "completed": 88,
+          "audited": 88,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 1,
+          "run_seed": 1,
+          "completed": 28,
+          "audited": 28,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 2,
+          "run_seed": 2,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 3,
+          "run_seed": 3,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        },
+        {
+          "repeat": 4,
+          "run_seed": 4,
+          "completed": 0,
+          "audited": 0,
+          "successes": 0,
+          "target": 100,
+          "final_verified": false,
+          "success_rate": null
+        }
+      ],
+      "seed_count": 5,
+      "trials_per_seed": 100,
+      "mean_success_rate": null,
+      "std_success_rate": null,
+      "trials_attached": 0,
+      "attach_events": 0,
+      "policy_release_events": 0
+    },
+    {
+      "variant": "ours30",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
       "completed": 115,
       "audited": 115,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 115
+        "0": 114,
+        "1": 1
       },
       "layouts": {
         "forward": 56,
@@ -1315,18 +1396,17 @@
       "dataset": "5-pos",
       "method": "TTC · 对齐loss",
       "checkpoint_step": 30000,
-      "execution_horizon": 8,
-      "completed": 114,
-      "audited": 114,
+      "execution_horizon": 30,
+      "completed": 115,
+      "audited": 115,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 113,
-        "1": 1
+        "0": 115
       },
       "layouts": {
         "forward": 56,
-        "reverse": 58
+        "reverse": 59
       },
       "final_verified": false,
       "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -1334,8 +1414,8 @@
         {
           "repeat": 0,
           "run_seed": 0,
-          "completed": 86,
-          "audited": 86,
+          "completed": 87,
+          "audited": 87,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1346,86 +1426,6 @@
           "run_seed": 1,
           "completed": 28,
           "audited": 28,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 2,
-          "run_seed": 2,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 3,
-          "run_seed": 3,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 4,
-          "run_seed": 4,
-          "completed": 0,
-          "audited": 0,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        }
-      ],
-      "seed_count": 5,
-      "trials_per_seed": 100,
-      "mean_success_rate": null,
-      "std_success_rate": null,
-      "trials_attached": 0,
-      "attach_events": 0,
-      "policy_release_events": 0
-    },
-    {
-      "variant": "ours30",
-      "record": "5-pos-ours-aligned",
-      "dataset": "5-pos",
-      "method": "TTC · 对齐loss",
-      "checkpoint_step": 30000,
-      "execution_horizon": 30,
-      "completed": 112,
-      "audited": 112,
-      "target": 500,
-      "successes": 0,
-      "physical_phases": {
-        "0": 112
-      },
-      "layouts": {
-        "forward": 55,
-        "reverse": 57
-      },
-      "final_verified": false,
-      "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
-      "seeds": [
-        {
-          "repeat": 0,
-          "run_seed": 0,
-          "completed": 86,
-          "audited": 86,
-          "successes": 0,
-          "target": 100,
-          "final_verified": false,
-          "success_rate": null
-        },
-        {
-          "repeat": 1,
-          "run_seed": 1,
-          "completed": 26,
-          "audited": 26,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1681,8 +1681,8 @@
       "resource_class": "low_priority",
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 741,
-      "active_apps": 16,
+      "completed": 745,
+      "active_apps": 18,
       "error": false,
       "audit_error": false,
       "historical": false,
@@ -1696,18 +1696,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793645339.9908347,
+        "epoch": 1793645685.1111455,
         "status": "running",
-        "completed": 1540,
+        "completed": 1547,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "543692185600",
+          "current": "545261060096",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 116727336960
+          "shm_used": 116394598400
         },
-        "gpu": "0, 69019, 44\n1, 68514, 45\n2, 69328, 50\n3, 46978, 47\n"
+        "gpu": "0, 69019, 40\n1, 64625, 52\n2, 69328, 43\n3, 44497, 26\n"
       },
       "startup_gates": 6
     },
@@ -1804,7 +1804,7 @@
       "resource_class": "low_priority",
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 334,
+      "completed": 337,
       "active_apps": 10,
       "error": false,
       "audit_error": false,
@@ -1819,18 +1819,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793645336.902715,
+        "epoch": 1793645706.4951825,
         "status": "running",
-        "completed": 666,
+        "completed": 672,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "432570839040",
+          "current": "417771700224",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 60487880704
+          "shm_used": 60310380544
         },
-        "gpu": "0, 68653, 43\n1, 68231, 56\n2, 69264, 33\n3, 46954, 46\n"
+        "gpu": "0, 61252, 50\n1, 68231, 49\n2, 67545, 37\n3, 46424, 48\n"
       },
       "startup_gates": 4
     },
@@ -32976,6 +32976,44 @@
       "attempt_priority": 102
     },
     {
+      "id": "ours30_mem0_30000_h4_forward_042",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "forward",
+      "seed": 729042,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "22e8962206e2e2b537f8ee543df39e35fb242a3c5b1e1901153678b5655d8eef",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
+      "id": "weak30_mem0_30000_h30_forward_030",
+      "variant": "weak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 729030,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "244af4dae2d0d2430e40dd0ab55b5b15611a130889ed561bd8ef93b652edf454",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
       "id": "ours30_mem0_30000_h4_reverse_042",
       "variant": "ours30",
       "checkpoint_step": 30000,
@@ -33103,6 +33141,44 @@
       "physical_phases": 0,
       "sim_seconds": 25.783333333333335,
       "physics_sha256": "7baf3b514046aedc2c0f6b1357f1972cf55f75c0deb627a08e86b9df466e3391",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
+      "id": "ours30_mem0_30000_h8_reverse_044",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 730044,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 24.066666666666666,
+      "physics_sha256": "47f39cd919c09f4a76315dad36a5eb4116f23298d1bf07614526024ed268a91d",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-i4e2b4uq0eb4",
+      "attempt_priority": 102
+    },
+    {
+      "id": "ours30_mem0_30000_h30_reverse_044",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 730044,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 13.258333333333333,
+      "physics_sha256": "2ed7df20c5d58110fdff4e7c01a15f5a556ce0eec4e3f442d52869d1272ab087",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-i4e2b4uq0eb4",
@@ -39360,6 +39436,25 @@
       "attempt_priority": 100
     },
     {
+      "id": "r1__ours30_mem0_30000_h30_forward_013",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 180086025,
+      "repeat": 1,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "994b0a607824a91edb780e96e03f0da368574764b595aeb3f39bca3751cb4f9b",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-pcyii5zfqbad",
+      "attempt_priority": 100
+    },
+    {
       "id": "r1__weak20_mem0_20000_h4_forward_028",
       "variant": "weak20",
       "checkpoint_step": 20000,
@@ -39373,6 +39468,25 @@
       "physical_phases": 0,
       "sim_seconds": 240.0,
       "physics_sha256": "5e1a8c2f5c450bf3927c945b22dda21a3cd3367865317056c54357b063422176",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-pcyii5zfqbad",
+      "attempt_priority": 100
+    },
+    {
+      "id": "r1__weak20_mem0_20000_h8_forward_028",
+      "variant": "weak20",
+      "checkpoint_step": 20000,
+      "execution_horizon": 8,
+      "layout": "forward",
+      "seed": 1381416609,
+      "repeat": 1,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "c6eaf43333136303accadff417845a0019fa2c9d71382d7673d9b0f78d4c84d8",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-pcyii5zfqbad",
@@ -39449,6 +39563,25 @@
       "physical_phases": 0,
       "sim_seconds": 30.833333333333332,
       "physics_sha256": "1d18c76a1b738a39ed8c6851e100256ce80f1ce6c440bcd39c1c70dcfae20236",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-pcyii5zfqbad",
+      "attempt_priority": 100
+    },
+    {
+      "id": "r1__ours30_mem0_30000_h30_reverse_013",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 688479479,
+      "repeat": 1,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 39.56666666666667,
+      "physics_sha256": "e3a30daf2db4a79acd039b5876e519c2fc4f62fd021eed3cb9e23d9c581b9b2d",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-pcyii5zfqbad",

@@ -11004,7 +11004,7 @@
       "trials": 100,
       "unknown": 0,
       "completed": 0,
-      "status": "尚未开始正式阶段A：冒烟任务基础设施失败，待准入修复",
+      "status": "等待阶段A派发；专家判定pending",
       "kind": "自主闭环",
       "topology": {
         "num_envs_actual": 1,
@@ -11019,14 +11019,14 @@
       },
       "seed_results": [],
       "lr_split": null,
-      "phase_hist": null,
+      "phase_hist": {},
       "mean_phase": null,
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
-          "status": "failed",
-          "report": "reports/task3-round3-20261103/status.json#corrections"
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
         },
         "open_loop": {
           "passed": false,
@@ -11045,8 +11045,8 @@
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T14:54:26.737714+00:00",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
       "variant": "latest-training-render-and-resize-v1",
       "input_changes": [
         "V14训练渲染4项修复",
@@ -11060,7 +11060,8 @@
         "formal_stageA_started": false,
         "provider_failure_reason": "not available",
         "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
-      }
+      },
+      "evaluation_started": false
     },
     {
       "id": "t1035-r3-latest-training-render-and-resize-v1-c30-h8",
@@ -11078,7 +11079,7 @@
       "trials": 100,
       "unknown": 0,
       "completed": 0,
-      "status": "尚未开始正式阶段A：冒烟任务基础设施失败，待准入修复",
+      "status": "等待阶段A派发；专家判定pending",
       "kind": "自主闭环",
       "topology": {
         "num_envs_actual": 1,
@@ -11093,14 +11094,14 @@
       },
       "seed_results": [],
       "lr_split": null,
-      "phase_hist": null,
+      "phase_hist": {},
       "mean_phase": null,
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
-          "status": "failed",
-          "report": "reports/task3-round3-20261103/status.json#corrections"
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
         },
         "open_loop": {
           "passed": false,
@@ -11119,8 +11120,8 @@
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T14:54:26.737714+00:00",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
       "variant": "latest-training-render-and-resize-v1",
       "input_changes": [
         "V14训练渲染4项修复",
@@ -11134,7 +11135,8 @@
         "formal_stageA_started": false,
         "provider_failure_reason": "not available",
         "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
-      }
+      },
+      "evaluation_started": false
     },
     {
       "id": "t1035-r3-diag-d1_2cm",
@@ -20482,8 +20484,8 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
-      "status": "已登记：等待20条冒烟及专家执行链准入修复",
+      "completed": 15,
+      "status": "阶段A正在评测；专家判定pending",
       "kind": "原始条件阶段A",
       "topology": {
         "num_envs_actual": 1,
@@ -20499,14 +20501,14 @@
       },
       "seed_results": [],
       "lr_split": null,
-      "phase_hist": null,
+      "phase_hist": {},
       "mean_phase": null,
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
-          "status": "failed_shared_execution_chain",
-          "report": "reports/task3-round4-20261103.html"
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
         },
         "open_loop": {
           "passed": false,
@@ -20525,13 +20527,13 @@
         }
       },
       "source": "T-1035 round4 checkpoint issues#1-26核对及已读冻结交付说明",
-      "report_url": "reports/task3-round4-20261103.html",
+      "report_url": "reports/task3-round6-20261103.html",
       "protocol": "固定seed0同100个XY±1cm场景；左右50/50；N1×3计划；每配置先20条左右10/10冒烟。75s不变。缺准入不进正式表。",
       "blocked_reason": "共享专家执行链原生3/10、端点插值0/10未过硬门槛；当前16卡用于在跑诊断/收尾。",
       "estimated_start": "下一个4卡槽释放后开始可独立的准入检查；正式阶段A等待执行链修复，暂无可靠时间承诺",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
       "checkpoint_binding_note": "已有3-v13-mem0记录的30k权重，实际SHA在历史冻结PLAN；#9是20k，不冒称30k对应#9。",
-      "evaluation_started": false
+      "evaluation_started": true
     },
     {
       "id": "t1035-r4-Mem0-V13-30k-trainresize-c30000-h8",
@@ -20551,7 +20553,7 @@
       "trials": 100,
       "unknown": 0,
       "completed": 0,
-      "status": "已登记：等待20条冒烟及专家执行链准入修复",
+      "status": "等待阶段A派发；专家判定pending",
       "kind": "原始条件阶段A",
       "topology": {
         "num_envs_actual": 1,
@@ -20567,14 +20569,14 @@
       },
       "seed_results": [],
       "lr_split": null,
-      "phase_hist": null,
+      "phase_hist": {},
       "mean_phase": null,
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
-          "status": "failed_shared_execution_chain",
-          "report": "reports/task3-round4-20261103.html"
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
         },
         "open_loop": {
           "passed": false,
@@ -20593,11 +20595,11 @@
         }
       },
       "source": "T-1035 round4 checkpoint issues#1-26核对及已读冻结交付说明",
-      "report_url": "reports/task3-round4-20261103.html",
+      "report_url": "reports/task3-round6-20261103.html",
       "protocol": "固定seed0同100个XY±1cm场景；左右50/50；N1×3计划；每配置先20条左右10/10冒烟。75s不变。缺准入不进正式表。",
       "blocked_reason": "共享专家执行链原生3/10、端点插值0/10未过硬门槛；当前16卡用于在跑诊断/收尾。",
       "estimated_start": "下一个4卡槽释放后开始可独立的准入检查；正式阶段A等待执行链修复，暂无可靠时间承诺",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
       "checkpoint_binding_note": "已有3-v13-mem0记录的30k权重，实际SHA在历史冻结PLAN；#9是20k，不冒称30k对应#9。",
       "evaluation_started": false
     },
@@ -21404,6 +21406,678 @@
       "estimated_start": "下一个4卡槽释放后开始可独立的准入检查；正式阶段A等待执行链修复，暂无可靠时间承诺",
       "updated_at": "2026-11-03T15:12:34.830436+00:00",
       "evaluation_started": false
+    },
+    {
+      "id": "t1035-r6-rescore-pose-ttc_trainresize-c30-h4",
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 62,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 100,
+      "status": "离线重算诊断完成；候选判定未正式采用",
+      "kind": "自主闭环诊断 · 训练缩放候选",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 62,
+          "failure": 38,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 30,
+          "failure": 20,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 32,
+          "failure": 18,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 62,
+        "0": 4,
+        "1": 31,
+        "2": 3
+      },
+      "mean_phase": 2.23,
+      "wilson95": {
+        "low": 0.5220975529551107,
+        "high": 0.7090240074752127,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "reports/task3-round6-20261103/rescoring-cases.json",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "variant": "ours-V13-30k-trainresize",
+      "valid_for_comparison": false,
+      "requested_phase": "A",
+      "formal_score_eligible": false,
+      "paired_original_configuration": {
+        "trainresize_only": 30,
+        "both_failure": 51,
+        "both_success": 10,
+        "baseline_only": 9
+      },
+      "paired_difference_pp": 21,
+      "paired95_scene_stratified_bootstrap_pp": [
+        9,
+        32
+      ],
+      "runtime_confound_warning": "paired scenes, weights and inference seeds identical; historical baseline and repaired native R4 source generations differ. This is a configuration comparison, not a clean resize-only causal estimate.",
+      "source_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h4",
+      "metric_role": "rescored_v1.1_candidate",
+      "rescore_rule": "pose_drift_3s",
+      "oracle_version": "stability-v1.1-candidate-frozen-round5",
+      "unknown_reasons": {},
+      "evaluation_started": true,
+      "rescore_script_sha256": "bde303cc27dece953f0898c226aee9cf4aab8c7102b3147e96a1cdc4a107b044",
+      "rescore_threshold_sha256": "d841c5ccb7f0c728c6506083d3ab227a8b38250147b79f9e5e8fcf4d439f62aa",
+      "checkpoint_sha256": "14a2c891bc839fcb1bddb1de002e8723591910cd96e62afad0beb52a10727fa1",
+      "note": "保留原strict-v1成绩；unknown留在100分母且不进入phase_hist。候选仍待负例视频验证及用户采用决定。"
+    },
+    {
+      "id": "t1035-r6-rescore-pose-ttc_trainresize-c30-h8",
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 62,
+      "trials": 100,
+      "unknown": 1,
+      "completed": 100,
+      "status": "离线重算诊断完成；候选判定未正式采用",
+      "kind": "自主闭环诊断 · 训练缩放候选",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 62,
+          "failure": 37,
+          "unknown": 1
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 27,
+          "failure": 23,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 35,
+          "failure": 14,
+          "unknown": 1
+        }
+      },
+      "phase_hist": {
+        "3": 62,
+        "0": 4,
+        "1": 29,
+        "2": 4
+      },
+      "mean_phase": 2.2525252525252526,
+      "wilson95": {
+        "low": 0.5220975529551107,
+        "high": 0.7090240074752127,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "reports/task3-round6-20261103/rescoring-cases.json",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "variant": "ours-V13-30k-trainresize",
+      "valid_for_comparison": false,
+      "requested_phase": "A",
+      "formal_score_eligible": false,
+      "paired_original_configuration": {
+        "trainresize_only": 34,
+        "both_failure": 55,
+        "baseline_only": 6,
+        "both_success": 5
+      },
+      "paired_difference_pp": 28,
+      "paired95_scene_stratified_bootstrap_pp": [
+        17,
+        39
+      ],
+      "runtime_confound_warning": "paired scenes, weights and inference seeds identical; historical baseline and repaired native R4 source generations differ. This is a configuration comparison, not a clean resize-only causal estimate.",
+      "source_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h8",
+      "metric_role": "rescored_v1.1_candidate",
+      "rescore_rule": "pose_drift_3s",
+      "oracle_version": "stability-v1.1-candidate-frozen-round5",
+      "unknown_reasons": {
+        "original_oracle_reconstruction_mismatch": 1
+      },
+      "evaluation_started": true,
+      "rescore_script_sha256": "bde303cc27dece953f0898c226aee9cf4aab8c7102b3147e96a1cdc4a107b044",
+      "rescore_threshold_sha256": "d841c5ccb7f0c728c6506083d3ab227a8b38250147b79f9e5e8fcf4d439f62aa",
+      "checkpoint_sha256": "14a2c891bc839fcb1bddb1de002e8723591910cd96e62afad0beb52a10727fa1",
+      "note": "保留原strict-v1成绩；unknown留在100分母且不进入phase_hist。候选仍待负例视频验证及用户采用决定。"
+    },
+    {
+      "id": "t1035-r6-rescore-pose-d0-c30-h4",
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "diagnostic-D0-v1",
+      "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+      "success": 35,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 100,
+      "status": "离线重算诊断完成；候选判定未正式采用",
+      "kind": "诊断",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL",
+        "mode": "bicubic",
+        "antialias": null,
+        "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 35,
+          "failure": 65,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 35,
+          "failure": 15,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "1": 59,
+        "3": 35,
+        "2": 6
+      },
+      "mean_phase": 1.76,
+      "wilson95": {
+        "low": 0.26364248243097527,
+        "high": 0.44745556703112027,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        }
+      },
+      "protocol": "预注册补充1：无黑图/无state噪声，原1cm场景，其他同D1-D3的R4运行时；控制初始液体修复的潜在混杂。额外100条，16卡上限不变。旧24/100只作历史背景，配对效应用本D0。",
+      "source": "reports/task3-round6-20261103/rescoring-cases.json",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "variant": "D0 matched runtime control",
+      "metric_role": "rescored_v1.1_candidate",
+      "matched_reference": "t1035-r3-diag-d0",
+      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json",
+      "source_evaluation_id": "t1035-r3-diag-d0",
+      "rescore_rule": "pose_drift_3s",
+      "oracle_version": "stability-v1.1-candidate-frozen-round5",
+      "unknown_reasons": {},
+      "evaluation_started": true,
+      "rescore_script_sha256": "bde303cc27dece953f0898c226aee9cf4aab8c7102b3147e96a1cdc4a107b044",
+      "rescore_threshold_sha256": "d841c5ccb7f0c728c6506083d3ab227a8b38250147b79f9e5e8fcf4d439f62aa",
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "note": "保留原strict-v1成绩；unknown留在100分母且不进入phase_hist。候选仍待负例视频验证及用户采用决定。"
+    },
+    {
+      "id": "t1035-r6b-mem0_v13-smoke-h8",
+      "record": "3-v13-mem0",
+      "checkpoint_issue": null,
+      "checkpoint_issue_url": null,
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 8,
+      "trials": 20,
+      "unknown": 0,
+      "completed": 20,
+      "status": "冒烟20条完成；阶段A已启动，专家口径pending",
+      "kind": "原始条件阶段A",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "topology_status": "planned; not running",
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "每个交付包自身训练实现；逐位一致性检查待该组合完成"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 8,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 6,
+          "unknown": 0,
+          "failure": 4
+        },
+        "right": {
+          "trials": 10,
+          "success": 2,
+          "unknown": 0,
+          "failure": 8
+        }
+      },
+      "phase_hist": {
+        "3": 8,
+        "2": 8,
+        "1": 4
+      },
+      "mean_phase": 2.2,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-round4-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "status": "passed_no_stage0_stall",
+          "report": "reports/task3-round6-20261103.html"
+        }
+      },
+      "source": "T-1035 evalv1_mem0_v13_trainresize_full_r6b/smoke verified plan and SHA-restored97-file support",
+      "report_url": "reports/task3-round6-20261103.html",
+      "protocol": "固定seed0同100个XY±1cm场景；左右50/50；N1×3计划；每配置先20条左右10/10冒烟。75s不变。缺准入不进正式表。",
+      "blocked_reason": "共享专家执行链原生3/10、端点插值0/10未过硬门槛；当前16卡用于在跑诊断/收尾。",
+      "estimated_start": "下一个4卡槽释放后开始可独立的准入检查；正式阶段A等待执行链修复，暂无可靠时间承诺",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "checkpoint_binding_note": "已有3-v13-mem0记录的30k权重，实际SHA在历史冻结PLAN；#9是20k，不冒称30k对应#9。",
+      "evaluation_started": true,
+      "metric_role": "diagnostic",
+      "target": 20
+    },
+    {
+      "id": "t1035-r6b-mem0_latest-smoke-h8",
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": null,
+      "trials": 20,
+      "unknown": 0,
+      "completed": 18,
+      "status": "20条冒烟正在执行；pending专家口径",
+      "kind": "自主闭环",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [],
+      "lr_split": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "evalv1_v14_admission4_r3 action_left/right，2episodes×5时点，MAE最大0.600749/255"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "running",
+          "report": "reports/task3-round6-20261103.html"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "T-1035 evalv1_mem0_latest_trainresize_full_r6b/smoke verified plan and SHA-restored97-file support",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "variant": "latest-training-render-and-resize-v1",
+      "input_changes": [
+        "V14训练渲染4项修复",
+        "训练侧张量双线性+AA缩放"
+      ],
+      "run": "job-rcuat6z8qs1k",
+      "infrastructure_unknown_receipt": {
+        "job_status": "FAILED",
+        "smoke_attempted_unknown": 12,
+        "smoke_unstarted": 8,
+        "formal_stageA_started": false,
+        "provider_failure_reason": "not available",
+        "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
+      },
+      "evaluation_started": true,
+      "metric_role": "diagnostic",
+      "target": 20
+    },
+    {
+      "id": "t1035-r6b-ttc-V13-trainresize-B-c30-h4",
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "B",
+      "condition_version": "original-trainresize-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": null,
+      "trials": 500,
+      "unknown": 0,
+      "completed": 166,
+      "status": "阶段B正在执行；seed0阶段A100条保留，seed1–4按优先队列续测；pending专家口径",
+      "kind": "自主闭环诊断 · 训练缩放候选",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [],
+      "lr_split": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "variant": "ours-V13-30k-trainresize",
+      "valid_for_comparison": false,
+      "requested_phase": "A",
+      "formal_score_eligible": false,
+      "paired_original_configuration": {
+        "trainresize_only": 30,
+        "both_failure": 51,
+        "both_success": 10,
+        "baseline_only": 9
+      },
+      "paired_difference_pp": 21,
+      "paired95_scene_stratified_bootstrap_pp": [
+        9,
+        32
+      ],
+      "runtime_confound_warning": "paired scenes, weights and inference seeds identical; historical baseline and repaired native R4 source generations differ. This is a configuration comparison, not a clean resize-only causal estimate.",
+      "metric_role": "primary",
+      "evaluation_started": true,
+      "target": 500,
+      "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h4",
+      "source_phaseA_condition_version": "original-v1",
+      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。"
+    },
+    {
+      "id": "t1035-r6b-ttc-V13-trainresize-B-c30-h8",
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "B",
+      "condition_version": "original-trainresize-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": null,
+      "trials": 500,
+      "unknown": 0,
+      "completed": 100,
+      "status": "阶段B正在执行；seed0阶段A100条保留，seed1–4按优先队列续测；pending专家口径",
+      "kind": "自主闭环诊断 · 训练缩放候选",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [],
+      "lr_split": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
+      "report_url": "reports/task3-round6-20261103.html",
+      "updated_at": "2026-11-03T17:34:56.554756+00:00",
+      "variant": "ours-V13-30k-trainresize",
+      "valid_for_comparison": false,
+      "requested_phase": "A",
+      "formal_score_eligible": false,
+      "paired_original_configuration": {
+        "trainresize_only": 34,
+        "both_failure": 55,
+        "baseline_only": 6,
+        "both_success": 5
+      },
+      "paired_difference_pp": 28,
+      "paired95_scene_stratified_bootstrap_pp": [
+        17,
+        39
+      ],
+      "runtime_confound_warning": "paired scenes, weights and inference seeds identical; historical baseline and repaired native R4 source generations differ. This is a configuration comparison, not a clean resize-only causal estimate.",
+      "metric_role": "primary",
+      "evaluation_started": true,
+      "target": 500,
+      "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h8",
+      "source_phaseA_condition_version": "original-v1",
+      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。"
     }
   ],
   "agents": [

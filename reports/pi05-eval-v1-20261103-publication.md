@@ -17,3 +17,5 @@ Completed follow-up: job-opggko0lwifb SUCCEEDED,16 original audits exit0 and all
 
 
 Snapshot 2026-11-03T11:59:29.826111+00:00: actual training reader parity passed four samples; 100 prompt identities. New direct-I/O expert diagnostic job-0238tobvi0iz running16 N1, four cards. Old smoke stopped shared reserve. Video is phase2 whole failure. Three old expert phase2 records have diagnostic wait-window ambiguity. No final model rates added. TOS five/seven delivery absent; supervisor notified.
+
+2026-11-03T13:11:53.021596+00:00: new16 expert diagnostic closed/all fullSHA archives verified; GPUs released. Native0/4,ramp1/6,zero2/6 unscored controls. Two source-native75s restore failures isolated angularvelocity continuous dwell. Zone5 project-publicPOSIX source absent from current API source catalog; R4supervisor reply200. No formal model success rate added.

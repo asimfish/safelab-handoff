@@ -1,6 +1,7 @@
 # SafeLab 交接文档
 
-- [统一评测标准 SafeLab-Eval-v1](../eval-v1.html)
+- [现行评测标准 SafeLab-Eval-v1.1](../eval-v1.1.html)
+- [strict-v1 对照标准 SafeLab-Eval-v1](../eval-v1.html)
 - [结果字段及unknown统计规则](evaluation-schema-v1.md)
 - [权重登记、遗漏清单与评测覆盖](checkpoint-coverage.md)
 - [网站PR审核与发布流程](website-pr-review.md)

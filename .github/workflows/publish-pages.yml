@@ -29,6 +29,16 @@ jobs:
         run: python3 scripts/fill-legacy-schema.py
       - name: Verify dashboard metrics
         run: node --test tests/*.test.js
+      - name: Verify rendered oracle switching and checkpoint coverage
+        run: |
+          python3 -m http.server 8872 --bind 127.0.0.1 >/tmp/safelab-pages-qa.log 2>&1 &
+          safelab_qa_server_pid=$!
+          trap 'kill "$safelab_qa_server_pid"' EXIT
+          export SAFELAB_QA_BASE_URL=http://127.0.0.1:8872/
+          export SAFELAB_CHROME_STARTUP_MS=60000
+          node tests/unknown-browser.mjs
+          node tests/coverage-browser.mjs
+          python3 -c "import shutil; shutil.rmtree('.qa', ignore_errors=True)"
       - name: Upload the static website
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:

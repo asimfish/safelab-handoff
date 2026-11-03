@@ -1,10 +1,18 @@
 {
-  "updated_at": "2026-11-03T15:14:37.153951+00:00",
+  "updated_at": "2026-11-03T15:51:51.223773+00:00",
   "status": {
-    "status": "CREATING",
-    "job_id": null,
-    "elapsed_since_accept_s": 883.35551404953,
-    "epoch": 1793718832.2542365
+    "operation_id": "ixbk1jfag4snejd1q27zpgk54",
+    "operation_type": "logical_job_create:23s9s8ldwynshb07y427vvmw3",
+    "state": "FAILED",
+    "cmd_id": "cmd-b068a8c9-68a8-4e78-92ca-f45fc758333a",
+    "http_status": 200,
+    "created_at": 1793717948887,
+    "updated_at": 1793719465722,
+    "completed_at": 1793719465722,
+    "finalization_state": "PENDING",
+    "stage": "MAIN_INTENT",
+    "code": "training_cancelled_before_dispatch",
+    "phase": "before_dispatch"
   },
   "copy_intent": "pi05-zone5-handoff-copy-20261103-r2",
   "operation": {
@@ -200,5 +208,69 @@
     },
     "formal_rate": null,
     "unknown": 0
-  }
+  },
+  "final": {
+    "operation": {
+      "operation_id": "ixbk1jfag4snejd1q27zpgk54",
+      "operation_type": "logical_job_create:23s9s8ldwynshb07y427vvmw3",
+      "state": "FAILED",
+      "cmd_id": "cmd-b068a8c9-68a8-4e78-92ca-f45fc758333a",
+      "http_status": 200,
+      "created_at": 1793717948887,
+      "updated_at": 1793719465722,
+      "completed_at": 1793719465722,
+      "finalization_state": "PENDING",
+      "stage": "MAIN_INTENT",
+      "code": "training_cancelled_before_dispatch",
+      "phase": "before_dispatch"
+    },
+    "job_id": null,
+    "native_entrypoint_executed": false,
+    "actual_worker_runtime_s": 0,
+    "source_package_files_uploaded": 0,
+    "source_package_files_verified": 0,
+    "manifest_sha256": null,
+    "no_further_copy_jobs": true,
+    "CPU_reproduction": {
+      "missing_env_reproduction": {
+        "type": "KeyError",
+        "key": "ZENITH_API_TOKEN",
+        "line": 24
+      },
+      "env_injected_url_schema_pass": true,
+      "wrapped_schema_reproduction": {
+        "type": "KeyError",
+        "key": "url",
+        "line": 26
+      }
+    },
+    "CPU_live_STS_probe": {
+      "sts_http": 200,
+      "direct_sts_put_head_get_verified": true,
+      "probe_sha256": "180b8475370c578708e13742c1cda21ba067325faf803b881b35981082c152d9",
+      "SDK": {
+        "key": "liyufeng/pi05_handoff_20261103/r2/sdk.zip",
+        "sha256": "f7b6071531ff8dac14852b28681745070078b791d63658b9c9275a9c7e7bf01c",
+        "bytes": 14723920,
+        "verified": true
+      },
+      "connectivity": {},
+      "proxy_used": false
+    },
+    "supervisor_reply": {
+      "http_status": 200,
+      "single_use_consumed": true,
+      "epoch": 1793719488.830862
+    },
+    "next_requirement": "Training owner sync five/seven packages directly to authorized project TOS."
+  },
+  "failure_report_archive": {
+    "source_id": "k32181r1qe5gh73u8yvqyur5e",
+    "key": "liyufeng/pi05_handoff_20261103/r2/CREATE_FAILURE_REPORT.json",
+    "sha256": "17815de8c0ddce303ed56550d10a539ae42ef75cefcf78bfe29d0c98c033222c",
+    "bytes": 1675,
+    "independent_GET_verified": true,
+    "preexisting_verified": false
+  },
+  "no_further_copy_jobs": true
 }

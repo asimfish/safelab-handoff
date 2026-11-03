@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-11-03T05:52:43.090398+00:00",
-  "epoch": 1793685163.0904076,
+  "updated_at": "2026-11-03T05:57:53.251440+00:00",
+  "epoch": 1793685473.251448,
   "target": 6000,
-  "completed": 1986,
-  "active_apps": 67,
+  "completed": 1989,
+  "active_apps": 23,
   "low_priority_gpu_limit": 12,
   "requested_low_priority_gpus": 12,
   "topology": {
@@ -102,14 +102,46 @@
       }
     },
     "predecessor_audit": {
-      "status": "pending",
-      "log_tail": ""
+      "status": "requires_inspection",
+      "log_tail": "Traceback (most recent call last):\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/review/predecessor450_valid_subset_20261103/run.py\", line 7, in <module>\n    a=audit(root,partial=True,supplement=[v for v in s['cases'] if v['recovered_unacknowledged']],evidence_quarantines=q)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/review/predecessor450_valid_subset_20261103/audit_new.py\", line 126, in audit\n    assert 0 < len(early) <= 4 and not r['success']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
     },
     "cleanup_replay": {
-      "status": "recorded_cleanup_replay",
+      "status": "complete",
       "scored": false,
       "model_calls": 0,
-      "formal_campaign_modified": false
+      "formal_campaign_modified": false,
+      "result": {
+        "scored": false,
+        "model_calls": 0,
+        "command_source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01/runs/paired_case0402/task10_ours_aligned_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o12345_seed930113/frames.jsonl",
+        "claim_boundary": "Recorded open-loop prefix only; never a model success or substitute formal trial",
+        "scene_cap_readback": [
+          {
+            "path": "/physicsScene",
+            "max_position_iterations": 32
+          }
+        ],
+        "initial_q13_error_rad": 0.0,
+        "processed_all_recorded_commands": true,
+        "recorded_frames_processed": 4500,
+        "native_tick": 36124,
+        "q13_max_replay_difference_rad": 0.0,
+        "attachment": {
+          "activations": 2,
+          "releases": 1,
+          "maximum_relative_translation_error_m": 2.0583351135987283e-05,
+          "maximum_relative_rotation_error_rad": 6.825980417192188e-05,
+          "active_keys": [
+            [
+              "A"
+            ]
+          ]
+        },
+        "solver_restored_after_cleanup": true,
+        "constraint_guard_triggered": false,
+        "wall_seconds": 563.8811819553375
+      },
+      "owned_cleanup_passed": true
     }
   },
   "examples": [
@@ -1662,15 +1694,15 @@
       }
     },
     "formal_evaluation_admitted": false,
-    "updated_epoch": 1793685163.2474,
+    "updated_epoch": 1793685473.4069638,
     "initial_cap255_probe_invalid_reason": "initial q13 differs0.01585rad; initial parity gate retained",
-    "next_candidate": "Native255/4 and255/32 passed both recorded prefixes and full10 expert replay. Native255/4 learned closed-loop pilot is running, remains unscored; frozen formal runtimes unchanged.",
+    "next_candidate": "Inspect learned policy execution and stage transitions; no new formal attachment condition admitted from the single failed pilot.",
     "official_documentation": "https://docs.omniverse.nvidia.com/kit/docs/omni_usd_schema_physics/latest/physxschema/class_physx_schema_physx_scene_a_p_i.html",
     "effective_native_iteration_count": null,
     "direct_dynamic_control_bypass_not_ruled_out": true,
     "effect_of_scene_cap_on_native_setter": "Not established: dynamic scene-cap change retained the exact same first failing trajectory",
     "recorded_counterfactual_passed": false,
-    "remaining_validation": "Two recorded failure prefixes and full10 expert passed for native255/4 and255/32. One learned closed-loop unscored pilot for255/4 now runs on existing GPU0; no formal score or root-cause claim.",
+    "remaining_validation": "The native255/4 unscored learned pilot ended at1/10 phases with time_limit300simseconds. No constraint guard fired; four255/4 enable-and32/1 restore pairs verified. Mechanical replay/expert gates alone do not establish improved learned success.",
     "scene_cap_hypothesis_result": "Not supported for these two prefixes: parity-preserving scene-cap changes reproduced identical q13, failure ticks and error tuples",
     "native_iteration_sweep": {
       "status": "requires_inspection",
@@ -2357,22 +2389,22 @@
       "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00",
       "worker_key": "cloud_mem0_weak_a00",
       "source_folder": "mem0_weak",
-      "status": "running",
+      "status": "requires_inspection",
       "error": null,
       "completed": 1487,
       "target": 3000,
       "quarantined": [],
-      "active_apps": 26,
+      "active_apps": 0,
       "cleanup_passed": null,
       "platform": {
         "name": "SafeLabT10-mem0_weak-30k-Pro4-LP-20261102",
-        "status": "RUNNING",
-        "ended_at": null,
+        "status": "FAILED",
+        "ended_at": 1793684995915,
         "job_url": null,
         "job_id": "job-ti8136f4w885",
-        "epoch": 1793684955.6579247
+        "epoch": 1793685471.5922508
       },
-      "platform_terminal": false,
+      "platform_terminal": true,
       "terminal_auditable": false,
       "audit": {
         "status": "waiting_for_complete_cohort"
@@ -2727,7 +2759,7 @@
       "job_id": "job-ca4on95hu4ar + job-28kuj3mt9ovt",
       "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01",
       "status": "running",
-      "completed": 499,
+      "completed": 502,
       "target": 3000,
       "quarantined": [
         {
@@ -2990,7 +3022,7 @@
           }
         }
       ],
-      "active_apps": 41,
+      "active_apps": 23,
       "cleanup_passed": false,
       "cleanup_assurance": "New workers require native cleanup; predecessor termination is provider-confirmed, native cleanup receipt unavailable.",
       "platform_terminal": false,
@@ -3004,12 +3036,12 @@
           "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_resume_a02/run_a02",
           "worker_key": "cloud_ours_aligned_a02",
           "source_folder": "ours_aligned_resume_a02",
-          "status": "running",
+          "status": "requires_inspection",
           "error": null,
           "completed": 21,
           "target": 3000,
           "quarantined": [],
-          "active_apps": 17,
+          "active_apps": 0,
           "resource": {
             "epoch": 1793684787.519256,
             "GPU_returncode": 0,
@@ -3027,13 +3059,13 @@
           "cleanup_passed": null,
           "platform": {
             "name": "SafeLabT10-ours30k-resume2-Pro4-LP-20261103",
-            "status": "RUNNING",
-            "ended_at": null,
+            "status": "FAILED",
+            "ended_at": 1793684998576,
             "job_url": null,
             "job_id": "job-ca4on95hu4ar",
-            "epoch": 1793684955.7824512
+            "epoch": 1793685471.7179224
           },
-          "platform_terminal": false
+          "platform_terminal": true
         },
         {
           "method": "ours_aligned",
@@ -3043,22 +3075,22 @@
           "source_folder": "ours_aligned_resume_a03",
           "status": "running",
           "error": null,
-          "completed": 28,
+          "completed": 31,
           "target": 3000,
           "quarantined": [],
-          "active_apps": 24,
+          "active_apps": 23,
           "resource": {
-            "epoch": 1793685133.9902253,
+            "epoch": 1793685465.3709753,
             "GPU_returncode": 0,
-            "GPU": "0, GPU-6315330e-b4bb-5cfe-6d0c-0f3947b9d3f3, 97887, 72664, 90, 45\n1, GPU-a6b9ce7b-4599-ceb1-ff37-ffcf1887f4e9, 97887, 72662, 79, 44\n2, GPU-64c9cb36-102b-1e23-0999-8394b54316f7, 97887, 72533, 71, 44\n3, GPU-8efa1332-7e27-6f56-2fa5-77dd075ab797, 97887, 72957, 40, 43\n",
+            "GPU": "0, GPU-6315330e-b4bb-5cfe-6d0c-0f3947b9d3f3, 97887, 60168, 40, 43\n1, GPU-a6b9ce7b-4599-ceb1-ff37-ffcf1887f4e9, 97887, 72662, 94, 44\n2, GPU-64c9cb36-102b-1e23-0999-8394b54316f7, 97887, 72537, 93, 44\n3, GPU-8efa1332-7e27-6f56-2fa5-77dd075ab797, 97887, 73125, 63, 44\n",
             "GPU_error": "",
             "cgroup": {
-              "memory.current": "277863358464\n",
+              "memory.current": "278020390912\n",
               "memory.max": "858993459200\n",
               "memory.peak": "321788682240\n",
               "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
               "cpu.max": "8000000 100000\n",
-              "cpu.stat": "usage_usec 59358087973\nuser_usec 54745717008\nsystem_usec 4612370964\ncore_sched.force_idle_usec 0\nnr_periods 17172\nnr_throttled 2400\nthrottled_usec 7111059704\nnr_bursts 0\nburst_usec 0\n"
+              "cpu.stat": "usage_usec 68142076599\nuser_usec 62460518821\nsystem_usec 5681557778\ncore_sched.force_idle_usec 0\nnr_periods 20486\nnr_throttled 2400\nthrottled_usec 7111059704\nnr_bursts 0\nburst_usec 0\n"
             }
           },
           "cleanup_passed": null,
@@ -3068,7 +3100,7 @@
             "ended_at": null,
             "job_url": null,
             "job_id": "job-28kuj3mt9ovt",
-            "epoch": 1793684955.9224799
+            "epoch": 1793685471.842851
           },
           "platform_terminal": false
         }
@@ -3451,12 +3483,12 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 83,
+          "completed": 84,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
             "0": 39,
-            "1": 24,
+            "1": 25,
             "2": 12,
             "8": 2,
             "5": 2,
@@ -3525,13 +3557,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 80,
+          "completed": 81,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
             "0": 38,
             "1": 24,
-            "2": 7,
+            "2": 8,
             "4": 4,
             "3": 6,
             "7": 1
@@ -3544,11 +3576,11 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 88,
+          "completed": 89,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 66,
+            "0": 67,
             "1": 16,
             "2": 6
           }
@@ -3559,7 +3591,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 16,
+          "completed": 17,
           "target": 100,
           "provisional_successes": 0
         },
@@ -3735,7 +3767,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 930100,
-          "completed": 16,
+          "completed": 17,
           "target": 100,
           "provisional_successes": 0
         },
@@ -3791,7 +3823,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 950100,
-          "completed": 17,
+          "completed": 18,
           "target": 100,
           "provisional_successes": 0
         }

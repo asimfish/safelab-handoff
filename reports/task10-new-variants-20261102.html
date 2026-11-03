@@ -43,8 +43,9 @@ fetch('task10-new-variants-20261102.json',{cache:'no-store',signal:AbortSignal.t
   const sweep=finding.native_iteration_sweep;
   const passed=(sweep?.variants||[]).filter(v=>v.replay_gate_passed&&v.expert_gate_passed);
   const pilot=sweep?.learned_pilot_followup;
+  const pilotCase=pilot?.pilot?.result?.cases?.[0];
   document.querySelector('#attachment-validation').textContent=passed.length
-   ? `附着独立诊断：${passed.map(v=>v.variant).join('、')}通过两条异常动作回放及专家十阶段验收。真实模型闭环${pilot?.status==='complete'?'诊断已结束':pilot?'诊断进行中':'尚待验证'}；诊断不计入正式成功率，原配置保持独立统计。`
+   ? `附着独立诊断：${passed.map(v=>v.variant).join('、')}通过两条异常动作回放及专家十阶段验收。真实模型闭环${pilotCase?`诊断已结束：${pilotCase.physical_phases}/10阶段，${pilotCase.success?'成功':pilotCase.status==='time_limit'?'超时失败':'失败'}`:pilot?'诊断进行中':'尚待验证'}；诊断不计入正式成功率，原配置保持独立统计。`
    : '附着独立诊断尚未得到可正式采用的修正；原配置继续单独统计。';
  }
  const resumed=d.methods.find(m=>m.retained_predecessor_cases);

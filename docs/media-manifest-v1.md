@@ -6,7 +6,7 @@ Refs: T-1263。供评测 agent 发布、交接台合并、对比页每 5 分钟�
 
 - 交接台 `media/index.json` 是唯一入口，schema 为 `safelab-media-index-v1`，含 `updated_at` 及 `manifests:[{url,sha256,updated_at}]`。也可由 data.json 的 `media_manifest_index` 显式指定 HTTPS 索引地址。
 - 每个 agent 提交小型清单 `media/manifests/<task>/<run>.json`（`safelab-media-v1`）；只维护自己的文件和索引项，PR 保留其他 agent。每清单 ≤1 MB，索引 ≤256 KB，最多80清单；单清单最多2000案例。
-- **视频放授权对象存储的稳定公开只读 HTTPS 路径** `safelab-public/media-v1/<task>/<record>/<checkpoint>/<condition>/<case_id>/`，不得把整批二进制提交 Pages。视频能播放不代表JSON可跨域fetch；逐帧日志按下方同源补充规则发布。外部清单须实际核验CORS允许对比页GET；不得使用需要登录或含 token 的临时签名链接。SHA-256 是文件实际字节，不是源视频或解压前后混用的摘要。
+- **视频放授权对象存储的稳定公开只读 HTTPS 路径** `liyufeng/safelab-public/media-v1/<task>/<record>/<checkpoint>/<condition>/<case_id>/`，不得把整批二进制提交 Pages。视频能播放不代表JSON可跨域fetch；逐帧日志按下方同源补充规则发布。外部清单须实际核验CORS允许对比页GET；不得使用需要登录或含 token 的临时签名链接。SHA-256 是文件实际字节，不是源视频或解压前后混用的摘要。
 - 每视频 H.264 MP4、yuv420p、faststart、**≤2,000,000 bytes**；优先640×480/15Hz，保留完整时间范围并记录真实 fps，禁止删去失败或静止时段而不修改时钟元数据。转码后重新计算 hash。例：`ffmpeg -i input.mp4 -an -c:v libx264 -crf 30 -pix_fmt yuv420p -movflags +faststart preview.mp4`；超限继续降低码率/分辨率并核验完整时长，不以该命令保证体积。
 - 每逐帧 JSON ≤2 MB；选择低冗余必需字段，观察频率采样，物理事件保留原始精确 t_sim。原120Hz日志和高清全量录像仍留原存储，清单只发布派生的去敏只读日志。不得以超限为由删去切换或物理事件。
 - 原有已发布400条录像和日志为 legacy 兼容入口，不要求仅为媒体格式重新转码；源路径迁移仍按用户17:50规则复制核验后更新；新增媒体执行上述上限。Pages允许必要的公开派生帧日志，现行快照总预算见下方（原始日志不入库）；清单自身仍≤20MB且计入总预算。外部JSON不得在未通过CORS实测时作为回退。
@@ -107,3 +107,12 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 优先由存储负责人合并原有 CORS 规则，仅允许站点 Origin `https://asimfish.github.io` 的 GET/HEAD；不得为此改变 ACL、开放写方法或覆盖既有规则。成功必须以真实浏览器读取最终公开日志 URL（含跳转检查）、校验下载/解码 SHA、JSON 与时间基准为证，视频可播放不代表日志 CORS 通过。通过后仓库只收清单，逐帧日志留对象存储；启用时须另一个资产 PR 将预算检查器的同源限制改为经过核验的公开前缀白名单，不能直接放开所有跨域地址。当前检查器仍只接受同源日志。
 
 若 CORS 不可用，采用仓库 `media/frame_logs/` 的同源 JSON，按上述事件保真抽稀或 gzip 契约减小体积。两条路径都保留来源、完整性和 evaluation 绑定；本规范不代表任何对象存储规则已经修改或任何日志已经发布。首批计划为十任务48、三任务24、pi0.5 24份，实际批次大小须逐批测量；全部受当前全仓50,000,000-byte快照预算约束，不把历史基线余量当成预留配额。
+
+
+## 2026-11-03 第9轮：公开媒体前缀纠正（本节优先）
+
+唯一允许的新公开对象键为 `liyufeng/safelab-public/media-v1/<task>/…`，位于 `zenith-a02012413` bucket，对应大文件目录 `/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab-public/media-v1/`。仅逐对象设置 `public-read`，不得为此公开整桶或变更整桶ACL。当前已审核的HTTPS端点为 `zenith-a02012413.tos-cn-beijing.volces.com` 和 `zenith-a02012413.bj.bcebos.com`；只允许该bucket及精确目录前缀，无签名、token、userinfo、查询或片段。新增端点须附公开读验证后单独审核，不接受任意外链。
+
+旧 `safelab-public/media-v1/` **只在已有素材迁移期间兼容**，不是新发布路径。CI输出 `legacy_public_media_references` 作为待迁移数；收尾后移除旧前缀。十任务/pi0.5迁移PR必须遵循复制→逐文件匿名GET及bytes/SHA核对→更新引用，保持case_id、evaluation_id、协议、stage、视频字节和时钟不变。原对象先保留，删除需用户批准。只改URL但没有完成复制和SHA核验的PR不合并。
+
+同源 `media/frame_logs/` 日志继续适用现有规则，本次不开放未经CORS验收的外部JSON；视频可播不证明JSON可fetch。播放器和完整schema/来源核验要求不变，CI白名单也不代替实际匿名读取和SHA证据。

@@ -2,6 +2,15 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),zlib=require('node:zlib'),{execFileSync}=require('node:child_process');
 const LIMITS={snapshot:50000000,asset:2000000,manifest:1000000,index:256000};
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+// Exact bucket endpoints already used by reviewed media; no arbitrary external hosts.
+const PUBLIC_MEDIA_ORIGINS=new Set(['https://zenith-a02012413.bj.bcebos.com','https://zenith-a02012413.tos-cn-beijing.volces.com']);
+function publicMediaURL(value,task){
+ const u=new URL(value);
+ if(!PUBLIC_MEDIA_ORIGINS.has(u.origin)||u.href!==value||u.username||u.password||u.search||u.hash||/%(?:2e|2f|5c)/i.test(u.pathname))throw Error('Public media must use a clean approved bucket URL');
+ const match=u.pathname.match(/^\/(liyufeng\/)?safelab-public\/media-v1\/(3|5|7|10)\/(?:[^/?#]+\/)*[^/?#]+\.mp4$/);
+ if(!match||task!=null&&match[2]!==String(task))throw Error('Public media path must use liyufeng/safelab-public/media-v1/<task>/ (old prefix is migration-only)');
+ return {legacy:!match[1]};
+}
 function localLogPath(url){
  const u=new URL(url);
  if(u.origin!=='https://asimfish.github.io'||u.username||u.password||u.search||u.hash||!u.pathname.startsWith('/safelab-handoff/media/frame_logs/'))throw Error('Frame log must use clean same-origin HTTPS URL');
@@ -34,7 +43,7 @@ function validateAsset(asset,entry){
  }
 }
 function inspect(root,files,limits=LIMITS){
- const tracked=new Set(files),frames=new Map(),report={snapshot_bytes:0,media_bytes:0,frame_log_bytes:0,frame_logs:0,manifests:0};
+ const tracked=new Set(files),frames=new Map(),report={snapshot_bytes:0,media_bytes:0,frame_log_bytes:0,frame_logs:0,manifests:0,public_media_references:0,legacy_public_media_references:0};
  for(const name of files){
   const stat=fs.lstatSync(path.join(root,name));report.snapshot_bytes+=stat.size;
   if(name.startsWith('media/')){if(stat.isSymbolicLink()||!stat.isFile())throw Error('Media must be regular tracked files');report.media_bytes+=stat.size;}
@@ -49,10 +58,12 @@ function inspect(root,files,limits=LIMITS){
  for(const name of files.filter(n=>/^media\/manifests\/.+\.json$/.test(n))){
   if(fs.statSync(path.join(root,name)).size>limits.manifest)throw Error('Media manifest exceeds limit');
   const manifest=JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));if(!Array.isArray(manifest.cases))throw Error('Missing manifest cases');report.manifests++;
-  for(const item of manifest.cases){if(!item.frame_log)continue;const target=localLogPath(item.frame_log.url);if(!tracked.has(target)||!frames.has(target))throw Error('Frame log is not a tracked local asset');const entry=frames.get(target);validateAsset(item.frame_log,entry);if(entry.log.case_id!==item.case_id)throw Error('Frame-log case binding mismatch');used.add(target);}
+  for(const item of manifest.cases){
+   for(const asset of Object.values(item.videos||{})){if(!asset)continue;const policy=publicMediaURL(asset.url,item.task);report.public_media_references++;if(policy.legacy)report.legacy_public_media_references++;}
+   if(!item.frame_log)continue;const target=localLogPath(item.frame_log.url);if(!tracked.has(target)||!frames.has(target))throw Error('Frame log is not a tracked local asset');const entry=frames.get(target);validateAsset(item.frame_log,entry);if(entry.log.case_id!==item.case_id)throw Error('Frame-log case binding mismatch');used.add(target);}
  }
  for(const name of frames.keys())if(!used.has(name))throw Error('Unreferenced frame log: '+name);
  return report;
 }
 if(require.main===module){try{const root=path.resolve(__dirname,'..'),files=execFileSync('git',['ls-files','-z'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean);console.log(JSON.stringify(inspect(root,files)));}catch(e){console.error(e.message);process.exitCode=1;}}
-module.exports={LIMITS,localLogPath,readLog,validateAsset,inspect};
+module.exports={LIMITS,publicMediaURL,localLogPath,readLog,validateAsset,inspect};

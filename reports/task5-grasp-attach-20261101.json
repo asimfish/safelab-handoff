@@ -2,7 +2,7 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-03T05:49:43.239062+00:00",
+  "updated_at": "2026-11-03T05:52:04.177868+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "requires_inspection",
@@ -10,9 +10,9 @@
   "audited": 3283,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 6,
-  "max_parallel_apps": 20,
-  "gpus": 4,
+  "active_apps": 0,
+  "max_parallel_apps": 0,
+  "gpus": 0,
   "global_low_priority_GPU_cap": 12,
   "execution_class": "low_priority",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
@@ -60,8 +60,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -143,8 +143,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -226,8 +226,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -307,8 +307,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -388,8 +388,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -470,8 +470,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -551,8 +551,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -633,8 +633,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -715,8 +715,8 @@
           "audited": 100,
           "successes": 0,
           "target": 100,
-          "final_verified": false,
-          "success_rate": null
+          "final_verified": true,
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -1692,10 +1692,10 @@
       "legacy": false,
       "gpus": 4,
       "resource_class": "low_priority",
-      "platform_status": "RUNNING",
+      "platform_status": "FAILED",
       "runtime_status": "infrastructure_error",
       "completed": 583,
-      "active_apps": 6,
+      "active_apps": 0,
       "error": true,
       "audit_error": false,
       "historical": false,
@@ -1737,7 +1737,7 @@
       "runtime_status": "infrastructure_error",
       "completed": 900,
       "active_apps": 0,
-      "error": true,
+      "error": false,
       "audit_error": false,
       "historical": false,
       "capacity": {
@@ -1763,7 +1763,13 @@
         },
         "gpu": "0, 23286, 0\n1, 23268, 0\n2, 10860, 28\n3, 5791, 0\n"
       },
-      "startup_gates": 9
+      "startup_gates": 9,
+      "aggregate_counter_recovery": {
+        "passed": true,
+        "scope": "25perlayout shard counter corrected to actual50;1800 original per-case audits retained",
+        "source_job_id": "job-0z8le3gjvm8q",
+        "model_trajectories_repeated": 0
+      }
     },
     {
       "job_id": "job-h2rsd5zfs3xd",
@@ -1807,7 +1813,7 @@
       "startup_gates": 4
     }
   ],
-  "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组5个seed×100条=500条，共9000条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五轮使用相同配对场景及独立推理随机种子，报告五轮各自成功率、均值及样本标准差。 原始与辅助条件在同一4卡模型组内公平交替调度，使用各自冻结的物理代码和独立原始审计器；复用已验收轨迹并在接续任务中重做原始证据复算。",
+  "protocol": "原版fixed30k、pos1cm20k/30k、削弱版20k/30k和TTC30k，分别执行4/8/30步，每组5个seed×100条=500条，共9000条；每组正反布局各50条。fixed无位置扰动，其余共享相同±1cm场景。训练对齐的第三人称RGB及13维实测关节、15Hz观测、120Hz控制与原五阶段物理门槛保留。真实抬升≥1.5cm、拇指及另一手指持续接触且相对位姿稳定0.2s后，创建原生固定关节，保持已抓住的手指姿态，只过滤该物体与右手碰撞；张手指令自动释放并恢复碰撞。物体仍为动态刚体并与桌面/垫子/障碍物碰撞；连接时不允许通过放置验收。此为单列辅助物理配置，不混入原始baseline成功率。每卡按进程/显存条件采用4或5个独立N1进程；所有自有低优评测合计上限12卡。 五轮使用相同配对场景及独立推理随机种子，报告五轮各自成功率、均值及样本标准差。 原始与辅助条件在同一4卡模型组内公平交替调度，使用各自冻结的物理代码和独立原始审计器；复用已验收轨迹并在接续任务中重做原始证据复算。 第二个seed原始1800条逐条物理验收已全部通过；末尾汇总沿用旧分片25条布局计数导致错误，已按冻结清单每布局50条核对原验收文件完成CPU汇总修复，轨迹和物理成功条件未改变。",
   "native_canary": {
     "passed": true,
     "scored": false,
@@ -64222,12 +64228,18 @@
   "trials_per_group": 500,
   "first_seed_preserved": true,
   "seed_protocol": "同100场景五轮独立推理噪声种子；不是五次重新训练。正反布局每轮各50条。",
-  "low_priority_gpus": 4,
+  "low_priority_gpus": 0,
   "existing_server_gpus": 0,
-  "shared_physical_jobs": [
-    "job-pcyii5zfqbad"
-  ],
+  "shared_physical_jobs": [],
   "resource_policy": "同一物理任务公平交替执行原始与附着条件，各自独立验收。按job_id去重，两个面板卡数不能相加。低优任务合计上限12卡；另外单列已授权的现有双卡Pro服务器，不占新增低优卡池。",
+  "aggregate_counter_repairs": [
+    {
+      "passed": true,
+      "scope": "25perlayout shard counter corrected to actual50;1800 original per-case audits retained",
+      "source_job_id": "job-0z8le3gjvm8q",
+      "model_trajectories_repeated": 0
+    }
+  ],
   "learned_native_validation": {
     "case_id": "attach__old30_mem0_30000_h8_reverse_000",
     "scored_model_trial": true,

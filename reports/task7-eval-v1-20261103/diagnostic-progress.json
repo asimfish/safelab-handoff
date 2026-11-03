@@ -1,6 +1,6 @@
 {
   "schema": "task7_eval_v1_diagnostic_progress.v1",
-  "updated_at": "2026-11-03T23:08:21.360059Z",
+  "updated_at": "2026-11-03T23:28:55.524182Z",
   "role": "diagnostic_only_not_admission",
   "formal_stage_A_trials_added": 0,
   "formal_success": null,
@@ -705,12 +705,15 @@
   },
   "offline_audit_recovery_update": {
     "report": "reports/task7-eval-v1-20261103/offline-audit-recovery.json",
-    "report_sha256": "a40e1b8585569ea6a3367be7019433e5c4fbc9bbfad90174176c69f8a6e21c15",
+    "report_sha256": "79d3dcf04446f4c79d6d921b34b69e758ee140eab9fc255846c833916b77f523",
     "verified_CPU_cases": 9,
     "SDK_verified": false,
     "formal_trials_added": 0,
     "old_cloud_GPUs_released": 8,
-    "current_cloud_GPUs": 0
+    "current_cloud_GPUs": 0,
+    "verified_SDK_cases": 9,
+    "SDK_frames": 36,
+    "SDK_max_target_difference_rad": 0.0
   },
   "training_endflag_correction": {
     "report": "reports/task7-eval-v1-20261103/training-endflag-correction.json",
@@ -750,7 +753,15 @@
       "ownership_receipt_sha256": "74a8ee97ea60dd71fdf03dd60b574d87f8280dd9d8680e768485878901cff78f",
       "allocation_GPUs": 4,
       "source_manifest_matches": true,
-      "first_SDK_completion_not_yet_observed": true
+      "first_SDK_completion_not_yet_observed": false,
+      "actual_original_SDK_completed": 9,
+      "actual_original_SDK_frames": 36,
+      "new_Native_apps_observed": 4,
+      "new_Native_first_valid_heartbeats": 4,
+      "source_evidence": {
+        "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke_recovery_context_v1/SAVED9_ORIGINAL_CPU_SDK_CLOSURE_VERIFIED.json",
+        "sha256": "57fda0c675d84d99dbf8948ee2cb08557f3c6425b3522e1cfb2cbf873a276fe7"
+      }
     }
   },
   "pool_submission": {
@@ -806,6 +817,60 @@
       "signed_URLs_logged": false,
       "Zenith_credentials_forwarded_to_BOS": false
     },
-    "creation_receipt_sha256": "7f3c84a2dc3f995762bd524d5e8517255200b9a2df85d77986725e96e8c25882"
+    "creation_receipt_sha256": "7f3c84a2dc3f995762bd524d5e8517255200b9a2df85d77986725e96e8c25882",
+    "latest_verified": {
+      "job_id": "job-235dyklb6lhp",
+      "official_status": "SUCCEEDED",
+      "GPUs_released": 4,
+      "scientific_qualification_passed": false,
+      "observations": 0,
+      "reason": "missing fixed /usr/bin/ffprobe before first dense observation",
+      "v3_CPU_preparation_only": true,
+      "source_evidence": {
+        "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/natural_policy_pool_v1/FINAL_PLATFORM_STATUS.json",
+        "sha256": "93cf2ae0efa960910b731ebea0a84f7f0b8bd4820bc4745c0e100ca98052cf25"
+      }
+    }
+  },
+  "saved9_sdk_and_pool_infrastructure_update": {
+    "report": "reports/task7-eval-v1-20261103/saved9-sdk-and-pool-infrastructure.json",
+    "report_sha256": "8cdf04eb94f3b678a822870c900dc7191c1dde8be699df7d6a56cc2a3a37a056",
+    "SDK_cases": 9,
+    "SDK_frames": 36,
+    "maximum_target_difference_rad": 0.0,
+    "formal_trials_added": 0,
+    "current_resources": {
+      "observed_at": "2026-11-03T23:28:55.524182Z",
+      "observation_is_snapshot": true,
+      "current_low_priority_GPUs": 4,
+      "reserved_GPUs_including_UNKNOWN": 4,
+      "cap": 12,
+      "recovery_job": "job-vey9y73cezua",
+      "recovery_job_last_official_status": "RUNNING",
+      "recovery_new_Native_apps_observed": 4,
+      "recovery_first_valid_heartbeats": 4,
+      "recovery_topology": "N1×1 per GPU; 4 independent Isaac processes",
+      "model_pool_enabled": false,
+      "pool_job": "job-235dyklb6lhp",
+      "pool_job_official_status": "SUCCEEDED",
+      "pool_GPU_cards_released": 4,
+      "pool_qualification_passed": false,
+      "pool_observations": 0,
+      "pool_natural_commits": 0,
+      "pool_failure": "All four shards failed before first observation: FileNotFoundError /usr/bin/ffprobe",
+      "pool_failure_is_model_failure": false,
+      "pool_successful_provider_terminal_is_scientific_pass": false,
+      "portable_decoder_v3": "isolated CPU preparation; no new job submitted",
+      "sources": [
+        {
+          "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/natural_policy_pool_v1/FINAL_PLATFORM_STATUS.json",
+          "sha256": "93cf2ae0efa960910b731ebea0a84f7f0b8bd4820bc4745c0e100ca98052cf25"
+        },
+        {
+          "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke_recovery_context_v1/PENDING_PROGRESS_READBACK_1793747996.json",
+          "sha256": "8f53cf061a0b3b9a1bfc61092682c6f3de1bfe9d23e0e74bcd1a0a82029aa362"
+        }
+      ]
+    }
   }
 }

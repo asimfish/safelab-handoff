@@ -1,6 +1,6 @@
 {
   "schema": "task7_eval_v1_offline_audit_recovery.v1",
-  "updated_at": "2026-11-03T22:35:34.606423Z",
+  "updated_at": "2026-11-03T22:46:24.189329Z",
   "role": "diagnostic_only",
   "formal_trials_added": 0,
   "formal_success": null,
@@ -17,46 +17,119 @@
   },
   "cases": [
     {
+      "case_id": "mem0_30k__smoke20_h8_v180_o1234_r000",
       "variant": "mem0_30k",
       "CPU_passed": true,
-      "returncode": 0,
       "cleanup_passed": true,
       "audit_sha256": "438dc29fe0a38e060cfeaabaee644d12bcaf76c598aecf867989c00377dc7d28",
       "physical_phase": 0,
       "frames": 2996,
+      "status": "physical_failure",
+      "physical_success": false,
       "SDK_verified": false,
       "formal_score_published": false
     },
     {
+      "case_id": "ours_native_30k__smoke20_h8_v180_o1234_r000",
       "variant": "ours_native_30k",
       "CPU_passed": true,
-      "returncode": 0,
       "cleanup_passed": true,
       "audit_sha256": "43f814ed9e9db2c29f87a0705f29e02e63ae70cb7f618fa7a36358063dab107e",
       "physical_phase": 0,
       "frames": 3600,
+      "status": "time_limit",
+      "physical_success": false,
       "SDK_verified": false,
       "formal_score_published": false
     },
     {
+      "case_id": "ours_aligned_30k__smoke20_h8_v180_o1234_r000",
       "variant": "ours_aligned_30k",
       "CPU_passed": true,
-      "returncode": 0,
       "cleanup_passed": true,
       "audit_sha256": "d143e4a8dce47b1b4b777068f4e99934e5edb11a5d7055894ad0aa72ee254d7c",
       "physical_phase": 1,
       "frames": 3600,
+      "status": "time_limit",
+      "physical_success": false,
       "SDK_verified": false,
       "formal_score_published": false
     },
     {
+      "case_id": "ours_weak_aligned_30k__smoke20_h8_v180_o1234_r000",
       "variant": "ours_weak_aligned_30k",
       "CPU_passed": true,
-      "returncode": 0,
       "cleanup_passed": true,
       "audit_sha256": "ed2c4f3f015ff5dc4a19502f91793989f089cbb74574e649c3a47ddf48090468",
       "physical_phase": 4,
       "frames": 3600,
+      "status": "time_limit",
+      "physical_success": false,
+      "SDK_verified": false,
+      "formal_score_published": false
+    },
+    {
+      "case_id": "mem0_weak_30k__smoke20_h8_v180_o1234_r000",
+      "variant": "mem0_weak_30k",
+      "CPU_passed": true,
+      "cleanup_passed": true,
+      "audit_sha256": "3c5e09caf7417616363d82486a1c7c2d0da4587cc0dd46366805ca2688baf96e",
+      "physical_phase": 1,
+      "frames": 3600,
+      "status": "time_limit",
+      "physical_success": false,
+      "SDK_verified": false,
+      "formal_score_published": false
+    },
+    {
+      "case_id": "mem0_weak_30k__smoke20_h8_v180_o4321_r002",
+      "variant": "mem0_weak_30k",
+      "CPU_passed": true,
+      "cleanup_passed": true,
+      "audit_sha256": "6d63cd4ae3ea801c1f427a1fa4bc8242ae5233ff873bb907c938488a8f1ec3f3",
+      "physical_phase": 0,
+      "frames": 1640,
+      "status": "physical_failure",
+      "physical_success": false,
+      "SDK_verified": false,
+      "formal_score_published": false
+    },
+    {
+      "case_id": "mem0_weak_30k__smoke20_h8_v180_o1234_r005",
+      "variant": "mem0_weak_30k",
+      "CPU_passed": true,
+      "cleanup_passed": true,
+      "audit_sha256": "4fbc19027e2b60ed0a143a8168af7a34717369ef1581b6b060aace4b4d46680d",
+      "physical_phase": 0,
+      "frames": 233,
+      "status": "physical_failure",
+      "physical_success": false,
+      "SDK_verified": false,
+      "formal_score_published": false
+    },
+    {
+      "case_id": "mem0_weak_30k__smoke20_h8_v180_o4321_r007",
+      "variant": "mem0_weak_30k",
+      "CPU_passed": true,
+      "cleanup_passed": true,
+      "audit_sha256": "b8762181b1cd02a3207d075ade4e81ca6353d0bdc9b1028ca1d63e9a48672553",
+      "physical_phase": 3,
+      "frames": 3600,
+      "status": "time_limit",
+      "physical_success": false,
+      "SDK_verified": false,
+      "formal_score_published": false
+    },
+    {
+      "case_id": "ours_aligned_30k_native_classifier_switch_v1__smoke20_h8_v180_o1234_r000",
+      "variant": "ours_aligned_30k_native_classifier_switch_v1",
+      "CPU_passed": true,
+      "cleanup_passed": true,
+      "audit_sha256": "6d450672e8c3e95c113ae23e4f7db4e4b8375ab831ff175bffcf2f531b3ccfe2",
+      "physical_phase": 0,
+      "frames": 222,
+      "status": "physical_failure",
+      "physical_success": false,
       "SDK_verified": false,
       "formal_score_published": false
     }
@@ -79,8 +152,8 @@
     "peer_interrupted": 3,
     "never_started": 108,
     "independent_SDK_still_required_for_saved_raw": true,
-    "CPU_checks_verified_in_this_receipt": 4,
-    "additional_CPU_checks_not_claimed_by_this_receipt": true
+    "CPU_checks_verified_in_this_receipt": 9,
+    "additional_CPU_checks_not_claimed_by_this_receipt": false
   },
   "sources": [
     {
@@ -94,6 +167,10 @@
     {
       "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke20_world0_v3/cpu_reaudit_context_v1/ACTUAL_OLD_ATTEMPT_CENSUS.json",
       "sha256": "455051322f04a1362e323baab4c038bfbd7da25c2b2e33a51013d2a51faf733d"
+    },
+    {
+      "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke20_world0_v3/cpu_reaudit_context_v1/ALL9_CPU_ACTUAL_EVIDENCE.json",
+      "sha256": "b1a3751861ce204fd97eaa52cab10d353069ba2cf503e8413641fcab3013d87f"
     }
   ]
 }

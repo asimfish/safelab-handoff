@@ -16,3 +16,10 @@
 Pages构建前运行现有 `scripts/fill-legacy-schema.py`，仅为非v1历史记录补缺失的元数据；脚本逐字段断言旧值不变，并跳过v1记录。该修补仅作用于构建工作区和发布产物，不改源分支的评测数字。随后仍执行全套测试：v1准入、unknown守恒、checkpoint唯一绑定等错误继续阻止发布。
 
 这不是允许提交删字段的PR；审核仍须退回覆盖新字段或其他agent记录的改动。源端生成器仍应保留schema。此步骤只防止历史缺项让其他已审核更新长期停留在上一快照。
+
+
+## SafeLab-Eval-v1.1 上线后
+
+现行放置判定使用protocol_version=SafeLab-Eval-v1.1、oracle_version=placement-v1.1；strict-v1双轨独立保留。审核新增executor_parity验收报告，仍核对完整分母、unknown、seed、左右及阶段统计。作废漂移候选不显示；不得以改名代替重算或必要的执行链重跑。覆盖只统计v1.1所有变种/步数/条件，缺项不得伪造开测或排期。
+
+Pages构建还运行两组真实Chrome页面检查（unknown/oracle切换与覆盖表）；通过才上传。临时页面测试样例只在runner内存与.qa产生，发布前清理，不写入data.json或成绩档案。本机浏览器受共享工作站I/O阻塞时，由CI实际执行验收，不声称本机已通过。

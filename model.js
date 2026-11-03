@@ -28,7 +28,10 @@ function parseIssue(issue){
  try{const edit=validateEdit(JSON.parse(m[1]));return {...edit,issue:issue.number,author:issue.user.login,updated:issue.updated_at,url:'https://github.com/asimfish/safelab-handoff/issues/'+issue.number,trusted:['OWNER','MEMBER','COLLABORATOR'].includes(issue.author_association)||labels.includes('safelab-approved')};}catch{return null;}
 }
 // Scores never migrate into v1 by inference. Evidence and complete denominators are required.
-const PROTOCOL='SafeLab-Eval-v1';
+const PROTOCOL='SafeLab-Eval-v1',CURRENT_PROTOCOL='SafeLab-Eval-v1.1';
+const isRevoked=e=>e.metric_role==='rescored_v1.1_candidate';
+const oracleFor=e=>e.oracle_version||(e.protocol_version===PROTOCOL?'strict-v1':null);
+const admissionKeys=e=>['expert_replay','open_loop','render_multiframe','smoke20',...(e.protocol_version===CURRENT_PROTOCOL?['executor_parity']:[])];
 function wilson95(success,n){
  if(!Number.isInteger(n)||n<1||!Number.isInteger(success)||success<0||success>n)return null;
  const z=1.959963984540054,p=success/n,d=1+z*z/n,c=(p+z*z/(2*n))/d,h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n))/d;
@@ -37,7 +40,8 @@ function wilson95(success,n){
 function formalIssues(e){
  const issues=[],count=x=>Number.isInteger(x)&&x>=0;
  const conserved=x=>x&&count(x.success)&&count(x.unknown)&&x.success+x.unknown<=x.trials&&(!Object.hasOwn(x,'failure')||count(x.failure)&&x.success+x.failure+x.unknown===x.trials);
- if(e.protocol_version!==PROTOCOL||!['A','B'].includes(e.stage))issues.push('非v1阶段A/B');
+ if(![PROTOCOL,CURRENT_PROTOCOL].includes(e.protocol_version)||!['A','B'].includes(e.stage))issues.push('非正式协议阶段A/B');
+ if(e.protocol_version===CURRENT_PROTOCOL?e.oracle_version!=='placement-v1.1':e.oracle_version!=null&&e.oracle_version!=='strict-v1')issues.push('判定版本不匹配');
  if(![4,8].includes(e.horizon))issues.push('仅4/8步');
  if(['assisted','rescored_v1.1_candidate'].includes(e.metric_role)||/诊断/.test(e.kind||''))issues.push('诊断或辅助指标');
  const n=e.stage==='B'?500:100;
@@ -52,33 +56,26 @@ function formalIssues(e){
  const validTrials=e.trials-e.unknown,hist=Object.entries(e.phase_hist||{}),total=hist.reduce((a,[,v])=>a+v,0),mean=validTrials>0?hist.reduce((a,[k,v])=>a+Number(k)*v,0)/validTrials:null;
  if(!e.phase_hist||typeof e.phase_hist!=='object'||Array.isArray(e.phase_hist)||hist.some(([k,v])=>!/^\d+$/.test(k)||!count(v))||total!==validTrials||(validTrials===0?e.mean_phase!==null:!Number.isFinite(e.mean_phase)||Math.abs(mean-e.mean_phase)>1e-6))issues.push('阶段统计不完整');
  if(e.unknown_reasons!=null){const reasons=Object.values(e.unknown_reasons);if(typeof e.unknown_reasons!=='object'||Array.isArray(e.unknown_reasons)||reasons.some(v=>!count(v))||reasons.reduce((a,v)=>a+v,0)!==e.unknown)issues.push('unknown原因计数不守恒');}
- if(!['expert_replay','open_loop','render_multiframe','smoke20'].every(k=>e.admission?.[k]?.passed===true&&e.admission[k].report))issues.push('准入证据缺失');
+ if(!admissionKeys(e).every(k=>e.admission?.[k]?.passed===true&&e.admission[k].report))issues.push('准入证据缺失');
  return issues;
 }
-function formalComparisons(board){
- const groups=new Map();
- for(const e of evaluationIndex(board)){
+function formalComparisons(board,view='auto'){
+ const groups=new Map(),index=evaluationIndex(board),placementTasks=new Set(index.filter(e=>e.protocol_version===CURRENT_PROTOCOL&&!formalIssues(e).length).map(e=>e.task));
+ for(const e of index){
   if(formalIssues(e).length)continue;
+  const desired=view==='auto'?(placementTasks.has(e.task)?'placement-v1.1':'strict-v1'):view;
+  if(oracleFor(e)!==desired)continue;
   // Dataset, view, scene list, stage and condition are separate comparison cohorts.
-  const cohort=JSON.stringify([e.task,e.dataset,e.camera,e.stage,e.condition_version,e.scene_list_hash,e.metric||'original_physical',e.preprocess_resize]);
+  const cohort=JSON.stringify([e.protocol_version,oracleFor(e),e.task,e.dataset,e.camera,e.stage,e.condition_version,e.scene_list_hash,e.metric||'original_physical',e.preprocess_resize]);
   const key=cohort+'|'+e.method,prior=groups.get(key);
   if(!prior||e.success/e.trials>prior.success/prior.trials||e.success/e.trials===prior.success/prior.trials&&(e.mean_phase??-Infinity)>(prior.mean_phase??-Infinity))groups.set(key,{...e,wilson95:wilson95(e.success,e.trials),valid_trials:e.trials-e.unknown,sensitivity_upper:(e.success+e.unknown)/e.trials});
  }
  return [...groups.values()].sort((a,b)=>Number(a.task)-Number(b.task)||a.dataset.localeCompare(b.dataset)||a.method.localeCompare(b.method)||a.stage.localeCompare(b.stage));
 }
-// Candidate rescoring stays diagnostic and cannot affect strict scores or coverage.
-function rescoredCandidates(board){
- return evaluationIndex(board).filter(e=>e.metric_role==='rescored_v1.1_candidate'&&e.stage==='diagnostic').map(e=>{
-  const issues=[],count=x=>Number.isInteger(x)&&x>=0;
-  if(!count(e.trials)||e.trials<1||e.completed!==e.trials||!count(e.success)||!count(e.unknown)||e.success+e.unknown>e.trials||e.evaluation_started===false)issues.push('未完成或分母无效');
-  const valid=e.trials-e.unknown,hist=Object.entries(e.phase_hist||{}),total=hist.reduce((a,[,v])=>a+v,0),mean=valid>0?hist.reduce((a,[k,v])=>a+Number(k)*v,0)/valid:null;
-  if(!e.phase_hist||typeof e.phase_hist!=='object'||Array.isArray(e.phase_hist)||hist.some(([k,v])=>!/^\d+$/.test(k)||!count(v))||total!==valid||(valid===0?e.mean_phase!==null:!Number.isFinite(e.mean_phase)||Math.abs(e.mean_phase-mean)>1e-6))issues.push('阶段统计不完整');
-  if(!e.source_evaluation_id||!(e.report_url||e.source))issues.push('重算来源缺失');
-  return {...e,candidate_issues:issues,wilson95:wilson95(e.success,e.trials),valid_trials:valid,sensitivity_upper:(e.success+e.unknown)/e.trials};
- }).filter(e=>e.candidate_issues.length===0);
-}
+// Revoked drift-candidate records remain in the raw archive only.
+function rescoredCandidates(){return [];}
 function resultFor(evaluations,horizon){
- let rows=evaluations.filter(e=>!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
+ let rows=evaluations.filter(e=>e.protocol_version!==CURRENT_PROTOCOL&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
  const priority=Math.max(...rows.map(e=>e.display_priority||0));rows=rows.filter(e=>(e.display_priority||0)===priority);
  if(!rows.length)return null;
  const five=rows.filter(e=>e.kind==='自主闭环 · 5-seed');
@@ -86,7 +83,7 @@ function resultFor(evaluations,horizon){
  return {success:chosen.reduce((s,e)=>s+e.success,0),trials:chosen.reduce((s,e)=>s+e.trials,0),unknown:chosen.reduce((s,e)=>s+e.unknown,0),label:five.length?five.length+'轮汇总':chosen[0].result_label||chosen[0].kind,protocol:chosen[0].protocol,rows:chosen,reported:false};
 }
 function progressFor(evaluations,horizon){
- const rows=evaluations.filter(e=>!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success===null&&e.evaluation_started!==false&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
+ const rows=evaluations.filter(e=>e.protocol_version!==CURRENT_PROTOCOL&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success===null&&e.evaluation_started!==false&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
  return rows.sort((a,b)=>(b.display_priority||0)-(a.display_priority||0)||String(b.updated_at||'').localeCompare(String(a.updated_at||'')))[0]||null;
 }
 function buildBoard(data,edits=[]){
@@ -94,7 +91,7 @@ function buildBoard(data,edits=[]){
  const rows=[];
  for(const record of data.records){
   for(const w of record.weights.length?record.weights:[null]){
-   const evaluations=w?data.evaluations.filter(e=>e.record===record.id&&e.checkpoint===w.step):[];
+   const evaluations=w?data.evaluations.filter(e=>!isRevoked(e)&&e.record===record.id&&e.checkpoint===w.step):[];
    const h4=resultFor(evaluations,4),h8=resultFor(evaluations,8),h30=resultFor(evaluations,30);
    const pending=evaluations.filter(e=>e.success===null&&e.evaluation_started!==false&&e.metric_role!=='rescored_v1.1_candidate');
    let state=pending.length?'evaluating':h4||h8||evaluations.some(e=>e.success!==null)?'results':/历史.*核验/.test(w?.status||'')?'verify':w?(w.path?'untested':'verify'):/训练中/.test(record.delivery)?'training':'verify';
@@ -133,16 +130,16 @@ function buildBoard(data,edits=[]){
   Object.assign(row,{state:e.state,owner:e.owner||'未指定',doc:e.doc,run:e.run,note:e.note,updated:e.updated,shared:e});
   for(const h of ['h4','h8','h30'])if(e[h])row[h]={...parseScore(e[h]),unknown:e[h+'unknown'],label:'团队填报',protocol:e.protocol,rows:[],reported:true};
  }
- return {datasets,diagnostics:data.diagnostics||[],rows:rows.filter(r=>r.path||r.step>0&&r.doc||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
+ return {datasets,diagnostics:(data.diagnostics||[]).filter(e=>!isRevoked(e)),rows:rows.filter(r=>r.path||r.step>0&&r.doc||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
 }
 function issueBody(edit){validateEdit(edit);return '## SafeLab 共享交接记录\n\n提交后回到面板点击「同步更新」。修改本单请保留下面的数据块。不要填写密码、Token 或私钥。\n\n```safelab-handoff\n'+JSON.stringify(edit,null,2)+'\n```';}
 function evaluationIndex(board){
  const index=[];
  for(const row of board.rows){
-  for(const e of row.evaluations)index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.metric_role==='rescored_v1.1_candidate'?'diagnostic':e.success===null?'progress':formalIssues(e).length?'legacy':'formal'});
+  for(const e of row.evaluations.filter(e=>!isRevoked(e)))index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.metric_role==='rescored_v1.1_candidate'?'diagnostic':e.success===null?'progress':formalIssues(e).length?'legacy':'formal'});
   for(const horizon of [4,8,30]){const score=row['h'+horizon];if(score?.reported)index.push({id:'shared-'+row.shared.issue+'-'+horizon,rowKey:row.key,task:row.task,dataset:row.dataset,camera:row.camera,method:row.method,checkpoint:row.step,horizon,success:score.success,trials:score.trials,unknown:score.unknown,completed:score.trials,status:'团队填报',kind:'团队共享评测',phase:'reported',protocol:score.protocol,source:row.shared.url,report_url:row.shared.url,note:'团队填报成绩；原始验收证据请见共享交接单。'});}
  }
- for(const d of board.diagnostics){
+ for(const d of board.diagnostics.filter(e=>!isRevoked(e))){
   const dataset=board.datasets.find(x=>x.id===d.dataset),row=board.rows.find(r=>r.record?.id===d.record&&r.step===d.checkpoint);
   index.push({...d,phase:'diagnostic',rowKey:row?.key||null,task:dataset?.task||'other',camera:d.camera||row?.camera||'unknown'});
  }
@@ -150,6 +147,6 @@ function evaluationIndex(board){
 }
 function pendingRows(board){return board.rows.filter(r=>r.path&&r.state==='untested');}
 function handoffPacket(board,row){const d=board.datasets.find(d=>d.id===row.dataset);return {task:row.task,method:row.method,dataset_version:d?.version||row.dataset,training_dataset:d?.path||row.shared?.data_path||null,camera:row.camera,checkpoint_step:row.step,checkpoint_path:row.path,delivery_document:row.doc||null,training_run:row.run||null,normalization_hash:row.record?.norm||null,training_config:row.training,owner:row.owner,execution_horizons_to_test:[4,8],test_protocol:'请根据该数据版本的交付文档确认泛化、控制频率和成功验收条件，不沿用其他版本',availability:row.availability,shared_handoff:row.shared?.url||null};}
-const api={PROTOCOL,wilson95,formalIssues,formalComparisons,rescoredCandidates,STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
+const api={PROTOCOL,CURRENT_PROTOCOL,isRevoked,oracleFor,admissionKeys,wilson95,formalIssues,formalComparisons,rescoredCandidates,STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
 if(typeof module!=='undefined')module.exports=api;root.HandoffModel=api;
 })(typeof window==='undefined'?globalThis:window);

@@ -17,3 +17,19 @@ test('gzip verifies compressed and decoded identities and fails on excessive exp
 test('clock regressions, sampling-count contradictions and media symlinks fail',()=>setup(root=>{
  const name='media/frame_logs/10/run/case.json';log(root,name,{schema_version:'safelab-frame-log-v1',case_id:'case',rows:[row(0,0),row(0,1)]});assert.throws(()=>B.readLog(root,name),/clocks/);log(root,name,{schema_version:'safelab-frame-log-v1',case_id:'case',rows:[row(0,0)],sampling:{original_rows:1,retained_rows:2}});assert.throws(()=>B.readLog(root,name),/Sampling/);const link='media/frame_logs/10/run/link.json';fs.symlinkSync('case.json',path.join(root,link));assert.throws(()=>B.inspect(root,[link]),/regular/);
 }));
+
+test('public media accepts the owned prefix and migration-only old prefix on exact bucket endpoints',()=>{
+ for(const host of ['zenith-a02012413.bj.bcebos.com','zenith-a02012413.tos-cn-beijing.volces.com']){
+  assert.deepEqual(B.publicMediaURL('https://'+host+'/liyufeng/safelab-public/media-v1/3/run/case.mp4','3'),{legacy:false});
+  assert.deepEqual(B.publicMediaURL('https://'+host+'/safelab-public/media-v1/3/run/case.mp4','3'),{legacy:true});
+ }
+ for(const url of ['https://evil.example/liyufeng/safelab-public/media-v1/3/a.mp4','https://other.bj.bcebos.com/liyufeng/safelab-public/media-v1/3/a.mp4','https://zenith-a02012413.bj.bcebos.com/other/media-v1/3/a.mp4','https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/3/a.mp4?token=x','https://x@zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/3/a.mp4','https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/3/%2e%2e/a.mp4'])assert.throws(()=>B.publicMediaURL(url,'3'));
+ assert.throws(()=>B.publicMediaURL('https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/7/a.mp4','3'));
+});
+test('manifest inspection enforces public media prefix and reports legacy migration debt',()=>setup(root=>{
+ const manifest='media/manifests/10/run.json',url='https://zenith-a02012413.tos-cn-beijing.volces.com/';
+ const write=prefix=>fs.writeFileSync(path.join(root,manifest),JSON.stringify({cases:[{case_id:'case',task:'10',frame_log:null,videos:{third_person:{url:url+prefix+'10/a.mp4'},head:null,chest:null}}]}));
+ write('liyufeng/safelab-public/media-v1/');let r=B.inspect(root,[manifest]);assert.equal(r.public_media_references,1);assert.equal(r.legacy_public_media_references,0);
+ write('safelab-public/media-v1/');assert.equal(B.inspect(root,[manifest]).legacy_public_media_references,1);
+ write('forbidden/');assert.throws(()=>B.inspect(root,[manifest]),/Public media path/);
+}));

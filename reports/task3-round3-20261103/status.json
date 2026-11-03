@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T13:01:30.662845+00:00",
+  "updated_at": "2026-11-03T14:54:26.737714+00:00",
   "protocol_version": "SafeLab-Eval-v1",
   "stage": "diagnostic",
   "owner": "T-1035",
@@ -8,7 +8,7 @@
   "snapshot": {
     "attach_mem0": {
       "target": 200,
-      "closed": 193,
+      "closed": 200,
       "by_horizon": {
         "8": 98,
         "4": 95
@@ -16,11 +16,12 @@
     },
     "attach_ours": {
       "target": 200,
-      "closed": 185,
+      "closed": 200,
       "by_horizon": {
         "8": 94,
         "4": 91
-      }
+      },
+      "unknown": 1
     },
     "trainresize_A": {
       "target": 200,
@@ -1089,5 +1090,140 @@
     },
     "right_five_frames_complete": false
   },
-  "ours_openloop_note": "完整三阶段运行时开环入口需要正确DAG/Completion上下文，当前未通过；另行启动10episode第一子任务的原缩放/训练缩放对照，明确不冒充完整三阶段准入。"
+  "ours_openloop_note": "完整三阶段运行时开环入口需要正确DAG/Completion上下文，当前未通过；另行启动10episode第一子任务的原缩放/训练缩放对照，明确不冒充完整三阶段准入。",
+  "corrections": {
+    "expert_replay": {
+      "status": "failed",
+      "native120_success": 3,
+      "endpoint15_success": 0,
+      "trials_per_mode": 10,
+      "native_lr_success": [
+        1,
+        2
+      ],
+      "endpoint_lr_success": [
+        0,
+        0
+      ]
+    },
+    "attach_v1": {
+      "valid_for_comparison": false,
+      "reason": "FixedJoint collisionEnabled=false and hand-beaker filtered pairs remove native contacts; original validator requires contact. All399 verified trajectories stayed phase0. Model success inference withdrawn.",
+      "mem0_completed": 200,
+      "ours_verified": 199,
+      "ours_unknown": 1,
+      "v2_status": "contact-preserving left/right mechanical canaries running; formal disabled"
+    },
+    "latest_repair": {
+      "job_status": "FAILED",
+      "smoke_attempted_unknown": 12,
+      "smoke_unstarted": 8,
+      "formal_stageA_started": false,
+      "provider_failure_reason": "not available",
+      "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
+    },
+    "open_loop": {
+      "status": "prior metric withdrawn; recomputation launched",
+      "reason": "diagnostic used first native action column; shipped training loader uses last valid chunk action (interval_end), masks padded rows. This is a diagnostic-label error, not evidence of training error."
+    },
+    "diagnostics": {
+      "epoch": 1793717638.8868809,
+      "stage": "diagnostic",
+      "total_planned": 600,
+      "intervention_trials": 500,
+      "matched_runtime_control_trials": 100,
+      "amendment_sha256": "839e82be5ba276b2dec6ac41fe738385bf832282acbfa27c982f1b05258c4c48",
+      "completed": 113,
+      "all_five_complete": false,
+      "interpretation_frozen_before_results": true,
+      "preregister_sha256": "3031de6de340c48a6b938ee8d66ad3d3bce4ff3d5058e50b5ed6d80502ae7747",
+      "groups": {
+        "D0": {
+          "stage": "diagnostic",
+          "planned": 100,
+          "success": null,
+          "mean_phase": null,
+          "lr_split": null,
+          "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+          "status": "running",
+          "completed": 53,
+          "original_preprocessing_preserved": true
+        },
+        "D1_2cm": {
+          "stage": "diagnostic",
+          "planned": 100,
+          "success": null,
+          "mean_phase": null,
+          "lr_split": null,
+          "scene_list_hash": "sha256:3328dd550f150ccd1bd68071a15c301fa5502caebe07ffe935bad6c461a5a99c",
+          "status": "queued",
+          "completed": 0,
+          "original_preprocessing_preserved": true
+        },
+        "D1_3cm": {
+          "stage": "diagnostic",
+          "planned": 100,
+          "success": null,
+          "mean_phase": null,
+          "lr_split": null,
+          "scene_list_hash": "sha256:decaa626a437f34bc478e4eb9fb11ad59196e03305c184e6ecc5f2123c4765ba",
+          "status": "queued",
+          "completed": 0,
+          "original_preprocessing_preserved": true
+        },
+        "D2a": {
+          "stage": "diagnostic",
+          "planned": 100,
+          "success": null,
+          "mean_phase": null,
+          "lr_split": null,
+          "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+          "status": "running",
+          "completed": 24,
+          "original_preprocessing_preserved": true
+        },
+        "D2b": {
+          "stage": "diagnostic",
+          "planned": 100,
+          "success": null,
+          "mean_phase": null,
+          "lr_split": null,
+          "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+          "status": "queued",
+          "completed": 0,
+          "original_preprocessing_preserved": true
+        },
+        "D3": {
+          "stage": "diagnostic",
+          "planned": 100,
+          "success": null,
+          "mean_phase": null,
+          "lr_split": null,
+          "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+          "status": "running",
+          "completed": 36,
+          "original_preprocessing_preserved": true
+        }
+      }
+    }
+  },
+  "current_compute_note": "诊断D0/D2a/D3与trainresize续跑；旧16卡利用率快照不代表当前负载。",
+  "expert_admission": {
+    "status": "failed",
+    "native120_success": 3,
+    "endpoint15_success": 0,
+    "trials_per_mode": 10,
+    "native_lr_success": [
+      1,
+      2
+    ],
+    "endpoint_lr_success": [
+      0,
+      0
+    ]
+  },
+  "open_loop_admission": {
+    "status": "prior metric withdrawn; recomputation launched",
+    "reason": "diagnostic used first native action column; shipped training loader uses last valid chunk action (interval_end), masks padded rows. This is a diagnostic-label error, not evidence of training error."
+  }
 }

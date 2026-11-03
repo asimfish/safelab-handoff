@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T13:50:40.398287+00:00",
+  "updated_at": "2026-11-03T13:56:19.672470+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -5632,25 +5632,25 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 11
+            "known_n": 17
           }
         ]
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 43,
+      "n": 49,
       "success": null,
       "unknown": 2,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 21,
-        "54321": 22
+        "12345": 23,
+        "54321": 26
       },
-      "mean_phases": 1.3255813953488371,
+      "mean_phases": 1.2653061224489797,
       "phase_distribution": {
-        "0": 8,
-        "1": 22,
+        "0": 9,
+        "1": 27,
         "2": 8,
         "6": 1,
         "3": 3,
@@ -5662,7 +5662,7 @@
       "checkpoint": 30000,
       "horizon": 4,
       "trials": 100,
-      "completed": 43,
+      "completed": 49,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5673,7 +5673,7 @@
       "seed_results": [
         {
           "seed": 0,
-          "completed": 43,
+          "completed": 49,
           "unknown": 2,
           "trials": 100,
           "success": null,
@@ -5692,10 +5692,10 @@
           "unknown": 0
         }
       },
-      "mean_phase": 1.3255813953488371,
+      "mean_phase": 1.2653061224489797,
       "phase_hist": {
-        "0": 8,
-        "1": 22,
+        "0": 9,
+        "1": 27,
         "2": 8,
         "6": 1,
         "3": 3,
@@ -5841,28 +5841,29 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 9
+            "known_n": 15
           }
         ]
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 41,
+      "n": 47,
       "success": null,
       "unknown": 1,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 19,
-        "54321": 22
+        "12345": 20,
+        "54321": 27
       },
-      "mean_phases": 1.3658536585365855,
+      "mean_phases": 1.4680851063829787,
       "phase_distribution": {
         "0": 7,
-        "1": 21,
-        "3": 3,
+        "1": 25,
+        "3": 4,
         "2": 8,
-        "5": 2
+        "5": 2,
+        "6": 1
       },
       "status": "progress_only; soft input gate pending",
       "stage": "A",
@@ -5870,7 +5871,7 @@
       "checkpoint": 30000,
       "horizon": 8,
       "trials": 100,
-      "completed": 41,
+      "completed": 47,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5881,7 +5882,7 @@
       "seed_results": [
         {
           "seed": 0,
-          "completed": 41,
+          "completed": 47,
           "unknown": 1,
           "trials": 100,
           "success": null,
@@ -5900,13 +5901,14 @@
           "unknown": 0
         }
       },
-      "mean_phase": 1.3658536585365855,
+      "mean_phase": 1.4680851063829787,
       "phase_hist": {
         "0": 7,
-        "1": 21,
-        "3": 3,
+        "1": 25,
+        "3": 4,
         "2": 8,
-        "5": 2
+        "5": 2,
+        "6": 1
       },
       "wilson95": null,
       "admission": {
@@ -6018,15 +6020,17 @@
     }
   ],
   "round2_snapshot": {
-    "epoch": 1793713833.7250648,
+    "epoch": 1793714173.6062756,
     "groups": {
       "original_weak": {
         "group": "original_weak",
-        "status": "aggregate_unavailable_preserved_case_receipts",
+        "status": "terminal_archive_preserved",
         "GPU_count": 4,
         "procs_per_gpu": 8,
         "steps": {},
         "aggregate_error": "missing/truncated progress JSON; never drop archived closures",
+        "platform_status": "FAILED",
+        "runtime_last_status": "aggregate_unavailable_preserved_case_receipts",
         "cohorts": [
           {
             "method": "mem0_original",
@@ -6090,7 +6094,7 @@
       },
       "ttc": {
         "group": "ttc",
-        "status": "requires_inspection",
+        "status": "terminal_archive_preserved",
         "epoch": 1793702114.7344735,
         "GPU_count": 4,
         "num_envs_actual": 1,
@@ -6101,10 +6105,10 @@
         "steps": {
           "ours_aligned_A_original": {
             "root": "/tmp/safelab_task10_evalv1_round2_ttc/ours_aligned_A_original",
-            "status": "requires_inspection",
+            "status": "interrupted_FAILED; existing terminal records preserved",
             "completed": 133,
             "target": 200,
-            "active": 24,
+            "active": 0,
             "phase_hist": {
               "0": 57,
               "1": 50,
@@ -6120,7 +6124,8 @@
             },
             "successes_observed": 0,
             "scored": true,
-            "error": "AssertionError('native_infrastructure_error:round2_case0152')"
+            "error": "AssertionError('native_infrastructure_error:round2_case0152')",
+            "last_active_before_termination": 24
           }
         },
         "open_loop": "pending (soft gate)",
@@ -6131,6 +6136,8 @@
         "error": "AssertionError(('coordinator_failed', 'ours_aligned', 1))",
         "traceback": "Traceback (most recent call last):\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/cloud_entry.py\", line 87, in main\n    else:run('ours_aligned')\n         ^^^^^^^^^^^^^^^^^^^\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/cloud_entry.py\", line 75, in run\n    assert p.returncode==0,('coordinator_failed',method,p.returncode)\n           ^^^^^^^^^^^^^^^\nAssertionError: ('coordinator_failed', 'ours_aligned', 1)\n",
         "observed_epoch": 1793706220.8685186,
+        "platform_status": "FAILED",
+        "runtime_last_status": "requires_inspection",
         "cohorts": [
           {
             "method": "ours_aligned",
@@ -6202,12 +6209,12 @@
           "all_card_memory_mean_pct": 68.83699633116281,
           "source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_ttc/ours_aligned_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793706211.6063426,
-          "age_s": 7622.140558719635
+          "age_s": 7962.024868011475
         }
       },
       "weak_only": {
         "group": "weak_only",
-        "status": "requires_inspection",
+        "status": "terminal_archive_preserved",
         "epoch": 1793707161.0566278,
         "GPU_count": 4,
         "num_envs_actual": 1,
@@ -6218,10 +6225,10 @@
         "steps": {
           "mem0_weak_A_original": {
             "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a00/safelab_task10_evalv1_round2_weak_only/mem0_weak_A_original",
-            "status": "running",
+            "status": "interrupted_FAILED; existing terminal records preserved",
             "completed": 0,
             "target": 200,
-            "active": 4,
+            "active": 0,
             "phase_hist": {
               "0": 0,
               "1": 0,
@@ -6237,7 +6244,8 @@
             },
             "successes_observed": 0,
             "scored": true,
-            "error": null
+            "error": null,
+            "last_active_before_termination": 4
           }
         },
         "open_loop": "pending (soft gate)",
@@ -6248,6 +6256,8 @@
         "error": "AssertionError(('coordinator_failed', 'mem0_weak', 1))",
         "traceback": "Traceback (most recent call last):\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/weak_entry.py\", line 87, in main\n    run('mem0_weak')\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/weak_entry.py\", line 77, in run\n    assert p.returncode==0,('coordinator_failed',method,p.returncode)\n           ^^^^^^^^^^^^^^^\nAssertionError: ('coordinator_failed', 'mem0_weak', 1)\n",
         "observed_epoch": 1793707431.1807654,
+        "platform_status": "FAILED",
+        "runtime_last_status": "requires_inspection",
         "cohorts": [],
         "sustained_gpu": {
           "status": "pending600s_contiguous_window",
@@ -6264,12 +6274,12 @@
           "all_card_memory_mean_pct": 7.789228494477792,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a00/safelab_task10_evalv1_round2_weak_only/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793707401.8473554,
-          "age_s": 6431.9023513793945
+          "age_s": 6771.786804437637
         }
       },
       "weak_only_a01": {
         "group": "weak_only_a01",
-        "status": "complete",
+        "status": "terminal_archive_preserved",
         "epoch": 1793708227.899718,
         "GPU_count": 4,
         "num_envs_actual": 1,
@@ -6299,7 +6309,8 @@
             },
             "successes_observed": 0,
             "scored": true,
-            "error": null
+            "error": null,
+            "last_active_before_termination": 0
           }
         },
         "open_loop": "pending (soft gate)",
@@ -6308,6 +6319,8 @@
         "method": "mem0_weak",
         "phase": "A_original",
         "observed_epoch": 1793713751.712448,
+        "platform_status": "SUCCEEDED",
+        "runtime_last_status": "complete",
         "cohorts": [
           {
             "method": "mem0_weak",
@@ -6377,12 +6390,12 @@
           "all_card_memory_mean_pct": 24.47455814705217,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a01/safelab_task10_evalv1_round2_weak_only_a01/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793713735.7662895,
-          "age_s": 98.00185561180115
+          "age_s": 437.89083099365234
         }
       },
       "resume_ab": {
         "group": "resume_ab",
-        "status": "running",
+        "status": "terminal_archive_preserved",
         "epoch": 1793709080.446919,
         "GPU_count": 4,
         "num_envs_actual": 1,
@@ -6393,10 +6406,10 @@
         "steps": {
           "mem0_original_A_original": {
             "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery01/safelab_task10_evalv1_round2_resume_ab/mem0_original_A_original",
-            "status": "running",
+            "status": "interrupted_FAILED; existing terminal records preserved",
             "completed": 32,
             "target": 167,
-            "active": 21,
+            "active": 0,
             "phase_hist": {
               "0": 4,
               "1": 17,
@@ -6412,7 +6425,8 @@
             },
             "successes_observed": 0,
             "scored": true,
-            "error": null
+            "error": null,
+            "last_active_before_termination": 21
           }
         },
         "open_loop": "pending (soft gate)",
@@ -6421,6 +6435,8 @@
         "method": "mem0_original",
         "phase": "A_original",
         "observed_epoch": 1793710831.2417808,
+        "platform_status": "FAILED",
+        "runtime_last_status": "running",
         "cohorts": [
           {
             "method": "mem0_original",
@@ -6491,12 +6507,12 @@
           "all_card_memory_mean_pct": 46.19394141890684,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery01/safelab_task10_evalv1_round2_resume_ab/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793710805.1336274,
-          "age_s": 3028.639977455139
+          "age_s": 3368.529796361923
         }
       },
       "resume_ab02": {
         "group": "resume_ab02",
-        "status": "requires_inspection",
+        "status": "terminal_archive_preserved",
         "epoch": 1793711722.711794,
         "GPU_count": 4,
         "num_envs_actual": 1,
@@ -6513,6 +6529,8 @@
         "error": "AssertionError(('coordinator_failed', 'mem0_original', 1))",
         "traceback": "Traceback (most recent call last):\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/recovery_entry02.py\", line 88, in main\n    run('mem0_original');run('ours_aligned')\n    ^^^^^^^^^^^^^^^^^^^^\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/recovery_entry02.py\", line 78, in run\n    assert p.returncode==0,('coordinator_failed',method,p.returncode)\n           ^^^^^^^^^^^^^^^\nAssertionError: ('coordinator_failed', 'mem0_original', 1)\n",
         "observed_epoch": 1793711732.7256536,
+        "platform_status": "FAILED",
+        "runtime_last_status": "requires_inspection",
         "cohorts": [],
         "sustained_gpu": {
           "status": "pending",
@@ -6534,17 +6552,17 @@
           "mem0_original_A_original": {
             "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original",
             "status": "running",
-            "completed": 20,
+            "completed": 32,
             "target": 133,
-            "active": 38,
+            "active": 39,
             "phase_hist": {
-              "0": 6,
-              "1": 8,
+              "0": 7,
+              "1": 17,
               "2": 4,
-              "3": 1,
+              "3": 2,
               "4": 0,
               "5": 1,
-              "6": 0,
+              "6": 1,
               "7": 0,
               "8": 0,
               "9": 0,
@@ -6560,7 +6578,8 @@
         "extra_evaluation_condition": "sticky60degree termination",
         "method": "mem0_original",
         "phase": "A_original",
-        "observed_epoch": 1793713829.4139183,
+        "observed_epoch": 1793714164.876433,
+        "platform_status": "RUNNING",
         "cohorts": [
           {
             "method": "mem0_original",
@@ -6568,21 +6587,21 @@
             "condition": "off",
             "shard": "resume_ab03",
             "processes_per_gpu": 10,
-            "n": 11,
+            "n": 17,
             "target": 100,
             "success": null,
             "terminal_successes_observed": 0,
             "unknown": 0,
             "phase_hist": {
-              "0": 4,
-              "1": 5,
+              "0": 5,
+              "1": 10,
               "2": 1,
               "3": 1
             },
-            "mean_phase": 0.9090909090909091,
+            "mean_phase": 0.8823529411764706,
             "order_split": {
-              "12345": 7,
-              "54321": 4
+              "12345": 9,
+              "54321": 8
             },
             "status": "running_progress_only",
             "open_loop": "pending",
@@ -6594,21 +6613,23 @@
             "condition": "off",
             "shard": "resume_ab03",
             "processes_per_gpu": 10,
-            "n": 9,
+            "n": 15,
             "target": 100,
             "success": null,
             "terminal_successes_observed": 0,
             "unknown": 0,
             "phase_hist": {
-              "1": 3,
+              "1": 7,
+              "3": 1,
               "2": 3,
               "0": 2,
+              "6": 1,
               "5": 1
             },
-            "mean_phase": 1.5555555555555556,
+            "mean_phase": 1.8,
             "order_split": {
-              "54321": 5,
-              "12345": 4
+              "54321": 10,
+              "12345": 5
             },
             "status": "running_progress_only",
             "open_loop": "pending",
@@ -6618,19 +6639,19 @@
         "sustained_gpu": {
           "status": "qualified600s",
           "duration_s": 600,
-          "observed_span_s": 633.0844702720642,
+          "observed_span_s": 633.7836356163025,
           "samples": 22,
-          "all_card_utilization_mean_pct": 72.71306739528974,
+          "all_card_utilization_mean_pct": 77.60748413076003,
           "per_card_utilization_mean_pct": [
-            78.46980644226075,
-            68.04936876813571,
-            75.95480753421784,
-            68.37828683654467
+            80.19337954322496,
+            72.76435663660368,
+            77.4461885090669,
+            80.0260118341446
           ],
-          "all_card_memory_mean_pct": 45.89743544426893,
+          "all_card_memory_mean_pct": 54.872712506990624,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
-          "latest_epoch": 1793713830.0211287,
-          "age_s": 3.7655386924743652
+          "latest_epoch": 1793714162.2192338,
+          "age_s": 11.46385931968689
         }
       }
     },
@@ -6641,20 +6662,20 @@
         "method": "mem0_original",
         "horizon": 4,
         "condition": "off",
-        "n": 43,
+        "n": 49,
         "unknown": 2,
         "target": 100,
         "phase_hist": {
-          "0": 8,
-          "1": 22,
+          "0": 9,
+          "1": 27,
           "2": 8,
           "6": 1,
           "3": 3,
           "4": 1
         },
         "order_split": {
-          "12345": 21,
-          "54321": 22
+          "12345": 23,
+          "54321": 26
         },
         "success": null,
         "terminal_successes_observed": 0,
@@ -6675,29 +6696,30 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 11
+            "known_n": 17
           }
         ],
         "status": "progress_only; soft input gate pending",
-        "mean_phase": 1.3255813953488371
+        "mean_phase": 1.2653061224489797
       },
       {
         "method": "mem0_original",
         "horizon": 8,
         "condition": "off",
-        "n": 41,
+        "n": 47,
         "unknown": 1,
         "target": 100,
         "phase_hist": {
           "0": 7,
-          "1": 21,
-          "3": 3,
+          "1": 25,
+          "3": 4,
           "2": 8,
-          "5": 2
+          "5": 2,
+          "6": 1
         },
         "order_split": {
-          "12345": 19,
-          "54321": 22
+          "12345": 20,
+          "54321": 27
         },
         "success": null,
         "terminal_successes_observed": 0,
@@ -6718,11 +6740,11 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 9
+            "known_n": 15
           }
         ],
         "status": "progress_only; soft input gate pending",
-        "mean_phase": 1.3658536585365855
+        "mean_phase": 1.4680851063829787
       },
       {
         "method": "ours_aligned",
@@ -6847,7 +6869,7 @@
         "mean_phase": 0.76
       }
     ],
-    "formal_A_completed_progress": 417,
+    "formal_A_completed_progress": 429,
     "terminal_unknown": 5,
     "terminal_inventory": {
       "known_ids": [
@@ -6872,6 +6894,8 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene021_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene023_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene024_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene029_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene033_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene050_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene051_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene052_seed910100",
@@ -6893,7 +6917,11 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene068_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene070_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene072_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene073_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene074_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene077_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene079_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene080_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene000_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene001_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene002_seed910100",
@@ -6913,6 +6941,7 @@
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene020_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene021_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene026_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene028_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene050_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene051_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene052_seed910100",
@@ -6933,8 +6962,13 @@
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene068_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene069_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene070_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene071_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene073_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene074_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene077_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene078_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene079_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene081_seed910100",
         "task10_evalv1_round2_mem0_weak_off_30k_h4_scene000_seed910100",
         "task10_evalv1_round2_mem0_weak_off_30k_h4_scene001_seed910100",
         "task10_evalv1_round2_mem0_weak_off_30k_h4_scene002_seed910100",
@@ -7278,8 +7312,8 @@
       ],
       "expected_ids_sha256": "cb2a23c2e337c07c8d6d406c43147f9cb855e2ce7de6f3b94146d8a1feeb34ae",
       "all600_accounted": false,
-      "known_independently_qualified": 417,
-      "all_known_independently_qualified": true,
+      "known_independently_qualified": 427,
+      "all_known_independently_qualified": false,
       "qualified_index": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_sealed_cases_20261103/INDEX.json"
     },
     "auxiliary_cohorts_aggregated": [],
@@ -13543,46 +13577,196 @@
         "failure_reason": "object_toppled",
         "status": "physical_failure",
         "sim_seconds": 41.55833333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene079_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 79,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 40.4
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene073_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 73,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 43.575
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene073_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 73,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 28.441666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene077_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 77,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.358333333333334
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene079_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 79,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 33.5
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene071_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 71,
+        "evaluation_seed": 910100,
+        "physical_phases": 6,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 102.23333333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene074_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 74,
+        "evaluation_seed": 910100,
+        "physical_phases": 3,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 54.8
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene029_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 29,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 24.158333333333335
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene028_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 28,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 30.983333333333334
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene080_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 80,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 25.658333333333335
       }
     ],
     "qualified_contact_diagnostic": {
-      "epoch": 1793713833.8420289,
+      "epoch": 1793714173.7454007,
       "scored": false,
-      "completed": 417,
-      "qualified_target_at_snapshot": 417,
+      "completed": 427,
+      "qualified_target_at_snapshot": 427,
       "claim_boundary": "Up to2s recorded contact association before sticky60degree failure; not counterfactual causation. No success rules modified.",
       "groups": {
         "mem0_original|4|off": {
-          "n": 43,
+          "n": 48,
           "classifications": {
-            "toppled": 43
+            "toppled": 48
           },
           "hand_lifecycle": {
-            "not_enabled": 43
+            "not_enabled": 48
           },
           "affected_cup_lifecycle": {
-            "never_attached": 43
+            "never_attached": 48
           },
           "last_contact_body": {
-            "palm": 21,
-            "finger": 26
+            "palm": 23,
+            "finger": 29
           }
         },
         "mem0_original|8|off": {
-          "n": 41,
+          "n": 46,
           "classifications": {
-            "toppled": 41
+            "toppled": 46
           },
           "hand_lifecycle": {
-            "not_enabled": 41
+            "not_enabled": 46
           },
           "affected_cup_lifecycle": {
-            "never_attached": 41
+            "never_attached": 46
           },
           "last_contact_body": {
-            "finger": 25,
+            "finger": 29,
             "arm": 1,
-            "palm": 17,
+            "palm": 20,
             "no_robot_contact_within2s": 1
           }
         },
@@ -13694,18 +13878,18 @@
       }
     },
     "all_card_sustained_gpu": {
-      "status": "pending_fresh_platform_allocation_check",
+      "status": "pending600s_stable_allocation_after_job_termination",
       "GPU_count": 4,
       "duration_s": 600,
-      "start_epoch": 1793713230.0211287,
-      "end_epoch": 1793713830.0211287,
-      "all_card_utilization_mean_pct": 72.71306739528974,
-      "all_card_memory_mean_pct": 45.89743544426893,
+      "start_epoch": 1793713562.2192338,
+      "end_epoch": 1793714162.2192338,
+      "all_card_utilization_mean_pct": 77.60748413076003,
+      "all_card_memory_mean_pct": 54.87271250699064,
       "source_paths": [
         "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original/RESOURCE_HISTORY.jsonl"
       ],
       "method": "time-weighted common600s interval, all assigned GPU UUIDs",
-      "platform_assigned_GPUs": 8,
+      "platform_assigned_GPUs": 4,
       "included_groups": [
         "resume_ab03"
       ],
@@ -13713,7 +13897,7 @@
     }
   },
   "round2_qualified_diagnostic": {
-    "epoch": 1793713834.8633928,
+    "epoch": 1793714174.8263638,
     "scored": false,
     "source": "independently sealed120Hz/input/source checks",
     "admission_open_loop": "pending",
@@ -13728,16 +13912,16 @@
         "method": "mem0_original",
         "horizon": 4,
         "condition": "off",
-        "qualified_n": 43,
+        "qualified_n": 48,
         "planned_n": 100,
         "order_split": {
-          "12345": 21,
-          "54321": 22
+          "12345": 22,
+          "54321": 26
         },
-        "mean_phases": 1.3255813953488371,
+        "mean_phases": 1.2916666666666667,
         "phase_histogram": {
           "0": 8,
-          "1": 22,
+          "1": 27,
           "2": 8,
           "3": 3,
           "6": 1,
@@ -13801,19 +13985,20 @@
         "method": "mem0_original",
         "horizon": 8,
         "condition": "off",
-        "qualified_n": 41,
+        "qualified_n": 46,
         "planned_n": 100,
         "order_split": {
-          "12345": 19,
-          "54321": 22
+          "12345": 20,
+          "54321": 26
         },
-        "mean_phases": 1.3658536585365855,
+        "mean_phases": 1.4782608695652173,
         "phase_histogram": {
           "0": 7,
-          "1": 21,
-          "3": 3,
+          "1": 24,
+          "3": 4,
           "2": 8,
-          "5": 2
+          "5": 2,
+          "6": 1
         },
         "success": null,
         "success_rate": null,
@@ -13962,10 +14147,10 @@
       {
         "condition": "off",
         "horizon": 4,
-        "matched_n": 42,
+        "matched_n": 47,
         "order_split": {
-          "12345": 20,
-          "54321": 22
+          "12345": 21,
+          "54321": 26
         },
         "full_balanced_100": false,
         "scene_indices": [
@@ -13989,6 +14174,7 @@
           21,
           23,
           24,
+          29,
           50,
           51,
           52,
@@ -14010,46 +14196,50 @@
           68,
           70,
           72,
-          74
+          73,
+          74,
+          77,
+          79,
+          80
         ],
         "methods": {
           "mem0_original": {
-            "mean_phases": 1.3095238095238095,
+            "mean_phases": 1.2765957446808511,
             "bootstrap95": [
-              1.0,
-              1.6904761904761905
+              0.9787234042553191,
+              1.6170212765957446
             ],
             "phase_histogram": {
               "0": 8,
               "2": 7,
-              "1": 22,
+              "1": 27,
               "4": 1,
               "3": 3,
               "6": 1
             }
           },
           "mem0_weak": {
-            "mean_phases": 1.0714285714285714,
+            "mean_phases": 1.0425531914893618,
             "bootstrap95": [
-              0.8571428571428571,
-              1.2857142857142858
+              0.851063829787234,
+              1.2340425531914894
             ],
             "phase_histogram": {
-              "1": 24,
+              "1": 28,
               "2": 9,
-              "0": 8,
+              "0": 9,
               "3": 1
             }
           },
           "ours_aligned": {
-            "mean_phases": 1.119047619047619,
+            "mean_phases": 1.0638297872340425,
             "bootstrap95": [
-              0.7857142857142857,
-              1.5
+              0.7446808510638298,
+              1.4042553191489362
             ],
             "phase_histogram": {
-              "1": 18,
-              "0": 14,
+              "1": 21,
+              "0": 16,
               "2": 6,
               "4": 3,
               "5": 1
@@ -14060,28 +14250,28 @@
           {
             "method_a": "mem0_weak",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.23809523809523808,
+            "mean_phase_difference": -0.23404255319148937,
             "paired_bootstrap95": [
-              -0.7142857142857143,
-              0.19047619047619047
+              -0.6595744680851063,
+              0.14893617021276595
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.19047619047619047,
+            "mean_phase_difference": -0.2127659574468085,
             "paired_bootstrap95": [
-              -0.6428571428571429,
-              0.2619047619047619
+              -0.6170212765957447,
+              0.19148936170212766
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_weak",
-            "mean_phase_difference": 0.047619047619047616,
+            "mean_phase_difference": 0.02127659574468085,
             "paired_bootstrap95": [
-              -0.35714285714285715,
-              0.47619047619047616
+              -0.3404255319148936,
+              0.40425531914893614
             ]
           }
         ]
@@ -14089,10 +14279,10 @@
       {
         "condition": "off",
         "horizon": 8,
-        "matched_n": 41,
+        "matched_n": 46,
         "order_split": {
-          "12345": 19,
-          "54321": 22
+          "12345": 20,
+          "54321": 26
         },
         "full_balanced_100": false,
         "scene_indices": [
@@ -14115,6 +14305,7 @@
           20,
           21,
           26,
+          28,
           50,
           51,
           52,
@@ -14135,46 +14326,51 @@
           68,
           69,
           70,
+          71,
+          73,
+          74,
           77,
-          78
+          78,
+          79
         ],
         "methods": {
           "mem0_original": {
-            "mean_phases": 1.3658536585365855,
+            "mean_phases": 1.4782608695652173,
             "bootstrap95": [
-              1.048780487804878,
-              1.7073170731707317
+              1.1521739130434783,
+              1.8478260869565217
             ],
             "phase_histogram": {
               "0": 7,
-              "1": 21,
+              "1": 24,
               "2": 8,
-              "3": 3,
-              "5": 2
+              "3": 4,
+              "5": 2,
+              "6": 1
             }
           },
           "mem0_weak": {
-            "mean_phases": 0.7073170731707317,
+            "mean_phases": 0.717391304347826,
             "bootstrap95": [
-              0.4878048780487805,
-              0.926829268292683
+              0.5217391304347826,
+              0.9130434782608695
             ],
             "phase_histogram": {
               "2": 3,
-              "1": 20,
-              "0": 17,
+              "1": 24,
+              "0": 18,
               "3": 1
             }
           },
           "ours_aligned": {
-            "mean_phases": 0.8048780487804879,
+            "mean_phases": 0.7608695652173914,
             "bootstrap95": [
-              0.5609756097560976,
-              1.048780487804878
+              0.5434782608695652,
+              1.0
             ],
             "phase_histogram": {
-              "1": 16,
-              "0": 17,
+              "1": 18,
+              "0": 20,
               "2": 7,
               "3": 1
             }
@@ -14184,35 +14380,35 @@
           {
             "method_a": "mem0_weak",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.6585365853658537,
+            "mean_phase_difference": -0.7608695652173914,
             "paired_bootstrap95": [
-              -1.048780487804878,
-              -0.2926829268292683
+              -1.1521739130434783,
+              -0.391304347826087
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.5609756097560976,
+            "mean_phase_difference": -0.717391304347826,
             "paired_bootstrap95": [
-              -1.0,
-              -0.12195121951219512
+              -1.1521739130434783,
+              -0.2826086956521739
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_weak",
-            "mean_phase_difference": 0.0975609756097561,
+            "mean_phase_difference": 0.043478260869565216,
             "paired_bootstrap95": [
-              -0.21951219512195122,
-              0.43902439024390244
+              -0.2391304347826087,
+              0.34782608695652173
             ]
           }
         ]
       }
     ],
-    "source_ids_sha256": "8f9391e56c259365aa3c3d164999fb401bf408c668b96910bc8359b17ffb63db",
-    "qualified_n": 417
+    "source_ids_sha256": "d50d504e7cac6d923c1c1c6e01a1d69540410c3d18663463b8f928dd558f31fb",
+    "qualified_n": 427
   },
   "stability_final_comparison": {
     "processed": 8523,
@@ -14237,7 +14433,7 @@
     "weak_a00_failure_before_model_reset_or_step": true
   },
   "round2_platform": {
-    "epoch": 1793713835.3864722,
+    "epoch": 1793714138.0822477,
     "jobs": [
       {
         "group": "original_weak",

@@ -21,6 +21,8 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+      - name: Fill unknown historical metadata without changing results
+        run: python3 scripts/fill-legacy-schema.py
       - name: Verify dashboard metrics
         run: node --test tests/*.test.js
       - name: Upload the static website

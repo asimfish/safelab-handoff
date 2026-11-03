@@ -91,3 +91,5 @@ Mem-0 20k/30k、TTC基础20k/30k、TTC对齐loss 30k、Mem-0削弱版30k，以�
 ## pi0.5 latest/V14 Eval-v1
 
 [诊断与进度](https://asimfish.github.io/safelab-handoff/reports/pi05-eval-v1-20261103.html)：同训练轮次30k/40k、H4/H8/H10以及独立padfix变体。当前为专家执行重复对照；完整100条前正式成绩保持null，历史5090部分结果单列。
+
+发布构建先运行 `python3 scripts/fill-legacy-schema.py`，仅为非Eval-v1旧记录补缺失的历史/诊断标记和未知元数据；保留所有已有字段与成绩、不推断或补造正式证据，再执行完整 `node --test tests/*.test.js`。这样并行同步器新增的旧条目不会因缺少新schema而阻断站点发布。

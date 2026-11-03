@@ -10,3 +10,5 @@ Formal800-case evaluation remains NOT STARTED; all published formal success fiel
 Verification: node --test tests/model.test.js (33pass); eight JSON rows must all have n0/successnull; source HTML no scripts/credentials; bounded own4-file diff.
 
 Remaining: expert repeat adjudication, N1-density image gates,20H8smoke,600baseline+200padfix pairedstageA, eligible5seedstageB. Activejob job-opggko0lwifb. No final scientific result or whole task completion claimed.
+
+Publication repair: CI was already failing on87 historical rows missing new schema metadata. Build now runs a bounded additive legacy-only normalizer with assertions that every preexisting value and all formal rows remain untouched, then the full unchanged42-test gate. Generated snapshot is annotated; source measurements stay unchanged. Full42 tests pass locally after normalization. No workflow permissions changed.

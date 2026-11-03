@@ -84,3 +84,26 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 - 每次回执列两允许位置占用及旧位置待迁移量，明确节点/路径/统计范围和时间；不可访问或未全量统计的写未核实，不填0。
 
 媒体v1.1案例还必须写oracle_version=placement-v1.1；strict-v1对照分开绑定evaluation_id，不把旧漂移候选日志改名为放置判定。物理phase/events使用对应oracle，不复用不一致的阶段统计。
+
+
+## T-1263 对比页播放与首批容量核对
+
+播放器使用公开URL直接赋值video.src，**不设置crossorigin**，不用fetch/blob/HEAD/SHA校验作为视频播放前置，也不用canvas/WebGL读取视频像素。图表canvas只绘制已读取JSON数值，联播使用currentTime与timebase。浏览器明确显示“未核验视频SHA”；转码视频的bytes/SHA由发布者和维护者核验，不把清单SHA成功当成视频SHA成功。发布前还需在真实浏览器验证H.264、Range、拖动与完整时长；匿名GET不单独证明这些条件通过。日志失败独立显示，不阻塞直连视频。
+
+同源是scheme+host+port：两个仓库站点均属于https://asimfish.github.io，仓库路径不同不构成跨域。逐帧日志按上节frame_logs同源规则提交；视频继续public-read对象存储。`.json.gz`除下载bytes/SHA外，消费者还流式限制解压大小并核对decoded_bytes/decoded_sha256再解析。文件作为application/gzip发布，不配置Content-Encoding自动解压；wire/decoded语义不符须拒绝，不能跳过校验。缺DecompressionStream的浏览器显示不支持日志解压，视频继续播放。
+
+事件保留抽稀还须保留指令、真实阳性累计器、物理阶段的变化行；不能从保留分数重建positive_count。首末帧、全部实际切换/物理事件及事件精确时间均保留，并给原始来源SHA和采样规则；界面标注抽稀，只展示保留观测，不外推未观察到的切换。
+
+容量依据（不是发布回执）：十任务CPU导出MEDIA_PREP_PROGRESS的48份日志、64,406行，合计11,584,309 bytes（11.58MB），每份27,120–794,074、均值241,339.77。96段双视角视频共享48份日志，不复制两份。未实测gzip总体积，不使用估计压缩比冒充实测。
+
+基线为交接台commit366f6a0的Git跟踪快照：128文件、24,957,142 bytes；这是git树中tracked文件大小，不是.git历史或远端数据盘占用。加十任务未压缩首批约36,541,451 bytes，低于**整个快照**50,000,000预算，但11.58MB超过单任务10MB软配额；普通JSON发布应在PR申请额外共享约1.58MB，或先gzip并报告实测大小。其他任务未发布同格式首批清单，不能填0或声称已测。
+
+按十任务均值估算8case/配置约1.93MB；如果四任务各48case，日志小计约46.34MB，加上述基线约71.29MB，**超过全仓50MB**，不可全部原样提交。各任务须先gzip或按事件保真规则抽稀，以实际文件运行预算CI；任何新报告/源码/清单也占全仓预算。每次PR用最新基线报告旧/新增/合并后大小，不能把这里的历史基线当成后续可用余量。
+
+媒体新协议使用protocol_version=SafeLab-Eval-v1.1且oracle_version=placement-v1.1，并绑定对应evaluation_id；其完整成绩另须第五项executor_parity等准入。strict媒体可省略旧oracle_version以兼容，若填写则必须strict-v1。旧严格日志若未按新物理判定重新生成，不得仅改case_id或版本冒充放置判定。
+
+
+## 对象存储 CORS 的有条件发布路径（协调 issue #47）
+优先由存储负责人合并原有 CORS 规则，仅允许站点 Origin `https://asimfish.github.io` 的 GET/HEAD；不得为此改变 ACL、开放写方法或覆盖既有规则。成功必须以真实浏览器读取最终公开日志 URL（含跳转检查）、校验下载/解码 SHA、JSON 与时间基准为证，视频可播放不代表日志 CORS 通过。通过后仓库只收清单，逐帧日志留对象存储；启用时须另一个资产 PR 将预算检查器的同源限制改为经过核验的公开前缀白名单，不能直接放开所有跨域地址。当前检查器仍只接受同源日志。
+
+若 CORS 不可用，采用仓库 `media/frame_logs/` 的同源 JSON，按上述事件保真抽稀或 gzip 契约减小体积。两条路径都保留来源、完整性和 evaluation 绑定；本规范不代表任何对象存储规则已经修改或任何日志已经发布。首批计划为十任务48、三任务24、pi0.5 24份，实际批次大小须逐批测量；全部受当前全仓50,000,000-byte快照预算约束，不把历史基线余量当成预留配额。

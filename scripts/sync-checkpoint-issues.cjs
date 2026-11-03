@@ -2,7 +2,7 @@
 // A reviewed mapping, not automatic approval of arbitrary public issues.
 const fs=require('node:fs'),M=require('../model');
 const source=process.argv[2];if(!source)throw Error('Usage: node scripts/sync-checkpoint-issues.cjs reviewed-issues.json [--write]');
-const mapping={1:'3-latest-chest',2:'5-pos-ours-aligned',3:'7-mem0-weak',4:'5-pos-mem0-weak',5:'mem0-ablated',7:'3-latest-pi05-issue7',8:'3-latest-pi05-issue7',9:'3-v13-mem0',10:'3-latest-third',11:'3-v13-ours',12:'3-v13-ours',13:'3-v13-pi05',14:'3-v13-pi05',15:'3-latest-chest',16:'ttc-aligned',17:'5-pos-ttc-aligned-weak',18:'7-ours-weak-aligned-issue18',19:'ttc-aligned-ablated',20:'10-ours-aligned',21:'10-mem0-weak',22:'ttc-aligned-ablated',23:'5-pos-pi05-issue23',24:'7-pi05-issue24',26:'10-ttc-aligned-weak-issue26'};
+const mapping={1:'3-latest-chest',2:'5-pos-ours-aligned',3:'7-mem0-weak',4:'5-pos-mem0-weak',5:'mem0-ablated',7:'3-latest-pi05-issue7',8:'3-latest-pi05-issue7',9:'3-v13-mem0',10:'3-latest-third',11:'3-v13-ours',12:'3-v13-ours',13:'3-v13-pi05',14:'3-v13-pi05',15:'3-latest-chest',16:'ttc-aligned',17:'5-pos-ttc-aligned-weak',18:'7-ours-weak-aligned-issue18',19:'ttc-aligned-ablated',20:'10-ours-aligned',21:'10-mem0-weak',22:'ttc-aligned-ablated',23:'5-pos-pi05-issue23',24:'7-pi05-issue24',26:'10-ttc-aligned-weak-issue26',38:'3-v13-mem0',39:'7-mem0',40:'7-ours-trainresize',41:'7-aligned'};
 const data=JSON.parse(fs.readFileSync('data.json')),before=structuredClone(data),issues=JSON.parse(fs.readFileSync(source));
 const report=[];
 for(const [number,id]of Object.entries(mapping)){

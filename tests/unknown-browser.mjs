@@ -37,6 +37,14 @@ try{
  await run('data.evaluations=['+JSON.stringify(all)+'];rebuild()');
  assert(await run('document.querySelector(".formal-section tbody tr").textContent.includes("无有效轨迹")'),'all unknown renders absent mean without crash');
  assert(await run('document.querySelector(".sensitivity-upper").textContent.includes("100.0%")'),'all-unknown sensitivity upper100percent');
+ const candidate={...fixture,id:'ui-candidate-fixture',stage:'diagnostic',metric_role:'rescored_v1.1_candidate',source_evaluation_id:fixture.id,source:'fixture-only',success:30,phase_hist:{0:68,3:30},mean_phase:90/98};
+ await run('data.evaluations=['+JSON.stringify(fixture)+','+JSON.stringify(candidate)+'];metricView="strict-v1";rebuild()');
+ assert(await run('document.querySelector("#metric-view").value==="strict-v1"&&!document.querySelector("[data-candidate]")'),'default strict view keeps candidate invisible');
+ await run('document.querySelector("#metric-view").value="v1.1-candidate";document.querySelector("#metric-view").dispatchEvent(new Event("change"))');
+ assert(await run('document.querySelector("[data-candidate]").textContent.includes("30.0%")'),'explicit switch shows candidate diagnostic result');
+ assert(await run('document.querySelector(".candidate-results").textContent.includes("尚未采用为正式标准")'),'candidate is visibly unadopted');
+ await run('document.querySelector("#metric-view").value="strict-v1";document.querySelector("#metric-view").dispatchEvent(new Event("change"))');
+ assert(await run('document.querySelector(".formal-section tbody tr").textContent.includes("3.0%")&&!document.querySelector("[data-candidate]")'),'switching back retains original strict score');
  assert(errors.length===0,'no uncaught exceptions');
  fs.writeFileSync(path.join(Q,'UNKNOWN_BROWSER_QA.json'),JSON.stringify({passed:true,checks,errors,at:new Date().toISOString()},null,2));console.log(JSON.stringify({passed:true,checks,errors}));
 }finally{if(ws)ws.close();browser.kill('SIGTERM');}

@@ -1,0 +1,1745 @@
+{
+  "updated_at": "2026-11-03T15:23:53.082057+00:00",
+  "protocol": "SafeLab-Eval-v1",
+  "checkpoint_coverage": {
+    "task10_methods": [
+      "mem0_original",
+      "mem0_weak",
+      "ours_aligned",
+      "ours_aligned_weak"
+    ],
+    "issues": [
+      20,
+      21,
+      26
+    ],
+    "original30k": "existing baseline record10-mem0; no standalone checkpoint issue among1–26; no invented issue",
+    "excluded20k": "historicalall0; not enteringv1",
+    "new_h30_or_extra_seeds": false
+  },
+  "asset_gate": {
+    "passed": false,
+    "status": "downloading_and_verifying"
+  },
+  "image_pixel_gate": {
+    "passed": false
+  },
+  "reuse_lane_gate": {
+    "passed": false
+  },
+  "issue26_open_loop": {
+    "status": "pending",
+    "passed": false,
+    "reason": "new weak cluster sidecar/DAG authority must match this checkpoint; source weak Parquet available"
+  },
+  "issue26_progress": {},
+  "old_three_model_A": {
+    "epoch": 1793719388.0893,
+    "formal_A_completed_progress": 577,
+    "terminal_unknown": 5,
+    "auxiliary_A_completed_progress": 0,
+    "all_card_sustained_gpu": {
+      "status": "qualified600s",
+      "GPU_count": 4,
+      "duration_s": 600,
+      "start_epoch": 1793718782.7060182,
+      "end_epoch": 1793719382.7060182,
+      "all_card_utilization_mean_pct": 60.69777022053798,
+      "all_card_memory_mean_pct": 51.65234295972834,
+      "source_paths": [
+        "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/ours_aligned_A_original/RESOURCE_HISTORY.jsonl"
+      ],
+      "method": "time-weighted common600s interval, all assigned GPU UUIDs",
+      "platform_assigned_GPUs": 4,
+      "included_groups": [
+        "resume_ab03"
+      ],
+      "historical_window": true
+    }
+  },
+  "configurations": [
+    {
+      "id": "task10-eval-v1-20261103-mem0_original-off-h4",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "success": null,
+      "trials": 100,
+      "unknown": 2,
+      "completed": 100,
+      "kind": "自主闭环",
+      "status": "阶段A续测中",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": 1.5918367346938775,
+      "phase_hist": {
+        "0": 14,
+        "1": 48,
+        "2": 19,
+        "3": 8,
+        "6": 2,
+        "4": 3,
+        "7": 1,
+        "5": 3
+      },
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 98,
+      "independently_verified": 98,
+      "expected_start": "已开始",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 1
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 1
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 2
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-mem0_original-off-h8",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "success": null,
+      "trials": 100,
+      "unknown": 1,
+      "completed": 100,
+      "kind": "自主闭环",
+      "status": "阶段A续测中",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": 1.606060606060606,
+      "phase_hist": {
+        "0": 15,
+        "1": 49,
+        "3": 4,
+        "2": 20,
+        "5": 5,
+        "6": 3,
+        "4": 2,
+        "7": 1
+      },
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 99,
+      "independently_verified": 99,
+      "expected_start": "已开始",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 1
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 1
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-mem0_original-attach-h4",
+      "record": "10-mem0-attach-v2",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-mem0_original-attach-h8",
+      "record": "10-mem0-attach-v2",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0 削弱版",
+      "ckpt": 30000,
+      "execution_horizon": 4,
+      "condition": "off",
+      "condition_version": "original-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 100,
+      "success": 0,
+      "unknown": 0,
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "order_split": {
+        "12345": 50,
+        "54321": 50
+      },
+      "mean_phases": 0.98,
+      "phase_distribution": {
+        "2": 18,
+        "1": 59,
+        "0": 22,
+        "3": 1
+      },
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "trials": 100,
+      "completed": 100,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.98,
+      "phase_hist": {
+        "2": 18,
+        "1": 59,
+        "0": 22,
+        "3": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0,
+      "id": "task10-eval-v1-20261103-mem0_weak-off-h4",
+      "record": "10-mem0-weak",
+      "kind": "自主闭环",
+      "protocol": "SafeLab-Eval-v1; fixed100 scenes, forward/reverse50each, seed0; N1×k; train bilinearAA; strict121ticks; sticky60degree extra condition",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+      "source": "reports/task10-eval-v1-20261103.json",
+      "updated_at": "2026-11-03T14:59:43.291478+00:00",
+      "final_verified": true,
+      "display_priority": 300,
+      "result_label": "SafeLab-Eval-v1 · 阶段A100条",
+      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。"
+    },
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0 削弱版",
+      "ckpt": 30000,
+      "execution_horizon": 8,
+      "condition": "off",
+      "condition_version": "original-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 100,
+      "success": 0,
+      "unknown": 0,
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "order_split": {
+        "12345": 50,
+        "54321": 50
+      },
+      "mean_phases": 0.76,
+      "phase_distribution": {
+        "0": 36,
+        "1": 54,
+        "2": 8,
+        "3": 2
+      },
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "trials": 100,
+      "completed": 100,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.76,
+      "phase_hist": {
+        "0": 36,
+        "1": 54,
+        "2": 8,
+        "3": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0,
+      "id": "task10-eval-v1-20261103-mem0_weak-off-h8",
+      "record": "10-mem0-weak",
+      "kind": "自主闭环",
+      "protocol": "SafeLab-Eval-v1; fixed100 scenes, forward/reverse50each, seed0; N1×k; train bilinearAA; strict121ticks; sticky60degree extra condition",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+      "source": "reports/task10-eval-v1-20261103.json",
+      "updated_at": "2026-11-03T14:59:43.291478+00:00",
+      "final_verified": true,
+      "display_priority": 300,
+      "result_label": "SafeLab-Eval-v1 · 阶段A100条",
+      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。"
+    },
+    {
+      "id": "task10-eval-v1-20261103-mem0_weak-attach-h4",
+      "record": "10-mem0-weak-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 21,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 5,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-mem0_weak-attach-h8",
+      "record": "10-mem0-weak-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 21,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 5,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned-off-h4",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "success": null,
+      "trials": 100,
+      "unknown": 1,
+      "completed": 88,
+      "kind": "自主闭环",
+      "status": "阶段A续测中",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": 0.9195402298850575,
+      "phase_hist": {
+        "1": 34,
+        "0": 36,
+        "4": 4,
+        "2": 11,
+        "5": 1,
+        "3": 1
+      },
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 87,
+      "independently_verified": 87,
+      "expected_start": "已开始",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 1
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 1
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned-off-h8",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "success": null,
+      "trials": 100,
+      "unknown": 1,
+      "completed": 94,
+      "kind": "自主闭环",
+      "status": "阶段A续测中",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": 0.7526881720430108,
+      "phase_hist": {
+        "1": 32,
+        "0": 45,
+        "2": 11,
+        "3": 4,
+        "4": 1
+      },
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 93,
+      "independently_verified": 93,
+      "expected_start": "已开始",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 1
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 1
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned-attach-h4",
+      "record": "10-ours-aligned-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned-attach-h8",
+      "record": "10-ours-aligned-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned_weak-off-h4",
+      "record": "10-ours-aligned-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "模型准入中；未启动阶段A",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "预计15:45–16:15 UTC；取包、复用对照及20条冒烟通过后立即启动",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned_weak-off-h8",
+      "record": "10-ours-aligned-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "模型准入中；未启动阶段A",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "预计15:45–16:15 UTC；取包、复用对照及20条冒烟通过后立即启动",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h4",
+      "record": "10-ours-aligned-weak-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h8",
+      "record": "10-ours-aligned-weak-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 0,
+      "kind": "自主闭环",
+      "status": "等待原始条件A完成后启用统一attach-v2",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T15:23:53.082057+00:00",
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": null,
+      "phase_hist": {},
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 0,
+      "independently_verified": 0,
+      "expected_start": "等待原始A完成；同一v2辅助阶段",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    }
+  ]
+}

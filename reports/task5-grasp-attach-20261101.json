@@ -2,7 +2,7 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-03T13:09:57.597346+00:00",
+  "updated_at": "2026-11-03T13:16:23.713610+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
   "status": "paused_pipeline_diagnostic",
@@ -64323,7 +64323,7 @@
   "low_priority_gpus": 0,
   "existing_server_gpus": 0,
   "shared_physical_jobs": [],
-  "resource_policy": "全量队列暂停；当前低优占卡4，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
+  "resource_policy": "全量队列暂停；当前低优占卡0，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
   "aggregate_counter_repairs": [
     {
       "passed": true,
@@ -64371,14 +64371,105 @@
   },
   "diagnostic_report_url": "reports/task5-pipeline-diagnostic-20261103.html",
   "historical_resource_policy": "同一物理任务公平交替执行原始与附着条件，各自独立验收。按job_id去重，两个面板卡数不能相加。低优任务合计上限12卡；另外单列已授权的现有双卡Pro服务器，不占新增低优卡池。",
-  "current_low_priority_GPUs": 4,
-  "resource_note": "全量队列暂停；当前低优占卡4，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
+  "current_low_priority_GPUs": 0,
+  "resource_note": "全量队列暂停；当前低优占卡0，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
   "admission_status": {
     "expert_replay": "源光学链修正后8/8通过原五阶段物理验收（非模型成功）",
     "training_prefix_fit": "6种模型×2条连续图像前缀完成，RMSE为训练RGB的0.77–1.35倍",
     "rendering": "已恢复pos1cm源运行时光学链；多进度MAE约1.56–2.02/255，含训练视频编码差异",
-    "closed_loop_smoke": "11/20准入冒烟独立核验，正式A/B尚未启动",
+    "closed_loop_smoke": "20/20独立核验：全程0成功、unknown0，阶段0/1/2=17/1/2；仅诊断，正式A/B仍暂停",
     "backend48": "12条闭环、4条中断、32条未派发；未通过48条物理验收",
     "N4": "已结题不准入，正式采用N1×k多进程并行"
+  },
+  "diagnostic_admission_smoke": {
+    "epoch": 1793711601.1150498,
+    "protocol": "SafeLab-Eval-v1 admission diagnostic",
+    "formal_score_eligible": false,
+    "task": "5b",
+    "data": "psibot_5b_obstruction_pos1cm_v1_20261025",
+    "camera": "third_person",
+    "method": "official Mem-0",
+    "checkpoint": 30000,
+    "execution_horizon": 8,
+    "condition": "baseline original physical contact",
+    "optics_version": "pos1cm_source_optics_v1",
+    "topology": "N1x5 independent-process maximum, 4 Pro6000; actual1env/App",
+    "image_preprocessing": "training tensor bilinear antialias224 plus frozen Qwen",
+    "scene_hash": {
+      "full100_sha256": "3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "smoke20_sha256": "07ca8b466547c7cb7cb9115d0998bcffe94fcb4a419acd1d958ef73b76106af9",
+      "full100_layouts": {
+        "forward": 50,
+        "reverse": 50
+      },
+      "smoke20_layouts": {
+        "forward": 10,
+        "reverse": 10
+      }
+    },
+    "n": 20,
+    "successes": 0,
+    "unknown": 0,
+    "Wilson95": [
+      0,
+      0.16112515805281938
+    ],
+    "per_seed": {
+      "0": {
+        "n": 20,
+        "successes": 0
+      }
+    },
+    "layouts": {
+      "forward": {
+        "n": 10,
+        "successes": 0,
+        "phase_histogram": {
+          "0": 7,
+          "1": 1,
+          "2": 2,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.5,
+        "failure_counts": {
+          "object_toppled": 1,
+          "time_limit": 9
+        }
+      },
+      "reverse": {
+        "n": 10,
+        "successes": 0,
+        "phase_histogram": {
+          "0": 10,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.0,
+        "failure_counts": {
+          "object_toppled": 9,
+          "time_limit": 1
+        }
+      }
+    },
+    "mean_completed_phases": 0.25,
+    "phase_histogram": {
+      "0": 17,
+      "1": 1,
+      "2": 2,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "stage0_stop_rule_triggered": false,
+    "all_four_gates_admitted": false,
+    "remaining_gate": "full first-subtask loss-scale check and final training-loss evidence",
+    "status": "closed audited diagnostic; formal A/B paused",
+    "wall_seconds": 2459.981201269198,
+    "audits": 20
   }
 }

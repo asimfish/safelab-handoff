@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T08:26:04.763142+00:00",
+  "updated_at": "2026-11-03T08:58:10.934141+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -3240,7 +3240,7 @@
     "passed": true,
     "CPU_only": true,
     "torch": "2.7.1+cu128",
-    "candidate_sha256": "5eb792141aaab56a8e8022c71222d2cda5d2aacd216d5322ff10a8627e325e46",
+    "candidate_sha256": "ae9266bc2ba2452cdd5ffdf919b44ecd681ea0e248b08d9e752b8ce85922ef8a",
     "verified": "Exact pixel equality with delivered training float-tensor bilinear antialias and uint8 conversion, augmentation disabled. Original inference path fails equality.",
     "Qwen_processor_changed": false,
     "Gen_private_preprocessing_changed": false,
@@ -3488,6 +3488,544 @@
       "platform_terminal_confirmed": true
     }
   ],
+  "render_multiframe_gate": {
+    "complete": true,
+    "scored": false,
+    "GPU_used": false,
+    "model_calls": 0,
+    "expert_physical_gate": true,
+    "render_multiframe_passed": true,
+    "criterion": "Each of10 frames fullRGB MAE<=3/255, explicit training-H264-vs-render diagnostic criterion; topology scaling gate separately requires<=1/255 vs N1",
+    "camera": "chest",
+    "decoder": "PyAV 16.0.0",
+    "episodes": [
+      {
+        "passed": true,
+        "scored": false,
+        "model_calls": 0,
+        "kind": "training30Hz recorded control replay; no state teleportation",
+        "order": "12345",
+        "physical_phases": 10,
+        "physical_events": [
+          {
+            "phase": 1,
+            "tick": 2260,
+            "object": "A",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 5.259075805952307e-06,
+            "rotation_range_rad": 7.154418558487196e-05,
+            "position": [
+              -0.9685999155044556,
+              -5.184774875640869,
+              1.0513986349105835
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 2,
+            "tick": 4530,
+            "object": "A",
+            "target": "pad_A",
+            "stable_ticks": 121,
+            "drift_m": 3.659123103716411e-05,
+            "rotation_range_rad": 0.0009252448815556517,
+            "position": [
+              -1.1902631521224976,
+              -4.9272613525390625,
+              0.9753462672233582
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 3,
+            "tick": 6519,
+            "object": "B",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 4.30939944635611e-05,
+            "rotation_range_rad": 0.001105934179746643,
+            "position": [
+              -0.9728153347969055,
+              -5.192192554473877,
+              1.0513910055160522
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 4,
+            "tick": 9167,
+            "object": "B",
+            "target": "pad_B",
+            "stable_ticks": 121,
+            "drift_m": 1.1959014955209568e-05,
+            "rotation_range_rad": 0.0002948677576897991,
+            "position": [
+              -1.2081069946289062,
+              -5.054527759552002,
+              0.9753460884094238
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 5,
+            "tick": 10719,
+            "object": "C",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 4.3625550461001694e-05,
+            "rotation_range_rad": 0.0010458340400453239,
+            "position": [
+              -0.9746442437171936,
+              -5.1939849853515625,
+              1.0513907670974731
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 6,
+            "tick": 13338,
+            "object": "C",
+            "target": "pad_C",
+            "stable_ticks": 121,
+            "drift_m": 0.00013574378681369126,
+            "rotation_range_rad": 0.0032803826250864237,
+            "position": [
+              -1.2179617881774902,
+              -5.17996072769165,
+              0.9753462672233582
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 7,
+            "tick": 14700,
+            "object": "D",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 2.3793305444996804e-05,
+            "rotation_range_rad": 0.0005868832146833459,
+            "position": [
+              -0.9721593260765076,
+              -5.194556713104248,
+              1.0513873100280762
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 8,
+            "tick": 17238,
+            "object": "D",
+            "target": "pad_D",
+            "stable_ticks": 121,
+            "drift_m": 2.910269586209324e-06,
+            "rotation_range_rad": 5.144699713161595e-05,
+            "position": [
+              -1.2125604152679443,
+              -5.294915676116943,
+              0.9753461480140686
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 9,
+            "tick": 18705,
+            "object": "E",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 5.975941803626483e-06,
+            "rotation_range_rad": 0.0001624322374024835,
+            "position": [
+              -0.9675906300544739,
+              -5.18826150894165,
+              1.051393747329712
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 10,
+            "tick": 20854,
+            "object": "E",
+            "target": "pad_E",
+            "stable_ticks": 121,
+            "drift_m": 8.31821216706885e-06,
+            "rotation_range_rad": 0.00019863192430044695,
+            "position": [
+              -1.200528860092163,
+              -5.4025187492370605,
+              0.975346565246582
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          }
+        ],
+        "captures": [
+          {
+            "frame_index": 0,
+            "reference_native_tick": 124,
+            "render_native_tick": 121,
+            "physical_phases": 0
+          },
+          {
+            "frame_index": 667,
+            "reference_native_tick": 5460,
+            "render_native_tick": 5457,
+            "physical_phases": 2
+          },
+          {
+            "frame_index": 1334,
+            "reference_native_tick": 10796,
+            "render_native_tick": 10793,
+            "physical_phases": 5
+          },
+          {
+            "frame_index": 2000,
+            "reference_native_tick": 16124,
+            "render_native_tick": 16121,
+            "physical_phases": 7
+          },
+          {
+            "frame_index": 2667,
+            "reference_native_tick": 21460,
+            "render_native_tick": 21457,
+            "physical_phases": 10
+          }
+        ],
+        "initial_q13_max_error_rad": 4.3213367462158203e-07,
+        "q13_max_error_vs_source_rad": 0.19012951850891113,
+        "q13_median_max_error_vs_source_rad": 0.00023758411407470703,
+        "wall_s": 295.343936920166
+      },
+      {
+        "passed": true,
+        "scored": false,
+        "model_calls": 0,
+        "kind": "training30Hz recorded control replay; no state teleportation",
+        "order": "54321",
+        "physical_phases": 10,
+        "physical_events": [
+          {
+            "phase": 1,
+            "tick": 1931,
+            "object": "E",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 1.3588813089882024e-05,
+            "rotation_range_rad": 0.00031511710050371425,
+            "position": [
+              -0.9731020331382751,
+              -5.194178581237793,
+              1.0513889789581299
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 2,
+            "tick": 4498,
+            "object": "E",
+            "target": "pad_E",
+            "stable_ticks": 121,
+            "drift_m": 1.9684066501213238e-05,
+            "rotation_range_rad": 0.0005288122047369221,
+            "position": [
+              -1.2106777429580688,
+              -5.415423393249512,
+              0.9753462672233582
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 3,
+            "tick": 5941,
+            "object": "D",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 2.0441873857635073e-05,
+            "rotation_range_rad": 0.0004969596811119504,
+            "position": [
+              -0.9761829376220703,
+              -5.195788860321045,
+              1.0513885021209717
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 4,
+            "tick": 8307,
+            "object": "D",
+            "target": "pad_D",
+            "stable_ticks": 121,
+            "drift_m": 2.100562778650783e-05,
+            "rotation_range_rad": 0.000518092284169461,
+            "position": [
+              -1.2147631645202637,
+              -5.297973155975342,
+              0.9753463268280029
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 5,
+            "tick": 9643,
+            "object": "C",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 3.9001119148451835e-05,
+            "rotation_range_rad": 0.0009677887670270674,
+            "position": [
+              -0.9731115102767944,
+              -5.196135520935059,
+              1.0513863563537598
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 6,
+            "tick": 12533,
+            "object": "C",
+            "target": "pad_C",
+            "stable_ticks": 121,
+            "drift_m": 5.8424716371519025e-06,
+            "rotation_range_rad": 0.00019248189377346866,
+            "position": [
+              -1.2067385911941528,
+              -5.170232772827148,
+              0.9753463864326477
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 7,
+            "tick": 14011,
+            "object": "B",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 2.0728024537675083e-05,
+            "rotation_range_rad": 0.00048470822379546153,
+            "position": [
+              -0.9709851145744324,
+              -5.190619945526123,
+              1.0513923168182373
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 8,
+            "tick": 15958,
+            "object": "B",
+            "target": "pad_B",
+            "stable_ticks": 121,
+            "drift_m": 1.455134793104662e-06,
+            "rotation_range_rad": 1.6803925106996262e-05,
+            "position": [
+              -1.1930196285247803,
+              -5.031688213348389,
+              0.9753453135490417
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 9,
+            "tick": 17904,
+            "object": "A",
+            "target": "pan",
+            "stable_ticks": 121,
+            "drift_m": 2.3721449906588532e-05,
+            "rotation_range_rad": 0.0005056526206033977,
+            "position": [
+              -0.9687733054161072,
+              -5.183427333831787,
+              1.0514013767242432
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          },
+          {
+            "phase": 10,
+            "tick": 20016,
+            "object": "A",
+            "target": "pad_A",
+            "stable_ticks": 121,
+            "drift_m": 3.801281127380207e-05,
+            "rotation_range_rad": 0.0009377045974125643,
+            "position": [
+              -1.194557785987854,
+              -4.933424472808838,
+              0.9753462076187134
+            ],
+            "support_contact": true,
+            "right_hand_contact": false
+          }
+        ],
+        "captures": [
+          {
+            "frame_index": 0,
+            "reference_native_tick": 124,
+            "render_native_tick": 121,
+            "physical_phases": 0
+          },
+          {
+            "frame_index": 638,
+            "reference_native_tick": 5228,
+            "render_native_tick": 5225,
+            "physical_phases": 2
+          },
+          {
+            "frame_index": 1277,
+            "reference_native_tick": 10340,
+            "render_native_tick": 10337,
+            "physical_phases": 5
+          },
+          {
+            "frame_index": 1916,
+            "reference_native_tick": 15452,
+            "render_native_tick": 15449,
+            "physical_phases": 7
+          },
+          {
+            "frame_index": 2554,
+            "reference_native_tick": 20556,
+            "render_native_tick": 20553,
+            "physical_phases": 10
+          }
+        ],
+        "initial_q13_max_error_rad": 4.3213367462158203e-07,
+        "q13_max_error_vs_source_rad": 0.11281991004943848,
+        "q13_median_max_error_vs_source_rad": 0.0002308189868927002,
+        "wall_s": 288.3792164325714
+      }
+    ],
+    "frames": [
+      {
+        "episode_index": 2,
+        "order": "12345",
+        "frame_index": 0,
+        "progress_fraction": 0.0,
+        "MAE_rgb_0_255": 1.9783604145050049,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 2,
+        "order": "12345",
+        "frame_index": 667,
+        "progress_fraction": 0.25009373828271464,
+        "MAE_rgb_0_255": 2.0729362964630127,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 2,
+        "order": "12345",
+        "frame_index": 1334,
+        "progress_fraction": 0.5001874765654293,
+        "MAE_rgb_0_255": 1.9770920276641846,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 2,
+        "order": "12345",
+        "frame_index": 2000,
+        "progress_fraction": 0.7499062617172854,
+        "MAE_rgb_0_255": 2.0245747566223145,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 2,
+        "order": "12345",
+        "frame_index": 2667,
+        "progress_fraction": 1.0,
+        "MAE_rgb_0_255": 2.151978015899658,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 50,
+        "order": "54321",
+        "frame_index": 0,
+        "progress_fraction": 0.0,
+        "MAE_rgb_0_255": 1.981026530265808,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 50,
+        "order": "54321",
+        "frame_index": 638,
+        "progress_fraction": 0.24980422866092403,
+        "MAE_rgb_0_255": 1.8112359046936035,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 50,
+        "order": "54321",
+        "frame_index": 1277,
+        "progress_fraction": 0.5,
+        "MAE_rgb_0_255": 1.878003478050232,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 50,
+        "order": "54321",
+        "frame_index": 1916,
+        "progress_fraction": 0.750195771339076,
+        "MAE_rgb_0_255": 2.058993101119995,
+        "p95_absolute_pixel_difference": 5.0
+      },
+      {
+        "episode_index": 50,
+        "order": "54321",
+        "frame_index": 2554,
+        "progress_fraction": 1.0,
+        "MAE_rgb_0_255": 2.2680327892303467,
+        "p95_absolute_pixel_difference": 6.0
+      }
+    ],
+    "formal_scores_modified": false
+  },
+  "smoke20_diagnostic": {
+    "status": "running",
+    "scored": false,
+    "LP_GPUs": 0,
+    "physical_GPU": 0,
+    "num_envs_actual": 1,
+    "max_procs_per_gpu": 4,
+    "full_StageA_dispatch_enabled": false,
+    "started": 1793695992.4913046,
+    "methods": {
+      "mem0_weak": {
+        "status": "running",
+        "completed": 0,
+        "target": 20,
+        "unknown": 0,
+        "phase_distribution": {},
+        "successes_observed": 0,
+        "active": 1,
+        "root": "/personal_fast_storage/safelab_task10_eval_v1_smoke20_20261103/mem0_weak",
+        "scored": false
+      }
+    },
+    "method": "mem0_weak",
+    "coordinator_identity": {
+      "pid": 2056177,
+      "start": "405226778",
+      "uid": 0,
+      "namespace": "pid:[4026536144]"
+    }
+  },
   "planned_scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
   "Eval_v1_configurations": [
     {

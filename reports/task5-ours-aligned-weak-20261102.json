@@ -7,8 +7,8 @@
   "seed_count": 5,
   "trials_per_seed": 100,
   "status": "running",
-  "completed": 9,
-  "audited": 9,
+  "completed": 11,
+  "audited": 11,
   "successes": 0,
   "final_verified": false,
   "counts": [
@@ -84,15 +84,15 @@
       "condition": "baseline",
       "execution_horizon": 8,
       "target": 500,
-      "completed": 1,
-      "audited": 1,
+      "completed": 2,
+      "audited": 2,
       "successes": 0,
       "seeds": [
         {
           "repeat": 0,
           "target": 100,
-          "completed": 1,
-          "audited": 1,
+          "completed": 2,
+          "audited": 2,
           "successes": 0,
           "final_verified": false,
           "success_rate": null
@@ -273,15 +273,15 @@
       "condition": "attachment",
       "execution_horizon": 8,
       "target": 500,
-      "completed": 1,
-      "audited": 1,
+      "completed": 2,
+      "audited": 2,
       "successes": 0,
       "seeds": [
         {
           "repeat": 0,
           "target": 100,
-          "completed": 1,
-          "audited": 1,
+          "completed": 2,
+          "audited": 2,
           "successes": 0,
           "final_verified": false,
           "success_rate": null
@@ -461,6 +461,23 @@
       "attempt_priority": 0
     },
     {
+      "id": "oursalignedweak30_mem0_30000_h8_reverse_001",
+      "variant": "oursalignedweak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 730001,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 52.541666666666664,
+      "physics_sha256": "17327fcfadf3cab4170d32f52e334771513a2affcca7778d7e328e6586ee16c8",
+      "source_job_id": "job-qc8mx9m974a5",
+      "attempt_priority": 0
+    },
+    {
       "id": "oursalignedweak30_mem0_30000_h30_reverse_001",
       "variant": "oursalignedweak30",
       "checkpoint_step": 30000,
@@ -544,6 +561,23 @@
       "physics_sha256": "d4a56f9db0762e3e3acc00b999bfe2ad3de463ecbcdfacb53c9bbcb8447a8aa8",
       "source_job_id": "job-qc8mx9m974a5",
       "attempt_priority": 0
+    },
+    {
+      "id": "attach__oursalignedweak30_mem0_30000_h8_reverse_001",
+      "variant": "oursalignedweak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 730001,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 41.458333333333336,
+      "physics_sha256": "c263cbdb4dbf54622b117cecb54902bd36d30eaa913d25a0ab82864dfa72d6a9",
+      "source_job_id": "job-qc8mx9m974a5",
+      "attempt_priority": 0
     }
   ],
   "jobs": [
@@ -558,18 +592,18 @@
       "gpus": 4,
       "slots_per_GPU": 5,
       "resources": {
-        "epoch": 1793668059.2165873,
+        "epoch": 1793668204.5224297,
         "status": "running",
-        "completed": 9,
+        "completed": 11,
         "target": 600,
         "memory": {
           "limit": "858993459200",
-          "current": "311477481472",
+          "current": "324312035328",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 14828236800
+          "shm_used": 14537478144
         },
-        "gpu": "0, 69115, 29\n1, 65128, 41\n2, 51209, 42\n3, 51115, 44\n"
+        "gpu": "0, 69117, 29\n1, 65493, 22\n2, 51209, 23\n3, 47226, 49\n"
       },
       "active_apps": 20,
       "startup_gates": 4,
@@ -580,7 +614,7 @@
   "global_low_priority_GPU_cap": 12,
   "max_parallel_apps": 20,
   "active_apps": 20,
-  "updated_at": "2026-11-03T01:08:09.650349+00:00",
+  "updated_at": "2026-11-03T01:10:12.882324+00:00",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
   "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
   "resource_policy": "复用唯一12卡低优调度器，UNKNOWN仍预留4卡；不取消现存任务。空出4卡后优先提交本版。新套件独立于原18000条。",

@@ -73,7 +73,7 @@ function resultFor(evaluations,horizon){
  return {success:chosen.reduce((s,e)=>s+e.success,0),trials:chosen.reduce((s,e)=>s+e.trials,0),unknown:chosen.reduce((s,e)=>s+e.unknown,0),label:five.length?five.length+'轮汇总':chosen[0].result_label||chosen[0].kind,protocol:chosen[0].protocol,rows:chosen,reported:false};
 }
 function progressFor(evaluations,horizon){
- const rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success===null&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
+ const rows=evaluations.filter(e=>e.metric_role!=='assisted'&&e.formal_score_eligible!==false&&e.horizon===horizon&&e.success===null&&e.evaluation_started!==false&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
  return rows.sort((a,b)=>(b.display_priority||0)-(a.display_priority||0)||String(b.updated_at||'').localeCompare(String(a.updated_at||'')))[0]||null;
 }
 function buildBoard(data,edits=[]){
@@ -83,7 +83,7 @@ function buildBoard(data,edits=[]){
   for(const w of record.weights.length?record.weights:[null]){
    const evaluations=w?data.evaluations.filter(e=>e.record===record.id&&e.checkpoint===w.step):[];
    const h4=resultFor(evaluations,4),h8=resultFor(evaluations,8),h30=resultFor(evaluations,30);
-   const pending=evaluations.filter(e=>e.success===null);
+   const pending=evaluations.filter(e=>e.success===null&&e.evaluation_started!==false);
    let state=pending.length?'evaluating':h4||h8||evaluations.some(e=>e.success!==null)?'results':/历史.*核验/.test(w?.status||'')?'verify':w?'untested':/训练中/.test(record.delivery)?'training':'verify';
    rows.push({key:key(record.id,w?.step||0),record,dataset:record.dataset,task:datasets.find(d=>d.id===record.dataset)?.task||(['3','5','7','10'].includes(record.task_hint)?record.task_hint:'other'),camera:CAMERAS[record.camera]?record.camera:'unknown',method:record.method,step:w?.step||0,path:w?.path||'',doc:record.doc||'',state,h4,h8,h30,pending,evaluations,owner:'未指定',run:record.training?.executor_run||'',note:record.note||'',updated:data.updated_at,availability:w?.availability||record.delivery,training:record.training||{},source:record.source,shared:null});
   }

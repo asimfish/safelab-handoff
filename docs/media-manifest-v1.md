@@ -103,10 +103,13 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 媒体新协议使用protocol_version=SafeLab-Eval-v1.1且oracle_version=placement-v1.1，并绑定对应evaluation_id；其完整成绩另须第五项executor_parity等准入。strict媒体可省略旧oracle_version以兼容，若填写则必须strict-v1。旧严格日志若未按新物理判定重新生成，不得仅改case_id或版本冒充放置判定。
 
 
-## 对象存储 CORS 的有条件发布路径（协调 issue #47）
-优先由存储负责人合并原有 CORS 规则，仅允许站点 Origin `https://asimfish.github.io` 的 GET/HEAD；不得为此改变 ACL、开放写方法或覆盖既有规则。成功必须以真实浏览器读取最终公开日志 URL（含跳转检查）、校验下载/解码 SHA、JSON 与时间基准为证，视频可播放不代表日志 CORS 通过。通过后仓库只收清单，逐帧日志留对象存储；启用时须另一个资产 PR 将预算检查器的同源限制改为经过核验的公开前缀白名单，不能直接放开所有跨域地址。当前检查器仍只接受同源日志。
+## 2026-11-03 第11轮：逐帧日志统一同源发布（取代有条件 CORS 路径）
 
-若 CORS 不可用，采用仓库 `media/frame_logs/` 的同源 JSON，按上述事件保真抽稀或 gzip 契约减小体积。两条路径都保留来源、完整性和 evaluation 绑定；本规范不代表任何对象存储规则已经修改或任何日志已经发布。首批计划为十任务48、三任务24、pi0.5 24份，实际批次大小须逐批测量；全部受当前全仓50,000,000-byte快照预算约束，不把历史基线余量当成预留配额。
+十任务已确认现有 STS 对 `GetBucketCORS` 返回 HTTP 403 AccessDenied，当前对象存储 CORS 路径不可用。**全部浏览器逐帧日志统一走本仓库 `media/frame_logs/<task>/<run>/<case>.json` 同源路径**；视频继续使用下节规定的 `liyufeng/safelab-public/media-v1/<task>/…` 公开对象路径。不得把对象存储中的源 JSON 地址作为浏览器回退，也不得因视频能播放而宣称 JSON 可跨域读取。
+
+现行 schema 与 CI 的同源日志限制保持不变。源 JSON 可保留在对象存储用于来源 SHA 与事件保留核对，但 manifest 的 `frame_log.url` 必须指向 Pages 派生日志。所有任务均受全仓 50,000,000-byte 预算、单文件上限和首末帧/切换/物理事件保留规则约束；超预算时按已验收的抽稀或 gzip 契约处理，不放宽 CORS 白名单，不删除科学证据。
+
+本轮未请求更改 bucket 策略、ACL 或 CORS，未删除任何原对象。如将来获得权限并拟重新启用外部 JSON，须另提规范与消费者/CI 修改 PR，附真实浏览器读取和完整性证据；本轮不预授权。
 
 
 ## 2026-11-03 第9轮：公开媒体前缀纠正（本节优先）

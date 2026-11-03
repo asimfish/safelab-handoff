@@ -9,7 +9,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let ws;const errors=[],checks=[];
 try{
  let endpoint;
- for(let i=0;i<600;i++){const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){endpoint=m[1];break;}await sleep(50);}
+ for(let i=0;i<Math.min(2400,Math.max(600,Math.ceil((Number(process.env.SAFELAB_CHROME_STARTUP_MS)||30000)/50)));i++){const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){endpoint=m[1];break;}await sleep(50);}
  if(!endpoint){fs.writeFileSync(path.join(Q,'chrome_startup_stderr.txt'),stderr);throw Error('Chrome debug endpoint unavailable: '+stderr.slice(-800));}
  const port=new URL(endpoint).port;
  const target=await (await fetch('http://127.0.0.1:'+port+'/json/new?'+BASE,{method:'PUT'})).json();

@@ -41,3 +41,12 @@ node --test tests/*.test.js
 `checkpoint_issue_audit.bindings` 是本轮明确审核过的issue→record+checkpoint及身份快照，由同步脚本与records一并更新。发布前用restore-checkpoint-bindings.cjs只恢复被旧生成器漏掉的绑定元数据，保留已有字段值与全部评测值；不请求GitHub、不批准新issue、不创造新权重。
 
 record/checkpoint不存在、身份变化、同一issue跨record重复或移位都中止发布，须通过PR更新唯一canonical绑定和审核快照，不能自动猜测。#32这类把#20复制到其他权重的错误仍会被拦截。源生成器仍应保留metadata；此兼容只负责恢复已审核缺项。
+
+
+## v1.1 覆盖（2026-11-03 17:05 起优先）
+
+覆盖表现在只统计 `SafeLab-Eval-v1.1` + `placement-v1.1`。旧strict-v1成绩或准入行不构成v1.1覆盖。作废的漂移候选完全排除，原JSON不删除。
+
+同一物理文件仍保持一行，但行内按record变种×条件×H4/H8列出A/B状态，避免训练缩放或附着变种被同文件的基础版本覆盖。每个缺项均标红并显示原因、预计开始时间；没有提供时间写“待负责人排期”，不伪造承诺。`pending_reason`、`expected_start_at`写在对应evaluation中。原始接触条件与已有附着条件分列，诊断偏置搜索不列为正式计划条件。
+
+正式完成检查新增executor_parity，与其余四项准入及分母守恒一起检查。通过核验的结果按任务自动优先显示v1.1，strict-v1通过口径选择器保留。完整写入格式见[evaluation schema](evaluation-schema-v1.md)。

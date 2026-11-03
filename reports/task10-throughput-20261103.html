@@ -1,0 +1,34 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>十任务 N1×k 提速与中断处理</title><style>body{font:16px/1.65 system-ui,sans-serif;background:#f4f6fa;color:#172337;max-width:1240px;margin:35px auto;padding:0 24px}h1{font-size:28px}h2{font-size:21px;margin-top:32px}a{color:#175d9d}table{border-collapse:collapse;width:100%;background:white;font-size:14px}td,th{border:1px solid #d7dfe9;padding:9px;text-align:left;vertical-align:top}th{background:#e8eef6}.scroll{overflow:auto}.banner{background:#fff1ce;padding:18px;border-left:5px solid #ba7e06}pre{white-space:pre-wrap;background:white;padding:18px}.muted{color:#516277}</style><body><a href="../index.html">返回总览</a><h1>十任务 N1×k 提速与中断处理</h1><pre># 十任务 N1×k 多进程并行配置与中断处理
+
+适用范围：Task10、CPU PhysX120Hz、chest15Hz、RTX PRO6000 Blackwell96GB。
+每个 Isaac 进程 num_envs_actual=1；历史上每卡最多8进程。这里没有同进程 vectorized 多环境。
+
+## 调度与资源
+
+- 每4卡节点最多32个原生N1进程，2个B1执行器服务/卡，每服务最多4条独立记忆/RNG轨迹；不把4条轨迹拼成一次模型批推理。next/DAG服务按方法独立加载。
+- 启动器参数 `--gpus 4 --slots 8`。原生初始化按卡串行，首个有效 heartbeat 后释放启动许可；启动前保留32768MiB空闲显存。该余量用于瞬时初始化，不能用8条稳态显存简单外推可开12条。
+- 2026-11-03停止前12卡瞬时实测GPU利用率37–83%，平均65.5%；显存48–71GiB/卡，平均占总量67.3%。82%是部分历史采样，不能称每卡持续82%。最后20次采样、CPU核心用量与RAM另列在报告JSON。
+- 4卡节点CPU配额80核，停止前约9.5分钟实测平均占用26–30核；内存快照234–246GiB，历史峰值284–300GiB，未记录OOM事件。上述是整个节点工作负载，不能当成每个进程的独占内存。
+- 提高k前依SafeLab-Eval-v1重做4固定场景、frame0/50对N1基准的图像比对，MAE≤1才放量。当前没有为更高k准入。模型/RNG/轨迹编号/每进程环境数必须随结果记录。
+
+## PNG和缓存
+
+- 观测PNG用 `Image.fromarray(rgb).save(buffer, format=&#x27;PNG&#x27;, compress_level=1)`，降低无损压缩CPU开销；解码后的RGB不变，每次观测核对raw RGB和q13哈希。不要以有损JPEG替代。
+- 历史双B1服务组合基准报告中位吞吐提升1.55倍，不能全部归因于PNG。
+- 每个slot复用自己的XDG_CACHE_HOME、XDG_CONFIG_HOME、CUDA_CACHE_PATH、TORCH_EXTENSIONS_DIR、TMPDIR和Kit portable-root，跨条轨迹复用shader/cache，保持物理场景隔离。不要并发改写其他agent的共享缓存。
+- 若冷启动/场景初始化&gt;单条墙钟15%，先量化，再评估常驻进程+已验证reset。当前不能把未经验证的reset加入正式管线。
+
+## 三类中断
+
+1. 平台FAILED但无原因：先查官方job状态和ended_at，再取两次一致封存快照；保留所有CLOSED成功/失败。未闭合前缀保留lineage；结果无ACK或证据截断记unknown，不能重跑求好结果。未知HTTP推理请求不重试。新提交同一意图固定Idempotency-Key；UNKNOWN先by-key对账。
+2. 并发进度JSON：写入用PID+线程ID独立临时文件、flush/fsync后os.replace；读取遇半写/截断不判模型失败，保留最后有效heartbeat，按现有20分钟无有效进度门槛独立报基础设施异常。不能放宽动作成功判定。
+3. GPU查询超时：nvidia-smi用20秒有界超时；单独写telemetry错误，不等同模型/物理失败。模型存活和原生heartbeat仍分别核对；容量未知时暂停新启动，不盲目加进程。
+
+## 本轮收敛与后续约束
+
+三个旧全量job已逐一官方确认STOPPED，自动扩量/恢复已关闭；低优占用0卡。
+新准入通过后十任务不超过8卡，阶段A后最多4卡。h30和额外seed不新增。
+新条目的图像采用训练浮点CHW张量双线性抗锯齿缩放；旧PIL缩放结果单独保存。
+121步稳定窗口比88条训练episode的61步更严；全局60°终止未证实与生成方同口径。
+不新增stall_timeout，不改变冻结成功判定，不把诊断算作正式成功率。
+</pre></body></html>

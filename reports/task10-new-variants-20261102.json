@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-11-03T06:18:46.607475+00:00",
-  "epoch": 1793686726.607488,
+  "updated_at": "2026-11-03T06:26:54.725670+00:00",
+  "epoch": 1793687214.7256854,
   "target": 6000,
-  "completed": 2038,
-  "active_apps": 44,
+  "completed": 2063,
+  "active_apps": 51,
   "low_priority_gpu_limit": 12,
   "requested_low_priority_gpus": 12,
   "topology": {
@@ -1070,7 +1070,7 @@
       "physical_GPU": 0,
       "target": 5,
       "worker_status": "running",
-      "completed": 0,
+      "completed": 3,
       "active": 2,
       "quarantined": 0
     }
@@ -2625,7 +2625,7 @@
       }
     },
     "formal_evaluation_admitted": false,
-    "updated_epoch": 1793686726.7753882,
+    "updated_epoch": 1793687214.9377897,
     "initial_cap255_probe_invalid_reason": "initial q13 differs0.01585rad; initial parity gate retained",
     "next_candidate": "Inspect learned policy execution and stage transitions; no new formal attachment condition admitted from the single failed pilot.",
     "official_documentation": "https://docs.omniverse.nvidia.com/kit/docs/omni_usd_schema_physics/latest/physxschema/class_physx_schema_physx_scene_a_p_i.html",
@@ -3316,26 +3316,277 @@
   "methods": [
     {
       "method": "mem0_weak",
-      "job_id": "job-ti8136f4w885",
-      "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00",
-      "worker_key": "cloud_mem0_weak_a00",
-      "source_folder": "mem0_weak",
-      "status": "requires_inspection",
+      "job_id": "job-htr616ijcpui",
+      "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak_external_resume_02/run_recovery",
+      "worker_key": "cloud_mem0_weak_a02_external",
+      "source_folder": "mem0_weak_external_resume_02",
+      "status": "running",
       "error": null,
       "completed": 1487,
       "target": 3000,
-      "quarantined": [],
-      "active_apps": 0,
-      "cleanup_passed": null,
-      "platform": {
-        "name": "SafeLabT10-mem0_weak-30k-Pro4-LP-20261102",
-        "status": "FAILED",
-        "ended_at": 1793684995915,
-        "job_url": null,
-        "job_id": "job-ti8136f4w885",
-        "epoch": 1793686602.3371806
-      },
-      "platform_terminal": true,
+      "quarantined": [
+        {
+          "case": {
+            "id": "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150",
+            "method": "mem0_weak",
+            "checkpoint_step": 30000,
+            "execution_horizon": 4,
+            "order": "54321",
+            "seed": 910150,
+            "evaluation_seed": 910100,
+            "trajectory_index": 50,
+            "condition": "N1",
+            "paired_world_origin": [
+              0,
+              0,
+              0
+            ],
+            "raw_input_capture": false,
+            "shard": "cloud",
+            "scored": true,
+            "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
+            "status": "physical_failure",
+            "success": false,
+            "physical_phases": 1,
+            "prediction_horizon": 30,
+            "denoising_steps": 8,
+            "position_randomization": false,
+            "physics_device": "cpu",
+            "camera": "chest",
+            "num_envs_actual": 1,
+            "simulation_limit_s": 300.0,
+            "physical_events": [
+              {
+                "phase": 1,
+                "tick": 2271,
+                "object": "E",
+                "target": "pan",
+                "stable_ticks": 121,
+                "drift_m": 4.661372713599121e-06,
+                "rotation_range_rad": 0.00012631154641224666,
+                "position": [
+                  -0.9660950899124146,
+                  -5.189070224761963,
+                  1.0513923168182373
+                ],
+                "support_contact": true,
+                "right_hand_contact": false
+              }
+            ],
+            "failure_reason": "object_toppled",
+            "sim_seconds": 61.55,
+            "attachment": {
+              "activations": 3,
+              "releases": 3,
+              "maximum_relative_translation_error_m": 0.0001249048398463002,
+              "maximum_relative_rotation_error_rad": 0.004027924402815859,
+              "active_keys": [
+                []
+              ]
+            }
+          },
+          "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00/runs/paired_case1500",
+          "kind": "transport_capture_truncated",
+          "raw_physical_outcome": "physical_failure",
+          "reason": "Provider-terminal unacknowledged result; final NPZ capture is0bytes. Keep raw negative, do not qualify observation evidence.",
+          "evidence_sha256": {
+            "RESULT.json": "b5b05987abe2039c155344ef18f21cb0cfe345d248b210dbb9bdde254565f645",
+            "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150/TRANSPORT_REFERENCE.npz": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150/initial_chest.png": "ae0ab1ef838f1625fe51548d8996da18dd4c9495d1f8e1ab053bc9d138300425"
+          }
+        }
+      ],
+      "active_apps": 4,
+      "cleanup_passed": false,
+      "platform": {},
+      "platform_terminal": false,
+      "audit_constituents": [
+        {
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00",
+          "source_folder": "mem0_weak",
+          "supplement": [
+            {
+              "result": {
+                "id": "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150",
+                "method": "mem0_weak",
+                "checkpoint_step": 30000,
+                "execution_horizon": 4,
+                "order": "54321",
+                "seed": 910150,
+                "evaluation_seed": 910100,
+                "trajectory_index": 50,
+                "condition": "N1",
+                "paired_world_origin": [
+                  0,
+                  0,
+                  0
+                ],
+                "raw_input_capture": false,
+                "shard": "cloud",
+                "scored": true,
+                "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
+                "status": "physical_failure",
+                "success": false,
+                "physical_phases": 1,
+                "prediction_horizon": 30,
+                "denoising_steps": 8,
+                "position_randomization": false,
+                "physics_device": "cpu",
+                "camera": "chest",
+                "num_envs_actual": 1,
+                "simulation_limit_s": 300.0,
+                "physical_events": [
+                  {
+                    "phase": 1,
+                    "tick": 2271,
+                    "object": "E",
+                    "target": "pan",
+                    "stable_ticks": 121,
+                    "drift_m": 4.661372713599121e-06,
+                    "rotation_range_rad": 0.00012631154641224666,
+                    "position": [
+                      -0.9660950899124146,
+                      -5.189070224761963,
+                      1.0513923168182373
+                    ],
+                    "support_contact": true,
+                    "right_hand_contact": false
+                  }
+                ],
+                "failure_reason": "object_toppled",
+                "sim_seconds": 61.55,
+                "attachment": {
+                  "activations": 3,
+                  "releases": 3,
+                  "maximum_relative_translation_error_m": 0.0001249048398463002,
+                  "maximum_relative_rotation_error_rad": 0.004027924402815859,
+                  "active_keys": [
+                    []
+                  ]
+                }
+              },
+              "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00/runs/paired_case1500",
+              "recovered_unacknowledged": true,
+              "raw_result_sha256": "b5b05987abe2039c155344ef18f21cb0cfe345d248b210dbb9bdde254565f645"
+            }
+          ],
+          "sealed_state_sha256": "cb9f984dbce85eac49e430ccbaf0468d05964f84a55fc0f964bf290f47561dd2",
+          "terminal_seal_sha256": "59a97f573299a4ead72a67e8fcad83439e18e2a4b86ad852197947cb273c54a8",
+          "evidence_quarantines": [
+            {
+              "case": {
+                "id": "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150",
+                "method": "mem0_weak",
+                "checkpoint_step": 30000,
+                "execution_horizon": 4,
+                "order": "54321",
+                "seed": 910150,
+                "evaluation_seed": 910100,
+                "trajectory_index": 50,
+                "condition": "N1",
+                "paired_world_origin": [
+                  0,
+                  0,
+                  0
+                ],
+                "raw_input_capture": false,
+                "shard": "cloud",
+                "scored": true,
+                "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
+                "status": "physical_failure",
+                "success": false,
+                "physical_phases": 1,
+                "prediction_horizon": 30,
+                "denoising_steps": 8,
+                "position_randomization": false,
+                "physics_device": "cpu",
+                "camera": "chest",
+                "num_envs_actual": 1,
+                "simulation_limit_s": 300.0,
+                "physical_events": [
+                  {
+                    "phase": 1,
+                    "tick": 2271,
+                    "object": "E",
+                    "target": "pan",
+                    "stable_ticks": 121,
+                    "drift_m": 4.661372713599121e-06,
+                    "rotation_range_rad": 0.00012631154641224666,
+                    "position": [
+                      -0.9660950899124146,
+                      -5.189070224761963,
+                      1.0513923168182373
+                    ],
+                    "support_contact": true,
+                    "right_hand_contact": false
+                  }
+                ],
+                "failure_reason": "object_toppled",
+                "sim_seconds": 61.55,
+                "attachment": {
+                  "activations": 3,
+                  "releases": 3,
+                  "maximum_relative_translation_error_m": 0.0001249048398463002,
+                  "maximum_relative_rotation_error_rad": 0.004027924402815859,
+                  "active_keys": [
+                    []
+                  ]
+                }
+              },
+              "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00/runs/paired_case1500",
+              "kind": "transport_capture_truncated",
+              "raw_physical_outcome": "physical_failure",
+              "reason": "Provider-terminal unacknowledged result; final NPZ capture is0bytes. Keep raw negative, do not qualify observation evidence.",
+              "evidence_sha256": {
+                "RESULT.json": "b5b05987abe2039c155344ef18f21cb0cfe345d248b210dbb9bdde254565f645",
+                "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150/TRANSPORT_REFERENCE.npz": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "task10_mem0_weak_stable_grasp_fixed_joint_v2_solver128_s30000_h4_o54321_seed910150/initial_chest.png": "ae0ab1ef838f1625fe51548d8996da18dd4c9495d1f8e1ab053bc9d138300425"
+              }
+            }
+          ]
+        },
+        {
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak_external_resume_02/run_recovery",
+          "source_folder": "mem0_weak_external_resume_02",
+          "supplement": []
+        }
+      ],
+      "retained_predecessor_cases": 1488,
+      "predecessor_evidence_incomplete": 1,
+      "recovered_unacknowledged_cases": 1,
+      "workers": [
+        {
+          "method": "mem0_weak",
+          "job_id": "job-htr616ijcpui",
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak_external_resume_02/run_recovery",
+          "worker_key": "cloud_mem0_weak_a02_external",
+          "source_folder": "mem0_weak_external_resume_02",
+          "status": "running",
+          "error": null,
+          "completed": 0,
+          "target": 3000,
+          "quarantined": [],
+          "active_apps": 4,
+          "resource": {
+            "epoch": 1793687195.6553464,
+            "GPU_returncode": 0,
+            "GPU": "0, GPU-e94a0cf3-a501-cc03-2698-b3007bfb9d0f, 97887, 18227, 1, 28\n1, GPU-f53f3d2e-ec08-75d6-f724-555aa81e9d6e, 97887, 717, 1, 28\n2, GPU-f9db6070-42bb-7094-2e1e-fd6c930d9f71, 97887, 18157, 1, 29\n3, GPU-ffcc8694-741a-7e42-a126-41b1d533e485, 97887, 717, 1, 28\n",
+            "GPU_error": "",
+            "cgroup": {
+              "memory.current": "34124173312\n",
+              "memory.max": "858993459200\n",
+              "memory.peak": "34139828224\n",
+              "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+              "cpu.max": "8000000 100000\n",
+              "cpu.stat": "usage_usec 322985788\nuser_usec 225203963\nsystem_usec 97781824\ncore_sched.force_idle_usec 0\nnr_periods 1803\nnr_throttled 6\nthrottled_usec 16238603\nnr_bursts 0\nburst_usec 0\n"
+            }
+          },
+          "cleanup_passed": null,
+          "platform": {},
+          "platform_terminal": false
+        }
+      ],
+      "cleanup_assurance": "New worker native cleanup required; predecessors have provider-terminal seals.",
       "terminal_auditable": false,
       "audit": {
         "status": "waiting_for_complete_cohort"
@@ -3690,7 +3941,7 @@
       "job_id": "job-kzkgijcyacq9 + job-28kuj3mt9ovt",
       "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01",
       "status": "running",
-      "completed": 551,
+      "completed": 576,
       "target": 3000,
       "quarantined": [
         {
@@ -3953,7 +4204,7 @@
           }
         }
       ],
-      "active_apps": 44,
+      "active_apps": 47,
       "cleanup_passed": false,
       "cleanup_assurance": "New workers require native cleanup; predecessor termination is provider-confirmed, native cleanup receipt unavailable.",
       "platform_terminal": false,
@@ -3969,22 +4220,22 @@
           "source_folder": "ours_aligned_external_resume_01",
           "status": "running",
           "error": null,
-          "completed": 18,
+          "completed": 27,
           "target": 3000,
           "quarantined": [],
-          "active_apps": 21,
+          "active_apps": 24,
           "resource": {
-            "epoch": 1793686724.292232,
+            "epoch": 1793687206.0153913,
             "GPU_returncode": 0,
-            "GPU": "0, GPU-aa56b5fe-d746-9770-6d04-a23a7d92f0a1, 97887, 48294, 23, 44\n1, GPU-cc35f239-d1d8-a066-ebbe-2b79bbbf1d89, 97887, 72395, 96, 50\n2, GPU-3ac2d062-b510-cff6-0337-41fbb685ec39, 97887, 55366, 58, 44\n3, GPU-9f82761c-74cf-6cd5-d022-d094e2e45c98, 97887, 66513, 63, 45\n",
+            "GPU": "0, GPU-aa56b5fe-d746-9770-6d04-a23a7d92f0a1, 97887, 72548, 31, 45\n1, GPU-cc35f239-d1d8-a066-ebbe-2b79bbbf1d89, 97887, 72495, 63, 45\n2, GPU-3ac2d062-b510-cff6-0337-41fbb685ec39, 97887, 64753, 69, 46\n3, GPU-9f82761c-74cf-6cd5-d022-d094e2e45c98, 97887, 72605, 74, 46\n",
             "GPU_error": "",
             "cgroup": {
-              "memory.current": "273196576768\n",
+              "memory.current": "291639222272\n",
               "memory.max": "858993459200\n",
-              "memory.peak": "275487207424\n",
+              "memory.peak": "299226066944\n",
               "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
               "cpu.max": "8000000 100000\n",
-              "cpu.stat": "usage_usec 41613253751\nuser_usec 38935168456\nsystem_usec 2678085294\ncore_sched.force_idle_usec 0\nnr_periods 11440\nnr_throttled 1999\nthrottled_usec 5687419650\nnr_bursts 0\nburst_usec 0\n"
+              "cpu.stat": "usage_usec 56101395081\nuser_usec 51836001484\nsystem_usec 4265393597\ncore_sched.force_idle_usec 0\nnr_periods 16257\nnr_throttled 2000\nthrottled_usec 5687421363\nnr_bursts 0\nburst_usec 0\n"
             }
           },
           "cleanup_passed": null,
@@ -4006,22 +4257,22 @@
           "source_folder": "ours_aligned_resume_a03",
           "status": "running",
           "error": null,
-          "completed": 62,
+          "completed": 78,
           "target": 3000,
           "quarantined": [],
           "active_apps": 23,
           "resource": {
-            "epoch": 1793686701.7311447,
+            "epoch": 1793687186.4079654,
             "GPU_returncode": 0,
-            "GPU": "0, GPU-6315330e-b4bb-5cfe-6d0c-0f3947b9d3f3, 97887, 60127, 79, 44\n1, GPU-a6b9ce7b-4599-ceb1-ff37-ffcf1887f4e9, 97887, 72726, 84, 44\n2, GPU-64c9cb36-102b-1e23-0999-8394b54316f7, 97887, 72214, 64, 44\n3, GPU-8efa1332-7e27-6f56-2fa5-77dd075ab797, 97887, 65319, 74, 43\n",
+            "GPU": "0, GPU-6315330e-b4bb-5cfe-6d0c-0f3947b9d3f3, 97887, 68409, 80, 44\n1, GPU-a6b9ce7b-4599-ceb1-ff37-ffcf1887f4e9, 97887, 71676, 27, 41\n2, GPU-64c9cb36-102b-1e23-0999-8394b54316f7, 97887, 71963, 90, 45\n3, GPU-8efa1332-7e27-6f56-2fa5-77dd075ab797, 97887, 72844, 40, 41\n",
             "GPU_error": "",
             "cgroup": {
-              "memory.current": "246115442688\n",
+              "memory.current": "246175391744\n",
               "memory.max": "858993459200\n",
               "memory.peak": "321788682240\n",
               "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
               "cpu.max": "8000000 100000\n",
-              "cpu.stat": "usage_usec 101450592010\nuser_usec 91521229519\nsystem_usec 9929362490\ncore_sched.force_idle_usec 0\nnr_periods 32850\nnr_throttled 2400\nthrottled_usec 7111059704\nnr_bursts 0\nburst_usec 0\n"
+              "cpu.stat": "usage_usec 113945649087\nuser_usec 102258582238\nsystem_usec 11687066849\ncore_sched.force_idle_usec 0\nnr_periods 37696\nnr_throttled 2400\nthrottled_usec 7111059704\nnr_bursts 0\nburst_usec 0\n"
             }
           },
           "cleanup_passed": null,
@@ -4422,13 +4673,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 92,
+          "completed": 96,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 41,
-            "1": 27,
-            "2": 14,
+            "0": 43,
+            "1": 28,
+            "2": 15,
             "8": 2,
             "5": 2,
             "4": 3,
@@ -4442,13 +4693,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 95,
+          "completed": 97,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 63,
+            "0": 64,
             "2": 9,
-            "1": 14,
+            "1": 15,
             "3": 5,
             "5": 1,
             "4": 3
@@ -4461,12 +4712,12 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 94,
+          "completed": 102,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 63,
-            "2": 9,
+            "0": 70,
+            "2": 10,
             "1": 21,
             "4": 1
           }
@@ -4478,12 +4729,12 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 83,
+          "completed": 86,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "1": 45,
-            "3": 3,
+            "1": 47,
+            "3": 4,
             "0": 24,
             "2": 10,
             "4": 1
@@ -4496,12 +4747,12 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 90,
+          "completed": 93,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 42,
-            "1": 25,
+            "0": 43,
+            "1": 27,
             "2": 9,
             "4": 5,
             "3": 7,
@@ -4516,13 +4767,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 97,
+          "completed": 102,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 72,
-            "1": 17,
-            "2": 8
+            "0": 75,
+            "1": 18,
+            "2": 9
           }
         }
       ],
@@ -4539,7 +4790,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 920100,
-          "completed": 18,
+          "completed": 19,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4547,7 +4798,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 930100,
-          "completed": 18,
+          "completed": 19,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4555,7 +4806,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 940100,
-          "completed": 19,
+          "completed": 21,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4571,7 +4822,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 910100,
-          "completed": 19,
+          "completed": 20,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4579,7 +4830,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 920100,
-          "completed": 19,
+          "completed": 20,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4611,7 +4862,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 910100,
-          "completed": 18,
+          "completed": 19,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4619,7 +4870,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 920100,
-          "completed": 19,
+          "completed": 21,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4627,7 +4878,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 930100,
-          "completed": 19,
+          "completed": 21,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4635,7 +4886,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 940100,
-          "completed": 19,
+          "completed": 21,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4643,7 +4894,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 950100,
-          "completed": 19,
+          "completed": 20,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4651,7 +4902,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 15,
+          "completed": 16,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4675,7 +4926,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 940100,
-          "completed": 17,
+          "completed": 18,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4683,7 +4934,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 950100,
-          "completed": 18,
+          "completed": 19,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4707,7 +4958,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 930100,
-          "completed": 18,
+          "completed": 21,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4731,7 +4982,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 910100,
-          "completed": 19,
+          "completed": 20,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4739,7 +4990,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 920100,
-          "completed": 20,
+          "completed": 21,
           "target": 100,
           "provisional_successes": 0
         },
@@ -4747,14 +4998,6 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 930100,
-          "completed": 19,
-          "target": 100,
-          "provisional_successes": 0
-        },
-        {
-          "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
-          "execution_horizon": 30,
-          "evaluation_seed": 940100,
           "completed": 20,
           "target": 100,
           "provisional_successes": 0
@@ -4762,8 +5005,16 @@
         {
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
+          "evaluation_seed": 940100,
+          "completed": 21,
+          "target": 100,
+          "provisional_successes": 0
+        },
+        {
+          "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
+          "execution_horizon": 30,
           "evaluation_seed": 950100,
-          "completed": 19,
+          "completed": 20,
           "target": 100,
           "provisional_successes": 0
         }

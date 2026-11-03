@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T16:26:09.618989+00:00",
+  "updated_at": "2026-11-03T16:33:20.375233+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1515,17 +1515,23 @@
       "dataset": "10-weigh",
       "camera": "chest",
       "method": "TTC · 对齐削弱版",
-      "delivery": "交付入口已登记，权重文件待核验",
+      "delivery": "独立资产SHA核验通过",
       "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours_weak/chest/START_HERE.md",
       "weights": [
         {
           "step": 30000,
-          "path": "",
-          "availability": "交付文档已登记，checkpoint文件路径待核验"
+          "path": "/public_fast_storage/liyufeng/safelab_task10_issue26_20261103/package/weights/executor_step30000.pt",
+          "availability": "Zone5 TOS取包，Zone10副本428文件逐个SHA核验通过",
+          "sha256": "e04a8bdef3589aee5ad3be9a85a714f6d162b16feafa64d7ee6d2933024485d8",
+          "status": "running"
         }
       ],
-      "training": {},
-      "note": "",
+      "training": {
+        "completion": "本包专属weak Gen2.1-311 + next Planner + DAG Planner决定在线切换；原生分类头只参与训练loss",
+        "image_preprocessing": "训练张量双线性+AA；本模型5张图逐像素差为0",
+        "executor_run": "safelab10_weak_ours_chest_20261102_dag；checkpoint_provenance.run_id=/project_a02012413/241106036/wangpeishuo/experiments/safelab10_weak_ours_chest_20261102"
+      },
+      "note": "weak语言标签 + TTC对齐loss；只发布30k。硬准入三项通过后执行原始接触h4/h8各100；软开环可并行，最终通过后才能发布正式成绩。N1×10，8卡总上限；不新增h30/额外seed。",
       "source": "GitHub checkpoint issue #26",
       "checkpoint_issues": [
         {
@@ -1541,7 +1547,14 @@
           "supplied_camera": "chest",
           "recorded_state": "untested"
         }
-      ]
+      ],
+      "runtime": "/public_fast_storage/liyufeng/safelab_task10_issue26_20261103/package",
+      "norm": "b51680e7b8e236a8f9b1567738e3ed0c6720f90573ae4075f9fac7b26f69462e",
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "checkpoint_issue": 26,
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "physical_weight_record": "10-ttc-aligned-weak-issue26",
+      "asset_validation": "verified: declared weight/norm/next/DAG + Gen contract + training-source currentSHA; all428 file hashes recorded"
     },
     {
       "id": "5-pos-ttc-aligned-weak",
@@ -1591,61 +1604,7 @@
       ]
     },
     {
-      "id": "10-ours-aligned-weak",
-      "dataset": "10-weigh",
-      "method": "TTC · 对齐削弱版",
-      "camera": "chest",
-      "delivery": "独立资产SHA核验通过",
-      "weights": [
-        {
-          "step": 30000,
-          "path": "/public_fast_storage/liyufeng/safelab_task10_issue26_20261103/package/weights/executor_step30000.pt",
-          "sha256": "e04a8bdef3589aee5ad3be9a85a714f6d162b16feafa64d7ee6d2933024485d8",
-          "status": "running",
-          "availability": "Zone5 TOS取包，Zone10副本428文件逐个SHA核验通过"
-        }
-      ],
-      "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours_weak/chest/START_HERE.md",
-      "runtime": "/public_fast_storage/liyufeng/safelab_task10_issue26_20261103/package",
-      "norm": "b51680e7b8e236a8f9b1567738e3ed0c6720f90573ae4075f9fac7b26f69462e",
-      "training": {
-        "camera": "chest",
-        "prediction_horizon": 30,
-        "observation_hz": 15,
-        "input": "原始RGB + 13维实测关节角(rad) + 高层任务",
-        "action": "13维绝对关节目标 / interval_end",
-        "completion": "本包专属weak Gen2.1-311 + next Planner + DAG Planner决定在线切换；原生分类头只参与训练loss",
-        "torch": "2.7.1+cu128（评测环境，与当前基线一致）",
-        "image_preprocessing": "训练张量双线性+AA；本模型5张图逐像素差为0",
-        "executor_run": "safelab10_weak_ours_chest_20261102_dag；checkpoint_provenance.run_id=/project_a02012413/241106036/wangpeishuo/experiments/safelab10_weak_ours_chest_20261102"
-      },
-      "note": "weak语言标签 + TTC对齐loss；只发布30k。硬准入三项通过后执行原始接触h4/h8各100；软开环可并行，最终通过后才能发布正式成绩。N1×10，8卡总上限；不新增h30/额外seed。",
-      "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
-      "source": "GitHub checkpoint #26; independent delivery",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
-      "protocol_version": "SafeLab-Eval-v1",
-      "task": "10",
-      "checkpoint_issues": [
-        {
-          "number": 20,
-          "checkpoint": 30000,
-          "url": "https://github.com/asimfish/safelab-handoff/issues/20",
-          "state": "open",
-          "issue_updated_at": "2026-11-01T20:15:37Z",
-          "handoff_owner": "WPS训练",
-          "evaluation_owner": null,
-          "delivery_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-          "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-          "supplied_camera": "chest",
-          "recorded_state": "untested"
-        }
-      ],
-      "checkpoint_issue": 26,
-      "asset_validation": "verified: declared weight/norm/next/DAG + Gen contract + training-source currentSHA; all428 file hashes recorded"
-    },
-    {
-      "id": "10-ours-aligned-weak-attach",
+      "id": "10-ttc-aligned-weak-issue26-attach",
       "dataset": "10-weigh",
       "method": "TTC · 对齐削弱版 · attach v2",
       "camera": "chest",
@@ -1680,22 +1639,8 @@
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol_version": "SafeLab-Eval-v1",
       "task": "10",
-      "checkpoint_issues": [
-        {
-          "number": 20,
-          "checkpoint": 30000,
-          "url": "https://github.com/asimfish/safelab-handoff/issues/20",
-          "state": "open",
-          "issue_updated_at": "2026-11-01T20:15:37Z",
-          "handoff_owner": "WPS训练",
-          "evaluation_owner": null,
-          "delivery_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-          "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-          "supplied_camera": "chest",
-          "recorded_state": "untested"
-        }
-      ],
       "checkpoint_issue": 26,
+      "physical_weight_record": "10-ttc-aligned-weak-issue26",
       "asset_validation": "verified: declared weight/norm/next/DAG + Gen contract + training-source currentSHA; all428 file hashes recorded"
     },
     {
@@ -3985,7 +3930,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -3995,7 +3940,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4042,7 +3987,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4077,7 +4022,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4087,7 +4032,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4134,7 +4079,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4169,7 +4114,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4179,7 +4124,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4226,7 +4171,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4261,7 +4206,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4271,7 +4216,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4318,7 +4263,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4353,7 +4298,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4363,7 +4308,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4410,7 +4355,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4445,7 +4390,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4455,7 +4400,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4502,7 +4447,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4537,7 +4482,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4547,7 +4492,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4594,7 +4539,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4629,7 +4574,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4639,7 +4584,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4686,7 +4631,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4721,7 +4666,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4731,7 +4676,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -4778,7 +4723,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4813,7 +4758,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4870,7 +4815,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4905,7 +4850,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -4962,7 +4907,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -4997,7 +4942,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5054,7 +4999,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5089,7 +5034,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5146,7 +5091,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5181,7 +5126,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5238,7 +5183,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5273,7 +5218,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5330,7 +5275,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5365,7 +5310,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5422,7 +5367,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5457,7 +5402,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5514,7 +5459,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5549,7 +5494,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5606,7 +5551,7 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5641,7 +5586,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5651,7 +5596,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -5700,7 +5645,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5735,7 +5680,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5745,7 +5690,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -5794,7 +5739,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5829,7 +5774,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5839,7 +5784,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -5888,7 +5833,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -5923,7 +5868,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -5933,7 +5878,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -5982,7 +5927,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6017,7 +5962,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6027,7 +5972,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -6076,7 +6021,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6111,7 +6056,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6121,7 +6066,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -6170,7 +6115,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6205,7 +6150,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6215,7 +6160,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -6264,7 +6209,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6299,7 +6244,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6309,7 +6254,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -6358,7 +6303,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6393,7 +6338,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6403,7 +6348,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 2,
@@ -6452,7 +6397,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6487,7 +6432,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6546,7 +6491,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6581,7 +6526,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6640,7 +6585,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6675,7 +6620,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6734,7 +6679,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6769,7 +6714,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6828,7 +6773,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6863,7 +6808,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -6922,7 +6867,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -6957,7 +6902,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -7016,7 +6961,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -7051,7 +6996,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -7110,7 +7055,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -7145,7 +7090,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -7204,7 +7149,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -7239,7 +7184,7 @@
           "successes": 0,
           "target": 100,
           "final_verified": true,
-          "success_rate": 0
+          "success_rate": 0.0
         },
         {
           "repeat": 1,
@@ -7298,7 +7243,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -9081,7 +9026,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -9170,7 +9115,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -9259,7 +9204,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -9348,7 +9293,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -9437,7 +9382,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -9526,7 +9471,7 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
@@ -21512,7 +21457,7 @@
       "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -21588,6 +21533,7 @@
           "unknown": 1
         }
       },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -21618,7 +21564,7 @@
       "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -21694,6 +21640,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -21719,114 +21666,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 12,
-      "kind": "自主闭环",
-      "status": "阶段A续测中",
-      "source": "reports/task10-round4-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
-      "checkpoint_issue": null,
-      "source_issue": null,
-      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
-      "topology": {
-        "num_envs_actual": 1,
-        "procs_per_gpu": 10,
-        "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
-      },
-      "preprocess_resize": {
-        "implementation": "training_tensor",
-        "mode": "bilinear",
-        "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
-      },
-      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.9090909090909092,
-      "phase_hist": {
-        "1": 5,
-        "2": 3,
-        "0": 1,
-        "5": 2
-      },
-      "wilson95": null,
-      "admission": {
-        "expert_replay": {
-          "passed": true,
-          "shared": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
-        },
-        "render_multiframe": {
-          "passed": true,
-          "shared": true,
-          "MAE_range_0_255": [
-            1.811,
-            2.268
-          ],
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
-        },
-        "open_loop": {
-          "passed": true,
-          "status": "passed",
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
-        },
-        "smoke20": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-          "completed": 0,
-          "phase0": null,
-          "order_split": null
-        }
-      },
-      "known_terminal_count": 12,
-      "independently_verified": 11,
-      "expected_start": "已开始",
-      "display_priority": 300,
-      "lr_split": {
-        "left": {
-          "label": "12345",
-          "trials": 50,
-          "success": null,
-          "unknown": 0
-        },
-        "right": {
-          "label": "54321",
-          "trials": 50,
-          "success": null,
-          "unknown": 0
-        }
-      },
-      "seed_results": [
-        {
-          "seed": 0,
-          "inference_seed": 910100,
-          "trials": 100,
-          "success": null,
-          "unknown": 0
-        }
-      ]
-    },
-    {
-      "id": "task10-eval-v1-20261103-mem0_original-attach-h8",
-      "record": "10-mem0-attach-v2",
-      "dataset": "10-weigh",
-      "camera": "chest",
-      "task": "10",
-      "method": "Mem-0",
-      "checkpoint": 30000,
-      "horizon": 8,
-      "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
-      "condition_version": "attach-v2_solver128",
-      "success": null,
-      "trials": 100,
-      "unknown": 0,
       "completed": 16,
       "kind": "自主闭环",
       "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -21844,14 +21689,12 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.75,
+      "mean_phase": 1.625,
       "phase_hist": {
-        "2": 5,
-        "1": 6,
+        "1": 8,
+        "2": 4,
         "0": 2,
-        "3": 1,
-        "4": 1,
-        "5": 1
+        "5": 2
       },
       "wilson95": null,
       "admission": {
@@ -21900,6 +21743,113 @@
           "unknown": 0
         }
       },
+      "evaluation_started": true,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": null,
+          "unknown": 0
+        }
+      ]
+    },
+    {
+      "id": "task10-eval-v1-20261103-mem0_original-attach-h8",
+      "record": "10-mem0-attach-v2",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition_version": "attach-v2_solver128",
+      "success": null,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 21,
+      "kind": "自主闭环",
+      "status": "阶段A续测中",
+      "source": "reports/task10-round4-20261103.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "mean_phase": 2.0476190476190474,
+      "phase_hist": {
+        "2": 7,
+        "1": 7,
+        "0": 2,
+        "3": 1,
+        "4": 2,
+        "5": 1,
+        "6": 1
+      },
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 0,
+          "phase0": null,
+          "order_split": null
+        }
+      },
+      "known_terminal_count": 21,
+      "independently_verified": 21,
+      "expected_start": "已开始",
+      "display_priority": 300,
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -21930,7 +21880,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -21997,6 +21947,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": false,
       "seed_results": [
         {
           "seed": 0,
@@ -22027,7 +21978,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22094,6 +22045,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": false,
       "seed_results": [
         {
           "seed": 0,
@@ -22124,7 +22076,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22203,6 +22155,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -22234,7 +22187,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22311,6 +22264,7 @@
           "unknown": 1
         }
       },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -22342,7 +22296,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22409,6 +22363,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": false,
       "seed_results": [
         {
           "seed": 0,
@@ -22439,7 +22394,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22506,6 +22461,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": false,
       "seed_results": [
         {
           "seed": 0,
@@ -22518,7 +22474,7 @@
     },
     {
       "id": "task10-eval-v1-20261103-ours_aligned_weak-off-h4",
-      "record": "10-ours-aligned-weak",
+      "record": "10-ttc-aligned-weak-issue26",
       "dataset": "10-weigh",
       "camera": "chest",
       "task": "10",
@@ -22531,12 +22487,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 2,
       "kind": "自主闭环",
-      "status": "阶段A已启动，等待首条结束",
+      "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22554,8 +22510,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 0.5,
+      "phase_hist": {
+        "0": 1,
+        "1": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -22588,8 +22547,8 @@
           }
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
+      "known_terminal_count": 2,
+      "independently_verified": 2,
       "expected_start": "已开始",
       "display_priority": 300,
       "lr_split": {
@@ -22606,6 +22565,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -22618,7 +22578,7 @@
     },
     {
       "id": "task10-eval-v1-20261103-ours_aligned_weak-off-h8",
-      "record": "10-ours-aligned-weak",
+      "record": "10-ttc-aligned-weak-issue26",
       "dataset": "10-weigh",
       "camera": "chest",
       "task": "10",
@@ -22631,12 +22591,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 3,
       "kind": "自主闭环",
-      "status": "阶段A已启动，等待首条结束",
+      "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22654,8 +22614,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 0.6666666666666666,
+      "phase_hist": {
+        "0": 2,
+        "2": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -22688,8 +22651,8 @@
           }
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
+      "known_terminal_count": 3,
+      "independently_verified": 3,
       "expected_start": "已开始",
       "display_priority": 300,
       "lr_split": {
@@ -22706,6 +22669,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -22718,7 +22682,7 @@
     },
     {
       "id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h4",
-      "record": "10-ours-aligned-weak-attach",
+      "record": "10-ttc-aligned-weak-issue26-attach",
       "dataset": "10-weigh",
       "camera": "chest",
       "task": "10",
@@ -22736,7 +22700,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22806,6 +22770,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": false,
       "seed_results": [
         {
           "seed": 0,
@@ -22818,7 +22783,7 @@
     },
     {
       "id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h8",
-      "record": "10-ours-aligned-weak-attach",
+      "record": "10-ttc-aligned-weak-issue26-attach",
       "dataset": "10-weigh",
       "camera": "chest",
       "task": "10",
@@ -22836,7 +22801,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:26:09.618989+00:00",
+      "updated_at": "2026-11-03T16:33:20.375233+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -22906,6 +22871,7 @@
           "unknown": 0
         }
       },
+      "evaluation_started": false,
       "seed_results": [
         {
           "seed": 0,
@@ -39185,7 +39151,7 @@
       "id": "task5-all-20261101",
       "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
       "task": "5",
-      "updated_at": "2026-11-03T16:12:21.958694+00:00",
+      "updated_at": "2026-11-03T16:26:14.284601+00:00",
       "final_verified": false,
       "status": "paused_pipeline_diagnostic",
       "completed": 3285,
@@ -39210,9 +39176,9 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
+            "2": 58,
             "0": 64,
             "1": 48,
-            "2": 58,
             "3": 30
           },
           "layouts": {
@@ -39230,7 +39196,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39240,7 +39206,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39298,10 +39264,10 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 74,
-            "1": 58,
             "2": 40,
+            "0": 74,
             "3": 27,
+            "1": 58,
             "4": 1
           },
           "layouts": {
@@ -39319,7 +39285,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39329,7 +39295,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39387,8 +39353,8 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 175,
             "1": 22,
+            "0": 175,
             "2": 3
           },
           "layouts": {
@@ -39406,7 +39372,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39416,7 +39382,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39492,7 +39458,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39502,7 +39468,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39578,7 +39544,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39588,7 +39554,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39664,7 +39630,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39674,7 +39640,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39750,7 +39716,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39760,7 +39726,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39818,8 +39784,8 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 190,
-            "1": 10
+            "1": 10,
+            "0": 190
           },
           "layouts": {
             "forward": 100,
@@ -39836,7 +39802,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39846,7 +39812,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39922,7 +39888,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39932,7 +39898,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -40007,7 +39973,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40061,7 +40027,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -40092,7 +40058,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40146,7 +40112,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -40177,7 +40143,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40231,7 +40197,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -40262,7 +40228,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40316,7 +40282,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -40347,7 +40313,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40401,7 +40367,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -40432,7 +40398,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40486,7 +40452,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -40517,7 +40483,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40571,7 +40537,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -40603,7 +40569,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40688,7 +40654,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -40742,7 +40708,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         }
       ],
       "jobs": [
@@ -41329,7 +41295,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -41438,7 +41404,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -41664,7 +41630,7 @@
       "id": "task5-grasp-attach-20261101",
       "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
       "task": "5",
-      "updated_at": "2026-11-03T16:12:23.556037+00:00",
+      "updated_at": "2026-11-03T16:26:14.357958+00:00",
       "condition": "stable_grasp_fixed_joint_v1",
       "final_verified": false,
       "status": "paused_pipeline_diagnostic",
@@ -41691,9 +41657,9 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
+            "2": 17,
             "0": 84,
             "1": 86,
-            "2": 17,
             "3": 13
           },
           "trials_attached": 176,
@@ -41713,7 +41679,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -41723,7 +41689,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -41779,10 +41745,10 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 68,
+            "3": 26,
             "1": 78,
             "2": 28,
-            "3": 26
+            "0": 68
           },
           "trials_attached": 152,
           "attach_events": 277,
@@ -41801,7 +41767,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -41811,7 +41777,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -41867,10 +41833,10 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 133,
             "1": 45,
-            "2": 16,
-            "3": 6
+            "0": 133,
+            "3": 6,
+            "2": 16
           },
           "trials_attached": 123,
           "attach_events": 201,
@@ -41889,7 +41855,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -41899,7 +41865,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -41975,7 +41941,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -41985,7 +41951,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -42061,7 +42027,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42071,7 +42037,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -42148,7 +42114,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42158,7 +42124,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -42234,7 +42200,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42244,7 +42210,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -42300,8 +42266,8 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 184,
             "1": 15,
+            "0": 184,
             "2": 1
           },
           "trials_attached": 62,
@@ -42321,7 +42287,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42331,7 +42297,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -42408,7 +42374,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42418,7 +42384,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -42493,7 +42459,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42545,7 +42511,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -42578,7 +42544,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42630,7 +42596,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -42663,7 +42629,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42715,7 +42681,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -42748,7 +42714,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42800,7 +42766,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -42834,7 +42800,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42919,7 +42885,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -42971,7 +42937,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -43004,7 +42970,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -43056,7 +43022,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -43089,7 +43055,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -43141,7 +43107,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -43174,7 +43140,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -43226,7 +43192,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         }
       ],
       "jobs": [
@@ -43715,7 +43681,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -43824,7 +43790,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -44622,7 +44588,7 @@
       "existing_server_gpus": 0,
       "max_parallel_apps": 0,
       "active_apps": 0,
-      "updated_at": "2026-11-03T16:20:28.990345+00:00",
+      "updated_at": "2026-11-03T16:27:20.526094+00:00",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
       "resource_policy": "旧全量队列暂停；准入诊断低优运行0卡、预留0卡，共享上限4卡。新current_row时序对照仅20条，不计正式A/B。",
@@ -44757,7 +44723,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -44866,7 +44832,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -45115,20 +45081,20 @@
       "issue": 2,
       "issue_updated_at": "2026-11-01T04:36:10Z",
       "record": "5-pos-ours-aligned",
-      "verified_at": "2026-11-03T16:12:21.958694+00:00",
+      "verified_at": "2026-11-03T16:26:14.284601+00:00",
       "note": "交付相机、真实权重及推理已经核验；仅替代此时间戳的旧空权重登记。后续共享单修改仍会应用。"
     },
     {
       "issue": 4,
       "issue_updated_at": "2026-11-01T04:36:14Z",
       "record": "5-pos-mem0-weak",
-      "verified_at": "2026-11-03T16:12:21.958694+00:00",
+      "verified_at": "2026-11-03T16:26:14.284601+00:00",
       "note": "交付相机、真实权重及推理已经核验；仅替代此时间戳的旧空权重登记。后续共享单修改仍会应用。"
     },
     {
       "issue": 26,
       "issue_updated_at": "2026-11-03T12:22:59Z",
-      "record": "10-ours-aligned-weak",
+      "record": "10-ttc-aligned-weak-issue26",
       "checkpoint": 30000,
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours_weak/chest/START_HERE.md"
     }

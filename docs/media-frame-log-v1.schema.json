@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "rows"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "safelab-frame-log-v1"
+    },
+    "case_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.:-]{1,180}$"
+    },
+    "rows": {
+      "type": "array",
+      "maxItems": 60000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "t_sim",
+          "frame",
+          "subtask_index",
+          "completion_score",
+          "threshold",
+          "positive_count",
+          "switched",
+          "physical_phase",
+          "physical_events"
+        ],
+        "properties": {
+          "t_sim": {
+            "type": "number",
+            "minimum": 0
+          },
+          "frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "subtask_index": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "completion_score": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "threshold": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "positive_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "switched": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "physical_phase": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 10
+          },
+          "physical_events": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "maxItems": 30,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "t_sim",
+                "phase",
+                "event"
+              ],
+              "properties": {
+                "t_sim": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "phase": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10
+                },
+                "event": {
+                  "type": "string",
+                  "maxLength": 120
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

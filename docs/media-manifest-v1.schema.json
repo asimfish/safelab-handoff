@@ -1,0 +1,381 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://asimfish.github.io/safelab-handoff/docs/media-manifest-v1.schema.json",
+  "title": "SafeLab per-case media manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "updated_at",
+    "cases"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "safelab-media-v1"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "cases": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": {
+        "$ref": "#/$defs/case"
+      }
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "sha256",
+        "bytes"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "maxLength": 2048
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^(sha256:)?[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000000
+        }
+      }
+    },
+    "video": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/asset"
+        },
+        {
+          "properties": {
+            "url": {
+              "pattern": "^https://.+\\.mp4(?:\\?[^#]*)?$"
+            }
+          }
+        }
+      ]
+    },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "task",
+        "record",
+        "issue",
+        "checkpoint",
+        "horizon",
+        "protocol_version",
+        "evaluation_id",
+        "condition_version",
+        "stage",
+        "scene_id",
+        "scene_list_hash",
+        "side",
+        "seed",
+        "outcome",
+        "max_phase",
+        "videos",
+        "frame_log",
+        "render_config_hash",
+        "timebase",
+        "subtask_physical_targets"
+      ],
+      "properties": {
+        "case_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.:-]{1,180}$"
+        },
+        "task": {
+          "enum": [
+            "3",
+            "5",
+            "7",
+            "10"
+          ]
+        },
+        "record": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 160
+        },
+        "issue": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "checkpoint": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "horizon": {
+          "enum": [
+            4,
+            8,
+            30
+          ]
+        },
+        "protocol_version": {
+          "enum": [
+            "SafeLab-Eval-v1",
+            "legacy"
+          ]
+        },
+        "evaluation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "condition_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "stage": {
+          "enum": [
+            "A",
+            "B",
+            "diagnostic",
+            "legacy"
+          ]
+        },
+        "scene_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 180
+        },
+        "scene_list_hash": {
+          "type": "string",
+          "pattern": "^(sha256:)?[a-f0-9]{64}$"
+        },
+        "side": {
+          "enum": [
+            "left",
+            "right",
+            "forward",
+            "reverse"
+          ]
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "outcome": {
+          "enum": [
+            "success",
+            "fail",
+            "unknown"
+          ]
+        },
+        "max_phase": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "videos": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "third_person",
+            "head",
+            "chest"
+          ],
+          "properties": {
+            "third_person": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/video"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "head": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/video"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "chest": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/video"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "frame_log": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/asset"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "render_config_hash": {
+          "type": "string",
+          "pattern": "^(sha256:)?[a-f0-9]{64}$"
+        },
+        "timebase": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "fps",
+            "video_time_origin_s",
+            "log_time_origin_s"
+          ],
+          "properties": {
+            "fps": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 120
+            },
+            "video_time_origin_s": {
+              "type": "number"
+            },
+            "log_time_origin_s": {
+              "type": "number"
+            }
+          }
+        },
+        "subtask_physical_targets": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "maxItems": 30,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          }
+        }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            {
+              "properties": {
+                "record": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            {
+              "properties": {
+                "issue": {
+                  "type": "integer"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "properties": {
+            "videos": {
+              "anyOf": [
+                {
+                  "properties": {
+                    "third_person": {
+                      "$ref": "#/$defs/video"
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "head": {
+                      "$ref": "#/$defs/video"
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "chest": {
+                      "$ref": "#/$defs/video"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "horizon": {
+                "const": 30
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "protocol_version": {
+                "const": "legacy"
+              },
+              "stage": {
+                "const": "legacy"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "protocol_version": {
+                "const": "legacy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "stage": {
+                "const": "legacy"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "stage": {
+                "enum": [
+                  "A",
+                  "B",
+                  "diagnostic"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

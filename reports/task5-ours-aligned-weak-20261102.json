@@ -8311,7 +8311,7 @@
   "existing_server_gpus": 0,
   "max_parallel_apps": 0,
   "active_apps": 0,
-  "updated_at": "2026-11-03T15:13:28.334869+00:00",
+  "updated_at": "2026-11-03T15:34:49.548361+00:00",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
   "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
   "resource_policy": "旧全量队列暂停；准入诊断低优运行0卡、预留0卡，共享上限4卡。新current_row时序对照仅20条，不计正式A/B。",
@@ -8372,10 +8372,11 @@
     "expert_replay": "源光学链修正后8/8通过原五阶段物理验收（非模型成功）",
     "training_prefix_fit": "6种模型×2条连续图像前缀完成，RMSE为训练RGB的0.77–1.35倍",
     "rendering": "已恢复pos1cm源运行时光学链；多进度MAE约1.56–2.02/255，含训练视频编码差异",
-    "closed_loop_smoke": "20/20独立核验：全程0成功、unknown0，阶段0/1/2=17/1/2；仅诊断，正式A/B仍暂停",
+    "closed_loop_smoke": "新版20/20独立验收：全程0成功、unknown0；阶段0/1/2/3=16/0/3/1，平均0.45；仅诊断，正式A/B仍暂停",
     "backend48": "12条闭环、4条中断、32条未派发；未通过48条物理验收",
     "N4": "已结题不准入，正式采用N1×k多进程并行",
-    "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列"
+    "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列",
+    "remaining_gate": "补齐完整五阶段训练拟合和各模型输入准入；官方五条训练指令已核对一致；反向10条首阶段失败仍待查"
   },
   "diagnostic_admission_smoke": {
     "epoch": 1793711601.1150498,
@@ -8474,14 +8475,305 @@
     "target": 20,
     "audited": 20,
     "job_id": "job-6t719gml4wnj",
-    "status": "20条诊断已闭合；不计正式A/B",
-    "topology": "N1×5 多进程并行，每App1环境",
+    "status": "complete audited diagnostic; formal Stage A/B paused",
+    "topology": "N1x5 independent-process",
     "protocol": "SafeLab-Eval-v1 admission diagnostic",
     "execution_horizon": 8,
     "inference_seed": 0,
     "old_controller_smoke_n": 20,
     "old_controller_smoke_successes": 0,
     "new_result_pending": false,
-    "previous_hardware_guard_attempts_unlaunched": 40
+    "previous_hardware_guard_attempts_unlaunched": 40,
+    "epoch": 1793719825.1013002,
+    "scored": false,
+    "task": "5b",
+    "data": "psibot_5b_obstruction_pos1cm_v1_20261025",
+    "camera": "third_person",
+    "method": "official Mem-0",
+    "checkpoint": 30000,
+    "condition": "baseline original physical contact",
+    "control_version": "current_row_forward_linear_v1",
+    "optics_version": "pos1cm_source_optics_v1",
+    "num_envs_actual": 1,
+    "processes_per_GPU": 5,
+    "GPU_model": "Pro6000 (approved vendor inventory NVIDIA RPBZZZ6, 97887MiB)",
+    "image_preprocessing": "training tensor bilinear antialias224 plus frozen Qwen",
+    "scene_hash": {
+      "full100_sha256": "3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "smoke20_sha256": "07ca8b466547c7cb7cb9115d0998bcffe94fcb4a419acd1d958ef73b76106af9",
+      "full100_layouts": {
+        "forward": 50,
+        "reverse": 50
+      },
+      "smoke20_layouts": {
+        "forward": 10,
+        "reverse": 10
+      }
+    },
+    "n": 20,
+    "successes": 0,
+    "unknown": 0,
+    "Wilson95": [
+      0,
+      0.16112515805281938
+    ],
+    "per_seed": {
+      "0": {
+        "n": 20,
+        "successes": 0,
+        "unknown": 0
+      }
+    },
+    "layouts": {
+      "forward": {
+        "n": 10,
+        "successes": 0,
+        "unknown": 0,
+        "phase_histogram": {
+          "0": 6,
+          "1": 0,
+          "2": 3,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.9,
+        "failure_counts": {
+          "object_fell": 2,
+          "time_limit": 8
+        }
+      },
+      "reverse": {
+        "n": 10,
+        "successes": 0,
+        "unknown": 0,
+        "phase_histogram": {
+          "0": 10,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.0,
+        "failure_counts": {
+          "object_toppled": 9,
+          "time_limit": 1
+        }
+      }
+    },
+    "phase_histogram": {
+      "0": 16,
+      "1": 0,
+      "2": 3,
+      "3": 1,
+      "4": 0,
+      "5": 0
+    },
+    "mean_completed_phases": 0.45,
+    "stage0_stop_rule_triggered": false,
+    "all_four_gates_admitted": false,
+    "remaining_gate": "complete five-subtask own-training fit and per-model input admission",
+    "wall_seconds": 1913.0516536590003,
+    "wall_comparison_caveat": "old run included extra N1x1/N1x5 image preflight and different cold startup; not a controlled speedup estimate",
+    "control_audit": {
+      "actual_PhysX_position_writes": 347070,
+      "actual_PhysX_velocity_writes": 347070,
+      "next_physical_tick_labels_verified": 43389
+    },
+    "independent_physical_audits": 20,
+    "original_physical_limit_s": 240,
+    "stall_timeout": null,
+    "old_controller_reference": {
+      "n": 20,
+      "successes": 0,
+      "mean_completed_phases": 0.25,
+      "phase_histogram": {
+        "0": 17,
+        "1": 1,
+        "2": 2,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "paired_fields_verified": [
+        "layout",
+        "inference_seed",
+        "scene_seed",
+        "offsets_xy_m",
+        "execution_horizon",
+        "variant",
+        "checkpoint_step",
+        "dataset_revision",
+        "profile_name",
+        "renderer_episode_policy",
+        "preprocessing"
+      ]
+    },
+    "paired_cases": [
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_000",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_001",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_002",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_003",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_004",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_005",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_006",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_007",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_008",
+        "layout": "forward",
+        "old_completed_phases": 1,
+        "new_completed_phases": 2,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_009",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_010",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 2,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_011",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_012",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 2,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_013",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_014",
+        "layout": "forward",
+        "old_completed_phases": 2,
+        "new_completed_phases": 3,
+        "old_status": "physical_failure",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_015",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_016",
+        "layout": "forward",
+        "old_completed_phases": 2,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_017",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_018",
+        "layout": "forward",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "time_limit",
+        "new_status": "time_limit"
+      },
+      {
+        "case_id": "smoke_v1_new30_seed0_h8_019",
+        "layout": "reverse",
+        "old_completed_phases": 0,
+        "new_completed_phases": 0,
+        "old_status": "physical_failure",
+        "new_status": "physical_failure"
+      }
+    ],
+    "job_status": "SUCCEEDED",
+    "owned_cleanup_passed": true,
+    "GPUs_released": 4
   }
 }

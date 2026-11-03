@@ -1,15 +1,15 @@
 # SafeLab 媒体清单 v1
 
-Refs: T-1263。供评测 agent 发布、交接台合并、对比页每 5 分钟消费。与 [SafeLab-Eval-v1](evaluation-schema-v1.md) 配套；历史素材不得追认 v1。规范只登记来源和展示证据，不改变物理验收。
+Refs: T-1263。供评测 agent 发布、交接台合并、对比页每 5 分钟消费。与 [SafeLab-Eval-v1/v1.1](evaluation-schema-v1.md) 配套；历史素材不得追认 v1。规范只登记来源和展示证据，不改变物理验收。
 
 ## 发布位置与上限
 
 - 交接台 `media/index.json` 是唯一入口，schema 为 `safelab-media-index-v1`，含 `updated_at` 及 `manifests:[{url,sha256,updated_at}]`。也可由 data.json 的 `media_manifest_index` 显式指定 HTTPS 索引地址。
 - 每个 agent 提交小型清单 `media/manifests/<task>/<run>.json`（`safelab-media-v1`）；只维护自己的文件和索引项，PR 保留其他 agent。每清单 ≤1 MB，索引 ≤256 KB，最多80清单；单清单最多2000案例。
-- **视频放授权对象存储的稳定公开只读 HTTPS 路径** `safelab-public/media-v1/<task>/<record>/<checkpoint>/<condition>/<case_id>/`，不得把整批二进制提交 Pages。视频直接用无crossorigin的video.src播放，不要求bucket CORS；不得用fetch→blob或canvas/WebGL取视频像素作为播放前置条件。清单、索引与逐帧JSON仍必须同源或允许CORS GET；不得使用需要登录或含 token 的临时签名链接。SHA-256 是文件实际字节，不是源视频或解压前后混用的摘要。
+- **视频放授权对象存储的稳定公开只读 HTTPS 路径** `safelab-public/media-v1/<task>/<record>/<checkpoint>/<condition>/<case_id>/`，不得把整批二进制提交 Pages。视频能播放不代表JSON可跨域fetch；逐帧日志按下方同源补充规则发布。外部清单须实际核验CORS允许对比页GET；不得使用需要登录或含 token 的临时签名链接。SHA-256 是文件实际字节，不是源视频或解压前后混用的摘要。
 - 每视频 H.264 MP4、yuv420p、faststart、**≤2,000,000 bytes**；优先640×480/15Hz，保留完整时间范围并记录真实 fps，禁止删去失败或静止时段而不修改时钟元数据。转码后重新计算 hash。例：`ffmpeg -i input.mp4 -an -c:v libx264 -crf 30 -pix_fmt yuv420p -movflags +faststart preview.mp4`；超限继续降低码率/分辨率并核验完整时长，不以该命令保证体积。
-- 每逐帧 JSON ≤2 MB；选择低冗余必需字段，观察频率采样（任何抽稀均须满足下述事件/累计器保真限制），物理事件保留原始精确 t_sim。原120Hz日志和高清全量录像仍留原存储，清单只发布派生的去敏只读日志。不得以超限为由删去切换或物理事件。
-- 原有已发布400条录像和日志为 legacy 兼容入口，**不要求复制或重新转码**；新增媒体执行上述上限。Pages 仓库允许小清单及下述有总预算的逐帧日志，新增清单总预算≤20 MB；超出时索引指向对象存储。
+- 每逐帧 JSON ≤2 MB；选择低冗余必需字段，观察频率采样，物理事件保留原始精确 t_sim。原120Hz日志和高清全量录像仍留原存储，清单只发布派生的去敏只读日志。不得以超限为由删去切换或物理事件。
+- 原有已发布400条录像和日志为 legacy 兼容入口，不要求仅为媒体格式重新转码；源路径迁移仍按用户17:50规则复制核验后更新；新增媒体执行上述上限。Pages允许必要的公开派生帧日志，现行快照总预算见下方（原始日志不入库）；清单自身仍≤20MB且计入总预算。外部JSON不得在未通过CORS实测时作为回退。
 
 ## 每个 case 一条记录
 
@@ -20,16 +20,16 @@ Refs: T-1263。供评测 agent 发布、交接台合并、对比页每 5 分钟�
 | case_id / task | 唯一案例ID；任务字符串3/5/7/10 |
 | record / issue | canonical data.json record id或交接单号；两个键都存在，至少一个非null，配置不能仅靠方法名匹配 |
 | checkpoint / horizon | 实际权重步数、执行步数4/8/30；30只保留既有历史 |
-| protocol_version / oracle_version / evaluation_id / condition_version / stage | 精确协议与评测行ID、接触条件不可变版本、A/B/diagnostic/legacy；attach不能冒充original |
+| protocol_version / evaluation_id / condition_version / stage | 精确协议与评测行ID（支持v1/v1.1/legacy）、接触条件不可变版本、A/B/diagnostic/legacy；attach不能冒充original |
 | scene_id / scene_list_hash / side / seed | 相同初始场景的稳定ID、有序100场景列表哈希、left/right或forward/reverse、推理seed；对照必须哈希、场景和seed一致 |
 | outcome / max_phase | success/fail/unknown；物理oracle最大完成阶段数，未知null，不能由Planner序号推断 |
 | videos | third_person/head/chest三个键均存在，缺视角null；资产为{url,sha256,bytes}，记录转码后文件。旁观与策略输入视角不能混淆 |
-| frame_log | {url,sha256,bytes}或null，引用逐帧JSON；没有日志就null |
+| frame_log | {url,sha256,bytes,encoding?,decoded_bytes?,decoded_sha256?}或null，引用逐帧JSON；没有日志就null |
 | render_config_hash | 相机外参、内参、光照、渲染配置序列化后的SHA256，禁止猜测 |
 | timebase | {fps,video_time_origin_s,log_time_origin_s}；video.currentTime=t_sim-log_time_origin_s+video_time_origin_s。所有视角必须同步、无独立剪辑 |
 | subtask_physical_targets | 第i条指令应完成的oracle阶段编号数组；无法证明语义映射为null，不计算切换错误率 |
 
-清单 `schema_version:safelab-media-v1, updated_at:ISO8601, cases:[...]`。不得包含 SSH、私有磁盘路径、提示词、密钥或原始RPC。公共URL不得含用户名/密码、签名、访问令牌。发布者与消费端必须先用URL解析器拒绝userinfo、查询参数、片段、localhost/私有IP/内网域名；该语义校验不由JSON Schema的format:uri替代。另须校验case_id唯一、日志时钟严格递增、体积与bytes/SHA/真实时长及采样数量，不得只跑schema就宣称通过。客户端核验清单和日志hash仅证明字节身份，不等于科学验收。视频仍由发布者核验转码后SHA/bytes，并交维护者复核；直连播放器必须标注浏览器未核验视频SHA，不得显示“视频SHA通过”。
+清单 `schema_version:safelab-media-v1, updated_at:ISO8601, cases:[...]`。不得包含 SSH、私有磁盘路径、提示词、密钥或原始RPC。公共URL不得含用户名/密码、签名、访问令牌。发布者与消费端必须先用URL解析器拒绝userinfo、查询参数、片段、localhost/私有IP/内网域名；该语义校验不由JSON Schema的format:uri替代。另须校验case_id唯一、日志时钟严格递增、体积与bytes/SHA/真实时长及采样数量，不得只跑schema就宣称通过。客户端核验 hash 证明字节身份，不等于证明科学验收。
 
 ## 逐帧日志
 
@@ -63,31 +63,41 @@ Refs: T-1263。供评测 agent 发布、交接台合并、对比页每 5 分钟�
 4. 完整v1成绩仍由evaluations和准入门槛决定；代表视频不得反推整组成功率。
 
 
-## 跨域播放与同源日志托管（2026-11-03 第2轮）
+## 2026-11-03 同源帧日志 / CORS 补充（本节优先）
 
-### Origin 与播放器
+视频继续放对象存储；由video标签播放成功不能证明fetch JSON的CORS通过。派生浏览器逐帧日志进入`media/frame_logs/<task>/<run>/<case>.json`，manifest使用同源绝对HTTPS URL，例如`https://asimfish.github.io/safelab-handoff/media/frame_logs/10/run/case.json`。不将CORS失败当成“没有日志”；页面应明确读取失败并保留视频与旧快照。
 
-`https://asimfish.github.io/psibot-dashboard/` 与 `https://asimfish.github.io/safelab-handoff/` 的origin都是 `https://asimfish.github.io`：路径和仓库名不同不构成跨域。因此索引、manifest及日志优先直接放交接台Pages；视频继续放public-read对象存储。视频标签**不设crossorigin**，不以fetch/blob/HEAD/hash校验阻塞播放，不用canvas/WebGL取视频帧；图表canvas只绘制JSON数值。以currentTime/真实timebase联播。匿名GET可播不保证Range、编码、Content-Type正确，发布者仍须验证实际浏览器播放、拖动和完整时长。
+**预算：当前Git跟踪的发布快照总计≤50,000,000 bytes（十进制50MB）**，包含源码、报告、清单、派生帧日志；不含.git历史与ignored临时测试目录。帧日志不是额外再加50MB。各任务媒体初始软配额10MB，余量可经PR说明共享，不提高总上限。Git历史对象大小独立报告，不自动改写历史或删旧科学证据来腾空间。每PR同时报告旧快照/新增/合并后字节、每文件SHA及帧数。`node scripts/check-media-budget.cjs`在CI检查预算、同源引用、实际bytes/SHA和受限解压；该检查不替代完整schema或原日志事件保留核验。
 
-### 日志路径、压缩和哈希
+普通JSON优先minify。仍超预算时使用事件保留抽稀：保留首末帧、所有真实切换行和物理事件所在行，原事件精确t_sim与timebase不变；保留空值语义，不删掉失败或静止区间来加速视频。可增加`sampling:{method:"event-preserving-v1",original_rows,retained_rows,baseline_hz,source_sha256?}`，retained_rows必须等于rows.length且不大于original_rows。发布者附源日志对照证明所有必保事件保留；仅在派生文件上看不到事件不代表源日志没有事件。抽稀会改变观测密度，消费者不得据抽稀间隔外推未观察到的切换。
 
-- 日志提交 `media/frame_logs/<task>/<run>/<case_id>.json` 或 `.json.gz`，通过PR由交接台核验后合并。manifest使用完整稳定公开URL；SHA/bytes必须匹配**URL实际文件**。禁止带凭据、签名查询串及私有路径。
-- 首选紧凑JSON；需要压缩时 `gzip -n -9`，`.json.gz`作为静态gzip文件发布，**不要设置Content-Encoding:gzip**，推荐Content-Type:application/gzip。客户端先校验下载gzip字节的bytes/SHA，再显式流式解压、解析、校验case_id与行结构。若HTTP自动解压导致哈希与清单不符，应拒绝，不能跳过校验。
-- 每个上传文件≤2,000,000 bytes，解压后JSON亦≤2,000,000 bytes；日志最多60,000行。解压须流式限额，防止压缩炸弹。缺日志=null；无解压能力的旧浏览器显示不支持，不阻塞视频。
-- 不压缩/抽稀原始实验档案。派生日志可降采样，但必须额外保留首末帧、全部实际切换、指令/阳性累计器变化、物理阶段变化与原始事件精确t_sim；不得平滑分数、重建阳性计数或漏掉末端事件。文档/清单来源注明原始采样频率与派生规则。事件时钟与视频范围保持不变。
+gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件实际字节，必须另给decoded_bytes/decoded_sha256描述解压JSON。压缩文件与解压内容各≤2,000,000 bytes，防止解压膨胀；普通JSON缺encoding时按identity，原清单保持兼容。GitHub Pages不会保证将`.gz`自动解压；消费者须先核对下载bytes/SHA，再以DecompressionStream('gzip')有界解压（超过decoded上限立即终止），核对解压bytes/SHA后解析JSON和校验schema。必须核验服务器没有自动Content-Encoding解压导致wire哈希语义变化。**gzip只在消费者PR同步实现并通过Pages同源端到端验收后启用；不能只上传.gz或改后缀。**
 
-### 仓库预算（提交交接台确认）
+合并前测试真实页面下的fetch→HTTP成功→bytes/SHA→（gzip解压/decoded SHA）→JSON schema→视频时钟对齐；开发机curl能下载并不证明跨域浏览器fetch能读。首版没有可验收的gzip消费者时，提交普通JSON或进一步抽稀，保持必保事件。
 
-新增 `media/frame_logs/` 的**所有任务合计上限50,000,000 bytes（50MB）**，按git跟踪的上传文件字节计，不是每任务50MB；包含本次PR与此前已合并日志。清单索引另遵守已有20MB预算，视频不得新增进Pages。原已发布SR400等legacy资产留原位置，不复制、不迁移，不计入新frame_logs预算。Git历史不会因删除自动缩小，禁止频繁覆盖/重复提交同日志；使用不可变文件并按需发布代表案例。
+### 源存储与迁移（用户17:50规定）
 
-交接台合并前统计 `git ls-files media/frame_logs/` 中每个文件实际字节与PR新增字节，要求合计不超50MB，并检查单文件及解压上限。临近上限先gzip去冗余；仍超限时按保真规则抽稀或减少重复视角对应的同一日志（每case只存一份）。仍不足则暂停新增、交协调者批准独立日志托管/CORS，不能通过不断换路径绕过预算，也不得无确认改变bucket权限。
+- 大件：`/projects/a02012413/buckets/zenith-a02012413/liyufeng/`下对应目录；小件报告/配置/清单：`/project_a02012413/public/liyufeng/`下对应目录。两处合计≤2TB。仓库只收展示必需的公开派生小日志，不承担原始日志/视频/权重归档。
+- 禁止新输出到`/projects/a02012413/241106039`、`/public_fast_storage`或其他生产数据位置。在旧位置运行的任务完成当前批次，不中途打断。
+- 迁移严格按复制→逐文件SHA核对→更新网站/报告引用；原件先保留，删除需用户批准。不得先改URL后补复制，也不把GitHub链接存在当成源数据SHA已核对。
+- 本项在CPU完成，不新增GPU，不开卡等待上传、准入或人工确认。已有卡由评测负责人维持N1×k+只读模型池混跑配置和补位，持续利用率<80%不申请新卡。
+- 每次回执列两允许位置占用及旧位置待迁移量，明确节点/路径/统计范围和时间；不可访问或未全量统计的写未核实，不填0。
 
-首批测量依据：十任务CPU导出MEDIA_PREP_PROGRESS回执，48份、64,406行，共11,584,309 bytes（11.58MB；单份27,120–794,074，均值241,339.77）。这是导出字节总数，**不是已发布或gzip实测**。同一case的两个视频共享一份日志，不重复96份。其他三任务尚无已发布同格式首批清单；按同均值估算8case/配置约1.93MB，若每任务48case约11.58MB，四任务合计约46.34MB，距50MB仅3.66MB；这些是容量估算，不是已采样数量。实际合并时按文件重新统计。所有任务更多配置一律不能据此假定仍可放下，优先gzip并提交实际压缩大小回执。
+媒体v1.1案例还必须写oracle_version=placement-v1.1；strict-v1对照分开绑定evaluation_id，不把旧漂移候选日志改名为放置判定。物理phase/events使用对应oracle，不复用不一致的阶段统计。
 
-## 放置判定v1.1与strict-v1隔离
 
-用户已选择正式**放置判定**：物体到目标区域、直立、已放下，三者连续0.25秒；不要求角速度稳定。新正式结果/媒体使用明确 `protocol_version:"SafeLab-Eval-v1.1"` 与 `oracle_version:"placement-v1.1"`，保留阶段A/B、完整分母/seed/左右拆分等要求；必须通过现行标准五项准入，含新增 `admission.executor_parity:{passed:true,report:"非空执行链回放报告"}`。缺新判定字段或第五项准入不得进入主表。执行链RMSE≤0.005rad、左右各5条及端点成功条件以[正式评测约定](evaluation-schema-v1.md)为准。物理报告记录区域和直立/释放阈值及oracle代码版本。旧strict媒体可省略oracle_version以兼容；若提供必须为strict-v1，protocol与oracle错配拒绝。原 `SafeLab-Eval-v1` 始终表示strict-v1；不得覆盖原行、复用旧id或仅因数值更好而重命名。现有 `rescored_v1.1_candidate` **漂移候选作废**，即便误填A/B或新协议也不得进入主表。
+## T-1263 对比页播放与首批容量核对
 
-如果旧录像有足够逐帧物理证据，可另建v1.1 evaluation（唯一新id、source_evaluation_id及可审计报告），重新计算结局、阶段直方图、oracle逐帧事件并引用精确新evaluation_id；视频字节可复用，旧strict日志不可冒充v1.1日志。证据不足则重跑，不能推测放置判定是否通过。
+播放器使用公开URL直接赋值video.src，**不设置crossorigin**，不用fetch/blob/HEAD/SHA校验作为视频播放前置，也不用canvas/WebGL读取视频像素。图表canvas只绘制已读取JSON数值，联播使用currentTime与timebase。浏览器明确显示“未核验视频SHA”；转码视频的bytes/SHA由发布者和维护者核验，不把清单SHA成功当成视频SHA成功。发布前还需在真实浏览器验证H.264、Range、拖动与完整时长；匿名GET不单独证明这些条件通过。日志失败独立显示，不阻塞直连视频。
 
-消费端：某任务出现完整且通过准入的v1.1结果后默认v1.1；可手动切strict-v1，保留该任务的显式选择。protocol_version纳入排名cohort、媒体绑定与同场景配对键，绝不跨判定混算。没有v1.1正式结果时继续strict-v1并明确所选口径。unknown仍在success/trials分母；phase_hist合计trials−unknown，mean_phase按有效轨迹计算，全unknown时直方图{}、mean_phase=null。
+同源是scheme+host+port：两个仓库站点均属于https://asimfish.github.io，仓库路径不同不构成跨域。逐帧日志按上节frame_logs同源规则提交；视频继续public-read对象存储。`.json.gz`除下载bytes/SHA外，消费者还流式限制解压大小并核对decoded_bytes/decoded_sha256再解析。文件作为application/gzip发布，不配置Content-Encoding自动解压；wire/decoded语义不符须拒绝，不能跳过校验。缺DecompressionStream的浏览器显示不支持日志解压，视频继续播放。
+
+事件保留抽稀还须保留指令、真实阳性累计器、物理阶段的变化行；不能从保留分数重建positive_count。首末帧、全部实际切换/物理事件及事件精确时间均保留，并给原始来源SHA和采样规则；界面标注抽稀，只展示保留观测，不外推未观察到的切换。
+
+容量依据（不是发布回执）：十任务CPU导出MEDIA_PREP_PROGRESS的48份日志、64,406行，合计11,584,309 bytes（11.58MB），每份27,120–794,074、均值241,339.77。96段双视角视频共享48份日志，不复制两份。未实测gzip总体积，不使用估计压缩比冒充实测。
+
+基线为交接台commit366f6a0的Git跟踪快照：128文件、24,957,142 bytes；这是git树中tracked文件大小，不是.git历史或远端数据盘占用。加十任务未压缩首批约36,541,451 bytes，低于**整个快照**50,000,000预算，但11.58MB超过单任务10MB软配额；普通JSON发布应在PR申请额外共享约1.58MB，或先gzip并报告实测大小。其他任务未发布同格式首批清单，不能填0或声称已测。
+
+按十任务均值估算8case/配置约1.93MB；如果四任务各48case，日志小计约46.34MB，加上述基线约71.29MB，**超过全仓50MB**，不可全部原样提交。各任务须先gzip或按事件保真规则抽稀，以实际文件运行预算CI；任何新报告/源码/清单也占全仓预算。每次PR用最新基线报告旧/新增/合并后大小，不能把这里的历史基线当成后续可用余量。
+
+媒体新协议使用protocol_version=SafeLab-Eval-v1.1且oracle_version=placement-v1.1，并绑定对应evaluation_id；其完整成绩另须第五项executor_parity等准入。strict媒体可省略旧oracle_version以兼容，若填写则必须strict-v1。旧严格日志若未按新物理判定重新生成，不得仅改case_id或版本冒充放置判定。

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T15:55:03.595353+00:00",
+  "updated_at": "2026-11-03T16:00:52.952872+00:00",
   "protocol": "SafeLab-Eval-v1",
   "checkpoint_coverage": {
     "task10_methods": [
@@ -2354,20 +2354,62 @@
     "passed": false,
     "reason": "new weak cluster sidecar/DAG authority must match this checkpoint; source weak Parquet available"
   },
-  "issue26_progress": {},
+  "issue26_progress": {
+    "group": "issue26v1",
+    "method": "ours_aligned_weak",
+    "checkpoint_issue": 26,
+    "status": "running",
+    "GPU_count": 4,
+    "procs_per_gpu": 10,
+    "num_envs_actual": 1,
+    "steps": {
+      "smoke20": {
+        "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1/ours_aligned_weak_smoke20",
+        "completed": 3,
+        "target": 20,
+        "active": 9,
+        "phase_hist": {
+          "0": 2,
+          "1": 1,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0,
+          "9": 0,
+          "10": 0
+        },
+        "successes_observed": 0,
+        "scored": false,
+        "status": "running",
+        "error": null
+      }
+    },
+    "local_root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1",
+    "open_loop": "pending soft gate",
+    "epoch": 1793721203.7476823,
+    "phase": "smoke20",
+    "observed_epoch": 1793721593.9981184,
+    "snapshot_epoch": 1793721596.5130308,
+    "smoke20": {},
+    "terminal_cases": [],
+    "qualified_case_summaries": [],
+    "independently_sealed": 0,
+    "unknown_cases": []
+  },
   "old_three_model_A": {
-    "epoch": 1793721298.4188414,
+    "epoch": 1793721613.523805,
     "formal_A_completed_progress": 595,
     "terminal_unknown": 5,
-    "auxiliary_A_completed_progress": 0,
+    "auxiliary_A_completed_progress": 3,
     "all_card_sustained_gpu": {
-      "status": "pending_platform_refresh_new_running_group",
-      "GPU_count": 4,
-      "platform_assigned_GPUs": 4,
+      "status": "pending600s_common_window",
+      "GPU_count": 8,
+      "platform_assigned_GPUs": 8,
       "included_groups": [
-        "attach_all"
-      ],
-      "new_running_groups": [
+        "attach_all",
         "issue26v1"
       ],
       "historical_window": true
@@ -2391,10 +2433,10 @@
       "unknown": 2,
       "completed": 100,
       "kind": "自主闭环",
-      "status": "阶段A续测中",
+      "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -2497,10 +2539,10 @@
       "unknown": 1,
       "completed": 100,
       "kind": "自主闭环",
-      "status": "阶段A续测中",
+      "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -2601,18 +2643,18 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 2,
       "kind": "自主闭环",
-      "status": "等待原始条件A完成后启用统一attach-v2",
+      "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
         "gpu_type": "RTX PRO6000 Blackwell96GB",
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
@@ -2624,8 +2666,10 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "1": 2
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -2655,8 +2699,8 @@
           "order_split": null
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
+      "known_terminal_count": 2,
+      "independently_verified": 2,
       "expected_start": "等待原始A完成；同一v2辅助阶段",
       "display_priority": 300,
       "lr_split": {
@@ -2698,18 +2742,18 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 1,
       "kind": "自主闭环",
-      "status": "等待原始条件A完成后启用统一attach-v2",
+      "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
         "gpu_type": "RTX PRO6000 Blackwell96GB",
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
@@ -2721,8 +2765,10 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 2.0,
+      "phase_hist": {
+        "2": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -2752,8 +2798,8 @@
           "order_split": null
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
+      "known_terminal_count": 1,
+      "independently_verified": 1,
       "expected_start": "等待原始A完成；同一v2辅助阶段",
       "display_priority": 300,
       "lr_split": {
@@ -3094,7 +3140,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3191,7 +3237,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3288,7 +3334,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3398,7 +3444,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3506,7 +3552,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3603,7 +3649,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3700,13 +3746,13 @@
       "status": "模型准入中；未启动阶段A",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
         "gpu_type": "RTX PRO6000 Blackwell96GB",
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
@@ -3751,7 +3797,7 @@
       },
       "known_terminal_count": 0,
       "independently_verified": 0,
-      "expected_start": "预计15:45–16:15 UTC；取包、复用对照及20条冒烟通过后立即启动",
+      "expected_start": "预计16:10–16:30 UTC；取包、复用对照及20条冒烟通过后立即启动",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -3797,13 +3843,13 @@
       "status": "模型准入中；未启动阶段A",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
         "gpu_type": "RTX PRO6000 Blackwell96GB",
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
@@ -3848,7 +3894,7 @@
       },
       "known_terminal_count": 0,
       "independently_verified": 0,
-      "expected_start": "预计15:45–16:15 UTC；取包、复用对照及20条冒烟通过后立即启动",
+      "expected_start": "预计16:10–16:30 UTC；取包、复用对照及20条冒烟通过后立即启动",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -3894,13 +3940,13 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
         "gpu_type": "RTX PRO6000 Blackwell96GB",
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
@@ -3991,13 +4037,13 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T15:55:03.595353+00:00",
+      "updated_at": "2026-11-03T16:00:52.952872+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
         "gpu_type": "RTX PRO6000 Blackwell96GB",
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"

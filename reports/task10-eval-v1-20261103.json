@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T14:06:30.829042+00:00",
+  "updated_at": "2026-11-03T14:46:03.735435+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -4851,10 +4851,23 @@
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "n": 100,
-      "success": null,
+      "success": 0,
       "unknown": 0,
-      "Wilson95": null,
-      "per_seed": [],
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
       "order_split": {
         "12345": 50,
         "54321": 50
@@ -4866,7 +4879,7 @@
         "0": 22,
         "3": 1
       },
-      "status": "progress_only; soft input gate pending",
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4883,22 +4896,24 @@
       "seed_results": [
         {
           "seed": 0,
+          "inference_seed": 910100,
           "completed": 100,
-          "unknown": 0,
           "trials": 100,
-          "success": null,
-          "status": "progress_only; soft open_loop pending"
+          "success": 0,
+          "unknown": 0
         }
       ],
       "lr_split": {
         "left": {
+          "label": "12345",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         },
         "right": {
+          "label": "54321",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         }
       },
@@ -4909,7 +4924,11 @@
         "0": 22,
         "3": 1
       },
-      "wilson95": null,
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -4920,19 +4939,26 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
         },
         "smoke20": {
           "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
           "status": "complete"
         }
-      }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
     },
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -5003,12 +5029,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
         },
         "smoke20": {
           "passed": true,
@@ -5044,10 +5072,23 @@
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "n": 100,
-      "success": null,
+      "success": 0,
       "unknown": 0,
-      "Wilson95": null,
-      "per_seed": [],
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
       "order_split": {
         "12345": 50,
         "54321": 50
@@ -5059,7 +5100,7 @@
         "2": 8,
         "3": 2
       },
-      "status": "progress_only; soft input gate pending",
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -5076,22 +5117,24 @@
       "seed_results": [
         {
           "seed": 0,
+          "inference_seed": 910100,
           "completed": 100,
-          "unknown": 0,
           "trials": 100,
-          "success": null,
-          "status": "progress_only; soft open_loop pending"
+          "success": 0,
+          "unknown": 0
         }
       ],
       "lr_split": {
         "left": {
+          "label": "12345",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         },
         "right": {
+          "label": "54321",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         }
       },
@@ -5102,7 +5145,11 @@
         "2": 8,
         "3": 2
       },
-      "wilson95": null,
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -5113,19 +5160,26 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
         },
         "smoke20": {
           "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
           "status": "complete"
         }
-      }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
     },
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -5196,12 +5250,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
         },
         "smoke20": {
           "passed": true,
@@ -5310,12 +5366,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.02711886426033141,
+          "ratio_to_original30k": 1.053588872711031
         },
         "smoke20": {
           "passed": true,
@@ -5393,12 +5451,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.02711886426033141,
+          "ratio_to_original30k": 1.053588872711031
         },
         "smoke20": {
           "passed": true,
@@ -5503,12 +5563,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.02711886426033141,
+          "ratio_to_original30k": 1.053588872711031
         },
         "smoke20": {
           "passed": true,
@@ -5586,12 +5648,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.02711886426033141,
+          "ratio_to_original30k": 1.053588872711031
         },
         "smoke20": {
           "passed": true,
@@ -5632,30 +5696,31 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 25
+            "known_n": 63
           }
         ]
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 57,
+      "n": 95,
       "success": null,
       "unknown": 2,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 27,
-        "54321": 30
+        "12345": 48,
+        "54321": 47
       },
-      "mean_phases": 1.4385964912280702,
+      "mean_phases": 1.5578947368421052,
       "phase_distribution": {
-        "0": 10,
-        "1": 30,
-        "2": 10,
+        "0": 14,
+        "1": 47,
+        "2": 18,
         "6": 2,
-        "3": 3,
-        "4": 1,
-        "7": 1
+        "3": 8,
+        "4": 3,
+        "7": 1,
+        "5": 2
       },
       "status": "progress_only; soft input gate pending",
       "stage": "A",
@@ -5663,7 +5728,7 @@
       "checkpoint": 30000,
       "horizon": 4,
       "trials": 100,
-      "completed": 57,
+      "completed": 95,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5674,7 +5739,7 @@
       "seed_results": [
         {
           "seed": 0,
-          "completed": 57,
+          "completed": 95,
           "unknown": 2,
           "trials": 100,
           "success": null,
@@ -5693,15 +5758,16 @@
           "unknown": 0
         }
       },
-      "mean_phase": 1.4385964912280702,
+      "mean_phase": 1.5578947368421052,
       "phase_hist": {
-        "0": 10,
-        "1": 30,
-        "2": 10,
+        "0": 14,
+        "1": 47,
+        "2": 18,
         "6": 2,
-        "3": 3,
-        "4": 1,
-        "7": 1
+        "3": 8,
+        "4": 3,
+        "7": 1,
+        "5": 2
       },
       "wilson95": null,
       "admission": {
@@ -5714,12 +5780,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025739512785998578,
+          "ratio_to_original30k": 1.0
         },
         "smoke20": {
           "passed": true,
@@ -5797,12 +5865,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025739512785998578,
+          "ratio_to_original30k": 1.0
         },
         "smoke20": {
           "passed": true,
@@ -5843,30 +5913,30 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 27
+            "known_n": 61
           }
         ]
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 59,
+      "n": 93,
       "success": null,
       "unknown": 1,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 27,
-        "54321": 32
+        "12345": 44,
+        "54321": 49
       },
-      "mean_phases": 1.4406779661016949,
+      "mean_phases": 1.5053763440860215,
       "phase_distribution": {
-        "0": 10,
-        "1": 29,
+        "0": 13,
+        "1": 48,
         "3": 4,
-        "2": 12,
-        "5": 2,
-        "4": 1,
-        "6": 1
+        "2": 20,
+        "5": 4,
+        "4": 2,
+        "6": 2
       },
       "status": "progress_only; soft input gate pending",
       "stage": "A",
@@ -5874,7 +5944,7 @@
       "checkpoint": 30000,
       "horizon": 8,
       "trials": 100,
-      "completed": 59,
+      "completed": 93,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5885,7 +5955,7 @@
       "seed_results": [
         {
           "seed": 0,
-          "completed": 59,
+          "completed": 93,
           "unknown": 1,
           "trials": 100,
           "success": null,
@@ -5904,15 +5974,15 @@
           "unknown": 0
         }
       },
-      "mean_phase": 1.4406779661016949,
+      "mean_phase": 1.5053763440860215,
       "phase_hist": {
-        "0": 10,
-        "1": 29,
+        "0": 13,
+        "1": 48,
         "3": 4,
-        "2": 12,
-        "5": 2,
-        "4": 1,
-        "6": 1
+        "2": 20,
+        "5": 4,
+        "4": 2,
+        "6": 2
       },
       "wilson95": null,
       "admission": {
@@ -5925,12 +5995,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025739512785998578,
+          "ratio_to_original30k": 1.0
         },
         "smoke20": {
           "passed": true,
@@ -6008,12 +6080,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "open_loop": {
-          "passed": false,
-          "status": "pending",
+          "passed": true,
+          "status": "passed",
           "gate_type": "soft",
           "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
           "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025739512785998578,
+          "ratio_to_original30k": 1.0
         },
         "smoke20": {
           "passed": true,
@@ -6024,7 +6098,7 @@
     }
   ],
   "round2_snapshot": {
-    "epoch": 1793714786.940834,
+    "epoch": 1793717116.3113403,
     "groups": {
       "original_weak": {
         "group": "original_weak",
@@ -6213,7 +6287,7 @@
           "all_card_memory_mean_pct": 68.83699633116281,
           "source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_ttc/ours_aligned_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793706211.6063426,
-          "age_s": 8575.36565542221
+          "age_s": 10904.735366344452
         }
       },
       "weak_only": {
@@ -6278,7 +6352,7 @@
           "all_card_memory_mean_pct": 7.789228494477792,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a00/safelab_task10_evalv1_round2_weak_only/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793707401.8473554,
-          "age_s": 7385.129178762436
+          "age_s": 9714.50102853775
         }
       },
       "weak_only_a01": {
@@ -6394,7 +6468,7 @@
           "all_card_memory_mean_pct": 24.47455814705217,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a01/safelab_task10_evalv1_round2_weak_only_a01/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793713735.7662895,
-          "age_s": 1051.2362296581268
+          "age_s": 3380.607914686203
         }
       },
       "resume_ab": {
@@ -6511,7 +6585,7 @@
           "all_card_memory_mean_pct": 46.19394141890684,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery01/safelab_task10_evalv1_round2_resume_ab/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793710805.1336274,
-          "age_s": 3981.8765184879303
+          "age_s": 6311.2482097148895
         }
       },
       "resume_ab02": {
@@ -6556,17 +6630,17 @@
           "mem0_original_A_original": {
             "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original",
             "status": "running",
-            "completed": 52,
+            "completed": 124,
             "target": 133,
-            "active": 40,
+            "active": 9,
             "phase_hist": {
-              "0": 11,
-              "1": 24,
-              "2": 10,
-              "3": 2,
-              "4": 1,
-              "5": 1,
-              "6": 2,
+              "0": 18,
+              "1": 60,
+              "2": 26,
+              "3": 7,
+              "4": 4,
+              "5": 5,
+              "6": 3,
               "7": 1,
               "8": 0,
               "9": 0,
@@ -6582,7 +6656,7 @@
         "extra_evaluation_condition": "sticky60degree termination",
         "method": "mem0_original",
         "phase": "A_original",
-        "observed_epoch": 1793714785.160101,
+        "observed_epoch": 1793717106.4431436,
         "platform_status": "RUNNING",
         "cohorts": [
           {
@@ -6591,23 +6665,25 @@
             "condition": "off",
             "shard": "resume_ab03",
             "processes_per_gpu": 10,
-            "n": 25,
+            "n": 63,
             "target": 100,
             "success": null,
             "terminal_successes_observed": 0,
             "unknown": 0,
             "phase_hist": {
-              "0": 6,
-              "1": 13,
+              "0": 10,
+              "1": 30,
+              "3": 6,
               "7": 1,
-              "2": 3,
+              "2": 11,
               "6": 1,
-              "3": 1
+              "5": 2,
+              "4": 2
             },
-            "mean_phase": 1.4,
+            "mean_phase": 1.6031746031746033,
             "order_split": {
-              "12345": 13,
-              "54321": 12
+              "12345": 34,
+              "54321": 29
             },
             "status": "running_progress_only",
             "open_loop": "pending",
@@ -6619,24 +6695,24 @@
             "condition": "off",
             "shard": "resume_ab03",
             "processes_per_gpu": 10,
-            "n": 27,
+            "n": 61,
             "target": 100,
             "success": null,
             "terminal_successes_observed": 0,
             "unknown": 0,
             "phase_hist": {
-              "1": 11,
+              "1": 30,
+              "2": 15,
               "3": 1,
-              "2": 7,
-              "0": 5,
-              "4": 1,
-              "6": 1,
-              "5": 1
+              "0": 8,
+              "4": 2,
+              "5": 3,
+              "6": 2
             },
-            "mean_phase": 1.5925925925925926,
+            "mean_phase": 1.6065573770491803,
             "order_split": {
-              "54321": 15,
-              "12345": 12
+              "54321": 32,
+              "12345": 29
             },
             "status": "running_progress_only",
             "open_loop": "pending",
@@ -6646,19 +6722,19 @@
         "sustained_gpu": {
           "status": "qualified600s",
           "duration_s": 600,
-          "observed_span_s": 637.2663207054138,
+          "observed_span_s": 632.1918952465057,
           "samples": 22,
-          "all_card_utilization_mean_pct": 76.2945727968216,
+          "all_card_utilization_mean_pct": 67.80461123436689,
           "per_card_utilization_mean_pct": [
-            76.09887278358141,
-            72.18132877707481,
-            72.72702741463979,
-            84.17106221199036
+            76.36857035597166,
+            56.38205823381742,
+            80.54455519557,
+            57.92326115210851
           ],
-          "all_card_memory_mean_pct": 57.44142561325807,
+          "all_card_memory_mean_pct": 42.2371671170172,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
-          "latest_epoch": 1793714769.3432162,
-          "age_s": 17.681793689727783
+          "latest_epoch": 1793717093.55369,
+          "age_s": 22.852851152420044
         }
       }
     },
@@ -6669,21 +6745,22 @@
         "method": "mem0_original",
         "horizon": 4,
         "condition": "off",
-        "n": 57,
+        "n": 95,
         "unknown": 2,
         "target": 100,
         "phase_hist": {
-          "0": 10,
-          "1": 30,
-          "2": 10,
+          "0": 14,
+          "1": 47,
+          "2": 18,
           "6": 2,
-          "3": 3,
-          "4": 1,
-          "7": 1
+          "3": 8,
+          "4": 3,
+          "7": 1,
+          "5": 2
         },
         "order_split": {
-          "12345": 27,
-          "54321": 30
+          "12345": 48,
+          "54321": 47
         },
         "success": null,
         "terminal_successes_observed": 0,
@@ -6704,31 +6781,31 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 25
+            "known_n": 63
           }
         ],
         "status": "progress_only; soft input gate pending",
-        "mean_phase": 1.4385964912280702
+        "mean_phase": 1.5578947368421052
       },
       {
         "method": "mem0_original",
         "horizon": 8,
         "condition": "off",
-        "n": 59,
+        "n": 93,
         "unknown": 1,
         "target": 100,
         "phase_hist": {
-          "0": 10,
-          "1": 29,
+          "0": 13,
+          "1": 48,
           "3": 4,
-          "2": 12,
-          "5": 2,
-          "4": 1,
-          "6": 1
+          "2": 20,
+          "5": 4,
+          "4": 2,
+          "6": 2
         },
         "order_split": {
-          "12345": 27,
-          "54321": 32
+          "12345": 44,
+          "54321": 49
         },
         "success": null,
         "terminal_successes_observed": 0,
@@ -6749,11 +6826,11 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 27
+            "known_n": 61
           }
         ],
         "status": "progress_only; soft input gate pending",
-        "mean_phase": 1.4406779661016949
+        "mean_phase": 1.5053763440860215
       },
       {
         "method": "ours_aligned",
@@ -6878,7 +6955,7 @@
         "mean_phase": 0.76
       }
     ],
-    "formal_A_completed_progress": 449,
+    "formal_A_completed_progress": 521,
     "terminal_unknown": 5,
     "terminal_inventory": {
       "known_ids": [
@@ -6901,14 +6978,35 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene017_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene018_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene019_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene020_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene021_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene022_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene023_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene024_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene025_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene026_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene027_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene028_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene029_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene030_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene031_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene032_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene033_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene034_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene035_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene036_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene037_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene038_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene039_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene040_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene041_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene042_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene043_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene044_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene045_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene046_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene047_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene049_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene050_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene051_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene052_seed910100",
@@ -6929,6 +7027,7 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene067_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene068_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene070_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene071_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene072_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene073_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene074_seed910100",
@@ -6938,7 +7037,23 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene078_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene079_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene080_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene081_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene082_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene083_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene084_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene085_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene086_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene087_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene088_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene089_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene090_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene092_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene093_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene094_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene096_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene097_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene098_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene099_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene000_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene001_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene002_seed910100",
@@ -6950,22 +7065,39 @@
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene008_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene009_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene010_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene011_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene012_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene013_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene014_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene015_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene016_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene017_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene019_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene020_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene021_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene022_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene023_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene025_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene026_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene027_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene028_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene029_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene031_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene033_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene034_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene035_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene036_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene037_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene038_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene039_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene041_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene042_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene043_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene044_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene046_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene047_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene048_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene049_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene050_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene051_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene052_seed910100",
@@ -6982,13 +7114,16 @@
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene063_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene064_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene065_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene066_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene067_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene068_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene069_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene070_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene071_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene072_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene073_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene074_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene075_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene076_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene077_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene078_seed910100",
@@ -6998,6 +7133,20 @@
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene082_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene083_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene084_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene085_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene086_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene087_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene088_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene089_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene090_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene091_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene093_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene094_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene095_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene096_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene097_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene098_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene099_seed910100",
         "task10_evalv1_round2_mem0_weak_off_30k_h4_scene000_seed910100",
         "task10_evalv1_round2_mem0_weak_off_30k_h4_scene001_seed910100",
         "task10_evalv1_round2_mem0_weak_off_30k_h4_scene002_seed910100",
@@ -7341,8 +7490,8 @@
       ],
       "expected_ids_sha256": "cb2a23c2e337c07c8d6d406c43147f9cb855e2ce7de6f3b94146d8a1feeb34ae",
       "all600_accounted": false,
-      "known_independently_qualified": 448,
-      "all_known_independently_qualified": false,
+      "known_independently_qualified": 521,
+      "all_known_independently_qualified": true,
       "qualified_index": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_sealed_cases_20261103/INDEX.json"
     },
     "auxiliary_cohorts_aggregated": [],
@@ -14071,48 +14220,1144 @@
         "failure_reason": "object_toppled",
         "status": "physical_failure",
         "sim_seconds": 61.425
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene084_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 84,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.791666666666664
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene082_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 82,
+        "evaluation_seed": 910100,
+        "physical_phases": 4,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 72.6
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene035_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 35,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 46.266666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene086_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 86,
+        "evaluation_seed": 910100,
+        "physical_phases": 3,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 53.65833333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene035_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 35,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 51.166666666666664
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene086_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 86,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 33.75833333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene036_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 36,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 31.891666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene039_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 39,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 29.016666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene011_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 11,
+        "evaluation_seed": 910100,
+        "physical_phases": 6,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene088_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 88,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.06666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene087_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 87,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 62.61666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene085_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 85,
+        "evaluation_seed": 910100,
+        "physical_phases": 3,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 71.825
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene088_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 88,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.34166666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene039_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 39,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 40.50833333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene089_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 89,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 27.825
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene084_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 84,
+        "evaluation_seed": 910100,
+        "physical_phases": 5,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 88.51666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene085_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 85,
+        "evaluation_seed": 910100,
+        "physical_phases": 4,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 86.6
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene038_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 38,
+        "evaluation_seed": 910100,
+        "physical_phases": 3,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 59.575
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene089_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 89,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.06666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene037_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 37,
+        "evaluation_seed": 910100,
+        "physical_phases": 5,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 94.7
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene040_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 40,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 45.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene066_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 66,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene041_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 41,
+        "evaluation_seed": 910100,
+        "physical_phases": 3,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 55.84166666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene023_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 23,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 183.625
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene043_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 43,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 28.316666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene042_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 42,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 43.525
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene043_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 43,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 29.9
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene016_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 16,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene027_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 27,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene093_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 93,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 43.80833333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene090_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 90,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 64.1
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene092_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 92,
+        "evaluation_seed": 910100,
+        "physical_phases": 3,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 54.858333333333334
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene044_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 44,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 30.741666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene072_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 72,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene094_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 94,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 31.016666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene020_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 20,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene094_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 94,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 42.28333333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene046_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 46,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 24.733333333333334
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene045_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 45,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 42.166666666666664
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene042_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 42,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 80.6
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene046_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 46,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 13.916666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene028_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 28,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene095_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 95,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.675
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene047_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 47,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 14.55
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene087_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 87,
+        "evaluation_seed": 910100,
+        "physical_phases": 5,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 144.81666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene096_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 96,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 32.516666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene071_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 71,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene022_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 22,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene041_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 41,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 154.3
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene090_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 90,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 126.51666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene093_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 93,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 67.10833333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene097_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 97,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 29.05
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene047_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 47,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 29.7
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene096_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 96,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 43.208333333333336
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene098_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 98,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 32.016666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene026_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 26,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene091_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 91,
+        "evaluation_seed": 910100,
+        "physical_phases": 5,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 111.8
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene098_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 98,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 33.425
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene049_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 49,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 27.7
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene044_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 44,
+        "evaluation_seed": 910100,
+        "physical_phases": 4,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 96.19166666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene097_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 97,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 40.99166666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene049_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 49,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 44.85
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene099_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 99,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 41.88333333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene031_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 31,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene048_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 48,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 45.96666666666667
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene031_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 31,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene081_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 81,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene032_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 32,
+        "evaluation_seed": 910100,
+        "physical_phases": 0,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene038_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 38,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 235.41666666666666
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene099_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 99,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 46.675
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene075_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "54321",
+        "scene_index": 75,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene025_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 25,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene036_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 36,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": null,
+        "status": "time_limit",
+        "sim_seconds": 300.0
       }
     ],
     "qualified_contact_diagnostic": {
-      "epoch": 1793714787.0726998,
+      "epoch": 1793717116.4513016,
       "scored": false,
-      "completed": 448,
-      "qualified_target_at_snapshot": 448,
+      "completed": 521,
+      "qualified_target_at_snapshot": 521,
       "claim_boundary": "Up to2s recorded contact association before sticky60degree failure; not counterfactual causation. No success rules modified.",
       "groups": {
         "mem0_original|4|off": {
-          "n": 57,
+          "n": 95,
           "classifications": {
-            "toppled": 56,
-            "not_toppled": 1
+            "toppled": 85,
+            "not_toppled": 10
           },
           "hand_lifecycle": {
-            "not_enabled": 56
+            "not_enabled": 85
           },
           "affected_cup_lifecycle": {
-            "never_attached": 56
+            "never_attached": 85
           },
           "last_contact_body": {
-            "palm": 26,
-            "finger": 33,
-            "arm": 1
+            "palm": 36,
+            "finger": 52,
+            "arm": 2
           }
         },
         "mem0_original|8|off": {
-          "n": 58,
+          "n": 93,
           "classifications": {
-            "toppled": 58
+            "toppled": 85,
+            "not_toppled": 8
           },
           "hand_lifecycle": {
-            "not_enabled": 58
+            "not_enabled": 85
           },
           "affected_cup_lifecycle": {
-            "never_attached": 58
+            "never_attached": 85
           },
           "last_contact_body": {
-            "finger": 34,
-            "arm": 2,
-            "palm": 27,
+            "finger": 48,
+            "arm": 3,
+            "palm": 40,
             "no_robot_contact_within2s": 1
           }
         },
@@ -14227,10 +15472,10 @@
       "status": "qualified600s",
       "GPU_count": 4,
       "duration_s": 600,
-      "start_epoch": 1793714169.3432162,
-      "end_epoch": 1793714769.3432162,
-      "all_card_utilization_mean_pct": 76.2945727968216,
-      "all_card_memory_mean_pct": 57.441425613258055,
+      "start_epoch": 1793716493.55369,
+      "end_epoch": 1793717093.55369,
+      "all_card_utilization_mean_pct": 67.80461123436689,
+      "all_card_memory_mean_pct": 42.2371671170172,
       "source_paths": [
         "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original/RESOURCE_HISTORY.jsonl"
       ],
@@ -14243,10 +15488,10 @@
     }
   },
   "round2_qualified_diagnostic": {
-    "epoch": 1793714788.1763191,
+    "epoch": 1793717128.8238788,
     "scored": false,
     "source": "independently sealed120Hz/input/source checks",
-    "admission_open_loop": "pending",
+    "admission_open_loop": "passed",
     "unknown_handling": "retain in planned100 denominator; exclude from descriptive phase mean and matched-pair sets, never impute zero",
     "bootstrap": {
       "repeats": 10000,
@@ -14258,27 +15503,28 @@
         "method": "mem0_original",
         "horizon": 4,
         "condition": "off",
-        "qualified_n": 57,
+        "qualified_n": 95,
         "planned_n": 100,
         "order_split": {
-          "12345": 27,
-          "54321": 30
+          "12345": 48,
+          "54321": 47
         },
-        "mean_phases": 1.4385964912280702,
+        "mean_phases": 1.5578947368421052,
         "phase_histogram": {
-          "0": 10,
-          "1": 30,
-          "2": 10,
-          "3": 3,
+          "0": 14,
+          "1": 47,
+          "2": 18,
+          "3": 8,
           "6": 2,
-          "4": 1,
-          "7": 1
+          "4": 3,
+          "7": 1,
+          "5": 2
         },
         "success": null,
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_weak",
@@ -14301,7 +15547,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "ours_aligned",
@@ -14326,33 +15572,33 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_original",
         "horizon": 8,
         "condition": "off",
-        "qualified_n": 58,
+        "qualified_n": 93,
         "planned_n": 100,
         "order_split": {
-          "12345": 27,
-          "54321": 31
+          "12345": 44,
+          "54321": 49
         },
-        "mean_phases": 1.4482758620689655,
+        "mean_phases": 1.5053763440860215,
         "phase_histogram": {
-          "0": 10,
-          "1": 28,
+          "0": 13,
+          "1": 48,
           "3": 4,
-          "2": 12,
-          "5": 2,
-          "6": 1,
-          "4": 1
+          "2": 20,
+          "5": 4,
+          "6": 2,
+          "4": 2
         },
         "success": null,
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_weak",
@@ -14375,7 +15621,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "ours_aligned",
@@ -14398,7 +15644,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_original",
@@ -14413,7 +15659,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_weak",
@@ -14428,7 +15674,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "ours_aligned",
@@ -14443,7 +15689,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_original",
@@ -14458,7 +15704,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "mem0_weak",
@@ -14473,7 +15719,7 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       },
       {
         "method": "ours_aligned",
@@ -14488,17 +15734,17 @@
         "success_rate": null,
         "Wilson95": null,
         "terminal_successes_observed_diagnostic": 0,
-        "status": "diagnostic; open_loop pending"
+        "status": "phase diagnostic; open_loop passed"
       }
     ],
     "paired": [
       {
         "condition": "off",
         "horizon": 4,
-        "matched_n": 53,
+        "matched_n": 65,
         "order_split": {
-          "12345": 24,
-          "54321": 29
+          "12345": 31,
+          "54321": 34
         },
         "full_balanced_100": false,
         "scene_indices": [
@@ -14520,12 +15766,19 @@
           16,
           18,
           19,
+          20,
           21,
+          22,
           23,
           24,
           25,
+          26,
+          27,
+          28,
           29,
           30,
+          31,
+          32,
           50,
           51,
           52,
@@ -14546,6 +15799,7 @@
           67,
           68,
           70,
+          71,
           72,
           73,
           74,
@@ -14554,46 +15808,51 @@
           77,
           79,
           80,
-          83
+          82,
+          83,
+          84,
+          85,
+          87
         ],
         "methods": {
           "mem0_original": {
-            "mean_phases": 1.3773584905660377,
+            "mean_phases": 1.4461538461538461,
             "bootstrap95": [
-              1.0754716981132075,
-              1.7358490566037736
+              1.1538461538461537,
+              1.7846153846153847
             ],
             "phase_histogram": {
-              "0": 8,
-              "2": 9,
-              "1": 30,
-              "4": 1,
+              "0": 11,
+              "2": 12,
+              "1": 33,
+              "4": 2,
               "6": 2,
-              "3": 3
+              "3": 4,
+              "5": 1
             }
           },
           "mem0_weak": {
-            "mean_phases": 1.0188679245283019,
+            "mean_phases": 0.9692307692307692,
             "bootstrap95": [
-              0.8490566037735849,
-              1.1886792452830188
+              0.8153846153846154,
+              1.123076923076923
             ],
             "phase_histogram": {
-              "1": 33,
-              "2": 9,
-              "0": 10,
+              "1": 40,
+              "2": 10,
+              "0": 14,
               "3": 1
             }
           },
           "ours_aligned": {
-            "mean_phases": 1.0943396226415094,
+            "mean_phases": 0.9384615384615385,
             "bootstrap95": [
-              0.7924528301886793,
-              1.4150943396226414
+              0.676923076923077,
+              1.2153846153846153
             ],
             "phase_histogram": {
-              "1": 22,
-              "0": 18,
+              "1": 25,
+              "0": 27,
               "2": 8,
               "3": 1,
               "4": 3,
@@ -14605,28 +15864,28 @@
           {
             "method_a": "mem0_weak",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.3584905660377358,
+            "mean_phase_difference": -0.47692307692307695,
             "paired_bootstrap95": [
-              -0.7924528301886793,
-              0.03773584905660377
+              -0.8615384615384616,
+              -0.1076923076923077
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.2830188679245283,
+            "mean_phase_difference": -0.5076923076923077,
             "paired_bootstrap95": [
-              -0.6981132075471698,
-              0.1320754716981132
+              -0.9076923076923077,
+              -0.12307692307692308
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_weak",
-            "mean_phase_difference": 0.07547169811320754,
+            "mean_phase_difference": -0.03076923076923077,
             "paired_bootstrap95": [
-              -0.2830188679245283,
-              0.4339622641509434
+              -0.3384615384615385,
+              0.2923076923076923
             ]
           }
         ]
@@ -14634,10 +15893,10 @@
       {
         "condition": "off",
         "horizon": 8,
-        "matched_n": 54,
+        "matched_n": 64,
         "order_split": {
-          "12345": 25,
-          "54321": 29
+          "12345": 31,
+          "54321": 33
         },
         "full_balanced_100": false,
         "scene_indices": [
@@ -14652,20 +15911,26 @@
           8,
           9,
           10,
+          11,
           12,
           13,
           14,
           15,
+          16,
           17,
           19,
           20,
           21,
           22,
+          23,
+          25,
           26,
           27,
           28,
           29,
+          31,
           33,
+          38,
           50,
           51,
           52,
@@ -14682,60 +15947,64 @@
           63,
           64,
           65,
+          66,
           67,
           68,
           69,
           70,
           71,
+          72,
           73,
           74,
+          75,
           76,
           77,
           78,
           79,
           81,
-          82
+          82,
+          84
         ],
         "methods": {
           "mem0_original": {
-            "mean_phases": 1.5185185185185186,
+            "mean_phases": 1.578125,
             "bootstrap95": [
-              1.2037037037037037,
-              1.8703703703703705
+              1.265625,
+              1.921875
             ],
             "phase_histogram": {
-              "0": 8,
-              "1": 26,
-              "2": 12,
+              "0": 9,
+              "1": 29,
+              "2": 17,
               "3": 4,
+              "6": 2,
               "4": 1,
-              "5": 2,
-              "6": 1
+              "5": 2
             }
           },
           "mem0_weak": {
-            "mean_phases": 0.7407407407407407,
+            "mean_phases": 0.734375,
             "bootstrap95": [
-              0.5555555555555556,
-              0.9259259259259259
+              0.578125,
+              0.90625
             ],
             "phase_histogram": {
               "2": 5,
-              "1": 27,
-              "0": 21,
+              "1": 34,
+              "0": 24,
               "3": 1
             }
           },
           "ours_aligned": {
-            "mean_phases": 0.7777777777777778,
+            "mean_phases": 0.765625,
             "bootstrap95": [
-              0.5740740740740741,
-              1.0
+              0.578125,
+              0.96875
             ],
             "phase_histogram": {
-              "1": 20,
-              "0": 24,
-              "2": 8,
+              "1": 25,
+              "0": 28,
+              "2": 9,
               "3": 2
             }
           }
@@ -14744,35 +16013,35 @@
           {
             "method_a": "mem0_weak",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.7777777777777778,
+            "mean_phase_difference": -0.84375,
             "paired_bootstrap95": [
-              -1.1481481481481481,
-              -0.42592592592592593
+              -1.203125,
+              -0.515625
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_original",
-            "mean_phase_difference": -0.7407407407407407,
+            "mean_phase_difference": -0.8125,
             "paired_bootstrap95": [
-              -1.1666666666666667,
-              -0.3333333333333333
+              -1.203125,
+              -0.4375
             ]
           },
           {
             "method_a": "ours_aligned",
             "method_b": "mem0_weak",
-            "mean_phase_difference": 0.037037037037037035,
+            "mean_phase_difference": 0.03125,
             "paired_bootstrap95": [
-              -0.25925925925925924,
-              0.3333333333333333
+              -0.234375,
+              0.3125
             ]
           }
         ]
       }
     ],
-    "source_ids_sha256": "d63a07adf823db4903e284fa448b690b887d240f8317164c1586ff029781c7a9",
-    "qualified_n": 448
+    "source_ids_sha256": "a79dd195899057532da918287a89c7e27f0ebdd643f0b97cbde3385e5a2e7387",
+    "qualified_n": 521
   },
   "stability_final_comparison": {
     "processed": 8523,
@@ -14797,7 +16066,7 @@
     "weak_a00_failure_before_model_reset_or_step": true
   },
   "round2_platform": {
-    "epoch": 1793714746.818717,
+    "epoch": 1793717138.8385813,
     "jobs": [
       {
         "group": "original_weak",
@@ -15071,17 +16340,315 @@
     "wall_s": 653.4535753726959
   },
   "openloop_input_boundary": {
-    "status": "pending prepared training input",
-    "raw22files_fetched": true,
-    "raw_parquet_missing": [
-      "subtask",
-      "subtask_end",
-      "global_task"
+    "status": "zone5 adapted input verified; native forward passed",
+    "zone": 5,
+    "files": 24,
+    "weak_authority": "delivered adapted Parquet; labelsSHA67b0747d declared in training info; source State JSON not supplied",
+    "TTC_sidecar_SHA_verified": true,
+    "TTC_DAG_SHA_verified": true,
+    "A_continues_soft_gate_pending": false,
+    "actual_FFV1_pixels_independently_checked": false,
+    "training_cache_metadata_attests_all_RGB_frames_verified": true
+  },
+  "open_loop_admission": {
+    "epoch": 1793716290.5513558,
+    "status": "passed",
+    "input_authority": "delivered adapted Parquet; no handwritten labels",
+    "reference": "mem0_original30k",
+    "episode_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      50,
+      51,
+      52,
+      53,
+      54
     ],
-    "reviewed_training_view_not_visible_on30109": true,
-    "mentor_reply_sent": true,
-    "A_continues_soft_gate_pending": true,
-    "cache_FFV1_to_source_H264_pixel_provenance_pending": true
+    "candidate_threshold_ratio": 1.5,
+    "methods": {
+      "mem0_original": {
+        "status": "passed",
+        "passed": true,
+        "arm_rmse_rad": 0.025739512785998578,
+        "ratio_to_reference": 1.0,
+        "sample_points": 600,
+        "arm_scalar_count": 126000,
+        "wall_s": 619.7450761795044,
+        "per_episode": [
+          {
+            "episode_index": 0,
+            "arm_rmse_rad": 0.0359432551737245,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 1,
+            "arm_rmse_rad": 0.03066214970847893,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 2,
+            "arm_rmse_rad": 0.030014170130142757,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 3,
+            "arm_rmse_rad": 0.036377616216965634,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 4,
+            "arm_rmse_rad": 0.02758759683738188,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 50,
+            "arm_rmse_rad": 0.018606937121145906,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 51,
+            "arm_rmse_rad": 0.016483362389315786,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 52,
+            "arm_rmse_rad": 0.015919317463562357,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 53,
+            "arm_rmse_rad": 0.01672706987969487,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 54,
+            "arm_rmse_rad": 0.01602324617334487,
+            "scalar_count": 12600,
+            "sample_points": 60
+          }
+        ],
+        "source_result_SHA256": "69a626c2dee417c5dbb41978f8d5a9cfc53f52a2738c7bd1255a35d2b37b7e46"
+      },
+      "mem0_weak": {
+        "status": "passed",
+        "passed": true,
+        "arm_rmse_rad": 0.025646819092321353,
+        "ratio_to_reference": 0.9963987782345419,
+        "sample_points": 600,
+        "arm_scalar_count": 126000,
+        "wall_s": 626.9543414115906,
+        "per_episode": [
+          {
+            "episode_index": 0,
+            "arm_rmse_rad": 0.03354035864402162,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 1,
+            "arm_rmse_rad": 0.0284078481707659,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 2,
+            "arm_rmse_rad": 0.030896982575458296,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 3,
+            "arm_rmse_rad": 0.03763798717055191,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 4,
+            "arm_rmse_rad": 0.02987221402583139,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 50,
+            "arm_rmse_rad": 0.018016720822685788,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 51,
+            "arm_rmse_rad": 0.01720594734128911,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 52,
+            "arm_rmse_rad": 0.015520690797096419,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 53,
+            "arm_rmse_rad": 0.014785116075581582,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 54,
+            "arm_rmse_rad": 0.0173753464786901,
+            "scalar_count": 12600,
+            "sample_points": 60
+          }
+        ],
+        "source_result_SHA256": "6446a70668340005a6050c60d2fe201f16ee0c26d3a2901b1e0a402abc8d2aa8"
+      },
+      "ours_aligned": {
+        "status": "passed",
+        "passed": true,
+        "arm_rmse_rad": 0.02711886426033141,
+        "ratio_to_reference": 1.053588872711031,
+        "sample_points": 600,
+        "arm_scalar_count": 126000,
+        "wall_s": 510.6832854747772,
+        "per_episode": [
+          {
+            "episode_index": 0,
+            "arm_rmse_rad": 0.03504611390054271,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 1,
+            "arm_rmse_rad": 0.033933924512403235,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 2,
+            "arm_rmse_rad": 0.029029371189663415,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 3,
+            "arm_rmse_rad": 0.04348011209811165,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 4,
+            "arm_rmse_rad": 0.030209352985217465,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 50,
+            "arm_rmse_rad": 0.017416028877292735,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 51,
+            "arm_rmse_rad": 0.01657180487400605,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 52,
+            "arm_rmse_rad": 0.01424227656861671,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 53,
+            "arm_rmse_rad": 0.017894759203670875,
+            "scalar_count": 12600,
+            "sample_points": 60
+          },
+          {
+            "episode_index": 54,
+            "arm_rmse_rad": 0.015091371057371369,
+            "scalar_count": 12600,
+            "sample_points": 60
+          }
+        ],
+        "source_result_SHA256": "35096a6827a139b04147431743b18e79ca87eeacc6d10ff2d3ce08c3b191d423"
+      }
+    },
+    "TTC_actual_SHA_verified": {
+      "kf_sidecar.json": "39a0dc3256eb2f1116ee56e2e1e74a691a473a9f0a755101474ad184d1f243bd",
+      "memory_dependencies.json": "ea0eae438f130a5f51837aef11f063d8a3adf338915f87b57f5378c6d6e0dd83"
+    },
+    "weak_source_labels_SHA_declared_in_training_info": "67b0747df3ead0f9602d778b209f7de00d506bc842711f41a0d00f47944a87f0",
+    "weak_source_State_JSON_independently_hashed": false,
+    "same_sampling_positions_and_masks": true,
+    "open_loop_only_not_closed_loop_success": true,
+    "training_images": "source chest H264; training FFV1 cache metadata attests RGB equality; actual FFV1 not independently decoded",
+    "prediction_horizon": 30,
+    "denoising_steps": 8,
+    "action_target": "interval_end",
+    "metric": "valid future target first7 arm joints RMSE in radians; chronological native training MemoryBank; no Planner/oracle feedback"
+  },
+  "TTC_reuse_diagnostic": {
+    "passed": true,
+    "scored": false,
+    "method": "ours_aligned30k",
+    "production_hook": true,
+    "production_pool_count": 1,
+    "frames_per_lane": 64,
+    "independent_lanes": 2,
+    "switch_frames": [
+      16,
+      32,
+      48
+    ],
+    "prediction_chunks": 32,
+    "maximum_fused_feature_difference": 0.0,
+    "maximum_raw_action_difference": 0.0,
+    "private_Gen_runtime_and_cluster": true,
+    "private_memory_bank_and_RNG": true,
+    "template_load_s": 21.00793827790767,
+    "construction_timings": [
+      {
+        "horizon": 4,
+        "full_construct_s": 9.420544917695224,
+        "shared_construct_s": 8.99236304499209
+      },
+      {
+        "horizon": 8,
+        "full_construct_s": 9.464029700029641,
+        "shared_construct_s": 0.2634119298309088
+      }
+    ],
+    "wall_s": 70.71000623703003,
+    "source_hashes": {
+      "shared_executor_candidate.py": "a00e664ba0257a9f96959332234f822abf25012ec77c5807d28c535d0c028767",
+      "probe_shared_ttc_hook.py": "19223328fcb5ecb5f4dbe467fca274dd70ae121a98db10f7585e3693f8c758f6"
+    },
+    "transition_source": "unmodified native training MemoryBank.forward with explicit diagnostic subtask/KF/DAG fixtures; no online classifier, Planner or world reuse claim"
+  },
+  "TTC_reuse_deployment": {
+    "passed": true,
+    "unstarted_only": true,
+    "bundles": [
+      "resume03_ours_aligned",
+      "attach_ours_aligned"
+    ],
+    "aliases": 2,
+    "epoch": 1793715479.1470854,
+    "proof": "SHARED_TTC_HOOK_RESULT.json",
+    "active_original_cases_untouched": true
   },
   "original30k_input_gate": {
     "passed": true,
@@ -15100,6 +16667,281 @@
       "source/training/utils/trainer_tools.py": "15857437c5f186daad150038680b0a52d877f8bb34465cb394d9d09aedcc6d16"
     }
   },
+  "completed_Eval_v1_scores": [
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "mem0_weak",
+      "ckpt": 30000,
+      "execution_horizon": 4,
+      "condition": "off",
+      "condition_version": "original-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 100,
+      "success": 0,
+      "unknown": 0,
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "order_split": {
+        "12345": 50,
+        "54321": 50
+      },
+      "mean_phases": 0.98,
+      "phase_distribution": {
+        "2": 18,
+        "1": 59,
+        "0": 22,
+        "3": 1
+      },
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "trials": 100,
+      "completed": 100,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.98,
+      "phase_hist": {
+        "2": 18,
+        "1": 59,
+        "0": 22,
+        "3": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
+    },
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "mem0_weak",
+      "ckpt": 30000,
+      "execution_horizon": 8,
+      "condition": "off",
+      "condition_version": "original-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 100,
+      "success": 0,
+      "unknown": 0,
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "order_split": {
+        "12345": 50,
+        "54321": 50
+      },
+      "mean_phases": 0.76,
+      "phase_distribution": {
+        "0": 36,
+        "1": 54,
+        "2": 8,
+        "3": 2
+      },
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "trials": 100,
+      "completed": 100,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.76,
+      "phase_hist": {
+        "0": 36,
+        "1": 54,
+        "2": 8,
+        "3": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
+    }
+  ],
+  "formal_Eval_v1_score_published": true,
   "preexisting_legacy_schema_repair": {
     "records": 87,
     "ids": [

@@ -41,10 +41,53 @@
 
 ## 第2轮新增的可复用结果
 
-- N1×10准入：固定场景0/50/1/51，第0/50帧，20组图像检查最大MAE0.821/255；阈值1/255。原始接触阶段维持8进程/卡；附着阶段计划4卡、10进程/卡，每卡两个B1执行器服务各5条独立lane。
-- Mem-0原版与weak的只读NN模块复用已分别完成64帧、2条交错lane、3次子任务切换、h4/h8共32个chunk的对照，特征和原始动作最大差均为0。MemoryBank、轨迹计数器和随机数流独立；无额外reset。原版单次完整构造约11–13秒，weak约8–9秒；复用构造约0.005秒。未对TTC宣称同类复用验证。
+- N1×10准入：固定场景0/50/1/51，第0/50帧，20组图像检查最大MAE0.821/255；阈值1/255。原始前期8进程/卡、第三次续跑10进程/卡；附着阶段计划4卡、10进程/卡，每卡两个B1执行器服务各5条独立lane。
+- Mem-0原版与weak的只读NN模块复用已分别完成64帧、2条交错lane、3次子任务切换、h4/h8共32个chunk的对照，特征和原始动作最大差均为0。MemoryBank、轨迹计数器和随机数流独立；无额外reset。原版单次完整构造约11–13秒，weak约8–9秒；复用构造约0.005秒。TTC随后也通过相同对照及生产hook对照，细节见下文。
 - 原始阶段仍有冷启动开销：27条记录中初始化中位131秒，占单条墙钟中位40.9%。尚未把未经验证的常驻reset引入正式评测。更高k的净吞吐与持续GPU利用率仍需实测，不能把k10的图像准入当性能达标。
 - 2026-11-03第二轮一次完整共同600秒窗口，8卡持续利用率均值67.88%、显存48.72%；这是该窗口的时间加权均值，并非峰值或整个运行期均值。最新窗口随主报告更新。当前未证明达到80%目标。
 - PNG参考图改为包内固定字节并核对SHA256，避免依赖外部空目录。终态日志写persistent快盘并fsync；CPU进程独立复核120Hz物理、输入哈希、源码哈希，再压缩封存。共享盘异步复制失败只记待归档。
 - 阶段A600条结算后才切换统一attach-v2_solver128；全部有效终态需CPU独立验收，unknown不重试。原始任务平台占卡归零后，仅申请一个4卡意图；网络重连只允许在任何创建派发之前，创建不确定时保留同一键查证。
+
+
+# 十任务：常驻推理服务与只读模型复用
+
+部署根目录：`/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/`。资源区10另有同内容的 `/projects/a02012413/buckets/zenith-a02012413/liyufeng/` 挂载别名。
+
+## 接入位置
+
+- 通用池：`shared_executor_candidate.py`，类 `SharedExecutorPool`。将尚未接收观测的原生执行器作为模板，deepcopy时只memo三个只读NN模块 `qwen_model/action_model/classifier` 及归一化器。不能拿已经执行过的lane作模板。
+- 原版/weak服务：各自 `stageA_round2/.../model_server.py` 与 `shared_weak_runtime.py`。HTTP服务整个worker期间常驻，每卡两个B1服务，各lane仍逐条推理。
+- TTC入口：`shared_ttc_runtime.py:install()`，在 `safelab_delivery.create_policy()` 之前安装。只替换执行器构造入口，保留原生策略工厂和Planner/DAG调用路径。
+- TTC正式候选已安装在尚未启动的 `stageA_round2/resume03_ours_aligned/`，以及未来的 `attach_ours_aligned/`；`CAMPAIGN_SOURCE_MANIFEST.json`包含所有新增文件SHA。部署前验证目标运行目录不存在；进行中的原版case及已归档case不改写。
+
+## 共享边界
+
+共享：只读执行器NN权重和归一化统计。每个服务保留一份未观测模板。TTC池按配置内容SHA、classifier contract内容SHA、checkpoint、统计、backbone、device选择；不能按每条重新生成的runtime目录名选择，否则缓存失效。
+
+每条新建：MemoryBank、所有帧/动作/子任务计数、动作chunk缓存、Python/NumPy/CPU-CUDA RNG状态、Gen运行状态、cluster、config、策略、Planner/DAG状态和审计路径。TTC的Gen NN也deepcopy，未在本轮扩大其共享范围。lane调用前恢复该lane RNG，调用后保存并恢复服务外层RNG；HTTP服务用锁串行执行推理，不让随机数流并发交错。
+
+释放case时仅销毁lane，不销毁服务模型池。不重发结果未知的HTTP推理请求。每个case有独立请求命名空间和输入/源码哈希。
+
+场景资产：同一slot复用磁盘上的shader/Kit/CUDA缓存；**Isaac场景、PhysX world及仿真进程仍逐case新建**。本次没有验证常驻world的reset，不能把它作为已部署功能。迁移到其他任务时，场景常驻需另做配对回放、frame0/50图像和接触轨迹检查。
+
+## 对照方法与通过标准
+
+1. 冷构造参考lane和复用lane使用同checkpoint、图像、实测q、指令、推理seed。
+2. 2个交错lane，各64帧，h4/h8；frame16/32/48三次记忆阶段切换。固定输入下比较融合特征、attention mask和32个原始动作chunk，最大差必须为0；并核对MemoryBank、RNG、Gen/cluster/config对象独立。
+3. TTC另经真实工厂hook测试：每次 `prepare_runtime` 返回不同目录，仍只构造一个pool；参考冷构造与hook lane输出差为0。
+4. 这些是显式训练记忆切换fixture的无分数诊断，不能当作在线Gen完成判定、Planner或world reset的验证。
+
+证据：`SHARED_EXECUTOR_ORIGINAL_V2_RESULT.json`、`SHARED_EXECUTOR_WEAK_V2_RESULT.json`、`SHARED_TTC_V3_RESULT.json`、`SHARED_TTC_HOOK_RESULT.json`、`TTC_REUSE_DEPLOYED.json`。
+
+## 已测收益与限制
+
+- 原版完整构造约11–13秒，weak约8–9秒；池克隆约0.005秒。
+- TTC裸池冷构造8.91–10.85秒，克隆0.020–0.028秒。真实工厂hook首次构造含模板约8.99秒；第二条含runtime准备0.263秒，对应冷构造9.46秒。
+- 这是执行器构造耗时，不能称整条轨迹提速30–40%。初始化/settle中位131秒、占单条40.9%，还包含仿真启动和场景加载；这些尚未消除。
+- k10已过4场景frame0/50准入，最大MAE0.821/255。原版续跑某个完整四卡600秒窗口利用率78.96%、显存58.07%；其他节点和最新全卡窗口单列，不把子组窗口称为整个运行期成绩。
+- 启动许可按卡串行、空闲显存至少32GiB，执行器新建至少9GiB；容量查询失败暂停新启动。提高k必须重新做图像准入及持续资源测量，不能按显存余量直接推断吞吐。
+
+## 抢占恢复
+
+查询官方终态、保留已封存成功/失败与unknown，核对两次稳定库存后生成未闭合清单。新意图使用新键，重试同一次意图保持原键；UNKNOWN先by-key对账。新worker携已验证模型池和k值启动，旧根目录保留。所有同步/PNG/源码证据先写本地盘，CPU独立验收后封存，共享盘异步归档失败不停止仿真。
 </pre></body></html>

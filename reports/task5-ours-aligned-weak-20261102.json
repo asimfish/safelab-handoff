@@ -7,8 +7,8 @@
   "seed_count": 5,
   "trials_per_seed": 100,
   "status": "running",
-  "completed": 187,
-  "audited": 187,
+  "completed": 188,
+  "audited": 188,
   "successes": 0,
   "final_verified": false,
   "counts": [
@@ -147,15 +147,15 @@
       "condition": "baseline",
       "execution_horizon": 30,
       "target": 500,
-      "completed": 31,
-      "audited": 31,
+      "completed": 32,
+      "audited": 32,
       "successes": 0,
       "seeds": [
         {
           "repeat": 0,
           "target": 100,
-          "completed": 31,
-          "audited": 31,
+          "completed": 32,
+          "audited": 32,
           "successes": 0,
           "final_verified": false,
           "success_rate": null
@@ -2008,6 +2008,23 @@
       "attempt_priority": 0
     },
     {
+      "id": "oursalignedweak30_mem0_30000_h30_reverse_016",
+      "variant": "oursalignedweak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 730016,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 18.458333333333332,
+      "physics_sha256": "e5a6a659f7b8f58e264596da963c29897abbf79fb570cd319b2bdeaa74d4bae1",
+      "source_job_id": "job-qc8mx9m974a5",
+      "attempt_priority": 0
+    },
+    {
       "id": "attach__oursalignedweak30_mem0_30000_h8_forward_000",
       "variant": "oursalignedweak30",
       "checkpoint_step": 30000,
@@ -3585,50 +3602,44 @@
       "resource_class": "low_priority",
       "slots_per_GPU": 5,
       "resources": {
-        "epoch": 1793683815.5584934,
+        "epoch": 1793683996.2171826,
         "status": "running",
-        "completed": 187,
+        "completed": 188,
         "target": 600,
         "memory": {
           "limit": "858993459200",
-          "current": "363763646464",
+          "current": "364015587328",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 26602401792
+          "shm_used": 26731372544
         },
-        "gpu": "0, 69131, 57\n1, 69386, 23\n2, 51123, 38\n3, 51125, 38\n"
+        "gpu": "0, 69131, 47\n1, 69418, 45\n2, 51123, 26\n3, 51125, 44\n"
       },
       "active_apps": 20,
       "startup_gates": 4,
       "error": false
-    },
-    {
-      "job_id": "standalone-issue17-r1-pro0-20261103",
-      "cohort": "issue17_r1",
-      "repeat": 1,
-      "publish": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_ours_aligned_weak_20261102/pilots/issue17_r1_pro0_20261103",
-      "platform_status": "UNKNOWN",
-      "runtime_status": "starting",
-      "historical": false,
-      "gpus": 1,
-      "resource_class": "existing_dedicated_server",
-      "slots_per_GPU": 0,
-      "resources": null,
-      "active_apps": 0,
-      "startup_gates": 0,
-      "error": false
     }
   ],
-  "gpus": 5,
+  "gpus": 4,
   "global_low_priority_GPU_cap": 12,
   "low_priority_gpus": 4,
-  "existing_server_gpus": 1,
+  "existing_server_gpus": 0,
   "max_parallel_apps": 20,
   "active_apps": 20,
-  "updated_at": "2026-11-03T05:30:27.308691+00:00",
+  "updated_at": "2026-11-03T05:33:36.260056+00:00",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
   "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
-  "resource_policy": "复用唯一12卡低优调度器，UNKNOWN仍预留4卡；另用已授权Pro现有空闲GPU0执行48条后续seed，GPU1原进程保留。小批次完成并核验清理与原始证据导出后，由云端接续剩余轨迹。现有服务器显卡单列，不增加低优卡数。新套件独立于原18000条。",
-  "execution_topology": "云端每GPU五个独立N1进程；Pro GPU0四个独立N1进程。N4全程对照已完成，本轮吞吐未达加速门槛，未纳入正式结果。",
-  "source_issue": "https://github.com/asimfish/safelab-handoff/issues/17"
+  "resource_policy": "唯一12卡低优调度器，UNKNOWN仍预留4卡；已授权现有服务器仅在确有空闲时增开小批次，显卡单列。Pro GPU0额外48条启动在GPU被占用后由预检拦下，未加载模型或生成轨迹；确认无残留后交回四卡队列。新套件独立于原18000条。",
+  "execution_topology": "云端每GPU五个独立N1进程。N4全程对照已完成，本轮吞吐未达加速门槛，未纳入正式结果。Pro额外批次未通过资源预检，未计入正式结果。",
+  "source_issue": "https://github.com/asimfish/safelab-handoff/issues/17",
+  "multienv_validation": {
+    "status": "completed_not_qualified",
+    "N4_rate_ratio": 0.7411881662837772,
+    "formal_qualification": false,
+    "own_workers_closed": true,
+    "formal_trials_added": 0,
+    "model_variant": "old30: fixed-data Mem-0 30k",
+    "execution_horizon": 8,
+    "scope_includes_issue17_model": false
+  }
 }

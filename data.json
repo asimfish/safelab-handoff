@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T16:05:25.880164+00:00",
+  "updated_at": "2026-11-03T16:15:16.254000+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1541,7 +1541,7 @@
           "path": "/public_fast_storage/liyufeng/safelab_task10_issue26_20261103/package/weights/executor_step30000.pt",
           "sha256": "e04a8bdef3589aee5ad3be9a85a714f6d162b16feafa64d7ee6d2933024485d8",
           "status": "running",
-          "availability": "Zone5 TOS交付入口已确认，Zone10副本核验中"
+          "availability": "Zone5 TOS取包，Zone10副本428文件逐个SHA核验通过"
         }
       ],
       "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours_weak/chest/START_HERE.md",
@@ -1555,10 +1555,10 @@
         "action": "13维绝对关节目标 / interval_end",
         "completion": "本包专属weak Gen2.1-311 + next Planner + DAG Planner决定在线切换；原生分类头只参与训练loss",
         "torch": "2.7.1+cu128（评测环境，与当前基线一致）",
-        "image_preprocessing": "训练张量双线性+AA候选；本模型逐像素准入待完成",
-        "executor_run": "safelab10_weak_ours_chest_20261102/dag（交付文档路径；checkpoint回读待核对）"
+        "image_preprocessing": "训练张量双线性+AA；本模型5张图逐像素差为0",
+        "executor_run": "safelab10_weak_ours_chest_20261102_dag；checkpoint_provenance.run_id=/project_a02012413/241106036/wangpeishuo/experiments/safelab10_weak_ours_chest_20261102"
       },
-      "note": "weak语言标签 + TTC对齐loss；只发布30k。四项准入通过后执行原始接触h4/h8各100。N1×10，8卡总上限；不新增h30/额外seed。",
+      "note": "weak语言标签 + TTC对齐loss；只发布30k。硬准入三项通过后执行原始接触h4/h8各100；软开环可并行，最终通过后才能发布正式成绩。N1×10，8卡总上限；不新增h30/额外seed。",
       "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
       "source": "GitHub checkpoint #26; independent delivery",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
@@ -1595,7 +1595,7 @@
           "path": "/public_fast_storage/liyufeng/safelab_task10_issue26_20261103/package/weights/executor_step30000.pt",
           "sha256": "e04a8bdef3589aee5ad3be9a85a714f6d162b16feafa64d7ee6d2933024485d8",
           "status": "running",
-          "availability": "Zone5 TOS交付入口已确认，Zone10副本核验中"
+          "availability": "Zone5 TOS取包，Zone10副本428文件逐个SHA核验通过"
         }
       ],
       "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_10_weigh_5beakers_v180/ours_weak/chest/START_HERE.md",
@@ -1609,8 +1609,8 @@
         "action": "13维绝对关节目标 / interval_end",
         "completion": "本包专属weak Gen2.1-311 + next Planner + DAG Planner决定在线切换；原生分类头只参与训练loss",
         "torch": "2.7.1+cu128（评测环境，与当前基线一致）",
-        "image_preprocessing": "训练张量双线性+AA候选；本模型逐像素准入待完成",
-        "executor_run": "safelab10_weak_ours_chest_20261102/dag（交付文档路径；checkpoint回读待核对）"
+        "image_preprocessing": "训练张量双线性+AA；本模型5张图逐像素差为0",
+        "executor_run": "safelab10_weak_ours_chest_20261102_dag；checkpoint_provenance.run_id=/project_a02012413/241106036/wangpeishuo/experiments/safelab10_weak_ours_chest_20261102"
       },
       "note": "weak语言标签 + TTC对齐loss；只发布30k。原始A完成后执行同一attach-v2_solver128。N1×10，8卡总上限；不新增h30/额外seed。",
       "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
@@ -18705,7 +18705,7 @@
       "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -18811,7 +18811,7 @@
       "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -18912,12 +18912,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 3,
+      "completed": 7,
       "kind": "自主闭环",
       "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -18935,10 +18935,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.3333333333333333,
+      "mean_phase": 1.1428571428571428,
       "phase_hist": {
-        "1": 2,
-        "2": 1
+        "1": 4,
+        "2": 2,
+        "0": 1
       },
       "wilson95": null,
       "admission": {
@@ -18969,8 +18970,8 @@
           "order_split": null
         }
       },
-      "known_terminal_count": 3,
-      "independently_verified": 3,
+      "known_terminal_count": 7,
+      "independently_verified": 7,
       "expected_start": "等待原始A完成；同一v2辅助阶段",
       "display_priority": 300,
       "lr_split": {
@@ -19012,12 +19013,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 4,
+      "completed": 8,
       "kind": "自主闭环",
       "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19035,10 +19036,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.25,
+      "mean_phase": 1.1428571428571428,
       "phase_hist": {
-        "2": 1,
-        "1": 3
+        "2": 2,
+        "1": 4,
+        "0": 1
       },
       "wilson95": null,
       "admission": {
@@ -19069,8 +19071,8 @@
           "order_split": null
         }
       },
-      "known_terminal_count": 4,
-      "independently_verified": 4,
+      "known_terminal_count": 8,
+      "independently_verified": 7,
       "expected_start": "等待原始A完成；同一v2辅助阶段",
       "display_priority": 300,
       "lr_split": {
@@ -19117,7 +19119,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19214,7 +19216,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19311,7 +19313,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19421,7 +19423,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19529,7 +19531,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19626,7 +19628,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19723,7 +19725,7 @@
       "status": "模型准入中；未启动阶段A",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19820,7 +19822,7 @@
       "status": "模型准入中；未启动阶段A",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -19917,7 +19919,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -20014,7 +20016,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:05:25.880164+00:00",
+      "updated_at": "2026-11-03T16:15:16.254000+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",

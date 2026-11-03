@@ -1,6 +1,6 @@
 {
   "schema": "task7_eval_v1_pending_inventory.v1",
-  "updated_at": "2026-11-03T16:42:37.191260+00:00",
+  "updated_at": "2026-11-03T17:04:14.331033+00:00",
   "protocol_version": "SafeLab-Eval-v1",
   "task": 7,
   "data_version": "psibot_7_weigh_4beakers_v180",
@@ -107,8 +107,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -116,7 +116,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -145,13 +153,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "mem0_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -281,8 +289,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -290,7 +298,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -319,13 +335,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "mem0_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -455,8 +471,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -464,7 +480,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -493,13 +517,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "ttc_base_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -641,8 +665,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -650,7 +674,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -679,13 +711,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "ttc_base_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -827,8 +859,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -836,7 +868,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -865,13 +905,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "ttc_aligned_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -1013,8 +1053,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -1022,7 +1062,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -1051,13 +1099,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "ttc_aligned_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -1199,8 +1247,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -1208,7 +1256,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -1237,13 +1293,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "mem0_weak_30k",
       "handoff_issue": 3,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -1373,8 +1429,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -1382,7 +1438,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -1411,13 +1475,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "mem0_weak_30k",
       "handoff_issue": 3,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -1547,8 +1611,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -1556,7 +1620,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -1585,13 +1657,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "ttc_weak_aligned_30k",
       "handoff_issue": 18,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -1732,8 +1804,8 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": true,
-          "status": "passed",
+          "passed": false,
+          "status": "pending",
           "report": "reports/task7-eval-v1-20261103/native-admission.html#expert-replay",
           "gate_type": "hard",
           "evidence_file": "reports/task7-eval-v1-20261103/native-admission.json",
@@ -1741,7 +1813,15 @@
           "episodes": [
             0,
             50
-          ]
+          ],
+          "raw_action_physical_diagnostic_passed": true,
+          "raw_action_physical_stages": [
+            7,
+            7
+          ],
+          "actual_training_loader_targets_used": false,
+          "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+          "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
         },
         "open_loop": {
           "passed": false,
@@ -1770,13 +1850,13 @@
       "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
       "source": "reports/task7-eval-v1-20261103.html",
       "report_url": "reports/task7-eval-v1-20261103.html",
-      "updated_at": "2026-11-03T16:42:37.191260+00:00",
+      "updated_at": "2026-11-03T17:04:14.331033+00:00",
       "variant": "ttc_weak_aligned_30k",
       "handoff_issue": 18,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
-      "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+      "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
       "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -1967,7 +2047,7 @@
     "attach": "auxiliary only after matching original Stage A"
   },
   "admission": {
-    "expert_replay": "PASS: full training episodes0/50,2227/2341frames,7/7 original physical oracle,rc0 and exact scope cleanup",
+    "expert_replay": "PENDING actual interval_end training-target replay; prior raw-action physical diagnostic2/2 passed7/7 and is not relabelled failed",
     "render_multiframe": "FAIL:2 episodes x5 checkpoints; all actual train RGB MAE1.8029..2.4167/255 exceed predeclared limit1.0",
     "smoke20": "not started; blocked by render hard gate",
     "open_loop": "soft; same10 episodes, <=1.5×base Mem-0 armRMSE; failure invalidates cohort"
@@ -1987,7 +2067,7 @@
     "seed0_master": 739000,
     "inference_seed_definition": "master+order_repetition+(0 for1234 else50)"
   },
-  "pending_reason": "原始接触2条完整专家回放2227/2341帧均通过7/7原物理oracle及rc0/精确scope清理；但两episode各5时点训练图像MAE均超过预声明1.0/255，render硬准入失败。smoke20未启动、开环待核；阶段A尚未开始，success=null。",
+  "pending_reason": "raw action(native_first)完整episode物理诊断2/2通过7/7；实际训练interval_end取120Hz chunk最后有效子步，训练目标一致的专家重演仍待复核。render10点均超1.0/255、硬准入失败；smoke20未启动，StageA0/null。诊断job已STOPPED/0低优卡，但10PNG+2trace未归档，仅保留验收结果和SHA。",
   "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
   "expected_start_at": null,
   "old_legacy_rows_untouched": true,
@@ -2079,6 +2159,45 @@
     "scored": false,
     "model_calls": 0,
     "formal_stage_A_trials_added": 0,
-    "resource_release_claimed": false
+    "resource_release_claimed": true,
+    "raw_action_physical_diagnostic_passed": true,
+    "actual_training_loader_targets_used": false,
+    "training_target_expert_admission_passed": false,
+    "raw_archive_verified": false,
+    "raw_missing_file_count": 12,
+    "stop_receipt_file": "reports/task7-eval-v1-20261103/native-diagnostic-stop.json",
+    "stop_receipt_sha256": "91420585e8f5f082dd11bb96d2f127cce3bb20b82a1c5a00a31ce9ab4b5feb89",
+    "training_action_target_contract_file": "reports/task7-eval-v1-20261103/training-action-target-contract.json",
+    "training_action_target_contract_sha256": "261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c"
+  },
+  "native_diagnostic_resources": {
+    "platform_status": "STOPPED",
+    "official_HTTP_status": 200,
+    "low_priority_GPUs_reserved": 0,
+    "official_ended_at": 1793724160297,
+    "stop_receipt_file": "reports/task7-eval-v1-20261103/native-diagnostic-stop.json",
+    "stop_receipt_sha256": "91420585e8f5f082dd11bb96d2f127cce3bb20b82a1c5a00a31ce9ab4b5feb89"
+  },
+  "native_diagnostic_raw_archive": {
+    "verified": false,
+    "missing_count": 12,
+    "missing_files": [
+      "results/runs/expert_0/physical_120hz.jsonl",
+      "results/runs/expert_0/rgb_frame_000000.png",
+      "results/runs/expert_0/rgb_frame_000556.png",
+      "results/runs/expert_0/rgb_frame_001113.png",
+      "results/runs/expert_0/rgb_frame_001670.png",
+      "results/runs/expert_0/rgb_frame_002226.png",
+      "results/runs/expert_50/physical_120hz.jsonl",
+      "results/runs/expert_50/rgb_frame_000000.png",
+      "results/runs/expert_50/rgb_frame_000585.png",
+      "results/runs/expert_50/rgb_frame_001170.png",
+      "results/runs/expert_50/rgb_frame_001755.png",
+      "results/runs/expert_50/rgb_frame_002340.png"
+    ],
+    "metadata_and_SHA_only": true,
+    "parent_controller_exact_cleanup_observed": false,
+    "stop_receipt_file": "reports/task7-eval-v1-20261103/native-diagnostic-stop.json",
+    "stop_receipt_sha256": "91420585e8f5f082dd11bb96d2f127cce3bb20b82a1c5a00a31ce9ab4b5feb89"
   }
 }

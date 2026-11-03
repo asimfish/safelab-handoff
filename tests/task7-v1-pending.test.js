@@ -22,7 +22,7 @@ test('unstarted task7 rows do not fabricate trials, unknown failures, averages, 
   assert.equal(row.topology.num_envs_actual,null);assert.equal(row.topology.procs_per_gpu,null);assert.equal(row.topology.actual_Apps,0);
   assert.equal(row.performance_observation.actual_GPUs,0);
   assert.deepEqual(Object.keys(row.admission).sort(),['expert_replay','open_loop','render_multiframe','smoke20'].sort());
-  for(const [name,gate] of Object.entries(row.admission)){assert.equal(gate.passed,name==='expert_replay');assert.equal(gate.status,name==='expert_replay'?'passed':name==='render_multiframe'?'failed':'pending');assert.ok(gate.report);}
+  for(const [name,gate] of Object.entries(row.admission)){assert.equal(gate.passed,false);assert.equal(gate.status,name==='render_multiframe'?'failed':'pending');assert.ok(gate.report);}
   assert.equal(row.seed_results.length,1);assert.equal(row.seed_results[0].seed,0);assert.equal(row.seed_results[0].trials,0);
   assert.equal(row.lr_split.left.label,'order1234');assert.equal(row.lr_split.right.label,'order4321');
   assert.equal(row.lr_split.left.planned_trials,50);assert.equal(row.lr_split.right.planned_trials,50);
@@ -93,13 +93,15 @@ test('native admission evidence is exact and does not become formal model trials
  assert.equal(sha,'f8514bcff5d26e5adddfc698cce9462ef6663081659eb1b43adcc5b9a68e16d5');
  const gate=JSON.parse(raw),summary=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/native-admission-report.json'));
  assert.equal(gate.passed,false);assert.equal(gate.scored,false);assert.equal(gate.model_calls,0);
- assert.equal(summary.formal_stage_A_trials_added,0);assert.equal(summary.resource_release_claimed,false);
+ assert.equal(summary.formal_stage_A_trials_added,0);assert.equal(summary.resource_release_claimed,true);
  assert.equal(summary.smoke20.status,'not_started');
  for(const row of rows){assert.equal(row.admission.expert_replay.evidence_sha256,sha);assert.equal(row.admission.render_multiframe.evidence_sha256,sha);assert.equal(row.trials,0);assert.equal(row.success,null);}
 });
-test('expert admission requires both full training replays and positive scope closure',()=>{
+test('raw-action physical diagnostic retains both full episode replays and positive scope closure',()=>{
  const summary=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/native-admission-report.json'));
  assert.equal(summary.expert_replay.passed,true);
+ assert.equal(summary.training_target_expert_admission.passed,false);
+ assert.ok(summary.expert_replay.scope.includes('not actual training-target expert admission'));
  assert.deepEqual(summary.expert_replay.episodes.map(e=>e.frames),[2227,2341]);
  for(const episode of summary.expert_replay.episodes){
   const raw=fs.readFileSync(episode.result.file),result=JSON.parse(raw);
@@ -118,4 +120,22 @@ test('all ten render checkpoints fail the declared limit despite expert success'
  for(const episode of gate.render_multiframe.episodes){assert.equal(episode.limit,1.0);assert.equal(episode.passed,false);assert.equal(episode.actual_train_MAE_0_255.length,5);assert.ok(episode.actual_train_MAE_0_255.every(x=>x>episode.limit));}
  assert.ok(Object.values(gate.topology_qualification).every(t=>t.passed===false));
  assert.ok(rows.every(r=>r.admission.render_multiframe.status==='failed'&&r.status==='admission_pending'));
+});
+test('raw-action physics success does not grant training endpoint expert admission',()=>{
+ const raw=fs.readFileSync('reports/task7-eval-v1-20261103/training-action-target-contract.json');
+ assert.equal(require('node:crypto').createHash('sha256').update(raw).digest('hex'),'261b2f7396b5fc7107c193d4ce17a787ce089424955521943d471d83a82ac90c');
+ const contract=JSON.parse(raw);
+ assert.equal(contract.source_sha256,'243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780');
+ assert.equal(contract.source_loader_interval_end,'action=chunks[np.arange(count),np.maximum(lengths-1,0)]');
+ for(const row of rows){const gate=row.admission.expert_replay;assert.equal(gate.passed,false);assert.equal(gate.status,'pending');assert.equal(gate.actual_training_loader_targets_used,false);assert.equal(gate.raw_action_physical_diagnostic_passed,true);assert.deepEqual(gate.raw_action_physical_stages,[7,7]);}
+});
+test('official resource release is separate from twelve missing raw artifacts',()=>{
+ const raw=fs.readFileSync('reports/task7-eval-v1-20261103/native-diagnostic-stop.json');
+ assert.equal(require('node:crypto').createHash('sha256').update(raw).digest('hex'),'91420585e8f5f082dd11bb96d2f127cce3bb20b82a1c5a00a31ce9ab4b5feb89');
+ const stop=JSON.parse(raw),summary=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/native-admission-report.json'));
+ assert.equal(stop.platform_status,'STOPPED');assert.equal(stop.official_HTTP_status,200);assert.equal(stop.low_priority_GPUs_reserved,0);
+ assert.equal(stop.raw_archive_verified,false);assert.equal(stop.raw_missing_files.length,12);assert.equal(stop.parent_controller_exact_cleanup_observed,false);
+ assert.equal(summary.raw_archive.verified,false);assert.equal(summary.raw_archive.metadata_and_SHA_only,true);assert.equal(summary.resources.low_priority_GPUs_reserved,0);
+ assert.deepEqual(summary.raw_archive.missing_files,stop.raw_missing_files);
+ assert.equal(summary.training_target_expert_admission.status,'pending');
 });

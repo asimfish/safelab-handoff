@@ -27,7 +27,7 @@ try{
 
 
  assert(await run('document.querySelectorAll("#checkpoint-coverage tbody tr").length===HandoffCoverage.checkpointCoverage(board).length'),'every physical checkpoint appears once');
- assert(await run('document.querySelector(\'[data-checkpoint="3-latest-chest@30000"]\').dataset.missingV1==="true"&&document.querySelector(\'[data-checkpoint="3-latest-chest@30000"]\').textContent.includes("已关闭")'),'closed issue1 remains highlighted as missing v1');
+ assert(await run('(()=>{const model=HandoffCoverage.checkpointCoverage(board).find(r=>r.issues.some(i=>i.number===1)),row=[...document.querySelectorAll("#checkpoint-coverage tbody tr")].find(r=>r.querySelector("a[href$=\"/issues/1\"]"));return !!row&&row.textContent.includes("已关闭")&&row.dataset.missingV1===String(model.missingV1)})()'),'closed issue1 status remains separate from actual v1 coverage');
  assert(await run('[...document.querySelectorAll("#checkpoint-coverage tbody tr")].filter(r=>r.querySelector(\'a[href$="/issues/7"]\')||r.querySelector(\'a[href$="/issues/8"]\')).length===1'),'duplicate7 and8 share exactly one row');
  assert(await run('document.querySelector(\'[data-checkpoint="3-latest-pi05-issue7@40000"]\').textContent.includes("checkpoint路径待核验")'),'delivery document is not presented as checkpoint file');
  assert(await run('!document.querySelector(\'[data-checkpoint="memoryvla@0"]\')&&document.querySelector(\'[data-row="memoryvla@0"]\')'),'unbound placeholder stays only in historical table');

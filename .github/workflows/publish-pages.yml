@@ -27,6 +27,8 @@ jobs:
         run: node scripts/restore-checkpoint-bindings.cjs
       - name: Fill missing legacy metadata without changing existing evidence
         run: python3 scripts/fill-legacy-schema.py
+      - name: Check same-origin media identity and publication byte budget
+        run: node scripts/check-media-budget.cjs
       - name: Verify dashboard metrics
         run: node --test tests/*.test.js
       - name: Verify rendered oracle switching and checkpoint coverage

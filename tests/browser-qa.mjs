@@ -25,6 +25,7 @@ try{
 
 
  assert(await run('document.querySelectorAll(".formal-section table").length===1&&document.querySelector("#history-section table")!==null&&!document.querySelector("aside")'),'v1 formal table and folded legacy handoff, no sidebar');
+ await run('document.querySelector("#history-section").open=true');
  assert(await run('document.querySelectorAll("#rows [data-row]").length===board.rows.length'),'every training and weight entry present in one table');
  assert(await run('document.querySelector(\'[data-row="3-v13-ours@30000"]\').innerText.includes("24.0%")&&document.querySelector(\'[data-row="3-v13-pi05@30000"]\').innerText.includes("0.0%")'),'TTC and pi0.5 real scores visible in their rows');
  assert(await run('document.querySelector(\'[data-row="3-latest-chest@30000"]\').querySelectorAll(".score").length===0'),'untested chest never inherits third person score');

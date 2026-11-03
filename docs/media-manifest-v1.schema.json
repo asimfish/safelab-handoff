@@ -60,7 +60,7 @@
         {
           "properties": {
             "url": {
-              "pattern": "^https://.+\\.mp4(?:\\?[^#]*)?$"
+              "pattern": "^https://zenith-a02012413\\.(?:bj\\.bcebos\\.com|tos-cn-beijing\\.volces\\.com)/(?:liyufeng/)?safelab-public/media-v1/(?:3|5|7|10)/[^?#]+\\.mp4$"
             }
           }
         }
@@ -133,6 +133,7 @@
         "protocol_version": {
           "enum": [
             "SafeLab-Eval-v1",
+            "SafeLab-Eval-v1.1",
             "legacy"
           ]
         },
@@ -234,7 +235,7 @@
         "frame_log": {
           "oneOf": [
             {
-              "$ref": "#/$defs/asset"
+              "$ref": "#/$defs/frameLogAsset"
             },
             {
               "type": "null"
@@ -278,6 +279,12 @@
             "minimum": 1,
             "maximum": 10
           }
+        },
+        "oracle_version": {
+          "enum": [
+            "strict-v1",
+            "placement-v1.1"
+          ]
         }
       },
       "allOf": [
@@ -373,6 +380,108 @@
                 ]
               }
             }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "protocol_version"
+            ],
+            "properties": {
+              "protocol_version": {
+                "const": "SafeLab-Eval-v1.1"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "oracle_version"
+            ],
+            "properties": {
+              "oracle_version": {
+                "const": "placement-v1.1"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "protocol_version": {
+                "const": "SafeLab-Eval-v1"
+              }
+            },
+            "required": [
+              "protocol_version"
+            ]
+          },
+          "then": {
+            "properties": {
+              "oracle_version": {
+                "const": "strict-v1"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "frameLogAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "sha256",
+        "bytes"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "maxLength": 2048
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^(sha256:)?[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000000
+        },
+        "encoding": {
+          "enum": [
+            "identity",
+            "gzip"
+          ]
+        },
+        "decoded_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000000
+        },
+        "decoded_sha256": {
+          "type": "string",
+          "pattern": "^(sha256:)?[a-f0-9]{64}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "encoding"
+            ],
+            "properties": {
+              "encoding": {
+                "const": "gzip"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "decoded_bytes",
+              "decoded_sha256"
+            ]
           }
         }
       ]

@@ -67,3 +67,5 @@ trials始终是完整分母，unknown属于trials。主表成功率为success/tr
 {"protocol_version":"SafeLab-Eval-v1.1","oracle_version":"placement-v1.1","stage":"A","admission":{"expert_replay":{"passed":false,"report":"oracle验收待完成"},"open_loop":{"passed":false,"report":"待完成"},"render_multiframe":{"passed":false,"report":"待完成"},"smoke20":{"passed":false,"report":"待完成"},"executor_parity":{"passed":false,"report":"执行链验收待完成"}},"evaluation_started":false,"success":null,"completed":0,"unknown":0,"pending_reason":"等待执行链与放置判定验收","expected_start_at":null}
 ```
 该片段是待测状态示例，不能作为已完成成绩。请保留其他agent记录，仅按id追加或更新自己的配置。
+
+媒体跨域播放、同源JSON/gzip日志及全仓50MB预算见[媒体清单规范](media-manifest-v1.md)。媒体case必须与evaluation的protocol_version和oracle_version精确绑定；strict旧媒体可兼容省略oracle_version。

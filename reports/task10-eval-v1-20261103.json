@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T14:31:46.274025+00:00",
+  "updated_at": "2026-11-03T14:33:24.966543+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -4851,10 +4851,23 @@
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "n": 100,
-      "success": null,
+      "success": 0,
       "unknown": 0,
-      "Wilson95": null,
-      "per_seed": [],
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
       "order_split": {
         "12345": 50,
         "54321": 50
@@ -4866,7 +4879,7 @@
         "0": 22,
         "3": 1
       },
-      "status": "progress_only; soft input gate pending",
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4883,22 +4896,24 @@
       "seed_results": [
         {
           "seed": 0,
+          "inference_seed": 910100,
           "completed": 100,
-          "unknown": 0,
           "trials": 100,
-          "success": null,
-          "status": "progress_only; soft open_loop pending"
+          "success": 0,
+          "unknown": 0
         }
       ],
       "lr_split": {
         "left": {
+          "label": "12345",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         },
         "right": {
+          "label": "54321",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         }
       },
@@ -4909,7 +4924,11 @@
         "0": 22,
         "3": 1
       },
-      "wilson95": null,
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -4934,7 +4953,12 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
           "status": "complete"
         }
-      }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
     },
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -5048,10 +5072,23 @@
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "n": 100,
-      "success": null,
+      "success": 0,
       "unknown": 0,
-      "Wilson95": null,
-      "per_seed": [],
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
       "order_split": {
         "12345": 50,
         "54321": 50
@@ -5063,7 +5100,7 @@
         "2": 8,
         "3": 2
       },
-      "status": "progress_only; soft input gate pending",
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -5080,22 +5117,24 @@
       "seed_results": [
         {
           "seed": 0,
+          "inference_seed": 910100,
           "completed": 100,
-          "unknown": 0,
           "trials": 100,
-          "success": null,
-          "status": "progress_only; soft open_loop pending"
+          "success": 0,
+          "unknown": 0
         }
       ],
       "lr_split": {
         "left": {
+          "label": "12345",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         },
         "right": {
+          "label": "54321",
           "trials": 50,
-          "success": null,
+          "success": 0,
           "unknown": 0
         }
       },
@@ -5106,7 +5145,11 @@
         "2": 8,
         "3": 2
       },
-      "wilson95": null,
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -5131,7 +5174,12 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
           "status": "complete"
         }
-      }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
     },
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -5648,26 +5696,26 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 45
+            "known_n": 47
           }
         ]
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 77,
+      "n": 79,
       "success": null,
       "unknown": 2,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 38,
-        "54321": 39
+        "12345": 39,
+        "54321": 40
       },
-      "mean_phases": 1.6363636363636365,
+      "mean_phases": 1.6329113924050633,
       "phase_distribution": {
         "0": 11,
-        "1": 37,
-        "2": 14,
+        "1": 38,
+        "2": 15,
         "6": 2,
         "3": 8,
         "4": 2,
@@ -5680,7 +5728,7 @@
       "checkpoint": 30000,
       "horizon": 4,
       "trials": 100,
-      "completed": 77,
+      "completed": 79,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5691,7 +5739,7 @@
       "seed_results": [
         {
           "seed": 0,
-          "completed": 77,
+          "completed": 79,
           "unknown": 2,
           "trials": 100,
           "success": null,
@@ -5710,11 +5758,11 @@
           "unknown": 0
         }
       },
-      "mean_phase": 1.6363636363636365,
+      "mean_phase": 1.6329113924050633,
       "phase_hist": {
         "0": 11,
-        "1": 37,
-        "2": 14,
+        "1": 38,
+        "2": 15,
         "6": 2,
         "3": 8,
         "4": 2,
@@ -5865,25 +5913,25 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 42
+            "known_n": 43
           }
         ]
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 74,
+      "n": 75,
       "success": null,
       "unknown": 1,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 34,
+        "12345": 35,
         "54321": 40
       },
-      "mean_phases": 1.5,
+      "mean_phases": 1.4933333333333334,
       "phase_distribution": {
         "0": 11,
-        "1": 37,
+        "1": 38,
         "3": 4,
         "2": 16,
         "5": 2,
@@ -5896,7 +5944,7 @@
       "checkpoint": 30000,
       "horizon": 8,
       "trials": 100,
-      "completed": 74,
+      "completed": 75,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5907,7 +5955,7 @@
       "seed_results": [
         {
           "seed": 0,
-          "completed": 74,
+          "completed": 75,
           "unknown": 1,
           "trials": 100,
           "success": null,
@@ -5926,10 +5974,10 @@
           "unknown": 0
         }
       },
-      "mean_phase": 1.5,
+      "mean_phase": 1.4933333333333334,
       "phase_hist": {
         "0": 11,
-        "1": 37,
+        "1": 38,
         "3": 4,
         "2": 16,
         "5": 2,
@@ -6050,7 +6098,7 @@
     }
   ],
   "round2_snapshot": {
-    "epoch": 1793716299.8343399,
+    "epoch": 1793716371.6999059,
     "groups": {
       "original_weak": {
         "group": "original_weak",
@@ -6234,7 +6282,7 @@
           "all_card_memory_mean_pct": 68.83699633116281,
           "source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_ttc/ours_aligned_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793706211.6063426,
-          "age_s": 10088.251217365265
+          "age_s": 10160.119927167892
         }
       },
       "weak_only": {
@@ -6296,7 +6344,7 @@
           "all_card_memory_mean_pct": 7.789228494477792,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a00/safelab_task10_evalv1_round2_weak_only/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793707401.8473554,
-          "age_s": 8898.01369524002
+          "age_s": 8969.882254600525
         }
       },
       "weak_only_a01": {
@@ -6409,7 +6457,7 @@
           "all_card_memory_mean_pct": 24.47455814705217,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a01/safelab_task10_evalv1_round2_weak_only_a01/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793713735.7662895,
-          "age_s": 2564.1167635917664
+          "age_s": 2635.990979194641
         }
       },
       "resume_ab": {
@@ -6523,7 +6571,7 @@
           "all_card_memory_mean_pct": 46.19394141890684,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery01/safelab_task10_evalv1_round2_resume_ab/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793710805.1336274,
-          "age_s": 5494.756170272827
+          "age_s": 5566.632714033127
         }
       },
       "resume_ab02": {
@@ -6566,13 +6614,13 @@
           "mem0_original_A_original": {
             "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original",
             "status": "running",
-            "completed": 87,
+            "completed": 90,
             "target": 133,
-            "active": 38,
+            "active": 39,
             "phase_hist": {
               "0": 13,
-              "1": 39,
-              "2": 18,
+              "1": 41,
+              "2": 19,
               "3": 7,
               "4": 3,
               "5": 3,
@@ -6592,7 +6640,7 @@
         "extra_evaluation_condition": "sticky60degree termination",
         "method": "mem0_original",
         "phase": "A_original",
-        "observed_epoch": 1793716295.9531875,
+        "observed_epoch": 1793716371.0836973,
         "cohorts": [
           {
             "method": "mem0_original",
@@ -6600,25 +6648,25 @@
             "condition": "off",
             "shard": "resume_ab03",
             "processes_per_gpu": 10,
-            "n": 45,
+            "n": 47,
             "target": 100,
             "success": null,
             "terminal_successes_observed": 0,
             "unknown": 0,
             "phase_hist": {
               "0": 7,
-              "1": 20,
+              "1": 21,
               "3": 6,
               "7": 1,
-              "2": 7,
+              "2": 8,
               "6": 1,
               "5": 2,
               "4": 1
             },
-            "mean_phase": 1.7555555555555555,
+            "mean_phase": 1.7446808510638299,
             "order_split": {
-              "12345": 24,
-              "54321": 21
+              "12345": 25,
+              "54321": 22
             },
             "status": "running_progress_only",
             "open_loop": "pending",
@@ -6630,13 +6678,13 @@
             "condition": "off",
             "shard": "resume_ab03",
             "processes_per_gpu": 10,
-            "n": 42,
+            "n": 43,
             "target": 100,
             "success": null,
             "terminal_successes_observed": 0,
             "unknown": 0,
             "phase_hist": {
-              "1": 19,
+              "1": 20,
               "3": 1,
               "0": 6,
               "4": 2,
@@ -6644,10 +6692,10 @@
               "6": 2,
               "5": 1
             },
-            "mean_phase": 1.6428571428571428,
+            "mean_phase": 1.627906976744186,
             "order_split": {
               "54321": 23,
-              "12345": 19
+              "12345": 20
             },
             "status": "running_progress_only",
             "open_loop": "pending",
@@ -6657,19 +6705,19 @@
         "sustained_gpu": {
           "status": "qualified600s",
           "duration_s": 600,
-          "observed_span_s": 633.2604808807373,
+          "observed_span_s": 633.2438123226166,
           "samples": 22,
-          "all_card_utilization_mean_pct": 83.40481406966845,
+          "all_card_utilization_mean_pct": 83.67636553645134,
           "per_card_utilization_mean_pct": [
-            84.39776954809825,
-            86.28953050971032,
-            84.10391900340716,
-            78.82803721745809
+            85.25383004228274,
+            86.71044678052266,
+            83.80277312874794,
+            78.93841219425201
           ],
-          "all_card_memory_mean_pct": 56.52745517857095,
+          "all_card_memory_mean_pct": 56.75954212998856,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
-          "latest_epoch": 1793716280.4442048,
-          "age_s": 19.465638160705566
+          "latest_epoch": 1793716370.868349,
+          "age_s": 0.9467525482177734
         }
       }
     },
@@ -6680,13 +6728,13 @@
         "method": "mem0_original",
         "horizon": 4,
         "condition": "off",
-        "n": 77,
+        "n": 79,
         "unknown": 2,
         "target": 100,
         "phase_hist": {
           "0": 11,
-          "1": 37,
-          "2": 14,
+          "1": 38,
+          "2": 15,
           "6": 2,
           "3": 8,
           "4": 2,
@@ -6694,8 +6742,8 @@
           "5": 2
         },
         "order_split": {
-          "12345": 38,
-          "54321": 39
+          "12345": 39,
+          "54321": 40
         },
         "success": null,
         "terminal_successes_observed": 0,
@@ -6716,22 +6764,22 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 45
+            "known_n": 47
           }
         ],
         "status": "progress_only; soft input gate pending",
-        "mean_phase": 1.6363636363636365
+        "mean_phase": 1.6329113924050633
       },
       {
         "method": "mem0_original",
         "horizon": 8,
         "condition": "off",
-        "n": 74,
+        "n": 75,
         "unknown": 1,
         "target": 100,
         "phase_hist": {
           "0": 11,
-          "1": 37,
+          "1": 38,
           "3": 4,
           "2": 16,
           "5": 2,
@@ -6739,7 +6787,7 @@
           "6": 2
         },
         "order_split": {
-          "12345": 34,
+          "12345": 35,
           "54321": 40
         },
         "success": null,
@@ -6761,11 +6809,11 @@
             "shard": "resume_ab03",
             "num_envs_actual": 1,
             "processes_per_gpu": 10,
-            "known_n": 42
+            "known_n": 43
           }
         ],
         "status": "progress_only; soft input gate pending",
-        "mean_phase": 1.5
+        "mean_phase": 1.4933333333333334
       },
       {
         "method": "ours_aligned",
@@ -6890,7 +6938,7 @@
         "mean_phase": 0.76
       }
     ],
-    "formal_A_completed_progress": 484,
+    "formal_A_completed_progress": 487,
     "terminal_unknown": 5,
     "terminal_inventory": {
       "known_ids": [
@@ -6932,6 +6980,7 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene041_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene042_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene043_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene045_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene050_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene051_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene052_seed910100",
@@ -6971,6 +7020,7 @@
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene089_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene092_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h4_scene093_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h4_scene094_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene000_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene001_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene002_seed910100",
@@ -7005,6 +7055,7 @@
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene039_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene043_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene044_seed910100",
+        "task10_evalv1_round2_mem0_original_off_30k_h8_scene046_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene050_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene051_seed910100",
         "task10_evalv1_round2_mem0_original_off_30k_h8_scene052_seed910100",
@@ -7388,7 +7439,7 @@
       ],
       "expected_ids_sha256": "cb2a23c2e337c07c8d6d406c43147f9cb855e2ce7de6f3b94146d8a1feeb34ae",
       "all600_accounted": false,
-      "known_independently_qualified": 484,
+      "known_independently_qualified": 487,
       "all_known_independently_qualified": true,
       "qualified_index": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_sealed_cases_20261103/INDEX.json"
     },
@@ -14658,47 +14709,92 @@
         "failure_reason": null,
         "status": "time_limit",
         "sim_seconds": 300.0
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene094_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "54321",
+        "scene_index": 94,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 42.28333333333333
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h8_scene046_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 8,
+        "order": "12345",
+        "scene_index": 46,
+        "evaluation_seed": 910100,
+        "physical_phases": 1,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 24.733333333333334
+      },
+      {
+        "id": "task10_evalv1_round2_mem0_original_off_30k_h4_scene045_seed910100",
+        "method": "mem0_original",
+        "checkpoint_step": 30000,
+        "execution_horizon": 4,
+        "order": "12345",
+        "scene_index": 45,
+        "evaluation_seed": 910100,
+        "physical_phases": 2,
+        "success": false,
+        "grasp_attachment": "off",
+        "failure_reason": "object_toppled",
+        "status": "physical_failure",
+        "sim_seconds": 42.166666666666664
       }
     ],
     "qualified_contact_diagnostic": {
-      "epoch": 1793716299.9600396,
+      "epoch": 1793716371.8916967,
       "scored": false,
-      "completed": 484,
-      "qualified_target_at_snapshot": 484,
+      "completed": 487,
+      "qualified_target_at_snapshot": 487,
       "claim_boundary": "Up to2s recorded contact association before sticky60degree failure; not counterfactual causation. No success rules modified.",
       "groups": {
         "mem0_original|4|off": {
-          "n": 77,
+          "n": 79,
           "classifications": {
-            "toppled": 74,
+            "toppled": 76,
             "not_toppled": 3
           },
           "hand_lifecycle": {
-            "not_enabled": 74
+            "not_enabled": 76
           },
           "affected_cup_lifecycle": {
-            "never_attached": 74
+            "never_attached": 76
           },
           "last_contact_body": {
-            "palm": 33,
-            "finger": 45,
+            "palm": 34,
+            "finger": 46,
             "arm": 1
           }
         },
         "mem0_original|8|off": {
-          "n": 74,
+          "n": 75,
           "classifications": {
-            "toppled": 70,
+            "toppled": 71,
             "not_toppled": 4
           },
           "hand_lifecycle": {
-            "not_enabled": 70
+            "not_enabled": 71
           },
           "affected_cup_lifecycle": {
-            "never_attached": 70
+            "never_attached": 71
           },
           "last_contact_body": {
-            "finger": 41,
+            "finger": 42,
             "arm": 2,
             "palm": 32,
             "no_robot_contact_within2s": 1
@@ -14815,10 +14911,10 @@
       "status": "pending_fresh_platform_allocation_check",
       "GPU_count": 4,
       "duration_s": 600,
-      "start_epoch": 1793715680.4442048,
-      "end_epoch": 1793716280.4442048,
-      "all_card_utilization_mean_pct": 83.40481406966845,
-      "all_card_memory_mean_pct": 56.52745517857096,
+      "start_epoch": 1793715770.868349,
+      "end_epoch": 1793716370.868349,
+      "all_card_utilization_mean_pct": 83.67636553645134,
+      "all_card_memory_mean_pct": 56.75954212998856,
       "source_paths": [
         "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_recovery03/safelab_task10_evalv1_round2_resume_ab03/mem0_original_A_original/RESOURCE_HISTORY.jsonl"
       ],
@@ -15673,7 +15769,7 @@
     "wall_s": 653.4535753726959
   },
   "openloop_input_boundary": {
-    "status": "zone5 adapted input verified; native forward probes running",
+    "status": "zone5 adapted input verified; native forward passed",
     "zone": 5,
     "files": 24,
     "weak_authority": "delivered adapted Parquet; labelsSHA67b0747d declared in training info; source State JSON not supplied",
@@ -16000,9 +16096,329 @@
       "source/training/utils/trainer_tools.py": "15857437c5f186daad150038680b0a52d877f8bb34465cb394d9d09aedcc6d16"
     }
   },
+  "completed_Eval_v1_scores": [
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "mem0_weak",
+      "ckpt": 30000,
+      "execution_horizon": 4,
+      "condition": "off",
+      "condition_version": "original-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 100,
+      "success": 0,
+      "unknown": 0,
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "order_split": {
+        "12345": 50,
+        "54321": 50
+      },
+      "mean_phases": 0.98,
+      "phase_distribution": {
+        "2": 18,
+        "1": 59,
+        "0": 22,
+        "3": 1
+      },
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "trials": 100,
+      "completed": 100,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.98,
+      "phase_hist": {
+        "2": 18,
+        "1": 59,
+        "0": 22,
+        "3": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
+    },
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "mem0_weak",
+      "ckpt": 30000,
+      "execution_horizon": 8,
+      "condition": "off",
+      "condition_version": "original-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 100,
+      "success": 0,
+      "unknown": 0,
+      "Wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "per_seed": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "order_split": {
+        "12345": 50,
+        "54321": 50
+      },
+      "mean_phases": 0.76,
+      "phase_distribution": {
+        "0": 36,
+        "1": 54,
+        "2": 8,
+        "3": 2
+      },
+      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "trials": 100,
+      "completed": 100,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "completed": 100,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.76,
+      "phase_hist": {
+        "0": 36,
+        "1": 54,
+        "2": 8,
+        "3": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      },
+      "known_terminal_count": 100,
+      "split_axis": "forward_reverse_task_order",
+      "formal_score_eligible": true,
+      "phase_mean_denominator": 100,
+      "phase_unknown": 0
+    }
+  ],
   "preexisting_legacy_schema_repair": {
-    "records": 0,
-    "ids": [],
+    "records": 45,
+    "ids": [
+      "7-base-4",
+      "7-base-8",
+      "7-base-30",
+      "task7-all-mem0_30k-h4",
+      "task7-all-mem0_30k-h8",
+      "task7-all-mem0_30k-h30",
+      "task7-all-ours_native_30k-h4",
+      "task7-all-ours_native_30k-h8",
+      "task7-all-ours_native_30k-h30",
+      "task7-all-ours_aligned_loss_30k-h4",
+      "task7-all-ours_aligned_loss_30k-h8",
+      "task7-all-ours_aligned_loss_30k-h30",
+      "task7-all-ours_trainresize_30k-h4",
+      "task7-all-ours_trainresize_30k-h8",
+      "task7-all-ours_trainresize_30k-h30",
+      "task7-all-mem0_weak_30k-h4",
+      "task7-all-mem0_weak_30k-h8",
+      "task7-all-mem0_weak_30k-h30",
+      "task7-all-ours_native_20k-h4",
+      "task7-all-ours_native_20k-h8",
+      "task7-all-ours_native_20k-h30",
+      "task7-attach-mem0_30k-h4",
+      "task7-attach-mem0_30k-h8",
+      "task7-attach-mem0_30k-h30",
+      "task7-attach-ours_native_30k-h4",
+      "task7-attach-ours_native_30k-h8",
+      "task7-attach-ours_native_30k-h30",
+      "task7-attach-ours_trainresize_30k-h4",
+      "task7-attach-ours_trainresize_30k-h8",
+      "task7-attach-ours_trainresize_30k-h30",
+      "task7-attach-ours_aligned_30k-h4",
+      "task7-attach-ours_aligned_30k-h8",
+      "task7-attach-ours_aligned_30k-h30",
+      "task7-attach-mem0_weak_30k-h4",
+      "task7-attach-mem0_weak_30k-h8",
+      "task7-attach-mem0_weak_30k-h30",
+      "task7-attach-mem0_20k-h4",
+      "task7-attach-mem0_20k-h8",
+      "task7-attach-mem0_20k-h30",
+      "task7-attach-ours_native_20k-h4",
+      "task7-attach-ours_native_20k-h8",
+      "task7-attach-ours_native_20k-h30",
+      "task7-ours-weak-aligned-issue18-h4",
+      "task7-ours-weak-aligned-issue18-h8",
+      "task7-ours-weak-aligned-issue18-h30"
+    ],
     "scientific_fields_modified": false,
     "unknown_metadata_inferred": false
   }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T15:14:37.153951+00:00",
+  "updated_at": "2026-11-03T15:51:51.223773+00:00",
   "status": "R5_smoke_then_stageA",
   "rows": [
     {
@@ -1090,64 +1090,49 @@
     "settling_window_version": "v2_original75s"
   },
   "five_seven_delivery": {
-    "status": "R2_creation_after_STS_CPU_verification",
+    "status": "R2_cancelled_before_dispatch_no_training_job",
+    "operation_id": "ixbk1jfag4snejd1q27zpgk54",
     "source_directories_visible_zone5": true,
     "source_package_files_verified": 0,
     "zone10_verified": false,
-    "operation_id": "ixbk1jfag4snejd1q27zpgk54",
-    "report": "reports/pi05-package-transfer-r2-20261103.json"
+    "no_further_copy_jobs": true,
+    "next": "training owner direct TOS sync",
+    "failure_report_archive": {
+      "source_id": "k32181r1qe5gh73u8yvqyur5e",
+      "key": "liyufeng/pi05_handoff_20261103/r2/CREATE_FAILURE_REPORT.json",
+      "sha256": "17815de8c0ddce303ed56550d10a539ae42ef75cefcf78bfe29d0c98c033222c",
+      "bytes": 1675,
+      "independent_GET_verified": true,
+      "preexisting_verified": false
+    }
   },
   "active_evaluation_job": {
-    "id": "job-rocdqhl8jwkk",
+    "epoch": 1793721054.1866722,
+    "job_id": "job-aw4mw6z5tyfj",
+    "job_status": "RUNNING",
+    "pipeline_status": "smoke_running",
+    "smoke_audited": 0,
+    "smoke_target": 60,
+    "stageA_audited": 0,
+    "stageA_target": 800,
+    "smoke_gate": {},
+    "infrastructure_unknown": 0,
     "gpus": 4,
     "num_envs_actual": 1,
     "processes_per_gpu": 4,
-    "model_services": 12,
-    "target_smoke": 60,
-    "target_A": 800,
-    "status": "smoke_running",
+    "model_births": 12,
+    "Native_births": 16,
+    "all_own_generations_closed": null,
+    "archive_verified": 0,
+    "sustained10min": null,
+    "qualified_for_second4": false,
+    "error_class": null,
+    "weights_verified": true,
+    "id": "job-aw4mw6z5tyfj",
     "openloop": "passed",
     "expert_replay": "shared",
-    "image_chain": "R5_full_shared8modules",
-    "audited_smoke": 24,
-    "audited_stageA": 0,
-    "infrastructure_unknown": 0,
-    "sustained10min_mean_gpu_pct": 98.62845041657488,
-    "smoke_group_progress": {
-      "30k": {
-        "audited": 8,
-        "provisional_whole_success": 0,
-        "left": 4,
-        "right": 4,
-        "phase_hist": {
-          "0": 6,
-          "1": 2
-        }
-      },
-      "padfix": {
-        "audited": 8,
-        "provisional_whole_success": 0,
-        "left": 5,
-        "right": 3,
-        "phase_hist": {
-          "1": 5,
-          "2": 1,
-          "0": 2
-        }
-      },
-      "40k": {
-        "audited": 8,
-        "provisional_whole_success": 1,
-        "left": 4,
-        "right": 4,
-        "phase_hist": {
-          "1": 3,
-          "3": 1,
-          "0": 2,
-          "2": 2
-        }
-      }
-    }
+    "image_chain": "R5_full_shared8modules_unchanged_R8",
+    "recovery_report": "reports/pi05-r8-recovery-20261103.json"
   },
   "superseded_R5_job": {
     "id": "job-9s40060a2h8n",
@@ -1156,5 +1141,15 @@
     "A": 0,
     "reason": "shared_initialization_delta_detected",
     "not_pooled": true
+  },
+  "R5_R2_retained_diagnostic": {
+    "old_job": "job-rocdqhl8jwkk",
+    "old_terminal": "FAILED",
+    "old_audited": 26,
+    "old_unknown": 16,
+    "old_attempts_denominator": 42,
+    "old_successes": 1,
+    "old_archives_all_verified": true,
+    "old_own_generations_closed": true
   }
 }

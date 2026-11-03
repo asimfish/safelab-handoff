@@ -11,7 +11,7 @@ function conditionState(rows,stage){
  return {state:smoke?'冒烟':'准入中',rows};
 }
 function stageCoverage(evaluations,stage){
- const rows=evaluations.filter(e=>e.protocol_version===M.PROTOCOL&&e.stage===stage),groups=new Map();
+ const rows=evaluations.filter(e=>e.protocol_version===M.PROTOCOL&&e.stage===stage&&e.metric_role!=='rescored_v1.1_candidate'),groups=new Map();
  for(const e of rows){const key=e.condition_version||'条件版本待补';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(e);}
  return rows.length?[...groups].map(([condition,rows])=>{
   const horizons=[4,8].map(horizon=>{const cohort=rows.filter(e=>e.horizon===horizon);return {horizon,...(cohort.length?conditionState(cohort,stage):{state:'未开始',rows:[]})};});
@@ -30,7 +30,7 @@ function checkpointCoverage(board){
  return [...groups].map(([id,members])=>{
   const representative=members.find(r=>r.issue_bindings?.some(i=>!i.duplicate_of))||members[0],evaluations=[...new Map(members.flatMap(r=>r.evaluations).map(e=>[e.id,e])).values()];
   const issues=[...new Map(members.flatMap(r=>r.issue_bindings||[]).map(i=>[i.number,i])).values()].sort((a,b)=>a.number-b.number);
-  const hasV1=evaluations.some(e=>e.protocol_version===M.PROTOCOL),hasAB=evaluations.some(e=>e.protocol_version===M.PROTOCOL&&['A','B'].includes(e.stage));
+  const hasV1=evaluations.some(e=>e.protocol_version===M.PROTOCOL),hasAB=evaluations.some(e=>e.protocol_version===M.PROTOCOL&&['A','B'].includes(e.stage)&&e.metric_role!=='rescored_v1.1_candidate');
   const liveOwner=members.filter(r=>r.shared&&r.owner!=='未指定'&&!/训练/.test(r.owner)).sort((a,b)=>Date.parse(b.shared.updated)-Date.parse(a.shared.updated))[0]?.owner;
   const owner=liveOwner||issues.find(i=>i.evaluation_owner)?.evaluation_owner||evaluations.find(e=>e.owner||e.agent)?.owner||evaluations.find(e=>e.agent)?.agent||members.find(r=>r.owner!=='未指定'&&!/训练/.test(r.owner))?.owner||'待分配';
   const time=Math.max(latest(evaluations),latest(issues),latest(members.map(r=>({updated_at:r.record?.updated_at}))),latest(members.filter(r=>r.shared).map(r=>({updated_at:r.shared.updated}))));

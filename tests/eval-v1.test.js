@@ -33,7 +33,7 @@ test('all unknown has no measured mean and no fabricated failure phase',()=>{
 });
 
 test('actual formal table template shows full-denominator score, unknown bound and valid phase count',()=>{
- const source=fs.readFileSync('app.js','utf8'),start=source.indexOf('function formalTable(){'),end=source.indexOf('function render(){',start);
+ const source=fs.readFileSync('app.js','utf8'),start=source.indexOf('function formalTable('),end=source.indexOf('function render(){',start);
  const render=Function('M','board','esc','taskName','camera',source.slice(start,end)+';return formalTable();');
  const d=structuredClone(data);d.evaluations=[valid()];
  const html=render(M,M.buildBoard(d),String,String,String);

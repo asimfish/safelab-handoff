@@ -35,3 +35,9 @@ node --test tests/*.test.js
 ```
 
 脚本仅包含本轮明确审核过的issue映射，不自动批准所有公开提交。更新前拉取最新分支，任何新增issue或修改checkpoint身份须重新审核；脚本不会修改evaluations、campaigns、datasets或诊断证据。
+
+## 旧生成器兼容与审核快照
+
+`checkpoint_issue_audit.bindings` 是本轮明确审核过的issue→record+checkpoint及身份快照，由同步脚本与records一并更新。发布前用restore-checkpoint-bindings.cjs只恢复被旧生成器漏掉的绑定元数据，保留已有字段值与全部评测值；不请求GitHub、不批准新issue、不创造新权重。
+
+record/checkpoint不存在、身份变化、同一issue跨record重复或移位都中止发布，须通过PR更新唯一canonical绑定和审核快照，不能自动猜测。#32这类把#20复制到其他权重的错误仍会被拦截。源生成器仍应保留metadata；此兼容只负责恢复已审核缺项。

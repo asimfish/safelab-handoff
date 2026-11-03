@@ -2,14 +2,14 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-03T03:01:56.295241+00:00",
+  "updated_at": "2026-11-03T03:03:46.036289+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 3142,
-  "audited": 3142,
+  "completed": 3143,
+  "audited": 3143,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 21,
+  "active_apps": 20,
   "max_parallel_apps": 40,
   "gpus": 8,
   "execution_class": "low_priority",
@@ -757,16 +757,16 @@
       "method": "Mem-0 · 削弱版",
       "checkpoint_step": 20000,
       "execution_horizon": 4,
-      "completed": 188,
-      "audited": 188,
+      "completed": 189,
+      "audited": 189,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 188
+        "0": 189
       },
       "layouts": {
         "forward": 94,
-        "reverse": 94
+        "reverse": 95
       },
       "final_verified": false,
       "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -784,8 +784,8 @@
         {
           "repeat": 1,
           "run_seed": 1,
-          "completed": 88,
-          "audited": 88,
+          "completed": 89,
+          "audited": 89,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1805,8 +1805,8 @@
       "resource_class": "low_priority",
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 515,
-      "active_apps": 11,
+      "completed": 516,
+      "active_apps": 10,
       "error": false,
       "audit_error": false,
       "historical": false,
@@ -1820,18 +1820,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793674866.859472,
+        "epoch": 1793674981.0311875,
         "status": "running",
-        "completed": 1029,
+        "completed": 1030,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "462557708288",
+          "current": "476957511680",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 85443616768
+          "shm_used": 86274482176
         },
-        "gpu": "0, 66243, 33\n1, 63891, 52\n2, 69422, 48\n3, 48501, 60\n"
+        "gpu": "0, 64469, 46\n1, 68354, 61\n2, 69422, 37\n3, 50653, 47\n"
       },
       "startup_gates": 4
     },
@@ -1861,18 +1861,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793674872.494268,
+        "epoch": 1793674982.0989537,
         "status": "running",
         "completed": 1653,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "596670050304",
+          "current": "597401645056",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 139566628864
+          "shm_used": 140193869824
         },
-        "gpu": "0, 48945, 46\n1, 48760, 52\n2, 29343, 48\n3, 31243, 49\n"
+        "gpu": "0, 48945, 47\n1, 48760, 52\n2, 31341, 51\n3, 31243, 49\n"
       },
       "startup_gates": 6
     },
@@ -45891,6 +45891,25 @@
       "physical_phases": 0,
       "sim_seconds": 160.33333333333334,
       "physics_sha256": "a5f2275549224c89a38b0232214bb0f74f435c4b7fbb2ab8c10832122bbdb64d",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-pcyii5zfqbad",
+      "attempt_priority": 100
+    },
+    {
+      "id": "r1__weak20_mem0_20000_h4_reverse_044",
+      "variant": "weak20",
+      "checkpoint_step": 20000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 899412634,
+      "repeat": 1,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 64.15833333333333,
+      "physics_sha256": "dff86aa0113353fbe4ab49bb82cc2423e2457e7bbfd64b4030e778c931741dbf",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-pcyii5zfqbad",

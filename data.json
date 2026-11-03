@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T15:07:36.823640+00:00",
+  "updated_at": "2026-11-03T15:39:34.523125+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -10488,15 +10488,15 @@
       "horizon": 4,
       "prediction": 30,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "diagnostic",
       "condition_version": "original-v1",
       "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
-      "success": null,
+      "success": 40,
       "trials": 100,
       "unknown": 0,
-      "completed": 95,
-      "status": "正在评测；专家回放准入失败，结果不进入正式表",
-      "kind": "自主闭环",
+      "completed": 100,
+      "status": "诊断已完成；共享专家回放未准入，不进入正式表",
+      "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 2,
@@ -10508,11 +10508,38 @@
         "antialias": true,
         "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
       },
-      "seed_results": [],
-      "lr_split": null,
-      "phase_hist": null,
-      "mean_phase": null,
-      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 40,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 20,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 20,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 40,
+        "0": 4,
+        "2": 25,
+        "1": 31
+      },
+      "mean_phase": 2.01,
+      "wilson95": {
+        "low": 0.30940128643246123,
+        "high": 0.49799741320893554,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": false,
@@ -10531,15 +10558,29 @@
         },
         "smoke20": {
           "passed": true,
-          "report": "evalv1_ours_trainresize_stageA_r2/SMOKE_ADMISSION.json；20条，左右10/10，物理phase0=1；phase分布0:1,1:5,2:4,3:10"
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
         }
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T14:54:26.737714+00:00",
+      "report_url": "reports/task3-round4-20261103.html",
+      "updated_at": "2026-11-03T15:39:34.523125+00:00",
       "variant": "ours-V13-30k-trainresize",
-      "valid_for_comparison": false
+      "valid_for_comparison": false,
+      "requested_phase": "A",
+      "formal_score_eligible": false,
+      "paired_original_configuration": {
+        "trainresize_only": 30,
+        "both_failure": 51,
+        "both_success": 10,
+        "baseline_only": 9
+      },
+      "paired_difference_pp": 21,
+      "paired95_scene_stratified_bootstrap_pp": [
+        9.0,
+        32.0
+      ],
+      "runtime_confound_warning": "paired scenes, weights and inference seeds identical; historical baseline and repaired native R4 source generations differ. This is a configuration comparison, not a clean resize-only causal estimate."
     },
     {
       "id": "t1035-r3-ours-V13-30k-trainresize-c30-h8",
@@ -10550,15 +10591,15 @@
       "horizon": 8,
       "prediction": 30,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "diagnostic",
       "condition_version": "original-v1",
       "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
-      "success": null,
+      "success": 39,
       "trials": 100,
       "unknown": 0,
-      "completed": 27,
-      "status": "正在评测；专家回放准入失败，结果不进入正式表",
-      "kind": "自主闭环",
+      "completed": 100,
+      "status": "诊断已完成；共享专家回放未准入，不进入正式表",
+      "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 2,
@@ -10570,11 +10611,38 @@
         "antialias": true,
         "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
       },
-      "seed_results": [],
-      "lr_split": null,
-      "phase_hist": null,
-      "mean_phase": null,
-      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 39,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 15,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 24,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 40,
+        "0": 4,
+        "1": 29,
+        "2": 27
+      },
+      "mean_phase": 2.03,
+      "wilson95": {
+        "low": 0.30016874006394645,
+        "high": 0.48796982954158996,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": false,
@@ -10593,15 +10661,29 @@
         },
         "smoke20": {
           "passed": true,
-          "report": "evalv1_ours_trainresize_stageA_r2/SMOKE_ADMISSION.json；20条，左右10/10，物理phase0=1；phase分布0:1,1:5,2:4,3:10"
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
         }
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T14:54:26.737714+00:00",
+      "report_url": "reports/task3-round4-20261103.html",
+      "updated_at": "2026-11-03T15:39:34.523125+00:00",
       "variant": "ours-V13-30k-trainresize",
-      "valid_for_comparison": false
+      "valid_for_comparison": false,
+      "requested_phase": "A",
+      "formal_score_eligible": false,
+      "paired_original_configuration": {
+        "trainresize_only": 34,
+        "both_failure": 55,
+        "baseline_only": 6,
+        "both_success": 5
+      },
+      "paired_difference_pp": 28,
+      "paired95_scene_stratified_bootstrap_pp": [
+        17.0,
+        39.0
+      ],
+      "runtime_confound_warning": "paired scenes, weights and inference seeds identical; historical baseline and repaired native R4 source generations differ. This is a configuration comparison, not a clean resize-only causal estimate."
     },
     {
       "id": "t1035-r3-latest-training-render-and-resize-v1-c30-h4",

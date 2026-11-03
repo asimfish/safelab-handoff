@@ -2,10 +2,10 @@
   "id": "task5-grasp-attach-20261101",
   "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
   "task": "5",
-  "updated_at": "2026-11-03T05:59:41.729183+00:00",
+  "updated_at": "2026-11-03T06:01:17.187247+00:00",
   "condition": "stable_grasp_fixed_joint_v1",
   "final_verified": false,
-  "status": "requires_inspection",
+  "status": "recovery_queued",
   "completed": 3283,
   "audited": 3283,
   "target": 9000,
@@ -1722,7 +1722,9 @@
         },
         "gpu": "0, 44121, 1\n1, 68128, 53\n2, 69394, 47\n3, 31471, 0\n"
       },
-      "startup_gates": 4
+      "startup_gates": 4,
+      "resume_queued": true,
+      "resume_note": "SIGBUS退出后核验全部进程清理，1168条原始物理验收保留；一次冷重启仅补未完成轨迹，等待共享四卡。具体SIGBUS来源尚未证实。"
     },
     {
       "job_id": "job-0z8le3gjvm8q",
@@ -64240,6 +64242,7 @@
       "model_trajectories_repeated": 0
     }
   ],
+  "status_label": "续测排队 · 已核验轨迹全部保留",
   "learned_native_validation": {
     "case_id": "attach__old30_mem0_30000_h8_reverse_000",
     "scored_model_trial": true,

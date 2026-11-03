@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-03T03:12:21.819416+00:00",
-  "epoch": 1793675541.8194253,
+  "updated_at": "2026-11-03T05:25:08.995153+00:00",
+  "epoch": 1793683508.9951732,
   "target": 6000,
-  "completed": 1649,
-  "active_apps": 25,
+  "completed": 1899,
+  "active_apps": 30,
   "low_priority_gpu_limit": 12,
-  "requested_low_priority_gpus": 8,
+  "requested_low_priority_gpus": 12,
   "topology": {
     "envs_per_process": 1,
     "maximum_simulator_processes_per_gpu": 8
@@ -1562,7 +1562,7 @@
       }
     },
     "formal_evaluation_admitted": false,
-    "updated_epoch": 1793650341.833818,
+    "updated_epoch": 1793683566.8248823,
     "initial_cap255_probe_invalid_reason": "initial q13 differs0.01585rad; initial parity gate retained",
     "next_candidate": "Set scene cap255 before startup and individually limit original actor requests to32 before reset, preserving the initial-state parity gate",
     "official_documentation": "https://docs.omniverse.nvidia.com/kit/docs/omni_usd_schema_physics/latest/physxschema/class_physx_schema_physx_scene_a_p_i.html",
@@ -1570,7 +1570,7 @@
     "direct_dynamic_control_bypass_not_ruled_out": true,
     "effect_of_scene_cap_on_native_setter": "Not established: dynamic scene-cap change retained the exact same first failing trajectory",
     "recorded_counterfactual_passed": false,
-    "remaining_validation": "Full expert lifecycle and actual model closed loop; recorded prefixes are not formal model trajectories",
+    "remaining_validation": "Two recorded failure prefixes and full10 expert passed for native255/4 and255/32. One learned closed-loop unscored pilot for255/4 now runs on existing GPU0; no formal score or root-cause claim.",
     "scene_cap_hypothesis_result": "Not supported for these two prefixes: parity-preserving scene-cap changes reproduced identical q13, failure ticks and error tuples",
     "native_iteration_sweep": {
       "status": "requires_inspection",
@@ -2159,7 +2159,20 @@
       "selected_variant": "position255_velocity4",
       "error": "AssertionError('model_pilot_needs64GiB_spare_memory')",
       "owned_cleanup_passed": true,
-      "partial_results": []
+      "partial_results": [],
+      "learned_pilot_followup": {
+        "epoch": 1793683383.4702919,
+        "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/constraint_learned_pilot_20261103",
+        "identity": {
+          "pid": 1826109,
+          "start": "403965876",
+          "uid": 0,
+          "namespace": "pid:[4026536144]"
+        },
+        "scored": false,
+        "formal_credit": false,
+        "script_sha256": "603a92b27a8bb31d7796b9437a6503753cb36d5e8007d76869659657a764d2c3"
+      }
     }
   },
   "methods": [
@@ -2167,26 +2180,21 @@
       "method": "mem0_weak",
       "job_id": "job-ti8136f4w885",
       "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/mem0_weak/run_a00",
+      "worker_key": "cloud_mem0_weak_a00",
+      "source_folder": "mem0_weak",
       "status": "running",
       "error": null,
-      "completed": 1198,
+      "completed": 1446,
       "target": 3000,
       "quarantined": [],
-      "active_apps": 25,
+      "active_apps": 26,
       "cleanup_passed": null,
+      "platform": {},
+      "platform_terminal": false,
       "terminal_auditable": false,
       "audit": {
         "status": "waiting_for_complete_cohort"
       },
-      "platform": {
-        "name": "SafeLabT10-mem0_weak-30k-Pro4-LP-20261102",
-        "status": "RUNNING",
-        "ended_at": null,
-        "job_url": null,
-        "job_id": "job-ti8136f4w885",
-        "epoch": 1793675400.0857449
-      },
-      "platform_terminal": false,
       "counts": [
         {
           "grasp_attachment": "off",
@@ -2195,13 +2203,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 198,
+          "completed": 243,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "2": 87,
-            "1": 62,
-            "0": 48,
+            "2": 103,
+            "1": 79,
+            "0": 60,
             "4": 1
           }
         },
@@ -2212,13 +2220,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 201,
+          "completed": 240,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 70,
-            "2": 57,
-            "1": 74
+            "0": 88,
+            "2": 68,
+            "1": 84
           }
         },
         {
@@ -2228,12 +2236,12 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 203,
+          "completed": 242,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "1": 58,
-            "0": 136,
+            "1": 71,
+            "0": 162,
             "2": 9
           }
         },
@@ -2244,15 +2252,15 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 196,
+          "completed": 236,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "2": 75,
-            "0": 34,
-            "1": 85,
+            "2": 89,
+            "0": 41,
+            "1": 103,
             "4": 1,
-            "3": 1
+            "3": 2
           }
         },
         {
@@ -2262,13 +2270,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 197,
+          "completed": 242,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "2": 63,
-            "1": 73,
-            "0": 61
+            "2": 75,
+            "1": 90,
+            "0": 77
           }
         },
         {
@@ -2278,13 +2286,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 203,
+          "completed": 243,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
-            "0": 108,
-            "1": 82,
-            "2": 13
+            "0": 126,
+            "1": 102,
+            "2": 15
           }
         }
       ],
@@ -2293,7 +2301,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 40,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2301,7 +2309,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 920100,
-          "completed": 38,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2309,7 +2317,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 930100,
-          "completed": 39,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2317,7 +2325,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 940100,
-          "completed": 40,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2325,7 +2333,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 4,
           "evaluation_seed": 950100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2333,7 +2341,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 910100,
-          "completed": 40,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2341,7 +2349,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 920100,
-          "completed": 40,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2349,7 +2357,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 930100,
-          "completed": 40,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2357,7 +2365,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 940100,
-          "completed": 40,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2365,7 +2373,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 950100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2373,7 +2381,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 910100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2381,7 +2389,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 920100,
-          "completed": 41,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2389,7 +2397,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 930100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2397,7 +2405,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 940100,
-          "completed": 40,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2405,7 +2413,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 30,
           "evaluation_seed": 950100,
-          "completed": 40,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2413,7 +2421,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 910100,
-          "completed": 40,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2421,7 +2429,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 920100,
-          "completed": 39,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2429,7 +2437,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 930100,
-          "completed": 40,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2437,7 +2445,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 940100,
-          "completed": 38,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2445,7 +2453,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 4,
           "evaluation_seed": 950100,
-          "completed": 39,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2453,7 +2461,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 910100,
-          "completed": 38,
+          "completed": 47,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2461,7 +2469,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 920100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2469,7 +2477,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 930100,
-          "completed": 40,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2477,7 +2485,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 940100,
-          "completed": 40,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2485,7 +2493,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 8,
           "evaluation_seed": 950100,
-          "completed": 38,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2493,7 +2501,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 910100,
-          "completed": 40,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2501,7 +2509,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 920100,
-          "completed": 40,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2509,7 +2517,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 930100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2517,7 +2525,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 940100,
-          "completed": 41,
+          "completed": 49,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2525,7 +2533,7 @@
           "grasp_attachment": "stable_grasp_fixed_joint_v2_solver128",
           "execution_horizon": 30,
           "evaluation_seed": 950100,
-          "completed": 41,
+          "completed": 48,
           "target": 100,
           "provisional_successes": 0
         }
@@ -2534,11 +2542,10 @@
     },
     {
       "method": "ours_aligned",
-      "job_id": "job-dtng4lf4m27l",
+      "job_id": "job-ca4on95hu4ar + job-28kuj3mt9ovt",
       "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01",
-      "status": "requires_inspection",
-      "error": null,
-      "completed": 451,
+      "status": "running",
+      "completed": 453,
       "target": 3000,
       "quarantined": [
         {
@@ -2590,21 +2597,231 @@
           "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01/runs/paired_case0229"
         }
       ],
-      "active_apps": 0,
-      "cleanup_passed": null,
+      "active_apps": 4,
+      "cleanup_passed": false,
+      "cleanup_assurance": "New workers require native cleanup; predecessor termination is provider-confirmed, native cleanup receipt unavailable.",
+      "platform_terminal": false,
+      "platform": {
+        "status": "ACTIVE"
+      },
+      "workers": [
+        {
+          "method": "ours_aligned",
+          "job_id": "job-ca4on95hu4ar",
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_resume_a02/run_a02",
+          "worker_key": "cloud_ours_aligned_a02",
+          "source_folder": "ours_aligned_resume_a02",
+          "status": "running",
+          "error": null,
+          "completed": 0,
+          "target": 3000,
+          "quarantined": [],
+          "active_apps": 4,
+          "resource": {
+            "epoch": 1793683477.7083313,
+            "GPU_returncode": 0,
+            "GPU": "0, GPU-8075febb-8841-2e59-8fd3-3a2b313f120b, 97887, 16095, 0, 32\n1, GPU-106fdfc5-9966-f117-6f06-9dac45e04d86, 97887, 16095, 0, 32\n2, GPU-cf93ddd2-bede-abdc-3822-dfbbeaf030ef, 97887, 16095, 0, 32\n3, GPU-59d23c89-1c19-8685-058a-c7746ff7bce4, 97887, 16095, 0, 31\n",
+            "GPU_error": "",
+            "cgroup": {
+              "memory.current": "19851886592\n",
+              "memory.max": "858993459200\n",
+              "memory.peak": "19867742208\n",
+              "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+              "cpu.max": "8000000 100000\n",
+              "cpu.stat": "usage_usec 175960032\nuser_usec 57854154\nsystem_usec 118105877\ncore_sched.force_idle_usec 0\nnr_periods 911\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n"
+            }
+          },
+          "cleanup_passed": null,
+          "platform": {},
+          "platform_terminal": false
+        },
+        {
+          "method": "ours_aligned",
+          "job_id": "job-28kuj3mt9ovt",
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_resume_a03/run_a03",
+          "worker_key": "cloud_ours_aligned_a03",
+          "source_folder": "ours_aligned_resume_a03",
+          "status": "starting",
+          "error": null,
+          "completed": 0,
+          "target": 3000,
+          "quarantined": [],
+          "active_apps": 0,
+          "resource": {
+            "epoch": 1793683506.4875731,
+            "GPU_returncode": 0,
+            "GPU": "0, GPU-6315330e-b4bb-5cfe-6d0c-0f3947b9d3f3, 97887, 16095, 0, 31\n1, GPU-a6b9ce7b-4599-ceb1-ff37-ffcf1887f4e9, 97887, 16095, 0, 31\n2, GPU-64c9cb36-102b-1e23-0999-8394b54316f7, 97887, 16095, 0, 31\n3, GPU-8efa1332-7e27-6f56-2fa5-77dd075ab797, 97887, 16095, 0, 30\n",
+            "GPU_error": "",
+            "cgroup": {
+              "memory.current": "16804642816\n",
+              "memory.max": "858993459200\n",
+              "memory.peak": "16820273152\n",
+              "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\n",
+              "cpu.max": "8000000 100000\n",
+              "cpu.stat": "usage_usec 144024892\nuser_usec 51652997\nsystem_usec 92371895\ncore_sched.force_idle_usec 0\nnr_periods 909\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n"
+            }
+          },
+          "cleanup_passed": null,
+          "platform": {},
+          "platform_terminal": false
+        }
+      ],
+      "retained_predecessor_cases": 453,
+      "recovered_unacknowledged_cases": 2,
+      "external_interrupted_attempts_retained": 30,
+      "inference_request_retries": false,
+      "audit_constituents": [
+        {
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01",
+          "source_folder": "ours_aligned_v2",
+          "supplement": [
+            {
+              "result": {
+                "id": "task10_ours_aligned_off_s30000_h8_o12345_seed950115",
+                "method": "ours_aligned",
+                "checkpoint_step": 30000,
+                "execution_horizon": 8,
+                "order": "12345",
+                "seed": 950115,
+                "evaluation_seed": 950100,
+                "trajectory_index": 15,
+                "condition": "N1",
+                "paired_world_origin": [
+                  0,
+                  0,
+                  0
+                ],
+                "raw_input_capture": false,
+                "shard": "cloud",
+                "scored": true,
+                "grasp_attachment": "off",
+                "status": "physical_failure",
+                "success": false,
+                "physical_phases": 1,
+                "prediction_horizon": 30,
+                "denoising_steps": 8,
+                "position_randomization": false,
+                "physics_device": "cpu",
+                "camera": "chest",
+                "num_envs_actual": 1,
+                "simulation_limit_s": 300.0,
+                "physical_events": [
+                  {
+                    "phase": 1,
+                    "tick": 2944,
+                    "object": "A",
+                    "target": "pan",
+                    "stable_ticks": 121,
+                    "drift_m": 4.5700555347139016e-05,
+                    "rotation_range_rad": 0.001130590476006621,
+                    "position": [
+                      -0.961536705493927,
+                      -5.19394063949585,
+                      1.0513819456100464
+                    ],
+                    "support_contact": true,
+                    "right_hand_contact": false
+                  }
+                ],
+                "failure_reason": "object_toppled",
+                "sim_seconds": 32.80833333333333,
+                "attachment": null
+              },
+              "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01/runs/paired_case0454",
+              "recovered_unacknowledged": true,
+              "raw_result_sha256": "68d941bd4c20fa75193a1d7b58ec66f38ea9d184f4d5285c4a09b5da836c5051"
+            },
+            {
+              "result": {
+                "id": "task10_ours_aligned_off_s30000_h8_o12345_seed930115",
+                "method": "ours_aligned",
+                "checkpoint_step": 30000,
+                "execution_horizon": 8,
+                "order": "12345",
+                "seed": 930115,
+                "evaluation_seed": 930100,
+                "trajectory_index": 15,
+                "condition": "N1",
+                "paired_world_origin": [
+                  0,
+                  0,
+                  0
+                ],
+                "raw_input_capture": false,
+                "shard": "cloud",
+                "scored": true,
+                "grasp_attachment": "off",
+                "status": "physical_failure",
+                "success": false,
+                "physical_phases": 2,
+                "prediction_horizon": 30,
+                "denoising_steps": 8,
+                "position_randomization": false,
+                "physics_device": "cpu",
+                "camera": "chest",
+                "num_envs_actual": 1,
+                "simulation_limit_s": 300.0,
+                "physical_events": [
+                  {
+                    "phase": 1,
+                    "tick": 2443,
+                    "object": "A",
+                    "target": "pan",
+                    "stable_ticks": 121,
+                    "drift_m": 1.63143686222611e-05,
+                    "rotation_range_rad": 0.00036352374522648727,
+                    "position": [
+                      -0.9661374092102051,
+                      -5.184023380279541,
+                      1.0513978004455566
+                    ],
+                    "support_contact": true,
+                    "right_hand_contact": false
+                  },
+                  {
+                    "phase": 2,
+                    "tick": 4716,
+                    "object": "A",
+                    "target": "pad_A",
+                    "stable_ticks": 121,
+                    "drift_m": 0.0003513223200570792,
+                    "rotation_range_rad": 0.008088307542932016,
+                    "position": [
+                      -1.2028446197509766,
+                      -4.919980049133301,
+                      0.9753459692001343
+                    ],
+                    "support_contact": true,
+                    "right_hand_contact": false
+                  }
+                ],
+                "failure_reason": "object_toppled",
+                "sim_seconds": 70.35,
+                "attachment": null
+              },
+              "output": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_v2/run_a01/runs/paired_case0472",
+              "recovered_unacknowledged": true,
+              "raw_result_sha256": "fc57d966c0f73e058d3ca1ca28cf6ced86c131a63a4bd8ee447e1f3e7d2ad5f9"
+            }
+          ],
+          "terminal_seal_sha256": "509b9fdf637ddd57658d6ef110e7d41ddee15e1944c084d9d7e12f0227cf0f15",
+          "sealed_state_sha256": "3603b60280ea2bbc34a9cf095b63f6f6ca031748748c401d38d32b0123e0c673"
+        },
+        {
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_resume_a02/run_a02",
+          "source_folder": "ours_aligned_resume_a02",
+          "supplement": []
+        },
+        {
+          "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/runtimes/ours_aligned_resume_a03/run_a03",
+          "source_folder": "ours_aligned_resume_a03",
+          "supplement": []
+        }
+      ],
       "terminal_auditable": false,
       "audit": {
         "status": "waiting_for_complete_cohort"
       },
-      "platform": {
-        "name": "SafeLabT10-ours_aligned-30k-Pro4-LP-20261102-health2",
-        "status": "FAILED",
-        "ended_at": 1793652187702,
-        "job_url": null,
-        "job_id": "job-dtng4lf4m27l",
-        "epoch": 1793675400.213723
-      },
-      "platform_terminal": true,
       "counts": [
         {
           "grasp_attachment": "off",
@@ -2633,13 +2850,13 @@
           "final_verified": false,
           "success_rate_mean_pct": null,
           "success_rate_std_pct": null,
-          "completed": 77,
+          "completed": 79,
           "target": 500,
           "provisional_successes": 0,
           "physical_phases": {
             "0": 53,
-            "2": 8,
-            "1": 9,
+            "2": 9,
+            "1": 10,
             "3": 4,
             "5": 1,
             "4": 2
@@ -2777,7 +2994,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 930100,
-          "completed": 15,
+          "completed": 16,
           "target": 100,
           "provisional_successes": 0
         },
@@ -2793,7 +3010,7 @@
           "grasp_attachment": "off",
           "execution_horizon": 8,
           "evaluation_seed": 950100,
-          "completed": 15,
+          "completed": 16,
           "target": 100,
           "provisional_successes": 0
         },

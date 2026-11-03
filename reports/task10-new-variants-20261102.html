@@ -19,6 +19,7 @@ video{display:block;width:100%;max-width:640px;background:#171d24}details{border
 <tbody id="rows"></tbody>
 </table></div>
 <p id="updated" class="note"></p>
+<p id="continuation" class="note"></p>
 <h2>失败案例视频</h2>
 <p class="note">从两种方法、两种接触条件各抽查一条真实闭环轨迹。每条包含模型实际使用的胸部画面和同轨迹第三人称画面。这些是失败案例，不能替代完整成功率统计。</p>
 <div id="examples"></div>
@@ -38,7 +39,16 @@ fetch('task10-new-variants-20261102.json',{cache:'no-store',signal:AbortSignal.t
  }
  document.querySelector('#updated').textContent='更新时间：'+d.updated_at;
  const finding=d.attachment_solver_disclosure;
- if(finding){const probe=finding.paired_probes?.constraint_dynamic_scene_cap_20261102;document.querySelector('#attachment-validation').textContent=finding.recorded_counterfactual_passed?'附着修正已通过两条录制动作的配对回放；仍需专家全流程和真实模型闭环验证，未计作正式模型成功。':finding.state==='recorded_probes_finished'?'录制动作核验已结束，目前尚未获得可正式采用的附着修正；原配置继续单独统计。':`附着配置独立核验进行中（${probe?.status||'初始化'}）；保持原始初始状态，附着后再调整上限。`}
+ if(finding){
+  const sweep=finding.native_iteration_sweep;
+  const passed=(sweep?.variants||[]).filter(v=>v.replay_gate_passed&&v.expert_gate_passed);
+  const pilot=sweep?.learned_pilot_followup;
+  document.querySelector('#attachment-validation').textContent=passed.length
+   ? `附着独立诊断：${passed.map(v=>v.variant).join('、')}通过两条异常动作回放及专家十阶段验收。真实模型闭环${pilot?.status==='complete'?'诊断已结束':pilot?'诊断进行中':'尚待验证'}；诊断不计入正式成功率，原配置保持独立统计。`
+   : '附着独立诊断尚未得到可正式采用的修正；原配置继续单独统计。';
+ }
+ const resumed=d.methods.find(m=>m.retained_predecessor_cases);
+ if(resumed)document.querySelector('#continuation').textContent=`续跑记录：原对齐Loss任务由平台确认失败退出，退出原因未知；保留${resumed.retained_predecessor_cases}条已完成结果（含${resumed.recovered_unacknowledged_cases}条已校验的落盘结果）及原约束异常。缺失场景分配到两组四卡任务：${resumed.job_id}。中断前缀保留，可追溯；不覆盖已完成结果。低优卡申请合计${d.requested_low_priority_gpus}/12。`;
  const cases=new Map();
  for(const clip of d.examples||[]){if(!cases.has(clip.case_id))cases.set(clip.case_id,[]);cases.get(clip.case_id).push(clip)}
  for(const [id,clips] of cases){

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T16:16:15.539825+00:00",
+  "updated_at": "2026-11-03T16:25:29.045442+00:00",
   "protocol": "SafeLab-Eval-v1",
   "checkpoint_coverage": {
     "task10_methods": [
@@ -2385,11 +2385,11 @@
     "steps": {
       "smoke20": {
         "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1/ours_aligned_weak_smoke20",
-        "completed": 18,
+        "completed": 20,
         "target": 20,
-        "active": 2,
+        "active": 0,
         "phase_hist": {
-          "0": 8,
+          "0": 9,
           "1": 5,
           "2": 2,
           "3": 2,
@@ -2403,6 +2403,29 @@
         },
         "successes_observed": 0,
         "scored": false,
+        "status": "complete",
+        "error": null
+      },
+      "A_original": {
+        "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1/ours_aligned_weak_A_original",
+        "completed": 0,
+        "target": 200,
+        "active": 4,
+        "phase_hist": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0,
+          "7": 0,
+          "8": 0,
+          "9": 0,
+          "10": 0
+        },
+        "successes_observed": 0,
+        "scored": true,
         "status": "running",
         "error": null
       }
@@ -2410,10 +2433,37 @@
     "local_root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1",
     "open_loop": "pending soft gate",
     "epoch": 1793721203.7476823,
-    "phase": "smoke20",
-    "observed_epoch": 1793722564.3626165,
-    "snapshot_epoch": 1793722570.1080637,
-    "smoke20": {},
+    "phase": "A_original",
+    "observed_epoch": 1793723110.868183,
+    "snapshot_epoch": 1793723112.441889,
+    "smoke20": {
+      "epoch": 1793723010.818832,
+      "method": "ours_aligned_weak",
+      "completed": 20,
+      "order_split": {
+        "12345": 10,
+        "54321": 10
+      },
+      "phase0_count": 10,
+      "phase_hist": {
+        "0": 10,
+        "1": 5,
+        "2": 2,
+        "3": 2,
+        "4": 1,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0
+      },
+      "smoke20_passed": true,
+      "passed": true,
+      "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1/ours_aligned_weak_smoke20",
+      "scored": false,
+      "independent_physical_and_transport_checked": 20
+    },
     "open_loop_admission": {
       "epoch": 1793722351.8991354,
       "status": "pending",
@@ -2445,23 +2495,13 @@
     "unknown_cases": []
   },
   "old_three_model_A": {
-    "epoch": 1793722570.2489905,
+    "epoch": 1793723125.5468802,
     "formal_A_completed_progress": 595,
     "terminal_unknown": 5,
-    "auxiliary_A_completed_progress": 16,
+    "auxiliary_A_completed_progress": 28,
     "all_card_sustained_gpu": {
-      "status": "qualified600s",
+      "status": "pending600s_common_window",
       "GPU_count": 8,
-      "duration_s": 600,
-      "start_epoch": 1793721954.4805617,
-      "end_epoch": 1793722554.4805617,
-      "all_card_utilization_mean_pct": 50.87081934556365,
-      "all_card_memory_mean_pct": 44.475237111566024,
-      "source_paths": [
-        "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_attach01/safelab_task10_evalv1_round2_attach_all/mem0_original_A_attachv2/RESOURCE_HISTORY.jsonl",
-        "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round4_persistent_issue26v1/safelab_task10_evalv1_round2_issue26v1/ours_aligned_weak_smoke20/RESOURCE_HISTORY.jsonl"
-      ],
-      "method": "time-weighted common600s interval, all assigned GPU UUIDs",
       "platform_assigned_GPUs": 8,
       "included_groups": [
         "attach_all",
@@ -2491,7 +2531,7 @@
       "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -2597,7 +2637,7 @@
       "status": "完整100已跑完，等待软准入/独立验收",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -2698,12 +2738,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 7,
+      "completed": 12,
       "kind": "自主闭环",
       "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -2721,11 +2761,12 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.1428571428571428,
+      "mean_phase": 1.9090909090909092,
       "phase_hist": {
-        "1": 4,
-        "2": 2,
-        "0": 1
+        "1": 5,
+        "2": 3,
+        "0": 1,
+        "5": 2
       },
       "wilson95": null,
       "admission": {
@@ -2756,8 +2797,8 @@
           "order_split": null
         }
       },
-      "known_terminal_count": 7,
-      "independently_verified": 7,
+      "known_terminal_count": 12,
+      "independently_verified": 11,
       "expected_start": "等待原始A完成；同一v2辅助阶段",
       "display_priority": 300,
       "lr_split": {
@@ -2799,12 +2840,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 9,
+      "completed": 16,
       "kind": "自主闭环",
       "status": "阶段A续测中",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -2822,12 +2863,14 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.4444444444444444,
+      "mean_phase": 1.75,
       "phase_hist": {
-        "2": 3,
-        "1": 4,
-        "0": 1,
-        "3": 1
+        "2": 5,
+        "1": 6,
+        "0": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1
       },
       "wilson95": null,
       "admission": {
@@ -2858,8 +2901,8 @@
           "order_split": null
         }
       },
-      "known_terminal_count": 9,
-      "independently_verified": 9,
+      "known_terminal_count": 16,
+      "independently_verified": 16,
       "expected_start": "等待原始A完成；同一v2辅助阶段",
       "display_priority": 300,
       "lr_split": {
@@ -3200,7 +3243,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3297,7 +3340,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3394,7 +3437,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3504,7 +3547,7 @@
       "status": "完整100已结算并独立核验",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3612,7 +3655,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3709,7 +3752,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3806,7 +3849,7 @@
       "status": "模型准入中；未启动阶段A",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3848,11 +3891,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-          "completed": 0,
-          "phase0": null,
-          "order_split": null
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
         }
       },
       "known_terminal_count": 0,
@@ -3903,7 +3949,7 @@
       "status": "模型准入中；未启动阶段A",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -3945,11 +3991,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-          "completed": 0,
-          "phase0": null,
-          "order_split": null
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
         }
       },
       "known_terminal_count": 0,
@@ -4000,7 +4049,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -4042,11 +4091,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-          "completed": 0,
-          "phase0": null,
-          "order_split": null
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
         }
       },
       "known_terminal_count": 0,
@@ -4097,7 +4149,7 @@
       "status": "等待原始条件A完成后启用统一attach-v2",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-      "updated_at": "2026-11-03T16:16:15.539825+00:00",
+      "updated_at": "2026-11-03T16:25:29.045442+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "固定v180布局；seed0=910100，轨迹RNG=910100+scene_index；12345/54321各50并交错派发，分别映射left/right；每Isaac进程1环境；训练双线性AA；121tick物理oracle；60度黏性失败为额外评测条件；unknown留100分母，阶段统计仅有效轨迹。",
@@ -4139,11 +4191,14 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
-          "completed": 0,
-          "phase0": null,
-          "order_split": null
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
         }
       },
       "known_terminal_count": 0,
@@ -4176,13 +4231,13 @@
     }
   ],
   "phase_comparison_bootstrap": {
-    "epoch": 1793722575.5127218,
+    "epoch": 1793723129.0223029,
     "scored": false,
     "analysis": "independently verified trajectories; same-scene paired bootstrap, percentile95%,10000 resamples",
     "seed": 2026110326,
     "unknown_handling": "unknown remain in the100 success denominator; phase statistics exclude unknown; pairs use intersection of known scenes only",
     "incomplete_configurations": "no phase estimate or pair published until all100 outcomes accounted",
-    "source_rows_sha256": "dc5c75f666ca4bb9fea077151f173e3d3b5acb5f5631325287953312177ddc69",
+    "source_rows_sha256": "6edbf5f9f52f8bd16e3765546bd6a6bfa1f8a5159dfe1b3dab28af406d42d2f6",
     "summaries": [
       {
         "condition": "off",
@@ -5043,10 +5098,10 @@
     ]
   },
   "contact_diagnostic": {
-    "epoch": 1793722570.395494,
+    "epoch": 1793723125.7451382,
     "scored": false,
-    "completed": 611,
-    "qualified_target_at_snapshot": 611,
+    "completed": 622,
+    "qualified_target_at_snapshot": 622,
     "claim_boundary": "Up to2s recorded contact association before sticky60degree failure; not counterfactual causation. No success rules modified.",
     "groups": {
       "mem0_original|4|off": {
@@ -5156,40 +5211,42 @@
         }
       },
       "mem0_original|8|stable_grasp_fixed_joint_v2_solver128": {
-        "n": 9,
+        "n": 16,
         "classifications": {
-          "toppled": 9
+          "toppled": 16
         },
         "hand_lifecycle": {
-          "after_release": 8,
-          "before_first_attachment": 1
+          "after_release": 12,
+          "before_first_attachment": 2,
+          "holding": 2
         },
         "affected_cup_lifecycle": {
-          "never_attached": 4,
-          "after_own_release": 5
+          "never_attached": 8,
+          "after_own_release": 8
         },
         "last_contact_body": {
-          "palm": 5,
-          "finger": 5,
+          "palm": 9,
+          "finger": 8,
           "arm": 1
         }
       },
       "mem0_original|4|stable_grasp_fixed_joint_v2_solver128": {
-        "n": 7,
+        "n": 11,
         "classifications": {
-          "toppled": 7
+          "toppled": 11
         },
         "hand_lifecycle": {
-          "after_release": 6,
-          "before_first_attachment": 1
+          "after_release": 9,
+          "before_first_attachment": 1,
+          "holding": 1
         },
         "affected_cup_lifecycle": {
-          "after_own_release": 4,
-          "never_attached": 3
+          "after_own_release": 7,
+          "never_attached": 4
         },
         "last_contact_body": {
-          "finger": 4,
-          "palm": 5
+          "finger": 7,
+          "palm": 7
         }
       }
     },

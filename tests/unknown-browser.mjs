@@ -9,7 +9,7 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let ws;const errors=[],checks=[];
 try{
  let endpoint;
- for(let i=0;i<600;i++){const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){endpoint=m[1];break;}await sleep(50);}
+ for(let i=0;i<Math.min(2400,Math.max(600,Math.ceil((Number(process.env.SAFELAB_CHROME_STARTUP_MS)||30000)/50)));i++){const m=stderr.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(m){endpoint=m[1];break;}await sleep(50);}
  if(!endpoint){fs.writeFileSync(path.join(Q,'chrome_startup_stderr.txt'),stderr);throw Error('Chrome debug endpoint unavailable: '+stderr.slice(-800));}
  const port=new URL(endpoint).port;
  const target=await (await fetch('http://127.0.0.1:'+port+'/json/new?'+BASE,{method:'PUT'})).json();
@@ -37,14 +37,16 @@ try{
  await run('data.evaluations=['+JSON.stringify(all)+'];rebuild()');
  assert(await run('document.querySelector(".formal-section tbody tr").textContent.includes("无有效轨迹")'),'all unknown renders absent mean without crash');
  assert(await run('document.querySelector(".sensitivity-upper").textContent.includes("100.0%")'),'all-unknown sensitivity upper100percent');
- const candidate={...fixture,id:'ui-candidate-fixture',stage:'diagnostic',metric_role:'rescored_v1.1_candidate',source_evaluation_id:fixture.id,source:'fixture-only',success:30,phase_hist:{0:68,3:30},mean_phase:90/98};
- await run('data.evaluations=['+JSON.stringify(fixture)+','+JSON.stringify(candidate)+'];metricView="strict-v1";rebuild()');
- assert(await run('document.querySelector("#metric-view").value==="strict-v1"&&!document.querySelector("[data-candidate]")'),'default strict view keeps candidate invisible');
- await run('document.querySelector("#metric-view").value="v1.1-candidate";document.querySelector("#metric-view").dispatchEvent(new Event("change"))');
- assert(await run('document.querySelector("[data-candidate]").textContent.includes("30.0%")'),'explicit switch shows candidate diagnostic result');
- assert(await run('document.querySelector(".candidate-results").textContent.includes("尚未采用为正式标准")'),'candidate is visibly unadopted');
+ const candidate={...fixture,id:'ui-revoked-candidate',stage:'diagnostic',metric_role:'rescored_v1.1_candidate',success:99};
+ const placement={...fixture,id:'ui-placement-fixture',protocol_version:'SafeLab-Eval-v1.1',oracle_version:'placement-v1.1',success:30,phase_hist:{0:68,3:30},mean_phase:90/98,lr_split:{left:{trials:50,success:15,unknown:1},right:{trials:50,success:15,unknown:1}},seed_results:[{seed:0,trials:100,success:30,unknown:2}],admission:{...fixture.admission,executor_parity:{passed:true,report:'fixture-only'}}};
+ await run('data.evaluations=['+JSON.stringify(fixture)+','+JSON.stringify(candidate)+','+JSON.stringify(placement)+'];metricView="auto";rebuild()');
+ assert(await run('document.querySelector("#metric-view").value==="auto"&&document.querySelector(".formal-section tbody tr").textContent.includes("30.0%")'),'auto task view prefers validated placement result');
+ assert(await run('!M.evaluationIndex(board).some(e=>e.id==="ui-revoked-candidate")&&![...document.querySelector("#metric-view").options].some(o=>o.value==="v1.1-candidate")'),'revoked drift candidate has no table entry or selector');
  await run('document.querySelector("#metric-view").value="strict-v1";document.querySelector("#metric-view").dispatchEvent(new Event("change"))');
- assert(await run('document.querySelector(".formal-section tbody tr").textContent.includes("3.0%")&&!document.querySelector("[data-candidate]")'),'switching back retains original strict score');
+ assert(await run('document.querySelector(".formal-section tbody tr").textContent.includes("3.0%")&&!document.querySelector(".formal-section tbody tr").textContent.includes("30.0%")'),'strict comparison retains original score without pooling');
+ await run('document.querySelector("#metric-view").value="placement-v1.1";document.querySelector("#metric-view").dispatchEvent(new Event("change"))');
+ assert(await run('document.querySelector(".formal-section tbody tr").textContent.includes("30.0%")&&document.querySelector(".formal-section tbody tr").textContent.includes("placement-v1.1")'),'explicit placement view labels new oracle');
+ assert(await run('document.querySelector("#checkpoint-coverage").textContent.includes("v1.1")&&!![...document.querySelectorAll("[data-coverage-state]")].some(e=>e.dataset.coverageState==="未开始")'),'v1.1 coverage lists missing configuration states');
  assert(errors.length===0,'no uncaught exceptions');
  fs.writeFileSync(path.join(Q,'UNKNOWN_BROWSER_QA.json'),JSON.stringify({passed:true,checks,errors,at:new Date().toISOString()},null,2));console.log(JSON.stringify({passed:true,checks,errors}));
 }finally{if(ws)ws.close();browser.kill('SIGTERM');}

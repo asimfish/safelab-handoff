@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-03T15:51:51.223773+00:00",
-  "status": "R5_smoke_then_stageA",
+  "updated_at": "2026-11-03T17:17:43.324721+00:00",
+  "status": "R10_startup_recovery_pending",
   "rows": [
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -1107,32 +1107,29 @@
     }
   },
   "active_evaluation_job": {
-    "epoch": 1793721054.1866722,
-    "job_id": "job-aw4mw6z5tyfj",
-    "job_status": "RUNNING",
-    "pipeline_status": "smoke_running",
-    "smoke_audited": 0,
-    "smoke_target": 60,
-    "stageA_audited": 0,
-    "stageA_target": 800,
-    "smoke_gate": {},
-    "infrastructure_unknown": 0,
-    "gpus": 4,
+    "operation": {
+      "idempotency_key": "T-PI05-EvalV1-R10-localposix-pro4-20261103-01",
+      "manifest_sha256": "25fd84eeab5de36b67070d69f87fa709a5fc5a5b744c44a32f6108b45de57435",
+      "safe_payload_sha256": "b54d49d4d85f277384a6713c0b3b4524c7e1335347b2e2282f18850bb8436f1c",
+      "gpus": 4,
+      "purpose": "smoke_then_stageA_shared_admission",
+      "operation_id": "7kq27fdlscov8yl3t78fi6r74",
+      "accepted_epoch": 1793726148.4448678
+    },
+    "status": "creation_pending",
+    "gpus_requested": 4,
     "num_envs_actual": 1,
     "processes_per_gpu": 4,
-    "model_births": 12,
-    "Native_births": 16,
-    "all_own_generations_closed": null,
-    "archive_verified": 0,
-    "sustained10min": null,
-    "qualified_for_second4": false,
-    "error_class": null,
-    "weights_verified": true,
-    "id": "job-aw4mw6z5tyfj",
-    "openloop": "passed",
-    "expert_replay": "shared",
-    "image_chain": "R5_full_shared8modules_unchanged_R8",
-    "recovery_report": "reports/pi05-r8-recovery-20261103.json"
+    "cold_model_loads_max_parallel": 4,
+    "steady_model_services": 12,
+    "smoke_target": 60,
+    "stageA_target": 800,
+    "stageA_unchanged": true,
+    "terminal_diagnostic_stdout": true,
+    "explicit_best_effort_terminal_mirror": true,
+    "CPU_tests_pass": 6,
+    "independent_review_pass": true,
+    "extra_nodes_not_submitted": true
   },
   "superseded_R5_job": {
     "id": "job-9s40060a2h8n",
@@ -1151,5 +1148,25 @@
     "old_successes": 1,
     "old_archives_all_verified": true,
     "old_own_generations_closed": true
+  },
+  "R8_retained_diagnostic": {
+    "job_id": "job-aw4mw6z5tyfj",
+    "status": "FAILED",
+    "cause": "project-public ESTALE/ENOENT on runtime control writes and reads",
+    "audited": 7,
+    "archive_verified": 7,
+    "claimed_without_audit_UNKNOWN": 16,
+    "model_failure_not_inferred": true,
+    "no_unknown_retries": true
+  },
+  "R9_retained_diagnostic": {
+    "job_id": "job-8q157d9blcd8",
+    "status": "FAILED",
+    "last_observed_phase": "model_starting",
+    "audited": 0,
+    "Native_births_observed": 0,
+    "provider_exit_code": null,
+    "provider_error_logs": 0,
+    "cause": "unresolved; do not infer OOM or model failure"
   }
 }

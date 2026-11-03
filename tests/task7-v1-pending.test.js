@@ -139,3 +139,29 @@ test('official resource release is separate from twelve missing raw artifacts',(
  assert.deepEqual(summary.raw_archive.missing_files,stop.raw_missing_files);
  assert.equal(summary.training_target_expert_admission.status,'pending');
 });
+
+test('actual input audits preserve sparse-diagnostic and admission boundaries',()=>{
+ const audit=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/input-contract-followup.json'));
+ assert.equal(audit.formal_stage_A_trials_added,0);assert.equal(audit.formal_success,null);assert.equal(audit.admission_granted,false);
+ assert.equal(audit.original210query_target_manifest_modified,false);assert.equal(audit.original210_manifest_sha256,'1df9102993836b3b9e2fdae55bc5bf5e37af5d82a4672333011c0346675b924f');
+ assert.equal(audit.training_action_target.actual_training_target_expert_admission_passed,false);
+ assert.equal(audit.actual_KF.sidecars_recovered_from_exact_training30109_paths,true);assert.equal(audit.actual_KF.midpoint_reproduces_training_sidecar,false);
+ const base=audit.actual_KF.groups.base_aligned,weak=audit.actual_KF.groups.weak_aligned;
+ assert.deepEqual([base.actual_KF_in_fixed10episodes,base.KF_present_in_original210,base.missing_actual_KF_images],[263,2,261]);
+ assert.deepEqual([weak.actual_KF_in_fixed10episodes,weak.KF_present_in_original210,weak.missing_actual_KF_images],[252,5,247]);
+ assert.notEqual(base.sidecar_sha256,weak.sidecar_sha256);assert.equal(audit.actual_KF.full_chronological_KF_or_sliding_memory_parity_verified,false);
+ assert.deepEqual(audit.weak_language.variants,['mem0_weak_30k','ours_weak_aligned_30k']);assert.equal(audit.weak_language.active_subtask_text_mismatches_per_variant,90);assert.equal(audit.weak_language.global_task_text_mismatches,0);
+ assert.equal(audit.weak_language.direct_converted_parquet_or_fingerprint_recompute_claimed,false);assert.equal(audit.weak_language.soft_admission_verified,false);
+ assert.equal(audit.input_audit_model_calls,0);assert.ok(audit.zero_model_calls_scope.includes('not a current cloud-runtime liveness claim'));
+ assert.equal(audit.custody_limit.old10PNG_plus2trace_archive_verified,false);assert.equal(audit.custody_limit.known_SHA_lists_are_not_full_raw_custody,true);
+});
+test('observed world translation remains a hypothesis pending a single-variable test',()=>{
+ const raw=fs.readFileSync('reports/task7-eval-v1-20261103/collection-world-coordinate-audit.json');
+ assert.equal(require('node:crypto').createHash('sha256').update(raw).digest('hex'),'b0101e0e334e3560856d0a179eafce984f1f334e6906c4eaf616d2f475d69cb6');
+ const evidence=JSON.parse(raw),audit=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/input-contract-followup.json'));
+ assert.deepEqual(evidence.rows.map(r=>r.episode),[0,50]);
+ for(const row of evidence.rows)for(let i=0;i<3;i++)assert.ok(Math.abs(row.old_Native_minus_raw_world_xyz[i]-[7.5,-7.5,0][i])<0.0001);
+ assert.equal(evidence.causality_established,false);assert.equal(evidence.frozen_cohort_modified,false);assert.equal(evidence.formal_success_rate_claimed,false);
+ assert.equal(audit.world_coordinates.direction,'old_Native_minus_raw_world_xyz');assert.equal(audit.world_coordinates.causality_established,false);assert.equal(audit.world_coordinates.single_variable_world0_validation,'pending');
+ assert.equal(audit.world_coordinates.may_not_be_reported_as_render_failure_root_cause,true);
+});

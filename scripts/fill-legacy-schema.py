@@ -1,10 +1,10 @@
-"""Fill missing historical metadata only; never alter measured values or v1 rows."""
+"""Fill missing historical metadata only; never alter measured values or v1/v1.1 rows."""
 from pathlib import Path
 import copy,json
 P=Path(__file__).resolve().parents[1]/'data.json'
 data=json.loads(P.read_text());before=copy.deepcopy(data);changed=[]
 for e in data['evaluations']:
-    if e.get('protocol_version')=='SafeLab-Eval-v1':continue
+    if e.get('protocol_version') in ('SafeLab-Eval-v1','SafeLab-Eval-v1.1'):continue
     defaults={'protocol_version':'legacy','stage':'diagnostic'if'diagnostic'in str(e.get('protocol_version','')).lower()else'legacy',
               'topology':{'num_envs_actual':None,'procs_per_gpu':None,'gpu_type':None},
               'preprocess_resize':None,'condition_version':None,'scene_list_hash':None,

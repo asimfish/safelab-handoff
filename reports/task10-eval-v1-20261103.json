@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T09:39:37.584565+00:00",
+  "updated_at": "2026-11-03T09:47:31.776189+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -4011,13 +4011,13 @@
     "methods": {
       "mem0_weak": {
         "status": "running",
-        "completed": 10,
+        "completed": 15,
         "target": 20,
         "unknown": 0,
         "phase_distribution": {
-          "0": 1,
-          "1": 5,
-          "2": 4
+          "0": 3,
+          "1": 6,
+          "2": 6
         },
         "successes_observed": 0,
         "active": 4,
@@ -4032,7 +4032,20 @@
       "uid": 0,
       "namespace": "pid:[4026536144]"
     },
-    "observed_epoch": 1793698735.0629554
+    "observed_epoch": 1793699245.3034103
+  },
+  "admission_policy": {
+    "hard": [
+      "expert_replay",
+      "render_multiframe",
+      "smoke20"
+    ],
+    "soft": [
+      "open_loop"
+    ],
+    "open_loop_pending_allows_stageA": true,
+    "open_loop_failure_invalidates_cohort": true,
+    "reference": "Mem-0 original30k, same10trainingepisodes, armRMSEratio<=1.5"
   },
   "storage_recovery": {
     "epoch": 1793696920.706223,
@@ -4083,7 +4096,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4124,11 +4137,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "running"
         }
       }
     },
@@ -4161,7 +4179,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4202,11 +4220,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "running"
         }
       }
     },
@@ -4239,7 +4262,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4280,11 +4303,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "running"
         }
       }
     },
@@ -4317,7 +4345,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4358,11 +4386,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "running"
         }
       }
     },
@@ -4395,7 +4428,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4436,11 +4469,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4473,7 +4511,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4514,11 +4552,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4551,7 +4594,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4592,11 +4635,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4629,7 +4677,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4670,11 +4718,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4707,7 +4760,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4748,11 +4801,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4785,7 +4843,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4826,11 +4884,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4863,7 +4926,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4904,11 +4967,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     },
@@ -4941,7 +5009,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "NOT_ADMITTED: open_loop_loss and complete smoke20 pending; no formal stageA score",
+      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4982,11 +5050,16 @@
         },
         "open_loop": {
           "passed": false,
-          "report": "training loss reference and correct training-language inputs pending"
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "not_started"
         }
       }
     }

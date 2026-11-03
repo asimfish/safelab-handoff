@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T15:23:08.000705+00:00",
+  "updated_at": "2026-11-03T15:32:08.537659+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1333,53 +1333,6 @@
       ]
     },
     {
-      "id": "5-pos-ttc-aligned-weak",
-      "dataset": "5-pos",
-      "method": "TTC · 对齐削弱版",
-      "camera": "third_person",
-      "delivery": "CPU交付契约、权重和归一化已核验；GPU执行器已核验",
-      "weights": [
-        {
-          "step": 30000,
-          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/weights/executor_step30000.pt",
-          "sha256": "cb5de3a2279392081b0ee4ff2e7de8b14792b1b5c197c3343aab6854fac9a96b",
-          "status": "requires_inspection",
-          "availability": "独立3000条队列，复用12卡低优上限"
-        }
-      ],
-      "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/START_HERE.md",
-      "runtime": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person",
-      "norm": "d54007664757049f0994a9cdf031f481e713757175b1a2ba538e1da878706623",
-      "training": {
-        "input": "第三人称原始640×480 RGB＋13维实测弧度＋高层任务",
-        "prediction_horizon": 30,
-        "observation_hz": 15,
-        "action": "13维绝对目标/current_row",
-        "denoising_steps": 8,
-        "planner": "本版weak Gen2.1-311＋next/DAG LoRA；训练native classifier不负责线上切换"
-      },
-      "note": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
-      "evidence_level": "交付文件SHA256与严格CPU配置核验；逐条闭环结果须原始物理独立验收",
-      "source": "https://github.com/asimfish/safelab-handoff/issues/17",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
-      "task": "5",
-      "checkpoint_issues": [
-        {
-          "number": 17,
-          "checkpoint": 30000,
-          "url": "https://github.com/asimfish/safelab-handoff/issues/17",
-          "state": "open",
-          "issue_updated_at": "2026-11-01T20:11:14Z",
-          "handoff_owner": "WPS训练",
-          "evaluation_owner": null,
-          "delivery_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/START_HERE.md",
-          "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/START_HERE.md",
-          "supplied_camera": "unknown",
-          "recorded_state": "untested"
-        }
-      ]
-    },
-    {
       "id": "3-latest-pi05-issue7",
       "task": "3",
       "dataset": "3-latest",
@@ -1528,6 +1481,37 @@
           "recorded_state": "untested"
         }
       ]
+    },
+    {
+      "id": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "camera": "third_person",
+      "delivery": "CPU交付契约、权重和归一化已核验；GPU执行器已核验",
+      "weights": [
+        {
+          "step": 30000,
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/weights/executor_step30000.pt",
+          "sha256": "cb5de3a2279392081b0ee4ff2e7de8b14792b1b5c197c3343aab6854fac9a96b",
+          "status": "requires_inspection",
+          "availability": "独立3000条队列，复用12卡低优上限"
+        }
+      ],
+      "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/START_HERE.md",
+      "runtime": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person",
+      "norm": "d54007664757049f0994a9cdf031f481e713757175b1a2ba538e1da878706623",
+      "training": {
+        "input": "第三人称原始640×480 RGB＋13维实测弧度＋高层任务",
+        "prediction_horizon": 30,
+        "observation_hz": 15,
+        "action": "13维绝对目标/current_row",
+        "denoising_steps": 8,
+        "planner": "本版weak Gen2.1-311＋next/DAG LoRA；训练native classifier不负责线上切换"
+      },
+      "note": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
+      "evidence_level": "交付文件SHA256与严格CPU配置核验；逐条闭环结果须原始物理独立验收",
+      "source": "https://github.com/asimfish/safelab-handoff/issues/17",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html"
     }
   ],
   "evaluations": [
@@ -3837,25 +3821,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-old30-h8",
@@ -3933,25 +3904,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-old30-h30",
@@ -4029,25 +3987,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-new20-h4",
@@ -4125,25 +4070,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-new20-h8",
@@ -4221,25 +4153,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-new20-h30",
@@ -4317,25 +4236,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-new30-h4",
@@ -4413,25 +4319,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-new30-h8",
@@ -4509,25 +4402,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-new30-h30",
@@ -4605,25 +4485,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-weak20-h4",
@@ -4701,25 +4568,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-weak20-h8",
@@ -4797,25 +4651,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-weak20-h30",
@@ -4893,25 +4734,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-weak30-h4",
@@ -4989,25 +4817,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-weak30-h8",
@@ -5085,25 +4900,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-weak30-h30",
@@ -5181,25 +4983,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-ours30-h4",
@@ -5277,25 +5066,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-ours30-h8",
@@ -5373,25 +5149,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-all-20261101-ours30-h30",
@@ -5469,25 +5232,12 @@
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
       "display_priority": 200,
       "result_label": "训练对齐·原严格验收",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "campaign": "task5-all-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-old30-h4",
@@ -5567,25 +5317,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-old30-h8",
@@ -5665,25 +5402,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-old30-h30",
@@ -5763,25 +5487,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-new20-h4",
@@ -5861,25 +5572,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-new20-h8",
@@ -5959,25 +5657,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-new20-h30",
@@ -6057,25 +5742,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-new30-h4",
@@ -6155,25 +5827,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-new30-h8",
@@ -6253,25 +5912,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-new30-h30",
@@ -6351,25 +5997,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-weak20-h4",
@@ -6449,25 +6082,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-weak20-h8",
@@ -6547,25 +6167,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-weak20-h30",
@@ -6645,25 +6252,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-weak30-h4",
@@ -6743,25 +6337,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-weak30-h8",
@@ -6841,25 +6422,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-weak30-h30",
@@ -6939,25 +6507,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-ours30-h4",
@@ -7037,25 +6592,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-ours30-h8",
@@ -7135,25 +6677,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-grasp-attach-20261101-ours30-h30",
@@ -7233,25 +6762,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-grasp-attach-20261101.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "campaign": "task5-grasp-attach-20261101",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task10-mem0-20261101-20000-4",
@@ -9020,25 +8536,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-ours-aligned-weak-20261102-baseline-h8",
@@ -9113,25 +8616,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-ours-aligned-weak-20261102-baseline-h30",
@@ -9206,25 +8696,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-ours-aligned-weak-20261102-attachment-h4",
@@ -9299,25 +8776,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-ours-aligned-weak-20261102-attachment-h8",
@@ -9392,25 +8856,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task5-ours-aligned-weak-20261102-attachment-h30",
@@ -9485,25 +8936,12 @@
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "note": "阶段 A 部分完成、全 0。已暂停全量派发及自动续跑：pos1cm 多个模型集中停在第 0 阶段，正在核对专家回放、初始布局、动作标签、归一化、相机和观测同步。修复前结果标为“管线待查，不计正式成绩”。按 SafeLab-Eval-v1 通过四步准入后，仅恢复 seed0、4/8 步、原始条件；不再新跑30步。低优卡上限降为4卡。",
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "campaign": "task5-ours-aligned-weak-20261102",
       "historical_success": null,
       "formal_score_eligible": false,
       "score_role": "diagnostic",
-      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
-      "stage": "diagnostic",
-      "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
-        "gpu_type": null
-      },
-      "preprocess_resize": null,
-      "condition_version": null,
-      "scene_list_hash": null,
-      "lr_split": null,
-      "mean_phase": null,
-      "phase_hist": null,
-      "wilson95": null
+      "protocol_version": "pre-SafeLab-Eval-v1 diagnostic"
     },
     {
       "id": "task10-new-variants-20261102-10-mem0-weak-h4",
@@ -36212,7 +35650,7 @@
       "id": "task5-all-20261101",
       "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
       "task": "5",
-      "updated_at": "2026-11-03T15:23:08.000705+00:00",
+      "updated_at": "2026-11-03T15:32:08.537659+00:00",
       "final_verified": false,
       "status": "paused_pipeline_diagnostic",
       "completed": 3285,
@@ -36237,9 +35675,9 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
+            "2": 58,
             "0": 64,
             "1": 48,
-            "2": 58,
             "3": 30
           },
           "layouts": {
@@ -36257,7 +35695,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36267,7 +35705,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36325,10 +35763,10 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 74,
-            "1": 58,
             "2": 40,
+            "0": 74,
             "3": 27,
+            "1": 58,
             "4": 1
           },
           "layouts": {
@@ -36346,7 +35784,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36356,7 +35794,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36414,8 +35852,8 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 175,
             "1": 22,
+            "0": 175,
             "2": 3
           },
           "layouts": {
@@ -36433,7 +35871,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36443,7 +35881,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36519,7 +35957,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36529,7 +35967,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36605,7 +36043,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36615,7 +36053,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36691,7 +36129,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36701,7 +36139,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36777,7 +36215,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36787,7 +36225,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36845,8 +36283,8 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 190,
-            "1": 10
+            "1": 10,
+            "0": 190
           },
           "layouts": {
             "forward": 100,
@@ -36863,7 +36301,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36873,7 +36311,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -36949,7 +36387,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -36959,7 +36397,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -37034,7 +36472,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37088,7 +36526,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -37119,7 +36557,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37173,7 +36611,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -37204,7 +36642,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37258,7 +36696,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -37289,7 +36727,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37343,7 +36781,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -37374,7 +36812,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37428,7 +36866,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -37459,7 +36897,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37513,7 +36951,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -37544,7 +36982,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37598,7 +37036,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -37630,7 +37068,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37715,7 +37153,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -37769,7 +37207,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         }
       ],
       "jobs": [
@@ -38282,10 +37720,11 @@
         "expert_replay": "源光学链修正后8/8通过原五阶段物理验收（非模型成功）",
         "training_prefix_fit": "6种模型×2条连续图像前缀完成，RMSE为训练RGB的0.77–1.35倍",
         "rendering": "已恢复pos1cm源运行时光学链；多进度MAE约1.56–2.02/255，含训练视频编码差异",
-        "closed_loop_smoke": "20/20独立核验：全程0成功、unknown0，阶段0/1/2=17/1/2；仅诊断，正式A/B仍暂停",
+        "closed_loop_smoke": "新版20/20独立验收：全程0成功、unknown0；阶段0/1/2/3=16/0/3/1，平均0.45；仅诊断，正式A/B仍暂停",
         "backend48": "12条闭环、4条中断、32条未派发；未通过48条物理验收",
         "N4": "已结题不准入，正式采用N1×k多进程并行",
-        "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列"
+        "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列",
+        "remaining_gate": "补齐完整五阶段训练拟合和各模型输入准入；官方五条训练指令已核对一致；反向10条首阶段失败仍待查"
       },
       "diagnostic_admission_smoke": {
         "epoch": 1793711601.1150498,
@@ -38355,7 +37794,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -38384,22 +37823,313 @@
         "target": 20,
         "audited": 20,
         "job_id": "job-6t719gml4wnj",
-        "status": "20条诊断已闭合；不计正式A/B",
-        "topology": "N1×5 多进程并行，每App1环境",
+        "status": "complete audited diagnostic; formal Stage A/B paused",
+        "topology": "N1x5 independent-process",
         "protocol": "SafeLab-Eval-v1 admission diagnostic",
         "execution_horizon": 8,
         "inference_seed": 0,
         "old_controller_smoke_n": 20,
         "old_controller_smoke_successes": 0,
         "new_result_pending": false,
-        "previous_hardware_guard_attempts_unlaunched": 40
+        "previous_hardware_guard_attempts_unlaunched": 40,
+        "epoch": 1793719825.1013002,
+        "scored": false,
+        "task": "5b",
+        "data": "psibot_5b_obstruction_pos1cm_v1_20261025",
+        "camera": "third_person",
+        "method": "official Mem-0",
+        "checkpoint": 30000,
+        "condition": "baseline original physical contact",
+        "control_version": "current_row_forward_linear_v1",
+        "optics_version": "pos1cm_source_optics_v1",
+        "num_envs_actual": 1,
+        "processes_per_GPU": 5,
+        "GPU_model": "Pro6000 (approved vendor inventory NVIDIA RPBZZZ6, 97887MiB)",
+        "image_preprocessing": "training tensor bilinear antialias224 plus frozen Qwen",
+        "scene_hash": {
+          "full100_sha256": "3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+          "smoke20_sha256": "07ca8b466547c7cb7cb9115d0998bcffe94fcb4a419acd1d958ef73b76106af9",
+          "full100_layouts": {
+            "forward": 50,
+            "reverse": 50
+          },
+          "smoke20_layouts": {
+            "forward": 10,
+            "reverse": 10
+          }
+        },
+        "n": 20,
+        "successes": 0,
+        "unknown": 0,
+        "Wilson95": [
+          0,
+          0.16112515805281938
+        ],
+        "per_seed": {
+          "0": {
+            "n": 20,
+            "successes": 0,
+            "unknown": 0
+          }
+        },
+        "layouts": {
+          "forward": {
+            "n": 10,
+            "successes": 0,
+            "unknown": 0,
+            "phase_histogram": {
+              "0": 6,
+              "1": 0,
+              "2": 3,
+              "3": 1,
+              "4": 0,
+              "5": 0
+            },
+            "mean_completed_phases": 0.9,
+            "failure_counts": {
+              "object_fell": 2,
+              "time_limit": 8
+            }
+          },
+          "reverse": {
+            "n": 10,
+            "successes": 0,
+            "unknown": 0,
+            "phase_histogram": {
+              "0": 10,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0
+            },
+            "mean_completed_phases": 0.0,
+            "failure_counts": {
+              "object_toppled": 9,
+              "time_limit": 1
+            }
+          }
+        },
+        "phase_histogram": {
+          "0": 16,
+          "1": 0,
+          "2": 3,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.45,
+        "stage0_stop_rule_triggered": false,
+        "all_four_gates_admitted": false,
+        "remaining_gate": "complete five-subtask own-training fit and per-model input admission",
+        "wall_seconds": 1913.0516536590003,
+        "wall_comparison_caveat": "old run included extra N1x1/N1x5 image preflight and different cold startup; not a controlled speedup estimate",
+        "control_audit": {
+          "actual_PhysX_position_writes": 347070,
+          "actual_PhysX_velocity_writes": 347070,
+          "next_physical_tick_labels_verified": 43389
+        },
+        "independent_physical_audits": 20,
+        "original_physical_limit_s": 240,
+        "stall_timeout": null,
+        "old_controller_reference": {
+          "n": 20,
+          "successes": 0,
+          "mean_completed_phases": 0.25,
+          "phase_histogram": {
+            "0": 17,
+            "1": 1,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "paired_fields_verified": [
+            "layout",
+            "inference_seed",
+            "scene_seed",
+            "offsets_xy_m",
+            "execution_horizon",
+            "variant",
+            "checkpoint_step",
+            "dataset_revision",
+            "profile_name",
+            "renderer_episode_policy",
+            "preprocessing"
+          ]
+        },
+        "paired_cases": [
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_000",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_001",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_002",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_003",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_004",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_005",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_006",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_007",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_008",
+            "layout": "forward",
+            "old_completed_phases": 1,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_009",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_010",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_011",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_012",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_013",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_014",
+            "layout": "forward",
+            "old_completed_phases": 2,
+            "new_completed_phases": 3,
+            "old_status": "physical_failure",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_015",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_016",
+            "layout": "forward",
+            "old_completed_phases": 2,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_017",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_018",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_019",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          }
+        ],
+        "job_status": "SUCCEEDED",
+        "owned_cleanup_passed": true,
+        "GPUs_released": 4
       }
     },
     {
       "id": "task5-grasp-attach-20261101",
       "title": "五任务 · 稳定抓取后固定关节（独立辅助条件）",
       "task": "5",
-      "updated_at": "2026-11-03T15:23:09.957038+00:00",
+      "updated_at": "2026-11-03T15:32:08.632545+00:00",
       "condition": "stable_grasp_fixed_joint_v1",
       "final_verified": false,
       "status": "paused_pipeline_diagnostic",
@@ -38426,9 +38156,9 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
+            "2": 17,
             "0": 84,
             "1": 86,
-            "2": 17,
             "3": 13
           },
           "trials_attached": 176,
@@ -38448,7 +38178,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38458,7 +38188,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -38514,10 +38244,10 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 68,
+            "3": 26,
             "1": 78,
             "2": 28,
-            "3": 26
+            "0": 68
           },
           "trials_attached": 152,
           "attach_events": 277,
@@ -38536,7 +38266,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38546,7 +38276,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -38602,10 +38332,10 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 133,
             "1": 45,
-            "2": 16,
-            "3": 6
+            "0": 133,
+            "3": 6,
+            "2": 16
           },
           "trials_attached": 123,
           "attach_events": 201,
@@ -38624,7 +38354,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38634,7 +38364,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -38710,7 +38440,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38720,7 +38450,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -38796,7 +38526,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38806,7 +38536,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -38883,7 +38613,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38893,7 +38623,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -38969,7 +38699,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -38979,7 +38709,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39035,8 +38765,8 @@
           "target": 500,
           "successes": 0,
           "physical_phases": {
-            "0": 184,
             "1": 15,
+            "0": 184,
             "2": 1
           },
           "trials_attached": 62,
@@ -39056,7 +38786,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39066,7 +38796,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39143,7 +38873,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39153,7 +38883,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 2,
@@ -39228,7 +38958,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39280,7 +39010,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -39313,7 +39043,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39365,7 +39095,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak20",
@@ -39398,7 +39128,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39450,7 +39180,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -39483,7 +39213,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39535,7 +39265,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "weak30",
@@ -39569,7 +39299,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39654,7 +39384,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39706,7 +39436,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -39739,7 +39469,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39791,7 +39521,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -39824,7 +39554,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39876,7 +39606,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         },
         {
           "variant": "ours30",
@@ -39909,7 +39639,7 @@
               "successes": 0,
               "target": 100,
               "final_verified": true,
-              "success_rate": 0
+              "success_rate": 0.0
             },
             {
               "repeat": 1,
@@ -39961,7 +39691,7 @@
           "status": "管线待查，不计正式成绩",
           "protocol_version": "pre-SafeLab-Eval-v1 diagnostic",
           "historical_successes": 0,
-          "mean_completed_phases": 0
+          "mean_completed_phases": 0.0
         }
       ],
       "jobs": [
@@ -40376,10 +40106,11 @@
         "expert_replay": "源光学链修正后8/8通过原五阶段物理验收（非模型成功）",
         "training_prefix_fit": "6种模型×2条连续图像前缀完成，RMSE为训练RGB的0.77–1.35倍",
         "rendering": "已恢复pos1cm源运行时光学链；多进度MAE约1.56–2.02/255，含训练视频编码差异",
-        "closed_loop_smoke": "20/20独立核验：全程0成功、unknown0，阶段0/1/2=17/1/2；仅诊断，正式A/B仍暂停",
+        "closed_loop_smoke": "新版20/20独立验收：全程0成功、unknown0；阶段0/1/2/3=16/0/3/1，平均0.45；仅诊断，正式A/B仍暂停",
         "backend48": "12条闭环、4条中断、32条未派发；未通过48条物理验收",
         "N4": "已结题不准入，正式采用N1×k多进程并行",
-        "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列"
+        "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列",
+        "remaining_gate": "补齐完整五阶段训练拟合和各模型输入准入；官方五条训练指令已核对一致；反向10条首阶段失败仍待查"
       },
       "diagnostic_admission_smoke": {
         "epoch": 1793711601.1150498,
@@ -40449,7 +40180,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -40478,15 +40209,306 @@
         "target": 20,
         "audited": 20,
         "job_id": "job-6t719gml4wnj",
-        "status": "20条诊断已闭合；不计正式A/B",
-        "topology": "N1×5 多进程并行，每App1环境",
+        "status": "complete audited diagnostic; formal Stage A/B paused",
+        "topology": "N1x5 independent-process",
         "protocol": "SafeLab-Eval-v1 admission diagnostic",
         "execution_horizon": 8,
         "inference_seed": 0,
         "old_controller_smoke_n": 20,
         "old_controller_smoke_successes": 0,
         "new_result_pending": false,
-        "previous_hardware_guard_attempts_unlaunched": 40
+        "previous_hardware_guard_attempts_unlaunched": 40,
+        "epoch": 1793719825.1013002,
+        "scored": false,
+        "task": "5b",
+        "data": "psibot_5b_obstruction_pos1cm_v1_20261025",
+        "camera": "third_person",
+        "method": "official Mem-0",
+        "checkpoint": 30000,
+        "condition": "baseline original physical contact",
+        "control_version": "current_row_forward_linear_v1",
+        "optics_version": "pos1cm_source_optics_v1",
+        "num_envs_actual": 1,
+        "processes_per_GPU": 5,
+        "GPU_model": "Pro6000 (approved vendor inventory NVIDIA RPBZZZ6, 97887MiB)",
+        "image_preprocessing": "training tensor bilinear antialias224 plus frozen Qwen",
+        "scene_hash": {
+          "full100_sha256": "3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+          "smoke20_sha256": "07ca8b466547c7cb7cb9115d0998bcffe94fcb4a419acd1d958ef73b76106af9",
+          "full100_layouts": {
+            "forward": 50,
+            "reverse": 50
+          },
+          "smoke20_layouts": {
+            "forward": 10,
+            "reverse": 10
+          }
+        },
+        "n": 20,
+        "successes": 0,
+        "unknown": 0,
+        "Wilson95": [
+          0,
+          0.16112515805281938
+        ],
+        "per_seed": {
+          "0": {
+            "n": 20,
+            "successes": 0,
+            "unknown": 0
+          }
+        },
+        "layouts": {
+          "forward": {
+            "n": 10,
+            "successes": 0,
+            "unknown": 0,
+            "phase_histogram": {
+              "0": 6,
+              "1": 0,
+              "2": 3,
+              "3": 1,
+              "4": 0,
+              "5": 0
+            },
+            "mean_completed_phases": 0.9,
+            "failure_counts": {
+              "object_fell": 2,
+              "time_limit": 8
+            }
+          },
+          "reverse": {
+            "n": 10,
+            "successes": 0,
+            "unknown": 0,
+            "phase_histogram": {
+              "0": 10,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0
+            },
+            "mean_completed_phases": 0.0,
+            "failure_counts": {
+              "object_toppled": 9,
+              "time_limit": 1
+            }
+          }
+        },
+        "phase_histogram": {
+          "0": 16,
+          "1": 0,
+          "2": 3,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.45,
+        "stage0_stop_rule_triggered": false,
+        "all_four_gates_admitted": false,
+        "remaining_gate": "complete five-subtask own-training fit and per-model input admission",
+        "wall_seconds": 1913.0516536590003,
+        "wall_comparison_caveat": "old run included extra N1x1/N1x5 image preflight and different cold startup; not a controlled speedup estimate",
+        "control_audit": {
+          "actual_PhysX_position_writes": 347070,
+          "actual_PhysX_velocity_writes": 347070,
+          "next_physical_tick_labels_verified": 43389
+        },
+        "independent_physical_audits": 20,
+        "original_physical_limit_s": 240,
+        "stall_timeout": null,
+        "old_controller_reference": {
+          "n": 20,
+          "successes": 0,
+          "mean_completed_phases": 0.25,
+          "phase_histogram": {
+            "0": 17,
+            "1": 1,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "paired_fields_verified": [
+            "layout",
+            "inference_seed",
+            "scene_seed",
+            "offsets_xy_m",
+            "execution_horizon",
+            "variant",
+            "checkpoint_step",
+            "dataset_revision",
+            "profile_name",
+            "renderer_episode_policy",
+            "preprocessing"
+          ]
+        },
+        "paired_cases": [
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_000",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_001",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_002",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_003",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_004",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_005",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_006",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_007",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_008",
+            "layout": "forward",
+            "old_completed_phases": 1,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_009",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_010",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_011",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_012",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_013",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_014",
+            "layout": "forward",
+            "old_completed_phases": 2,
+            "new_completed_phases": 3,
+            "old_status": "physical_failure",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_015",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_016",
+            "layout": "forward",
+            "old_completed_phases": 2,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_017",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_018",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_019",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          }
+        ],
+        "job_status": "SUCCEEDED",
+        "owned_cleanup_passed": true,
+        "GPUs_released": 4
       }
     },
     {
@@ -41065,7 +41087,7 @@
       "existing_server_gpus": 0,
       "max_parallel_apps": 0,
       "active_apps": 0,
-      "updated_at": "2026-11-03T15:28:11.858951+00:00",
+      "updated_at": "2026-11-03T15:34:49.548361+00:00",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
       "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
       "resource_policy": "旧全量队列暂停；准入诊断低优运行0卡、预留0卡，共享上限4卡。新current_row时序对照仅20条，不计正式A/B。",
@@ -41126,10 +41148,11 @@
         "expert_replay": "源光学链修正后8/8通过原五阶段物理验收（非模型成功）",
         "training_prefix_fit": "6种模型×2条连续图像前缀完成，RMSE为训练RGB的0.77–1.35倍",
         "rendering": "已恢复pos1cm源运行时光学链；多进度MAE约1.56–2.02/255，含训练视频编码差异",
-        "closed_loop_smoke": "20/20独立核验：全程0成功、unknown0，阶段0/1/2=17/1/2；仅诊断，正式A/B仍暂停",
+        "closed_loop_smoke": "新版20/20独立验收：全程0成功、unknown0；阶段0/1/2/3=16/0/3/1，平均0.45；仅诊断，正式A/B仍暂停",
         "backend48": "12条闭环、4条中断、32条未派发；未通过48条物理验收",
         "N4": "已结题不准入，正式采用N1×k多进程并行",
-        "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列"
+        "physical_action_timing": "已确认旧current_row在第8物理步才到标签目标；新插值6/6专家回放通过，首物理步误差0，模型20条对照另列",
+        "remaining_gate": "补齐完整五阶段训练拟合和各模型输入准入；官方五条训练指令已核对一致；反向10条首阶段失败仍待查"
       },
       "diagnostic_admission_smoke": {
         "epoch": 1793711601.1150498,
@@ -41199,7 +41222,7 @@
               "4": 0,
               "5": 0
             },
-            "mean_completed_phases": 0,
+            "mean_completed_phases": 0.0,
             "failure_counts": {
               "object_toppled": 9,
               "time_limit": 1
@@ -41228,15 +41251,306 @@
         "target": 20,
         "audited": 20,
         "job_id": "job-6t719gml4wnj",
-        "status": "20条诊断已闭合；不计正式A/B",
-        "topology": "N1×5 多进程并行，每App1环境",
+        "status": "complete audited diagnostic; formal Stage A/B paused",
+        "topology": "N1x5 independent-process",
         "protocol": "SafeLab-Eval-v1 admission diagnostic",
         "execution_horizon": 8,
         "inference_seed": 0,
         "old_controller_smoke_n": 20,
         "old_controller_smoke_successes": 0,
         "new_result_pending": false,
-        "previous_hardware_guard_attempts_unlaunched": 40
+        "previous_hardware_guard_attempts_unlaunched": 40,
+        "epoch": 1793719825.1013002,
+        "scored": false,
+        "task": "5b",
+        "data": "psibot_5b_obstruction_pos1cm_v1_20261025",
+        "camera": "third_person",
+        "method": "official Mem-0",
+        "checkpoint": 30000,
+        "condition": "baseline original physical contact",
+        "control_version": "current_row_forward_linear_v1",
+        "optics_version": "pos1cm_source_optics_v1",
+        "num_envs_actual": 1,
+        "processes_per_GPU": 5,
+        "GPU_model": "Pro6000 (approved vendor inventory NVIDIA RPBZZZ6, 97887MiB)",
+        "image_preprocessing": "training tensor bilinear antialias224 plus frozen Qwen",
+        "scene_hash": {
+          "full100_sha256": "3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+          "smoke20_sha256": "07ca8b466547c7cb7cb9115d0998bcffe94fcb4a419acd1d958ef73b76106af9",
+          "full100_layouts": {
+            "forward": 50,
+            "reverse": 50
+          },
+          "smoke20_layouts": {
+            "forward": 10,
+            "reverse": 10
+          }
+        },
+        "n": 20,
+        "successes": 0,
+        "unknown": 0,
+        "Wilson95": [
+          0,
+          0.16112515805281938
+        ],
+        "per_seed": {
+          "0": {
+            "n": 20,
+            "successes": 0,
+            "unknown": 0
+          }
+        },
+        "layouts": {
+          "forward": {
+            "n": 10,
+            "successes": 0,
+            "unknown": 0,
+            "phase_histogram": {
+              "0": 6,
+              "1": 0,
+              "2": 3,
+              "3": 1,
+              "4": 0,
+              "5": 0
+            },
+            "mean_completed_phases": 0.9,
+            "failure_counts": {
+              "object_fell": 2,
+              "time_limit": 8
+            }
+          },
+          "reverse": {
+            "n": 10,
+            "successes": 0,
+            "unknown": 0,
+            "phase_histogram": {
+              "0": 10,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0
+            },
+            "mean_completed_phases": 0.0,
+            "failure_counts": {
+              "object_toppled": 9,
+              "time_limit": 1
+            }
+          }
+        },
+        "phase_histogram": {
+          "0": 16,
+          "1": 0,
+          "2": 3,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        },
+        "mean_completed_phases": 0.45,
+        "stage0_stop_rule_triggered": false,
+        "all_four_gates_admitted": false,
+        "remaining_gate": "complete five-subtask own-training fit and per-model input admission",
+        "wall_seconds": 1913.0516536590003,
+        "wall_comparison_caveat": "old run included extra N1x1/N1x5 image preflight and different cold startup; not a controlled speedup estimate",
+        "control_audit": {
+          "actual_PhysX_position_writes": 347070,
+          "actual_PhysX_velocity_writes": 347070,
+          "next_physical_tick_labels_verified": 43389
+        },
+        "independent_physical_audits": 20,
+        "original_physical_limit_s": 240,
+        "stall_timeout": null,
+        "old_controller_reference": {
+          "n": 20,
+          "successes": 0,
+          "mean_completed_phases": 0.25,
+          "phase_histogram": {
+            "0": 17,
+            "1": 1,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          },
+          "paired_fields_verified": [
+            "layout",
+            "inference_seed",
+            "scene_seed",
+            "offsets_xy_m",
+            "execution_horizon",
+            "variant",
+            "checkpoint_step",
+            "dataset_revision",
+            "profile_name",
+            "renderer_episode_policy",
+            "preprocessing"
+          ]
+        },
+        "paired_cases": [
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_000",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_001",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_002",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_003",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_004",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_005",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_006",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_007",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_008",
+            "layout": "forward",
+            "old_completed_phases": 1,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_009",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_010",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_011",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_012",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 2,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_013",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_014",
+            "layout": "forward",
+            "old_completed_phases": 2,
+            "new_completed_phases": 3,
+            "old_status": "physical_failure",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_015",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_016",
+            "layout": "forward",
+            "old_completed_phases": 2,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_017",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_018",
+            "layout": "forward",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "time_limit",
+            "new_status": "time_limit"
+          },
+          {
+            "case_id": "smoke_v1_new30_seed0_h8_019",
+            "layout": "reverse",
+            "old_completed_phases": 0,
+            "new_completed_phases": 0,
+            "old_status": "physical_failure",
+            "new_status": "physical_failure"
+          }
+        ],
+        "job_status": "SUCCEEDED",
+        "owned_cleanup_passed": true,
+        "GPUs_released": 4
       }
     }
   ],
@@ -41266,14 +41580,14 @@
       "issue": 2,
       "issue_updated_at": "2026-11-01T04:36:10Z",
       "record": "5-pos-ours-aligned",
-      "verified_at": "2026-11-03T15:23:08.000705+00:00",
+      "verified_at": "2026-11-03T15:32:08.537659+00:00",
       "note": "交付相机、真实权重及推理已经核验；仅替代此时间戳的旧空权重登记。后续共享单修改仍会应用。"
     },
     {
       "issue": 4,
       "issue_updated_at": "2026-11-01T04:36:14Z",
       "record": "5-pos-mem0-weak",
-      "verified_at": "2026-11-03T15:23:08.000705+00:00",
+      "verified_at": "2026-11-03T15:32:08.537659+00:00",
       "note": "交付相机、真实权重及推理已经核验；仅替代此时间戳的旧空权重登记。后续共享单修改仍会应用。"
     }
   ],

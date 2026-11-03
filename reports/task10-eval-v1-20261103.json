@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T12:11:37.402079+00:00",
+  "updated_at": "2026-11-03T12:21:51.704964+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -5868,7 +5868,7 @@
     }
   ],
   "round2_snapshot": {
-    "epoch": 1793707894.9320302,
+    "epoch": 1793708508.338481,
     "groups": {
       "original_weak": {
         "group": "original_weak",
@@ -6040,7 +6040,7 @@
           "all_card_memory_mean_pct": 68.83699633116281,
           "source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_ttc/ours_aligned_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793706211.6063426,
-          "age_s": 1683.3520829677582
+          "age_s": 2296.755070924759
         }
       },
       "weak_only": {
@@ -6102,7 +6102,67 @@
           "all_card_memory_mean_pct": 7.789228494477792,
           "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a00/safelab_task10_evalv1_round2_weak_only/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
           "latest_epoch": 1793707401.8473554,
-          "age_s": 493.1140789985657
+          "age_s": 1106.518346786499
+        }
+      },
+      "weak_only_a01": {
+        "group": "weak_only_a01",
+        "status": "running",
+        "epoch": 1793708227.899718,
+        "GPU_count": 4,
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "local_root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a01/safelab_task10_evalv1_round2_weak_only_a01",
+        "local_logging": true,
+        "scored_success_rates_pending": true,
+        "steps": {
+          "mem0_weak_A_original": {
+            "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a01/safelab_task10_evalv1_round2_weak_only_a01/mem0_weak_A_original",
+            "status": "running",
+            "completed": 0,
+            "target": 200,
+            "active": 4,
+            "phase_hist": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0,
+              "6": 0,
+              "7": 0,
+              "8": 0,
+              "9": 0,
+              "10": 0
+            },
+            "successes_observed": 0,
+            "scored": true,
+            "error": null
+          }
+        },
+        "open_loop": "pending (soft gate)",
+        "formal_oracle_ticks": 121,
+        "extra_evaluation_condition": "sticky60degree termination",
+        "method": "mem0_weak",
+        "phase": "A_original",
+        "observed_epoch": 1793708508.0621238,
+        "cohorts": [],
+        "sustained_gpu": {
+          "status": "pending600s_contiguous_window",
+          "duration_s": 273.43277978897095,
+          "observed_span_s": 273.43277978897095,
+          "samples": 10,
+          "all_card_utilization_mean_pct": 0.22198532441532923,
+          "per_card_utilization_mean_pct": [
+            0.22198532441532923,
+            0.22198532441532923,
+            0.22198532441532923,
+            0.22198532441532923
+          ],
+          "all_card_memory_mean_pct": 8.230099829357119,
+          "source": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/round2_persistent_20261103_a01/safelab_task10_evalv1_round2_weak_only_a01/mem0_weak_A_original/RESOURCE_HISTORY.jsonl",
+          "latest_epoch": 1793708501.572213,
+          "age_s": 6.806110620498657
         }
       }
     },
@@ -6147,12 +6207,12 @@
     },
     "all_card_sustained_gpu": {
       "status": "pending600s_common_window",
-      "GPU_count": 8,
+      "GPU_count": 12,
       "historical_window": true
     }
   },
   "round2_platform": {
-    "epoch": 1793707326.2672782,
+    "epoch": 1793707927.3446472,
     "jobs": [
       {
         "group": "original_weak",
@@ -6173,13 +6233,13 @@
       {
         "group": "weak_only",
         "job_id": "job-5eqr76s3quhw",
-        "status": "RUNNING",
-        "ended_at": null,
+        "status": "FAILED",
+        "ended_at": 1793707537017,
         "GPUs": 4,
-        "terminal": false
+        "terminal": true
       }
     ],
-    "active_or_pending_GPUs": 4,
+    "active_or_pending_GPUs": 0,
     "maximum_owned_LP_GPUs": 8,
     "no_mutations_or_automatic_retries": true
   },

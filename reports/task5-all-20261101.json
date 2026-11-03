@@ -2,7 +2,7 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-03T12:17:30.989898+00:00",
+  "updated_at": "2026-11-03T12:41:58.665635+00:00",
   "final_verified": false,
   "status": "paused_pipeline_diagnostic",
   "completed": 3285,
@@ -64449,7 +64449,7 @@
     1793539321.3933618
   ],
   "global_low_priority_GPU_cap": 4,
-  "resource_policy": "全量队列暂停；当前低优占卡0，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
+  "resource_policy": "全量队列暂停；当前低优占卡4，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
   "seed_count": 5,
   "trials_per_seed": 100,
   "trials_per_group": 500,
@@ -64486,14 +64486,14 @@
   },
   "diagnostic_report_url": "reports/task5-pipeline-diagnostic-20261103.html",
   "historical_resource_policy": "同一物理任务公平交替执行原始与附着条件，各自独立验收。按job_id去重，两个面板卡数不能相加。低优任务合计上限12卡；另外单列已授权的现有双卡Pro服务器，不占新增低优卡池。",
-  "current_low_priority_GPUs": 0,
-  "resource_note": "全量队列暂停；当前低优占卡0，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
+  "current_low_priority_GPUs": 4,
+  "resource_note": "全量队列暂停；当前低优占卡4，上限4卡。修复并完成准入后才恢复N1×k多进程并行。",
   "admission_status": {
-    "expert_replay": "8/8通过原物理验收（非模型成功）",
-    "training_prefix_fit": "14项完成",
-    "rendering": "训练/评测差异待查",
-    "closed_loop_smoke": "尚未准入",
-    "backend48": "12条闭环，内存保护中止，未通过48条验收",
-    "N4": "未准入"
+    "expert_replay": "源光学链修正后8/8通过原五阶段物理验收（非模型成功）",
+    "training_prefix_fit": "6种模型×2条连续图像前缀完成，RMSE为训练RGB的0.77–1.35倍",
+    "rendering": "已恢复pos1cm源运行时光学链；多进度MAE约1.56–2.02/255，含训练视频编码差异",
+    "closed_loop_smoke": "0/20准入冒烟独立核验，正式A/B尚未启动",
+    "backend48": "12条闭环、4条中断、32条未派发；未通过48条物理验收",
+    "N4": "已结题不准入，正式采用N1×k多进程并行"
   }
 }

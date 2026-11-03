@@ -86,12 +86,20 @@ function buildBoard(data,edits=[]){
    const evaluations=w?data.evaluations.filter(e=>e.record===record.id&&e.checkpoint===w.step):[];
    const h4=resultFor(evaluations,4),h8=resultFor(evaluations,8),h30=resultFor(evaluations,30);
    const pending=evaluations.filter(e=>e.success===null);
-   let state=pending.length?'evaluating':h4||h8||evaluations.some(e=>e.success!==null)?'results':/历史.*核验/.test(w?.status||'')?'verify':w?'untested':/训练中/.test(record.delivery)?'training':'verify';
-   rows.push({key:key(record.id,w?.step||0),record,dataset:record.dataset,task:datasets.find(d=>d.id===record.dataset)?.task||(['3','5','7','10'].includes(record.task_hint)?record.task_hint:'other'),camera:CAMERAS[record.camera]?record.camera:'unknown',method:record.method,step:w?.step||0,path:w?.path||'',doc:record.doc||'',state,h4,h8,h30,pending,evaluations,owner:'未指定',run:record.training?.executor_run||'',note:record.note||'',updated:data.updated_at,availability:w?.availability||record.delivery,training:record.training||{},source:record.source,shared:null});
+   let state=pending.length?'evaluating':h4||h8||evaluations.some(e=>e.success!==null)?'results':/历史.*核验/.test(w?.status||'')?'verify':w?(w.path?'untested':'verify'):/训练中/.test(record.delivery)?'training':'verify';
+   rows.push({key:key(record.id,w?.step||0),record,dataset:record.dataset,task:datasets.find(d=>d.id===record.dataset)?.task||(['3','5','7','10'].includes(record.task_hint)?record.task_hint:'other'),camera:CAMERAS[record.camera]?record.camera:'unknown',method:record.method,step:w?.step||0,path:w?.path||'',doc:record.doc||'',state,h4,h8,h30,pending,evaluations,owner:record.checkpoint_issues?.find(i=>i.checkpoint===w?.step&&i.evaluation_owner)?.evaluation_owner||record.owner||'未指定',issue_bindings:(record.checkpoint_issues||[]).filter(i=>i.checkpoint===w?.step),run:record.training?.executor_run||'',note:record.note||'',updated:data.updated_at,availability:w?.availability||record.delivery,training:record.training||{},source:record.source,shared:null});
   }
  }
  const ordered=edits.filter(e=>e.trusted).sort((a,b)=>a.updated.localeCompare(b.updated)||a.issue-b.issue);
- for(const e of ordered){
+ const bindings=data.records.flatMap(r=>(r.checkpoint_issues||[]).map(i=>({...i,record:r.id})));
+ for(const raw of ordered){
+  if(bindings.some(i=>i.number===raw.issue&&i.duplicate_of))continue;
+  const binding=bindings.find(i=>i.number===raw.issue&&i.issue_updated_at===raw.updated);
+  const e=binding?{...raw,target:key(binding.record,binding.checkpoint)}:raw;
+  if(binding&&!e.h4&&!e.h8&&!e.h30){
+   const canonical=rows.find(r=>r.record?.id===binding.record&&r.step===binding.checkpoint);
+   if(canonical){Object.assign(canonical,{owner:binding.evaluation_owner||canonical.owner,shared:e});continue;}
+  }
   const resolved=data.handoff_resolutions?.find(r=>r.issue===e.issue&&r.issue_updated_at===e.updated);
   if(resolved?.delivery_document===e.path&&resolved.checkpoint===e.step&&!e.h4&&!e.h8&&!e.h30){
    const canonical=rows.find(r=>r.record?.id===resolved.record&&r.step===e.step&&r.task===e.task&&r.dataset===e.dataset&&r.camera===e.camera&&r.method===e.method);
@@ -113,7 +121,7 @@ function buildBoard(data,edits=[]){
   Object.assign(row,{state:e.state,owner:e.owner||'未指定',doc:e.doc,run:e.run,note:e.note,updated:e.updated,shared:e});
   for(const h of ['h4','h8','h30'])if(e[h])row[h]={...parseScore(e[h]),unknown:e[h+'unknown'],label:'团队填报',protocol:e.protocol,rows:[],reported:true};
  }
- return {datasets,diagnostics:data.diagnostics||[],rows:rows.filter(r=>r.path||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
+ return {datasets,diagnostics:data.diagnostics||[],rows:rows.filter(r=>r.path||r.step>0&&r.doc||!rows.some(other=>other!==r&&other.path&&other.dataset===r.dataset&&other.camera===r.camera&&other.method===r.method))};
 }
 function issueBody(edit){validateEdit(edit);return '## SafeLab 共享交接记录\n\n提交后回到面板点击「同步更新」。修改本单请保留下面的数据块。不要填写密码、Token 或私钥。\n\n```safelab-handoff\n'+JSON.stringify(edit,null,2)+'\n```';}
 function evaluationIndex(board){

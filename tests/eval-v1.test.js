@@ -31,3 +31,13 @@ test('all unknown has no measured mean and no fabricated failure phase',()=>{
  const e=valid({success:0,unknown:100,lr_split:{left:{trials:50,success:0,unknown:50},right:{trials:50,success:0,unknown:50}},seed_results:[{seed:0,trials:100,success:0,unknown:100}],mean_phase:null,phase_hist:{}});
  assert.deepEqual(M.formalIssues(e),[]);const d=structuredClone(data);d.evaluations=[e];const row=M.formalComparisons(M.buildBoard(d))[0];assert.equal(row.valid_trials,0);assert.equal(row.sensitivity_upper,1);assert.ok(M.formalIssues({...e,mean_phase:0}).length);
 });
+
+test('actual formal table template shows full-denominator score, unknown bound and valid phase count',()=>{
+ const source=fs.readFileSync('app.js','utf8'),start=source.indexOf('function formalTable(){'),end=source.indexOf('function render(){',start);
+ const render=Function('M','board','esc','taskName','camera',source.slice(start,end)+';return formalTable();');
+ const d=structuredClone(data);d.evaluations=[valid()];
+ const html=render(M,M.buildBoard(d),String,String,String);
+ assert.match(html,/3\.0%/);assert.match(html,/unknown 2/);assert.match(html,/unknown 全部成功上界 5\.0%/);assert.match(html,/有效 98\/100/);
+ const e=valid({success:0,unknown:100,lr_split:{left:{trials:50,success:0,unknown:50},right:{trials:50,success:0,unknown:50}},seed_results:[{seed:0,trials:100,success:0,unknown:100}],mean_phase:null,phase_hist:{}});
+ d.evaluations=[e];const empty=render(M,M.buildBoard(d),String,String,String);assert.match(empty,/无有效轨迹/);assert.match(empty,/unknown 全部成功上界 100\.0%/);
+});

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 const BASE=process.env.SAFELAB_QA_BASE_URL||'http://127.0.0.1:8871/';
 const R=process.cwd(),Q=path.join(R,'.qa');fs.mkdirSync(Q,{recursive:true});
-const browser=spawn('/usr/bin/google-chrome',['--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port=0','--user-data-dir='+'/dev/shm/safelab_handoff_browser_'+process.pid+'_'+Date.now(),'about:blank'],{stdio:['ignore','ignore','pipe']});
+const browser=spawn(process.env.SAFELAB_CHROME_BIN||'/usr/bin/google-chrome',['--headless=new','--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-first-run','--no-default-browser-check','--remote-allow-origins=*','--remote-debugging-port=0','--user-data-dir='+'/dev/shm/safelab_handoff_browser_'+process.pid+'_'+Date.now(),'about:blank'],{stdio:['ignore','ignore','pipe']});
 let stderr='';browser.stderr.on('data',b=>{stderr+=b.toString();});browser.on('exit',(code,signal)=>{fs.writeFileSync(path.join(Q,'chrome_last_exit.json'),JSON.stringify({code,signal,stderr:stderr.slice(-12000)}));});
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 let ws;const errors=[],checks=[];
@@ -21,7 +21,8 @@ try{
  const assert=(yes,label)=>{if(!yes)throw Error('QA failed: '+label);checks.push(label);};
  await cmd('Runtime.enable');await cmd('Page.enable');
  await cmd('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
- for(let i=0;i<100;i++){if(await run('!!document.querySelector("#rows [data-row]")'))break;await sleep(100);}
+ for(let i=0;i<600;i++){if(await run('!!document.querySelector("#rows [data-row]")'))break;await sleep(100);}
+ assert(await run('!!document.querySelector("#rows [data-row]")'),'dashboard loaded before fixture injection');
 
 
  const fixture={id:'ui-unknown-fixture',record:'3-v13-mem0',dataset:'3-v13',method:'Mem-0',checkpoint:30000,horizon:8,protocol_version:'SafeLab-Eval-v1',stage:'A',success:3,trials:100,unknown:2,completed:100,kind:'自主闭环',protocol:'UI fixture only',topology:{num_envs_actual:1,procs_per_gpu:2,gpu_type:'Pro6000'},preprocess_resize:{implementation:'training_tensor',mode:'bilinear',antialias:true,source:'fixture'},condition_version:'original-v1',scene_list_hash:'sha256:'+'a'.repeat(64),lr_split:{left:{trials:50,success:1,unknown:1},right:{trials:50,success:2,unknown:1}},seed_results:[{seed:0,trials:100,success:3,unknown:2}],mean_phase:9/98,phase_hist:{0:95,3:3},admission:Object.fromEntries(['expert_replay','open_loop','render_multiframe','smoke20'].map(k=>[k,{passed:true,report:'fixture-only'}]))};

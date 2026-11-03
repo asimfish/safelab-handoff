@@ -1,6 +1,6 @@
 {
   "schema": "task7_eval_v1_diagnostic_progress.v1",
-  "updated_at": "2026-11-03T21:16:26.784184Z",
+  "updated_at": "2026-11-03T22:22:45.302802Z",
   "role": "diagnostic_only_not_admission",
   "formal_stage_A_trials_added": 0,
   "formal_success": null,
@@ -647,5 +647,60 @@
     "formal_success": null,
     "first_fixed600s_all4_GPU_mean_util_percent": 3.3831646525859833,
     "full_sampled1040s_all4_GPU_mean_util_percent": 5.735434689810994
+  },
+  "offline_audit_update": {
+    "report": "reports/task7-eval-v1-20261103/offline-audit-failure.json",
+    "report_sha256": "7a808bb4f3ed8de429d60bb0fcd2da18351370185fd1a7e64a5933a59b396d69",
+    "failure": {
+      "component": "offline_audit_wrapper",
+      "class": "FileNotFoundError",
+      "missing_path": "/tmp/native_source/ENV_BASE_T563.json",
+      "cause": "Wrapper set frozen auditor N to relocated source.parent, which is /tmp; pinned environment configuration was not placed at its expected metadata path.",
+      "happened_after": "Native completed and physical/action trace assertions; before video validation and model SDK parity",
+      "model_failure_counted": false,
+      "raw_retained": true
+    },
+    "baseline_snapshot": {
+      "source_job": "job-17xnw4v8alnr",
+      "base_variants": [
+        "mem0_30k",
+        "ours_native_30k",
+        "ours_aligned_30k",
+        "ours_weak_aligned_30k"
+      ],
+      "each_launched": 1,
+      "each_audited": 0,
+      "each_unknown": 1,
+      "each_not_run": 19,
+      "mem0_weak_shards": {
+        "gpu1": "closed_first_case_audit_failed",
+        "gpu2": "closed_first_case_audit_failed",
+        "gpu0": "running_in_archived_STATE_at_snapshot",
+        "gpu3": "running_in_archived_STATE_at_snapshot"
+      },
+      "live_process_inventory_not_inferred_from_STATE": true
+    },
+    "native_classifier_snapshot": {
+      "source_job": "job-p7doapdnvsq9",
+      "variant": "ours_aligned_30k_native_classifier_switch_v1",
+      "planned": 20,
+      "launched": 4,
+      "audited": 0,
+      "unknown": 4,
+      "not_run": 16,
+      "complete_raw_cases": 1,
+      "other_started_cases": "interrupted by same-candidate peer failure; not model failures",
+      "four_shards": "requires_inspection",
+      "same_audit_path_error_confirmed": true
+    },
+    "recovery": {
+      "CPU_reaudit_started_at_snapshot": false,
+      "new_private_wrapper": "pending",
+      "reuse_complete_raw_before_any_physics_rerun": true,
+      "original_video_checks_required": true,
+      "original_SDK_parity_still_required": true,
+      "sealed_jobs_hot_patched": false,
+      "new_GPU_intent_submitted": false
+    }
   }
 }

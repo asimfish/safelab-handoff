@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T10:29:19.104189+00:00",
+  "updated_at": "2026-11-03T10:35:28.909760+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -3997,7 +3997,7 @@
     "formal_scores_modified": false
   },
   "smoke20_diagnostic": {
-    "status": "running",
+    "status": "complete",
     "scored": false,
     "LP_GPUs": 0,
     "physical_GPU": 0,
@@ -4031,20 +4031,25 @@
         "owned_cleanup_passed": true
       },
       "ours_aligned": {
-        "status": "running",
-        "completed": 16,
+        "status": "complete",
+        "completed": 20,
         "target": 20,
         "unknown": 0,
         "phase_distribution": {
-          "0": 9,
-          "1": 4,
+          "0": 10,
+          "1": 6,
           "2": 2,
           "5": 1
         },
         "successes_observed": 0,
-        "active": 3,
+        "active": 0,
         "root": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/admission_local/smoke20_attempt2/ours_aligned",
-        "scored": false
+        "scored": false,
+        "smoke20_passed": true,
+        "phase0_count": 10,
+        "formal_StageA_admitted": false,
+        "open_loop_loss_gate": "pending reference metrics",
+        "owned_cleanup_passed": true
       }
     },
     "method": "ours_aligned",
@@ -4054,7 +4059,8 @@
       "uid": 0,
       "namespace": "pid:[4026536144]"
     },
-    "observed_epoch": 1793701739.6933885
+    "wall_s": 4938.060173034668,
+    "observed_epoch": 1793702086.158705
   },
   "admission_policy": {
     "hard": [
@@ -4070,9 +4076,9 @@
     "reference": "Mem-0 original30k, same10trainingepisodes, armRMSEratio<=1.5"
   },
   "stability_window_diagnostic": {
-    "epoch": 1793701577.2483468,
+    "epoch": 1793702070.7475715,
     "status": "running",
-    "completed": 2480,
+    "completed": 3010,
     "target": 8523,
     "scored": false,
     "GPU_used": false,
@@ -4084,362 +4090,364 @@
     "only_source_change": "121 -> 61 (3 occurrences)",
     "groups": {
       "mem0_original|30000|4|off": {
-        "n": 215,
+        "n": 246,
         "unresolved": 2,
         "changed_phase": 1,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "0": 33,
-            "2": 48,
-            "1": 99,
-            "4": 5,
-            "6": 3,
-            "5": 7,
-            "3": 16,
-            "7": 2
+            "0": 39,
+            "2": 51,
+            "1": 115,
+            "4": 6,
+            "6": 4,
+            "5": 9,
+            "3": 17,
+            "7": 3
           },
           "success": 0,
-          "mean_phase": 1.5492957746478873
+          "mean_phase": 1.5655737704918034
         },
         "61": {
           "phase_hist": {
-            "0": 32,
-            "2": 48,
-            "1": 100,
-            "4": 5,
-            "6": 3,
-            "5": 7,
-            "3": 16,
-            "7": 2
+            "0": 38,
+            "2": 51,
+            "1": 116,
+            "4": 6,
+            "6": 4,
+            "5": 9,
+            "3": 17,
+            "7": 3
           },
           "success": 0,
-          "mean_phase": 1.5539906103286385
+          "mean_phase": 1.569672131147541
         },
-        "mean_phase_difference": 0.0046948356807512415
+        "mean_phase_difference": 0.004098360655737654
       },
       "mem0_original|30000|8|off": {
-        "n": 238,
+        "n": 283,
         "unresolved": 1,
         "changed_phase": 1,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "2": 48,
-            "0": 56,
-            "1": 99,
-            "3": 12,
-            "4": 8,
+            "2": 60,
+            "0": 68,
+            "1": 117,
+            "3": 14,
+            "4": 9,
             "6": 2,
             "8": 2,
             "7": 3,
             "5": 7
           },
           "success": 0,
-          "mean_phase": 1.4641350210970465
+          "mean_phase": 1.4148936170212767
         },
         "61": {
           "phase_hist": {
-            "2": 48,
-            "0": 55,
-            "1": 100,
-            "3": 12,
-            "4": 8,
+            "2": 60,
+            "0": 67,
+            "1": 118,
+            "3": 14,
+            "4": 9,
             "6": 2,
             "8": 2,
             "7": 3,
             "5": 7
           },
           "success": 0,
-          "mean_phase": 1.4683544303797469
+          "mean_phase": 1.4184397163120568
         },
-        "mean_phase_difference": 0.00421940928270037
+        "mean_phase_difference": 0.0035460992907800915
       },
       "mem0_original|20000|8|off": {
-        "n": 236,
+        "n": 281,
         "unresolved": 2,
         "changed_phase": 1,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "1": 97,
-            "0": 130,
-            "2": 5,
+            "1": 109,
+            "0": 160,
+            "2": 8,
             "3": 2
           },
           "success": 0,
-          "mean_phase": 0.4829059829059829
+          "mean_phase": 0.46953405017921146
         },
         "61": {
           "phase_hist": {
-            "1": 97,
-            "0": 129,
-            "2": 6,
+            "1": 109,
+            "0": 159,
+            "2": 9,
             "3": 2
           },
           "success": 0,
-          "mean_phase": 0.49145299145299143
+          "mean_phase": 0.4767025089605735
         },
-        "mean_phase_difference": 0.008547008547008517
+        "mean_phase_difference": 0.007168458781362019
       },
       "mem0_original|20000|30|off": {
-        "n": 194,
+        "n": 254,
         "unresolved": 0,
-        "changed_phase": 3,
+        "changed_phase": 5,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "0": 151,
-            "1": 41,
-            "2": 2
+            "0": 192,
+            "1": 59,
+            "2": 3
           },
           "success": 0,
-          "mean_phase": 0.23195876288659795
+          "mean_phase": 0.2559055118110236
         },
         "61": {
           "phase_hist": {
-            "0": 148,
-            "1": 44,
-            "2": 2
+            "0": 187,
+            "1": 64,
+            "2": 3
           },
           "success": 0,
-          "mean_phase": 0.24742268041237114
+          "mean_phase": 0.2755905511811024
         },
-        "mean_phase_difference": 0.015463917525773196
+        "mean_phase_difference": 0.01968503937007876
       },
       "mem0_original|30000|30|off": {
-        "n": 194,
+        "n": 254,
         "unresolved": 0,
-        "changed_phase": 1,
+        "changed_phase": 5,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "0": 94,
-            "2": 8,
-            "1": 90,
+            "0": 125,
+            "2": 12,
+            "1": 115,
             "3": 2
           },
           "success": 0,
-          "mean_phase": 0.5773195876288659
+          "mean_phase": 0.5708661417322834
         },
         "61": {
           "phase_hist": {
-            "0": 93,
-            "2": 8,
-            "1": 91,
+            "0": 120,
+            "2": 12,
+            "1": 120,
             "3": 2
           },
           "success": 0,
-          "mean_phase": 0.5824742268041238
+          "mean_phase": 0.5905511811023622
         },
-        "mean_phase_difference": 0.005154639175257825
+        "mean_phase_difference": 0.019685039370078705
       },
       "mem0_original|20000|4|off": {
-        "n": 218,
+        "n": 247,
         "unresolved": 3,
         "changed_phase": 0,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
             "3": 2,
-            "1": 99,
-            "0": 111,
-            "2": 3
+            "1": 111,
+            "0": 127,
+            "2": 4
           },
           "success": 0,
-          "mean_phase": 0.5162790697674419
+          "mean_phase": 0.5122950819672131
         },
         "61": {
           "phase_hist": {
             "3": 2,
-            "1": 99,
-            "0": 111,
-            "2": 3
+            "1": 111,
+            "0": 127,
+            "2": 4
           },
           "success": 0,
-          "mean_phase": 0.5162790697674419
+          "mean_phase": 0.5122950819672131
         },
         "mean_phase_difference": 0.0
       },
       "mem0_original|30000|8|stable_grasp_fixed_joint_v1": {
-        "n": 209,
+        "n": 250,
         "unresolved": 2,
-        "changed_phase": 1,
+        "changed_phase": 2,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "1": 76,
-            "3": 5,
-            "0": 67,
-            "5": 7,
-            "2": 43,
+            "1": 91,
+            "3": 6,
+            "0": 84,
+            "5": 8,
+            "2": 50,
             "4": 4,
             "7": 2,
             "6": 3
           },
           "success": 0,
-          "mean_phase": 1.2560386473429952
+          "mean_phase": 1.1975806451612903
         },
         "61": {
           "phase_hist": {
-            "1": 76,
-            "3": 5,
-            "0": 67,
+            "1": 92,
+            "3": 6,
+            "0": 83,
             "6": 4,
-            "2": 43,
+            "2": 50,
             "4": 4,
             "7": 2,
-            "5": 6
+            "5": 7
           },
           "success": 0,
-          "mean_phase": 1.2608695652173914
+          "mean_phase": 1.2056451612903225
         },
-        "mean_phase_difference": 0.004830917874396157
+        "mean_phase_difference": 0.008064516129032251
       },
       "mem0_original|30000|30|stable_grasp_fixed_joint_v1": {
-        "n": 191,
+        "n": 237,
         "unresolved": 3,
-        "changed_phase": 3,
+        "changed_phase": 4,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "1": 104,
-            "2": 19,
-            "0": 63,
-            "3": 2
+            "1": 129,
+            "2": 28,
+            "0": 74,
+            "3": 3
           },
           "success": 0,
-          "mean_phase": 0.7872340425531915
+          "mean_phase": 0.8290598290598291
         },
         "61": {
           "phase_hist": {
-            "1": 107,
-            "2": 19,
-            "0": 60,
-            "3": 2
+            "1": 133,
+            "2": 28,
+            "0": 70,
+            "3": 3
           },
           "success": 0,
-          "mean_phase": 0.8031914893617021
+          "mean_phase": 0.8461538461538461
         },
-        "mean_phase_difference": 0.015957446808510634
+        "mean_phase_difference": 0.017094017094017033
       },
       "mem0_original|20000|4|stable_grasp_fixed_joint_v1": {
-        "n": 190,
+        "n": 235,
         "unresolved": 1,
         "changed_phase": 0,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "0": 124,
-            "1": 64,
-            "3": 1
+            "0": 152,
+            "1": 79,
+            "3": 1,
+            "2": 2
           },
           "success": 0,
-          "mean_phase": 0.3544973544973545
+          "mean_phase": 0.36752136752136755
         },
         "61": {
           "phase_hist": {
-            "0": 124,
-            "1": 64,
-            "3": 1
+            "0": 152,
+            "1": 79,
+            "3": 1,
+            "2": 2
           },
           "success": 0,
-          "mean_phase": 0.3544973544973545
+          "mean_phase": 0.36752136752136755
         },
         "mean_phase_difference": 0.0
       },
       "mem0_original|20000|8|stable_grasp_fixed_joint_v1": {
-        "n": 214,
+        "n": 253,
         "unresolved": 1,
         "changed_phase": 0,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "0": 140,
-            "1": 69,
+            "0": 166,
+            "1": 81,
             "3": 1,
-            "2": 3
+            "2": 4
           },
           "success": 0,
-          "mean_phase": 0.36619718309859156
+          "mean_phase": 0.36507936507936506
         },
         "61": {
           "phase_hist": {
-            "0": 140,
-            "1": 69,
+            "0": 166,
+            "1": 81,
             "3": 1,
-            "2": 3
+            "2": 4
           },
           "success": 0,
-          "mean_phase": 0.36619718309859156
+          "mean_phase": 0.36507936507936506
         },
         "mean_phase_difference": 0.0
       },
       "mem0_original|20000|30|stable_grasp_fixed_joint_v1": {
-        "n": 189,
+        "n": 235,
         "unresolved": 3,
         "changed_phase": 2,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "0": 127,
-            "1": 55,
-            "2": 3,
+            "0": 155,
+            "1": 69,
+            "2": 7,
             "3": 1
           },
           "success": 0,
-          "mean_phase": 0.34408602150537637
+          "mean_phase": 0.3706896551724138
         },
         "61": {
           "phase_hist": {
-            "0": 125,
-            "1": 57,
-            "2": 3,
+            "0": 153,
+            "1": 71,
+            "2": 7,
             "3": 1
           },
           "success": 0,
-          "mean_phase": 0.3548387096774194
+          "mean_phase": 0.3793103448275862
         },
-        "mean_phase_difference": 0.010752688172043001
+        "mean_phase_difference": 0.008620689655172376
       },
       "mem0_original|30000|4|stable_grasp_fixed_joint_v1": {
-        "n": 192,
+        "n": 235,
         "unresolved": 0,
         "changed_phase": 1,
         "official121_disagreements": 0,
         "121": {
           "phase_hist": {
-            "1": 73,
-            "0": 89,
-            "2": 19,
+            "1": 91,
+            "0": 106,
+            "2": 23,
             "3": 4,
-            "4": 3,
+            "4": 7,
             "5": 1,
             "6": 2,
             "7": 1
           },
           "success": 0,
-          "mean_phase": 0.828125
+          "mean_phase": 0.8553191489361702
         },
         "61": {
           "phase_hist": {
-            "1": 73,
-            "0": 89,
-            "2": 19,
+            "1": 91,
+            "0": 106,
+            "2": 23,
             "3": 4,
-            "4": 3,
+            "4": 7,
             "5": 1,
             "6": 2,
             "8": 1
           },
           "success": 0,
-          "mean_phase": 0.8333333333333334
+          "mean_phase": 0.8595744680851064
         },
-        "mean_phase_difference": 0.00520833333333337
+        "mean_phase_difference": 0.004255319148936176
       }
     },
     "unresolved": 18,
-    "wall_s": 2463.2825882434845
+    "wall_s": 2956.7819039821625
   },
   "storage_recovery": {
     "epoch": 1793696920.706223,
@@ -4822,7 +4830,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "status": "HARD_GATES_PASSED; StageA preparing; open_loop=pending (soft)",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4870,9 +4878,9 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "running"
+          "status": "complete"
         }
       }
     },
@@ -4905,7 +4913,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "status": "HARD_GATES_PASSED; StageA preparing; open_loop=pending (soft)",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -4953,9 +4961,9 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "running"
+          "status": "complete"
         }
       }
     },
@@ -4988,7 +4996,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "status": "HARD_GATES_PASSED; StageA preparing; open_loop=pending (soft)",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -5036,9 +5044,9 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "running"
+          "status": "complete"
         }
       }
     },
@@ -5071,7 +5079,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "status": "HARD_GATES_PASSED; StageA preparing; open_loop=pending (soft)",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -5119,9 +5127,9 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "running"
+          "status": "complete"
         }
       }
     },
@@ -5143,6 +5151,92 @@
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "n": 1,
+      "success": null,
+      "unknown": 0,
+      "Wilson95": null,
+      "per_seed": [],
+      "order_split": {
+        "12345": 1
+      },
+      "mean_phases": 0.0,
+      "phase_distribution": {
+        "0": 1
+      },
+      "status": "running_progress_only",
+      "stage": "A",
+      "dataset": "10-weigh",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "trials": 100,
+      "completed": 1,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": null,
+          "unknown": 0
+        }
+      },
+      "mean_phase": 0.0,
+      "phase_hist": {
+        "0": 1
+      },
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        }
+      }
+    },
+    {
+      "protocol_version": "SafeLab-Eval-v1",
+      "task": 10,
+      "data_version": "psibot_10_weigh_5beakers_v180",
+      "camera": "chest",
+      "method": "mem0_original",
+      "ckpt": 30000,
+      "execution_horizon": 4,
+      "condition": "attach",
+      "condition_version": "attach-v2_solver128",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_max_procs_per_gpu": 8,
+        "gpu_type": "RTX PRO6000 Blackwell96GB"
+      },
+      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
+      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "n": 0,
       "success": null,
       "unknown": 0,
@@ -5154,7 +5248,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "status": "HARD_GATES_PASSED; open_loop=pending (soft)",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -5202,92 +5296,9 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "not_started"
-        }
-      }
-    },
-    {
-      "protocol_version": "SafeLab-Eval-v1",
-      "task": 10,
-      "data_version": "psibot_10_weigh_5beakers_v180",
-      "camera": "chest",
-      "method": "mem0_original",
-      "ckpt": 30000,
-      "execution_horizon": 4,
-      "condition": "attach",
-      "condition_version": "attach-v2_solver128",
-      "topology": {
-        "num_envs_actual": 1,
-        "procs_per_gpu": null,
-        "planned_max_procs_per_gpu": 8,
-        "gpu_type": "RTX PRO6000 Blackwell96GB"
-      },
-      "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
-      "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 0,
-      "success": null,
-      "unknown": 0,
-      "Wilson95": null,
-      "per_seed": [],
-      "order_split": {
-        "12345": 0,
-        "54321": 0
-      },
-      "mean_phases": null,
-      "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
-      "stage": "A",
-      "dataset": "10-weigh",
-      "checkpoint": 30000,
-      "horizon": 4,
-      "trials": 100,
-      "completed": 0,
-      "preprocess_resize": {
-        "implementation": "training_tensor",
-        "mode": "bilinear",
-        "antialias": true,
-        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
-      },
-      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "seed_results": [],
-      "lr_split": {
-        "left": {
-          "trials": 50,
-          "success": null,
-          "unknown": 0
-        },
-        "right": {
-          "trials": 50,
-          "success": null,
-          "unknown": 0
-        }
-      },
-      "mean_phase": null,
-      "phase_hist": {},
-      "wilson95": null,
-      "admission": {
-        "expert_replay": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
-        },
-        "render_multiframe": {
-          "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
-        },
-        "open_loop": {
-          "passed": false,
-          "status": "pending",
-          "gate_type": "soft",
-          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
-          "invalidates_cohort_on_failure": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
-        },
-        "smoke20": {
-          "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "not_started"
+          "status": "complete"
         }
       }
     },
@@ -5309,24 +5320,25 @@
       },
       "image_preprocessing": "training floatCHW tensor bilinear antialias; noColorJitter; Genprivatepath unchanged",
       "scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "n": 0,
+      "n": 1,
       "success": null,
       "unknown": 0,
       "Wilson95": null,
       "per_seed": [],
       "order_split": {
-        "12345": 0,
-        "54321": 0
+        "12345": 1
       },
-      "mean_phases": null,
-      "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "mean_phases": 0.0,
+      "phase_distribution": {
+        "0": 1
+      },
+      "status": "running_progress_only",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
       "horizon": 8,
       "trials": 100,
-      "completed": 0,
+      "completed": 1,
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
@@ -5347,8 +5359,10 @@
           "unknown": 0
         }
       },
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 0.0,
+      "phase_hist": {
+        "0": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -5368,9 +5382,9 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "not_started"
+          "status": "complete"
         }
       }
     },
@@ -5403,7 +5417,7 @@
       },
       "mean_phases": null,
       "phase_distribution": {},
-      "status": "HARD_GATES_PENDING: smoke20 per model; no formal stageA score",
+      "status": "HARD_GATES_PASSED; open_loop=pending (soft)",
       "stage": "A",
       "dataset": "10-weigh",
       "checkpoint": 30000,
@@ -5451,15 +5465,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
         },
         "smoke20": {
-          "passed": false,
+          "passed": true,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
-          "status": "not_started"
+          "status": "complete"
         }
       }
     }
   ],
   "round2_snapshot": {
-    "epoch": 1793701591.6725404,
+    "epoch": 1793702085.0880992,
     "groups": {
       "original_weak": {
         "group": "original_weak",
@@ -5474,10 +5488,10 @@
         "steps": {
           "mem0_original_smoke20": {
             "root": "/tmp/safelab_task10_evalv1_round2_original_weak/mem0_original_smoke20",
-            "status": "running",
-            "completed": 19,
+            "status": "complete",
+            "completed": 20,
             "target": 20,
-            "active": 1,
+            "active": 0,
             "phase_hist": {
               "0": 7,
               "1": 6,
@@ -5494,37 +5508,112 @@
             "successes_observed": 0,
             "scored": false,
             "error": null
+          },
+          "mem0_original_A_original": {
+            "root": "/tmp/safelab_task10_evalv1_round2_original_weak/mem0_original_A_original",
+            "status": "running",
+            "completed": 2,
+            "target": 200,
+            "active": 6,
+            "phase_hist": {
+              "0": 2,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0,
+              "5": 0,
+              "6": 0,
+              "7": 0,
+              "8": 0,
+              "9": 0,
+              "10": 0
+            },
+            "successes_observed": 0,
+            "scored": true,
+            "error": null
           }
         },
         "open_loop": "pending (soft gate)",
         "formal_oracle_ticks": 121,
         "extra_evaluation_condition": "sticky60degree termination",
         "method": "mem0_original",
-        "phase": "smoke20",
-        "observed_epoch": 1793701589.1725137,
-        "cohorts": [],
+        "phase": "A_original",
+        "observed_epoch": 1793702084.4494102,
+        "cohorts": [
+          {
+            "method": "mem0_original",
+            "horizon": 4,
+            "n": 1,
+            "target": 100,
+            "success": null,
+            "terminal_successes_observed": 0,
+            "unknown": 0,
+            "phase_hist": {
+              "0": 1
+            },
+            "mean_phase": 0.0,
+            "order_split": {
+              "12345": 1
+            },
+            "status": "running_progress_only",
+            "open_loop": "pending",
+            "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_original_weak/mem0_original_A_original"
+          },
+          {
+            "method": "mem0_original",
+            "horizon": 8,
+            "n": 1,
+            "target": 100,
+            "success": null,
+            "terminal_successes_observed": 0,
+            "unknown": 0,
+            "phase_hist": {
+              "0": 1
+            },
+            "mean_phase": 0.0,
+            "order_split": {
+              "12345": 1
+            },
+            "status": "running_progress_only",
+            "open_loop": "pending",
+            "root": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_original_weak/mem0_original_A_original"
+          }
+        ],
         "sustained_gpu": {
-          "status": "qualified600s",
-          "duration_s": 600,
-          "observed_span_s": 631.2199680805206,
-          "samples": 22,
-          "all_card_utilization_mean_pct": 14.81161260853211,
+          "status": "pending600s_contiguous_window",
+          "duration_s": 210.58935046195984,
+          "observed_span_s": 210.58935046195984,
+          "samples": 8,
+          "all_card_utilization_mean_pct": 2.5362506584933944,
           "per_card_utilization_mean_pct": [
-            31.853731923103332,
-            13.282772955099741,
-            13.722525934378305,
-            0.38741962154706316
+            4.002038791385143,
+            1.4279718263069499,
+            3.430023910256656,
+            1.284968106024828
           ],
-          "all_card_memory_mean_pct": 17.814953619764488,
-          "source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_original_weak/ALL_GPU_HISTORY.jsonl",
-          "latest_epoch": 1793701573.3878484
+          "all_card_memory_mean_pct": 11.317206009612184,
+          "source": "/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/stageA_round2/archive_original_weak/mem0_original_A_original/RESOURCE_HISTORY.jsonl",
+          "latest_epoch": 1793702000.0401993
         }
       }
     },
     "formal_results_published": false,
     "original_condition_target": 600,
-    "formal_A_completed_progress": 0,
-    "hard_gates": {}
+    "formal_A_completed_progress": 2,
+    "hard_gates": {
+      "mem0_original": {
+        "passed": true,
+        "method": "mem0_original",
+        "smoke20_passed": true,
+        "phase0_count": 7,
+        "expert_replay": true,
+        "render_multiframe": true,
+        "smoke_source": "/tmp/safelab_task10_evalv1_round2_original_weak/mem0_original_smoke20",
+        "open_loop": "pending",
+        "open_loop_gate_type": "soft",
+        "epoch": 1793701789.226167
+      }
+    }
   },
   "original30k_input_gate": {
     "passed": true,
@@ -5544,8 +5633,51 @@
     }
   },
   "preexisting_legacy_schema_repair": {
-    "records": 0,
-    "ids": [],
+    "records": 42,
+    "ids": [
+      "task5-all-20261101-old30-h4",
+      "task5-all-20261101-old30-h8",
+      "task5-all-20261101-old30-h30",
+      "task5-all-20261101-new20-h4",
+      "task5-all-20261101-new20-h8",
+      "task5-all-20261101-new20-h30",
+      "task5-all-20261101-new30-h4",
+      "task5-all-20261101-new30-h8",
+      "task5-all-20261101-new30-h30",
+      "task5-all-20261101-weak20-h4",
+      "task5-all-20261101-weak20-h8",
+      "task5-all-20261101-weak20-h30",
+      "task5-all-20261101-weak30-h4",
+      "task5-all-20261101-weak30-h8",
+      "task5-all-20261101-weak30-h30",
+      "task5-all-20261101-ours30-h4",
+      "task5-all-20261101-ours30-h8",
+      "task5-all-20261101-ours30-h30",
+      "task5-grasp-attach-20261101-old30-h4",
+      "task5-grasp-attach-20261101-old30-h8",
+      "task5-grasp-attach-20261101-old30-h30",
+      "task5-grasp-attach-20261101-new20-h4",
+      "task5-grasp-attach-20261101-new20-h8",
+      "task5-grasp-attach-20261101-new20-h30",
+      "task5-grasp-attach-20261101-new30-h4",
+      "task5-grasp-attach-20261101-new30-h8",
+      "task5-grasp-attach-20261101-new30-h30",
+      "task5-grasp-attach-20261101-weak20-h4",
+      "task5-grasp-attach-20261101-weak20-h8",
+      "task5-grasp-attach-20261101-weak20-h30",
+      "task5-grasp-attach-20261101-weak30-h4",
+      "task5-grasp-attach-20261101-weak30-h8",
+      "task5-grasp-attach-20261101-weak30-h30",
+      "task5-grasp-attach-20261101-ours30-h4",
+      "task5-grasp-attach-20261101-ours30-h8",
+      "task5-grasp-attach-20261101-ours30-h30",
+      "task5-ours-aligned-weak-20261102-baseline-h4",
+      "task5-ours-aligned-weak-20261102-baseline-h8",
+      "task5-ours-aligned-weak-20261102-baseline-h30",
+      "task5-ours-aligned-weak-20261102-attachment-h4",
+      "task5-ours-aligned-weak-20261102-attachment-h8",
+      "task5-ours-aligned-weak-20261102-attachment-h30"
+    ],
     "scientific_fields_modified": false,
     "unknown_metadata_inferred": false
   }

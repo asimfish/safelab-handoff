@@ -7,8 +7,8 @@
   "seed_count": 5,
   "trials_per_seed": 100,
   "status": "running",
-  "completed": 193,
-  "audited": 192,
+  "completed": 194,
+  "audited": 194,
   "successes": 0,
   "final_verified": false,
   "counts": [
@@ -85,14 +85,14 @@
       "execution_horizon": 8,
       "target": 500,
       "completed": 33,
-      "audited": 32,
+      "audited": 33,
       "successes": 0,
       "seeds": [
         {
           "repeat": 0,
           "target": 100,
           "completed": 33,
-          "audited": 32,
+          "audited": 33,
           "successes": 0,
           "final_verified": false,
           "success_rate": null
@@ -147,15 +147,15 @@
       "condition": "baseline",
       "execution_horizon": 30,
       "target": 500,
-      "completed": 32,
-      "audited": 32,
+      "completed": 33,
+      "audited": 33,
       "successes": 0,
       "seeds": [
         {
           "repeat": 0,
           "target": 100,
-          "completed": 32,
-          "audited": 32,
+          "completed": 33,
+          "audited": 33,
           "successes": 0,
           "final_verified": false,
           "success_rate": null
@@ -1948,11 +1948,28 @@
       "seed": 729015,
       "repeat": 0,
       "condition": "baseline",
-      "audited": false,
-      "success": null,
-      "physical_phases": null,
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
       "sim_seconds": 240.0,
-      "physics_sha256": null,
+      "physics_sha256": "5e7945178a46e108860a4fc59e24feb76f4bed760e2a9ea15aa6cf41d37d0eb3",
+      "source_job_id": "job-qc8mx9m974a5",
+      "attempt_priority": 0
+    },
+    {
+      "id": "oursalignedweak30_mem0_30000_h30_forward_015",
+      "variant": "oursalignedweak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "forward",
+      "seed": 729015,
+      "repeat": 0,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "090c2ed3f5228a767cd5c4eb98b29975757fff72aff025f35e7d5bdb2b4cc35a",
       "source_job_id": "job-qc8mx9m974a5",
       "attempt_priority": 0
     },
@@ -3687,18 +3704,18 @@
       "resource_class": "low_priority",
       "slots_per_GPU": 5,
       "resources": {
-        "epoch": 1793684628.029879,
+        "epoch": 1793684776.3355722,
         "status": "running",
-        "completed": 193,
+        "completed": 194,
         "target": 600,
         "memory": {
           "limit": "858993459200",
-          "current": "347545985024",
+          "current": "360734351360",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 25254846464
+          "shm_used": 27279364096
         },
-        "gpu": "0, 69259, 33\n1, 65081, 21\n2, 48879, 41\n3, 47172, 44\n"
+        "gpu": "0, 69259, 27\n1, 67602, 41\n2, 51155, 43\n3, 51253, 31\n"
       },
       "active_apps": 20,
       "startup_gates": 4,
@@ -3716,21 +3733,21 @@
       "resource_class": "low_priority",
       "slots_per_GPU": 5,
       "resources": {
-        "epoch": 1793684626.0427911,
+        "epoch": 1793684739.2355978,
         "status": "running",
         "completed": 0,
         "target": 600,
         "memory": {
           "limit": "858993459200",
-          "current": "114240278528",
+          "current": "84266557440",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 3060383744
+          "shm_used": 160034816
         },
-        "gpu": "0, 48454, 20\n1, 48862, 14\n2, 30724, 1\n3, 30724, 1\n"
+        "gpu": "0, 48003, 6\n1, 48128, 5\n2, 29991, 6\n3, 29991, 5\n"
       },
-      "active_apps": 0,
-      "startup_gates": 0,
+      "active_apps": 20,
+      "startup_gates": 4,
       "error": false
     }
   ],
@@ -3739,8 +3756,8 @@
   "low_priority_gpus": 8,
   "existing_server_gpus": 0,
   "max_parallel_apps": 40,
-  "active_apps": 20,
-  "updated_at": "2026-11-03T05:44:11.939518+00:00",
+  "active_apps": 40,
+  "updated_at": "2026-11-03T05:46:20.318015+00:00",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
   "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
   "resource_policy": "唯一12卡低优调度器，UNKNOWN仍预留4卡；已授权现有服务器仅在确有空闲时增开小批次，显卡单列。Pro GPU0额外48条启动在GPU被占用后由预检拦下，未加载模型或生成轨迹；确认无残留后交回四卡队列。新套件独立于原18000条。",

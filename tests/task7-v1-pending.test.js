@@ -22,7 +22,7 @@ test('unstarted task7 rows do not fabricate trials, unknown failures, averages, 
   assert.equal(row.topology.num_envs_actual,null);assert.equal(row.topology.procs_per_gpu,null);assert.equal(row.topology.actual_Apps,0);
   assert.equal(row.performance_observation.actual_GPUs,0);
   assert.deepEqual(Object.keys(row.admission).sort(),['expert_replay','open_loop','render_multiframe','smoke20'].sort());
-  for(const gate of Object.values(row.admission)){assert.equal(gate.passed,false);assert.equal(gate.status,'pending');assert.ok(gate.report);}
+  for(const [name,gate] of Object.entries(row.admission)){assert.equal(gate.passed,name==='expert_replay');assert.equal(gate.status,name==='expert_replay'?'passed':name==='render_multiframe'?'failed':'pending');assert.ok(gate.report);}
   assert.equal(row.seed_results.length,1);assert.equal(row.seed_results[0].seed,0);assert.equal(row.seed_results[0].trials,0);
   assert.equal(row.lr_split.left.label,'order1234');assert.equal(row.lr_split.right.label,'order4321');
   assert.equal(row.lr_split.left.planned_trials,50);assert.equal(row.lr_split.right.planned_trials,50);
@@ -59,7 +59,8 @@ test('task7 source custody binds real executor training snapshots without promot
   assert.equal(source.source,model.sources['dataloader/dataset_min_max.py'].local_file);
   assert.equal(row.input_source_audit.candidate_source_sha256,model.candidate.sha256);
   assert.equal(row.input_source_audit.hard_admission_passed_by_this_audit,false);
-  assert.ok(Object.values(row.admission).every(g=>g.passed===false&&g.status==='pending'));
+  assert.equal(row.admission.render_multiframe.passed,false);
+  assert.equal(row.admission.smoke20.status,'pending');assert.equal(row.admission.open_loop.status,'pending');
   assert.equal(row.success,null);assert.equal(row.completed,0);
  }
 });
@@ -83,4 +84,38 @@ test('TTC Gen stays its own shared PIL chain, separately from executor tensor AA
    assert.equal(gen.candidate_unchanged,true);assert.ok(gen.antialias_parameter.includes('not torchvision tensor AA'));
   }else assert.equal(gen.applicable,false);
  }
+});
+
+test('native admission evidence is exact and does not become formal model trials',()=>{
+ const crypto=require('node:crypto');
+ const raw=fs.readFileSync('reports/task7-eval-v1-20261103/native-admission.json');
+ const sha=crypto.createHash('sha256').update(raw).digest('hex');
+ assert.equal(sha,'f8514bcff5d26e5adddfc698cce9462ef6663081659eb1b43adcc5b9a68e16d5');
+ const gate=JSON.parse(raw),summary=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/native-admission-report.json'));
+ assert.equal(gate.passed,false);assert.equal(gate.scored,false);assert.equal(gate.model_calls,0);
+ assert.equal(summary.formal_stage_A_trials_added,0);assert.equal(summary.resource_release_claimed,false);
+ assert.equal(summary.smoke20.status,'not_started');
+ for(const row of rows){assert.equal(row.admission.expert_replay.evidence_sha256,sha);assert.equal(row.admission.render_multiframe.evidence_sha256,sha);assert.equal(row.trials,0);assert.equal(row.success,null);}
+});
+test('expert admission requires both full training replays and positive scope closure',()=>{
+ const summary=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/native-admission-report.json'));
+ assert.equal(summary.expert_replay.passed,true);
+ assert.deepEqual(summary.expert_replay.episodes.map(e=>e.frames),[2227,2341]);
+ for(const episode of summary.expert_replay.episodes){
+  const raw=fs.readFileSync(episode.result.file),result=JSON.parse(raw);
+  assert.equal(require('node:crypto').createHash('sha256').update(raw).digest('hex'),episode.result.sha256);
+  assert.equal(result.complete_training_episode_replayed,true);assert.equal(result.frames,result.full_training_frames);
+  assert.equal(result.physical_success,true);assert.equal(result.physical_phase,7);assert.equal(result.physical_events.length,7);
+  assert.equal(episode.returncode,0);assert.equal(episode.execution_closed,true);
+  assert.equal(episode.exact_scope_cleanup.passed,true);assert.equal(episode.exact_scope_cleanup.exact_PID_generation_signals,true);
+  assert.ok(episode.exact_scope_cleanup.children.every(c=>c.live===false));
+ }
+});
+test('all ten render checkpoints fail the declared limit despite expert success',()=>{
+ const gate=JSON.parse(fs.readFileSync('reports/task7-eval-v1-20261103/native-admission.json'));
+ assert.equal(gate.expert_replay.passed,true);assert.equal(gate.render_multiframe.passed,false);
+ assert.deepEqual(gate.render_multiframe.episodes.map(e=>e.episode),[0,50]);
+ for(const episode of gate.render_multiframe.episodes){assert.equal(episode.limit,1.0);assert.equal(episode.passed,false);assert.equal(episode.actual_train_MAE_0_255.length,5);assert.ok(episode.actual_train_MAE_0_255.every(x=>x>episode.limit));}
+ assert.ok(Object.values(gate.topology_qualification).every(t=>t.passed===false));
+ assert.ok(rows.every(r=>r.admission.render_multiframe.status==='failed'&&r.status==='admission_pending'));
 });

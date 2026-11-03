@@ -23,6 +23,8 @@ jobs:
           persist-credentials: false
       - name: Fill unknown historical metadata without changing results
         run: python3 scripts/fill-legacy-schema.py
+      - name: Fill missing legacy metadata without changing existing evidence
+        run: python3 scripts/fill-legacy-schema.py
       - name: Verify dashboard metrics
         run: node --test tests/*.test.js
       - name: Upload the static website

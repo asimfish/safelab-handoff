@@ -38,3 +38,11 @@ trials始终是完整分母，unknown属于trials。主表成功率为success/tr
 例如阶段A：trials=100、success=3、unknown=2，失败为95；phase_hist={"0":95,"3":3}合计98，mean_phase=9/98。正式成功率3%，unknown全部成功的上界5%。左右拆分和seed汇总保持三类结局守恒；显式提供failure时也必须满足该恒等式，缺省仍可推导。
 
 此变更不批量改写旧数据、不追认legacy，也不要求给既有记录新增failure或unknown_reasons。十任务含unknown的新记录在下一次发布时，只要其余v1字段与准入证据齐全，即可进入正式主表。按旧规则把unknown计入phase_hist的历史数字保持原样，不自动重解释或迁入正式表。
+
+## 2026-11-03 启动标记与候选重算
+
+`evaluation_started` 为可选布尔字段，兼容既有记录；未填写沿用原行为。新建但尚无 worker 开始的配置填写 `false`、`success:null`、`completed:0`、`unknown:0`、`phase_hist:{}`、`mean_phase:null`。`trials` 可预登记计划分母（A=100/B=500），也可为0并用 `target` 单列计划数；这都不是已评测数量。该标记为false时，不显示为正在执行，不进入正式成绩。worker实际开始后改为true；未完成时success仍必须为null。准入中/冒烟状态仍由admission证据决定。
+
+静止判定重算候选：另增独立evaluation，使用 `stage:"diagnostic"`、`metric_role:"rescored_v1.1_candidate"`、`source_evaluation_id:"原评测id"`，保留原任务、数据、权重、场景、执行步数、拓扑和输入元数据，并通过report_url或source提供逐轨迹重算依据。不得修改原strict-v1记录或复用其id。候选判定的具体参数、代码版本和逐条变化写入报告；协议是否采用等待用户决定。
+
+候选行完成后遵守相同计数规则：success/trials、unknown保留完整分母、phase_hist合计trials−unknown、mean_phase按有效轨迹计算。未完成success=null。主页“判定口径”默认strict-v1；切换v1.1-candidate仅展示完成、来源齐全且计数守恒的诊断行，逐配置列示，不进行组内最佳选择。即使候选行误填stage A/B，也不得混进严格正式表、历史成功率格或阶段A/B覆盖。该视图不宣布v1.1正式生效。

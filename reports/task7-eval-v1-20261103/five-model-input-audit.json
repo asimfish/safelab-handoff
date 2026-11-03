@@ -1,0 +1,411 @@
+{
+  "schema": "task7_five_model_input_audit.v1",
+  "epoch": 1793721060.6020136,
+  "scope": "actual frozen delivered sources; CPU resize-stage parity; not scientific hard admission",
+  "models": {
+    "mem0_30k": {
+      "family": "mem0",
+      "checkpoint_step": 30000,
+      "checkpoint_sha256": "44b74639166adcde6dada1ee435c0116715e8170711088e14a94b933d6d20c50",
+      "norm_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "camera": "chest",
+      "sources": {
+        "dataloader/dataset_min_max.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+          "sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f"
+        },
+        "dataloader/safelab_dataset.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+          "sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780"
+        },
+        "safelab/executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/safelab/executor_inference.py",
+          "sha256": "f9be19d4119c73caf8a7da55659fd774d6c9e1c780f17dc253f08e201de7154e"
+        },
+        "agent/memorymatters_agent.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/agent/memorymatters_agent.py",
+          "sha256": "66e627e7c4b8160d4485ddcfeb922dd947e1f6527ccbac0c8af63e38893e3745"
+        }
+      },
+      "executor_training": {
+        "input": "decoded float32 CHW RGB /255",
+        "resize": "torchvision.transforms.v2.Resize((224,224)) actual BILINEAR and antialias=True",
+        "stochastic_training_only": "ColorJitter(.1,.1,.1,0)",
+        "quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_files_identical_across_all_five": true
+      },
+      "legacy_inference": {
+        "resize": "raw PIL RGB -> resize_images((224,224)) with Pillow default BICUBIC",
+        "source": "agent/memorymatters_agent.py:update_obs",
+        "matches_training_resize": false
+      },
+      "candidate": {
+        "preprocess_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "mode": "tensor_float_chw_bilinear_antialias_uint8_truncate_v1",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "completion": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "hard_admissions": {
+        "expert_replay": "pending",
+        "render_multiframe": "pending",
+        "smoke20": "pending"
+      },
+      "openloop10": "pending"
+    },
+    "mem0_weak_30k": {
+      "family": "mem0",
+      "checkpoint_step": 30000,
+      "checkpoint_sha256": "4e929e22e95311e8f2db146b85dd0a74460c8df956f98d3caceb0c8a490c166e",
+      "norm_sha256": "c3ae905d707d191cee45a6aa4889406061062d4120255a9814df9a369256e2e3",
+      "camera": "chest",
+      "sources": {
+        "dataloader/dataset_min_max.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/dataloader/dataset_min_max.py",
+          "sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f"
+        },
+        "dataloader/safelab_dataset.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/dataloader/safelab_dataset.py",
+          "sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780"
+        },
+        "safelab/executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/safelab/executor_inference.py",
+          "sha256": "f9be19d4119c73caf8a7da55659fd774d6c9e1c780f17dc253f08e201de7154e"
+        },
+        "agent/memorymatters_agent.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/agent/memorymatters_agent.py",
+          "sha256": "66e627e7c4b8160d4485ddcfeb922dd947e1f6527ccbac0c8af63e38893e3745"
+        }
+      },
+      "executor_training": {
+        "input": "decoded float32 CHW RGB /255",
+        "resize": "torchvision.transforms.v2.Resize((224,224)) actual BILINEAR and antialias=True",
+        "stochastic_training_only": "ColorJitter(.1,.1,.1,0)",
+        "quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_files_identical_across_all_five": true
+      },
+      "legacy_inference": {
+        "resize": "raw PIL RGB -> resize_images((224,224)) with Pillow default BICUBIC",
+        "source": "agent/memorymatters_agent.py:update_obs",
+        "matches_training_resize": false
+      },
+      "candidate": {
+        "preprocess_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "mode": "tensor_float_chw_bilinear_antialias_uint8_truncate_v1",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "completion": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "hard_admissions": {
+        "expert_replay": "pending",
+        "render_multiframe": "pending",
+        "smoke20": "pending"
+      },
+      "openloop10": "pending"
+    },
+    "ours_native_30k": {
+      "family": "ttc",
+      "checkpoint_step": 30000,
+      "checkpoint_sha256": "d9c831f88aa28deadf9e11fb898eecf40d12f29aa8f909e76aca121a8c9bdfdf",
+      "norm_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "camera": "chest",
+      "sources": {
+        "dataloader/dataset_min_max.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/dataloader/dataset_min_max.py",
+          "sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f"
+        },
+        "dataloader/safelab_dataset.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/dataloader/safelab_dataset.py",
+          "sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780"
+        },
+        "safelab/executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/safelab/executor_inference.py",
+          "sha256": "f9be19d4119c73caf8a7da55659fd774d6c9e1c780f17dc253f08e201de7154e"
+        },
+        "safelab/ours_executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/safelab/ours_executor_inference.py",
+          "sha256": "1e704eceea2fb643670757bac0e4c8602c74dd59f96405c99087c72782782428"
+        },
+        "safelab/mn_runtime_reference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/safelab/mn_runtime_reference.py",
+          "sha256": "0eb51356db1f19de67da9f2e64714d1a298dfb16289ef2f64fb91946a129f200"
+        },
+        "keymem/safelab_gen21_311.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/keymem/safelab_gen21_311.py",
+          "sha256": "96019ca58c3b5d20644f1fde68568805bc3687ad86fe15ece9ece94d420a9a65"
+        },
+        "keymem/safelab_gen21_311_models.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/keymem/safelab_gen21_311_models.py",
+          "sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b"
+        },
+        "keymem/safelab_gen21_311_runtime_reference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/keymem/safelab_gen21_311_runtime_reference.py",
+          "sha256": "99929f20897897284660995550ec319e0ca433725d12f1258c6a96d00495d697"
+        }
+      },
+      "executor_training": {
+        "input": "decoded float32 CHW RGB /255",
+        "resize": "torchvision.transforms.v2.Resize((224,224)) actual BILINEAR and antialias=True",
+        "stochastic_training_only": "ColorJitter(.1,.1,.1,0)",
+        "quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_files_identical_across_all_five": true
+      },
+      "legacy_inference": {
+        "resize": "raw PIL RGB -> resize_images((224,224)) with Pillow default BICUBIC",
+        "source": "safelab/mn_runtime_reference.py:_build_action_visual_inputs",
+        "matches_training_resize": false
+      },
+      "candidate": {
+        "preprocess_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "mode": "tensor_float_chw_bilinear_antialias_uint8_truncate_v1",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "completion": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": false,
+        "native_classifier_tensor_count": 0,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "hard_admissions": {
+        "expert_replay": "pending",
+        "render_multiframe": "pending",
+        "smoke20": "pending"
+      },
+      "openloop10": "pending",
+      "Gen": {
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_video": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "resize": "PIL BILINEAR224",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "source_files_identical_between_three_TTC_deliveries": true,
+        "candidate_unchanged": true
+      }
+    },
+    "ours_aligned_30k": {
+      "family": "ttc",
+      "checkpoint_step": 30000,
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "norm_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "camera": "chest",
+      "sources": {
+        "dataloader/dataset_min_max.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+          "sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f"
+        },
+        "dataloader/safelab_dataset.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+          "sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780"
+        },
+        "safelab/executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/safelab/executor_inference.py",
+          "sha256": "f9be19d4119c73caf8a7da55659fd774d6c9e1c780f17dc253f08e201de7154e"
+        },
+        "safelab/ours_executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/safelab/ours_executor_inference.py",
+          "sha256": "c8427457f996fe68ae4eee736aa9062cccc49add4a54b97fe73e20d0dc2013c1"
+        },
+        "safelab/mn_runtime_reference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/safelab/mn_runtime_reference.py",
+          "sha256": "78618a44b04e64d6141ffb8e4589095a0224030ffadc9375b27e1f8daa8a3118"
+        },
+        "keymem/safelab_gen21_311.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311.py",
+          "sha256": "96019ca58c3b5d20644f1fde68568805bc3687ad86fe15ece9ece94d420a9a65"
+        },
+        "keymem/safelab_gen21_311_models.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+          "sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b"
+        },
+        "keymem/safelab_gen21_311_runtime_reference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311_runtime_reference.py",
+          "sha256": "99929f20897897284660995550ec319e0ca433725d12f1258c6a96d00495d697"
+        }
+      },
+      "executor_training": {
+        "input": "decoded float32 CHW RGB /255",
+        "resize": "torchvision.transforms.v2.Resize((224,224)) actual BILINEAR and antialias=True",
+        "stochastic_training_only": "ColorJitter(.1,.1,.1,0)",
+        "quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_files_identical_across_all_five": true
+      },
+      "legacy_inference": {
+        "resize": "raw PIL RGB -> resize_images((224,224)) with Pillow default BICUBIC",
+        "source": "safelab/mn_runtime_reference.py:_build_action_visual_inputs",
+        "matches_training_resize": false
+      },
+      "candidate": {
+        "preprocess_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "mode": "tensor_float_chw_bilinear_antialias_uint8_truncate_v1",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "completion": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "hard_admissions": {
+        "expert_replay": "pending",
+        "render_multiframe": "pending",
+        "smoke20": "pending"
+      },
+      "openloop10": "pending",
+      "Gen": {
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_video": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "resize": "PIL BILINEAR224",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "source_files_identical_between_three_TTC_deliveries": true,
+        "candidate_unchanged": true
+      }
+    },
+    "ours_weak_aligned_30k": {
+      "family": "ttc",
+      "checkpoint_step": 30000,
+      "checkpoint_sha256": "38054eb0a6c7ed6fed17557379eee89714da81dfe945f512ac11756d946c0124",
+      "norm_sha256": "c3ae905d707d191cee45a6aa4889406061062d4120255a9814df9a369256e2e3",
+      "camera": "chest",
+      "sources": {
+        "dataloader/dataset_min_max.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/dataloader/dataset_min_max.py",
+          "sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f"
+        },
+        "dataloader/safelab_dataset.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/dataloader/safelab_dataset.py",
+          "sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780"
+        },
+        "safelab/executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/safelab/executor_inference.py",
+          "sha256": "f9be19d4119c73caf8a7da55659fd774d6c9e1c780f17dc253f08e201de7154e"
+        },
+        "safelab/ours_executor_inference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/safelab/ours_executor_inference.py",
+          "sha256": "c8427457f996fe68ae4eee736aa9062cccc49add4a54b97fe73e20d0dc2013c1"
+        },
+        "safelab/mn_runtime_reference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/safelab/mn_runtime_reference.py",
+          "sha256": "78618a44b04e64d6141ffb8e4589095a0224030ffadc9375b27e1f8daa8a3118"
+        },
+        "keymem/safelab_gen21_311.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/keymem/safelab_gen21_311.py",
+          "sha256": "96019ca58c3b5d20644f1fde68568805bc3687ad86fe15ece9ece94d420a9a65"
+        },
+        "keymem/safelab_gen21_311_models.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+          "sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b"
+        },
+        "keymem/safelab_gen21_311_runtime_reference.py": {
+          "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/keymem/safelab_gen21_311_runtime_reference.py",
+          "sha256": "99929f20897897284660995550ec319e0ca433725d12f1258c6a96d00495d697"
+        }
+      },
+      "executor_training": {
+        "input": "decoded float32 CHW RGB /255",
+        "resize": "torchvision.transforms.v2.Resize((224,224)) actual BILINEAR and antialias=True",
+        "stochastic_training_only": "ColorJitter(.1,.1,.1,0)",
+        "quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_files_identical_across_all_five": true
+      },
+      "legacy_inference": {
+        "resize": "raw PIL RGB -> resize_images((224,224)) with Pillow default BICUBIC",
+        "source": "safelab/mn_runtime_reference.py:_build_action_visual_inputs",
+        "matches_training_resize": false
+      },
+      "candidate": {
+        "preprocess_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "mode": "tensor_float_chw_bilinear_antialias_uint8_truncate_v1",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "completion": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "hard_admissions": {
+        "expert_replay": "pending",
+        "render_multiframe": "pending",
+        "smoke20": "pending"
+      },
+      "openloop10": "pending",
+      "Gen": {
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_video": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "resize": "PIL BILINEAR224",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "source_files_identical_between_three_TTC_deliveries": true,
+        "candidate_unchanged": true
+      }
+    }
+  },
+  "legacy_trainresize_completion_audit": [
+    {
+      "group": "current_attach",
+      "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/bundles/ours_trainresize_30k/model_server.py",
+      "sha256": "2b319dbbe9b3af2b40329bca7417b3a1c4214d4183c5dbb6b627ca140c3fda2b",
+      "completion": "original delivered Gen contract",
+      "additional_completion_readout_installed": false,
+      "router_overrides_preserved": true,
+      "actor_resize_installed": true,
+      "rename_to_trainresize_plus_completionfix_required_by_this_evidence": false
+    },
+    {
+      "group": "original_contact_prior_group",
+      "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours_basic_trainresize_h4h30_v1/formal_n1_4gpu/model_server.py",
+      "sha256": "2b319dbbe9b3af2b40329bca7417b3a1c4214d4183c5dbb6b627ca140c3fda2b",
+      "completion": "original delivered Gen contract",
+      "additional_completion_readout_installed": false,
+      "router_overrides_preserved": true,
+      "actor_resize_installed": true,
+      "rename_to_trainresize_plus_completionfix_required_by_this_evidence": false
+    }
+  ],
+  "aligned_classifier_design": {
+    "head_exists_and_strictly_loaded": true,
+    "tensors": 21,
+    "weights_total_tensors": 916,
+    "trained_loss_weight": 0.2,
+    "delivery_online_design": "Gen/Planner switch; native classifier trained and computed but not selected as policy switching authority",
+    "source_evidence": "ours_executor_inference.py strict weights; MnAgentMethods.update_obs memory_bank.update_on_eval(classifier); SafeLabOursExecutor.observe uses cluster.update(decision.switched)",
+    "switching_variant_requires": "separate explicit policy/router integration and hard admissions; preserve State/KF finalization, not merely change end_signal_count"
+  },
+  "CPU_resize_parity": {
+    "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/TRAINING_RESIZE_CPU_PARITY.json",
+    "sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+    "max_pixel_difference": 0,
+    "inputs": 5,
+    "actual_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+    "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+    "cross_version_bitwise_verified": false,
+    "full_video_decoder_Qwen_tensor_or_render_verified": false
+  },
+  "readonly_pool": {
+    "upstream_root": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/eval_v1_transition_20261103",
+    "candidate_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/readonly_pool.py",
+    "candidate_sha256": "32ab9639201355deba8dd222039f290963ec84ccd72312b47bab288b0b76f9a9",
+    "Task7_same_weight_parity": "pending",
+    "default_enabled": false,
+    "difference_from_task10": "support action-only native classifier=None; preserve mutable Gen/cluster/memory/config independently"
+  },
+  "GPU_models_or_simulators_started_by_this_audit": false,
+  "formal_results_created": false
+}

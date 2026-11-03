@@ -93,3 +93,9 @@ Mem-0 20k/30k、TTC基础20k/30k、TTC对齐loss 30k、Mem-0削弱版30k，以�
 [诊断与进度](https://asimfish.github.io/safelab-handoff/reports/pi05-eval-v1-20261103.html)：同训练轮次30k/40k、H4/H8/H10以及独立padfix变体。当前为专家执行重复对照；完整100条前正式成绩保持null，历史5090部分结果单列。
 
 发布构建先运行 `python3 scripts/fill-legacy-schema.py`，仅为非Eval-v1旧记录补缺失的历史/诊断标记和未知元数据；保留所有已有字段与成绩、不推断或补造正式证据，再执行完整 `node --test tests/*.test.js`。这样并行同步器新增的旧条目不会因缺少新schema而阻断站点发布。
+
+## 2026-11-03 七任务切换至 SafeLab-Eval-v1
+
+[阶段A待测清单与权重交接](reports/task7-eval-v1-20261103.html)：五份30k权重分别执行4/8步，先原始接触条件、seed0固定100场景（正反各50、交错派发）。当前10个配置均待准入，成功数为null，尚未启动正式v1轨迹。固定V180清单有真实SHA；不是100个随机布局。
+
+旧10500扩采已按用户终止为legacy partial；三旧job官方STOPPED、当前0云卡/0App。最终封存3287条已验收、50条成功，56条停止期间unknown和8旧hold另存，不记失败、不重派；已验收数不冒充全部发出分母。历史baseline/附着S/F及其原始证据保留，不追认为v1。旧直发发布器已停，后续只经分支PR审核；20k与30步不再新增，pi0.5 issue #24由其负责agent推进。

@@ -1,0 +1,1962 @@
+{
+  "schema": "task7_eval_v1_pending_inventory.v1",
+  "updated_at": "2026-11-03T16:01:19.452242+00:00",
+  "protocol_version": "SafeLab-Eval-v1",
+  "task": 7,
+  "data_version": "psibot_7_weigh_4beakers_v180",
+  "camera": "chest",
+  "status": "admission_pending",
+  "new_evaluation_ids": [
+    "task7-eval-v1-A-original-mem0_30k-h4",
+    "task7-eval-v1-A-original-mem0_30k-h8",
+    "task7-eval-v1-A-original-ttc_base_trainresize_30k-h4",
+    "task7-eval-v1-A-original-ttc_base_trainresize_30k-h8",
+    "task7-eval-v1-A-original-ttc_aligned_trainresize_30k-h4",
+    "task7-eval-v1-A-original-ttc_aligned_trainresize_30k-h8",
+    "task7-eval-v1-A-original-mem0_weak_30k-h4",
+    "task7-eval-v1-A-original-mem0_weak_30k-h8",
+    "task7-eval-v1-A-original-ttc_weak_aligned_30k-h4",
+    "task7-eval-v1-A-original-ttc_weak_aligned_30k-h8"
+  ],
+  "new_evaluations": [
+    {
+      "id": "task7-eval-v1-A-original-mem0_30k-h4",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "mem0_30k",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "mem0_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "applicable": false,
+        "completion": "native classifier+next planner",
+        "scope": "Mem0 executor resize includes action/native classifier; Planner original RGB path"
+      },
+      "completion_source_audit": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-mem0_30k-h8",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "mem0_30k",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "mem0_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "applicable": false,
+        "completion": "native classifier+next planner",
+        "scope": "Mem0 executor resize includes action/native classifier; Planner original RGB path"
+      },
+      "completion_source_audit": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-ttc_base_trainresize_30k-h4",
+      "record": "7-ours-trainresize",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 基础 · 训练缩放",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "ttc_base_trainresize_30k",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "completion_switching_status": "source-audited original delivered Gen contract; two historical trainresize servers preserve calibrationNone/router overrides; no additional completionfix installed in these audited sources",
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_native_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": false,
+        "native_classifier_tensor_count": 0,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-ttc_base_trainresize_30k-h8",
+      "record": "7-ours-trainresize",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 基础 · 训练缩放",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "ttc_base_trainresize_30k",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "completion_switching_status": "source-audited original delivered Gen contract; two historical trainresize servers preserve calibrationNone/router overrides; no additional completionfix installed in these audited sources",
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_native_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_native_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": false,
+        "native_classifier_tensor_count": 0,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-ttc_aligned_trainresize_30k-h4",
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss · 训练缩放",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "ttc_aligned_trainresize_30k",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "classifier_online_status": "21-tensor head strictly loaded; delivered online switching remains Gen/Planner, not classifier authority; separate classifier-switch integration/admission required",
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_aligned_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-ttc_aligned_trainresize_30k-h8",
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss · 训练缩放",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "ttc_aligned_trainresize_30k",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "classifier_online_status": "21-tensor head strictly loaded; delivered online switching remains Gen/Planner, not classifier authority; separate classifier-switch integration/admission required",
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_aligned_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-mem0_weak_30k-h4",
+      "record": "7-mem0-weak",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "mem0_weak_30k",
+      "handoff_issue": 3,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "mem0_weak_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "applicable": false,
+        "completion": "native classifier+next planner",
+        "scope": "Mem0 executor resize includes action/native classifier; Planner original RGB path"
+      },
+      "completion_source_audit": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-mem0_weak_30k-h8",
+      "record": "7-mem0-weak",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_weak_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "mem0_weak_30k",
+      "handoff_issue": 3,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "mem0_weak_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "applicable": false,
+        "completion": "native classifier+next planner",
+        "scope": "Mem0 executor resize includes action/native classifier; Planner original RGB path"
+      },
+      "completion_source_audit": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-ttc_weak_aligned_30k-h4",
+      "record": "7-ours-weak-aligned-issue18",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "ttc_weak_aligned_30k",
+      "handoff_issue": 18,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_weak_aligned_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      }
+    },
+    {
+      "id": "task7-eval-v1-A-original-ttc_weak_aligned_30k-h8",
+      "record": "7-ours-weak-aligned-issue18",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "A",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "kind": "自主闭环",
+      "metric_role": "original",
+      "status": "admission_pending",
+      "success": null,
+      "trials": 0,
+      "unknown": 0,
+      "completed": 0,
+      "target": 100,
+      "planned_trials": 100,
+      "provisional_successes": null,
+      "final_verified": false,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 0,
+          "completed": 0,
+          "success": null,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 0,
+          "success": null,
+          "unknown": 0,
+          "planned_trials": 50
+        }
+      },
+      "mean_phase": null,
+      "phase_hist": {},
+      "phase_mean_denominator": 0,
+      "wilson95": null,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "required_num_envs_actual": 1,
+        "status": "planned N1×k; not started",
+        "actual_Apps": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "soft"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task7-eval-v1-20261103.html#admission",
+          "gate_type": "hard"
+        }
+      },
+      "protocol": "SafeLab-Eval-v1 Stage A：seed0，冻结同100固定场景，order1234/order4321各50且从开始交错派发；left/right仅为正/反顺序标签映射。仅原始接触，无attach，无位置扰动新增；训练侧实际代码逐模型核对。当前trials=0表示未派发，target=100是计划分母；开始后unknown保留在trials内且不进phase_hist，mean_phase仅按trials-unknown计算。全100条及准入齐全前success=null、Wilson=null。0/100不扩seed，B仅按统一放量规则；不新跑20k/h30。",
+      "source": "reports/task7-eval-v1-20261103.html",
+      "report_url": "reports/task7-eval-v1-20261103.html",
+      "updated_at": "2026-11-03T16:01:19.452242+00:00",
+      "variant": "ttc_weak_aligned_30k",
+      "handoff_issue": 18,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
+      "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+      "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_weak_aligned_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_weak_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      }
+    }
+  ],
+  "checkpoint_inventory": [
+    {
+      "variant": "mem0_30k",
+      "record": "7-mem0",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "camera": "chest",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
+      "checkpoint_sha256": null,
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "issue_binding_status": "no matching task7 checkpoint issue in issues1-26; use existing registered record",
+      "delivery_evidence_scope": "existing published delivery and historical verification; not a new v1 admission",
+      "new_v1_admission": "pending",
+      "planned_horizons": [
+        4,
+        8
+      ]
+    },
+    {
+      "variant": "ttc_base_trainresize_30k",
+      "record": "7-ours-trainresize",
+      "method": "TTC · 基础 · 训练缩放",
+      "checkpoint": 30000,
+      "camera": "chest",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
+      "checkpoint_sha256": null,
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "issue_binding_status": "no matching task7 checkpoint issue in issues1-26; use existing registered record",
+      "delivery_evidence_scope": "existing published delivery and historical verification; not a new v1 admission",
+      "new_v1_admission": "pending",
+      "planned_horizons": [
+        4,
+        8
+      ]
+    },
+    {
+      "variant": "ttc_aligned_trainresize_30k",
+      "record": "7-aligned",
+      "method": "TTC · 对齐loss · 训练缩放",
+      "checkpoint": 30000,
+      "camera": "chest",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
+      "handoff_issue": null,
+      "handoff_url": null,
+      "issue_binding_status": "no matching task7 checkpoint issue in issues1-26; use existing registered record",
+      "delivery_evidence_scope": "existing published delivery and historical verification; not a new v1 admission",
+      "new_v1_admission": "pending",
+      "planned_horizons": [
+        4,
+        8
+      ]
+    },
+    {
+      "variant": "mem0_weak_30k",
+      "record": "7-mem0-weak",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "camera": "chest",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
+      "checkpoint_sha256": "4e929e22e95311e8f2db146b85dd0a74460c8df956f98d3caceb0c8a490c166e",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
+      "handoff_issue": 3,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
+      "issue_binding_status": "registered checkpoint issue",
+      "delivery_evidence_scope": "existing published delivery and historical verification; not a new v1 admission",
+      "new_v1_admission": "pending",
+      "planned_horizons": [
+        4,
+        8
+      ]
+    },
+    {
+      "variant": "ttc_weak_aligned_30k",
+      "record": "7-ours-weak-aligned-issue18",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "camera": "chest",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
+      "checkpoint_sha256": "38054eb0a6c7ed6fed17557379eee89714da81dfe945f512ac11756d946c0124",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
+      "handoff_issue": 18,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
+      "issue_binding_status": "registered checkpoint issue",
+      "delivery_evidence_scope": "existing published delivery and historical verification; not a new v1 admission",
+      "new_v1_admission": "pending",
+      "planned_horizons": [
+        4,
+        8
+      ]
+    }
+  ],
+  "inventory_issues_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ],
+  "task7_checkpoint_issues": [
+    3,
+    18,
+    24
+  ],
+  "excluded": {
+    "pi05_issue24": "another agent; no run or edit here",
+    "weights20k": "history only",
+    "horizon30": "history only",
+    "attach": "auxiliary only after matching original Stage A"
+  },
+  "admission": {
+    "expert_replay": "pending original physics replay for2 training episodes",
+    "render_multiframe": "pending2 episodes×5 checkpoints each",
+    "smoke20": "pending balanced10/10 h8; >=90% phase0 stops release",
+    "open_loop": "soft; same10 episodes, <=1.5×base Mem-0 armRMSE; failure invalidates cohort"
+  },
+  "scene_list": {
+    "status": "frozen scene-only cohort; not render or physics admission",
+    "sha256": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+    "planned_count": 100,
+    "orders": {
+      "1234": 50,
+      "4321": 50
+    },
+    "dispatch_order": "interleaved",
+    "serialization": "JSON sort_keys=True, ensure_ascii=True,separators=(comma,colon),allow_nan=False plus LF",
+    "public_file": "reports/task7-eval-v1-20261103/scenes.json",
+    "physical_layout": "fixed V180 poses, no position jitter; not100 random layouts",
+    "seed0_master": 739000,
+    "inference_seed_definition": "master+order_repetition+(0 for1234 else50)"
+  },
+  "pending_reason": "输入源审计与同运行时5输入resize/uint8阶段0差已证实；尚未证明跨Torch版本、完整训练视频解码/Qwen张量或真实渲染一致。专家回放、正反2episode×5帧render、左右各10的h8 smoke20硬门槛及同10episode开环软门槛仍pending；本源审计不替代准入。",
+  "expected_start_conditions": "完成三项硬门槛及训练代码逐模型核对后，在既有12卡上限内首个可用时隙开始；开环软门槛可并行，但不通过即使批次无效。尚无可靠墙钟开始时间。",
+  "expected_start_at": null,
+  "old_legacy_rows_untouched": true,
+  "old_10500_expansion_not_promised": true,
+  "issue_registration_notes": [
+    "Issue #3 body has stale unknown camera/empty path; actual published 7-mem0-weak delivery is separate evidence. Do not treat body as current GPU readiness.",
+    "Issue #18 body still says training; actual checkpoint and component hashes were independently verified historically. New original-contact v1 admission remains pending.",
+    "Baseline Mem-0, TTC base and aligned existing records have no matching checkpoint issue among1–26; no unrelated issue is substituted."
+  ],
+  "legacy_direct_publisher": {
+    "status": "stopped before this PR",
+    "unit": "t939-website-publisher-recovery-20261102.service",
+    "oldPID": 3844482,
+    "old_start": "53590147",
+    "proof": "task-private LEGACY_PUBLISHER_PAUSED.json; no GPU/observer stopped by website agent"
+  },
+  "resource_scope": {
+    "new_v1_actual_GPUs": 0,
+    "cloud_low_priority_cap": 12,
+    "additional_GPUs_claimed": 0,
+    "main_legacy_results": "retained historical; not new v1 telemetry"
+  },
+  "legacy_final_preservation": {
+    "accepted": 3287,
+    "successes": 50,
+    "baseline_separately_preserved": 8,
+    "stop_inflight_unknown_prefixes": 56,
+    "old_terminal_holds": 8,
+    "unknowns_not_failed_or_replayed": true,
+    "accepted_is_not_total_dispatched_denominator": true,
+    "formal_v1_results": false,
+    "report": "reports/task7-eval-v1-20261103/legacy-final-capture.json",
+    "sha256": "72f0789e7350a2f23079dd3abaafe176a5d0127a4fa4778473c43f76462931f4"
+  },
+  "legacy_current_resources": {
+    "actualApps": 0,
+    "cloud_GPUs": 0,
+    "platform_status": "all three oldjobs STOPPED",
+    "new_v1_trials": 0,
+    "proof": "reports/task7-eval-v1-20261103/legacy-platform-terminal.json"
+  },
+  "preprocessing_source_audit": {
+    "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+    "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+    "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+    "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+    "same_runtime_resize_CPU_parity_only": true,
+    "hard_admissions_still_pending": true,
+    "Gen_PIL_chain_is_not_executor_tensor_AA": true,
+    "legacy_trainresize_completion_audit": [
+      {
+        "group": "current_attach",
+        "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/bundles/ours_trainresize_30k/model_server.py",
+        "sha256": "2b319dbbe9b3af2b40329bca7417b3a1c4214d4183c5dbb6b627ca140c3fda2b",
+        "completion": "original delivered Gen contract",
+        "additional_completion_readout_installed": false,
+        "router_overrides_preserved": true,
+        "actor_resize_installed": true,
+        "rename_to_trainresize_plus_completionfix_required_by_this_evidence": false
+      },
+      {
+        "group": "original_contact_prior_group",
+        "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/ours_basic_trainresize_h4h30_v1/formal_n1_4gpu/model_server.py",
+        "sha256": "2b319dbbe9b3af2b40329bca7417b3a1c4214d4183c5dbb6b627ca140c3fda2b",
+        "completion": "original delivered Gen contract",
+        "additional_completion_readout_installed": false,
+        "router_overrides_preserved": true,
+        "actor_resize_installed": true,
+        "rename_to_trainresize_plus_completionfix_required_by_this_evidence": false
+      }
+    ],
+    "aligned_classifier_design": {
+      "head_exists_and_strictly_loaded": true,
+      "tensors": 21,
+      "weights_total_tensors": 916,
+      "trained_loss_weight": 0.2,
+      "delivery_online_design": "Gen/Planner switch; native classifier trained and computed but not selected as policy switching authority",
+      "source_evidence": "ours_executor_inference.py strict weights; MnAgentMethods.update_obs memory_bank.update_on_eval(classifier); SafeLabOursExecutor.observe uses cluster.update(decision.switched)",
+      "switching_variant_requires": "separate explicit policy/router integration and hard admissions; preserve State/KF finalization, not merely change end_signal_count"
+    }
+  }
+}

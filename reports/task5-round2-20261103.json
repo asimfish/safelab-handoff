@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T18:32:14.017698+00:00",
+  "updated_at": "2026-11-03T20:12:18.634537+00:00",
   "protocol_version": "SafeLab-Eval-v1",
   "models": [
     {
@@ -9,8 +9,9 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "awaiting smoke",
-      "A_completed": 0
+      "status": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
+      "A_completed": 0,
+      "smoke_unknown": 20
     },
     {
       "variant": "new30",
@@ -26,10 +27,14 @@
         "5": 0
       },
       "smoke_mean_phase": 0.45,
-      "status": "smoke passed; A submitted",
+      "status": "strict-v1冒烟20/20；随后A任务被抢占，43条闭合、20条unknown、137条未启动。placement-v1.1准入仍待完成。",
       "A_completed": {
-        "4": 18,
-        "8": 14
+        "4": 22,
+        "8": 21
+      },
+      "A_unknown": {
+        "4": 10,
+        "8": 10
       }
     },
     {
@@ -39,7 +44,7 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "awaiting smoke",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "A_completed": 0
     },
     {
@@ -49,7 +54,7 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "awaiting smoke",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "A_completed": 0
     },
     {
@@ -59,7 +64,7 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "awaiting smoke",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "A_completed": 0
     },
     {
@@ -69,7 +74,7 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "awaiting smoke",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "A_completed": 0
     },
     {
@@ -79,7 +84,7 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "fixed optics admission pending",
+      "status": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "A_completed": 0
     }
   ],
@@ -90,8 +95,17 @@
   "open_loop": "passed：corrected Native RGB/own training RGB RMSE 0.77–1.35≤1.5；本轮总负责明确认可，训练loss不阻塞。",
   "stability_oracle": "121 physical ticks / 1second; endpoint position drift≤1mm and orientation≤0.02rad, geometry support/no-fingers gate; no instantaneous angular/linear velocity gate in checked baseline/attach/current versions",
   "calibration": "five-task native static probe running; thresholds not yet frozen; no candidate score published",
-  "N4": "closed, throughput upper bound1.02<1.3; not admitted",
-  "media": "存储sources接口仅返回授权source_id和访问方式，未提供稳定匿名公开只读HTTPS端点；禁止临时签名URL，当前未发布媒体清单",
+  "N4": "closed: upper throughput ratio1.02<1.3; not admitted",
+  "media": {
+    "cases": 8,
+    "total_video_bytes": 3324143,
+    "codec": "H264/yuv420p/faststart",
+    "duration": "full source duration, not shortened",
+    "public_video_base_verified": false,
+    "frame_logs": "prepared; same-origin Pages after valid video endpoint; not indexed prematurely",
+    "stage": "diagnostic",
+    "oracle_version": "strict-v1"
+  },
   "stability": {
     "original_angular_velocity_gate": false,
     "original_window_ticks": 121,
@@ -232,13 +246,1073 @@
   "old_pose_candidate_revoked": true,
   "new_v11_rows": 14,
   "executor_parity": {
+    "status": "10 source episodes full-SHA prepared;4 prior Native references reused;6 Native +10 literal live endpoint runs pending",
+    "reference_RMSE_all13_rad": [
+      0.0017207931,
+      0.0033449003,
+      0.000490484,
+      0.0036693857
+    ],
+    "old_four_reference_endpoint_type": "prototype math/float64, not literal loader float32; not sufficient for gate10",
     "passed": false,
-    "completed_distinct_lookahead_layouts": 4,
-    "required": 10,
-    "left_required": 5,
-    "right_required": 5,
-    "full13_joint_rmse_required_rad": 0.005,
-    "reason": "existing arm7 parity and4layouts do not satisfy new10-layout full13 gate"
+    "new_cloud_GPUs": 0,
+    "execution_chain": "current_row_forward_linear_v1; immediate first label;13 position interpolation; original Native arm7-only velocity feedforward; hand6 velocity zero",
+    "existing_server": "guarded one Native on existing Pro GPU1; no foreign process modified"
   },
-  "storage_policy": "user17:50 allowed big:/projects/a02012413/buckets/zenith-a02012413/liyufeng; small:/project_a02012413/public/liyufeng; current old-location batch may finish, no new old-location outputs; migration pending SHA verification; no deletion"
+  "storage_policy": "user17:50 allowed big:/projects/a02012413/buckets/zenith-a02012413/liyufeng; small:/project_a02012413/public/liyufeng; current old-location batch may finish, no new old-location outputs; migration pending SHA verification; no deletion",
+  "active_low_priority_GPUs": 0,
+  "reserved_low_priority_GPUs": 0,
+  "terminal_jobs": {
+    "new30_A": {
+      "started": 63,
+      "audited_closed": 43,
+      "unknown": 20,
+      "unlaunched": 137
+    },
+    "new20_smoke": {
+      "started": 20,
+      "audited_closed": 0,
+      "unknown": 20,
+      "unlaunched": 0
+    },
+    "added4_smokes": {
+      "started": 0,
+      "audited_closed": 0,
+      "unknown": 0,
+      "unlaunched": 80
+    }
+  },
+  "last_600s_resource_utilization": {
+    "window_start": 1793729001.9223769,
+    "window_end": 1793729601.9223769,
+    "window_s": 600.0,
+    "mean_GPU_utilization_pct": 45.07191769182682,
+    "mean_GPU_memory_utilization_pct": 49.240617459986844,
+    "gpu_count": 4,
+    "maximum_telemetry_interval_s": 61.92436408996582,
+    "scope": "all4GPUs of new30_A, time-weighted stepwise telemetry; other8GPU intents still uncreated",
+    "target_met": false
+  },
+  "CPU_launch_checks": {
+    "passed": true,
+    "checks": [
+      {
+        "variant": "weak20",
+        "kind": "next",
+        "returncode": 0,
+        "wall_s": 0.6695160865783691,
+        "CPU_only": true,
+        "weights_loaded": false,
+        "source_sha256": "2d552d346419b068fbc2a8a26b5f738f569812440b580396fcd88ab9c508632a",
+        "log": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/planner_cpu_cli_checks_v2/weak20_next.log"
+      },
+      {
+        "variant": "weak30",
+        "kind": "next",
+        "returncode": 0,
+        "wall_s": 0.2842698097229004,
+        "CPU_only": true,
+        "weights_loaded": false,
+        "source_sha256": "2d552d346419b068fbc2a8a26b5f738f569812440b580396fcd88ab9c508632a",
+        "log": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/planner_cpu_cli_checks_v2/weak30_next.log"
+      },
+      {
+        "variant": "ours30",
+        "kind": "next",
+        "returncode": 0,
+        "wall_s": 1.4470455646514893,
+        "CPU_only": true,
+        "weights_loaded": false,
+        "source_sha256": "2d552d346419b068fbc2a8a26b5f738f569812440b580396fcd88ab9c508632a",
+        "log": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/planner_cpu_cli_checks_v2/ours30_next.log"
+      },
+      {
+        "variant": "ours30",
+        "kind": "dag",
+        "returncode": 0,
+        "wall_s": 2.5482521057128906,
+        "CPU_only": true,
+        "weights_loaded": false,
+        "source_sha256": "2d552d346419b068fbc2a8a26b5f738f569812440b580396fcd88ab9c508632a",
+        "log": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/planner_cpu_cli_checks_v2/ours30_dag.log"
+      },
+      {
+        "variant": "oursalignedweak30",
+        "kind": "next",
+        "returncode": 0,
+        "wall_s": 1.3538882732391357,
+        "CPU_only": true,
+        "weights_loaded": false,
+        "source_sha256": "2d552d346419b068fbc2a8a26b5f738f569812440b580396fcd88ab9c508632a",
+        "log": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/planner_cpu_cli_checks_v2/oursalignedweak30_next.log"
+      },
+      {
+        "variant": "oursalignedweak30",
+        "kind": "dag",
+        "returncode": 0,
+        "wall_s": 3.282061815261841,
+        "CPU_only": true,
+        "weights_loaded": false,
+        "source_sha256": "2d552d346419b068fbc2a8a26b5f738f569812440b580396fcd88ab9c508632a",
+        "log": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/planner_cpu_cli_checks_v2/oursalignedweak30_dag.log"
+      }
+    ],
+    "required_kind_argument_fixed": true,
+    "new_cloud_GPUs": 0
+  },
+  "placement_contract_checks": {
+    "epoch": 1793736570.671349,
+    "passed": true,
+    "returncode": 0,
+    "CPU_only": true,
+    "synthetic_tests_not_real_video_admission": true,
+    "wall_s": 0.3269236087799072,
+    "oracle_sha256": "b23aa3df68b91e06aadf0af685161b5189200c4fdddd6fad248cb98867dd679b"
+  },
+  "placement_CPU_partial": {
+    "epoch": 1793736568.4594574,
+    "complete": 4776,
+    "target": 7071,
+    "counts": {
+      "rescored": 4776
+    },
+    "groups": {
+      "expert_original8|expert|None|None|baseline": {
+        "role": "expert_original8",
+        "variant": "expert",
+        "checkpoint": null,
+        "horizon": null,
+        "condition": "baseline",
+        "n": 8,
+        "unknown": 0,
+        "strict_success": 8,
+        "placement_success": 8,
+        "strict_phase_hist": {
+          "5": 8
+        },
+        "placement_phase_hist": {
+          "5": 8
+        },
+        "strict_mean_phase": 5.0,
+        "placement_mean_phase": 5.0
+      },
+      "cloud4_current_row_smoke20_v4|new30|30000|8|baseline": {
+        "role": "cloud4_current_row_smoke20_v4",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 20,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 16,
+          "2": 3,
+          "3": 1
+        },
+        "placement_phase_hist": {
+          "0": 16,
+          "2": 3,
+          "3": 1
+        },
+        "strict_mean_phase": 0.45,
+        "placement_mean_phase": 0.45
+      },
+      "cloud4_source_optics_smoke20_v1|new30|30000|8|baseline": {
+        "role": "cloud4_source_optics_smoke20_v1",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 20,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 17,
+          "1": 1,
+          "2": 2
+        },
+        "placement_phase_hist": {
+          "0": 17,
+          "1": 1,
+          "2": 2
+        },
+        "strict_mean_phase": 0.25,
+        "placement_mean_phase": 0.25
+      },
+      "legacy_pipeline_suspect|old30|30000|8|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "old30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "4": 1,
+          "3": 27,
+          "2": 40,
+          "1": 58,
+          "0": 74
+        },
+        "placement_phase_hist": {
+          "4": 1,
+          "3": 27,
+          "2": 40,
+          "1": 58,
+          "0": 74
+        },
+        "strict_mean_phase": 1.115,
+        "placement_mean_phase": 1.115
+      },
+      "legacy_pipeline_suspect|old30|30000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "old30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "3": 30,
+          "2": 58,
+          "1": 48,
+          "0": 64
+        },
+        "placement_phase_hist": {
+          "3": 30,
+          "2": 58,
+          "1": 48,
+          "0": 64
+        },
+        "strict_mean_phase": 1.27,
+        "placement_mean_phase": 1.27
+      },
+      "legacy_pipeline_suspect|old30|30000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "old30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 166,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "3": 26,
+          "2": 28,
+          "1": 78,
+          "0": 34
+        },
+        "placement_phase_hist": {
+          "3": 28,
+          "2": 32,
+          "1": 72,
+          "0": 34
+        },
+        "strict_mean_phase": 1.2771084337349397,
+        "placement_mean_phase": 1.3253012048192772
+      },
+      "legacy_pipeline_suspect|old30|30000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "old30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 126,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "3": 6,
+          "2": 16,
+          "1": 45,
+          "0": 59
+        },
+        "placement_phase_hist": {
+          "3": 6,
+          "2": 16,
+          "1": 46,
+          "0": 58
+        },
+        "strict_mean_phase": 0.753968253968254,
+        "placement_mean_phase": 0.7619047619047619
+      },
+      "legacy_pipeline_suspect|old30|30000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "old30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 153,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "3": 13,
+          "2": 17,
+          "1": 86,
+          "0": 37
+        },
+        "placement_phase_hist": {
+          "3": 14,
+          "2": 23,
+          "1": 79,
+          "0": 37
+        },
+        "strict_mean_phase": 1.0392156862745099,
+        "placement_mean_phase": 1.091503267973856
+      },
+      "legacy_pipeline_suspect|old30|30000|30|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "old30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "2": 3,
+          "1": 22,
+          "0": 175
+        },
+        "placement_phase_hist": {
+          "2": 3,
+          "1": 23,
+          "0": 174
+        },
+        "strict_mean_phase": 0.14,
+        "placement_mean_phase": 0.145
+      },
+      "legacy_pipeline_suspect|new30|30000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 100,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "2": 2,
+          "1": 1,
+          "0": 97
+        },
+        "placement_phase_hist": {
+          "2": 2,
+          "1": 1,
+          "0": 97
+        },
+        "strict_mean_phase": 0.05,
+        "placement_mean_phase": 0.05
+      },
+      "legacy_pipeline_suspect|new30|30000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 106,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "2": 1,
+          "1": 15,
+          "0": 90
+        },
+        "placement_phase_hist": {
+          "2": 2,
+          "1": 14,
+          "0": 90
+        },
+        "strict_mean_phase": 0.16037735849056603,
+        "placement_mean_phase": 0.16981132075471697
+      },
+      "legacy_pipeline_suspect|new20|20000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new20",
+        "checkpoint": 20000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 103,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "2": 1,
+          "1": 4,
+          "0": 98
+        },
+        "placement_phase_hist": {
+          "2": 2,
+          "1": 3,
+          "0": 98
+        },
+        "strict_mean_phase": 0.05825242718446602,
+        "placement_mean_phase": 0.06796116504854369
+      },
+      "legacy_pipeline_suspect|new30|30000|8|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 10,
+          "0": 190
+        },
+        "placement_phase_hist": {
+          "1": 10,
+          "0": 190
+        },
+        "strict_mean_phase": 0.05,
+        "placement_mean_phase": 0.05
+      },
+      "legacy_pipeline_suspect|new20|20000|8|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new20",
+        "checkpoint": 20000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 6,
+          "0": 194
+        },
+        "placement_phase_hist": {
+          "1": 6,
+          "0": 194
+        },
+        "strict_mean_phase": 0.03,
+        "placement_mean_phase": 0.03
+      },
+      "legacy_pipeline_suspect|new20|20000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new20",
+        "checkpoint": 20000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 11,
+          "0": 189
+        },
+        "placement_phase_hist": {
+          "1": 11,
+          "0": 189
+        },
+        "strict_mean_phase": 0.055,
+        "placement_mean_phase": 0.055
+      },
+      "legacy_pipeline_suspect|new30|30000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 12,
+          "0": 188
+        },
+        "placement_phase_hist": {
+          "1": 12,
+          "0": 188
+        },
+        "strict_mean_phase": 0.06,
+        "placement_mean_phase": 0.06
+      },
+      "legacy_pipeline_suspect|ours30|30000|8|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "ours30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 146,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 1,
+          "0": 145
+        },
+        "placement_phase_hist": {
+          "1": 1,
+          "0": 145
+        },
+        "strict_mean_phase": 0.00684931506849315,
+        "placement_mean_phase": 0.00684931506849315
+      },
+      "legacy_pipeline_suspect|new30|30000|30|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 1,
+          "0": 199
+        },
+        "placement_phase_hist": {
+          "1": 1,
+          "0": 199
+        },
+        "strict_mean_phase": 0.005,
+        "placement_mean_phase": 0.005
+      },
+      "legacy_pipeline_suspect|new20|20000|30|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new20",
+        "checkpoint": 20000,
+        "horizon": 30,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 1,
+          "0": 199
+        },
+        "placement_phase_hist": {
+          "1": 1,
+          "0": 199
+        },
+        "strict_mean_phase": 0.005,
+        "placement_mean_phase": 0.005
+      },
+      "legacy_pipeline_suspect|new20|20000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new20",
+        "checkpoint": 20000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 102,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 4,
+          "0": 98
+        },
+        "placement_phase_hist": {
+          "1": 4,
+          "2": 1,
+          "0": 97
+        },
+        "strict_mean_phase": 0.0392156862745098,
+        "placement_mean_phase": 0.058823529411764705
+      },
+      "legacy_pipeline_suspect|new30|30000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 103,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 4,
+          "0": 99
+        },
+        "placement_phase_hist": {
+          "2": 2,
+          "1": 2,
+          "0": 99
+        },
+        "strict_mean_phase": 0.038834951456310676,
+        "placement_mean_phase": 0.05825242718446602
+      },
+      "legacy_pipeline_suspect|new20|20000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "new20",
+        "checkpoint": 20000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 102,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 3,
+          "0": 99
+        },
+        "placement_phase_hist": {
+          "1": 3,
+          "0": 99
+        },
+        "strict_mean_phase": 0.029411764705882353,
+        "placement_mean_phase": 0.029411764705882353
+      },
+      "legacy_pipeline_suspect|weak30|30000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 32,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 4,
+          "0": 28
+        },
+        "placement_phase_hist": {
+          "1": 4,
+          "0": 28
+        },
+        "strict_mean_phase": 0.125,
+        "placement_mean_phase": 0.125
+      },
+      "legacy_pipeline_suspect|oursalignedweak30|30000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "oursalignedweak30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 1,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 1
+        },
+        "placement_phase_hist": {
+          "1": 1
+        },
+        "strict_mean_phase": 1.0,
+        "placement_mean_phase": 1.0
+      },
+      "legacy_pipeline_suspect|oursalignedweak30|30000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "oursalignedweak30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 1,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 1
+        },
+        "placement_phase_hist": {
+          "1": 1
+        },
+        "strict_mean_phase": 1.0,
+        "placement_mean_phase": 1.0
+      },
+      "legacy_pipeline_suspect|oursalignedweak30|30000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "oursalignedweak30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 2,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 2
+        },
+        "placement_phase_hist": {
+          "1": 2
+        },
+        "strict_mean_phase": 1.0,
+        "placement_mean_phase": 1.0
+      },
+      "legacy_pipeline_suspect|oursalignedweak30|30000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "oursalignedweak30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 2,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "1": 2
+        },
+        "placement_phase_hist": {
+          "1": 2
+        },
+        "strict_mean_phase": 1.0,
+        "placement_mean_phase": 1.0
+      },
+      "legacy_pipeline_suspect|weak20|20000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak20",
+        "checkpoint": 20000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 200
+        },
+        "placement_phase_hist": {
+          "0": 200
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak20|20000|30|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak20",
+        "checkpoint": 20000,
+        "horizon": 30,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 200
+        },
+        "placement_phase_hist": {
+          "0": 200
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak20|20000|8|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak20",
+        "checkpoint": 20000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 200,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 200
+        },
+        "placement_phase_hist": {
+          "0": 200
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak30|30000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 149,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 149
+        },
+        "placement_phase_hist": {
+          "0": 149
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak30|30000|8|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 149,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 149
+        },
+        "placement_phase_hist": {
+          "0": 149
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak30|30000|30|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "baseline",
+        "n": 149,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 149
+        },
+        "placement_phase_hist": {
+          "0": 149
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|ours30|30000|4|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "ours30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "baseline",
+        "n": 146,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 146
+        },
+        "placement_phase_hist": {
+          "0": 146
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|ours30|30000|30|baseline": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "ours30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "baseline",
+        "n": 146,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 146
+        },
+        "placement_phase_hist": {
+          "0": 146
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak30|30000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 29,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 29
+        },
+        "placement_phase_hist": {
+          "0": 29
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak30|30000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 29,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 29
+        },
+        "placement_phase_hist": {
+          "0": 29
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak20|20000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak20",
+        "checkpoint": 20000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 65,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 65
+        },
+        "placement_phase_hist": {
+          "0": 65
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak20|20000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak20",
+        "checkpoint": 20000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 64,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 64
+        },
+        "placement_phase_hist": {
+          "0": 64
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|weak20|20000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "weak20",
+        "checkpoint": 20000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 65,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 65
+        },
+        "placement_phase_hist": {
+          "0": 65
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|ours30|30000|4|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "ours30",
+        "checkpoint": 30000,
+        "horizon": 4,
+        "condition": "attachment",
+        "n": 31,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 31
+        },
+        "placement_phase_hist": {
+          "0": 31
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|ours30|30000|8|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "ours30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "attachment",
+        "n": 31,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 31
+        },
+        "placement_phase_hist": {
+          "0": 31
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      },
+      "legacy_pipeline_suspect|ours30|30000|30|attachment": {
+        "role": "legacy_pipeline_suspect",
+        "variant": "ours30",
+        "checkpoint": 30000,
+        "horizon": 30,
+        "condition": "attachment",
+        "n": 30,
+        "unknown": 0,
+        "strict_success": 0,
+        "placement_success": 0,
+        "strict_phase_hist": {
+          "0": 30
+        },
+        "placement_phase_hist": {
+          "0": 30
+        },
+        "strict_mean_phase": 0.0,
+        "placement_mean_phase": 0.0
+      }
+    },
+    "formal_eligible": false,
+    "admission_pending": [
+      "executor_parity10",
+      "video_negative_each10"
+    ],
+    "oracle_version": "placement-v1.1",
+    "oracle_script_sha256": "b23aa3df68b91e06aadf0af685161b5189200c4fdddd6fad248cb98867dd679b",
+    "wall_s": 5189.741521596909
+  },
+  "scoped_storage_usage": {
+    "epoch": 1793736571.1731246,
+    "scope": "only four named round2 approved roots; all other historical and team storage not verified",
+    "roots": [
+      {
+        "path": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103",
+        "bytes": 82464848,
+        "verified": true
+      },
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_round2_20261103",
+        "bytes": 19336082,
+        "verified": true
+      },
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_round2_20261103/executor_parity10_existing_slot1_v2",
+        "bytes": 12288,
+        "verified": true
+      },
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1",
+        "bytes": 3356911,
+        "verified": true
+      }
+    ],
+    "total_bytes": 105170129,
+    "global_usage_verified": false,
+    "delete_performed": false
+  },
+  "failure_mode_video_review": "not yet manually classified; cannot infer slip/collision solely from object_toppled",
+  "formal_placement_gate": "pending expert parity10 and real holding/tilt/outside videos10each"
 }

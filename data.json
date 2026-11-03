@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T18:38:15.800581+00:00",
+  "updated_at": "2026-11-03T20:12:18.634537+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -25559,17 +25559,35 @@
       "condition": "original physical contact",
       "kind": "准入诊断",
       "metric_role": "admission_smoke",
-      "evaluation_started": false,
+      "evaluation_started": true,
       "success": null,
-      "trials": 0,
+      "trials": 20,
       "target": 20,
       "completed": 0,
       "audited": 0,
-      "unknown": 0,
+      "unknown": 20,
       "phase_hist": {},
       "mean_phase": null,
-      "seed_results": [],
-      "lr_split": {},
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 20
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 10
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 10
+        }
+      },
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
@@ -25605,10 +25623,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "已提交低优四卡任务；等待平台创建或启动，保留原意图键",
+      "status": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -25616,7 +25634,12 @@
         "job_id": null,
         "operation_id": "vp0l8giq7m8ycr0mai3ulq5fd"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
+      "expected_start_at": null,
+      "unknown_reasons": {
+        "low_priority_preemption": 20
+      }
     },
     {
       "id": "task5-round2-new20-h4-original-v1-A",
@@ -25683,11 +25706,13 @@
       "status": "等待该权重自己的20条冒烟准入",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-new20-h8-original-v1-A",
@@ -25754,11 +25779,13 @@
       "status": "等待该权重自己的20条冒烟准入",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-new30-h8-original-v1-smoke20",
@@ -25854,11 +25881,13 @@
       "status": "冒烟20/20已独立验收，0全程成功，阶段0为16/20，未触发18/20停止线；准入通过",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "已启动",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "strict-v1冒烟20/20；随后A任务被抢占，43条闭合、20条unknown、137条未启动。placement-v1.1准入仍待完成。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-new30-h4-original-v1-A",
@@ -25878,15 +25907,36 @@
       "metric_role": "strict_v1",
       "evaluation_started": true,
       "success": null,
-      "trials": 100,
+      "trials": 32,
       "target": 100,
-      "completed": 18,
-      "audited": 18,
-      "unknown": 0,
-      "phase_hist": {},
-      "mean_phase": null,
-      "seed_results": [],
-      "lr_split": {},
+      "completed": 22,
+      "audited": 22,
+      "unknown": 10,
+      "phase_hist": {
+        "0": 19,
+        "1": 3
+      },
+      "mean_phase": 0.13636363636363635,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 32,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 15,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "trials": 17,
+          "success": 0,
+          "unknown": 4
+        }
+      },
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
@@ -25922,10 +25972,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "N1×5多进程并行评测中；已独立核验18/100，完成后公布成功率",
+      "status": "任务已被抢占，批次冻结；闭合22/100，unknown10，未启动68；不公布部分样本成功率。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:23:51.138545+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "已启动",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -25933,7 +25983,12 @@
         "job_id": "job-u0viwmgg06tq",
         "operation_id": "a6eeheqcl2orb0oezyjs72308"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "新v1.1执行链和放置判定准入中；原unknown保留不重试。",
+      "expected_start_at": null,
+      "unknown_reasons": {
+        "low_priority_preemption": 10
+      }
     },
     {
       "id": "task5-round2-new30-h8-original-v1-A",
@@ -25953,15 +26008,37 @@
       "metric_role": "strict_v1",
       "evaluation_started": true,
       "success": null,
-      "trials": 100,
+      "trials": 31,
       "target": 100,
-      "completed": 14,
-      "audited": 14,
-      "unknown": 0,
-      "phase_hist": {},
-      "mean_phase": null,
-      "seed_results": [],
-      "lr_split": {},
+      "completed": 21,
+      "audited": 21,
+      "unknown": 10,
+      "phase_hist": {
+        "0": 18,
+        "1": 2,
+        "2": 1
+      },
+      "mean_phase": 0.19047619047619047,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 31,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 16,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "trials": 15,
+          "success": 0,
+          "unknown": 4
+        }
+      },
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
@@ -25997,10 +26074,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "N1×5多进程并行评测中；已独立核验14/100，完成后公布成功率",
+      "status": "任务已被抢占，批次冻结；闭合21/100，unknown10，未启动69；不公布部分样本成功率。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:23:51.138545+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "已启动",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -26008,7 +26085,12 @@
         "job_id": "job-u0viwmgg06tq",
         "operation_id": "a6eeheqcl2orb0oezyjs72308"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "新v1.1执行链和放置判定准入中；原unknown保留不重试。",
+      "expected_start_at": null,
+      "unknown_reasons": {
+        "low_priority_preemption": 10
+      }
     },
     {
       "id": "task5-round2-weak20-h8-original-v1-smoke20",
@@ -26072,10 +26154,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "已提交低优四卡任务；等待平台创建或启动，保留原意图键",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -26083,7 +26165,9 @@
         "job_id": null,
         "operation_id": "fz5scxm0rco3ibqch8i20azy3"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-weak20-h4-original-v1-A",
@@ -26147,14 +26231,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-weak20-h8-original-v1-A",
@@ -26218,14 +26304,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-weak30-h8-original-v1-smoke20",
@@ -26289,10 +26377,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "已提交低优四卡任务；等待平台创建或启动，保留原意图键",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -26300,7 +26388,9 @@
         "job_id": null,
         "operation_id": "fz5scxm0rco3ibqch8i20azy3"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-weak30-h4-original-v1-A",
@@ -26364,14 +26454,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-weak30-h8-original-v1-A",
@@ -26435,14 +26527,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-ours30-h8-original-v1-smoke20",
@@ -26506,10 +26600,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "已提交低优四卡任务；等待平台创建或启动，保留原意图键",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -26517,7 +26611,9 @@
         "job_id": null,
         "operation_id": "fz5scxm0rco3ibqch8i20azy3"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-ours30-h4-original-v1-A",
@@ -26581,14 +26677,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-ours30-h8-original-v1-A",
@@ -26652,14 +26750,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-oursalignedweak30-h8-original-v1-smoke20",
@@ -26723,10 +26823,10 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "已提交低优四卡任务；等待平台创建或启动，保留原意图键",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
@@ -26734,7 +26834,9 @@
         "job_id": null,
         "operation_id": "fz5scxm0rco3ibqch8i20azy3"
       },
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-oursalignedweak30-h4-original-v1-A",
@@ -26798,14 +26900,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-oursalignedweak30-h8-original-v1-A",
@@ -26869,14 +26973,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-old30-h8-original-v1-smoke20",
@@ -26940,14 +27046,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "固定数据的采集光学链独立核对中，禁止套用pos1cm修复",
+      "status": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-old30-h4-original-v1-A",
@@ -27011,14 +27119,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "固定数据的采集光学链独立核对中，禁止套用pos1cm修复",
+      "status": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
+      "expected_start_at": null
     },
     {
       "id": "task5-round2-old30-h8-original-v1-A",
@@ -27082,14 +27192,16 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "固定数据的采集光学链独立核对中，禁止套用pos1cm修复",
+      "status": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T17:38:13.725816+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
-      "oracle_version": "strict-v1"
+      "oracle_version": "strict-v1",
+      "pending_reason": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
+      "expected_start_at": null
     },
     {
       "id": "task5-optics-only-new30-h8-original-smoke20",
@@ -27257,15 +27369,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new20-h4-original-v1-A"
     },
@@ -27335,15 +27447,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new20-h8-original-v1-A"
     },
@@ -27413,15 +27525,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；strict-v1冒烟20/20；随后A任务被抢占，43条闭合、20条unknown、137条未启动。placement-v1.1准入仍待完成。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "已启动",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "strict-v1冒烟20/20；随后A任务被抢占，43条闭合、20条unknown、137条未启动。placement-v1.1准入仍待完成。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new30-h4-original-v1-A"
     },
@@ -27491,15 +27603,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；strict-v1冒烟20/20；随后A任务被抢占，43条闭合、20条unknown、137条未启动。placement-v1.1准入仍待完成。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "已启动",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "strict-v1冒烟20/20；随后A任务被抢占，43条闭合、20条unknown、137条未启动。placement-v1.1准入仍待完成。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A"
     },
@@ -27569,15 +27681,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak20-h4-original-v1-A"
     },
@@ -27647,15 +27759,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak20-h8-original-v1-A"
     },
@@ -27725,15 +27837,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak30-h4-original-v1-A"
     },
@@ -27803,15 +27915,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak30-h8-original-v1-A"
     },
@@ -27881,15 +27993,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-ours30-h4-original-v1-A"
     },
@@ -27959,15 +28071,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-ours30-h8-original-v1-A"
     },
@@ -28037,15 +28149,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-oursalignedweak30-h4-original-v1-A"
     },
@@ -28115,15 +28227,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-oursalignedweak30-h8-original-v1-A"
     },
@@ -28193,15 +28305,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-old30-h4-original-v1-A"
     },
@@ -28271,15 +28383,15 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity"
         }
       },
-      "status": "待准入：10条执行链对照和placement-v1.1判定验收",
+      "status": "等待10条执行链专家回放、真实负例视频和该模型的v1.1冒烟；旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T18:32:14.017698+00:00",
+      "updated_at": "2026-11-03T20:12:18.634537+00:00",
       "estimated_start": "本轮；先完成对应准入，创建时间取决于低优调度和独立光学核对",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "等待左右各5条执行链对照（RMSE≤0.005rad）及placement-v1.1专家/负例验收；随后核验各模型20条冒烟",
+      "pending_reason": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-old30-h8-original-v1-A"
     }

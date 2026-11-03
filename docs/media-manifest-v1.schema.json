@@ -133,6 +133,7 @@
         "protocol_version": {
           "enum": [
             "SafeLab-Eval-v1",
+            "SafeLab-Eval-v1.1",
             "legacy"
           ]
         },
@@ -278,6 +279,12 @@
             "minimum": 1,
             "maximum": 10
           }
+        },
+        "oracle_version": {
+          "enum": [
+            "strict-v1",
+            "placement-v1.1"
+          ]
         }
       },
       "allOf": [
@@ -371,6 +378,47 @@
                   "B",
                   "diagnostic"
                 ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "protocol_version": {
+                "const": "SafeLab-Eval-v1.1"
+              }
+            },
+            "required": [
+              "protocol_version"
+            ]
+          },
+          "then": {
+            "required": [
+              "oracle_version"
+            ],
+            "properties": {
+              "oracle_version": {
+                "const": "placement-v1.1"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "protocol_version": {
+                "const": "SafeLab-Eval-v1"
+              }
+            },
+            "required": [
+              "protocol_version"
+            ]
+          },
+          "then": {
+            "properties": {
+              "oracle_version": {
+                "const": "strict-v1"
               }
             }
           }

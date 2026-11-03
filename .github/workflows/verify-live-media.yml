@@ -1,0 +1,24 @@
+name: Verify published media in real browser
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify live index, all pi05 logs, and representative videos
+        env:
+          SAFELAB_MEDIA_QA_DIR: /tmp/safelab-live-media
+        run: node tests/media-live-browser.mjs
+      - name: Preserve actual browser evidence including display limitations
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: safelab-live-media-evidence
+          path: /tmp/safelab-live-media/
+          retention-days: 3

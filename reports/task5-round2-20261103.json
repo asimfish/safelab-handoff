@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T18:23:51.138545+00:00",
+  "updated_at": "2026-11-03T18:32:14.017698+00:00",
   "protocol_version": "SafeLab-Eval-v1",
   "models": [
     {
@@ -212,7 +212,8 @@
       }
     },
     "angular_mean_control": "N/A：五任务原oracle没有角速度阈值，不能冒用三任务0.1rad/s",
-    "validation_status": "开局静置通过，专家8/8通过；明显不稳定真实案例各10条视频人工核对尚未完成，候选不准入正式协议"
+    "validation_status": "开局静置通过，专家8/8通过；明显不稳定真实案例各10条视频人工核对尚未完成，候选不准入正式协议",
+    "candidate_status": "revoked historical pose-drift diagnostic; not placement-v1.1; do not display candidate results"
   },
   "resource_utilization": {
     "window_start": 1793729001.9223769,
@@ -224,5 +225,20 @@
     "maximum_telemetry_interval_s": 61.92436408996582,
     "scope": "all4GPUs of new30_A, time-weighted stepwise telemetry; other8GPU intents still uncreated",
     "target_met": false
-  }
+  },
+  "current_protocol": "SafeLab-Eval-v1.1",
+  "current_oracle": "placement-v1.1",
+  "strict_v1_batches_preserved": true,
+  "old_pose_candidate_revoked": true,
+  "new_v11_rows": 14,
+  "executor_parity": {
+    "passed": false,
+    "completed_distinct_lookahead_layouts": 4,
+    "required": 10,
+    "left_required": 5,
+    "right_required": 5,
+    "full13_joint_rmse_required_rad": 0.005,
+    "reason": "existing arm7 parity and4layouts do not satisfy new10-layout full13 gate"
+  },
+  "storage_policy": "user17:50 allowed big:/projects/a02012413/buckets/zenith-a02012413/liyufeng; small:/project_a02012413/public/liyufeng; current old-location batch may finish, no new old-location outputs; migration pending SHA verification; no deletion"
 }

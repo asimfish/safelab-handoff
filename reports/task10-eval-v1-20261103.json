@@ -3144,7 +3144,7 @@
     "conditions": "off first; same v2 attach only after off stageA complete",
     "admission": "expert replay + open-loop loss comparison + two-episode five-progress-frame render parity + h8 smoke20; pending gates prohibit full launch"
   },
-  "updated_at": "2026-11-03T08:58:10.934141+00:00",
+  "updated_at": "2026-11-03T09:02:02.086966+00:00",
   "topology": "N1×k 多进程并行",
   "contact_diagnostic": {
     "complete": true,
@@ -3997,7 +3997,7 @@
     "formal_scores_modified": false
   },
   "smoke20_diagnostic": {
-    "status": "running",
+    "status": "requires_inspection",
     "scored": false,
     "LP_GPUs": 0,
     "physical_GPU": 0,
@@ -4013,7 +4013,7 @@
         "unknown": 0,
         "phase_distribution": {},
         "successes_observed": 0,
-        "active": 1,
+        "active": 2,
         "root": "/personal_fast_storage/safelab_task10_eval_v1_smoke20_20261103/mem0_weak",
         "scored": false
       }
@@ -4024,7 +4024,11 @@
       "start": "405226778",
       "uid": 0,
       "namespace": "pid:[4026536144]"
-    }
+    },
+    "error": "AssertionError(('smoke_coordinator_failed', 'mem0_weak', 1))",
+    "traceback": "Traceback (most recent call last):\n  File \"/project_a02012413/public/liyufeng/safelab_task10_new_variants_20261102/eval_v1_transition_20261103/smoke_supervisor.py\", line 45, in main\n    assert p.returncode==0,('smoke_coordinator_failed',method,p.returncode)\n           ^^^^^^^^^^^^^^^\nAssertionError: ('smoke_coordinator_failed', 'mem0_weak', 1)\n",
+    "wall_s": 300.0421051979065,
+    "observed_epoch": 1793696519.4440112
   },
   "planned_scene_list_sha256": "c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
   "Eval_v1_configurations": [
@@ -4390,7 +4394,7 @@
     }
   ],
   "preexisting_legacy_schema_repair": {
-    "records": 87,
+    "records": 42,
     "ids": [
       "task5-all-20261101-old30-h4",
       "task5-all-20261101-old30-h8",
@@ -4433,52 +4437,7 @@
       "task5-ours-aligned-weak-20261102-baseline-h30",
       "task5-ours-aligned-weak-20261102-attachment-h4",
       "task5-ours-aligned-weak-20261102-attachment-h8",
-      "task5-ours-aligned-weak-20261102-attachment-h30",
-      "7-base-4",
-      "7-base-8",
-      "7-base-30",
-      "task7-all-mem0_30k-h4",
-      "task7-all-mem0_30k-h8",
-      "task7-all-mem0_30k-h30",
-      "task7-all-ours_native_30k-h4",
-      "task7-all-ours_native_30k-h8",
-      "task7-all-ours_native_30k-h30",
-      "task7-all-ours_aligned_loss_30k-h4",
-      "task7-all-ours_aligned_loss_30k-h8",
-      "task7-all-ours_aligned_loss_30k-h30",
-      "task7-all-ours_trainresize_30k-h4",
-      "task7-all-ours_trainresize_30k-h8",
-      "task7-all-ours_trainresize_30k-h30",
-      "task7-all-mem0_weak_30k-h4",
-      "task7-all-mem0_weak_30k-h8",
-      "task7-all-mem0_weak_30k-h30",
-      "task7-all-ours_native_20k-h4",
-      "task7-all-ours_native_20k-h8",
-      "task7-all-ours_native_20k-h30",
-      "task7-attach-mem0_30k-h4",
-      "task7-attach-mem0_30k-h8",
-      "task7-attach-mem0_30k-h30",
-      "task7-attach-ours_native_30k-h4",
-      "task7-attach-ours_native_30k-h8",
-      "task7-attach-ours_native_30k-h30",
-      "task7-attach-ours_trainresize_30k-h4",
-      "task7-attach-ours_trainresize_30k-h8",
-      "task7-attach-ours_trainresize_30k-h30",
-      "task7-attach-ours_aligned_30k-h4",
-      "task7-attach-ours_aligned_30k-h8",
-      "task7-attach-ours_aligned_30k-h30",
-      "task7-attach-mem0_weak_30k-h4",
-      "task7-attach-mem0_weak_30k-h8",
-      "task7-attach-mem0_weak_30k-h30",
-      "task7-attach-mem0_20k-h4",
-      "task7-attach-mem0_20k-h8",
-      "task7-attach-mem0_20k-h30",
-      "task7-attach-ours_native_20k-h4",
-      "task7-attach-ours_native_20k-h8",
-      "task7-attach-ours_native_20k-h30",
-      "task7-ours-weak-aligned-issue18-h4",
-      "task7-ours-weak-aligned-issue18-h8",
-      "task7-ours-weak-aligned-issue18-h30"
+      "task5-ours-aligned-weak-20261102-attachment-h30"
     ],
     "scientific_fields_modified": false,
     "unknown_metadata_inferred": false

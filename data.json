@@ -1399,17 +1399,30 @@
       "dataset": "3-latest",
       "camera": "third_person",
       "method": "pi0.5",
-      "delivery": "交付入口已登记，权重文件待核验",
-      "doc": "/project_a02012413/241106036/wangpeishuo/pi05-safelab-inference-packages/20261101/START_HERE.md",
+      "delivery": "同轮V14 30k/40k权重及归一化已核验；阶段A等待准入恢复",
+      "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261101/v14_latest_40k/START_HERE.md",
       "weights": [
         {
+          "step": 30000,
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/pi05-safelab/runs/pi05-v14-h10-all100-b256-40k-pro4-r3-20261030/checkpoints/formal/30000/model.safetensors",
+          "availability": "全文SHA256已核验",
+          "sha256": "a3b0fd999fc3a646cb9df47bbd527fb1d798408f25857b743333e804b4d99ecf"
+        },
+        {
           "step": 40000,
-          "path": "",
-          "availability": "交付文档已登记，checkpoint文件路径待核验"
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/pi05-safelab/runs/pi05-v14-h10-all100-b256-40k-pro4-r3-20261030/checkpoints/formal/40000/model.safetensors",
+          "availability": "全文SHA256已核验",
+          "sha256": "62e7c28227a803731ae6b67adde7b01f52403e95a34166a899824829d38f67d1"
         }
       ],
-      "training": {},
-      "note": "",
+      "training": {
+        "prediction_horizon": 10,
+        "observation_hz": 15,
+        "action": "10×13绝对关节目标 / interval_end",
+        "input": "third_person RGB + 13维实测关节 + 全局任务",
+        "source_commit": "a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "note": "canonical issue #7；#8为重复登记，保留既有交接记录但不作为本轮评测绑定。R5/R8故障结果仅为诊断，原98%利用率不是当前运行状态。",
       "source": "GitHub checkpoint issue #7",
       "checkpoint_issues": [
         {
@@ -1447,7 +1460,7 @@
       "dataset": "5-pos",
       "camera": "third_person",
       "method": "pi0.5",
-      "delivery": "交付入口已登记，权重文件待核验",
+      "delivery": "交付包搬运中",
       "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
       "weights": [
         {
@@ -1457,7 +1470,7 @@
         }
       ],
       "training": {},
-      "note": "",
+      "note": "交付包搬运未成功；资源区5源目录存在且非空。授权搬运重试在调度前取消、无GPU作业，现等待训练方直接同步TOS；没有正在运行的搬包任务，尚未核验模型权重。",
       "source": "GitHub checkpoint issue #23",
       "checkpoint_issues": [
         {
@@ -1481,7 +1494,7 @@
       "dataset": "7-weigh",
       "camera": "chest",
       "method": "pi0.5",
-      "delivery": "交付入口已登记，权重文件待核验",
+      "delivery": "交付包搬运中",
       "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
       "weights": [
         {
@@ -1491,7 +1504,7 @@
         }
       ],
       "training": {},
-      "note": "",
+      "note": "交付包搬运未成功；资源区5源目录存在且非空。授权搬运重试在调度前取消、无GPU作业，现等待训练方直接同步TOS；没有正在运行的搬包任务，尚未核验模型权重。",
       "source": "GitHub checkpoint issue #24",
       "checkpoint_issues": [
         {
@@ -23101,6 +23114,2434 @@
           "unknown": 0
         }
       ]
+    },
+    {
+      "id": "v1-3-latest-pi05-30000-h4",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v1-3-latest-pi05-30000-h8",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v1-3-latest-pi05-30000-h10",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 10,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "补充诊断 · H10 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "metric_role": "supplemental_h10_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "id": "v1-3-latest-pi05-40000-h4",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 4,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v1-3-latest-pi05-40000-h8",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v1-3-latest-pi05-40000-h10",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 10,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "补充诊断 · H10 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "metric_role": "supplemental_h10_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "id": "v1-3-latest-pi05-40000-h8-padfix",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged+pi05-padfix-t-epsilon-v1",
+      "variant_version": "pi05-padfix-t-epsilon-v1",
+      "kind": "补充诊断 · padfix推理变体 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "metric_role": "inference_variant_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "id": "v1-3-latest-pi05-40000-h10-padfix",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 10,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1",
+      "protocol": "SafeLab-Eval-v1；同批100场景，XY±1cm，50左/50右，seed0；严格原始物理oracle保持不变。",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged+pi05-padfix-t-epsilon-v1",
+      "variant_version": "pi05-padfix-t-epsilon-v1",
+      "kind": "补充诊断 · padfix推理变体 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-eval-v1-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "strict-v1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "metric_role": "inference_variant_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "prediction": 10,
+      "protocol_version": "SafeLab-Eval-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        }
+      },
+      "id": "diag-pi05-r5-30000-h8",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "issue": 7,
+      "stage": "diagnostic",
+      "evaluation_started": true,
+      "kind": "闭合故障队列冒烟诊断；非阶段A成绩",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "metric_role": "strict_original",
+      "success": 0,
+      "trials": 14,
+      "completed": 14,
+      "unknown": 5,
+      "unknown_reasons": {
+        "infrastructure": 5
+      },
+      "phase_hist": {
+        "0": 6,
+        "1": 3
+      },
+      "mean_phase": 0.3333333333333333,
+      "status": "历史strict-v1诊断；旧速度前馈执行链；非统一链正式成绩",
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-strict-source-cohorts-20261103.json",
+      "protocol": "SafeLab-Eval-v1 retained R5 H8 smoke diagnostic; fixed attempted subset only; original strict audit reconstructed. R5/R8 optics distinct: never pooled.",
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 14,
+          "success": 0,
+          "unknown": 5
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 7,
+          "success": 0,
+          "unknown": 2
+        },
+        "right": {
+          "trials": 7,
+          "success": 0,
+          "unknown": 3
+        }
+      },
+      "source_cohort": "R5",
+      "source_case_ids": [
+        "pi05_r5_smoke_30k_h8_left_s262200001",
+        "pi05_r5_smoke_30k_h8_left_s262200002",
+        "pi05_r5_smoke_30k_h8_left_s262200003",
+        "pi05_r5_smoke_30k_h8_left_s262200004",
+        "pi05_r5_smoke_30k_h8_left_s262200006",
+        "pi05_r5_smoke_30k_h8_right_s262200101",
+        "pi05_r5_smoke_30k_h8_right_s262200102",
+        "pi05_r5_smoke_30k_h8_right_s262200103",
+        "pi05_r5_smoke_30k_h8_right_s262200104",
+        "pi05_r5_smoke_30k_h8_left_s262200007",
+        "pi05_r5_smoke_30k_h8_right_s262200106",
+        "pi05_r5_smoke_30k_h8_right_s262200107",
+        "pi05_r5_smoke_30k_h8_right_s262200105",
+        "pi05_r5_smoke_30k_h8_left_s262200005"
+      ],
+      "render_config_hash": null,
+      "note": "历史闭合冒烟诊断，严格原始审计；故障UNKNOWN保留、不重试。不满足新执行链，不代表placement-v1.1正式成绩。R5/R8独立记录。",
+      "wilson95": {
+        "low": 1.3877787807814457e-17,
+        "high": 0.2153108027376358,
+        "confidence": 0.95
+      },
+      "oracle_version": "strict-v1"
+    },
+    {
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "prediction": 10,
+      "protocol_version": "SafeLab-Eval-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        }
+      },
+      "id": "diag-pi05-r5-40000-h8",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "issue": 7,
+      "stage": "diagnostic",
+      "evaluation_started": true,
+      "kind": "闭合故障队列冒烟诊断；非阶段A成绩",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "metric_role": "strict_original",
+      "success": 1,
+      "trials": 14,
+      "completed": 14,
+      "unknown": 5,
+      "unknown_reasons": {
+        "infrastructure": 5
+      },
+      "phase_hist": {
+        "3": 1,
+        "1": 4,
+        "2": 2,
+        "0": 2
+      },
+      "mean_phase": 1.2222222222222223,
+      "status": "历史strict-v1诊断；旧速度前馈执行链；非统一链正式成绩",
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-strict-source-cohorts-20261103.json",
+      "protocol": "SafeLab-Eval-v1 retained R5 H8 smoke diagnostic; fixed attempted subset only; original strict audit reconstructed. R5/R8 optics distinct: never pooled.",
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 14,
+          "success": 1,
+          "unknown": 5
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 7,
+          "success": 1,
+          "unknown": 2
+        },
+        "right": {
+          "trials": 7,
+          "success": 0,
+          "unknown": 3
+        }
+      },
+      "source_cohort": "R5",
+      "source_case_ids": [
+        "pi05_r5_smoke_40k_h8_left_s262200001",
+        "pi05_r5_smoke_40k_h8_left_s262200002",
+        "pi05_r5_smoke_40k_h8_left_s262200003",
+        "pi05_r5_smoke_40k_h8_left_s262200005",
+        "pi05_r5_smoke_40k_h8_left_s262200006",
+        "pi05_r5_smoke_40k_h8_right_s262200101",
+        "pi05_r5_smoke_40k_h8_right_s262200102",
+        "pi05_r5_smoke_40k_h8_right_s262200103",
+        "pi05_r5_smoke_40k_h8_right_s262200104",
+        "pi05_r5_smoke_40k_h8_left_s262200004",
+        "pi05_r5_smoke_40k_h8_right_s262200105",
+        "pi05_r5_smoke_40k_h8_right_s262200107",
+        "pi05_r5_smoke_40k_h8_right_s262200106",
+        "pi05_r5_smoke_40k_h8_left_s262200007"
+      ],
+      "render_config_hash": null,
+      "note": "历史闭合冒烟诊断，严格原始审计；故障UNKNOWN保留、不重试。不满足新执行链，不代表placement-v1.1正式成绩。R5/R8独立记录。",
+      "wilson95": {
+        "low": 0.012722215247890939,
+        "high": 0.31468704424151117,
+        "confidence": 0.95
+      },
+      "oracle_version": "strict-v1"
+    },
+    {
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "prediction": 10,
+      "protocol_version": "SafeLab-Eval-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        }
+      },
+      "id": "diag-pi05-r5-40000-h8-padfix",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "issue": 7,
+      "stage": "diagnostic",
+      "evaluation_started": true,
+      "kind": "闭合故障队列冒烟诊断；非阶段A成绩",
+      "condition_version": "original_physical_auditor_unchanged+pi05-padfix-t-epsilon-v1",
+      "variant_version": "pi05-padfix-t-epsilon-v1",
+      "metric_role": "strict_original",
+      "success": 0,
+      "trials": 14,
+      "completed": 14,
+      "unknown": 6,
+      "unknown_reasons": {
+        "infrastructure": 6
+      },
+      "phase_hist": {
+        "1": 5,
+        "0": 2,
+        "2": 1
+      },
+      "mean_phase": 0.875,
+      "status": "历史strict-v1诊断；旧速度前馈执行链；非统一链正式成绩",
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-strict-source-cohorts-20261103.json",
+      "protocol": "SafeLab-Eval-v1 retained R5 H8 smoke diagnostic; fixed attempted subset only; original strict audit reconstructed. R5/R8 optics distinct: never pooled.",
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 14,
+          "success": 0,
+          "unknown": 6
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 7,
+          "success": 0,
+          "unknown": 2
+        },
+        "right": {
+          "trials": 7,
+          "success": 0,
+          "unknown": 4
+        }
+      },
+      "source_cohort": "R5",
+      "source_case_ids": [
+        "pi05_r5_smoke_padfix_h8_left_s262200001",
+        "pi05_r5_smoke_padfix_h8_left_s262200002",
+        "pi05_r5_smoke_padfix_h8_left_s262200003",
+        "pi05_r5_smoke_padfix_h8_left_s262200005",
+        "pi05_r5_smoke_padfix_h8_left_s262200006",
+        "pi05_r5_smoke_padfix_h8_right_s262200101",
+        "pi05_r5_smoke_padfix_h8_right_s262200102",
+        "pi05_r5_smoke_padfix_h8_right_s262200103",
+        "pi05_r5_smoke_padfix_h8_right_s262200107",
+        "pi05_r5_smoke_padfix_h8_left_s262200007",
+        "pi05_r5_smoke_padfix_h8_right_s262200106",
+        "pi05_r5_smoke_padfix_h8_left_s262200004",
+        "pi05_r5_smoke_padfix_h8_right_s262200105",
+        "pi05_r5_smoke_padfix_h8_right_s262200104"
+      ],
+      "render_config_hash": null,
+      "note": "历史闭合冒烟诊断，严格原始审计；故障UNKNOWN保留、不重试。不满足新执行链，不代表placement-v1.1正式成绩。R5/R8独立记录。",
+      "wilson95": {
+        "low": 1.3877787807814457e-17,
+        "high": 0.2153108027376358,
+        "confidence": 0.95
+      },
+      "oracle_version": "strict-v1"
+    },
+    {
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "prediction": 10,
+      "protocol_version": "SafeLab-Eval-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        }
+      },
+      "id": "diag-pi05-r8-30000-h8",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "issue": 7,
+      "stage": "diagnostic",
+      "evaluation_started": true,
+      "kind": "闭合故障队列冒烟诊断；非阶段A成绩",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "metric_role": "strict_original",
+      "success": 0,
+      "trials": 8,
+      "completed": 8,
+      "unknown": 7,
+      "unknown_reasons": {
+        "infrastructure": 7
+      },
+      "phase_hist": {
+        "0": 1
+      },
+      "mean_phase": 0.0,
+      "status": "历史strict-v1诊断；旧速度前馈执行链；非统一链正式成绩",
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-strict-source-cohorts-20261103.json",
+      "protocol": "SafeLab-Eval-v1 retained R8 H8 smoke diagnostic; fixed attempted subset only; original strict audit reconstructed. R5/R8 optics distinct: never pooled.",
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 8,
+          "success": 0,
+          "unknown": 7
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 3
+        },
+        "right": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 4
+        }
+      },
+      "source_cohort": "R8",
+      "source_case_ids": [
+        "pi05_r8_smoke_30k_h8_left_s262200013",
+        "pi05_r8_smoke_30k_h8_right_s262200113",
+        "pi05_r8_smoke_30k_h8_right_s262200111",
+        "pi05_r8_smoke_30k_h8_right_s262200112",
+        "pi05_r8_smoke_30k_h8_left_s262200014",
+        "pi05_r8_smoke_30k_h8_left_s262200011",
+        "pi05_r8_smoke_30k_h8_left_s262200012",
+        "pi05_r8_smoke_30k_h8_right_s262200114"
+      ],
+      "render_config_hash": null,
+      "note": "历史闭合冒烟诊断，严格原始审计；故障UNKNOWN保留、不重试。不满足新执行链，不代表placement-v1.1正式成绩。R5/R8独立记录。",
+      "wilson95": {
+        "low": 0,
+        "high": 0.32440756488388023,
+        "confidence": 0.95
+      },
+      "oracle_version": "strict-v1"
+    },
+    {
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "prediction": 10,
+      "protocol_version": "SafeLab-Eval-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        }
+      },
+      "id": "diag-pi05-r8-40000-h8",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "issue": 7,
+      "stage": "diagnostic",
+      "evaluation_started": true,
+      "kind": "闭合故障队列冒烟诊断；非阶段A成绩",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "metric_role": "strict_original",
+      "success": 0,
+      "trials": 8,
+      "completed": 8,
+      "unknown": 6,
+      "unknown_reasons": {
+        "infrastructure": 6
+      },
+      "phase_hist": {
+        "0": 2
+      },
+      "mean_phase": 0.0,
+      "status": "历史strict-v1诊断；旧速度前馈执行链；非统一链正式成绩",
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-strict-source-cohorts-20261103.json",
+      "protocol": "SafeLab-Eval-v1 retained R8 H8 smoke diagnostic; fixed attempted subset only; original strict audit reconstructed. R5/R8 optics distinct: never pooled.",
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 8,
+          "success": 0,
+          "unknown": 6
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 2
+        },
+        "right": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 4
+        }
+      },
+      "source_cohort": "R8",
+      "source_case_ids": [
+        "pi05_r8_smoke_40k_h8_left_s262200011",
+        "pi05_r8_smoke_40k_h8_left_s262200013",
+        "pi05_r8_smoke_40k_h8_left_s262200014",
+        "pi05_r8_smoke_40k_h8_left_s262200012",
+        "pi05_r8_smoke_40k_h8_right_s262200113",
+        "pi05_r8_smoke_40k_h8_right_s262200111",
+        "pi05_r8_smoke_40k_h8_right_s262200114",
+        "pi05_r8_smoke_40k_h8_right_s262200112"
+      ],
+      "render_config_hash": null,
+      "note": "历史闭合冒烟诊断，严格原始审计；故障UNKNOWN保留、不重试。不满足新执行链，不代表placement-v1.1正式成绩。R5/R8独立记录。",
+      "wilson95": {
+        "low": 0,
+        "high": 0.32440756488388023,
+        "confidence": 0.95
+      },
+      "oracle_version": "strict-v1"
+    },
+    {
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "prediction": 10,
+      "protocol_version": "SafeLab-Eval-v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "admission": {
+        "expert_replay": {
+          "status": "shared",
+          "owner": "three-task agent",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "authorization": "Coordinator round5 item2: shared replay statistical investigation does not block paired pi05 stageA; no physical oracle changes"
+        },
+        "render_multiframe": {
+          "status": "shared",
+          "source_module_sha256": "6359aa642cf245f28bdc0ae04a75d7d4493b710bf5fb0842b3a36be6f353dc3a",
+          "source_module": "v14_render_runtime.py",
+          "source_root": "/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/",
+          "reference_max_MAE_0_255": 0.6007486979166666,
+          "source_episode_count": 2,
+          "progress_frames_each": 5,
+          "settings_sha256": "7abdcf1a6ecfde0cee90c18ae7669b76e6eda97fc628bd4c3b7e9b2e8a20b13b"
+        },
+        "open_loop": {
+          "status": "passed",
+          "soft_gate": true,
+          "reference": "same-run V14 original30k",
+          "training_episodes": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90
+          ],
+          "observations_each": 5,
+          "reference_arm_RMSE_rad": 0.008778232024991775,
+          "ratios": {
+            "30k": 1.0,
+            "40k": 0.9725049005049727,
+            "padfix": 0.971234124315012
+          },
+          "report_sha256": "9e20138e0997e46ef2de8e8c6c659a0b15992bdabe5171fee5d46ac325b1d8f4",
+          "not_physical_success_rate": true
+        },
+        "smoke20": {
+          "status": "pending"
+        }
+      },
+      "id": "diag-pi05-r8-40000-h8-padfix",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "issue": 7,
+      "stage": "diagnostic",
+      "evaluation_started": true,
+      "kind": "闭合故障队列冒烟诊断；非阶段A成绩",
+      "condition_version": "original_physical_auditor_unchanged+pi05-padfix-t-epsilon-v1",
+      "variant_version": "pi05-padfix-t-epsilon-v1",
+      "metric_role": "strict_original",
+      "success": 0,
+      "trials": 7,
+      "completed": 7,
+      "unknown": 3,
+      "unknown_reasons": {
+        "infrastructure": 3
+      },
+      "phase_hist": {
+        "0": 3,
+        "1": 1
+      },
+      "mean_phase": 0.25,
+      "status": "历史strict-v1诊断；旧速度前馈执行链；非统一链正式成绩",
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-strict-source-cohorts-20261103.json",
+      "protocol": "SafeLab-Eval-v1 retained R8 H8 smoke diagnostic; fixed attempted subset only; original strict audit reconstructed. R5/R8 optics distinct: never pooled.",
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 7,
+          "success": 0,
+          "unknown": 3
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 1
+        },
+        "right": {
+          "trials": 3,
+          "success": 0,
+          "unknown": 2
+        }
+      },
+      "source_cohort": "R8",
+      "source_case_ids": [
+        "pi05_r8_smoke_padfix_h8_left_s262200011",
+        "pi05_r8_smoke_padfix_h8_left_s262200013",
+        "pi05_r8_smoke_padfix_h8_left_s262200014",
+        "pi05_r8_smoke_padfix_h8_right_s262200112",
+        "pi05_r8_smoke_padfix_h8_right_s262200113",
+        "pi05_r8_smoke_padfix_h8_left_s262200012",
+        "pi05_r8_smoke_padfix_h8_right_s262200111"
+      ],
+      "render_config_hash": null,
+      "note": "历史闭合冒烟诊断，严格原始审计；故障UNKNOWN保留、不重试。不满足新执行链，不代表placement-v1.1正式成绩。R5/R8独立记录。",
+      "wilson95": {
+        "low": 5.551115123125783e-17,
+        "high": 0.35433043506668743,
+        "confidence": 0.95
+      },
+      "oracle_version": "strict-v1"
+    },
+    {
+      "id": "v11-3-latest-pi05-30000-h4",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v11-3-latest-pi05-30000-h8",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v11-3-latest-pi05-30000-h10",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 10,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "补充诊断 · H10 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "metric_role": "supplemental_h10_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "id": "v11-3-latest-pi05-40000-h4",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 4,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v11-3-latest-pi05-40000-h8",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "A",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "自主闭环",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "formal_score_eligible": true
+    },
+    {
+      "id": "v11-3-latest-pi05-40000-h10",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 10,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged",
+      "variant_version": "original",
+      "kind": "补充诊断 · H10 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "metric_role": "supplemental_h10_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "id": "v11-3-latest-pi05-40000-h8-padfix",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged+pi05-padfix-t-epsilon-v1",
+      "variant_version": "pi05-padfix-t-epsilon-v1",
+      "kind": "补充诊断 · padfix推理变体 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "metric_role": "inference_variant_diagnostic",
+      "formal_score_eligible": false
+    },
+    {
+      "id": "v11-3-latest-pi05-40000-h10-padfix",
+      "record": "3-latest-pi05-issue7",
+      "dataset": "3-latest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 10,
+      "prediction": 10,
+      "issue": 7,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "protocol": "SafeLab-Eval-v1.1 planned; no formal results before placement/executor admissions.",
+      "stage": "diagnostic",
+      "condition_version": "original_physical_auditor_unchanged+pi05-padfix-t-epsilon-v1",
+      "variant_version": "pi05-padfix-t-epsilon-v1",
+      "kind": "补充诊断 · padfix推理变体 · 非正式",
+      "status": "未开始：放置判定与执行链配对验收待完成",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "unknown": 0,
+      "completed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI ResizeImages resize_with_pad",
+        "mode": "bilinear",
+        "antialias": null,
+        "source": "训练侧PIL.BILINEAR；source commit a54f13f4e9696e11ee0d5aa2cb26da7bab47614a"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "seed_results": [],
+      "lr_split": {
+        "left": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "共享placement_rescore_v11.py已到，专家/负例验证及CPU重算进行中"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "新执行链验证后重新确认"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "左右各5条专家native120Hz与15Hz endpoint配对验收待完成：关节RMSE≤0.005rad；placement-v1.1端点成功数≥原生−1；先核对T536实际执行链，13维FF仅默认起点，不强制替换已一致的链。",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "joint_rmse_rad": null,
+          "native_success": null,
+          "endpoint_success": null
+        }
+      },
+      "source": "reports/pi05-strict-source-cohorts-20261103.json",
+      "report_url": "reports/pi05-eval-v1-20261103.html",
+      "note": "计划分母100不代表已评测；success=null。漂移候选判定已作废，不发布旧候选分数。placement-v1.1已采用，现等待统一工具与执行链准入；既有数值不覆盖。",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "共享placement工具已到，oracle专家/负例准入及CPU重算中；等待T536真实执行链一致性与左右5+5专家native/endpoint配对验收，依据结果判定受影响配置；不预先强制更换13维FF或重跑。",
+      "expected_start_at": null,
+      "placement_scorer_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "metric_role": "inference_variant_diagnostic",
+      "formal_score_eligible": false
     }
   ],
   "agents": [

@@ -1,11 +1,11 @@
 {
-  "epoch": 1793723147.9451284,
+  "epoch": 1793723548.7720299,
   "stage": "diagnostic",
   "total_planned": 600,
   "intervention_trials": 500,
   "matched_runtime_control_trials": 100,
   "amendment_sha256": "839e82be5ba276b2dec6ac41fe738385bf832282acbfa27c982f1b05258c4c48",
-  "completed": 326,
+  "completed": 330,
   "all_five_complete": false,
   "interpretation_frozen_before_results": true,
   "preregister_sha256": "3031de6de340c48a6b938ee8d66ad3d3bce4ff3d5058e50b5ed6d80502ae7747",
@@ -90,7 +90,7 @@
       "lr_split": null,
       "scene_list_hash": "sha256:decaa626a437f34bc478e4eb9fb11ad59196e03305c184e6ecc5f2123c4765ba",
       "status": "running",
-      "completed": 1,
+      "completed": 3,
       "original_preprocessing_preserved": true
     },
     "D2a": {
@@ -101,7 +101,7 @@
       "lr_split": null,
       "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
       "status": "running",
-      "completed": 96,
+      "completed": 97,
       "original_preprocessing_preserved": true
     },
     "D2b": {
@@ -118,13 +118,67 @@
     "D3": {
       "stage": "diagnostic",
       "planned": 100,
-      "success": null,
-      "mean_phase": null,
-      "lr_split": null,
+      "success": 13,
+      "mean_phase": 1.39,
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 13,
+          "failure": 37,
+          "unknown": 0
+        }
+      },
       "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
-      "status": "running",
-      "completed": 99,
-      "original_preprocessing_preserved": true
+      "status": "complete-diagnostic",
+      "completed": 100,
+      "original_preprocessing_preserved": true,
+      "unknown": 0,
+      "phase_hist": {
+        "1": 52,
+        "2": 24,
+        "3": 13,
+        "0": 11
+      },
+      "mean_phase_known": 1.39,
+      "phase_unknown": 0,
+      "mean_phase_bounds": [
+        1.39,
+        1.39
+      ],
+      "wilson95": {
+        "low": 0.07757167427240512,
+        "high": 0.20980351440076428,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 13,
+          "unknown": 0
+        }
+      ],
+      "paired_reference": "D0 same R4 runtime",
+      "historical_reference_success": 24,
+      "paired_baseline_success": 24,
+      "paired_difference_pp": -11.0,
+      "paired95_stratified_scene_bootstrap_pp": [
+        -20.0,
+        -2.0
+      ],
+      "bootstrap_seed": 10350003,
+      "bootstrap_replicates": 10000,
+      "mcnemar_exact_p": 0.043285250663757324,
+      "unknowns_in_denominator": true,
+      "paired_CI_treats_unknown_as_non_success": true,
+      "phase_definition": "original ordered physical phases, not learned model stage: phase1 stable hold may not yet be above B; phase2 poured; phase3 restore/release",
+      "formal_result": false
     }
   }
 }

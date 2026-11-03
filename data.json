@@ -11195,7 +11195,7 @@
       "protocol": "预注册诊断D1_2cm；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"A_xy_uniform_half_range_m\": 0.02, \"perturbation_center\": \"original side-dependent coaster center; replaces original +/-1cm, never adds a second offset\", \"other_objects\": \"randomize only entities randomized in original protocol; freeze B/pads if originally fixed\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
       "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T16:26:34.521936+00:00",
+      "updated_at": "2026-11-03T16:32:47.038438+00:00",
       "variant": "D1_2cm",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
@@ -11216,7 +11216,7 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 1,
+      "completed": 3,
       "status": "正在评测",
       "kind": "诊断",
       "topology": {
@@ -11260,7 +11260,7 @@
       "protocol": "预注册诊断D1_3cm；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"A_xy_uniform_half_range_m\": 0.03, \"perturbation_center\": \"original side-dependent coaster center; replaces original +/-1cm, never adds a second offset\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
       "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T16:26:34.521936+00:00",
+      "updated_at": "2026-11-03T16:32:47.038456+00:00",
       "variant": "D1_3cm",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
@@ -11281,7 +11281,7 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 96,
+      "completed": 97,
       "status": "正在评测",
       "kind": "诊断",
       "topology": {
@@ -11325,7 +11325,7 @@
       "protocol": "预注册诊断D2a；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"intervention\": \"executor action branch RGB zeros; raw completion branch and learned Planner images untouched; separate private action MemoryBank to prevent classifier contamination\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
       "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T16:26:34.521936+00:00",
+      "updated_at": "2026-11-03T16:32:47.038458+00:00",
       "variant": "D2a",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
@@ -11390,7 +11390,7 @@
       "protocol": "预注册诊断D2b；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"intervention\": \"all learned policy image inputs zero, including initial/history Planner and completion; raw simulator/video observations retained\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
       "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T16:26:34.521936+00:00",
+      "updated_at": "2026-11-03T16:32:47.038460+00:00",
       "variant": "D2b",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
@@ -11408,11 +11408,11 @@
       "stage": "diagnostic",
       "condition_version": "diagnostic-D3-v1",
       "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
-      "success": null,
+      "success": 13,
       "trials": 100,
       "unknown": 0,
-      "completed": 99,
-      "status": "正在评测",
+      "completed": 100,
+      "status": "已完成（诊断）",
       "kind": "诊断",
       "topology": {
         "num_envs_actual": 1,
@@ -11425,11 +11425,40 @@
         "antialias": null,
         "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
       },
-      "seed_results": [],
-      "lr_split": null,
-      "phase_hist": null,
-      "mean_phase": null,
-      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 13,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 13,
+          "failure": 37,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "1": 52,
+        "2": 24,
+        "3": 13,
+        "0": 11
+      },
+      "mean_phase": 1.39,
+      "wilson95": {
+        "low": 0.07757167427240512,
+        "high": 0.20980351440076428,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": false,
@@ -11454,8 +11483,8 @@
       },
       "protocol": "预注册诊断D3；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"intervention\": \"executor state before normalization, independent Gaussian sigma0.01rad on13 measured joints per15Hz observation; same frame refresh reuses same noise; independent diagnostic RNG never consumes model/scene RNG\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T16:26:34.521936+00:00",
+      "report_url": "reports/task3-stability-20261103.html",
+      "updated_at": "2026-11-03T16:32:47.038461+00:00",
       "variant": "D3",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
@@ -11548,7 +11577,7 @@
       "protocol": "预注册补充1：无黑图/无state噪声，原1cm场景，其他同D1-D3的R4运行时；控制初始液体修复的潜在混杂。额外100条，16卡上限不变。旧24/100只作历史背景，配对效应用本D0。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
       "report_url": "reports/task3-stability-20261103.html",
-      "updated_at": "2026-11-03T16:26:34.521936+00:00",
+      "updated_at": "2026-11-03T16:32:47.038465+00:00",
       "variant": "D0 matched runtime control",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",

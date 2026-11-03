@@ -14,6 +14,7 @@ video{display:block;width:100%;max-width:640px;background:#171d24}details{border
 <p id="summary">正在读取进度…</p>
 <p class="note">每版30k：执行4/8/30步 × 原始接触/稳抓attach v2 × 5seed × 100条，共3000条。每进程1个独立原生环境，每卡最多8个仿真进程。附着v2为机械臂原生读回128、场景配置上限32；这个上限对原生控制接口的实际影响仍在验证，不能据此认定故障根因。候选版本另列，与旧版附着结果分开。未完成独立审计前只显示暂记成功数。</p>
 <p id="attachment-validation" class="note">附着配置的修正正在做独立回放核验；回放不计入模型成绩。</p>
+<p id="secondary-diagnostics" class="note"></p>
 <div class="scroll"><table>
 <thead><tr><th>方法</th><th>接触条件</th><th>执行步数</th><th>有效已测 / 目标</th><th>异常或证据不完整</th><th>完整十阶段成功数</th><th>状态</th></tr></thead>
 <tbody id="rows"></tbody>
@@ -50,6 +51,14 @@ fetch('task10-new-variants-20261102.json',{cache:'no-store',signal:AbortSignal.t
  }
  const resumed=d.methods.find(m=>m.retained_predecessor_cases);
  if(resumed)document.querySelector('#continuation').textContent=`续跑记录：原对齐Loss任务由平台确认失败退出，退出原因未知；保留${resumed.retained_predecessor_cases}条落盘结果（含${resumed.recovered_unacknowledged_cases}条恢复的结果），其中${resumed.predecessor_evidence_incomplete||0}条收尾证据不完整，单列未知，不算通过审计；原始失败记录保留，500条分母不变。另保留原约束异常。缺失场景分配到两组四卡任务：${resumed.job_id}。中断前缀保留，可追溯；不覆盖已完成结果。低优卡申请合计${d.requested_low_priority_gpus}/12。`;
+ const follow=d.diagnostic_followups||{},notes=[];
+ if(follow.predecessor_audit?.passed)notes.push(`旧任务450条已通过输入与120Hz物理记录复核；另3条证据不完整、2条约束异常继续单列。`);
+ const sensitivity=follow.tolerance_sensitivity;
+ if(sensitivity?.passed)notes.push(`离线容差对照：24条专门选取的失败轨迹，${sensitivity.summary.map(s=>`${s.tolerance_m*100}cm容差下${s.full10}/24完整十阶段`).join('；')}。选取样本仅用于诊断，不代表整体成功率，也不替换正式2.5cm门槛。`);
+ else if(sensitivity)notes.push('24条选定失败轨迹的离线容差对照正在运行，正式门槛不变。');
+ const recheck=follow.invalid5_recheck;
+ if(recheck)notes.push(`5条旧异常的原128配置独立重测：${recheck.completed||0}/5已结束，${recheck.active||0}个环境运行；诊断不回填正式成绩。`);
+ document.querySelector('#secondary-diagnostics').textContent=notes.join(' ');
  const cases=new Map();
  for(const clip of d.examples||[]){if(!cases.has(clip.case_id))cases.set(clip.case_id,[]);cases.get(clip.case_id).push(clip)}
  for(const [id,clips] of cases){

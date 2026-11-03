@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T12:25:56.111829+00:00",
+  "updated_at": "2026-11-03T13:01:30.662845+00:00",
   "protocol_version": "SafeLab-Eval-v1",
   "stage": "diagnostic",
   "owner": "T-1035",
@@ -8,36 +8,36 @@
   "snapshot": {
     "attach_mem0": {
       "target": 200,
-      "closed": 171,
+      "closed": 193,
       "by_horizon": {
-        "8": 89,
-        "4": 82
+        "8": 98,
+        "4": 95
       }
     },
     "attach_ours": {
       "target": 200,
-      "closed": 164,
+      "closed": 185,
       "by_horizon": {
-        "8": 85,
-        "4": 79
+        "8": 94,
+        "4": 91
       }
     },
     "trainresize_A": {
       "target": 200,
-      "closed": 94,
+      "closed": 122,
       "by_horizon": {
-        "4": 74,
-        "8": 20
+        "4": 95,
+        "8": 27
       }
     },
     "original": {
       "target": 200,
-      "closed": 199,
+      "closed": 200,
       "by_horizon": {
-        "4": 99,
-        "8": 100
+        "8": 100,
+        "4": 100
       },
-      "source": "真实最后分片r4_ours_c30000，前四分片与20k共1800条已完成，全局1999/2000"
+      "source": "真实最后分片r4_ours_c30000已200/200；全部ours20k/30k,h4/h8共2000/2000，逐权重SHA完成绑定。"
     },
     "ttc": {
       "epoch": 1793701484.5382571,
@@ -175,7 +175,8 @@
       "3": 24,
       "2": 22
     },
-    "mean_phase": 1.7
+    "mean_phase": 1.7,
+    "role": "historical context only; paired effects now use untouched-input D0 on exact same R4 runtime, fixed before any D results"
   },
   "diagnostic_preregister": {
     "protocol_version": "SafeLab-Eval-v1",
@@ -252,22 +253,22 @@
     "real_model_branch_assertions_enforced_on_every_observation": true,
     "formal_success_rate_claimed": false
   },
-  "density": "Probe运行时V14的N1×3/×4图像通过，不能替代原生R4 V13准入；已补启动实际R4 V13及actual latest R4各自N1×3，两套新N1对照，未复用错误渲染基准。",
+  "density": "actual frozen R4 V13、actual latest R4两套N1×3均已通过：V13四帧最大MAE0.7402/255，latest0.03468/255；每次使用各自新N1对照；旧Probe报告未混用。",
   "expert_replay": "左右5episode源记录及新旧视频已SHA校验；两链20条回放包已部署，等待密度准入和空闲卡",
   "latest_render_mae": {
     "left": [
-      0.54106,
-      0.600749,
-      0.568604,
-      0.502238,
-      0.516434
+      0.552265625,
+      0.5835167100694445,
+      0.5550802951388889,
+      0.4944346788194444,
+      0.4846690538194444
     ],
     "right": [
-      0.558387,
-      0.590379,
-      0.554006,
-      0.567199,
-      0.468401
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   },
   "admission_note": "latest配对比较按总负责第3轮第1项例外，在冒烟通过后先行；完整统计专家与10episode开环证据齐备前不进入网站正式v1表",
@@ -284,7 +285,8 @@
     "t1035-r3-diag-d1_3cm",
     "t1035-r3-diag-d2a",
     "t1035-r3-diag-d2b",
-    "t1035-r3-diag-d3"
+    "t1035-r3-diag-d3",
+    "t1035-r3-diag-d0"
   ],
   "progress_evidence": "逐批不可变AUDIT_BATCH_CLOSED + 原RESULT SHA + 实际模型权重SHA绑定；大型实时总账镜像可能滞后，不用于判定停滞。",
   "gpu_sustained": {
@@ -616,6 +618,476 @@
     ]
   },
   "interpretation_note": "固定训练输入上动作分支黑图使手臂输出RMS变化0.37–0.58rad；说明输出对图像敏感，不能替代闭环D2a100条，更不能单凭黑图OOD扰动判断是否使用任务视觉。",
-  "reset_status": "首轮因PXR Quatf不支持Python copy而未完成，已修为PXR类型复制构造器，第二轮等待实际R4密度验证完成后运行。严格reset未启用于正式评测。",
-  "physical_phase_definition": "旧验收phase1表示稳定抓握，不等价于完整训练子任务0（抓握+搬至B上方）；D报告沿用原验收阶段，另注明语义。"
+  "reset_status": "严格reset左右两侧均失败，初始可观测状态精确恢复，但后续杯体/粒子状态偏离且首帧MAE约4.2/255；未用于正式评测。暖缓存构造约71秒，含8秒准备+63秒settle，1920步物理约41秒、241次渲染约22秒。",
+  "physical_phase_definition": "旧验收phase1表示稳定抓握，不等价于完整训练子任务0（抓握+搬至B上方）；D报告沿用原验收阶段，另注明语义。",
+  "latest_job": {
+    "job_id": "job-rcuat6z8qs1k",
+    "status": "RUNNING",
+    "gpu_count": 4,
+    "num_envs_actual": 1,
+    "procs_per_gpu": 3,
+    "phase": "20条平衡h8冒烟，过门槛后100场景h4/h8阶段A，未通过不放量"
+  },
+  "gpu_sustained_all_current16": {
+    "epoch": 1793710746.4658072,
+    "covered_cards": 16,
+    "scope": "all currently allocated16 cards across4 running jobs, latest12 samples each span>=600s; old original4 finished naturally and replaced by latest4",
+    "all_gpu_util_mean_percent": 57.578125,
+    "jobs": {
+      "evalv1_attach_mem0_30k_stageA": {
+        "start_epoch": 1793710077.5673542,
+        "end_epoch": 1793710738.5595262,
+        "duration_seconds": 660.9921720027924,
+        "samples": 12,
+        "group_util_mean_percent": 43.1875,
+        "gpus": {
+          "0": {
+            "util_mean_percent": 63.666666666666664,
+            "memory_mean_MiB": 41927.333333333336,
+            "memory_max_MiB": 44897.0
+          },
+          "1": {
+            "util_mean_percent": 45.75,
+            "memory_mean_MiB": 18404.166666666668,
+            "memory_max_MiB": 19270.0
+          },
+          "2": {
+            "util_mean_percent": 55.25,
+            "memory_mean_MiB": 40735.166666666664,
+            "memory_max_MiB": 44956.0
+          },
+          "3": {
+            "util_mean_percent": 8.083333333333334,
+            "memory_mean_MiB": 13995.666666666666,
+            "memory_max_MiB": 19303.0
+          }
+        }
+      },
+      "evalv1_attach_ours_30k_stageA": {
+        "start_epoch": 1793710039.3364658,
+        "end_epoch": 1793710700.013471,
+        "duration_seconds": 660.6770050525665,
+        "samples": 12,
+        "group_util_mean_percent": 42.1875,
+        "gpus": {
+          "0": {
+            "util_mean_percent": 48.666666666666664,
+            "memory_mean_MiB": 37771.5,
+            "memory_max_MiB": 43991.0
+          },
+          "1": {
+            "util_mean_percent": 50.166666666666664,
+            "memory_mean_MiB": 37167.333333333336,
+            "memory_max_MiB": 37472.0
+          },
+          "2": {
+            "util_mean_percent": 38.333333333333336,
+            "memory_mean_MiB": 36722.5,
+            "memory_max_MiB": 36980.0
+          },
+          "3": {
+            "util_mean_percent": 31.583333333333332,
+            "memory_mean_MiB": 37162.25,
+            "memory_max_MiB": 37474.0
+          }
+        }
+      },
+      "evalv1_ours_trainresize_stageA_r2": {
+        "start_epoch": 1793710053.2664487,
+        "end_epoch": 1793710714.0473962,
+        "duration_seconds": 660.7809474468231,
+        "samples": 12,
+        "group_util_mean_percent": 78.75,
+        "gpus": {
+          "0": {
+            "util_mean_percent": 76.58333333333333,
+            "memory_mean_MiB": 42661.5,
+            "memory_max_MiB": 42985.0
+          },
+          "1": {
+            "util_mean_percent": 76.75,
+            "memory_mean_MiB": 49271.0,
+            "memory_max_MiB": 49368.0
+          },
+          "2": {
+            "util_mean_percent": 78.0,
+            "memory_mean_MiB": 42057.5,
+            "memory_max_MiB": 42834.0
+          },
+          "3": {
+            "util_mean_percent": 83.66666666666667,
+            "memory_mean_MiB": 55967.666666666664,
+            "memory_max_MiB": 56080.0
+          }
+        }
+      },
+      "evalv1_latest_renderresize_stageA_r1": {
+        "start_epoch": 1793710063.3422785,
+        "end_epoch": 1793710726.470991,
+        "duration_seconds": 663.1287124156952,
+        "samples": 12,
+        "group_util_mean_percent": 66.1875,
+        "gpus": {
+          "0": {
+            "util_mean_percent": 66.75,
+            "memory_mean_MiB": 51006.0,
+            "memory_max_MiB": 57375.0
+          },
+          "1": {
+            "util_mean_percent": 64.75,
+            "memory_mean_MiB": 33432.083333333336,
+            "memory_max_MiB": 39442.0
+          },
+          "2": {
+            "util_mean_percent": 66.91666666666667,
+            "memory_mean_MiB": 50050.416666666664,
+            "memory_max_MiB": 57113.0
+          },
+          "3": {
+            "util_mean_percent": 66.33333333333333,
+            "memory_mean_MiB": 33022.583333333336,
+            "memory_max_MiB": 39440.0
+          }
+        }
+      }
+    }
+  },
+  "legacy_ours_completed": [
+    {
+      "method": "ours",
+      "dataset": "v13",
+      "checkpoint_step": 20000,
+      "execute": 4,
+      "n": 500,
+      "success": 16,
+      "unknown": 0,
+      "complete": true,
+      "wilson95": [
+        0.019791513626571375,
+        0.05134486904544114
+      ],
+      "per_seed": {
+        "0": {
+          "n": 100,
+          "success": 3
+        },
+        "1": {
+          "n": 100,
+          "success": 4
+        },
+        "2": {
+          "n": 100,
+          "success": 1
+        },
+        "3": {
+          "n": 100,
+          "success": 4
+        },
+        "4": {
+          "n": 100,
+          "success": 4
+        }
+      },
+      "sides": {
+        "left": {
+          "n": 250,
+          "success": 11
+        },
+        "right": {
+          "n": 250,
+          "success": 5
+        }
+      },
+      "protocol": "historical frozen T1035 (pre SafeLab-Eval-v1)",
+      "checkpoint_sha256": "30405a7aff1c80dcf822641c4d2903f22cb25d52fd101cfad6d2c12c61169421"
+    },
+    {
+      "method": "ours",
+      "dataset": "v13",
+      "checkpoint_step": 20000,
+      "execute": 8,
+      "n": 500,
+      "success": 20,
+      "unknown": 0,
+      "complete": true,
+      "wilson95": [
+        0.02604079738977757,
+        0.06097359583485012
+      ],
+      "per_seed": {
+        "0": {
+          "n": 100,
+          "success": 5
+        },
+        "1": {
+          "n": 100,
+          "success": 7
+        },
+        "2": {
+          "n": 100,
+          "success": 2
+        },
+        "3": {
+          "n": 100,
+          "success": 2
+        },
+        "4": {
+          "n": 100,
+          "success": 4
+        }
+      },
+      "sides": {
+        "left": {
+          "n": 250,
+          "success": 17
+        },
+        "right": {
+          "n": 250,
+          "success": 3
+        }
+      },
+      "protocol": "historical frozen T1035 (pre SafeLab-Eval-v1)",
+      "checkpoint_sha256": "30405a7aff1c80dcf822641c4d2903f22cb25d52fd101cfad6d2c12c61169421"
+    },
+    {
+      "method": "ours",
+      "dataset": "v13",
+      "checkpoint_step": 30000,
+      "execute": 4,
+      "n": 500,
+      "success": 78,
+      "unknown": 0,
+      "complete": true,
+      "wilson95": [
+        0.12683079140384576,
+        0.19041475483370193
+      ],
+      "per_seed": {
+        "0": {
+          "n": 100,
+          "success": 19
+        },
+        "1": {
+          "n": 100,
+          "success": 11
+        },
+        "2": {
+          "n": 100,
+          "success": 19
+        },
+        "3": {
+          "n": 100,
+          "success": 14
+        },
+        "4": {
+          "n": 100,
+          "success": 15
+        }
+      },
+      "sides": {
+        "left": {
+          "n": 250,
+          "success": 55
+        },
+        "right": {
+          "n": 250,
+          "success": 23
+        }
+      },
+      "protocol": "historical frozen T1035 (pre SafeLab-Eval-v1)",
+      "checkpoint_sha256": "14a2c891bc839fcb1bddb1de002e8723591910cd96e62afad0beb52a10727fa1"
+    },
+    {
+      "method": "ours",
+      "dataset": "v13",
+      "checkpoint_step": 30000,
+      "execute": 8,
+      "n": 500,
+      "success": 73,
+      "unknown": 0,
+      "complete": true,
+      "wilson95": [
+        0.11774876682647,
+        0.17964926622030872
+      ],
+      "per_seed": {
+        "0": {
+          "n": 100,
+          "success": 11
+        },
+        "1": {
+          "n": 100,
+          "success": 11
+        },
+        "2": {
+          "n": 100,
+          "success": 24
+        },
+        "3": {
+          "n": 100,
+          "success": 11
+        },
+        "4": {
+          "n": 100,
+          "success": 16
+        }
+      },
+      "sides": {
+        "left": {
+          "n": 250,
+          "success": 56
+        },
+        "right": {
+          "n": 250,
+          "success": 17
+        }
+      },
+      "protocol": "historical frozen T1035 (pre SafeLab-Eval-v1)",
+      "checkpoint_sha256": "14a2c891bc839fcb1bddb1de002e8723591910cd96e62afad0beb52a10727fa1"
+    }
+  ],
+  "legacy_ours_published_issues": [
+    11,
+    12
+  ],
+  "diagnostic_amendment": {
+    "schema": "T1035-diagnostic-preregister-amendment-1",
+    "epoch": 1793710081.2035768,
+    "stage": "diagnostic",
+    "frozen_before_any_D_closedloop_result": true,
+    "original_preregister_sha256": "3031de6de340c48a6b938ee8d66ad3d3bce4ff3d5058e50b5ed6d80502ae7747",
+    "reason": "diagnostic R4 includes deterministic RNG + pristine fluid initialization absent in historical Attempt3 Mem0; initial images MAE<=1 and qpos identical do not establish full trajectory physics equivalence. R4 right expert replay still fails. Avoid attributing runtime changes to input interventions.",
+    "change": "add100-case D0 untouched input on exact same R4 source as D1-D3; same seeds/scenes/modelseeds, old PIL retained. D0 is primary paired reference. Historical24/100 remains context only.",
+    "interpretation_cutoffs_unchanged": true,
+    "groups_D1_D3_unchanged": true,
+    "resource_limit_lowpriority_GPUs": 16,
+    "additional_trials": 100,
+    "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+    "no_intervention_success_results_seen": true
+  },
+  "diagnostic_total": 600,
+  "diagnostic_reference_note": "新运行时含随机种子及初始液体缓存修复，不能仅凭初始RGB/关节角接近就断言全轨迹物理一致。额外100条D0控制这个混杂；D1-D3仍500条，干预和阈值不变，16卡上限不变。",
+  "render_probe_primary_mae": {
+    "left": [
+      0.54106,
+      0.600749,
+      0.568604,
+      0.502238,
+      0.516434
+    ],
+    "right": [
+      0.558387,
+      0.590379,
+      0.554006,
+      0.567199,
+      0.468401
+    ]
+  },
+  "actual_R4_renderer": {
+    "left": {
+      "side": "left",
+      "episode": "WORK_C3_CL_V13Z3P10_LEFT_G0K1_S2610416321",
+      "rows": [
+        {
+          "progress_percent": 0,
+          "frame_index": 0,
+          "MAE_0_255": 0.552265625
+        },
+        {
+          "progress_percent": 25,
+          "frame_index": 179,
+          "MAE_0_255": 0.5835167100694445
+        },
+        {
+          "progress_percent": 50,
+          "frame_index": 358,
+          "MAE_0_255": 0.5550802951388889
+        },
+        {
+          "progress_percent": 75,
+          "frame_index": 537,
+          "MAE_0_255": 0.4944346788194444
+        },
+        {
+          "progress_percent": 100,
+          "frame_index": 716,
+          "MAE_0_255": 0.4846690538194444
+        }
+      ],
+      "recorded_actions_physics_replayed": true,
+      "same_recorded_state_teleported": false,
+      "original_expert_results": [
+        {
+          "scored": false,
+          "evaluation_kind": "V13_recorded_expert_diagnostic",
+          "model_inference_used": false,
+          "policy_calls": 0,
+          "whole_success": true,
+          "episode_id": "left_env0",
+          "checkpoint_step": 20000,
+          "prediction_horizon": 30,
+          "execution_horizon": 4,
+          "policy_started": false,
+          "controller_protocol": "native120hz",
+          "mode": "native120hz",
+          "seed": 2610416321,
+          "side": "left",
+          "expert_source_npz_sha256": "330565cdbd7b122778cbe327fae4e996b5a12d1b05922ffc3bab5dcbb6936a83",
+          "elapsed_sim_seconds": 47.75833333333333,
+          "status": "expert_complete",
+          "expert_source_control_ticks": 5731,
+          "expert_final_hold_requested_ticks": 0,
+          "expert_final_hold_ticks": 0,
+          "original_simulation_limit_s": 75,
+          "expert_final_hold_protocol": "retain_last_native_position_target; zero13velocity; same_current_gravity",
+          "physical_phase": 3,
+          "native_rows": 5732,
+          "camera_frames": 717
+        }
+      ],
+      "render_settings_before": {
+        "/rtx/rendermode": "PathTracing",
+        "/rtx/post/aa/op": 1,
+        "/rtx/post/dlss/execMode": 0,
+        "/rtx/directLighting/sampledLighting/samplesPerPixel": 1,
+        "/rtx-transient/dldenoiser/enabled": false,
+        "/rtx/pathtracing/spp": 32,
+        "/rtx/pathtracing/totalSpp": 32,
+        "/rtx/pathtracing/maxBounces": 8,
+        "/rtx/pathtracing/maxSpecularAndTransmissionBounces": 8,
+        "/rtx/pathtracing/optixDenoiser/enabled": true,
+        "/rtx/reflections/enabled": true,
+        "/rtx/translucency/enabled": true,
+        "/rtx/translucency/maxRefractionBounces": 6,
+        "/rtx/translucency/sampleRoughness": true
+      },
+      "render_settings_after": {
+        "/rtx/rendermode": "PathTracing",
+        "/rtx/post/aa/op": 1,
+        "/rtx/post/dlss/execMode": 0,
+        "/rtx/directLighting/sampledLighting/samplesPerPixel": 1,
+        "/rtx-transient/dldenoiser/enabled": false,
+        "/rtx/pathtracing/spp": 32,
+        "/rtx/pathtracing/totalSpp": 32,
+        "/rtx/pathtracing/maxBounces": 8,
+        "/rtx/pathtracing/maxSpecularAndTransmissionBounces": 8,
+        "/rtx/pathtracing/optixDenoiser/enabled": true,
+        "/rtx/reflections/enabled": true,
+        "/rtx/translucency/enabled": true,
+        "/rtx/translucency/maxRefractionBounces": 6,
+        "/rtx/translucency/sampleRoughness": true
+      },
+      "render_complete": true,
+      "formal_admission_passed": false,
+      "diagnostic_only": true
+    },
+    "right": {
+      "epoch": 1793709704.1033807,
+      "error": "ValueError('full_native_safety_violation')",
+      "traceback": "Traceback (most recent call last):\n  File \"/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/v14_actual_r4_multiframe/right/runtime/native_batch.py\", line 289, in main\n    results = replay_expert(owner, specs, args.expert_replay, args.replay_mode,\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/v14_actual_r4_multiframe/right/v14_action_replay.py\", line 14, in replay\n    data=np.load(npz_path,allow_pickle=False);results=ORIGINAL_REPLAY(owner,specs,npz_path,'native120hz',len(data['target13_rad'])-1,deadline,final_hold=0)\n                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public_fast_storage/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/v14_actual_r4_multiframe/right/runtime/native_batch.py\", line 186, in replay_expert\n    recorder.record()\n  File \"/public_fast_storage/liyufeng/safelab_mem0_v13_eval_20261024/environment_support/right/whole_native_qualification.py\", line 65, in record\n    self.contacts(row);self.ordered.consume(row)\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/public_fast_storage/liyufeng/safelab_mem0_v13_eval_20261024/environment_support/source/runtime/audit_whole_t3_stream_liveness_v11.py\", line 51, in consume\n    require(not row['safety_violation']and row['native_report_min_separation_m']>=-.002,'full_native_safety_violation')\n  File \"/public_fast_storage/liyufeng/safelab_mem0_v13_eval_20261024/environment_support/source/runtime/audit_whole_t3_stream_liveness_v11.py\", line 24, in require\n    if not condition:raise ValueError(code)\n                     ^^^^^^^^^^^^^^^^^^^^^^\nValueError: full_native_safety_violation\n",
+      "scored": false
+    },
+    "right_five_frames_complete": false
+  },
+  "ours_openloop_note": "完整三阶段运行时开环入口需要正确DAG/Completion上下文，当前未通过；另行启动10episode第一子任务的原缩放/训练缩放对照，明确不冒充完整三阶段准入。"
 }

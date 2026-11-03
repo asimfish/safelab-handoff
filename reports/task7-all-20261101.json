@@ -2,9 +2,9 @@
   "id": "task7-all-20261101",
   "title": "七任务 · Mem-0 / TTC基础版 / 对齐loss / 削弱版",
   "task": "7",
-  "updated_at": "2026-11-03T15:12:02.236023+00:00",
+  "updated_at": "2026-11-03T15:32:36.445704+00:00",
   "final_verified": false,
-  "status": "paused",
+  "status": "legacy_partial_stopped",
   "completed": 1808,
   "audited": 1808,
   "target": 2100,
@@ -578,8 +578,8 @@
       }
     }
   ],
-  "status_label": "已验收baseline保留 · 20k待恢复",
-  "resource_note": "这些历史baseline任务均已结束；20k按12卡上限暂停，8条已验收、292条待续。当前附着评测并行进度见独立面板。",
+  "status_label": "历史部分结果 · 扩采已终止",
+  "resource_note": "旧10500条扩采已按用户新标准收敛终止（legacy partial），不再承诺完成旧分母。三旧云任务官方STOPPED，当前0路/0云卡。最终封存3287条已验收、50条成功；已验收数不是全部发出分母，56条停止期间unknown与8条旧hold分列，不记失败、不重派。下表历史成绩及其原始证据保持；新SafeLab-Eval-v1为原始条件seed0×100、仅h4/h8，当前10条配置均待准入、0条新正式轨迹。",
   "job_ids": [
     "job-cdim53y0tafl",
     "job-ykyq3yheophs",
@@ -750,11 +750,11 @@
     "id": "task7-grasp-attach-20261101",
     "title": "七任务 · 稳定抓起后固定关节（独立辅助条件）",
     "task": "7",
-    "updated_at": "2026-11-03T15:12:05.471158+00:00",
+    "updated_at": "2026-11-03T15:32:36.445704+00:00",
     "metric_role": "assisted",
     "condition": "stable_grasp_fixed_joint_v2_restanchor",
-    "status": "running",
-    "status_label": "6种模型并行 · 闭环评测中",
+    "status": "legacy_partial_stopped",
+    "status_label": "历史部分结果 · 扩采已终止",
     "completed": 3280,
     "audited": 3280,
     "target": 10500,
@@ -770,10 +770,10 @@
     "std_convention": "sample, ddof=1",
     "provisional_successes": 49,
     "final_verified": false,
-    "active_apps": 40,
-    "max_parallel_apps": 40,
-    "gpus": 12,
-    "new_low_priority_gpus": 12,
+    "active_apps": 0,
+    "max_parallel_apps": 0,
+    "gpus": 0,
+    "new_low_priority_gpus": 0,
     "global_low_priority_GPU_cap": 12,
     "execution_class": "existing_development_host",
     "report_url": "https://asimfish.github.io/safelab-handoff/reports/task7-grasp-attach-20261101.html",
@@ -6390,7 +6390,7 @@
       "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/ASSISTED_PROGRESS.json",
       "sha256": "848db30d71e0cb4e4b97fa33c1b916923d271fc0de6e408d2c0f3802d5e4d1ee"
     },
-    "resource_note": "云端实际运行12卡（低优12、普通优先级0）；待提交0组；平台排队0个任务，0组创建操作尚无job ID；已申请/预留12卡，正式评测云端上限12，含四卡原生对照验证时总上限12，低优上限12。当前观测到6种模型运行；现有双卡Pro与云端资源分列。原20k baseline续测单列，不混入附着成绩。 混合并行配置：G0/G2目标每卡4个独立仿真进程×每进程1个环境，G1每卡2个独立仿真进程×每进程1个环境；计划上限40路（G0 16＋G1 8＋G2 16），当前核实40路总并发。 G0已核实P4E1原生门槛与正式活跃证据，当前16路P4并发。 G2已核实P4E1原生门槛与正式活跃证据，当前8路P4并发。 所有进程各自仅1环境，单进程N4（每进程4环境）尚未在七任务验证启用；密度调整尚无完整评测提速结论。 各模型：Mem-0 30k 运行中；TTC基础30k 运行中；TTC训练缩放对齐 启动检查；TTC对齐loss 运行中；Mem-0削弱版 运行中；Mem-0 20k 运行中；TTC基础20k 运行中。 多环境适配器：七任务adapter已实现，102项CPU检查通过；第7代原生探针 SUCCEEDED；该探针子进程已回收；共享场景图像RGB MAE 8.287–13.79；N1重复对照 0.44–0.45；真实七任务adapter：P1/P2E1原生一致性验证通过；独立进程图像RGB MAE 0.43628–0.4476；Mem-0 30k、TTC对齐loss真实模型集成冒烟测试通过：各4lane、每lane40帧，共8lane（非计分）；原生SDK4帧对照与进程回收通过；完整任务成功率仍待正式评测；共享场景图像一致性仍未通过；正式worker已接入独立进程后端（每进程1环境），各组实际密度与原生资格以正式资源观测为准；探针不计入模型成功率；已验收成绩保持不变。",
+    "resource_note": "旧10500条扩采已按用户新标准收敛终止（legacy partial），不再承诺完成旧分母。三旧云任务官方STOPPED，当前0路/0云卡。最终封存3287条已验收、50条成功；已验收数不是全部发出分母，56条停止期间unknown与8条旧hold分列，不记失败、不重派。下表历史成绩及其原始证据保持；新SafeLab-Eval-v1为原始条件seed0×100、仅h4/h8，当前10条配置均待准入、0条新正式轨迹。",
     "baseline_metrics_preserved": true,
     "simulation_topology": {
       "mode": "mixed_independent_single_environment_processes",
@@ -6409,9 +6409,9 @@
         }
       },
       "shared_scene_N4_active": false,
-      "max_parallel_apps": 40,
-      "G2_P4_formal_active": true,
-      "G2_P4_verified_active_apps": 8,
+      "max_parallel_apps": 0,
+      "G2_P4_formal_active": false,
+      "G2_P4_verified_active_apps": 0,
       "G2_P4_verified_sources": [
         {
           "source": "resume:g2v8:mem0_weak_30k_c03",
@@ -6422,8 +6422,8 @@
       ],
       "native_gate_and_formal_Apps_required": true,
       "measured_speedup_verified": false,
-      "G0_P4_formal_active": true,
-      "G0_P4_verified_active_apps": 16,
+      "G0_P4_formal_active": false,
+      "G0_P4_verified_active_apps": 0,
       "G0_P4_verified_sources": [
         {
           "source": "resume:g0v11:mem0_30k_c00",
@@ -6437,12 +6437,13 @@
           "worker": 1,
           "active_apps": 8
         }
-      ]
+      ],
+      "historical_not_current": true
     },
-    "new_running_low_priority_gpus": 12,
+    "new_running_low_priority_gpus": 0,
     "new_standard_gpus": 0,
     "new_running_standard_gpus": 0,
-    "new_running_cloud_gpus": 12,
+    "new_running_cloud_gpus": 0,
     "global_cloud_GPU_cap": 12,
     "formal_cloud_GPU_cap": 12,
     "native_probe_jobs": [],
@@ -6452,30 +6453,23 @@
     "queued_job_groups": 0,
     "unknown_job_groups": 0,
     "prepared_job_groups": 0,
-    "requested_low_priority_gpus": 12,
+    "requested_low_priority_gpus": 0,
     "requested_standard_gpus": 0,
-    "requested_cloud_gpus": 12,
-    "active_model_count": 6,
-    "active_models": [
-      "mem0_20k",
-      "mem0_30k",
-      "mem0_weak_30k",
-      "ours_aligned_30k",
-      "ours_native_20k",
-      "ours_native_30k"
-    ],
+    "requested_cloud_gpus": 0,
+    "active_model_count": 0,
+    "active_models": [],
     "model_runtime": {
       "mem0_30k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 8,
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c00",
-            "status": "running",
+            "status": "legacy_partial_stopped",
             "status_label": "运行中",
-            "active_apps": 8,
+            "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793718537.72362,
@@ -6484,7 +6478,7 @@
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c01",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -6495,7 +6489,7 @@
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c02",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -6506,7 +6500,7 @@
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c03",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -6517,7 +6511,7 @@
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -6528,7 +6522,7 @@
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -6539,7 +6533,7 @@
           {
             "worker": "0",
             "source": "resume:g0v11:mem0_30k_c06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -6552,16 +6546,16 @@
         "deferred_source_count": 0
       },
       "ours_native_30k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 4,
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c00",
-            "status": "running",
+            "status": "legacy_partial_stopped",
             "status_label": "运行中",
-            "active_apps": 4,
+            "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793718546.4795728,
@@ -6570,7 +6564,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c01",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6581,7 +6575,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c02",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6592,7 +6586,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c03",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6603,7 +6597,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6614,7 +6608,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6625,7 +6619,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6636,7 +6630,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c07",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6647,7 +6641,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c08",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6658,7 +6652,7 @@
           {
             "worker": "2",
             "source": "resume:g1v7:ours_native_30k_c09",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -6671,14 +6665,14 @@
         "deferred_source_count": 0
       },
       "ours_trainresize_30k": {
-        "status": "starting",
-        "status_label": "启动检查",
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
         "active_apps": 0,
         "sources": [
           {
             "worker": "None",
             "source": "deferred:g2v2:ours_trainresize_30k",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": null,
@@ -6689,7 +6683,7 @@
           {
             "worker": "5",
             "source": "resume:g2v5:ours_trainresize_30k_c00",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6700,7 +6694,7 @@
           {
             "worker": "5",
             "source": "resume:g2v5:ours_trainresize_30k_c01",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6711,7 +6705,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c02",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6722,7 +6716,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c03",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6733,7 +6727,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6744,7 +6738,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6755,7 +6749,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6766,7 +6760,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c07",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6777,7 +6771,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c08",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6788,7 +6782,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c09",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6799,7 +6793,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c10",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6810,7 +6804,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c11",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6821,7 +6815,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c12",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6832,7 +6826,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c13",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6843,7 +6837,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c14",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6854,7 +6848,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c15",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6865,7 +6859,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c16",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6876,7 +6870,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c17",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6887,7 +6881,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c18",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6898,7 +6892,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c19",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6909,7 +6903,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c20",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6920,7 +6914,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c21",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6931,7 +6925,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:ours_trainresize_30k_c22",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6944,14 +6938,14 @@
         "deferred_source_count": 0
       },
       "ours_aligned_30k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 8,
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p00",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6962,9 +6956,9 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p01",
-            "status": "running",
+            "status": "legacy_partial_stopped",
             "status_label": "运行中",
-            "active_apps": 8,
+            "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793718584.8483145,
@@ -6973,7 +6967,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p02",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6984,7 +6978,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p03",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -6995,7 +6989,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7006,7 +7000,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7017,7 +7011,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7028,7 +7022,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p07",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7039,7 +7033,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p08",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7050,7 +7044,7 @@
           {
             "worker": "4",
             "source": "resume:g2v8:ours_aligned_30k_p09",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7063,14 +7057,14 @@
         "deferred_source_count": 0
       },
       "mem0_weak_30k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 8,
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "5",
             "source": "resume:g2v5:mem0_weak_30k_c00",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7081,7 +7075,7 @@
           {
             "worker": "5",
             "source": "resume:g2v5:mem0_weak_30k_c01",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7092,7 +7086,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c02",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7103,9 +7097,9 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c03",
-            "status": "running",
+            "status": "legacy_partial_stopped",
             "status_label": "运行中",
-            "active_apps": 8,
+            "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793718566.1884613,
@@ -7114,7 +7108,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7125,7 +7119,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7136,7 +7130,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7147,7 +7141,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c07",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7158,7 +7152,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c08",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7169,7 +7163,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c09",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7180,7 +7174,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c10",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7191,7 +7185,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c11",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7202,7 +7196,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c12",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7213,7 +7207,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c13",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7224,7 +7218,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c14",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7235,7 +7229,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c15",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7246,7 +7240,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c16",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7257,7 +7251,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c17",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7268,7 +7262,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c18",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7279,7 +7273,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c19",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7290,7 +7284,7 @@
           {
             "worker": "5",
             "source": "resume:g2v8:mem0_weak_30k_c20",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-emarmqtojh7u",
@@ -7303,16 +7297,16 @@
         "deferred_source_count": 0
       },
       "mem0_20k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 8,
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c00",
-            "status": "running",
+            "status": "legacy_partial_stopped",
             "status_label": "运行中",
-            "active_apps": 8,
+            "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793718537.7776225,
@@ -7321,7 +7315,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c01",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7332,7 +7326,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c02",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7343,7 +7337,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c03",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7354,7 +7348,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7365,7 +7359,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7376,7 +7370,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7387,7 +7381,7 @@
           {
             "worker": "1",
             "source": "resume:g0v11:mem0_20k_c07",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-fukazjhgth7h",
@@ -7400,14 +7394,14 @@
         "deferred_source_count": 0
       },
       "ours_native_20k": {
-        "status": "running",
-        "status_label": "运行中",
-        "active_apps": 4,
+        "status": "legacy_partial_stopped",
+        "status_label": "历史部分结果 · 扩采终止",
+        "active_apps": 0,
         "sources": [
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c00",
-            "status": "complete",
+            "status": "legacy_partial_stopped",
             "status_label": "分片已闭合 · 不占活跃环境",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7418,9 +7412,9 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c01",
-            "status": "running",
+            "status": "legacy_partial_stopped",
             "status_label": "运行中",
-            "active_apps": 4,
+            "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
             "platform_status": "RUNNING",
             "source_heartbeat_epoch": 1793718537.5662613,
@@ -7429,7 +7423,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c02",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7440,7 +7434,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c03",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7451,7 +7445,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c04",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7462,7 +7456,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c05",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7473,7 +7467,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c06",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7484,7 +7478,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c07",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7495,7 +7489,7 @@
           {
             "worker": "3",
             "source": "resume:g1v7:ours_native_20k_c08",
-            "status": "starting",
+            "status": "legacy_partial_stopped",
             "status_label": "启动检查 · 尚无运行观测",
             "active_apps": 0,
             "job_id": "job-evgnqfhxojjk",
@@ -7515,10 +7509,10 @@
       {
         "job_group": 0,
         "job_id": "job-fukazjhgth7h",
-        "status": "RUNNING",
+        "status": "STOPPED",
         "GPUs": 4,
         "execution_class": "low_priority",
-        "reserved_GPUs": 4,
+        "reserved_GPUs": 0,
         "workers": [
           0,
           1
@@ -7549,15 +7543,16 @@
           "dense_topology.py": "4fa23d754870149cdea8c578decac936cd9c9c3a75f9b5a32eaa56ccdc1a8312",
           "task7_dense_adapter.py": "e3f9b7579fe80e9b382ca4b7ef1f9c5b318597f807af9076bd5f7cc9d1d10a48"
         },
-        "remote_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/multi_env_v2_formal_g0_v11"
+        "remote_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/multi_env_v2_formal_g0_v11",
+        "platform_terminal_verified": true
       },
       {
         "job_group": 1,
         "job_id": "job-evgnqfhxojjk",
-        "status": "RUNNING",
+        "status": "STOPPED",
         "GPUs": 4,
         "execution_class": "low_priority",
-        "reserved_GPUs": 4,
+        "reserved_GPUs": 0,
         "workers": [
           2,
           3
@@ -7581,15 +7576,16 @@
         "native_contract_sha256": "304d7bab1147820d0108c865cc68f91caccd2434b8f4c172830ab4cb66fe0d5f",
         "native_contract_allocation_verified": true,
         "native_contract_dense_source_sha256": null,
-        "remote_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/multi_env_v2_formal_g1_v7"
+        "remote_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/multi_env_v2_formal_g1_v7",
+        "platform_terminal_verified": true
       },
       {
         "job_group": 2,
         "job_id": "job-emarmqtojh7u",
-        "status": "RUNNING",
+        "status": "STOPPED",
         "GPUs": 4,
         "execution_class": "low_priority",
-        "reserved_GPUs": 4,
+        "reserved_GPUs": 0,
         "workers": [
           4,
           5
@@ -7620,16 +7616,17 @@
           "dense_topology.py": "4fa23d754870149cdea8c578decac936cd9c9c3a75f9b5a32eaa56ccdc1a8312",
           "task7_dense_adapter.py": "e3f9b7579fe80e9b382ca4b7ef1f9c5b318597f807af9076bd5f7cc9d1d10a48"
         },
-        "remote_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/multi_env_v2_formal_g2_v8"
+        "remote_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/multi_env_v2_formal_g2_v8",
+        "platform_terminal_verified": true
       }
     ],
     "cloud_states": {
-      "0": "RUNNING",
-      "1": "RUNNING",
-      "2": "RUNNING"
+      "0": "STOPPED",
+      "1": "STOPPED",
+      "2": "STOPPED"
     },
     "dispatch_observation_fresh": true,
-    "topology_observation_status": "P4_formal_active",
+    "topology_observation_status": "historical_campaign_stopped",
     "adapter_diagnostics": {
       "observation_status": "fresh",
       "epoch": 1793718716.0438788,
@@ -7722,7 +7719,36 @@
     "resource_source_evidence": {
       "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/CLOUD_DISPATCH_STATE.json",
       "sha256": "18204f9bd8846959d90027197f2bcfa418cd09c54897b16462b647b90a288a93"
-    }
+    },
+    "metrics_snapshot_updated_at": "2026-11-03T15:12:05.471158+00:00",
+    "historical_resource_observation": {
+      "active_apps": 40,
+      "gpus": 12,
+      "max_parallel_apps": 40,
+      "resource_note": "云端实际运行12卡（低优12、普通优先级0）；待提交0组；平台排队0个任务，0组创建操作尚无job ID；已申请/预留12卡，正式评测云端上限12，含四卡原生对照验证时总上限12，低优上限12。当前观测到6种模型运行；现有双卡Pro与云端资源分列。原20k baseline续测单列，不混入附着成绩。 混合并行配置：G0/G2目标每卡4个独立仿真进程×每进程1个环境，G1每卡2个独立仿真进程×每进程1个环境；计划上限40路（G0 16＋G1 8＋G2 16），当前核实40路总并发。 G0已核实P4E1原生门槛与正式活跃证据，当前16路P4并发。 G2已核实P4E1原生门槛与正式活跃证据，当前8路P4并发。 所有进程各自仅1环境，单进程N4（每进程4环境）尚未在七任务验证启用；密度调整尚无完整评测提速结论。 各模型：Mem-0 30k 运行中；TTC基础30k 运行中；TTC训练缩放对齐 启动检查；TTC对齐loss 运行中；Mem-0削弱版 运行中；Mem-0 20k 运行中；TTC基础20k 运行中。 多环境适配器：七任务adapter已实现，102项CPU检查通过；第7代原生探针 SUCCEEDED；该探针子进程已回收；共享场景图像RGB MAE 8.287–13.79；N1重复对照 0.44–0.45；真实七任务adapter：P1/P2E1原生一致性验证通过；独立进程图像RGB MAE 0.43628–0.4476；Mem-0 30k、TTC对齐loss真实模型集成冒烟测试通过：各4lane、每lane40帧，共8lane（非计分）；原生SDK4帧对照与进程回收通过；完整任务成功率仍待正式评测；共享场景图像一致性仍未通过；正式worker已接入独立进程后端（每进程1环境），各组实际密度与原生资格以正式资源观测为准；探针不计入模型成功率；已验收成绩保持不变。",
+      "resource_source_evidence": {
+        "path": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/stable_grasp_attach_v1/parallel_models_v2/CLOUD_DISPATCH_STATE.json",
+        "sha256": "18204f9bd8846959d90027197f2bcfa418cd09c54897b16462b647b90a288a93"
+      },
+      "full_prior_snapshot_git_base": "a628a6a044aa171c75cdc03a9230a75faee438fd"
+    },
+    "current_resources_observed_at": "2026-11-03T15:32:36.445704+00:00",
+    "legacy_terminal_summary": {
+      "accepted": 3287,
+      "successes": 50,
+      "baseline_separately_preserved": 8,
+      "stop_inflight_unknown_prefixes": 56,
+      "old_terminal_holds": 8,
+      "unknowns_not_failed_or_replayed": true,
+      "accepted_is_not_total_dispatched_denominator": true,
+      "formal_v1_results": false,
+      "report": "reports/task7-eval-v1-20261103/legacy-final-capture.json",
+      "sha256": "72f0789e7350a2f23079dd3abaafe176a5d0127a4fa4778473c43f76462931f4"
+    },
+    "target_is_historical_stopped_plan": true,
+    "old_expansion_restart_authorized": false,
+    "status_evidence": "reports/task7-eval-v1-20261103/legacy-platform-terminal.json",
+    "status_evidence_sha256": "020a94523007938d547d6f20f05de15cfd234cbc99adeef6ad1956b9bd8d7343"
   },
   "supplemental_campaigns": {
     "task7-ours-weak-aligned-issue18": {
@@ -7974,5 +8000,30 @@
       "resource_observation_epoch": 1793718716.0337074,
       "resource_observation_stale": false
     }
-  }
+  },
+  "metrics_snapshot_updated_at": "2026-11-03T15:12:02.236023+00:00",
+  "historical_resource_observation": {
+    "active_apps": 0,
+    "gpus": 0,
+    "max_parallel_apps": 0,
+    "resource_note": "这些历史baseline任务均已结束；20k按12卡上限暂停，8条已验收、292条待续。当前附着评测并行进度见独立面板。",
+    "full_prior_snapshot_git_base": "a628a6a044aa171c75cdc03a9230a75faee438fd"
+  },
+  "current_resources_observed_at": "2026-11-03T15:32:36.445704+00:00",
+  "legacy_terminal_summary": {
+    "accepted": 3287,
+    "successes": 50,
+    "baseline_separately_preserved": 8,
+    "stop_inflight_unknown_prefixes": 56,
+    "old_terminal_holds": 8,
+    "unknowns_not_failed_or_replayed": true,
+    "accepted_is_not_total_dispatched_denominator": true,
+    "formal_v1_results": false,
+    "report": "reports/task7-eval-v1-20261103/legacy-final-capture.json",
+    "sha256": "72f0789e7350a2f23079dd3abaafe176a5d0127a4fa4778473c43f76462931f4"
+  },
+  "target_is_historical_stopped_plan": true,
+  "old_expansion_restart_authorized": false,
+  "status_evidence": "reports/task7-eval-v1-20261103/legacy-platform-terminal.json",
+  "status_evidence_sha256": "020a94523007938d547d6f20f05de15cfd234cbc99adeef6ad1956b9bd8d7343"
 }

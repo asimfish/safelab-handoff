@@ -25,6 +25,7 @@ for(const [number,id]of Object.entries(mapping)){
 for(const r of data.records)if(!r.weights.length){r.history_placeholder=true;r.placeholder_reason='未能与具体checkpoint issue绑定；保留历史训练占位，不计入权重覆盖。';}
 // These sections contain evidence and must remain byte-equivalent as JSON values.
 for(const k of ['evaluations','diagnostics','campaigns','datasets'])if(JSON.stringify(before[k])!==JSON.stringify(data[k]))throw Error('Unrelated evidence modified: '+k);
-data.checkpoint_issue_audit={checked_at:new Date().toISOString(),source:'GitHub issues, open and closed; explicit maintainer-reviewed mapping',issues:report,duplicate_policy:'Issue8 duplicates7; keep both issue references on one weight; do not close automatically.'};
+const bindings=data.records.flatMap(r=>(r.checkpoint_issues||[]).map(i=>({record:r.id,identity:{task:r.task,dataset:r.dataset,camera:r.camera,method:r.method},...i})));
+data.checkpoint_issue_audit={schema_version:1,bindings,checked_at:new Date().toISOString(),source:'GitHub issues, open and closed; explicit maintainer-reviewed mapping',issues:report,duplicate_policy:'Issue8 duplicates7; keep both issue references on one weight; do not close automatically.'};
 if(process.argv.includes('--write'))fs.writeFileSync('data.json',JSON.stringify(data,null,2)+'\n');
 console.log(JSON.stringify({write:process.argv.includes('--write'),records:data.records.length,checkpoint_issues:report.length,canonical_issues:report.filter(x=>!x.duplicate_of).length,issues:report},null,2));

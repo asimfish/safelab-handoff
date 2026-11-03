@@ -2,14 +2,14 @@
   "id": "task5-all-20261101",
   "title": "五子任务 · 原版 Mem-0 / 削弱版 / TTC",
   "task": "5",
-  "updated_at": "2026-11-03T02:15:55.036104+00:00",
+  "updated_at": "2026-11-03T02:17:45.106377+00:00",
   "final_verified": false,
   "status": "running",
-  "completed": 3101,
-  "audited": 3101,
+  "completed": 3103,
+  "audited": 3103,
   "target": 9000,
   "provisional_successes": 0,
-  "active_apps": 22,
+  "active_apps": 21,
   "max_parallel_apps": 40,
   "gpus": 8,
   "execution_class": "low_priority",
@@ -514,17 +514,17 @@
       "method": "Mem-0",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 181,
-      "audited": 181,
+      "completed": 182,
+      "audited": 182,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 170,
+        "0": 171,
         "1": 11
       },
       "layouts": {
         "forward": 91,
-        "reverse": 90
+        "reverse": 91
       },
       "final_verified": false,
       "protocol": "100个配对场景，物体及占用垫子XY各±1cm，空目标垫子固定；正向/反向各50条；第三人称640×480原始RGB+13维实测弧度；训练双线性抗锯齿缩放对齐；预测30×13绝对目标，current_row，去噪8步；15Hz观测、120Hz物理、8个原生线性控制子步及速度前馈；每条240模拟秒上限；每进程一个独立N1世界，每卡4进程；原五阶段物理验收，逐条重算120Hz原始物理与动作队列；不向策略提供真值子任务、DAG或完成信号。 五组配对推理种子，每组100条；各轮均值及样本标准差，未满500条不发布最终成绩。",
@@ -542,8 +542,8 @@
         {
           "repeat": 1,
           "run_seed": 1,
-          "completed": 81,
-          "audited": 81,
+          "completed": 82,
+          "audited": 82,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1237,15 +1237,15 @@
       "method": "TTC · 对齐loss",
       "checkpoint_step": 30000,
       "execution_horizon": 4,
-      "completed": 138,
-      "audited": 138,
+      "completed": 139,
+      "audited": 139,
       "target": 500,
       "successes": 0,
       "physical_phases": {
-        "0": 138
+        "0": 139
       },
       "layouts": {
-        "forward": 69,
+        "forward": 70,
         "reverse": 69
       },
       "final_verified": false,
@@ -1264,8 +1264,8 @@
         {
           "repeat": 1,
           "run_seed": 1,
-          "completed": 38,
-          "audited": 38,
+          "completed": 39,
+          "audited": 39,
           "successes": 0,
           "target": 100,
           "final_verified": false,
@@ -1805,7 +1805,7 @@
       "resource_class": "low_priority",
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 495,
+      "completed": 496,
       "active_apps": 11,
       "error": false,
       "audit_error": false,
@@ -1820,18 +1820,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793672106.079505,
+        "epoch": 1793672214.404413,
         "status": "running",
-        "completed": 989,
+        "completed": 991,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "469895159808",
+          "current": "469961273344",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 84373725184
+          "shm_used": 83900936192
         },
-        "gpu": "0, 68649, 51\n1, 68068, 51\n2, 69392, 42\n3, 50687, 48\n"
+        "gpu": "0, 68649, 58\n1, 68068, 53\n2, 64816, 39\n3, 50687, 53\n"
       },
       "startup_gates": 4
     },
@@ -1846,8 +1846,8 @@
       "resource_class": "low_priority",
       "platform_status": "RUNNING",
       "runtime_status": "running",
-      "completed": 806,
-      "active_apps": 11,
+      "completed": 807,
+      "active_apps": 10,
       "error": false,
       "audit_error": false,
       "historical": false,
@@ -1861,18 +1861,18 @@
         "fifth_slot_added_after_private_model_parity": true
       },
       "resources": {
-        "epoch": 1793672113.6907566,
+        "epoch": 1793672223.040513,
         "status": "running",
-        "completed": 1612,
+        "completed": 1613,
         "target": 1800,
         "memory": {
           "limit": "858993459200",
-          "current": "585579606016",
+          "current": "590228086784",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 136211574784
+          "shm_used": 137271951360
         },
-        "gpu": "0, 49072, 49\n1, 44834, 42\n2, 31309, 74\n3, 27320, 54\n"
+        "gpu": "0, 49072, 50\n1, 48952, 54\n2, 28921, 56\n3, 31305, 49\n"
       },
       "startup_gates": 6
     },
@@ -45441,6 +45441,25 @@
       "attempt_priority": 100
     },
     {
+      "id": "r1__ours30_mem0_30000_h4_forward_019",
+      "variant": "ours30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "forward",
+      "seed": 1939159276,
+      "repeat": 1,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 240.0,
+      "physics_sha256": "658dfe36d6556ea0738d33d170e5930d010203ce4d0219ac2fe15c5b5c81f5ee",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-pcyii5zfqbad",
+      "attempt_priority": 100
+    },
+    {
       "id": "r1__weak20_mem0_20000_h4_forward_042",
       "variant": "weak20",
       "checkpoint_step": 20000,
@@ -60844,6 +60863,25 @@
       "physical_phases": 0,
       "sim_seconds": 32.38333333333333,
       "physics_sha256": "da27ff060f925fd65490e62e053776fbd0bd2d23770a6588346c516c8ef8565c",
+      "attach_events": 0,
+      "policy_release_events": 0,
+      "source_job_id": "job-0z8le3gjvm8q",
+      "attempt_priority": 101
+    },
+    {
+      "id": "r1__new30_mem0_30000_h4_reverse_040",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 4,
+      "layout": "reverse",
+      "seed": 1028836347,
+      "repeat": 1,
+      "condition": "baseline",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 27.4,
+      "physics_sha256": "0ebe6dd9b88f877f16bb81f049fc1791dd8152873cb37208ab36161501d72a01",
       "attach_events": 0,
       "policy_release_events": 0,
       "source_job_id": "job-0z8le3gjvm8q",

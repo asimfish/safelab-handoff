@@ -7,8 +7,8 @@
   "seed_count": 5,
   "trials_per_seed": 100,
   "status": "running",
-  "completed": 70,
-  "audited": 70,
+  "completed": 72,
+  "audited": 72,
   "successes": 0,
   "final_verified": false,
   "counts": [
@@ -336,15 +336,15 @@
       "condition": "attachment",
       "execution_horizon": 30,
       "target": 500,
-      "completed": 10,
-      "audited": 10,
+      "completed": 12,
+      "audited": 12,
       "successes": 0,
       "seeds": [
         {
           "repeat": 0,
           "target": 100,
-          "completed": 10,
-          "audited": 10,
+          "completed": 12,
+          "audited": 12,
           "successes": 0,
           "final_verified": false,
           "success_rate": null
@@ -1549,6 +1549,23 @@
       "attempt_priority": 0
     },
     {
+      "id": "attach__oursalignedweak30_mem0_30000_h30_reverse_005",
+      "variant": "oursalignedweak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 730005,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 118.33333333333333,
+      "physics_sha256": "46d8d6e7be3167e64bc2a95816f279a71688f52ec03636aefa139aacc4b8a72e",
+      "source_job_id": "job-qc8mx9m974a5",
+      "attempt_priority": 0
+    },
+    {
       "id": "attach__oursalignedweak30_mem0_30000_h4_reverse_006",
       "variant": "oursalignedweak30",
       "checkpoint_step": 30000,
@@ -1581,6 +1598,23 @@
       "physics_sha256": "109a5ff2ef13a97eb97d6c0748ed234eef8e8bb30e936f3ed182e32710fedcc0",
       "source_job_id": "job-qc8mx9m974a5",
       "attempt_priority": 0
+    },
+    {
+      "id": "attach__oursalignedweak30_mem0_30000_h30_reverse_006",
+      "variant": "oursalignedweak30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 30,
+      "layout": "reverse",
+      "seed": 730006,
+      "repeat": 0,
+      "condition": "attachment",
+      "audited": true,
+      "success": false,
+      "physical_phases": 0,
+      "sim_seconds": 46.65,
+      "physics_sha256": "31c0f5393e67156b452a61f740bd5888069a3d573e43203e75ab5b6c94fd98ee",
+      "source_job_id": "job-qc8mx9m974a5",
+      "attempt_priority": 0
     }
   ],
   "jobs": [
@@ -1595,18 +1629,18 @@
       "gpus": 4,
       "slots_per_GPU": 5,
       "resources": {
-        "epoch": 1793673504.3084188,
+        "epoch": 1793673653.0557642,
         "status": "running",
-        "completed": 70,
+        "completed": 72,
         "target": 600,
         "memory": {
           "limit": "858993459200",
-          "current": "345878732800",
+          "current": "344595156992",
           "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0",
           "shm_total": 858993459200,
-          "shm_used": 19296616448
+          "shm_used": 18320470016
         },
-        "gpu": "0, 69249, 21\n1, 69292, 66\n2, 51185, 23\n3, 51319, 47\n"
+        "gpu": "0, 66635, 43\n1, 69292, 40\n2, 48839, 48\n3, 51319, 42\n"
       },
       "active_apps": 20,
       "startup_gates": 4,
@@ -1617,7 +1651,7 @@
   "global_low_priority_GPU_cap": 12,
   "max_parallel_apps": 20,
   "active_apps": 20,
-  "updated_at": "2026-11-03T02:38:52.510690+00:00",
+  "updated_at": "2026-11-03T02:40:56.686853+00:00",
   "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-ours-aligned-weak-20261102.html",
   "protocol": "独立30k对齐削弱版；4/8/30步各5个推理seed，每seed100条，正反布局各50条，与原pos1cm场景配对。原始与真实稳定抓取后附着条件分别计分。原生weak Gen、next/DAG LoRA、弱标签和归一化；第三人称原始640×480 RGB、实测q13；15Hz观测、120Hz线性控制。完整240秒上限和原物理验收，逐条原始物理日志独立复算。未完成五轮不展示最终平均成功率。",
   "resource_policy": "复用唯一12卡低优调度器，UNKNOWN仍预留4卡；不取消现存任务。空出4卡后优先提交本版。新套件独立于原18000条。",

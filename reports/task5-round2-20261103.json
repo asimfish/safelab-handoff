@@ -1,0 +1,228 @@
+{
+  "updated_at": "2026-11-03T18:23:51.138545+00:00",
+  "protocol_version": "SafeLab-Eval-v1",
+  "models": [
+    {
+      "variant": "new20",
+      "record": "5-pos-mem0",
+      "checkpoint": 20000,
+      "smoke_n": 0,
+      "smoke_phase_hist": {},
+      "smoke_mean_phase": null,
+      "status": "awaiting smoke",
+      "A_completed": 0
+    },
+    {
+      "variant": "new30",
+      "record": "5-pos-mem0",
+      "checkpoint": 30000,
+      "smoke_n": 20,
+      "smoke_phase_hist": {
+        "0": 16,
+        "1": 0,
+        "2": 3,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "smoke_mean_phase": 0.45,
+      "status": "smoke passed; A submitted",
+      "A_completed": {
+        "4": 18,
+        "8": 14
+      }
+    },
+    {
+      "variant": "weak20",
+      "record": "5-pos-mem0-weak",
+      "checkpoint": 20000,
+      "smoke_n": 0,
+      "smoke_phase_hist": {},
+      "smoke_mean_phase": null,
+      "status": "awaiting smoke",
+      "A_completed": 0
+    },
+    {
+      "variant": "weak30",
+      "record": "5-pos-mem0-weak",
+      "checkpoint": 30000,
+      "smoke_n": 0,
+      "smoke_phase_hist": {},
+      "smoke_mean_phase": null,
+      "status": "awaiting smoke",
+      "A_completed": 0
+    },
+    {
+      "variant": "ours30",
+      "record": "5-pos-ours-aligned",
+      "checkpoint": 30000,
+      "smoke_n": 0,
+      "smoke_phase_hist": {},
+      "smoke_mean_phase": null,
+      "status": "awaiting smoke",
+      "A_completed": 0
+    },
+    {
+      "variant": "oursalignedweak30",
+      "record": "5-pos-ttc-aligned-weak",
+      "checkpoint": 30000,
+      "smoke_n": 0,
+      "smoke_phase_hist": {},
+      "smoke_mean_phase": null,
+      "status": "awaiting smoke",
+      "A_completed": 0
+    },
+    {
+      "variant": "old30",
+      "record": "5-fixed-mem0",
+      "checkpoint": 30000,
+      "smoke_n": 0,
+      "smoke_phase_hist": {},
+      "smoke_mean_phase": null,
+      "status": "fixed optics admission pending",
+      "A_completed": 0
+    }
+  ],
+  "legacy_excluded": 7023,
+  "low_priority_cap": 12,
+  "legacy_direct_publisher_retired": true,
+  "formal_oracle_modified": false,
+  "open_loop": "passed：corrected Native RGB/own training RGB RMSE 0.77–1.35≤1.5；本轮总负责明确认可，训练loss不阻塞。",
+  "stability_oracle": "121 physical ticks / 1second; endpoint position drift≤1mm and orientation≤0.02rad, geometry support/no-fingers gate; no instantaneous angular/linear velocity gate in checked baseline/attach/current versions",
+  "calibration": "five-task native static probe running; thresholds not yet frozen; no candidate score published",
+  "N4": "closed, throughput upper bound1.02<1.3; not admitted",
+  "media": "存储sources接口仅返回授权source_id和访问方式，未提供稳定匿名公开只读HTTPS端点；禁止临时签名URL，当前未发布媒体清单",
+  "stability": {
+    "original_angular_velocity_gate": false,
+    "original_window_ticks": 121,
+    "original_position_endpoint_max_m": 0.001,
+    "original_orientation_endpoint_max_rad": 0.02,
+    "valid_static_scenes": 2,
+    "planned_static_scenes": 4,
+    "static_scene_censoring": "第三个场景被共享主机内存保护中断，第四个未启动；未降低保护阈值",
+    "threshold_sha256": "f4793ad1f0a56886d9c4d59e65c6b9d288831359c5af42bdbb6c498287eadd7c",
+    "thresholds": {
+      "A": {
+        "position_range_m": 0.002,
+        "rotation_range_rad": 0.02
+      },
+      "B": {
+        "position_range_m": 0.002,
+        "rotation_range_rad": 0.02
+      },
+      "C": {
+        "position_range_m": 0.002,
+        "rotation_range_rad": 0.02
+      }
+    },
+    "static_validation": {
+      "A": {
+        "candidate_static_stable_fraction": 1.0,
+        "original_static_stable_fraction": 1.0
+      },
+      "B": {
+        "candidate_static_stable_fraction": 1.0,
+        "original_static_stable_fraction": 1.0
+      },
+      "C": {
+        "candidate_static_stable_fraction": 1.0,
+        "original_static_stable_fraction": 1.0
+      }
+    },
+    "expert": {
+      "strict": 8,
+      "candidate": 8,
+      "n": 8
+    },
+    "smoke_groups": [
+      {
+        "source_role": "expert_original8",
+        "variant": "expert",
+        "checkpoint": null,
+        "horizon": null,
+        "condition": "baseline",
+        "n": 8,
+        "unknown": 0,
+        "strict_success": 8,
+        "candidate_success": 8,
+        "strict_phase_hist": {
+          "5": 8
+        },
+        "candidate_phase_hist": {
+          "5": 8
+        },
+        "stability_only_blocked": 0,
+        "strict_mean_phase": 5.0,
+        "candidate_mean_phase": 5.0
+      },
+      {
+        "source_role": "cloud4_current_row_smoke20_v4",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 20,
+        "unknown": 0,
+        "strict_success": 0,
+        "candidate_success": 0,
+        "strict_phase_hist": {
+          "0": 16,
+          "2": 3,
+          "3": 1
+        },
+        "candidate_phase_hist": {
+          "0": 16,
+          "2": 3,
+          "3": 1
+        },
+        "stability_only_blocked": 0,
+        "strict_mean_phase": 0.45,
+        "candidate_mean_phase": 0.45
+      },
+      {
+        "source_role": "cloud4_source_optics_smoke20_v1",
+        "variant": "new30",
+        "checkpoint": 30000,
+        "horizon": 8,
+        "condition": "baseline",
+        "n": 20,
+        "unknown": 0,
+        "strict_success": 0,
+        "candidate_success": 0,
+        "strict_phase_hist": {
+          "0": 17,
+          "1": 1,
+          "2": 2
+        },
+        "candidate_phase_hist": {
+          "0": 17,
+          "1": 1,
+          "2": 2
+        },
+        "stability_only_blocked": 0,
+        "strict_mean_phase": 0.25,
+        "candidate_mean_phase": 0.25
+      }
+    ],
+    "CPU_progress": {
+      "complete": 106,
+      "target": 7071,
+      "counts": {
+        "rescored": 106
+      }
+    },
+    "angular_mean_control": "N/A：五任务原oracle没有角速度阈值，不能冒用三任务0.1rad/s",
+    "validation_status": "开局静置通过，专家8/8通过；明显不稳定真实案例各10条视频人工核对尚未完成，候选不准入正式协议"
+  },
+  "resource_utilization": {
+    "window_start": 1793729001.9223769,
+    "window_end": 1793729601.9223769,
+    "window_s": 600.0,
+    "mean_GPU_utilization_pct": 45.07191769182682,
+    "mean_GPU_memory_utilization_pct": 49.240617459986844,
+    "gpu_count": 4,
+    "maximum_telemetry_interval_s": 61.92436408996582,
+    "scope": "all4GPUs of new30_A, time-weighted stepwise telemetry; other8GPU intents still uncreated",
+    "target_met": false
+  }
+}

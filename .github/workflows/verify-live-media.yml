@@ -11,14 +11,14 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Verify live index, all pi05 logs, and representative videos
+      - name: Verify Mem0-TTC exact diagnostic pairs and actual UI limits
         env:
           SAFELAB_MEDIA_QA_DIR: /tmp/safelab-live-media
-        run: node tests/media-live-browser.mjs
+        run: node tests/task3-matched-diagnostic-live.mjs
       - name: Preserve actual browser evidence including display limitations
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: safelab-live-media-evidence
+          name: safelab-task3-matched-diagnostic-evidence
           path: /tmp/safelab-live-media/
           retention-days: 3

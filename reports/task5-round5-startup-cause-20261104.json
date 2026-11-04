@@ -1,0 +1,103 @@
+{
+  "scope": "启动链诊断；不属于模型评测成绩",
+  "snapshot_at": "2026-11-04T10:07:09.935821+00:00",
+  "watch_source_epoch": 1793786829.935821,
+  "first_portable_failure": {
+    "job_id": "job-0ujjn1fq67mu",
+    "seconds_from_entry_birth_to_failure": 0.0753319263458252,
+    "cause": "driver display-name guard rejected allocated GPU alias before models",
+    "generic_failure_marker": "object_transfer_failed",
+    "all_replicas_terminal": true
+  },
+  "observation_only_job": {
+    "job_id": "job-lejoqf9oxzn8",
+    "terminal": "SUCCEEDED",
+    "all_replicas_terminal": true,
+    "model_calls": 0,
+    "simulations": 0,
+    "token_environment_present": true,
+    "manifest_mismatches": [],
+    "devices": [
+      {
+        "index": 0,
+        "driver_display_name": "NVIDIA RPBZZZ6",
+        "total_MiB": 97887,
+        "free_MiB": 97250
+      },
+      {
+        "index": 1,
+        "driver_display_name": "NVIDIA RPBZZZ6",
+        "total_MiB": 97887,
+        "free_MiB": 97250
+      },
+      {
+        "index": 2,
+        "driver_display_name": "NVIDIA RPBZZZ6",
+        "total_MiB": 97887,
+        "free_MiB": 97250
+      },
+      {
+        "index": 3,
+        "driver_display_name": "NVIDIA RPBZZZ6",
+        "total_MiB": 97887,
+        "free_MiB": 97250
+      }
+    ]
+  },
+  "official_allocation": {
+    "id": "ejtfr2ncissf7f89rspag0ls9",
+    "gpu_model": "NVIDIA RTX PRO 6000 96GB",
+    "gpu_count": 4
+  },
+  "repair": {
+    "passed": true,
+    "binding": "catalog offering + assigned UUID set + GPU count + memory/free-memory guards",
+    "physics_and_control_files_unchanged": [
+      "job.py",
+      "rollout.py",
+      "RESUME_SEED.json",
+      "oracle_switch.py"
+    ],
+    "tests": {
+      "command": "python3 -B -m unittest -v test_inventory_contract.py",
+      "passed": 6,
+      "source_sha256": "7fe325e77927ced77a3061cc8454b6cabb18923615c1f792e38d30edccff8f37",
+      "test_sha256": "170da143538b393312bf13343841e8a5c793b5d0104a48a852d1b3ce82889c55"
+    }
+  },
+  "replacement": {
+    "job_id": "job-u8rxnsr9ic02",
+    "platform_status": "STOPPED",
+    "state_text": "已停止并确认释放",
+    "detail": "固定输入自检读取NPZ时缺rgb键；未到首个scene-ready，新增轨迹和GT验收数均为0",
+    "hard_failure_marker": true,
+    "running_gpus": 0,
+    "reserved_gpus": 0,
+    "first_scene_ready": false,
+    "new_oracle_diagnostic_completed": 0,
+    "all_replicas_terminal": true
+  },
+  "evidence": {
+    "startup_observer/OBSERVATIONS.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/OBSERVATIONS.json",
+      "sha256": "92fc4e3ea742612986f6f5d8e39e47faeafa5cf1c38a4423b5d52e4b8b7bf94a"
+    },
+    "startup_observer/TERMINAL_RELEASE.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/TERMINAL_RELEASE.json",
+      "sha256": "450b114e8e23c146a2e8dbd0a69d7e78ef3418a66dc687170754dd3dbfd0ff3d"
+    },
+    "ALIAS_OFFICIAL_OFFERING.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/ALIAS_OFFICIAL_OFFERING.json",
+      "sha256": "1bbe153a30dc510764bcca6c74d60f2b333c177691b8d18648574b1ea9fa9f10"
+    },
+    "BOOT_GUARD_FIX_PROOF.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/BOOT_GUARD_FIX_PROOF.json",
+      "sha256": "bbb6bd7a35dc9aa919ea7bab00a8953e71a18b7b42fd4a8771abf4a26edfb52a"
+    },
+    "portable_job_v2/WATCH_LATEST.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v2/WATCH_LATEST.json",
+      "sha256": "3ac3ff7617aed09225776a60379aebd9da8c883c3a81ad962344b7f93a922502"
+    }
+  },
+  "claim_boundary": "CPU/observation evidence and local platform receipts only; synthetic CPU initialize health is not real NN parity; no new case is scored here."
+}

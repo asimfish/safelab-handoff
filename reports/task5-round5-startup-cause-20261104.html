@@ -1,0 +1,103 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>五任务启动链诊断</title><style>body{font:16px system-ui;margin:24px;max-width:1100px}pre{white-space:pre-wrap}</style><h1>五任务启动链诊断</h1><p>首个portable任务在入口出生约75ms后、模型启动之前被显示名称守卫拦截。观察任务确认分配的4卡驱动别名为NVIDIA RPBZZZ6；每卡总显存97887MiB、空闲97250MiB。官方规格为NVIDIA RTX PRO 6000 96GB。鉴权环境存在、代码哈希无差异。</p><p>修复改按官方规格、已分配UUID、卡数、显存及独占余量核验；6项CPU正反测试通过。控制和物理文件不变。观察任务已成功终止并释放。</p><p>最新替代任务快照：2026-11-04T10:07:09.935821+00:00；已停止并确认释放；固定输入自检读取NPZ时缺rgb键；未到首个scene-ready，新增轨迹和GT验收数均为0。启动自检不计入任何模型成绩，GT轨迹须验收后才记数。</p><p><a href="task5-round5-startup-cause-20261104.json">机器可读证据与源SHA</a> · <a href="task5-round5-cpu-three-metrics-20261104.html">三口径对比</a></p><pre>{
+  &quot;scope&quot;: &quot;启动链诊断；不属于模型评测成绩&quot;,
+  &quot;snapshot_at&quot;: &quot;2026-11-04T10:07:09.935821+00:00&quot;,
+  &quot;watch_source_epoch&quot;: 1793786829.935821,
+  &quot;first_portable_failure&quot;: {
+    &quot;job_id&quot;: &quot;job-0ujjn1fq67mu&quot;,
+    &quot;seconds_from_entry_birth_to_failure&quot;: 0.0753319263458252,
+    &quot;cause&quot;: &quot;driver display-name guard rejected allocated GPU alias before models&quot;,
+    &quot;generic_failure_marker&quot;: &quot;object_transfer_failed&quot;,
+    &quot;all_replicas_terminal&quot;: true
+  },
+  &quot;observation_only_job&quot;: {
+    &quot;job_id&quot;: &quot;job-lejoqf9oxzn8&quot;,
+    &quot;terminal&quot;: &quot;SUCCEEDED&quot;,
+    &quot;all_replicas_terminal&quot;: true,
+    &quot;model_calls&quot;: 0,
+    &quot;simulations&quot;: 0,
+    &quot;token_environment_present&quot;: true,
+    &quot;manifest_mismatches&quot;: [],
+    &quot;devices&quot;: [
+      {
+        &quot;index&quot;: 0,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      },
+      {
+        &quot;index&quot;: 1,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      },
+      {
+        &quot;index&quot;: 2,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      },
+      {
+        &quot;index&quot;: 3,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      }
+    ]
+  },
+  &quot;official_allocation&quot;: {
+    &quot;id&quot;: &quot;ejtfr2ncissf7f89rspag0ls9&quot;,
+    &quot;gpu_model&quot;: &quot;NVIDIA RTX PRO 6000 96GB&quot;,
+    &quot;gpu_count&quot;: 4
+  },
+  &quot;repair&quot;: {
+    &quot;passed&quot;: true,
+    &quot;binding&quot;: &quot;catalog offering + assigned UUID set + GPU count + memory/free-memory guards&quot;,
+    &quot;physics_and_control_files_unchanged&quot;: [
+      &quot;job.py&quot;,
+      &quot;rollout.py&quot;,
+      &quot;RESUME_SEED.json&quot;,
+      &quot;oracle_switch.py&quot;
+    ],
+    &quot;tests&quot;: {
+      &quot;command&quot;: &quot;python3 -B -m unittest -v test_inventory_contract.py&quot;,
+      &quot;passed&quot;: 6,
+      &quot;source_sha256&quot;: &quot;7fe325e77927ced77a3061cc8454b6cabb18923615c1f792e38d30edccff8f37&quot;,
+      &quot;test_sha256&quot;: &quot;170da143538b393312bf13343841e8a5c793b5d0104a48a852d1b3ce82889c55&quot;
+    }
+  },
+  &quot;replacement&quot;: {
+    &quot;job_id&quot;: &quot;job-u8rxnsr9ic02&quot;,
+    &quot;platform_status&quot;: &quot;STOPPED&quot;,
+    &quot;state_text&quot;: &quot;已停止并确认释放&quot;,
+    &quot;detail&quot;: &quot;固定输入自检读取NPZ时缺rgb键；未到首个scene-ready，新增轨迹和GT验收数均为0&quot;,
+    &quot;hard_failure_marker&quot;: true,
+    &quot;running_gpus&quot;: 0,
+    &quot;reserved_gpus&quot;: 0,
+    &quot;first_scene_ready&quot;: false,
+    &quot;new_oracle_diagnostic_completed&quot;: 0,
+    &quot;all_replicas_terminal&quot;: true
+  },
+  &quot;evidence&quot;: {
+    &quot;startup_observer/OBSERVATIONS.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/OBSERVATIONS.json&quot;,
+      &quot;sha256&quot;: &quot;92fc4e3ea742612986f6f5d8e39e47faeafa5cf1c38a4423b5d52e4b8b7bf94a&quot;
+    },
+    &quot;startup_observer/TERMINAL_RELEASE.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/TERMINAL_RELEASE.json&quot;,
+      &quot;sha256&quot;: &quot;450b114e8e23c146a2e8dbd0a69d7e78ef3418a66dc687170754dd3dbfd0ff3d&quot;
+    },
+    &quot;ALIAS_OFFICIAL_OFFERING.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/ALIAS_OFFICIAL_OFFERING.json&quot;,
+      &quot;sha256&quot;: &quot;1bbe153a30dc510764bcca6c74d60f2b333c177691b8d18648574b1ea9fa9f10&quot;
+    },
+    &quot;BOOT_GUARD_FIX_PROOF.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/BOOT_GUARD_FIX_PROOF.json&quot;,
+      &quot;sha256&quot;: &quot;bbb6bd7a35dc9aa919ea7bab00a8953e71a18b7b42fd4a8771abf4a26edfb52a&quot;
+    },
+    &quot;portable_job_v2/WATCH_LATEST.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v2/WATCH_LATEST.json&quot;,
+      &quot;sha256&quot;: &quot;3ac3ff7617aed09225776a60379aebd9da8c883c3a81ad962344b7f93a922502&quot;
+    }
+  },
+  &quot;claim_boundary&quot;: &quot;CPU/observation evidence and local platform receipts only; synthetic CPU initialize health is not real NN parity; no new case is scored here.&quot;
+}</pre></html>

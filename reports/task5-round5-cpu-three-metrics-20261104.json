@@ -3,21 +3,43 @@
   "task": 5,
   "stage": "diagnostic",
   "CPU_only": true,
-  "generated_at": "2026-11-04T09:38:42.638432+00:00",
+  "generated_at": "2026-11-04T10:11:26.759237+00:00",
   "new_simulations": 0,
   "strict_fdvel_identity": "五任务原 strict oracle 只读取位姿和接触，以121个有效tick的位置/姿态漂移判稳定，无线速度或角速度条件；按“只改速度来源”原则，strict-fdvel-v1 与 strict-v1 完全相同。",
   "oracle_source_sha256": "ab916d46da2733765f9e093f847b6ad8904729c5459896995c07b3810082d712",
+  "code_provenance": {
+    "physical_tick_FD": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/task5_fd_velocity_v1.py",
+      "sha256": "8b9f9172c4b3e4a8a9024293afdd71f112d30153cb0baa0a75eeaa1e71d430a8"
+    },
+    "CPU_diagnostics": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5_cpu_diagnostics.py",
+      "sha256": "f9daccc2f3b82cb352ac75217fcc532aa65526f224d6bd79eacc32708600f037"
+    },
+    "publisher": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/publish_round5.py",
+      "sha256": "4bfe6c6168c647153de3e613e14fbaa655d6cfc4bdc44971b98dad68c9be8506"
+    },
+    "FD_numerical_regression": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/test_task5_fd_velocity_v1.py",
+      "sha256": "430830587988b78781c2f41ed8f5b677bde82923b9f0c7a4f371be44ef10d4bf"
+    }
+  },
   "sources": {
     "historical": {
       "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round2/LATEST_RESCORE_RESULT.json",
       "sha256": "76d65f4c544fd3b90aa395bbd1fa4a937ab8752bfe3e9736834ecb862368ba6f"
+    },
+    "historical_lr_seed": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/HISTORICAL_LR_SEED.json",
+      "sha256": "2b3ab6197fa3ae6b4caf865488b00a6cf629050f2e961c8dceefb1f004e30e50"
     },
     "current_inputs": {
       "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/CPU_INPUTS.json",
       "sha256": "a4580e16f238b51c7de6dc95bcd966772d95307f7aeee653df4d2cacbbe4b847"
     },
     "current_cpu_result": {
-      "path": "round5/CPU_RESULT_v2.json",
+      "path": "CPU_RESULT_v2.json",
       "sha256": "f4d565ab71e9cc601625fa8cd4fbe3f7b034628f8b12dd25222e6a343a290233"
     }
   },
@@ -36,7 +58,7 @@
       "stage": "diagnostic",
       "original_role": "expert_original8",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 8,
       "unknown": 0,
       "valid": 8,
@@ -50,9 +72,39 @@
       "strict_phase_hist": {
         "5": 8
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 4,
+          "failure": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 4,
+          "success": 4,
+          "failure": 0,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "5": 4
+        },
+        "reverse": {
+          "5": 4
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 8,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 8
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -76,8 +128,14 @@
       "condition_version": "original-v1",
       "stage": "diagnostic",
       "original_role": "cloud4_current_row_smoke20_v4",
-      "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize": true,
+      "training_resize_evidence": [
+        {
+          "field": "preprocessing",
+          "value": "train_aligned",
+          "n": 20
+        }
+      ],
       "n": 20,
       "unknown": 0,
       "valid": 20,
@@ -95,9 +153,49 @@
         "2": 3,
         "3": 1
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
-      "seed_results": null,
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6,
+          "2": 3,
+          "3": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "failure": 20,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "true": 20
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -121,8 +219,14 @@
       "condition_version": "original-v1",
       "stage": "diagnostic",
       "original_role": "cloud4_source_optics_smoke20_v1",
-      "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize": true,
+      "training_resize_evidence": [
+        {
+          "field": "preprocessing",
+          "value": "train_aligned",
+          "n": 20
+        }
+      ],
       "n": 20,
       "unknown": 0,
       "valid": 20,
@@ -140,9 +244,49 @@
         "1": 1,
         "2": 2
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
-      "seed_results": null,
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 7,
+          "1": 1,
+          "2": 2
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "failure": 20,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "true": 20
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -167,7 +311,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -189,9 +333,46 @@
         "1": 58,
         "0": 74
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 21,
+          "1": 40,
+          "2": 29,
+          "3": 9,
+          "4": 1
+        },
+        "reverse": {
+          "0": 53,
+          "1": 18,
+          "2": 11,
+          "3": 18
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -216,7 +397,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -236,9 +417,45 @@
         "1": 48,
         "0": 64
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 13,
+          "1": 31,
+          "2": 52,
+          "3": 4
+        },
+        "reverse": {
+          "0": 51,
+          "1": 17,
+          "2": 6,
+          "3": 26
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -263,7 +480,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -283,9 +500,45 @@
         "1": 78,
         "0": 68
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 21,
+          "1": 59,
+          "2": 16,
+          "3": 4
+        },
+        "reverse": {
+          "0": 44,
+          "1": 16,
+          "2": 16,
+          "3": 24
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -310,7 +563,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -330,9 +583,45 @@
         "1": 45,
         "0": 133
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 55,
+          "1": 33,
+          "2": 10,
+          "3": 2
+        },
+        "reverse": {
+          "0": 77,
+          "1": 13,
+          "2": 6,
+          "3": 4
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -357,7 +646,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -377,9 +666,45 @@
         "1": 86,
         "0": 84
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 13,
+          "1": 69,
+          "2": 16,
+          "3": 2
+        },
+        "reverse": {
+          "0": 69,
+          "1": 12,
+          "2": 7,
+          "3": 12
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -404,7 +729,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -422,9 +747,43 @@
         "1": 22,
         "0": 175
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 81,
+          "1": 17,
+          "2": 2
+        },
+        "reverse": {
+          "0": 93,
+          "1": 6,
+          "2": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -449,7 +808,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -467,9 +826,41 @@
         "1": 1,
         "0": 197
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 97,
+          "1": 1,
+          "2": 2
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -494,7 +885,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -512,9 +903,42 @@
         "1": 15,
         "0": 184
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 92,
+          "1": 8
+        },
+        "reverse": {
+          "0": 91,
+          "1": 7,
+          "2": 2
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -539,7 +963,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -557,9 +981,43 @@
         "1": 4,
         "0": 195
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 97,
+          "1": 2,
+          "2": 1
+        },
+        "reverse": {
+          "0": 98,
+          "1": 1,
+          "2": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -584,7 +1042,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -600,9 +1058,40 @@
         "1": 10,
         "0": 190
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 90,
+          "1": 10
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -627,7 +1116,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -643,9 +1132,40 @@
         "1": 6,
         "0": 194
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 94,
+          "1": 6
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -670,7 +1190,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -686,9 +1206,41 @@
         "1": 11,
         "0": 189
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 91,
+          "1": 9
+        },
+        "reverse": {
+          "0": 98,
+          "1": 2
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -713,7 +1265,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -729,9 +1281,41 @@
         "1": 12,
         "0": 188
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 91,
+          "1": 9
+        },
+        "reverse": {
+          "0": 97,
+          "1": 3
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -756,7 +1340,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 146,
       "unknown": 0,
       "valid": 146,
@@ -772,9 +1356,40 @@
         "1": 1,
         "0": 145
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 72,
+          "1": 1
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -799,7 +1414,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -815,9 +1430,40 @@
         "1": 1,
         "0": 199
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 99,
+          "1": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -842,7 +1488,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -858,9 +1504,40 @@
         "1": 1,
         "0": 199
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 99,
+          "1": 1
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -885,7 +1562,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -902,9 +1579,41 @@
         "1": 4,
         "0": 196
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 95,
+          "1": 5
+        },
+        "reverse": {
+          "0": 99,
+          "2": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -929,7 +1638,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -946,9 +1655,41 @@
         "1": 4,
         "0": 196
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 96,
+          "1": 2,
+          "2": 2
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -973,7 +1714,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -989,9 +1730,41 @@
         "1": 3,
         "0": 197
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 98,
+          "1": 2
+        },
+        "reverse": {
+          "0": 99,
+          "1": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1016,7 +1789,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 149,
       "unknown": 0,
       "valid": 149,
@@ -1032,9 +1805,40 @@
         "1": 4,
         "0": 145
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 71,
+          "1": 4
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1059,7 +1863,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 76,
       "unknown": 0,
       "valid": 76,
@@ -1075,9 +1879,40 @@
         "1": 1,
         "0": 75
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 36,
+          "success": 0,
+          "failure": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 36
+        },
+        "reverse": {
+          "0": 39,
+          "1": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 76,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 76
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1102,7 +1937,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 77,
       "unknown": 0,
       "valid": 77,
@@ -1118,9 +1953,40 @@
         "1": 1,
         "0": 76
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 37,
+          "success": 0,
+          "failure": 37,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 36,
+          "1": 1
+        },
+        "reverse": {
+          "0": 40
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 77,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 77
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1145,7 +2011,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 76,
       "unknown": 0,
       "valid": 76,
@@ -1161,9 +2027,41 @@
         "1": 2,
         "0": 74
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 36,
+          "success": 0,
+          "failure": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 35,
+          "1": 1
+        },
+        "reverse": {
+          "0": 39,
+          "1": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 76,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 76
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1188,7 +2086,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 74,
       "unknown": 0,
       "valid": 74,
@@ -1204,9 +2102,40 @@
         "1": 2,
         "0": 72
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 36,
+          "success": 0,
+          "failure": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 38,
+          "success": 0,
+          "failure": 38,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 36
+        },
+        "reverse": {
+          "0": 36,
+          "1": 2
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 74,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 74
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1231,7 +2160,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -1245,9 +2174,39 @@
       "strict_phase_hist": {
         "0": 200
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1272,7 +2231,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -1286,9 +2245,39 @@
       "strict_phase_hist": {
         "0": 200
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1313,7 +2302,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -1327,9 +2316,39 @@
       "strict_phase_hist": {
         "0": 200
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1354,7 +2373,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 149,
       "unknown": 0,
       "valid": 149,
@@ -1368,9 +2387,39 @@
       "strict_phase_hist": {
         "0": 149
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1395,7 +2444,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 149,
       "unknown": 0,
       "valid": 149,
@@ -1409,9 +2458,39 @@
       "strict_phase_hist": {
         "0": 149
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1436,7 +2515,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 149,
       "unknown": 0,
       "valid": 149,
@@ -1450,9 +2529,39 @@
       "strict_phase_hist": {
         "0": 149
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1477,7 +2586,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 146,
       "unknown": 0,
       "valid": 146,
@@ -1491,9 +2600,39 @@
       "strict_phase_hist": {
         "0": 146
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 73
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1518,7 +2657,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 146,
       "unknown": 0,
       "valid": 146,
@@ -1532,9 +2671,39 @@
       "strict_phase_hist": {
         "0": 146
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 73
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1559,7 +2728,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 149,
       "unknown": 0,
       "valid": 149,
@@ -1573,9 +2742,39 @@
       "strict_phase_hist": {
         "0": 149
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1600,7 +2799,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 148,
       "unknown": 0,
       "valid": 148,
@@ -1614,9 +2813,39 @@
       "strict_phase_hist": {
         "0": 148
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 74
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 148,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 148
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1641,7 +2870,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -1655,9 +2884,39 @@
       "strict_phase_hist": {
         "0": 200
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1682,7 +2941,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -1697,9 +2956,40 @@
       "strict_phase_hist": {
         "0": 200
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 99,
+          "1": 1
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1724,7 +3014,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 200,
       "unknown": 0,
       "valid": 200,
@@ -1738,9 +3028,39 @@
       "strict_phase_hist": {
         "0": 200
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1765,7 +3085,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 146,
       "unknown": 0,
       "valid": 146,
@@ -1779,9 +3099,39 @@
       "strict_phase_hist": {
         "0": 146
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 73
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1806,7 +3156,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 146,
       "unknown": 0,
       "valid": 146,
@@ -1821,9 +3171,40 @@
       "strict_phase_hist": {
         "0": 146
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 72,
+          "1": 1
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1848,7 +3229,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 145,
       "unknown": 0,
       "valid": 145,
@@ -1862,9 +3243,39 @@
       "strict_phase_hist": {
         "0": 145
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 72,
+          "success": 0,
+          "failure": 72,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 72
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 145,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 145
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1889,7 +3300,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 75,
       "unknown": 0,
       "valid": 75,
@@ -1903,9 +3314,39 @@
       "strict_phase_hist": {
         "0": 75
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 35,
+          "success": 0,
+          "failure": 35,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 35
+        },
+        "reverse": {
+          "0": 40
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 75,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 75
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -1930,7 +3371,7 @@
       "stage": "diagnostic",
       "original_role": "legacy_pipeline_suspect",
       "training_resize": null,
-      "training_resize_evidence": "历史汇总未附逐配置缩放源码；不补猜",
+      "training_resize_evidence": [],
       "n": 77,
       "unknown": 0,
       "valid": 77,
@@ -1944,9 +3385,39 @@
       "strict_phase_hist": {
         "0": 77
       },
-      "lr_split": null,
-      "lr_split_pending_reason": "本45组汇总不含逐轨迹正反拆分，待原始清单关联",
+      "lr_split": {
+        "left": {
+          "trials": 37,
+          "success": 0,
+          "failure": 37,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 37
+        },
+        "reverse": {
+          "0": 40
+        }
+      },
       "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 77,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 77
+      },
       "complete_snapshot": true,
       "evaluation_started": true,
       "formal_score_eligible": false,
@@ -2016,6 +3487,11 @@
           "unknown": 5
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 7,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {
         "agent_handover_interrupted_observable_native_case": 5
       },
@@ -2125,6 +3601,11 @@
           "unknown": 4
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 7,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {
         "agent_handover_interrupted_observable_native_case": 4
       },
@@ -2236,6 +3717,11 @@
           "unknown": 2
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {
         "AssertionError": 2
       },
@@ -2362,6 +3848,11 @@
           "unknown": 10
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {
         "AssertionError": 10
       },
@@ -2486,6 +3977,11 @@
           "unknown": 1
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 17,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {
         "AssertionError": 1
       },
@@ -2614,6 +4110,11 @@
           "unknown": 0
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {},
       "complete_snapshot": true,
       "rescore_pending": 0,
@@ -2738,6 +4239,11 @@
           "unknown": 0
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {},
       "complete_snapshot": true,
       "rescore_pending": 0,
@@ -2863,6 +4369,11 @@
           "unknown": 0
         }
       ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
       "unknown_reasons": {},
       "complete_snapshot": true,
       "rescore_pending": 0,
@@ -2973,7 +4484,8 @@
       "kind": "真值切换诊断（未开始）",
       "formal_score_eligible": false,
       "status": "未开始；仅CPU包准备，不报0/100",
-      "pending_reason": "启动依赖闭包、固定输入一致性和GPU自检尚待通过",
+      "pending_reason": "固定输入自检读取NPZ时缺rgb键；未到首个scene-ready，新增轨迹和GT验收数均为0",
+      "operational_snapshot_at": "2026-11-04T10:07:09.935821+00:00",
       "expected_start_at": null
     },
     {
@@ -3005,13 +4517,118 @@
       "kind": "真值切换诊断（未开始）",
       "formal_score_eligible": false,
       "status": "未开始；仅CPU包准备，不报0/100",
-      "pending_reason": "启动依赖闭包、固定输入一致性和GPU自检尚待通过；TTC另受Gen编码函数缺失阻塞",
+      "pending_reason": "TTC受Gen编码函数缺失阻塞；尚无GT轨迹验收",
+      "operational_snapshot_at": "2026-11-04T10:07:09.935821+00:00",
       "expected_start_at": null
     }
   ],
+  "startup_diagnosis": {
+    "scope": "启动链诊断；不属于模型评测成绩",
+    "snapshot_at": "2026-11-04T10:07:09.935821+00:00",
+    "watch_source_epoch": 1793786829.935821,
+    "first_portable_failure": {
+      "job_id": "job-0ujjn1fq67mu",
+      "seconds_from_entry_birth_to_failure": 0.0753319263458252,
+      "cause": "driver display-name guard rejected allocated GPU alias before models",
+      "generic_failure_marker": "object_transfer_failed",
+      "all_replicas_terminal": true
+    },
+    "observation_only_job": {
+      "job_id": "job-lejoqf9oxzn8",
+      "terminal": "SUCCEEDED",
+      "all_replicas_terminal": true,
+      "model_calls": 0,
+      "simulations": 0,
+      "token_environment_present": true,
+      "manifest_mismatches": [],
+      "devices": [
+        {
+          "index": 0,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        },
+        {
+          "index": 1,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        },
+        {
+          "index": 2,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        },
+        {
+          "index": 3,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        }
+      ]
+    },
+    "official_allocation": {
+      "id": "ejtfr2ncissf7f89rspag0ls9",
+      "gpu_model": "NVIDIA RTX PRO 6000 96GB",
+      "gpu_count": 4
+    },
+    "repair": {
+      "passed": true,
+      "binding": "catalog offering + assigned UUID set + GPU count + memory/free-memory guards",
+      "physics_and_control_files_unchanged": [
+        "job.py",
+        "rollout.py",
+        "RESUME_SEED.json",
+        "oracle_switch.py"
+      ],
+      "tests": {
+        "command": "python3 -B -m unittest -v test_inventory_contract.py",
+        "passed": 6,
+        "source_sha256": "7fe325e77927ced77a3061cc8454b6cabb18923615c1f792e38d30edccff8f37",
+        "test_sha256": "170da143538b393312bf13343841e8a5c793b5d0104a48a852d1b3ce82889c55"
+      }
+    },
+    "replacement": {
+      "job_id": "job-u8rxnsr9ic02",
+      "platform_status": "STOPPED",
+      "state_text": "已停止并确认释放",
+      "detail": "固定输入自检读取NPZ时缺rgb键；未到首个scene-ready，新增轨迹和GT验收数均为0",
+      "hard_failure_marker": true,
+      "running_gpus": 0,
+      "reserved_gpus": 0,
+      "first_scene_ready": false,
+      "new_oracle_diagnostic_completed": 0,
+      "all_replicas_terminal": true
+    },
+    "evidence": {
+      "startup_observer/OBSERVATIONS.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/OBSERVATIONS.json",
+        "sha256": "92fc4e3ea742612986f6f5d8e39e47faeafa5cf1c38a4423b5d52e4b8b7bf94a"
+      },
+      "startup_observer/TERMINAL_RELEASE.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/TERMINAL_RELEASE.json",
+        "sha256": "450b114e8e23c146a2e8dbd0a69d7e78ef3418a66dc687170754dd3dbfd0ff3d"
+      },
+      "ALIAS_OFFICIAL_OFFERING.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/ALIAS_OFFICIAL_OFFERING.json",
+        "sha256": "1bbe153a30dc510764bcca6c74d60f2b333c177691b8d18648574b1ea9fa9f10"
+      },
+      "BOOT_GUARD_FIX_PROOF.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/BOOT_GUARD_FIX_PROOF.json",
+        "sha256": "bbb6bd7a35dc9aa919ea7bab00a8953e71a18b7b42fd4a8771abf4a26edfb52a"
+      },
+      "portable_job_v2/WATCH_LATEST.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v2/WATCH_LATEST.json",
+        "sha256": "3ac3ff7617aed09225776a60379aebd9da8c883c3a81ad962344b7f93a922502"
+      }
+    },
+    "claim_boundary": "CPU/observation evidence and local platform receipts only; synthetic CPU initialize health is not real NN parity; no new case is scored here."
+  },
   "operational_snapshot": {
     "owned_low_priority_gpus": 0,
     "reserved_low_priority_gpus": 0,
+    "snapshot_at": "2026-11-04T10:07:09.935821+00:00",
     "higher_density_admission_passed": false,
     "GT_GPU_trials_started": 0
   },
@@ -3069,7 +4686,14 @@
           "conditional_reach_rate": 1.0
         }
       ],
-      "layout_phase_hist_v11": null,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "5": 4
+        },
+        "reverse": {
+          "5": 4
+        }
+      },
       "failure_modes_nonexclusive": null,
       "switch_diagnostic": null
     },
@@ -3110,7 +4734,16 @@
           "conditional_reach_rate": null
         }
       ],
-      "layout_phase_hist_v11": null,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6,
+          "2": 3,
+          "3": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
       "failure_modes_nonexclusive": null,
       "switch_diagnostic": null
     },
@@ -3151,7 +4784,16 @@
           "conditional_reach_rate": null
         }
       ],
-      "layout_phase_hist_v11": null,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 7,
+          "1": 1,
+          "2": 2
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
       "failure_modes_nonexclusive": null,
       "switch_diagnostic": null
     },
@@ -3889,27 +5531,9 @@
     "strict_FD_equivalence": "original ObstructionFive.observe reads only poses and contacts; no velocity predicate to replace"
   },
   "limitations": [
-    "旧45组汇总缺逐轨迹左右/seed元数据，留空待补",
-    "历史缩放声明未等于逐源验收，training_resize=null",
+    "历史45组正反拆分已补齐；7031条缺显式推理seed，不由episode seed或repeat推断",
+    "仅40条历史记录有显式train_aligned声明；其余历史training_resize=null",
     "失败方式分类需视频人工核对；不由自动标签推断碰撞部位",
     "当前没有完成的真值切换100条结果"
-  ],
-  "code_provenance": {
-    "physical_tick_FD": {
-      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/task5_fd_velocity_v1.py",
-      "sha256": "8b9f9172c4b3e4a8a9024293afdd71f112d30153cb0baa0a75eeaa1e71d430a8"
-    },
-    "CPU_diagnostics": {
-      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5_cpu_diagnostics.py",
-      "sha256": "f9daccc2f3b82cb352ac75217fcc532aa65526f224d6bd79eacc32708600f037"
-    },
-    "publisher": {
-      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/publish_round5.py",
-      "sha256": "c6b74cc99265c717750010cb8c154956335eb90d1a1b7a3b14d594648ec5adb0"
-    },
-    "FD_numerical_regression": {
-      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/test_task5_fd_velocity_v1.py",
-      "sha256": "430830587988b78781c2f41ed8f5b677bde82923b9f0c7a4f371be44ef10d4bf"
-    }
-  }
+  ]
 }

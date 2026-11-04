@@ -62906,12 +62906,12 @@
   },
   "long_task_collection": {
     "owner": "T536 · 5a/5b/7/10 数据采集与验收",
-    "updated_at": "2026-11-04T12:45:34.217592+00:00",
+    "updated_at": "2026-11-04T14:25:29.414783+00:00",
     "protocol_version": "SafeLab-Eval-v1.1",
     "target": 400,
     "historical_candidates": 347,
     "accepted": 0,
-    "status": "第三轮四卡真实CUDA与渲染PCI门全部通过、4场景冷启动完成；随后cuRobo批大小契约报错，全部自有进程已回收且平台FAILED。修复环境参数并准备完整质量探针。",
+    "status": "头相机光心零位移、三路实景标定已通过；现有Pro GPU1已启动完整五步曲线试运行。5a/T7真实解释器完整pre-App已通过，正式验收仍0/400。",
     "scope_note": "±3cm 新泛化数据已交接给独立负责会话；本面板只报告现行 5a/5b/7/10。",
     "counts_note": "历史候选是旧机器验收的累计记录；尚未逐条通过当前全部质量门槛。正式验收 0 不代表新放置判定下已确认全部失败。",
     "rows": [
@@ -62921,7 +62921,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "100条时长超标。真正冷启动全五步候选19项CPU通过，保留原抓持及碰撞门槛；现准备原生运行准入，未算采集通过。"
+        "state": "100历史条时长超标。真冷启动+C3 ON已在原采集解释器完成真实pre-App，含源/材质配置/原数值后端/输出IO；正在完成GPU1原生准入。未计数据通过。"
       },
       {
         "task": "5b · 六垫避障",
@@ -62929,7 +62929,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "V4四张卡的同child CUDA/Torch/scalar及Kit真实PCI全部通过，4场景均到120tick。cuRobo SINGLE_ONLY=1但未显式BATCH_SIZE=1，动作前硬失败；源已定位默认batch10，后继补双1保留原guard。"
+        "state": "head局部朝向API实景通过：光心XYZ差0、旋转误差2.04e-08、三相机标定true。14:21:48UTC启动完整五步p1pregrasp曲线ON；构图边界、全段轨迹及v1.1仍须验收。"
       },
       {
         "task": "7 · 四杯称量",
@@ -62937,7 +62937,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "100条真实事件为8动作；第7事件裁点已固定。旧源精简模式仅落30Hz，正在核对两条真实manifest确认120Hz证据；缺日志不能靠裁切补齐。"
+        "state": "真实四杯七动作新入口已完成1031源/SDK/原银行SHA及原解释器完整pre-App；末杯留天平、原CPU物理保留。已显式绑定新head，准备Native完整7步。"
       },
       {
         "task": "10 · 五杯称量",
@@ -62945,7 +62945,7 @@
         "target": 100,
         "historical_candidates": 47,
         "accepted": 0,
-        "state": "已恢复47条原始来源与哈希（正序46、反序1）；时长334–364秒，全部超180秒。"
+        "state": "历史47条全部334–364秒。已恢复真实来源，现回到五杯完整十动作入口和慢段/等待优化；尚无现行标准合格条。"
       }
     ],
     "placement_rule": "进入原目标区域、直立、已释放且由目标表面支撑，连续≥0.25秒；不再要求低速度或低角速度。阶段必须顺序推进，初始位于目标上不计完成。",
@@ -62978,6 +62978,14 @@
         "oven_bytes": 41673795,
         "oven_SHA_matches_original": true,
         "copied_or_deleted": false
+      },
+      "fivea_source_archive": {
+        "regular_members": 178,
+        "bytes": 133713920,
+        "sha256": "221f96358c2d5488501714e872194cc73f891c6f292c8d466df3ee427ae740e0",
+        "preserved_partial_plus_final_logical_bytes": 267427840,
+        "allowed_bucket_other_task_subdirectory": true,
+        "originals_deleted": false
       }
     },
     "report_url": "reports/t536-5710-collection-20261104.html",
@@ -63149,7 +63157,7 @@
           "0000:a4:00.0"
         ],
         "scene_ready": 4,
-        "same_child_Kit_GPU_proof": "PENDING",
+        "same_child_Kit_GPU_proof": "PASS actual four Native GPU tables",
         "full10min_window": false,
         "formal_credit": 0,
         "bootstrap_PUT_complete_GET_SHA": true,
@@ -63166,6 +63174,72 @@
         "failure": "ValueError: CHEMBENCH_CUROBO_SINGLE_ONLY=1 requires batch_size=1",
         "exact_source_cause": "planner default batch_size10; cloud environment omitted CHEMBENCH_CUROBO_BATCH_SIZE=1",
         "next": "explicit double1 env and CPU original guard replay; one complete quality probe"
+      },
+      "cloud_fourth4": {
+        "job_id": "job-ia53ndbj1z2o",
+        "state": "FAILED",
+        "GPUs": 4,
+        "formal_credit": 0,
+        "before_App_failure": "strict RoutedOutput exposes big, installer used large",
+        "both_attr_typos_fixed": true,
+        "actual_full_preApp_NPY_cases_passed": 4,
+        "actual_preApp_files_per_case": 7
+      },
+      "cloud_fifth4": {
+        "job_id": "job-gszu3ao152p9",
+        "state": "FAILED",
+        "GPUs": 4,
+        "execution_class": "low_priority",
+        "initial_processes_per_GPU": 1,
+        "ended_at_ms": 1793799459292,
+        "actual_full_preApp_passed_cases": 4,
+        "same_child_CUDA_Torch_scalar_passed": 4,
+        "same_child_Kit_PCI_passed": 4,
+        "scene_ready_actual_tick_each": 120,
+        "actions_completed": 0,
+        "formal_credit": 0,
+        "failure": "head_parent_or_optical_origin_changed",
+        "sanitized_native_error_saved": true,
+        "full10min_window": false
+      },
+      "native_headlocal_actual_probe": {
+        "case": "native-local-orientation-0003",
+        "status": "camera_setup_checked",
+        "exit": 0,
+        "actual_same_child_CUDA_Torch_pass": true,
+        "actual_same_child_Kit_PCI_pass": true,
+        "scene_ready_tick": 120,
+        "head_optical_origin_max_delta_m": 0.0,
+        "head_world_rotation_max_abs_error": 2.0399478444987663e-08,
+        "three_camera_calibration_passed": true,
+        "physical_and_lens_unchanged": true,
+        "original_1e7_guard_relaxed": false,
+        "all_own_children_reaped": true,
+        "formal_credit": 0,
+        "whole_episode_visual_acceptance": false,
+        "remaining_visual_issues": [
+          "chest flask touches right border",
+          "head/chest cannot see two left temporary pads; third camera sees six mats"
+        ],
+        "own_reference_png_SHA256": [
+          "640e61213694165b1f66463f685e601e2b8df87cb84c2ec98796a07c28e8418b",
+          "cbc56d56aab1980b9f5d3a29147280eb90cf6183fd51ef6ecc5c03d62958d429",
+          "61fcc7dea7ccec4edfef21f635666fb86ec86003ade3333a8e8389af3e688e12"
+        ]
+      },
+      "fiveA_actual_full_preApp": {
+        "interpreter": "original NPY/privateLD",
+        "passed": true,
+        "App_Native_GPU": false,
+        "formal_credit": 0
+      },
+      "T7_actual_full_preApp": {
+        "files_SHA_verified": 1031,
+        "original_interpreter_exit": 0,
+        "CPU_physics_preserved": true,
+        "phases": 7,
+        "App_Native_GPU": false,
+        "formal_credit": 0
       }
     },
     "resources": {
@@ -63173,22 +63247,31 @@
       "first_job_GPUs": 4,
       "new_running_jobs": 0,
       "new_running_GPUs": 0,
-      "new_jobs_submitted": 3,
-      "debug_workpackage_cases": 32,
-      "debug_workpackage_task": "5b t5_obstruction; unique attempt identities; no formal dataset credit",
+      "new_jobs_submitted": 5,
+      "debug_workpackage_cases": 4,
+      "debug_workpackage_task": "5b complete5 quality contrasts; independent5a/T7 operational source preparation",
       "processes_per_GPU": 0,
       "sustained_10min_utilization_pct": null,
       "sustained_10min_VRAM_pct": null,
       "scale_up_qualified": false,
-      "admission": "key03创建约63秒完成；4卡新JOB已FAILED且全部ownchild回收，未扩第二组",
-      "blocker": "云准备器遗漏cuRobo BATCH_SIZE=1；将最小参数修复与OwnerV3/原生head恢复/curve33完整单条质量探针结合，不重复旧未合格动作",
+      "admission": "五次低优四卡创建均已终态FAILED且回收；未扩第二组。现用已连通Pro GPU1验证完整五步。",
+      "blocker": "完整五步轨迹/接触/时长/执行链及画面边缘仍待实测；5a/T7主机入口并行准备。",
       "startup_rules": "hard software failure cancel immediately; first scene<=1200s; no real progress300s; async transport retry; empty queue exits",
       "JOB_storage": "local raw/cache then HTTPS PUT and complete GET SHA; project small files only; no bucket mount assumed",
-      "last_job_id": "job-vbw834h1h680",
+      "last_job_id": "job-gszu3ao152p9",
       "last_job_state": "FAILED",
       "last_job_terminal_verified": true,
       "last_initial_N1_per_GPU": 1,
-      "new_pending_operations": 0
+      "new_pending_operations": 0,
+      "existing_host_running_processes": 1,
+      "existing_host_GPUs_used": 1,
+      "existing_host_processes_per_GPU": {
+        "Pro30018_GPU1": 1
+      },
+      "existing_host_sustained_10min_utilization_pct": null,
+      "current_existing_host_case": "full5-headlocal-p1pregrasp-0001",
+      "current_existing_host_guardian_pid": 353766,
+      "current_existing_host_launch_epoch": 1793802108.2607696
     }
   }
 }

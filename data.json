@@ -40616,6 +40616,262 @@
           "actual_PhysX_writes": 28800
         }
       ]
+    },
+    {
+      "id": "task5-round2-new30-h4-original-v1-A-placement-v11-rescore-supplement",
+      "record": "5-pos-mem0",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "准入诊断",
+      "metric_role": "placement_v1.1_rescore",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 32,
+      "target": 32,
+      "completed": 32,
+      "audited": 22,
+      "unknown": 10,
+      "phase_hist": {
+        "0": 19,
+        "1": 3
+      },
+      "mean_phase": 0.13636363636363635,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 32,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 15,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "trials": 17,
+          "success": 0,
+          "unknown": 4
+        }
+      },
+      "wilson95": {
+        "low": 0,
+        "high": 0.1071791982550706,
+        "confidence": 0.95
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_forward_linear_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
+          "joint_rmse_rad": 0.05148154323287164
+        }
+      },
+      "status": "CPU补充重算完成：可观察已启动32条中22条完整复算、10条unknown保留分母。旧线性链未通过完整执行门槛，仅诊断，不是当前Hermite阶段A成绩。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T03:51:37.795882+00:00",
+      "estimated_start": "CPU补算已完成；不启动GPU重跑",
+      "note": "这是此前200条目标旧A的可观察归档子集，未开始的137条不记unknown；当前两种判定均0完整成功，原控制链失败，不能转正。原strict-v1行不变。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "源current_row_forward_linear_v1完整10条执行链聚合RMSE0.05148rad，未通过0.005门槛；旧日志重算仅诊断。",
+      "expected_start_at": null,
+      "source_evaluation_id": "task5-round2-new30-h4-original-v1-A",
+      "paired_evaluation_id": "task5-round2-new30-h4-original-v1-A",
+      "formal_score_eligible": false,
+      "source_log_audit": {
+        "individual_source_trace_sha256_retained": true,
+        "source_cases": 32,
+        "complete_valid_logs": 22,
+        "missing_complete_source_logs": 10,
+        "executor_chain_changed_from_source": false,
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.json"
+      },
+      "unknown_reasons": {
+        "source_missing_complete_independent_audit_or_closure": 10
+      },
+      "source_execution_gate_failed": true,
+      "strict_source_comparison": {
+        "trials": 32,
+        "unknown": 10,
+        "success": 0,
+        "phase_hist": {
+          "0": 19,
+          "1": 3
+        }
+      }
+    },
+    {
+      "id": "task5-round2-new30-h8-original-v1-A-placement-v11-rescore-supplement",
+      "record": "5-pos-mem0",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "准入诊断",
+      "metric_role": "placement_v1.1_rescore",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 31,
+      "target": 31,
+      "completed": 31,
+      "audited": 21,
+      "unknown": 10,
+      "phase_hist": {
+        "1": 2,
+        "0": 18,
+        "2": 1
+      },
+      "mean_phase": 0.19047619047619047,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 31,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 16,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "trials": 15,
+          "success": 0,
+          "unknown": 4
+        }
+      },
+      "wilson95": {
+        "low": 0,
+        "high": 0.11025539546043596,
+        "confidence": 0.95
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_forward_linear_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
+          "joint_rmse_rad": 0.05148154323287164
+        }
+      },
+      "status": "CPU补充重算完成：可观察已启动31条中21条完整复算、10条unknown保留分母。旧线性链未通过完整执行门槛，仅诊断，不是当前Hermite阶段A成绩。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T03:51:37.795882+00:00",
+      "estimated_start": "CPU补算已完成；不启动GPU重跑",
+      "note": "这是此前200条目标旧A的可观察归档子集，未开始的137条不记unknown；当前两种判定均0完整成功，原控制链失败，不能转正。原strict-v1行不变。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "源current_row_forward_linear_v1完整10条执行链聚合RMSE0.05148rad，未通过0.005门槛；旧日志重算仅诊断。",
+      "expected_start_at": null,
+      "source_evaluation_id": "task5-round2-new30-h8-original-v1-A",
+      "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A",
+      "formal_score_eligible": false,
+      "source_log_audit": {
+        "individual_source_trace_sha256_retained": true,
+        "source_cases": 31,
+        "complete_valid_logs": 21,
+        "missing_complete_source_logs": 10,
+        "executor_chain_changed_from_source": false,
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.json"
+      },
+      "unknown_reasons": {
+        "source_missing_complete_independent_audit_or_closure": 10
+      },
+      "source_execution_gate_failed": true,
+      "strict_source_comparison": {
+        "trials": 31,
+        "unknown": 10,
+        "success": 0,
+        "phase_hist": {
+          "1": 2,
+          "0": 18,
+          "2": 1
+        }
+      }
     }
   ],
   "agents": [

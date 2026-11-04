@@ -39769,7 +39769,7 @@
       "status": "最近核验6/20条闭合并通过独立审计，1条在跑；整批未完成，success=null。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#parallel-smoke20",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T02:30:45.112388+00:00",
+      "updated_at": "2026-11-04T02:57:30.246136+00:00",
       "estimated_start": "已启动",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
@@ -39782,7 +39782,7 @@
       "started_count": 7,
       "run_label": "existing_new20_hermite_fullsmoke20",
       "local_log_storage": "node-local RAM filesystem, original gzip, async SHA archive,1536MiB own cap",
-      "source_snapshot_epoch": 1793759428.1824481
+      "source_snapshot_epoch": 1793761035.7627802
     },
     {
       "id": "task5-round2-new30-h8-original-v1-hermite-smoke20-placement-v11",
@@ -39802,28 +39802,28 @@
       "metric_role": "admission_smoke",
       "evaluation_started": true,
       "success": null,
-      "trials": 6,
+      "trials": 7,
       "target": 20,
-      "completed": 6,
-      "audited": 6,
+      "completed": 7,
+      "audited": 7,
       "unknown": 0,
       "phase_hist": {
         "1": 2,
         "2": 1,
-        "0": 3
+        "0": 4
       },
-      "mean_phase": 0.6666666666666666,
+      "mean_phase": 0.5714285714285714,
       "seed_results": [
         {
           "seed": 0,
-          "trials": 6,
+          "trials": 7,
           "success": 0,
           "unknown": 0
         }
       ],
       "lr_split": {
         "left": {
-          "trials": 3,
+          "trials": 4,
           "success": 0,
           "unknown": 0
         },
@@ -39878,10 +39878,10 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "最近核验6/20条闭合并通过独立审计，0条在跑；整批未完成，success=null。",
+      "status": "最近核验7/20条闭合并通过独立审计，1条在跑；整批未完成，success=null。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#parallel-smoke20",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T02:30:45.112388+00:00",
+      "updated_at": "2026-11-04T02:57:30.246136+00:00",
       "estimated_start": "已启动",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
@@ -39890,11 +39890,11 @@
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A-placement-v11",
       "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
-      "in_flight": 0,
-      "started_count": 6,
+      "in_flight": 1,
+      "started_count": 8,
       "run_label": "existing_new30_hermite_fullsmoke20",
       "local_log_storage": "node-local RAM filesystem, original gzip, async SHA archive,1536MiB own cap",
-      "source_snapshot_epoch": 1793759351.753979
+      "source_snapshot_epoch": 1793761027.470518
     },
     {
       "id": "task5-round2-weak20-h8-original-v1-hermite-smoke20-placement-v11",
@@ -39926,7 +39926,7 @@
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": 5,
+        "procs_per_gpu": 1,
         "gpu_type": "Pro6000"
       },
       "preprocess_resize": {
@@ -39957,7 +39957,30 @@
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
           "required_per_model": 20,
-          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "scene_subset_hash": "sha256:39f78c8f8d7ed1097728884d8b55ac813769d62bf487c83248d3345a1237a3f1",
+          "scene_indices": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ]
         },
         "executor_parity": {
           "passed": true,
@@ -39968,15 +39991,15 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "尚未启动：启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "status": "已部署接续队列，尚未进行物理评测：现有Pro6000 GPU0，等待ours30的20条闭合、独立审计和自有进程清理；N1×1，不新增低优卡。前序基础设施错误或unknown会阻止接续，不自动重试。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:07:28.730114+00:00",
-      "estimated_start": "资源条件满足后启动，暂无法确定日期。",
+      "updated_at": "2026-11-04T02:57:30.357440+00:00",
+      "estimated_start": "前序完整结束并释放后自动检查；无确定开始时刻。",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "pending_reason": "等待前序20条完整结果、通过清理且同代进程退出；随后仍须满足原内存/磁盘/GPU保护阈值。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak20-h8-original-v1-A-placement-v11",
       "NN_pool_fixed_input": {
@@ -39991,7 +40014,10 @@
         "private_Gen_cluster_config": false,
         "wall_s": 84.43725395202637
       },
-      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "dispatch_status": "queued_existing_GPU_dependency_gate",
+      "queue_predecessor": "ours30",
+      "queue_gpu_index": 0
     },
     {
       "id": "task5-round2-weak30-h8-original-v1-hermite-smoke20-placement-v11",
@@ -40023,7 +40049,7 @@
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": 5,
+        "procs_per_gpu": 1,
         "gpu_type": "Pro6000"
       },
       "preprocess_resize": {
@@ -40054,7 +40080,30 @@
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
           "required_per_model": 20,
-          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "scene_subset_hash": "sha256:39f78c8f8d7ed1097728884d8b55ac813769d62bf487c83248d3345a1237a3f1",
+          "scene_indices": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ]
         },
         "executor_parity": {
           "passed": true,
@@ -40065,15 +40114,15 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "尚未启动：启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "status": "已部署接续队列，尚未进行物理评测：现有Pro6000 GPU1，等待oursalignedweak30的20条闭合、独立审计和自有进程清理；N1×1，不新增低优卡。前序基础设施错误或unknown会阻止接续，不自动重试。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:07:28.730114+00:00",
-      "estimated_start": "资源条件满足后启动，暂无法确定日期。",
+      "updated_at": "2026-11-04T02:57:30.357440+00:00",
+      "estimated_start": "前序完整结束并释放后自动检查；无确定开始时刻。",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "pending_reason": "等待前序20条完整结果、通过清理且同代进程退出；随后仍须满足原内存/磁盘/GPU保护阈值。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak30-h8-original-v1-A-placement-v11",
       "NN_pool_fixed_input": {
@@ -40088,7 +40137,10 @@
         "private_Gen_cluster_config": false,
         "wall_s": 79.42531514167786
       },
-      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "dispatch_status": "queued_existing_GPU_dependency_gate",
+      "queue_predecessor": "oursalignedweak30",
+      "queue_gpu_index": 1
     },
     {
       "id": "task5-round2-ours30-h8-original-v1-hermite-smoke20-placement-v11",
@@ -40120,7 +40172,7 @@
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": 5,
+        "procs_per_gpu": 1,
         "gpu_type": "Pro6000"
       },
       "preprocess_resize": {
@@ -40151,7 +40203,30 @@
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
           "required_per_model": 20,
-          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "scene_subset_hash": "sha256:39f78c8f8d7ed1097728884d8b55ac813769d62bf487c83248d3345a1237a3f1",
+          "scene_indices": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ]
         },
         "executor_parity": {
           "passed": true,
@@ -40162,15 +40237,15 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "尚未启动：启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "status": "已部署接续队列，尚未进行物理评测：现有Pro6000 GPU0，等待new20的20条闭合、独立审计和自有进程清理；N1×1，不新增低优卡。前序基础设施错误或unknown会阻止接续，不自动重试。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:07:28.730114+00:00",
-      "estimated_start": "资源条件满足后启动，暂无法确定日期。",
+      "updated_at": "2026-11-04T02:57:30.357440+00:00",
+      "estimated_start": "前序完整结束并释放后自动检查；无确定开始时刻。",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "pending_reason": "等待前序20条完整结果、通过清理且同代进程退出；随后仍须满足原内存/磁盘/GPU保护阈值。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-ours30-h8-original-v1-A-placement-v11",
       "NN_pool_fixed_input": {
@@ -40185,7 +40260,10 @@
         "private_Gen_cluster_config": true,
         "wall_s": 87.76572871208191
       },
-      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "dispatch_status": "queued_existing_GPU_dependency_gate",
+      "queue_predecessor": "new20",
+      "queue_gpu_index": 0
     },
     {
       "id": "task5-round2-oursalignedweak30-h8-original-v1-hermite-smoke20-placement-v11",
@@ -40217,7 +40295,7 @@
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": 5,
+        "procs_per_gpu": 1,
         "gpu_type": "Pro6000"
       },
       "preprocess_resize": {
@@ -40248,7 +40326,30 @@
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
           "required_per_model": 20,
-          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "scene_subset_hash": "sha256:39f78c8f8d7ed1097728884d8b55ac813769d62bf487c83248d3345a1237a3f1",
+          "scene_indices": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ]
         },
         "executor_parity": {
           "passed": true,
@@ -40259,15 +40360,15 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "尚未启动：启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "status": "已部署接续队列，尚未进行物理评测：现有Pro6000 GPU1，等待new30的20条闭合、独立审计和自有进程清理；N1×1，不新增低优卡。前序基础设施错误或unknown会阻止接续，不自动重试。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:07:28.730114+00:00",
-      "estimated_start": "资源条件满足后启动，暂无法确定日期。",
+      "updated_at": "2026-11-04T02:57:30.357440+00:00",
+      "estimated_start": "前序完整结束并释放后自动检查；无确定开始时刻。",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "启动包和NN池固定输入已校验；现有双卡用于20k/30k，新增低优算力受持续利用率门槛限制，上一4卡600秒均值45.07%；等待满足资源规则或例外许可。",
+      "pending_reason": "等待前序20条完整结果、通过清理且同代进程退出；随后仍须满足原内存/磁盘/GPU保护阈值。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-oursalignedweak30-h8-original-v1-A-placement-v11",
       "NN_pool_fixed_input": {
@@ -40282,7 +40383,10 @@
         "private_Gen_cluster_config": true,
         "wall_s": 95.67398595809937
       },
-      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "dispatch_status": "queued_existing_GPU_dependency_gate",
+      "queue_predecessor": "new30",
+      "queue_gpu_index": 1
     },
     {
       "id": "task5-round2-old30-h8-original-v1-hermite-smoke20-placement-v11",

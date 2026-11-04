@@ -37207,7 +37207,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37225,25 +37225,31 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；旧任务20条均基础设施unknown，无有效冒烟；不重试未知scene0–19。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "旧任务20条均基础设施unknown，无有效冒烟；不重试未知scene0–19。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
-      "paired_evaluation_id": "task5-round2-new20-h4-original-v1-A"
+      "paired_evaluation_id": "task5-round2-new20-h4-original-v1-A",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-new20-h8-original-v1-A-placement-v11",
@@ -37286,7 +37292,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37304,25 +37310,31 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；旧任务20条均基础设施unknown，无有效冒烟；不重试未知scene0–19。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "旧任务20条均基础设施unknown，无有效冒烟；不重试未知scene0–19。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
-      "paired_evaluation_id": "task5-round2-new20-h8-original-v1-A"
+      "paired_evaluation_id": "task5-round2-new20-h8-original-v1-A",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-new30-h4-original-v1-A-placement-v11",
@@ -37365,7 +37377,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37383,25 +37395,31 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；strict-v1冒烟20条闭合；原A任务43条闭合、20unknown、137未启动，均保留为历史。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "strict-v1冒烟20条闭合；原A任务43条闭合、20unknown、137未启动，均保留为历史。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
-      "paired_evaluation_id": "task5-round2-new30-h4-original-v1-A"
+      "paired_evaluation_id": "task5-round2-new30-h4-original-v1-A",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-new30-h8-original-v1-A-placement-v11",
@@ -37444,7 +37462,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37462,25 +37480,31 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；strict-v1冒烟20条闭合；原A任务43条闭合、20unknown、137未启动，均保留为历史。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "strict-v1冒烟20条闭合；原A任务43条闭合、20unknown、137未启动，均保留为历史。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
-      "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A"
+      "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-weak20-h4-original-v1-A-placement-v11",
@@ -37523,7 +37547,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37541,23 +37565,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak20-h4-original-v1-A",
       "NN_pool_fixed_input": {
@@ -37571,7 +37600,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": false,
         "wall_s": 84.43725395202637
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-weak20-h8-original-v1-A-placement-v11",
@@ -37614,7 +37644,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37632,23 +37662,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak20-h8-original-v1-A",
       "NN_pool_fixed_input": {
@@ -37662,7 +37697,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": false,
         "wall_s": 84.43725395202637
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-weak30-h4-original-v1-A-placement-v11",
@@ -37705,7 +37741,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37723,23 +37759,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak30-h4-original-v1-A",
       "NN_pool_fixed_input": {
@@ -37753,7 +37794,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": false,
         "wall_s": 79.42531514167786
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-weak30-h8-original-v1-A-placement-v11",
@@ -37796,7 +37838,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37814,23 +37856,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-weak30-h8-original-v1-A",
       "NN_pool_fixed_input": {
@@ -37844,7 +37891,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": false,
         "wall_s": 79.42531514167786
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-ours30-h4-original-v1-A-placement-v11",
@@ -37887,7 +37935,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37905,23 +37953,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-ours30-h4-original-v1-A",
       "NN_pool_fixed_input": {
@@ -37935,7 +37988,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": true,
         "wall_s": 87.76572871208191
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-ours30-h8-original-v1-A-placement-v11",
@@ -37978,7 +38032,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -37996,23 +38050,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-ours30-h8-original-v1-A",
       "NN_pool_fixed_input": {
@@ -38026,7 +38085,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": true,
         "wall_s": 87.76572871208191
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-oursalignedweak30-h4-original-v1-A-placement-v11",
@@ -38069,7 +38129,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -38087,23 +38147,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-oursalignedweak30-h4-original-v1-A",
       "NN_pool_fixed_input": {
@@ -38117,7 +38182,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": true,
         "wall_s": 95.67398595809937
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-oursalignedweak30-h8-original-v1-A-placement-v11",
@@ -38160,7 +38226,7 @@
       },
       "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
       "optics_version": "pos1cm_source_optics_v1",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -38178,23 +38244,28 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
-          "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未开始；Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-oursalignedweak30-h8-original-v1-A",
       "NN_pool_fixed_input": {
@@ -38208,7 +38279,8 @@
         "private_memory_and_RNG": true,
         "private_Gen_cluster_config": true,
         "wall_s": 95.67398595809937
-      }
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-old30-h4-original-v1-A-placement-v11",
@@ -38251,7 +38323,7 @@
       },
       "scene_list_hash": null,
       "optics_version": "fixed_v1_source_chain_pending",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -38269,25 +38341,31 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": null,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 0,
+          "scope": "pos1cm专家10条；fixed_v1需独立核验"
         }
       },
-      "status": "未开始；尚未冒烟；已从原导出记录独立核验fixed反向ep50的DLD=False与相机K，正向DLD和fractional策略未有足够记录；不套用pos1cm光学修复。",
+      "status": "未启动；fixed_v1光学链与专家执行链仍待独立验证，不能套用pos1cm准入。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "尚未冒烟；已从原导出记录独立核验fixed反向ep50的DLD=False与相机K，正向DLD和fractional策略未有足够记录；不套用pos1cm光学修复。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
-      "paired_evaluation_id": "task5-round2-old30-h4-original-v1-A"
+      "paired_evaluation_id": "task5-round2-old30-h4-original-v1-A",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-old30-h8-original-v1-A-placement-v11",
@@ -38330,7 +38408,7 @@
       },
       "scene_list_hash": null,
       "optics_version": "fixed_v1_source_chain_pending",
-      "control_version": "current_row_forward_linear_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
       "input_state": "lerobot_v21_state13",
       "stall_timeout": null,
       "admission": {
@@ -38348,25 +38426,31 @@
         },
         "smoke20": {
           "passed": false,
-          "report": "strict-v1旧冒烟不能自动冒充placement-v1.1准入"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#executor-parity",
-          "joint_rmse_rad": 0.05148154323287164
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": null,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 0,
+          "scope": "pos1cm专家10条；fixed_v1需独立核验"
         }
       },
-      "status": "未开始；尚未冒烟；已从原导出记录独立核验fixed反向ep50的DLD=False与相机K，正向DLD和fractional策略未有足够记录；不套用pos1cm光学修复。",
+      "status": "未启动；fixed_v1光学链与专家执行链仍待独立验证，不能套用pos1cm准入。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-03T23:02:47.325684+00:00",
-      "estimated_start": "执行链与真实视频准入通过后排期",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
       "note": "forward映射left，reverse映射right；100场景正反交错。未完成success=null。旧7023条仍为管线待查诊断，不计正式成绩。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "尚未冒烟；已从原导出记录独立核验fixed反向ep50的DLD=False与相机K，正向DLD和fractional策略未有足够记录；不套用pos1cm光学修复。",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
       "expected_start_at": null,
-      "paired_evaluation_id": "task5-round2-old30-h8-original-v1-A"
+      "paired_evaluation_id": "task5-round2-old30-h8-original-v1-A",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     },
     {
       "id": "task5-round2-new30-h8-original-v1-smoke20-placement-v11-rescore",
@@ -38593,6 +38677,649 @@
         "executor_chain_changed_from_source": false,
         "report": "https://asimfish.github.io/safelab-handoff/reports/task5-placement-smoke40-source-audits-20261103.json"
       }
+    },
+    {
+      "id": "task5-round2-new20-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-pos-mem0",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-new20-h8-original-v1-A-placement-v11",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-round2-new30-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-pos-mem0",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A-placement-v11",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-round2-weak20-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-pos-mem0-weak",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-weak20-h8-original-v1-A-placement-v11",
+      "NN_pool_fixed_input": {
+        "passed": true,
+        "frames_per_lane": 64,
+        "private_lanes": 2,
+        "prediction_chunks": 32,
+        "maximum_fused_delta": 0,
+        "maximum_raw_action_delta": 0,
+        "maximum_selected_action_delta": 0,
+        "private_memory_and_RNG": true,
+        "private_Gen_cluster_config": false,
+        "wall_s": 84.43725395202637
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-round2-weak30-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-pos-mem0-weak",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-weak30-h8-original-v1-A-placement-v11",
+      "NN_pool_fixed_input": {
+        "passed": true,
+        "frames_per_lane": 64,
+        "private_lanes": 2,
+        "prediction_chunks": 32,
+        "maximum_fused_delta": 0,
+        "maximum_raw_action_delta": 0,
+        "maximum_selected_action_delta": 0,
+        "private_memory_and_RNG": true,
+        "private_Gen_cluster_config": false,
+        "wall_s": 79.42531514167786
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-round2-ours30-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-pos-ours-aligned",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-ours30-h8-original-v1-A-placement-v11",
+      "NN_pool_fixed_input": {
+        "passed": true,
+        "frames_per_lane": 64,
+        "private_lanes": 2,
+        "prediction_chunks": 40,
+        "maximum_fused_delta": 0,
+        "maximum_raw_action_delta": 0,
+        "maximum_selected_action_delta": 0,
+        "private_memory_and_RNG": true,
+        "private_Gen_cluster_config": true,
+        "wall_s": 87.76572871208191
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-round2-oursalignedweak30-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-pos-ttc-aligned-weak",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-oursalignedweak30-h8-original-v1-A-placement-v11",
+      "NN_pool_fixed_input": {
+        "passed": true,
+        "frames_per_lane": 64,
+        "private_lanes": 2,
+        "prediction_chunks": 40,
+        "maximum_fused_delta": 0,
+        "maximum_raw_action_delta": 0,
+        "maximum_selected_action_delta": 0,
+        "private_memory_and_RNG": true,
+        "private_Gen_cluster_config": true,
+        "wall_s": 95.67398595809937
+      },
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-round2-old30-h8-original-v1-hermite-smoke20-placement-v11",
+      "record": "5-fixed-mem0",
+      "task": "5",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "自主闭环",
+      "metric_role": "admission_smoke",
+      "evaluation_started": false,
+      "success": null,
+      "trials": 0,
+      "target": 20,
+      "completed": 0,
+      "audited": 0,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": null,
+      "optics_version": "fixed_v1_source_chain_pending",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": null,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 0,
+          "scope": "pos1cm专家10条；fixed_v1需独立核验"
+        }
+      },
+      "status": "待本模型新控制器20条冒烟；固定数据另需自己的光学与专家准入。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:07:28.730114+00:00",
+      "estimated_start": "本模型新链20条冒烟通过后",
+      "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "expected_start_at": null,
+      "paired_evaluation_id": "task5-round2-old30-h8-original-v1-A-placement-v11",
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
     }
   ],
   "agents": [

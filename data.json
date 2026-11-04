@@ -39538,7 +39538,7 @@
       "condition": "original physical contact",
       "kind": "自主闭环",
       "metric_role": "admission_smoke",
-      "evaluation_started": false,
+      "evaluation_started": true,
       "success": null,
       "trials": 0,
       "target": 20,
@@ -39552,7 +39552,7 @@
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": 5,
+        "procs_per_gpu": 1,
         "gpu_type": "Pro6000"
       },
       "preprocess_resize": {
@@ -39594,18 +39594,22 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
-      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "status": "new20 已在现有Pro6000的GPU0进入20条h8正反均衡冒烟；当前无已闭合样本，不公布成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#parallel-smoke20",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:07:28.730114+00:00",
-      "estimated_start": "本模型新链20条冒烟通过后",
+      "updated_at": "2026-11-04T01:12:54.644159+00:00",
+      "estimated_start": "已启动",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "pending_reason": "正在运行本模型20条h8冒烟；≥18/20停阶段0则不放量，未自动启动A",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new20-h8-original-v1-A-placement-v11",
-      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "in_flight": 1,
+      "started_count": 1,
+      "run_label": "existing_new20_hermite_fullsmoke20",
+      "local_log_storage": "node-local RAM filesystem, original gzip, async SHA archive,1536MiB own cap"
     },
     {
       "id": "task5-round2-new30-h8-original-v1-hermite-smoke20-placement-v11",
@@ -39623,7 +39627,7 @@
       "condition": "original physical contact",
       "kind": "自主闭环",
       "metric_role": "admission_smoke",
-      "evaluation_started": false,
+      "evaluation_started": true,
       "success": null,
       "trials": 0,
       "target": 20,
@@ -39637,7 +39641,7 @@
       "wilson95": null,
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": 5,
+        "procs_per_gpu": 1,
         "gpu_type": "Pro6000"
       },
       "preprocess_resize": {
@@ -39679,18 +39683,22 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "待本模型新控制器20条冒烟；专家门槛已通过，尚无新链正式成功率。",
-      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "status": "new30 已在现有Pro6000的GPU1进入20条h8正反均衡冒烟；当前无已闭合样本，不公布成功率。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#parallel-smoke20",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:07:28.730114+00:00",
-      "estimated_start": "本模型新链20条冒烟通过后",
+      "updated_at": "2026-11-04T01:12:54.644159+00:00",
+      "estimated_start": "已启动",
       "note": "每模型独立20条h8、正反各10；模型预检双场景不替代20条冒烟。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "待该模型使用冻结新控制器完成独立20条h8正反均衡冒烟；旧链结果保留，不计作新链准入。",
+      "pending_reason": "正在运行本模型20条h8冒烟；≥18/20停阶段0则不放量，未自动启动A",
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-new30-h8-original-v1-A-placement-v11",
-      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "in_flight": 1,
+      "started_count": 1,
+      "run_label": "existing_new30_hermite_fullsmoke20",
+      "local_log_storage": "node-local RAM filesystem, original gzip, async SHA archive,1536MiB own cap"
     },
     {
       "id": "task5-round2-weak20-h8-original-v1-hermite-smoke20-placement-v11",
@@ -40182,20 +40190,20 @@
       "kind": "新控制器闭环预检，非正式成绩",
       "metric_role": "execution_chain_policy_preflight",
       "evaluation_started": true,
-      "success": null,
-      "trials": 2,
+      "success": 0,
+      "trials": 3,
       "target": 3,
-      "completed": 1,
-      "audited": 1,
+      "completed": 2,
+      "audited": 2,
       "unknown": 1,
       "phase_hist": {
-        "0": 1
+        "0": 2
       },
       "mean_phase": 0.0,
       "seed_results": [
         {
           "seed": 0,
-          "trials": 2,
+          "trials": 3,
           "success": 0,
           "unknown": 1
         }
@@ -40207,12 +40215,15 @@
           "unknown": 1
         },
         "right": {
-          "trials": 0,
+          "trials": 1,
           "success": 0,
           "unknown": 0
         }
       },
-      "wilson95": null,
+      "wilson95": [
+        0.0,
+        0.5614970317550455
+      ],
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 1,
@@ -40257,22 +40268,22 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "诊断进度：1条闭合停阶段0、1条初始化基础设施unknown、1条反向正在运行；success=null。不能替代每模型20条冒烟或正式A/B。",
+      "status": "仅诊断：2条有效预检均停阶段0，另1条初始化unknown保留在3条分母内；不能代替20条冒烟或正式A/B。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
-      "updated_at": "2026-11-04T00:45:57.468793+00:00",
+      "updated_at": "2026-11-04T01:12:54.644159+00:00",
       "estimated_start": "已启动",
       "note": "trials暂为已闭合+终态unknown；在跑条目未结算。保留原unknown，不重试或漏计。正向映射left，反向映射right。",
       "evaluation_owner": "五任务评测",
       "oracle_version": "placement-v1.1",
-      "pending_reason": "反向诊断在跑；仍需每模型20条独立冒烟",
+      "pending_reason": "预检已结束；20k/30k各20条h8冒烟正在独立运行",
       "expected_start_at": null,
       "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
       "unknown_reasons": {
         "temporary_disk_guard_during_initialization": 1
       },
       "started_count": 3,
-      "in_flight": 1,
+      "in_flight": 0,
       "source_case_subset": "forward0 unknown, forward1 audited failure, reverse0 in flight",
       "case_ledger": [
         {
@@ -40297,10 +40308,12 @@
           "id": "hermite_new30_pre2_v3_reverse_000",
           "scene": "new_reverse_000.json",
           "layout": "reverse",
-          "status": "running",
-          "physical_phase": null,
+          "status": "independently_audited_failure",
+          "physical_phase": 0,
           "predecessor_case": "hermite_new30_pre2_v2_001",
-          "predecessor_was_unstarted": true
+          "predecessor_was_unstarted": true,
+          "sim_seconds": 240.0,
+          "actual_PhysX_writes": 28800
         }
       ]
     }

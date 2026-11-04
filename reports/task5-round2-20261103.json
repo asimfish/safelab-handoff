@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T00:45:57.468793+00:00",
+  "updated_at": "2026-11-04T01:12:54.644159+00:00",
   "protocol_version": "SafeLab-Eval-v1.1",
   "models": [
     {
@@ -9,12 +9,13 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "新Hermite控制器专家10/10通过；等待本模型独立20条新链冒烟，历史严格结果不变。",
+      "status": "现有双卡Pro6000中各一张卡已开始本权重20条h8独立冒烟；尚无闭合样本。",
       "A_completed": 0,
       "smoke_unknown": 20,
       "historical_status_before_controller_gate": "旧任务20条均基础设施unknown，无有效冒烟；不重试未知scene0–19。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
       "new_controller_smoke_n": 0,
-      "new_controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "new_controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "new_controller_smoke_in_flight": 1
     },
     {
       "variant": "new30",
@@ -30,7 +31,7 @@
         "5": 0
       },
       "smoke_mean_phase": 0.45,
-      "status": "新Hermite控制器专家10/10通过；等待本模型独立20条新链冒烟，历史严格结果不变。",
+      "status": "现有双卡Pro6000中各一张卡已开始本权重20条h8独立冒烟；尚无闭合样本。",
       "A_completed": {
         "4": 22,
         "8": 21
@@ -41,7 +42,8 @@
       },
       "historical_status_before_controller_gate": "strict-v1冒烟20条闭合；原A任务43条闭合、20unknown、137未启动，均保留为历史。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
       "new_controller_smoke_n": 0,
-      "new_controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "new_controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "new_controller_smoke_in_flight": 1
     },
     {
       "variant": "weak20",
@@ -4324,10 +4326,10 @@
     "baseline_installed": false,
     "new_cloud_GPUs": 0,
     "remaining": [
-      "完成反向预检及独立PhysX/placement验收",
-      "六个pos1cm权重各20条新链冒烟，尚未全部开跑",
-      "fixed_v1第七权重独立光学和专家门槛仍待核验",
-      "每模型冒烟通过后才允许阶段A"
+      "20k/30k各20条h8原始接触冒烟正在两卡独立运行",
+      "其余四个pos1cm权重启动包已CPU校验，尚未启动新链物理冒烟",
+      "fixed_v1第七权重仍待独立光学和专家准入",
+      "通过各自冒烟后才启动h4/h8阶段A；当前无新正式成功率"
     ],
     "diagnostic_model_chain_installed": true
   },
@@ -4467,9 +4469,9 @@
   },
   "learned_controller_preflight_v3": {
     "target": 1,
-    "closed": 0,
+    "closed": 1,
     "unknown": 0,
-    "status": "reverse Native started",
+    "status": "completed; phase0, no task success",
     "source_case": "hermite_new30_pre2_v3_reverse_000",
     "predecessor_unstarted": "hermite_new30_pre2_v2_001",
     "same_model_stats_preprocess_controller": true,
@@ -4478,21 +4480,107 @@
     "minimum_runtime_local_and_shm_MiB": 1024,
     "minimum_runtime_host_MiB": 16384,
     "minimum_runtime_GPU_MiB": 8192,
-    "new_cloud_GPUs": 0
+    "new_cloud_GPUs": 0,
+    "result": {
+      "id": "hermite_new30_pre2_v3_reverse_000",
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "seed": 0,
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "dataset_revision": "psibot_5b_obstruction_pos1cm_v1_20261025",
+      "position_randomization": true,
+      "preprocessing": "train_aligned",
+      "profile_name": "new_reverse_000.json",
+      "reference_tick": 128,
+      "scene_seed": 2026104100,
+      "offsets_xy_m": {
+        "A": [
+          -0.0027887211489396506,
+          0.008977177965123729
+        ],
+        "B": [
+          0.004095492245050757,
+          0.000858074529411312
+        ],
+        "C": [
+          -0.0065959130889692436,
+          -0.005838631965689538
+        ]
+      },
+      "method": "mem0",
+      "repeat": 0,
+      "run_seed": 0,
+      "base_case_id": "oursalignedweak30_mem0_30000_h8_forward_000",
+      "base_episode_seed": 729000,
+      "condition": "baseline",
+      "paired_reference_id": "ours30_mem0_30000_h8_forward_000",
+      "inference_seed": 0,
+      "source_original_inference_seed": 729000,
+      "score_role": "admission_smoke",
+      "formal_score_eligible": false,
+      "renderer_episode_policy": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "scene_index": 1,
+      "profile_sha256": "ef4edd8b64c92b89756a92c6b84f55ea0bc223141ebae46dc4d458d1139de265",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "source_original_case_id": "round2_new30_A_seed0_h8_001",
+      "case_role": "follow-up of unstarted v2 reverse; same core and model, only lossless log I/O, not20smoke or formalA",
+      "unstarted_predecessor_id": "hermite_new30_pre2_v2_001",
+      "status": "time_limit",
+      "scored": false,
+      "success": false,
+      "physical_phases": 0,
+      "prediction_horizon": 30,
+      "denoising_steps": 8,
+      "physics_device": "cpu",
+      "camera": "third_person",
+      "simulation_limit_s": 240.0,
+      "physical_events": [],
+      "sim_seconds": 240.0
+    },
+    "audit": {
+      "control_audit": {
+        "actual_PhysX_position_writes": 28800,
+        "actual_PhysX_velocity_writes": 28800,
+        "next_physical_tick_labels_verified": 3600,
+        "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+        "interpolation_math": "same frozen core; separate raw model chunk/clock and actual readback audit"
+      },
+      "id": "hermite_new30_pre2_v3_reverse_000",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "reverse",
+      "passed": true,
+      "success": false,
+      "physical_phases": 0,
+      "physics_ticks": 28800,
+      "commands": 3600,
+      "physics_sha256": "5103febbc4b645aed798d5af213c3f9a5cd506d30306f28603ad1125d1c38aaa",
+      "full_placement_v11_stream_recomputed": true,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "camera": "third_person",
+      "preprocessing": "train_aligned"
+    },
+    "own_cleanup_passed": true
   },
   "learned_controller_preflight_aggregate": {
     "planned": 3,
-    "closed": 1,
+    "closed": 2,
     "unknown": 1,
-    "in_flight": 1,
-    "settled_trials": 2,
-    "success": null,
+    "in_flight": 0,
+    "settled_trials": 3,
+    "success": 0,
     "phase_hist": {
-      "0": 1
+      "0": 2
     },
     "formal_trials_added": 0,
     "admission_smoke20_passed": false,
-    "unknown_source_kept_in_ledger": true
+    "unknown_source_kept_in_ledger": true,
+    "mean_phase": 0.0
   },
   "new_forward_failure_evidence": {
     "analysis_scope": "completed case plus earlier measured prefix; manual sampled-frame review only",
@@ -4659,6 +4747,196 @@
     "no_campaign_started": true,
     "small_root": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/frozen_hermite_smoke6_v1",
     "large_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_round2_20261103/frozen_hermite_smoke6_v1",
-    "execution_status": "CPU staged only;120 cases not yet started"
+    "execution_status": "6模型各20条已完成CPU归档校验；new20/new30各1条Native已启动，其余仍未启动。"
+  },
+  "parallel_original_h8_smoke20": {
+    "new20": {
+      "checkpoint": 20000,
+      "existing_GPU": 0,
+      "num_envs_actual": 1,
+      "own_procs_per_GPU": 1,
+      "target": 20,
+      "forward": 10,
+      "reverse": 10,
+      "started": 1,
+      "closed": 0,
+      "unknown": 0,
+      "success": null,
+      "case_profiles_indices": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "status": "Native started; no closed model trials yet",
+      "horizon": 8,
+      "prediction": 30,
+      "new_cloud_GPUs": 0,
+      "automatic_A": false,
+      "own_RAM_logbook_max_MiB": 1536,
+      "resource_floors": {
+        "host_MiB": 16384,
+        "GPU_MiB": 8192,
+        "shm_MiB": 1024
+      },
+      "source_core_SHA256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    "new30": {
+      "checkpoint": 30000,
+      "existing_GPU": 1,
+      "num_envs_actual": 1,
+      "own_procs_per_GPU": 1,
+      "target": 20,
+      "forward": 10,
+      "reverse": 10,
+      "started": 1,
+      "closed": 0,
+      "unknown": 0,
+      "success": null,
+      "case_profiles_indices": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "status": "Native started; no closed model trials yet",
+      "horizon": 8,
+      "prediction": 30,
+      "new_cloud_GPUs": 0,
+      "automatic_A": false,
+      "own_RAM_logbook_max_MiB": 1536,
+      "resource_floors": {
+        "host_MiB": 16384,
+        "GPU_MiB": 8192,
+        "shm_MiB": 1024
+      },
+      "source_core_SHA256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    }
+  },
+  "new30_smoke20_startup_port_recovery": {
+    "old_launcher_started_Native": 0,
+    "old_launcher_models_loaded": false,
+    "unknown": 0,
+    "unstarted": 20,
+    "error": "EADDRINUSE at socket preflight",
+    "precise_cause": "not established; TIME_WAIT versus existing listener not confirmed",
+    "new_private_ports": [
+      37591,
+      37592
+    ],
+    "separate_runtime_namespace": true,
+    "unknown_retries": 0,
+    "foreign_processes_signalled": 0
+  },
+  "first_case_control_metrics": {
+    "complete": true,
+    "CPU_only": true,
+    "n_frames": 3600,
+    "n_PhysX_ticks": 28800,
+    "case_id": "hermite_new30_pre2_v2_000",
+    "scope": "descriptive single failed model case; no treatment comparison or causality claim",
+    "arm_actual_q_velocity_abs_rad_s": {
+      "p50": 0.06259918212890625,
+      "p95": 0.2704067230224607,
+      "p99": 0.5102840423583981,
+      "maximum": 1.2309278547763824
+    },
+    "arm_actual_q_acceleration_abs_rad_s2": {
+      "p50": 1.5245676040649414,
+      "p95": 6.41141664236784,
+      "p99": 10.238716006278992,
+      "maximum": 17.657411098480225
+    },
+    "arm_target_changes_at_prediction_boundaries_rad": {
+      "p50": 0.010646820068359375,
+      "p95": 0.027745699882507302,
+      "p99": 0.035560417175292944,
+      "maximum": 0.06131172180175781
+    },
+    "arm_target_changes_inside_prediction_rad": {
+      "p50": 0.00464022159576416,
+      "p95": 0.01936250925064085,
+      "p99": 0.035478070974349914,
+      "maximum": 0.08252906799316406
+    },
+    "hand_target_changes_at_prediction_boundaries_rad": {
+      "p50": 0.001281142234802246,
+      "p95": 0.03447673320770262,
+      "p99": 0.06294187068939226,
+      "maximum": 0.1914028525352478
+    },
+    "hand_target_changes_inside_prediction_rad": {
+      "p50": 0.0008342713117599487,
+      "p95": 0.015059871971607198,
+      "p99": 0.028542890548705957,
+      "maximum": 0.0912160873413086
+    },
+    "arm_commanded_velocity_abs_rad_s": {
+      "p50": 0.07266998291015625,
+      "p95": 0.29475760459899886,
+      "p99": 0.5481554746627854,
+      "maximum": 1.3649940490722656
+    },
+    "arm_FF_3_14_limit_hit_fraction": 0.0,
+    "arm_obs_vs_new_current_row_target_abs_rad": {
+      "p50": 0.009571194648742676,
+      "p95": 0.02887861132621764,
+      "p99": 0.04058286190032957,
+      "maximum": 0.06309235095977783
+    },
+    "note": "15Hz finite differences of observed q, not120Hz acceleration measurements; target command gap is not same as post-step servo tracking error; source exact original logs preserved"
+  },
+  "media_local_preview": {
+    "passed": true,
+    "CPU_only": true,
+    "GPU_encoding": false,
+    "full_duration_s": 240.0,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "width": 640,
+    "height": 480,
+    "fps": "15/1",
+    "faststart": true,
+    "bytes": 1786951,
+    "sha256": "75ea84bab205ed0c664cbebfb318fd39cbfa57ad1df998fe18dbc3f2da118df7",
+    "source_sha256": "be0cb7771ed28f57b4ad2b72a1b9b63f8dd5e30b9017a7fe09bd74ac2bc9fc6e",
+    "original_preserved": true,
+    "derived_review_only": true,
+    "not_used_as_policy_input": true,
+    "wall_s": 8.788333597010933,
+    "public_media_published": false,
+    "blocked_by": "canonical public object403; not a signed URL"
   }
 }

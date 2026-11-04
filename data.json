@@ -388,8 +388,8 @@
         {
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/weights/executor_step30000.pt",
-          "status": "新版准入未开始",
-          "availability": "fixed_v1独立光学及专家门槛待核对，不套用pos1cm修复。"
+          "status": "独立fixed光学链准入未开始；启动预检准备",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：独立fixed光学链准入未开始；启动预检准备"
         }
       ],
       "doc": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/FINAL_DELIVERY.md",
@@ -408,10 +408,10 @@
         "denoising_steps": 8,
         "training": "连续训练30k正常结束；执行器无holdout"
       },
-      "note": "现行SafeLab-Eval-v1.1：各权重先独立20条h8准入；通过后阶段A为seed0、同100场景正反交错、h4/h8原始接触。阶段B按统一筛选规则，不再无条件跑5×100或新h30；附着按原始条件A完成后另跑。旧7023条管线待查及strict-v1历史保留，不并入新正式成绩。当前本任务低优云卡0、预留0；真实进度和阻塞以本轮报告为准。",
+      "note": "Round5 CPU诊断快照（2026-11-04T09:38:42.638432+00:00）：三口径并列，旧7023仍管线待查；各独立批次不合并。当前自有低优卡0、预留0；GPU派发处于完整启动依赖预检准备。9条代理操作中断保留unknown/no_retry，替代包初始化失败无新推理。真值切换未开跑，不报0/100。最新逐配置计数、正反拆分及源SHA见报告。",
       "evidence_level": "训练交付文档实读",
       "source": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_fixed_v1_20261023/mem0/third_person/FINAL_DELIVERY.md",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html"
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html"
     },
     {
       "id": "5-pos-mem0",
@@ -423,14 +423,14 @@
         {
           "step": 20000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/weights/executor_step20000.pt",
-          "status": "停止放量（20/20阶段0）",
-          "availability": "四卡低优作业实际RUNNING；详细case进度与模型准入分别记录，未完成不报最终成功率。"
+          "status": "冒烟20/20阶段0；停止放量，抓取诊断",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：冒烟20/20阶段0；停止放量，抓取诊断"
         },
         {
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/weights/executor_step30000.pt",
-          "status": "冒烟完成，阶段A混跑队列",
-          "availability": "四卡低优作业实际RUNNING；详细case进度与模型准入分别记录，未完成不报最终成功率。"
+          "status": "冒烟已闭合；阶段A后续派发待启动预检",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：冒烟已闭合；阶段A后续派发待启动预检"
         }
       ],
       "doc": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/FINAL_DELIVERY.md",
@@ -447,10 +447,10 @@
         "executor_lr": "交付Markdown未列出，待训练配置原件",
         "planner": "25epochs /100updates；450train/50heldout；r8/alpha16；cutoff2048"
       },
-      "note": "现行SafeLab-Eval-v1.1。四卡低优job-rhqry41sghls按N1×5混跑：四模型80条冒烟、new30已准入阶段A h4/h8。new20冒烟20/20停阶段0，停止放量；new30冒烟20条0成功但10条过阶段0，可进A。旧7023仍管线待查，诊断不转正式；逐配置状态见报告。",
+      "note": "Round5 CPU诊断快照（2026-11-04T09:38:42.638432+00:00）：三口径并列，旧7023仍管线待查；各独立批次不合并。当前自有低优卡0、预留0；GPU派发处于完整启动依赖预检准备。9条代理操作中断保留unknown/no_retry，替代包初始化失败无新推理。真值切换未开跑，不报0/100。最新逐配置计数、正反拆分及源SHA见报告。",
       "evidence_level": "训练交付文档实读",
       "source": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0/third_person/FINAL_DELIVERY.md",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html"
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html"
     },
     {
       "id": "7-mem0",
@@ -913,15 +913,15 @@
           "step": 20000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak/weights/executor_step20000.pt",
           "sha256": "13f54a1623a4a419f44308d0e15c85fec9fcb7fe12732b10d24376dec1e15993",
-          "status": "冒烟运行中",
-          "availability": "四卡低优作业实际RUNNING；详细case进度与模型准入分别记录，未完成不报最终成功率。"
+          "status": "冒烟16有效+1unknown；3条确未启动，待预检后续采",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：冒烟16有效+1unknown；3条确未启动，待预检后续采"
         },
         {
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak/weights/executor_step30000.pt",
           "sha256": "c6fdfbf195e612d84cc89c1b8017e32dbb9c221aec361c28b69fa28a61c97045",
-          "status": "冒烟运行中",
-          "availability": "四卡低优作业实际RUNNING；详细case进度与模型准入分别记录，未完成不报最终成功率。"
+          "status": "冒烟20条；19条阶段0，停止放量",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：冒烟20条；19条阶段0，停止放量"
         }
       ],
       "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/mem0_weak/START_HERE.md",
@@ -935,10 +935,10 @@
         "denoising_steps": 8,
         "planner": "学习得到的next子任务Planner；不接收物理验收反馈"
       },
-      "note": "现行SafeLab-Eval-v1.1。四卡低优job-rhqry41sghls按N1×5混跑：四模型80条冒烟、new30已准入阶段A h4/h8。new20冒烟20/20停阶段0，停止放量；new30冒烟20条0成功但10条过阶段0，可进A。旧7023仍管线待查，诊断不转正式；逐配置状态见报告。",
+      "note": "Round5 CPU诊断快照（2026-11-04T09:38:42.638432+00:00）：三口径并列，旧7023仍管线待查；各独立批次不合并。当前自有低优卡0、预留0；GPU派发处于完整启动依赖预检准备。9条代理操作中断保留unknown/no_retry，替代包初始化失败无新推理。真值切换未开跑，不报0/100。最新逐配置计数、正反拆分及源SHA见报告。",
       "evidence_level": "实际交付文件SHA256 + 原生SDK GPU推理一致性 + 逐条原始物理验收",
       "source": "https://github.com/asimfish/safelab-handoff/issues/4",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
       "task": "5",
       "checkpoint_issues": [
         {
@@ -967,8 +967,8 @@
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_5b_obstruction_pos1cm_v1_20261025/ours/third_person/executor_step30000.pt",
           "sha256": "15552d968a55f46a477af7a059f5fdef8b82e64ef6c1512d13ee8d5546faa3ca",
-          "status": "冒烟运行中",
-          "availability": "四卡低优作业实际RUNNING；详细case进度与模型准入分别记录，未完成不报最终成功率。"
+          "status": "冒烟18有效+2unknown；待Gen编码链核对",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：冒烟18有效+2unknown；待Gen编码链核对"
         }
       ],
       "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours/third_person/START_HERE.md",
@@ -982,10 +982,10 @@
         "denoising_steps": 8,
         "planner": "原生Gen2.1-311 + 学习得到的next与DAG Planner；不接收物理验收反馈"
       },
-      "note": "现行SafeLab-Eval-v1.1。四卡低优job-rhqry41sghls按N1×5混跑：四模型80条冒烟、new30已准入阶段A h4/h8。new20冒烟20/20停阶段0，停止放量；new30冒烟20条0成功但10条过阶段0，可进A。旧7023仍管线待查，诊断不转正式；逐配置状态见报告。",
+      "note": "Round5 CPU诊断快照（2026-11-04T09:38:42.638432+00:00）：三口径并列，旧7023仍管线待查；各独立批次不合并。当前自有低优卡0、预留0；GPU派发处于完整启动依赖预检准备。9条代理操作中断保留unknown/no_retry，替代包初始化失败无新推理。真值切换未开跑，不报0/100。最新逐配置计数、正反拆分及源SHA见报告。",
       "evidence_level": "实际交付文件SHA256 + 原生SDK GPU推理一致性 + 逐条原始物理验收",
       "source": "https://github.com/asimfish/safelab-handoff/issues/2",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
       "task": "5",
       "checkpoint_issues": [
         {
@@ -1580,8 +1580,8 @@
           "step": 30000,
           "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/weights/executor_step30000.pt",
           "sha256": "cb5de3a2279392081b0ee4ff2e7de8b14792b1b5c197c3343aab6854fac9a96b",
-          "status": "新版物理冒烟未开始",
-          "availability": "权重和固定输入池已核验；旧CPU等待器已撤，现为NAS混跑CPU准备，缺现有云卡执行入口。"
+          "status": "冒烟10有效+10unknown保留；实际编码函数缺失，暂停slot",
+          "availability": "截至2026-11-04T09:38:42.638432+00:00：自有云卡0/预留0；模型权重可用性不因任务资源释放而改变。最新状态：冒烟10有效+10unknown保留；实际编码函数缺失，暂停slot"
         }
       ],
       "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/START_HERE.md",
@@ -1595,10 +1595,10 @@
         "denoising_steps": 8,
         "planner": "本版weak Gen2.1-311＋next/DAG LoRA；训练native classifier不负责线上切换"
       },
-      "note": "现行SafeLab-Eval-v1.1：各权重先独立20条h8准入；通过后阶段A为seed0、同100场景正反交错、h4/h8原始接触。阶段B按统一筛选规则，不再无条件跑5×100或新h30；附着按原始条件A完成后另跑。旧7023条管线待查及strict-v1历史保留，不并入新正式成绩。当前本任务低优云卡0、预留0；真实进度和阻塞以本轮报告为准。",
+      "note": "Round5 CPU诊断快照（2026-11-04T09:38:42.638432+00:00）：三口径并列，旧7023仍管线待查；各独立批次不合并。当前自有低优卡0、预留0；GPU派发处于完整启动依赖预检准备。9条代理操作中断保留unknown/no_retry，替代包初始化失败无新推理。真值切换未开跑，不报0/100。最新逐配置计数、正反拆分及源SHA见报告。",
       "evidence_level": "交付文件SHA256与严格CPU配置核验；逐条闭环结果须原始物理独立验收",
       "source": "https://github.com/asimfish/safelab-handoff/issues/17",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
       "task": "5",
       "checkpoint_issues": [
         {
@@ -36336,7 +36336,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "低优任务无原因FAILED，按抢占处理；20条已启动、0条闭合、20条unknown。未取得有效冒烟，不能判断阶段0停止规则。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -36416,7 +36416,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -36489,7 +36489,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "等待该权重自己的20条冒烟准入",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -36685,7 +36685,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "任务已被抢占，批次冻结；闭合22/100，unknown10，未启动68；不公布部分样本成功率。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -36787,7 +36787,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "任务已被抢占，批次冻结；闭合21/100，unknown10，未启动69；不公布部分样本成功率。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -36867,7 +36867,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -36956,7 +36956,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37041,7 +37041,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37126,7 +37126,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37215,7 +37215,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37300,7 +37300,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "旧启动包漏传--kind next，仿真未启动；新独立v2包及CPU入口检查已通过，NN池和物理冒烟尚未验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37385,7 +37385,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37474,7 +37474,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37559,7 +37559,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37644,7 +37644,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "Planner实际CPU入口检查通过；四模型共享NN池逐lane固定输入验证通过，输出最大差0。物理冒烟未启动；current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37733,7 +37733,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37818,7 +37818,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "与弱化版共享的任务在启动阶段退出；该模型没有新仿真结果。CPU next/dag入口检查通过，NN池和物理冒烟待验证。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37903,7 +37903,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "尚未冒烟；已从原导出记录独立核验fixed反向ep50的DLD=False与相机K，正向DLD和fractional策略未有足够记录；不套用pos1cm光学修复。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -37976,7 +37976,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -38049,7 +38049,7 @@
           "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#smoke"
         }
       },
-      "status": "旧fixed_v1数据光学链仍独立核对，尚未启动；不套用pos1cm修复。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-03T23:02:47.325684+00:00",
@@ -38236,7 +38236,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "停止放量：本模型20/20冒烟停阶段0；新阶段A未开始。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -38323,7 +38323,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "停止放量：本模型20/20冒烟停阶段0；新阶段A未开始。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -38410,7 +38410,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "已准入并进入job-rhqry41sghls混跑队列，等待空闲slot；阶段A尚无已闭合轨迹。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -38497,7 +38497,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "已准入并进入job-rhqry41sghls混跑队列，等待空闲slot；阶段A尚无已闭合轨迹。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -38582,7 +38582,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -38679,7 +38679,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -38776,7 +38776,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -38873,7 +38873,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -38970,7 +38970,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -39067,7 +39067,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -39164,7 +39164,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -39261,7 +39261,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "未启动；新控制器专家10/10通过，最大13维RMSE0.004591rad；等待本模型新链20条冒烟，旧线性链成绩与unknown保留。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -39358,7 +39358,7 @@
           "scope": "pos1cm专家10条；fixed_v1需独立核验"
         }
       },
-      "status": "未启动；fixed_v1光学链与专家执行链仍待独立验证，不能套用pos1cm准入。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -39443,7 +39443,7 @@
           "scope": "pos1cm专家10条；fixed_v1需独立核验"
         }
       },
-      "status": "未启动；fixed_v1光学链与专家执行链仍待独立验证，不能套用pos1cm准入。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -40027,7 +40027,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "四卡混跑运行中：本模型已领取6/20条、已闭合0条、unknown1；完整成功率待整批完成。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -40175,7 +40175,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "四卡混跑运行中：本模型已领取6/20条、已闭合1条、unknown0；完整成功率待整批完成。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -40323,7 +40323,7 @@
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
         }
       },
-      "status": "四卡混跑运行中：本模型已领取8/20条、已闭合3条、unknown0；完整成功率待整批完成。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -40474,7 +40474,7 @@
           "scope": "Gen encoder lazy-import path; action prefix admission did not exercise it"
         }
       },
-      "status": "四卡混跑运行中：本模型已领取6/20条、已闭合0条、unknown1；完整成功率待整批完成。 已复现交付缺失Gen编码模块，管线待查；不据此把该变体判为训练不佳。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -40580,7 +40580,7 @@
           "scope": "pos1cm专家10条；fixed_v1需独立核验"
         }
       },
-      "status": "尚未启动：fixed_v1仍待独立光学链与专家回放准入，不能套用pos1cm。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T00:07:28.730114+00:00",
@@ -41068,7 +41068,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41184,7 +41184,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41300,7 +41300,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41416,7 +41416,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41532,7 +41532,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41660,7 +41660,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41788,7 +41788,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -41916,7 +41916,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42044,7 +42044,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42172,7 +42172,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42300,7 +42300,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42428,7 +42428,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42556,7 +42556,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42672,7 +42672,7 @@
           "reason": "basecontroller10pairspassed; attachment override/release integration not yet verified"
         }
       },
-      "status": "未开始：附着辅助条件，须先完成该权重/步数原始接触阶段A；当前仅登记冻结版本，尚无新链附着物理评测。",
+      "status": "后续派发暂停；完整启动预检准备中，实际批次分开见Round5 CPU诊断",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T04:07:17.221611+00:00",
@@ -42712,6 +42712,2804 @@
       "attachment_config_sha256": "3f1432579bb2eeca56131e5bfe725fdfd51841d74ebbb517e8342fb63f212750",
       "dispatch_status": "unstarted_attachment_after_baseline_A",
       "camera": "third_person"
+    },
+    {
+      "id": "task5-round5-cpu-1e1bc51adbf961174d38",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.45,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 16,
+        "2": 3,
+        "3": 1
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "独立历史诊断批次；不并入新冒烟",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "cloud4_current_row_smoke20_v4",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-820c05a3948976161cc7",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.25,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 17,
+        "1": 1,
+        "2": 2
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "独立历史诊断批次；不并入新冒烟",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "cloud4_source_optics_smoke20_v1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-772464615a50bda8a3fc",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 1.115,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "4": 1,
+        "3": 27,
+        "2": 40,
+        "1": 58,
+        "0": 74
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-old30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-886879b076866dc94f9d",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 1.27,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "3": 30,
+        "2": 58,
+        "1": 48,
+        "0": 64
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-old30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-3a6f9832806f2347ae46",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 1.115,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "3": 28,
+        "2": 32,
+        "1": 75,
+        "0": 65
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-old30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-b960f0418d6c517650e1",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.48,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "3": 6,
+        "2": 16,
+        "1": 46,
+        "0": 132
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-old30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-efaace5f23518e1efde3",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.845,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "3": 14,
+        "2": 23,
+        "1": 81,
+        "0": 82
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-old30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-c036ea3164a37a528dc6",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.145,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "2": 3,
+        "1": 23,
+        "0": 174
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-old30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-fa50b6f7e94daf455ce8",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.025,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "2": 2,
+        "1": 1,
+        "0": 197
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-c7246e46dede8cc72b4a",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.095,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "2": 2,
+        "1": 15,
+        "0": 183
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-d1da80368cb99ce48bba",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.035,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "2": 2,
+        "1": 3,
+        "0": 195
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new20-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-7ef59f904a62db44902b",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.05,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 10,
+        "0": 190
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-new30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-2f0bc16bdaf4df21db16",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.03,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 6,
+        "0": 194
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-new20-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-6a49e1feb7479541a2da",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.055,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 11,
+        "0": 189
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-new20-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-2464c7bea749968d7d30",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.06,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 12,
+        "0": 188
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-new30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-d0960dd217c0941f798d",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 146,
+      "completed": 146,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.00684931506849315,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 1,
+        "0": 145
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-ours30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-cc6608674049e3606a6c",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.005,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 1,
+        "0": 199
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-new30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-6380fff9cef528d72986",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.005,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 1,
+        "0": 199
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-new20-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-a6dbc38710d3682ca0d9",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.035,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 5,
+        "2": 1,
+        "0": 194
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new20-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-3ed62ba46b87a2afeed4",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.03,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "2": 2,
+        "1": 2,
+        "0": 196
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-16c6725f5807881bd635",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.015,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 3,
+        "0": 197
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new20-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-e7b578885d7f861dcd75",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 149,
+      "completed": 149,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.026845637583892617,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 4,
+        "0": 145
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-ecb10042d2687b842788",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 76,
+      "completed": 76,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.013157894736842105,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 1,
+        "0": 75
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-76f28ec5ab4def94a8fe",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 77,
+      "completed": 77,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.012987012987012988,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 1,
+        "0": 76
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-56db3e42a9ea2d17ca4d",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 76,
+      "completed": 76,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.02631578947368421,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 2,
+        "0": 74
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-c7c13656d7276d6f2c9b",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 74,
+      "completed": 74,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.02702702702702703,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 2,
+        "0": 72
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-7b61a0ea920bbab934c9",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 200
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-weak20-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-767919ecae01a77f381b",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 200
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-weak20-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-221a8cc6935bc0049646",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 200
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-weak20-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-128c84c925058c4e0845",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 149,
+      "completed": 149,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 149
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-weak30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-f483aa22112c8cfbb6f9",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 149,
+      "completed": 149,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 149
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-weak30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-124170c6832fecc6e51a",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 149,
+      "completed": 149,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 149
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-weak30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-219dcd4c0b6cd5d91139",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 146,
+      "completed": 146,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 146
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-ours30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-32862584fab18dab3c24",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 146,
+      "completed": 146,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 146
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-all-20261101-ours30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-703a3b14a01316e145a6",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 149,
+      "completed": 149,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 149
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-20fa7cbde0de96c00e9c",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 148,
+      "completed": 148,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 148
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-1df34b30973dc4f3d0a6",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 200
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak20-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-51345c8dde45e1585de6",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.005,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 199,
+        "1": 1
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak20-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-bc16bf643781b8877d64",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 200,
+      "completed": 200,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 200
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak20-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-5167a426be815e26ab19",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 146,
+      "completed": 146,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 146
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-ours30-h4",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-60aefe3ac88bc6829196",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 146,
+      "completed": 146,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.00684931506849315,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 145,
+        "1": 1
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-ours30-h8",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-75b9c3cda1fd439393b0",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "legacy-attachment-unverified",
+      "success": 0,
+      "trials": 145,
+      "completed": 145,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 145
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": "task5-grasp-attach-20261101-ours30-h30",
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-cf22d6ceba55f17afef3",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 75,
+      "completed": 75,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 75
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-d5f7cfc80a99b1782241",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 77,
+      "completed": 77,
+      "unknown": 0,
+      "unknown_reasons": null,
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 77
+      },
+      "lr_split": null,
+      "seed_results": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "preprocess_resize": null,
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "legacy_pipeline_suspect",
+      "quarantined": true,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": null,
+      "failure_modes_nonexclusive": null
+    },
+    {
+      "id": "task5-round5-cpu-5c2b6604efbb4fd94c02",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 7,
+      "completed": 7,
+      "unknown": 5,
+      "unknown_reasons": {
+        "agent_handover_interrupted_observable_native_case": 5
+      },
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 2
+      },
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 3
+        },
+        "right": {
+          "trials": 3,
+          "success": 0,
+          "unknown": 2
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 7,
+          "success": 0,
+          "unknown": 5
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "round4_cloud_repair1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 1
+        },
+        "reverse": {
+          "0": 1
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 1,
+        "no_successful_grasp_or_lift": 1,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "time_limit": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-8d9092dbafc101b901e2",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 7,
+      "completed": 7,
+      "unknown": 4,
+      "unknown_reasons": {
+        "agent_handover_interrupted_observable_native_case": 4
+      },
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 3
+      },
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 3
+        },
+        "right": {
+          "trials": 3,
+          "success": 0,
+          "unknown": 1
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 7,
+          "success": 0,
+          "unknown": 4
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "round4_cloud_repair1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 1
+        },
+        "reverse": {
+          "0": 2
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 2,
+        "no_successful_grasp_or_lift": 2,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "time_limit": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-5d6fb5c2ca8d4589b927",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 2,
+      "unknown_reasons": {
+        "AssertionError": 2
+      },
+      "evaluation_started": true,
+      "mean_phase": 0.05555555555555555,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 17,
+        "1": 1
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 2
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 2
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "round4_cloud_repair1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 10
+        },
+        "reverse": {
+          "0": 7,
+          "1": 1
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 7,
+        "no_successful_grasp_or_lift": 17,
+        "time_limit": 11,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "physical_complete_instruction_retained": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-6a4533ed2e9cd55f4451",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 10,
+      "unknown_reasons": {
+        "AssertionError": 10
+      },
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 10
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 4
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "round4_cloud_repair1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6
+        },
+        "reverse": {
+          "0": 4
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "released_outside_target_region": 3,
+        "possible_slip_requires_video_confirmation": 3,
+        "time_limit": 9,
+        "no_successful_grasp_or_lift": 7,
+        "toppled_collision_attribution_unconfirmed": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-677f7ddeb12f07bd4417",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 17,
+      "completed": 17,
+      "unknown": 1,
+      "unknown_reasons": {
+        "AssertionError": 1
+      },
+      "evaluation_started": true,
+      "mean_phase": 0.25,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 12,
+        "1": 4
+      },
+      "lr_split": {
+        "left": {
+          "trials": 9,
+          "success": 0,
+          "unknown": 1
+        },
+        "right": {
+          "trials": 8,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 17,
+          "success": 0,
+          "unknown": 1
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "round4_cloud_repair1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 8
+        },
+        "reverse": {
+          "0": 4,
+          "1": 4
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "no_successful_grasp_or_lift": 15,
+        "time_limit": 13,
+        "physical_complete_instruction_retained": 4,
+        "toppled_collision_attribution_unconfirmed": 3,
+        "released_outside_target_region": 1,
+        "premature_instruction_switch": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-7e736bac90cfb237a324",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 0,
+      "unknown_reasons": {},
+      "evaluation_started": true,
+      "mean_phase": 0.05,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 19,
+        "1": 1
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "round4_cloud_repair1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 9,
+          "1": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 8,
+        "no_successful_grasp_or_lift": 13,
+        "released_outside_target_region": 7,
+        "possible_slip_requires_video_confirmation": 6,
+        "time_limit": 12,
+        "physical_complete_instruction_retained": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-62815dd1f6667fbfc91c",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 0,
+      "unknown_reasons": {},
+      "evaluation_started": true,
+      "mean_phase": 0.0,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "0": 20
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "shared_new20_hermite_fullsmoke20_v1",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 10
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "no_successful_grasp_or_lift": 19,
+        "time_limit": 11,
+        "toppled_collision_attribution_unconfirmed": 9,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "premature_instruction_switch": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-e649818ad7e00a3c029c",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "cpu_three_metric_diagnostic",
+      "condition_version": "original-v1",
+      "success": 0,
+      "trials": 20,
+      "completed": 20,
+      "unknown": 0,
+      "unknown_reasons": {},
+      "evaluation_started": true,
+      "mean_phase": 0.6,
+      "wilson95": null,
+      "kind": "CPU离线三口径诊断",
+      "phase_hist": {
+        "1": 8,
+        "2": 2,
+        "0": 10
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "per-case preprocessing=train_aligned; source report retains control/optics SHA"
+      },
+      "source_evaluation_id": null,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104.html",
+      "cohort": "shared_new30_hermite_fullsmoke20_v2",
+      "quarantined": false,
+      "triple_metrics": {
+        "strict-v1": 0,
+        "strict-fdvel-v1": 0,
+        "placement-v1.1": 0,
+        "strict_fdvel_identity": true
+      },
+      "layout_phase_hist_v11": {
+        "forward": {
+          "1": 5,
+          "2": 2,
+          "0": 3
+        },
+        "reverse": {
+          "1": 3,
+          "0": 7
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "released_outside_target_region": 7,
+        "possible_slip_requires_video_confirmation": 7,
+        "time_limit": 13,
+        "physical_complete_instruction_retained": 10,
+        "no_successful_grasp_or_lift": 11,
+        "premature_instruction_switch": 2,
+        "toppled_collision_attribution_unconfirmed": 7
+      }
+    },
+    {
+      "id": "task5-round5-new30-h8-oracle-switch-diagnostic-v1",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "condition_version": "oracle-switch-diagnostic-v1",
+      "metric_role": "oracle_switch_diagnostic",
+      "evaluation_started": false,
+      "trials": 100,
+      "target": 100,
+      "completed": 0,
+      "unknown": 0,
+      "success": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "topology": null,
+      "preprocess_resize": null,
+      "scene_list_hash": null,
+      "lr_split": null,
+      "seed_results": null,
+      "wilson95": null,
+      "kind": "真值切换诊断（未开始）",
+      "formal_score_eligible": false,
+      "status": "未开始；仅CPU包准备，不报0/100",
+      "pending_reason": "启动依赖闭包、固定输入一致性和GPU自检尚待通过",
+      "expected_start_at": null
+    },
+    {
+      "id": "task5-round5-ours30-h8-oracle-switch-diagnostic-v1",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "condition_version": "oracle-switch-diagnostic-v1",
+      "metric_role": "oracle_switch_diagnostic",
+      "evaluation_started": false,
+      "trials": 100,
+      "target": 100,
+      "completed": 0,
+      "unknown": 0,
+      "success": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "topology": null,
+      "preprocess_resize": null,
+      "scene_list_hash": null,
+      "lr_split": null,
+      "seed_results": null,
+      "wilson95": null,
+      "kind": "真值切换诊断（未开始）",
+      "formal_score_eligible": false,
+      "status": "未开始；仅CPU包准备，不报0/100",
+      "pending_reason": "启动依赖闭包、固定输入一致性和GPU自检尚待通过；TTC另受Gen编码函数缺失阻塞",
+      "expected_start_at": null
     }
   ],
   "agents": [

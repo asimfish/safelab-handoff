@@ -1,0 +1,729 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>五任务 CPU 三口径诊断</title><style>body{font:15px system-ui;margin:24px}table{border-collapse:collapse;font-size:13px}th,td{border:1px solid #ccc;padding:6px;vertical-align:top}th{position:sticky;top:0;background:#eee}</style><h1>五任务 CPU 三口径诊断</h1><p>五任务原 strict oracle 只读取位姿和接触，以121个有效tick的位置/姿态漂移判稳定，无线速度或角速度条件；按“只改速度来源”原则，strict-fdvel-v1 与 strict-v1 完全相同。</p><p>所有结果均为诊断；7023条旧管线批次隔离，不与新冒烟、不同光学链或执行链相加。缺正反拆分、缩放源码或120Hz证据时留空。真值切换尚未开始，不写0/100。</p><p><a href="task5-round5-cpu-three-metrics-20261104.json">机器可读证据</a> · <a href="task5-round5-cpu-three-metrics-20261104.csv">比较表 CSV</a></p><p>资源快照：本任务低优卡0、预留0。热切换操作错误中断9条，全部保留unknown/no_retry；后续干净替代包因漏带audit_smoke.py初始化失败，未发生新模型或仿真调用。共享/历史已验收结果保留。新任务须完整启动依赖预检后再提交。</p><p>更正：已闭合的new30完整20条冒烟，反向为阶段0×7、阶段1×3；正向为阶段0×3、阶段1×5、阶段2×2。“反向全停阶段0”属于更早的独立批次，不能套用到本批。</p><h2>静止窗口 FD / PhysX 速度</h2><p>两条无模型动作的静置轨迹，每条601个120Hz tick；第一样本速度为null。C的角速度p99从0.064529降至0.016584 rad/s。FD不是所有量都更小：A/B线速度p99略升，原分布逐项保留。</p><pre>{
+  &quot;CPU_only&quot;: true,
+  &quot;new_simulation&quot;: false,
+  &quot;sources&quot;: [
+    {
+      &quot;path&quot;: &quot;/public_fast_storage/liyufeng/safelab_5b_stable_attach_20261101/round2_static_noise_20261103_v1/runs/static_0/static_120hz.jsonl&quot;,
+      &quot;sha256&quot;: &quot;9a6b5f2ca414a1915931c1e8a6889876e6dce83f6eb6c0f2601512c688162398&quot;,
+      &quot;physical_rows&quot;: 601,
+      &quot;model_actions&quot;: 0,
+      &quot;actual_t_sim_delta_s&quot;: {
+        &quot;p50&quot;: 0.008333333333333304,
+        &quot;p95&quot;: 0.008333333333333748,
+        &quot;p99&quot;: 0.008333333333333748
+      }
+    },
+    {
+      &quot;path&quot;: &quot;/public_fast_storage/liyufeng/safelab_5b_stable_attach_20261101/round2_static_noise_20261103_v1/runs/static_1/static_120hz.jsonl&quot;,
+      &quot;sha256&quot;: &quot;a21925c61f5457baa5edb8c2184be97a57436ea09ea0bcf078af039e249168b0&quot;,
+      &quot;physical_rows&quot;: 601,
+      &quot;model_actions&quot;: 0,
+      &quot;actual_t_sim_delta_s&quot;: {
+        &quot;p50&quot;: 0.008333333333333304,
+        &quot;p95&quot;: 0.008333333333333748,
+        &quot;p99&quot;: 0.008333333333333748
+      }
+    }
+  ],
+  &quot;first_sample_velocity&quot;: null,
+  &quot;per_object&quot;: {
+    &quot;A&quot;: {
+      &quot;FD_linear_m_s&quot;: {
+        &quot;p50&quot;: 0.00011555310073902161,
+        &quot;p95&quot;: 0.00023287039655828064,
+        &quot;p99&quot;: 0.00028753013738319773
+      },
+      &quot;FD_angular_rad_s&quot;: {
+        &quot;p50&quot;: 5.982455102462681e-05,
+        &quot;p95&quot;: 0.0003277177120345154,
+        &quot;p99&quot;: 0.0007748532400330217
+      },
+      &quot;PhysX_linear_m_s&quot;: {
+        &quot;p50&quot;: 1.532056575976933e-05,
+        &quot;p95&quot;: 0.00011381909236114544,
+        &quot;p99&quot;: 0.00018842072569346402
+      },
+      &quot;PhysX_angular_rad_s&quot;: {
+        &quot;p50&quot;: 0.0004672915382804497,
+        &quot;p95&quot;: 0.0014898538714756381,
+        &quot;p99&quot;: 0.0023226758884834367
+      }
+    },
+    &quot;B&quot;: {
+      &quot;FD_linear_m_s&quot;: {
+        &quot;p50&quot;: 5.89814990847255e-05,
+        &quot;p95&quot;: 0.00023066304440398842,
+        &quot;p99&quot;: 0.00028788488098379966
+      },
+      &quot;FD_angular_rad_s&quot;: {
+        &quot;p50&quot;: 1.713576673729201e-05,
+        &quot;p95&quot;: 0.00031108313751192923,
+        &quot;p99&quot;: 0.000538561491773526
+      },
+      &quot;PhysX_linear_m_s&quot;: {
+        &quot;p50&quot;: 1.5018074043512821e-05,
+        &quot;p95&quot;: 0.00015313288763454158,
+        &quot;p99&quot;: 0.00021239235988947865
+      },
+      &quot;PhysX_angular_rad_s&quot;: {
+        &quot;p50&quot;: 0.00020946638580244154,
+        &quot;p95&quot;: 0.0011641718967431854,
+        &quot;p99&quot;: 0.0021555447840904372
+      }
+    },
+    &quot;C&quot;: {
+      &quot;FD_linear_m_s&quot;: {
+        &quot;p50&quot;: 0.00024329190815012132,
+        &quot;p95&quot;: 0.0005935071212360289,
+        &quot;p99&quot;: 0.0006703781587655938
+      },
+      &quot;FD_angular_rad_s&quot;: {
+        &quot;p50&quot;: 0.005004469840248413,
+        &quot;p95&quot;: 0.011133159504039784,
+        &quot;p99&quot;: 0.01658438792472498
+      },
+      &quot;PhysX_linear_m_s&quot;: {
+        &quot;p50&quot;: 0.0009447449113210383,
+        &quot;p95&quot;: 0.0016021408729460604,
+        &quot;p99&quot;: 0.0020843855766727796
+      },
+      &quot;PhysX_angular_rad_s&quot;: {
+        &quot;p50&quot;: 0.021966303652972297,
+        &quot;p95&quot;: 0.0479006657336347,
+        &quot;p99&quot;: 0.06452937559000256
+      }
+    }
+  },
+  &quot;strict_oracle_uses_velocity&quot;: false,
+  &quot;strict_FD_equivalence&quot;: &quot;original ObstructionFive.observe reads only poses and contacts; no velocity predicate to replace&quot;
+}</pre><table><thead><tr><th>批次</th><th>方法</th><th>ckpt</th><th>h</th><th>训练缩放</th><th>n</th><th>strict</th><th>strict-FD</th><th>placement</th><th>v1.1均阶段</th><th>正反拆分</th><th>unknown</th><th>状态</th></tr></thead><tbody><tr><td>expert_original8</td><td>专家回放</td><td>待定</td><td>待定</td><td>未逐源核验</td><td>8</td><td>8</td><td>8</td><td>8</td><td>5.0</td><td>待定</td><td>0</td><td>独立历史诊断批次；不并入新冒烟</td></tr><tr><td>cloud4_current_row_smoke20_v4</td><td>Mem-0</td><td>30000</td><td>8</td><td>未逐源核验</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.45</td><td>待定</td><td>0</td><td>独立历史诊断批次；不并入新冒烟</td></tr><tr><td>cloud4_source_optics_smoke20_v1</td><td>Mem-0</td><td>30000</td><td>8</td><td>未逐源核验</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.25</td><td>待定</td><td>0</td><td>独立历史诊断批次；不并入新冒烟</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>1.115</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>1.27</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>1.115</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.48</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.845</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.145</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.025</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.095</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>20000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.035</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.05</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>20000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.03</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>20000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.055</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.06</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐loss</td><td>30000</td><td>8</td><td>未逐源核验</td><td>146</td><td>0</td><td>0</td><td>0</td><td>0.00684931506849315</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.005</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>20000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.005</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>20000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.035</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>30000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.03</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0</td><td>20000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.015</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>30000</td><td>8</td><td>未逐源核验</td><td>149</td><td>0</td><td>0</td><td>0</td><td>0.026845637583892617</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐削弱版</td><td>30000</td><td>4</td><td>未逐源核验</td><td>76</td><td>0</td><td>0</td><td>0</td><td>0.013157894736842105</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐削弱版</td><td>30000</td><td>30</td><td>未逐源核验</td><td>77</td><td>0</td><td>0</td><td>0</td><td>0.012987012987012988</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐削弱版</td><td>30000</td><td>8</td><td>未逐源核验</td><td>76</td><td>0</td><td>0</td><td>0</td><td>0.02631578947368421</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐削弱版</td><td>30000</td><td>4</td><td>未逐源核验</td><td>74</td><td>0</td><td>0</td><td>0</td><td>0.02702702702702703</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>20000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>20000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>20000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>30000</td><td>4</td><td>未逐源核验</td><td>149</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>30000</td><td>8</td><td>未逐源核验</td><td>149</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>30000</td><td>30</td><td>未逐源核验</td><td>149</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐loss</td><td>30000</td><td>4</td><td>未逐源核验</td><td>146</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐loss</td><td>30000</td><td>30</td><td>未逐源核验</td><td>146</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>30000</td><td>4</td><td>未逐源核验</td><td>149</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>30000</td><td>30</td><td>未逐源核验</td><td>148</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>20000</td><td>4</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>20000</td><td>30</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.005</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>Mem-0 · 削弱版</td><td>20000</td><td>8</td><td>未逐源核验</td><td>200</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐loss</td><td>30000</td><td>4</td><td>未逐源核验</td><td>146</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐loss</td><td>30000</td><td>8</td><td>未逐源核验</td><td>146</td><td>0</td><td>0</td><td>0</td><td>0.00684931506849315</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐loss</td><td>30000</td><td>30</td><td>未逐源核验</td><td>145</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐削弱版</td><td>30000</td><td>30</td><td>未逐源核验</td><td>75</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>legacy_pipeline_suspect</td><td>TTC · 对齐削弱版</td><td>30000</td><td>8</td><td>未逐源核验</td><td>77</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>待定</td><td>0</td><td>旧7023管线待查，仅诊断</td></tr><tr><td>round4_cloud_repair1</td><td>Mem-0</td><td>30000</td><td>4</td><td>是</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>{&quot;left&quot;: {&quot;trials&quot;: 4, &quot;success&quot;: 0, &quot;unknown&quot;: 3}, &quot;right&quot;: {&quot;trials&quot;: 3, &quot;success&quot;: 0, &quot;unknown&quot;: 2}}</td><td>5</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>round4_cloud_repair1</td><td>Mem-0</td><td>30000</td><td>8</td><td>是</td><td>7</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>{&quot;left&quot;: {&quot;trials&quot;: 4, &quot;success&quot;: 0, &quot;unknown&quot;: 3}, &quot;right&quot;: {&quot;trials&quot;: 3, &quot;success&quot;: 0, &quot;unknown&quot;: 1}}</td><td>4</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>round4_cloud_repair1</td><td>TTC · 对齐loss</td><td>30000</td><td>8</td><td>是</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.05555555555555555</td><td>{&quot;left&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}, &quot;right&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 2}}</td><td>2</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>round4_cloud_repair1</td><td>TTC · 对齐削弱版</td><td>30000</td><td>8</td><td>是</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>{&quot;left&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 4}, &quot;right&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 6}}</td><td>10</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>round4_cloud_repair1</td><td>Mem-0 · 削弱版</td><td>20000</td><td>8</td><td>是</td><td>17</td><td>0</td><td>0</td><td>0</td><td>0.25</td><td>{&quot;left&quot;: {&quot;trials&quot;: 9, &quot;success&quot;: 0, &quot;unknown&quot;: 1}, &quot;right&quot;: {&quot;trials&quot;: 8, &quot;success&quot;: 0, &quot;unknown&quot;: 0}}</td><td>1</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>round4_cloud_repair1</td><td>Mem-0 · 削弱版</td><td>30000</td><td>8</td><td>是</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.05</td><td>{&quot;left&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}, &quot;right&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}}</td><td>0</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>shared_new20_hermite_fullsmoke20_v1</td><td>Mem-0</td><td>20000</td><td>8</td><td>是</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.0</td><td>{&quot;left&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}, &quot;right&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}}</td><td>0</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr><tr><td>shared_new30_hermite_fullsmoke20_v2</td><td>Mem-0</td><td>30000</td><td>8</td><td>是</td><td>20</td><td>0</td><td>0</td><td>0</td><td>0.6</td><td>{&quot;left&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}, &quot;right&quot;: {&quot;trials&quot;: 10, &quot;success&quot;: 0, &quot;unknown&quot;: 0}}</td><td>0</td><td>CPU三口径已核验的独立快照；不是完整阶段A</td></tr></tbody></table><h2>阶段漏斗与失败方式</h2><p>失败方式非互斥；碰撞归因、滑脱和视频源仍待人工核验。未公开的视频不伪造HTTPS链接。</p><pre>[
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-7f9f69c6d270a2835430&quot;,
+    &quot;cohort&quot;: &quot;expert_original8&quot;,
+    &quot;variant&quot;: &quot;expert&quot;,
+    &quot;horizon&quot;: null,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 8,
+        &quot;previous_phase_reached&quot;: 8,
+        &quot;conditional_reach_rate&quot;: 1.0
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 8,
+        &quot;previous_phase_reached&quot;: 8,
+        &quot;conditional_reach_rate&quot;: 1.0
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 8,
+        &quot;previous_phase_reached&quot;: 8,
+        &quot;conditional_reach_rate&quot;: 1.0
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 8,
+        &quot;previous_phase_reached&quot;: 8,
+        &quot;conditional_reach_rate&quot;: 1.0
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 8,
+        &quot;previous_phase_reached&quot;: 8,
+        &quot;conditional_reach_rate&quot;: 1.0
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: null,
+    &quot;failure_modes_nonexclusive&quot;: null,
+    &quot;switch_diagnostic&quot;: null
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-1e1bc51adbf961174d38&quot;,
+    &quot;cohort&quot;: &quot;cloud4_current_row_smoke20_v4&quot;,
+    &quot;variant&quot;: &quot;new30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 4,
+        &quot;previous_phase_reached&quot;: 20,
+        &quot;conditional_reach_rate&quot;: 0.2
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 4,
+        &quot;previous_phase_reached&quot;: 4,
+        &quot;conditional_reach_rate&quot;: 1.0
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 1,
+        &quot;previous_phase_reached&quot;: 4,
+        &quot;conditional_reach_rate&quot;: 0.25
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 1,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: null,
+    &quot;failure_modes_nonexclusive&quot;: null,
+    &quot;switch_diagnostic&quot;: null
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-820c05a3948976161cc7&quot;,
+    &quot;cohort&quot;: &quot;cloud4_source_optics_smoke20_v1&quot;,
+    &quot;variant&quot;: &quot;new30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 3,
+        &quot;previous_phase_reached&quot;: 20,
+        &quot;conditional_reach_rate&quot;: 0.15
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 2,
+        &quot;previous_phase_reached&quot;: 3,
+        &quot;conditional_reach_rate&quot;: 0.6666666666666666
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 2,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: null,
+    &quot;failure_modes_nonexclusive&quot;: null,
+    &quot;switch_diagnostic&quot;: null
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-5c2b6604efbb4fd94c02&quot;,
+    &quot;cohort&quot;: &quot;round4_cloud_repair1&quot;,
+    &quot;variant&quot;: &quot;new30&quot;,
+    &quot;horizon&quot;: 4,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 2,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 1
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 1
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 1,
+      &quot;no_successful_grasp_or_lift&quot;: 1,
+      &quot;released_outside_target_region&quot;: 1,
+      &quot;possible_slip_requires_video_confirmation&quot;: 1,
+      &quot;time_limit&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 0,
+      &quot;retained_after_physical_complete_events&quot;: 0,
+      &quot;delay_seconds&quot;: [],
+      &quot;never_switched_events&quot;: 0
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-8d9092dbafc101b901e2&quot;,
+    &quot;cohort&quot;: &quot;round4_cloud_repair1&quot;,
+    &quot;variant&quot;: &quot;new30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 3,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 1
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 2
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 2,
+      &quot;no_successful_grasp_or_lift&quot;: 2,
+      &quot;released_outside_target_region&quot;: 1,
+      &quot;possible_slip_requires_video_confirmation&quot;: 1,
+      &quot;time_limit&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 0,
+      &quot;retained_after_physical_complete_events&quot;: 0,
+      &quot;delay_seconds&quot;: [],
+      &quot;never_switched_events&quot;: 0
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-5d6fb5c2ca8d4589b927&quot;,
+    &quot;cohort&quot;: &quot;round4_cloud_repair1&quot;,
+    &quot;variant&quot;: &quot;ours30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 1,
+        &quot;previous_phase_reached&quot;: 18,
+        &quot;conditional_reach_rate&quot;: 0.05555555555555555
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 1,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 10
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 7,
+        &quot;1&quot;: 1
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 7,
+      &quot;no_successful_grasp_or_lift&quot;: 17,
+      &quot;time_limit&quot;: 11,
+      &quot;released_outside_target_region&quot;: 1,
+      &quot;possible_slip_requires_video_confirmation&quot;: 1,
+      &quot;physical_complete_instruction_retained&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 0,
+      &quot;retained_after_physical_complete_events&quot;: 1,
+      &quot;delay_seconds&quot;: [
+        208.91666666666666
+      ],
+      &quot;never_switched_events&quot;: 1
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-6a4533ed2e9cd55f4451&quot;,
+    &quot;cohort&quot;: &quot;round4_cloud_repair1&quot;,
+    &quot;variant&quot;: &quot;oursalignedweak30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 10,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 6
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 4
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;released_outside_target_region&quot;: 3,
+      &quot;possible_slip_requires_video_confirmation&quot;: 3,
+      &quot;time_limit&quot;: 9,
+      &quot;no_successful_grasp_or_lift&quot;: 7,
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 0,
+      &quot;retained_after_physical_complete_events&quot;: 0,
+      &quot;delay_seconds&quot;: [],
+      &quot;never_switched_events&quot;: 0
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-677f7ddeb12f07bd4417&quot;,
+    &quot;cohort&quot;: &quot;round4_cloud_repair1&quot;,
+    &quot;variant&quot;: &quot;weak20&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 4,
+        &quot;previous_phase_reached&quot;: 16,
+        &quot;conditional_reach_rate&quot;: 0.25
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 4,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 8
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 4,
+        &quot;1&quot;: 4
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;no_successful_grasp_or_lift&quot;: 15,
+      &quot;time_limit&quot;: 13,
+      &quot;physical_complete_instruction_retained&quot;: 4,
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 3,
+      &quot;released_outside_target_region&quot;: 1,
+      &quot;premature_instruction_switch&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 1,
+      &quot;retained_after_physical_complete_events&quot;: 4,
+      &quot;delay_seconds&quot;: [
+        4.166666666666667,
+        210.375,
+        211.125,
+        50.275
+      ],
+      &quot;never_switched_events&quot;: 3
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-7e736bac90cfb237a324&quot;,
+    &quot;cohort&quot;: &quot;round4_cloud_repair1&quot;,
+    &quot;variant&quot;: &quot;weak30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 1,
+        &quot;previous_phase_reached&quot;: 20,
+        &quot;conditional_reach_rate&quot;: 0.05
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 1,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 9,
+        &quot;1&quot;: 1
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 10
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 8,
+      &quot;no_successful_grasp_or_lift&quot;: 13,
+      &quot;released_outside_target_region&quot;: 7,
+      &quot;possible_slip_requires_video_confirmation&quot;: 6,
+      &quot;time_limit&quot;: 12,
+      &quot;physical_complete_instruction_retained&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 0,
+      &quot;retained_after_physical_complete_events&quot;: 1,
+      &quot;delay_seconds&quot;: [
+        45.325
+      ],
+      &quot;never_switched_events&quot;: 1
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-62815dd1f6667fbfc91c&quot;,
+    &quot;cohort&quot;: &quot;shared_new20_hermite_fullsmoke20_v1&quot;,
+    &quot;variant&quot;: &quot;new20&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 20,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;0&quot;: 10
+      },
+      &quot;reverse&quot;: {
+        &quot;0&quot;: 10
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;no_successful_grasp_or_lift&quot;: 19,
+      &quot;time_limit&quot;: 11,
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 9,
+      &quot;released_outside_target_region&quot;: 1,
+      &quot;possible_slip_requires_video_confirmation&quot;: 1,
+      &quot;premature_instruction_switch&quot;: 1
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 1,
+      &quot;retained_after_physical_complete_events&quot;: 0,
+      &quot;delay_seconds&quot;: [],
+      &quot;never_switched_events&quot;: 0
+    }
+  },
+  {
+    &quot;id&quot;: &quot;task5-round5-cpu-e649818ad7e00a3c029c&quot;,
+    &quot;cohort&quot;: &quot;shared_new30_hermite_fullsmoke20_v2&quot;,
+    &quot;variant&quot;: &quot;new30&quot;,
+    &quot;horizon&quot;: 8,
+    &quot;funnel&quot;: [
+      {
+        &quot;physical_phase&quot;: 1,
+        &quot;reached&quot;: 10,
+        &quot;previous_phase_reached&quot;: 20,
+        &quot;conditional_reach_rate&quot;: 0.5
+      },
+      {
+        &quot;physical_phase&quot;: 2,
+        &quot;reached&quot;: 2,
+        &quot;previous_phase_reached&quot;: 10,
+        &quot;conditional_reach_rate&quot;: 0.2
+      },
+      {
+        &quot;physical_phase&quot;: 3,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 2,
+        &quot;conditional_reach_rate&quot;: 0.0
+      },
+      {
+        &quot;physical_phase&quot;: 4,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      },
+      {
+        &quot;physical_phase&quot;: 5,
+        &quot;reached&quot;: 0,
+        &quot;previous_phase_reached&quot;: 0,
+        &quot;conditional_reach_rate&quot;: null
+      }
+    ],
+    &quot;layout_phase_hist_v11&quot;: {
+      &quot;forward&quot;: {
+        &quot;1&quot;: 5,
+        &quot;2&quot;: 2,
+        &quot;0&quot;: 3
+      },
+      &quot;reverse&quot;: {
+        &quot;1&quot;: 3,
+        &quot;0&quot;: 7
+      }
+    },
+    &quot;failure_modes_nonexclusive&quot;: {
+      &quot;released_outside_target_region&quot;: 7,
+      &quot;possible_slip_requires_video_confirmation&quot;: 7,
+      &quot;time_limit&quot;: 13,
+      &quot;physical_complete_instruction_retained&quot;: 10,
+      &quot;no_successful_grasp_or_lift&quot;: 11,
+      &quot;premature_instruction_switch&quot;: 2,
+      &quot;toppled_collision_attribution_unconfirmed&quot;: 7
+    },
+    &quot;switch_diagnostic&quot;: {
+      &quot;premature_events&quot;: 2,
+      &quot;retained_after_physical_complete_events&quot;: 12,
+      &quot;delay_seconds&quot;: [
+        56.983333333333334,
+        4.583333333333333,
+        54.975,
+        5.516666666666667,
+        7.033333333333333,
+        75.41666666666667,
+        5.033333333333333,
+        5.266666666666667,
+        212.45833333333334,
+        6.325,
+        2.7583333333333333,
+        37.30833333333333
+      ],
+      &quot;never_switched_events&quot;: 1
+    }
+  }
+]</pre></html>

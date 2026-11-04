@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T01:12:54.644159+00:00",
+  "updated_at": "2026-11-04T01:47:06.481975+00:00",
   "protocol_version": "SafeLab-Eval-v1.1",
   "models": [
     {
@@ -9,13 +9,16 @@
       "smoke_n": 0,
       "smoke_phase_hist": {},
       "smoke_mean_phase": null,
-      "status": "现有双卡Pro6000中各一张卡已开始本权重20条h8独立冒烟；尚无闭合样本。",
+      "status": "最近核验2/20条闭合并通过独立审计，1条在跑；整批未完成，success=null。",
       "A_completed": 0,
       "smoke_unknown": 20,
       "historical_status_before_controller_gate": "旧任务20条均基础设施unknown，无有效冒烟；不重试未知scene0–19。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
-      "new_controller_smoke_n": 0,
+      "new_controller_smoke_n": 2,
       "new_controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
-      "new_controller_smoke_in_flight": 1
+      "new_controller_smoke_in_flight": 1,
+      "new_controller_phase_hist": {
+        "0": 2
+      }
     },
     {
       "variant": "new30",
@@ -31,7 +34,7 @@
         "5": 0
       },
       "smoke_mean_phase": 0.45,
-      "status": "现有双卡Pro6000中各一张卡已开始本权重20条h8独立冒烟；尚无闭合样本。",
+      "status": "最近核验1/20条闭合并通过独立审计，1条在跑；整批未完成，success=null。",
       "A_completed": {
         "4": 22,
         "8": 21
@@ -41,9 +44,12 @@
         "8": 10
       },
       "historical_status_before_controller_gate": "strict-v1冒烟20条闭合；原A任务43条闭合、20unknown、137未启动，均保留为历史。current_row执行链10条专家门槛未通过：ep5全13维RMSE0.05148rad>0.005rad，原生成功、15Hz端点链只到阶段4；保持正式A/B暂停，正在做相同指令复跑。",
-      "new_controller_smoke_n": 0,
+      "new_controller_smoke_n": 1,
       "new_controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
-      "new_controller_smoke_in_flight": 1
+      "new_controller_smoke_in_flight": 1,
+      "new_controller_phase_hist": {
+        "1": 1
+      }
     },
     {
       "variant": "weak20",
@@ -4758,8 +4764,8 @@
       "target": 20,
       "forward": 10,
       "reverse": 10,
-      "started": 1,
-      "closed": 0,
+      "started": 3,
+      "closed": 2,
       "unknown": 0,
       "success": null,
       "case_profiles_indices": [
@@ -4784,7 +4790,7 @@
         38,
         39
       ],
-      "status": "Native started; no closed model trials yet",
+      "status": "最近核验2/20条闭合并通过独立审计，1条在跑；整批未完成，success=null。",
       "horizon": 8,
       "prediction": 30,
       "new_cloud_GPUs": 0,
@@ -4795,7 +4801,12 @@
         "GPU_MiB": 8192,
         "shm_MiB": 1024
       },
-      "source_core_SHA256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "source_core_SHA256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "phase_hist": {
+        "0": 2
+      },
+      "mean_phase": 0.0,
+      "source_snapshot_epoch": 1793756609.5175788
     },
     "new30": {
       "checkpoint": 30000,
@@ -4805,8 +4816,8 @@
       "target": 20,
       "forward": 10,
       "reverse": 10,
-      "started": 1,
-      "closed": 0,
+      "started": 2,
+      "closed": 1,
       "unknown": 0,
       "success": null,
       "case_profiles_indices": [
@@ -4831,7 +4842,7 @@
         38,
         39
       ],
-      "status": "Native started; no closed model trials yet",
+      "status": "最近核验1/20条闭合并通过独立审计，1条在跑；整批未完成，success=null。",
       "horizon": 8,
       "prediction": 30,
       "new_cloud_GPUs": 0,
@@ -4842,7 +4853,12 @@
         "GPU_MiB": 8192,
         "shm_MiB": 1024
       },
-      "source_core_SHA256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+      "source_core_SHA256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "phase_hist": {
+        "1": 1
+      },
+      "mean_phase": 1.0,
+      "source_snapshot_epoch": 1793756607.9281526
     }
   },
   "new30_smoke20_startup_port_recovery": {
@@ -4938,5 +4954,55 @@
     "wall_s": 8.788333597010933,
     "public_media_published": false,
     "blocked_by": "canonical public object403; not a signed URL"
+  },
+  "matched_initial_input_CPU": {
+    "CPU_only": true,
+    "same_scene_index": 20,
+    "same_profile_SHA256": "0fc9fd47fdda9291f563a2d9b251394b960d755104240e8debb32e4717cacd11",
+    "same_seed": 0,
+    "first_RGB_MAE_255": 0.48276475071907043,
+    "first_q13_max_abs_rad": 0.0,
+    "same_source_profile": true,
+    "same_reference_tick": true,
+    "scope": "paired20k vs30k first frame only; not all-frame rendering approval and not scores",
+    "inference_requests_added": 0
+  },
+  "observed_completion_lag_CPU": {
+    "observed_only": true,
+    "case_id": "hermite1_new30_smoke20_h8_seed0_000",
+    "physical_phase1_tick": 3090,
+    "reference_tick": 128,
+    "physical_completion_t_sim": 24.683333333333334,
+    "model_stage1_frame": 1225,
+    "model_stage1_t_sim": 81.66666666666667,
+    "observed_model_switch_lag_sim_s": 56.983333333333334,
+    "initial_instruction": "Move beaker1 from the red pad to the yellow pad.",
+    "next_instruction": "Move flask1 from the green pad to the purple pad.",
+    "not_final_trajectory_score": true,
+    "does_not_establish_implementation_bug": true,
+    "oracle_feedback_or_completion_threshold_changed": false,
+    "note": "原始切换帧executor_status为refresh后的新指令状态；不能把它冒充切换前指令的分数或计数。缺失旧状态时媒体字段填null，不补0。"
+  },
+  "completion_lag_placement_window_CPU": {
+    "CPU_only": true,
+    "case_id": "hermite1_new30_smoke20_h8_seed0_000",
+    "window_ticks": [
+      3090,
+      9928
+    ],
+    "samples": 6839,
+    "t_sim_window_s": [
+      24.683333333333334,
+      81.66666666666667
+    ],
+    "A_temporary_placement_valid_fraction": 1.0,
+    "A_robot_contact_fraction": 0.0,
+    "A_support_contact_fraction": 1.0,
+    "A_max_XY_error_m": 0.00601201001209485,
+    "A_min_upright_cos": 0.9999999999143093,
+    "A_max_static_height_error_m": 0.0010003777829887817,
+    "same_frozen_placement_geometry": true,
+    "source_runtime_or_oracle_changed": false,
+    "interpretation": "Only observed physical-event to model-switch interval; if A placement regresses, interval must not be described as continuously valid completion delay."
   }
 }

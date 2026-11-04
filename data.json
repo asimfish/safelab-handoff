@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T10:41:06.291055Z",
+  "updated_at": "2026-11-04T10:49:38.876455Z",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1461,17 +1461,37 @@
       "camera": "third_person",
       "method": "pi0.5",
       "delivery": "重建运行时已恢复，待准入",
-      "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
+      "doc": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/RECONSTRUCTED_RUNTIME.json",
       "weights": [
         {
           "step": 40000,
-          "path": "",
-          "availability": "重建运行时已恢复，待准入"
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "availability": "重建运行时已恢复，待准入",
+          "bytes": 7473091464,
+          "sha256": "1bba29110a4a9e8d7c50aa6fde3134389e79f31b35621ad981c587f775b845ff",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "object_key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "sha256_evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
+          "existence_verification": {
+            "status": "副本存在性已核对",
+            "method": "GET /pt/api/ai/files/objects",
+            "via": "5090",
+            "source_id": "k32181r1qe5gh73u8yvqyur5e",
+            "key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+            "http_status": 200,
+            "bytes": 7473091464,
+            "last_modified": 1793787460000,
+            "checked_at": "2026-11-04T10:50:33.947502Z",
+            "downloaded_weight_bytes": 0,
+            "sha256_independently_recomputed": false
+          }
         }
       ],
-      "training": {},
-      "note": "总负责报告：已找回 formal 40000 model.safetensors（SHA256前缀 1bba2911），并从 Pro 的 release/code.bundle 与 norm_stats 重建运行时。类型为 reconstructed_runtime，不是官方 START_HERE，不等于通过准入或已有评测成绩。原“交付包搬运中”状态已解除。维护端暂未读到恢复报告；TOS副本完整文件路径、来源run及完整SHA待核对，未填写猜测路径。原交付文档仅保留为历史来源。",
-      "source": "GitHub checkpoint issue #23",
+      "training": {
+        "executor_run": "wangpeishuo/pi05-safelab/runs/pi05-5b-pos1cm-h10-all100-b256-40k-pro4-20261101"
+      },
+      "note": "重建运行时已恢复，待准入。来源：pi0.5 agent 回信，经总负责转发（2026-11-04）。完整权重路径、SHA和训练源码/归一化证据已登记；SHA沿用转发证据，维护端未独立重算。类型为 reconstructed_runtime，不是官方 START_HERE；不代表准入通过或已有成绩。维护端已通过files API核对：副本存在，7473091464字节；未下载权重，未独立重算SHA。",
+      "source": "pi0.5 agent 回信，经总负责转发（2026-11-04）；GitHub checkpoint issue #23",
       "checkpoint_issues": [
         {
           "number": 23,
@@ -1484,22 +1504,77 @@
           "delivery_path": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
           "delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
           "supplied_camera": "third_person",
-          "recorded_state": "untested"
+          "recorded_state": "untested",
+          "recovered_delivery_path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "runtime_document": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/RECONSTRUCTED_RUNTIME.json"
         }
       ],
       "recovery": {
         "runtime_type": "reconstructed_runtime",
-        "reported_by": "总负责追加指导",
+        "evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
         "status": "重建运行时已恢复，待准入",
         "report_path": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/search_20261104/FIVE_SEVEN_RECOVERY_REPORT.json",
-        "report_sha256_prefix": "7df5126e",
-        "weight_sha256_prefix": "1bba2911",
-        "source_run_root": "BOS wangpeishuo/pi05-safelab/runs/",
-        "copy_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/",
-        "exact_copy_path": null,
-        "verification": "awaiting_readable_report",
-        "updated_at": "2026-11-04T10:41:06.291055Z"
-      }
+        "report_bytes": 7773,
+        "report_sha256": "7df5126ed8e02f35f95955d606b9a21fe78c2e5382c00c00c61b2dfc3a93a9d3",
+        "source_weight": {
+          "vendor": "BOS",
+          "source_id": "ic0fsbfuxw9e7drmt7p09nkf6",
+          "key": "wangpeishuo/pi05-safelab/runs/pi05-5b-pos1cm-h10-all100-b256-40k-pro4-20261101/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "1bba29110a4a9e8d7c50aa6fde3134389e79f31b35621ad981c587f775b845ff"
+        },
+        "copy_weight": {
+          "vendor": "TOS",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "1bba29110a4a9e8d7c50aa6fde3134389e79f31b35621ad981c587f775b845ff"
+        },
+        "runtime_root": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/",
+        "training_code": {
+          "path": "/public_fast_storage/wangpeishuo/pi05-safelab-5b-pos1cm-20261101/release/code.bundle",
+          "bytes": 3850943,
+          "sha256": "9ef8ff4ab293c2db0fbb014a540b85301b3c291bc6187b97778830bf7c232ccc"
+        },
+        "norm_stats": {
+          "name": "norm_stats.json",
+          "bytes": 3175,
+          "sha256": "26b24f3d8c27b0f20685a6a5e6595d3d20a06a976dc4823a52b210fc3dd7c503"
+        },
+        "contract": {
+          "state_dim": 13,
+          "model_dim": 32,
+          "action_chunk": [
+            10,
+            13
+          ],
+          "action_type": "absolute_joint_targets",
+          "units": "radian",
+          "observation_hz": 15,
+          "instruction": "global_task",
+          "label_convention": "interval_end",
+          "token": 200,
+          "camera": "third_person"
+        },
+        "copy_verification_reported": "pi0.5 agent：源全文SHA → 流式复制 → 目标全文GET核对一致；维护端未下载权重或独立重算SHA",
+        "verification": "forwarded_evidence_metadata_verified",
+        "updated_at": "2026-11-04T10:49:38.876455Z",
+        "copy_existence_verification": {
+          "status": "副本存在性已核对",
+          "method": "GET /pt/api/ai/files/objects",
+          "via": "5090",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "http_status": 200,
+          "bytes": 7473091464,
+          "last_modified": 1793787460000,
+          "checked_at": "2026-11-04T10:50:33.947502Z",
+          "downloaded_weight_bytes": 0,
+          "sha256_independently_recomputed": false
+        }
+      },
+      "historical_delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md"
     },
     {
       "id": "7-pi05-issue24",
@@ -1508,17 +1583,37 @@
       "camera": "chest",
       "method": "pi0.5",
       "delivery": "重建运行时已恢复，待准入",
-      "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
+      "doc": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/seven_chest_40k/",
       "weights": [
         {
           "step": 40000,
-          "path": "",
-          "availability": "重建运行时已恢复，待准入"
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "availability": "重建运行时已恢复，待准入",
+          "bytes": 7473091464,
+          "sha256": "2f7e4b91422dd1df2a39797df3a09c3d61dc6bb79ca50c54ca096639e3c2edfe",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "object_key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "sha256_evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
+          "existence_verification": {
+            "status": "副本存在性已核对",
+            "method": "GET /pt/api/ai/files/objects",
+            "via": "5090",
+            "source_id": "k32181r1qe5gh73u8yvqyur5e",
+            "key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+            "http_status": 200,
+            "bytes": 7473091464,
+            "last_modified": 1793787719000,
+            "checked_at": "2026-11-04T10:50:33.947502Z",
+            "downloaded_weight_bytes": 0,
+            "sha256_independently_recomputed": false
+          }
         }
       ],
-      "training": {},
-      "note": "总负责报告：已找回 formal 40000 model.safetensors（SHA256前缀 2f7e4b91），并从 Pro 的 release/code.bundle 与 norm_stats 重建运行时。类型为 reconstructed_runtime，不是官方 START_HERE，不等于通过准入或已有评测成绩。原“交付包搬运中”状态已解除。维护端暂未读到恢复报告；TOS副本完整文件路径、来源run及完整SHA待核对，未填写猜测路径。原交付文档仅保留为历史来源。",
-      "source": "GitHub checkpoint issue #24",
+      "training": {
+        "executor_run": "wangpeishuo/pi05-safelab/runs/pi05-7-chest-h10-all100-b256-40k-pro4-20261101-r2"
+      },
+      "note": "重建运行时已恢复，待准入。来源：pi0.5 agent 回信，经总负责转发（2026-11-04）。完整权重路径、SHA和训练源码/归一化证据已登记；SHA沿用转发证据，维护端未独立重算。类型为 reconstructed_runtime，不是官方 START_HERE；不代表准入通过或已有成绩。维护端已通过files API核对：副本存在，7473091464字节；未下载权重，未独立重算SHA。",
+      "source": "pi0.5 agent 回信，经总负责转发（2026-11-04）；GitHub checkpoint issue #24",
       "checkpoint_issues": [
         {
           "number": 24,
@@ -1531,22 +1626,78 @@
           "delivery_path": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
           "delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
           "supplied_camera": "chest",
-          "recorded_state": "untested"
+          "recorded_state": "untested",
+          "recovered_delivery_path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "runtime_document": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/seven_chest_40k/"
         }
       ],
       "recovery": {
         "runtime_type": "reconstructed_runtime",
-        "reported_by": "总负责追加指导",
+        "evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
         "status": "重建运行时已恢复，待准入",
         "report_path": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/search_20261104/FIVE_SEVEN_RECOVERY_REPORT.json",
-        "report_sha256_prefix": "7df5126e",
-        "weight_sha256_prefix": "2f7e4b91",
-        "source_run_root": "BOS wangpeishuo/pi05-safelab/runs/",
-        "copy_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/",
-        "exact_copy_path": null,
-        "verification": "awaiting_readable_report",
-        "updated_at": "2026-11-04T10:41:06.291055Z"
-      }
+        "report_bytes": 7773,
+        "report_sha256": "7df5126ed8e02f35f95955d606b9a21fe78c2e5382c00c00c61b2dfc3a93a9d3",
+        "source_weight": {
+          "vendor": "BOS",
+          "source_id": "ic0fsbfuxw9e7drmt7p09nkf6",
+          "key": "wangpeishuo/pi05-safelab/runs/pi05-7-chest-h10-all100-b256-40k-pro4-20261101-r2/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "2f7e4b91422dd1df2a39797df3a09c3d61dc6bb79ca50c54ca096639e3c2edfe"
+        },
+        "copy_weight": {
+          "vendor": "TOS",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "2f7e4b91422dd1df2a39797df3a09c3d61dc6bb79ca50c54ca096639e3c2edfe"
+        },
+        "runtime_root": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/seven_chest_40k/",
+        "training_code": {
+          "path": "/public_fast_storage/wangpeishuo/pi05-safelab-7-chest-20261101-r2/release/code.bundle",
+          "bytes": 3871147,
+          "sha256": "65c66c9600290056a2a9232f33912d0c32744f3125f386a076afa9476ec5d483"
+        },
+        "norm_stats": {
+          "name": "norm_stats.json",
+          "bytes": 3190,
+          "sha256": "7e582717c754b96d26574e7829eb207831e10cd9b41723744004f4c0289e1712"
+        },
+        "contract": {
+          "state_dim": 13,
+          "model_dim": 32,
+          "action_chunk": [
+            10,
+            13
+          ],
+          "action_type": "absolute_joint_targets",
+          "units": "radian",
+          "observation_hz": 15,
+          "instruction": "global_task",
+          "label_convention": "interval_end",
+          "token": 200,
+          "camera": "chest"
+        },
+        "copy_verification_reported": "pi0.5 agent：源全文SHA → 流式复制 → 目标全文GET核对一致；维护端未下载权重或独立重算SHA",
+        "verification": "forwarded_evidence_metadata_verified",
+        "updated_at": "2026-11-04T10:49:38.876455Z",
+        "r2_notes": "带动作维7的分位数退化修复；prefix7时末杯留在天平上；旧非r2 run没有40000 checkpoint。",
+        "copy_existence_verification": {
+          "status": "副本存在性已核对",
+          "method": "GET /pt/api/ai/files/objects",
+          "via": "5090",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "http_status": 200,
+          "bytes": 7473091464,
+          "last_modified": 1793787719000,
+          "checked_at": "2026-11-04T10:50:33.947502Z",
+          "downloaded_weight_bytes": 0,
+          "sha256_independently_recomputed": false
+        }
+      },
+      "historical_delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md"
     },
     {
       "id": "10-ttc-aligned-weak-issue26",
@@ -11132,7 +11283,7 @@
       "trials": 100,
       "unknown": 0,
       "completed": 0,
-      "status": "尚未开始正式阶段A：冒烟任务基础设施失败，待准入修复",
+      "status": "原冒烟失败批次保留；已由新批次完成阶段A，见第10轮独立双口径记录",
       "kind": "自主闭环",
       "topology": {
         "num_envs_actual": 1,
@@ -11188,7 +11339,8 @@
         "formal_stageA_started": false,
         "provider_failure_reason": "not available",
         "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
-      }
+      },
+      "superseded_by_evaluation_id": "t1035-r10-latest30k-renderresize-h4-strict"
     },
     {
       "id": "t1035-r3-latest-training-render-and-resize-v1-c30-h8",
@@ -11206,7 +11358,7 @@
       "trials": 100,
       "unknown": 0,
       "completed": 0,
-      "status": "尚未开始正式阶段A：冒烟任务基础设施失败，待准入修复",
+      "status": "原冒烟失败批次保留；已由新批次完成阶段A，见第10轮独立双口径记录",
       "kind": "自主闭环",
       "topology": {
         "num_envs_actual": 1,
@@ -11262,7 +11414,8 @@
         "formal_stageA_started": false,
         "provider_failure_reason": "not available",
         "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
-      }
+      },
+      "superseded_by_evaluation_id": "t1035-r10-latest30k-renderresize-h8-strict"
     },
     {
       "id": "t1035-r3-diag-d1_2cm",
@@ -35230,7 +35383,7 @@
       "trials": 500,
       "unknown": 0,
       "completed": 300,
-      "status": "阶段B进度300/500：seed0、seed1、seed2已完成；seed3/4遵照临时让卡要求未启动，完整配置完成前不发布成功率",
+      "status": "五seed正在评测；已完成300/500。逐seed进度：0=100/100,1=100/100,2=100/100,3=0/100,4=0/100。seed3/4工作包CPU就绪，待空槽按TTC3/Mem03/TTC4/Mem04配对接续。",
       "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
@@ -35271,8 +35424,8 @@
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
-      "report_url": "reports/task3-round6-20261103.html",
-      "updated_at": "2026-11-03T23:35:18.893227+00:00",
+      "report_url": "reports/task3-round12-20261104.html",
+      "updated_at": "2026-11-04T10:51:07.624092+00:00",
       "variant": "ours-V13-30k-trainresize",
       "valid_for_comparison": false,
       "requested_phase": "A",
@@ -35295,7 +35448,35 @@
       "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h4",
       "source_phaseA_condition_version": "original-v1",
       "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
-      "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json"
+      "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json",
+      "runtime_progress": {
+        "official_snapshot_epoch": 1793786408.2278275,
+        "temporary_gpu_cap": 24,
+        "running_jobs": 6,
+        "running_gpus": 24,
+        "new_h8_jobs": [
+          {
+            "seed": 4,
+            "job_id": "job-61g0fe3fkpb7"
+          },
+          {
+            "seed": 3,
+            "job_id": "job-807ao37oifvq"
+          }
+        ],
+        "new_h4_submitted": false,
+        "new_workers_10min_utilization_percent": null,
+        "source": "reports/task3-round12-20261104/work-packages-and-progress.json",
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 0,
+          "4": 0
+        },
+        "case_snapshot_epoch": 1793788972.2353814,
+        "all24_gpu_utilization_600s_percent": 88.06463835398355
+      }
     },
     {
       "id": "t1035-r6b-ttc-V13-trainresize-B-c30-h8",
@@ -35311,9 +35492,9 @@
       "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
       "success": null,
       "trials": 500,
-      "unknown": 0,
-      "completed": 300,
-      "status": "阶段B进度300/500：seed0、seed1、seed2已完成；seed3/4遵照临时让卡要求未启动，完整配置完成前不发布成功率",
+      "unknown": 1,
+      "completed": 335,
+      "status": "五seed正在评测；已完成335/500。逐seed进度：0=100/100,1=100/100,2=100/100,3=18/100,4=17/100。h8三seed三口径配对中期报告已完成；seed3/4继续。",
       "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
@@ -35354,8 +35535,8 @@
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
-      "report_url": "reports/task3-round6-20261103.html",
-      "updated_at": "2026-11-03T23:35:18.893227+00:00",
+      "report_url": "reports/task3-round12-20261104.html",
+      "updated_at": "2026-11-04T10:51:07.624119+00:00",
       "variant": "ours-V13-30k-trainresize",
       "valid_for_comparison": false,
       "requested_phase": "A",
@@ -35378,7 +35559,37 @@
       "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h8",
       "source_phaseA_condition_version": "original-v1",
       "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
-      "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json"
+      "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json",
+      "runtime_progress": {
+        "official_snapshot_epoch": 1793786408.2278275,
+        "temporary_gpu_cap": 24,
+        "running_jobs": 6,
+        "running_gpus": 24,
+        "new_h8_jobs": [
+          {
+            "seed": 4,
+            "job_id": "job-61g0fe3fkpb7"
+          },
+          {
+            "seed": 3,
+            "job_id": "job-807ao37oifvq"
+          }
+        ],
+        "new_h4_submitted": false,
+        "new_workers_10min_utilization_percent": null,
+        "source": "reports/task3-round12-20261104/work-packages-and-progress.json",
+        "all24_gpu_utilization_600s_percent": 88.06463835398355,
+        "utilization_source": "reports/task3-round12-20261104/all24-continuous600s-utilization.json",
+        "three_seed_three_oracle_report": "reports/task3-round12-20261104.html",
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 18,
+          "4": 17
+        },
+        "case_snapshot_epoch": 1793788972.2353814
+      }
     },
     {
       "id": "t1035-r7-placement-d2a-c30000-h4",
@@ -36004,7 +36215,7 @@
       "success": null,
       "trials": 500,
       "target": 500,
-      "completed": 100,
+      "completed": 182,
       "unknown": 0,
       "seed_results": [],
       "lr_split": null,
@@ -36013,7 +36224,7 @@
       "wilson95": null,
       "evaluation_started": true,
       "formal_score_eligible": false,
-      "status": "seed0已完成100条；seed1/2共400条配对清单已冻结，CPU等待存储IO canary后提交，不占卡空等；seed3/4待两边同步推进",
+      "status": "五seed正在评测；已完成182/500。逐seed进度：0=100/100,1=43/100,2=39/100,3=0/100,4=0/100。seed3/4工作包CPU就绪，待空槽按TTC3/Mem03/TTC4/Mem04配对接续。",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 3,
@@ -36032,9 +36243,9 @@
           "report": "reports/task3-v11-round7-20261103.html"
         },
         "executor_parity": {
-          "passed": false,
-          "status": "pending_shared_executor_review",
-          "report": "reports/task3-v11-round7-20261103.html"
+          "passed": true,
+          "status": "passed_relative_success_rule_global_rmse_exception_documented",
+          "report": "reports/task3-round10-20261104/three-chain-final.json"
         },
         "open_loop": {
           "passed": false,
@@ -36054,8 +36265,36 @@
       },
       "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h4",
       "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
-      "report_url": "reports/task3-v11-round7-20261103.html",
-      "updated_at": "2026-11-04T00:03:18.972230+00:00"
+      "report_url": "reports/task3-round12-20261104.html",
+      "updated_at": "2026-11-04T10:51:07.624130+00:00",
+      "runtime_progress": {
+        "official_snapshot_epoch": 1793786408.2278275,
+        "temporary_gpu_cap": 24,
+        "running_jobs": 6,
+        "running_gpus": 24,
+        "new_h8_jobs": [
+          {
+            "seed": 3,
+            "job_id": "job-x5j1slyfr3tb"
+          },
+          {
+            "seed": 4,
+            "job_id": "job-uc7b6pde8io2"
+          }
+        ],
+        "new_h4_submitted": false,
+        "new_workers_10min_utilization_percent": null,
+        "source": "reports/task3-round12-20261104/work-packages-and-progress.json",
+        "seed_completed": {
+          "0": 100,
+          "1": 43,
+          "2": 39,
+          "3": 0,
+          "4": 0
+        },
+        "case_snapshot_epoch": 1793788972.2353814,
+        "all24_gpu_utilization_600s_percent": 88.06463835398355
+      }
     },
     {
       "id": "t1035-r9-mem0-V13-trainresize-B-c30000-h8",
@@ -36077,7 +36316,7 @@
       "success": null,
       "trials": 500,
       "target": 500,
-      "completed": 100,
+      "completed": 335,
       "unknown": 0,
       "seed_results": [],
       "lr_split": null,
@@ -36086,7 +36325,7 @@
       "wilson95": null,
       "evaluation_started": true,
       "formal_score_eligible": false,
-      "status": "seed0已完成100条；seed1/2共400条配对清单已冻结，CPU等待存储IO canary后提交，不占卡空等；seed3/4待两边同步推进",
+      "status": "五seed正在评测；已完成335/500。逐seed进度：0=100/100,1=100/100,2=100/100,3=19/100,4=16/100。h8三seed三口径配对中期报告已完成；seed3/4继续。",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 3,
@@ -36105,9 +36344,9 @@
           "report": "reports/task3-v11-round7-20261103.html"
         },
         "executor_parity": {
-          "passed": false,
-          "status": "pending_shared_executor_review",
-          "report": "reports/task3-v11-round7-20261103.html"
+          "passed": true,
+          "status": "passed_relative_success_rule_global_rmse_exception_documented",
+          "report": "reports/task3-round10-20261104/three-chain-final.json"
         },
         "open_loop": {
           "passed": false,
@@ -36127,8 +36366,43 @@
       },
       "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h8",
       "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
-      "report_url": "reports/task3-v11-round7-20261103.html",
-      "updated_at": "2026-11-04T00:03:18.972230+00:00"
+      "report_url": "reports/task3-round12-20261104.html",
+      "updated_at": "2026-11-04T10:51:07.624140+00:00",
+      "runtime_progress": {
+        "official_snapshot_epoch": 1793786408.2278275,
+        "temporary_gpu_cap": 24,
+        "running_jobs": 6,
+        "running_gpus": 24,
+        "new_h8_jobs": [
+          {
+            "seed": 3,
+            "job_id": "job-x5j1slyfr3tb"
+          },
+          {
+            "seed": 4,
+            "job_id": "job-uc7b6pde8io2"
+          }
+        ],
+        "new_h4_submitted": false,
+        "new_workers_10min_utilization_percent": null,
+        "source": "reports/task3-round12-20261104/work-packages-and-progress.json",
+        "completed_inference_seeds": [
+          0,
+          1,
+          2
+        ],
+        "all24_gpu_utilization_600s_percent": 88.06463835398355,
+        "utilization_source": "reports/task3-round12-20261104/all24-continuous600s-utilization.json",
+        "three_seed_three_oracle_report": "reports/task3-round12-20261104.html",
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 19,
+          "4": 16
+        },
+        "case_snapshot_epoch": 1793788972.2353814
+      }
     },
     {
       "id": "t1035-r9-media-Mem0-V13-trainresize-c30000-h4",
@@ -36281,6 +36555,500 @@
       "source_condition_version": "original-trainresize-renderalign-v1",
       "condition_mapping_report": "reports/task3-v11-round7-20261103/scene-pairing-identity-audit.json",
       "condition_mapping_note": "Media alias canonicalizes unchanged original contact physics; source evaluation and input preprocessing remain unchanged."
+    },
+    {
+      "id": "t1035-r10-latest30k-renderresize-h4-strict",
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 15,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 100,
+      "status": "阶段A已完成100/100；双口径诊断已发布，共享准入证据待齐，不进入正式主表",
+      "kind": "自主闭环",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 15,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "1": 60,
+        "2": 25,
+        "3": 15
+      },
+      "mean_phase": 1.55,
+      "wilson95": {
+        "low": 0.0930598528365663,
+        "high": 0.23283559590832364,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "evalv1_v14_admission4_r3 action_left/right，2episodes×5时点，MAE最大0.600749/255"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round10-20261104/latest-smoke20.json"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "accepted_round10_relative_success_gate_old5_native6",
+          "report": "reports/task3-round10-20261104/executor-three-chain.json",
+          "global_joint_RMSE_le_005": false,
+          "controller_unchanged": true
+        },
+        "placement_negative_cases": {
+          "passed": false,
+          "status": "pending video evidence; no formal admission claimed"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "reports/task3-round10-20261104/latest-final-dual.json",
+      "report_url": "reports/task3-round10-20261104/latest-final-dual.json",
+      "updated_at": "2026-11-04T05:53:26.480291+00:00",
+      "variant": "latest-training-render-and-resize-v1",
+      "input_changes": [
+        "V14训练渲染4项修复",
+        "训练侧张量双线性+AA缩放"
+      ],
+      "run": "job-85b3qnyl2y2m",
+      "infrastructure_unknown_receipt": {
+        "job_status": "FAILED",
+        "smoke_attempted_unknown": 12,
+        "smoke_unstarted": 8,
+        "formal_stageA_started": false,
+        "provider_failure_reason": "not available",
+        "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
+      },
+      "requested_phase": "A",
+      "evaluation_started": true,
+      "checkpoint_sha256": "5d2b8c68eb0e12eaca61e50aa6e211393dc62063f00e70142f7efd422f7ce6c0",
+      "metric_role": "diagnostic",
+      "formal_score_eligible": false,
+      "oracle_version": "strict-v1",
+      "prior_infrastructure_batch": {
+        "job": "job-rcuat6z8qs1k",
+        "state": "FAILED",
+        "unknown_preserved": 12,
+        "not_in_this_200_case_cohort": true
+      }
+    },
+    {
+      "id": "t1035-r10-latest30k-renderresize-h4-placement",
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 30,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 100,
+      "status": "阶段A已完成100/100；双口径诊断已发布，共享准入证据待齐，不进入正式主表",
+      "kind": "自主闭环",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 30,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 24,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "1": 60,
+        "2": 10,
+        "3": 30
+      },
+      "mean_phase": 1.7,
+      "wilson95": {
+        "low": 0.2189488529493276,
+        "high": 0.3958485463334666,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "evalv1_v14_admission4_r3 action_left/right，2episodes×5时点，MAE最大0.600749/255"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round10-20261104/latest-smoke20.json"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "accepted_round10_relative_success_gate_old5_native6",
+          "report": "reports/task3-round10-20261104/executor-three-chain.json",
+          "global_joint_RMSE_le_005": false,
+          "controller_unchanged": true
+        },
+        "placement_negative_cases": {
+          "passed": false,
+          "status": "pending video evidence; no formal admission claimed"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "reports/task3-round10-20261104/latest-final-dual.json",
+      "report_url": "reports/task3-round10-20261104/latest-final-dual.json",
+      "updated_at": "2026-11-04T05:53:26.480291+00:00",
+      "variant": "latest-training-render-and-resize-v1",
+      "input_changes": [
+        "V14训练渲染4项修复",
+        "训练侧张量双线性+AA缩放"
+      ],
+      "run": "job-85b3qnyl2y2m",
+      "infrastructure_unknown_receipt": {
+        "job_status": "FAILED",
+        "smoke_attempted_unknown": 12,
+        "smoke_unstarted": 8,
+        "formal_stageA_started": false,
+        "provider_failure_reason": "not available",
+        "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
+      },
+      "requested_phase": "A",
+      "evaluation_started": true,
+      "checkpoint_sha256": "5d2b8c68eb0e12eaca61e50aa6e211393dc62063f00e70142f7efd422f7ce6c0",
+      "metric_role": "rescored_v1.1",
+      "formal_score_eligible": false,
+      "oracle_version": "placement-v1.1",
+      "prior_infrastructure_batch": {
+        "job": "job-rcuat6z8qs1k",
+        "state": "FAILED",
+        "unknown_preserved": 12,
+        "not_in_this_200_case_cohort": true
+      },
+      "source_evaluation_id": "t1035-r10-latest30k-renderresize-h4-strict",
+      "rescore_script_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba"
+    },
+    {
+      "id": "t1035-r10-latest30k-renderresize-h8-strict",
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 17,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 100,
+      "status": "阶段A已完成100/100；双口径诊断已发布，共享准入证据待齐，不进入正式主表",
+      "kind": "自主闭环",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 13,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 17,
+        "1": 53,
+        "2": 29,
+        "0": 1
+      },
+      "mean_phase": 1.62,
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "evalv1_v14_admission4_r3 action_left/right，2episodes×5时点，MAE最大0.600749/255"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round10-20261104/latest-smoke20.json"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "accepted_round10_relative_success_gate_old5_native6",
+          "report": "reports/task3-round10-20261104/executor-three-chain.json",
+          "global_joint_RMSE_le_005": false,
+          "controller_unchanged": true
+        },
+        "placement_negative_cases": {
+          "passed": false,
+          "status": "pending video evidence; no formal admission claimed"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "reports/task3-round10-20261104/latest-final-dual.json",
+      "report_url": "reports/task3-round10-20261104/latest-final-dual.json",
+      "updated_at": "2026-11-04T05:53:26.480291+00:00",
+      "variant": "latest-training-render-and-resize-v1",
+      "input_changes": [
+        "V14训练渲染4项修复",
+        "训练侧张量双线性+AA缩放"
+      ],
+      "run": "job-85b3qnyl2y2m",
+      "infrastructure_unknown_receipt": {
+        "job_status": "FAILED",
+        "smoke_attempted_unknown": 12,
+        "smoke_unstarted": 8,
+        "formal_stageA_started": false,
+        "provider_failure_reason": "not available",
+        "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
+      },
+      "requested_phase": "A",
+      "evaluation_started": true,
+      "checkpoint_sha256": "5d2b8c68eb0e12eaca61e50aa6e211393dc62063f00e70142f7efd422f7ce6c0",
+      "metric_role": "diagnostic",
+      "formal_score_eligible": false,
+      "oracle_version": "strict-v1",
+      "prior_infrastructure_batch": {
+        "job": "job-rcuat6z8qs1k",
+        "state": "FAILED",
+        "unknown_preserved": 12,
+        "not_in_this_200_case_cohort": true
+      }
+    },
+    {
+      "id": "t1035-r10-latest30k-renderresize-h8-placement",
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 28,
+      "trials": 100,
+      "unknown": 0,
+      "completed": 100,
+      "status": "阶段A已完成100/100；双口径诊断已发布，共享准入证据待齐，不进入正式主表",
+      "kind": "自主闭环",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 28,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 22,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 29,
+        "1": 53,
+        "2": 17,
+        "0": 1
+      },
+      "mean_phase": 1.74,
+      "wilson95": {
+        "low": 0.20139685211186212,
+        "high": 0.3748802870992116,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "evalv1_v14_admission4_r3 action_left/right，2episodes×5时点，MAE最大0.600749/255"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round10-20261104/latest-smoke20.json"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "accepted_round10_relative_success_gate_old5_native6",
+          "report": "reports/task3-round10-20261104/executor-three-chain.json",
+          "global_joint_RMSE_le_005": false,
+          "controller_unchanged": true
+        },
+        "placement_negative_cases": {
+          "passed": false,
+          "status": "pending video evidence; no formal admission claimed"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。latest-training-render-and-resize-v1。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "reports/task3-round10-20261104/latest-final-dual.json",
+      "report_url": "reports/task3-round10-20261104/latest-final-dual.json",
+      "updated_at": "2026-11-04T05:53:26.480291+00:00",
+      "variant": "latest-training-render-and-resize-v1",
+      "input_changes": [
+        "V14训练渲染4项修复",
+        "训练侧张量双线性+AA缩放"
+      ],
+      "run": "job-85b3qnyl2y2m",
+      "infrastructure_unknown_receipt": {
+        "job_status": "FAILED",
+        "smoke_attempted_unknown": 12,
+        "smoke_unstarted": 8,
+        "formal_stageA_started": false,
+        "provider_failure_reason": "not available",
+        "recovery": "prepared, held for expert execution-chain admission; unknown receipts retained"
+      },
+      "requested_phase": "A",
+      "evaluation_started": true,
+      "checkpoint_sha256": "5d2b8c68eb0e12eaca61e50aa6e211393dc62063f00e70142f7efd422f7ce6c0",
+      "metric_role": "rescored_v1.1",
+      "formal_score_eligible": false,
+      "oracle_version": "placement-v1.1",
+      "prior_infrastructure_batch": {
+        "job": "job-rcuat6z8qs1k",
+        "state": "FAILED",
+        "unknown_preserved": 12,
+        "not_in_this_200_case_cohort": true
+      },
+      "source_evaluation_id": "t1035-r10-latest30k-renderresize-h8-strict",
+      "rescore_script_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba"
     },
     {
       "id": "task7-eval-v11-A-original-mem0_30k-h4",

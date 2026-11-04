@@ -1,29 +1,29 @@
-<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>十任务HTTPS续跑</title><style>body{font:16px/1.6 system-ui;max-width:1200px;margin:auto;padding:24px}td,th{border:1px solid #ccd;padding:8px}table{border-collapse:collapse}code{overflow-wrap:anywhere}</style><h1>十任务：四卡 HTTPS 附着续跑</h1><p>更新 2026-11-04T13:07:34.643321+00:00；本页为诊断进度，执行链完整原生120Hz参考仍待交付，未发布正式成功率。</p><p>平台任务 job-sp0hawrco78k：RUNNING。N1×10 多进程并行，每进程1环境，4卡。模型资产1183文件/37.93GB已直接HTTPS下载并核验。首批归档已通过独立SHA、逐tick连续性及双oracle复算。</p><p>原有312条保留，新独立验收 37/288；合计 349/600。只续跑未验收的ID，不重复已验收案例。</p><p>利用率和显存见下方实测窗口；冷启动期间的低均值照实保留，不用瞬时峰值替代。k14未通过图像门槛前不启用，不增加卡数。</p><pre>{
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>十任务HTTPS续跑</title><style>body{font:16px/1.6 system-ui;max-width:1200px;margin:auto;padding:24px}td,th{border:1px solid #ccd;padding:8px}table{border-collapse:collapse}code{overflow-wrap:anywhere}</style><h1>十任务：四卡 HTTPS 附着续跑</h1><p>更新 2026-11-04T13:20:09.310131+00:00；本页为诊断进度，执行链完整原生120Hz参考仍待交付，未发布正式成功率。</p><p>平台任务 job-sp0hawrco78k：RUNNING。N1×10 多进程并行，每进程1环境，4卡。模型资产1183文件/37.93GB已直接HTTPS下载并核验。首批归档已通过独立SHA、逐tick连续性及双oracle复算。</p><p>原有312条保留，新独立验收 46/288；合计 358/600。只续跑未验收的ID，不重复已验收案例。</p><p>利用率和显存见下方实测窗口；冷启动期间的低均值照实保留，不用瞬时峰值替代。k14未通过图像门槛前不启用，不增加卡数。</p><pre>{
   &quot;valid10min&quot;: true,
-  &quot;duration_s&quot;: 604.1704659461975,
+  &quot;duration_s&quot;: 603.5985293388367,
   &quot;samples&quot;: 21,
   &quot;GPU_count&quot;: 4,
-  &quot;mean_GPU_util_percent&quot;: 78.05952380952381,
-  &quot;mean_memory_percent&quot;: 77.37691468345182,
-  &quot;start_epoch&quot;: 1793797047.0627193,
-  &quot;end_epoch&quot;: 1793797651.2331853,
+  &quot;mean_GPU_util_percent&quot;: 81.47619047619048,
+  &quot;mean_memory_percent&quot;: 77.5217731621544,
+  &quot;start_epoch&quot;: 1793797802.2309275,
+  &quot;end_epoch&quot;: 1793798405.8294568,
   &quot;method&quot;: &quot;equal30s observation samples, all4 exclusive jobGPUs; never instantaneous peak&quot;,
   &quot;per_GPU&quot;: {
     &quot;0&quot;: {
-      &quot;mean_util_percent&quot;: 76.0,
-      &quot;mean_memory_percent&quot;: 86.2494508974634
+      &quot;mean_util_percent&quot;: 77.85714285714286,
+      &quot;mean_memory_percent&quot;: 86.36956023636583
     },
     &quot;1&quot;: {
-      &quot;mean_util_percent&quot;: 80.47619047619048,
-      &quot;mean_memory_percent&quot;: 68.75401033358679
+      &quot;mean_util_percent&quot;: 84.9047619047619,
+      &quot;mean_memory_percent&quot;: 69.11463023204111
     },
     &quot;2&quot;: {
-      &quot;mean_util_percent&quot;: 75.28571428571429,
-      &quot;mean_memory_percent&quot;: 85.16603449944957
+      &quot;mean_util_percent&quot;: 77.52380952380952,
+      &quot;mean_memory_percent&quot;: 85.4948879344356
     },
     &quot;3&quot;: {
-      &quot;mean_util_percent&quot;: 80.47619047619048,
-      &quot;mean_memory_percent&quot;: 69.3381630033075
+      &quot;mean_util_percent&quot;: 85.61904761904762,
+      &quot;mean_memory_percent&quot;: 69.10801424577514
     }
   }
-}</pre><table><tr><th>配置</th><th>已核验/100</th><th>观察成功数</th><th>平均阶段</th></tr><tr><td>mem0_original|h4</td><td>72</td><td>0（未完仅观察）</td><td>1.375</td></tr><tr><td>mem0_original|h8</td><td>76</td><td>0（未完仅观察）</td><td>1.947</td></tr><tr><td>mem0_weak|h4</td><td>61</td><td>0（未完仅观察）</td><td>1.115</td></tr><tr><td>mem0_weak|h8</td><td>60</td><td>0（未完仅观察）</td><td>1.033</td></tr><tr><td>ours_aligned|h4</td><td>39</td><td>0（未完仅观察）</td><td>0.590</td></tr><tr><td>ours_aligned|h8</td><td>41</td><td>0（未完仅观察）</td><td>0.829</td></tr></table><p>旧任务日志显示共享盘ESTALE与coordinator退出同时出现，目前不将其归为已确认抢占。新任务进度、心跳先本地写入，镜像失败只标待归档；原始数据HTTPS PUT后独立GET核SHA才释放新RAM缓冲。控制代码本地缓存候选尚未部署，在跑案例保持原代码。</p><p><a href="task10-r10-https-resume-20261104.json">完整状态JSON</a> · <a href="task10-r9-diagnostics-20261104.html">三口径、开环和失败诊断</a></p></html>
+}</pre><table><tr><th>配置</th><th>已核验/100</th><th>观察成功数</th><th>平均阶段</th></tr><tr><td>mem0_original|h4</td><td>75</td><td>0（未完仅观察）</td><td>1.373</td></tr><tr><td>mem0_original|h8</td><td>77</td><td>0（未完仅观察）</td><td>1.935</td></tr><tr><td>mem0_weak|h4</td><td>63</td><td>0（未完仅观察）</td><td>1.111</td></tr><tr><td>mem0_weak|h8</td><td>61</td><td>0（未完仅观察）</td><td>1.016</td></tr><tr><td>ours_aligned|h4</td><td>40</td><td>0（未完仅观察）</td><td>0.600</td></tr><tr><td>ours_aligned|h8</td><td>42</td><td>0（未完仅观察）</td><td>0.976</td></tr></table><p>旧任务日志显示共享盘ESTALE与coordinator退出同时出现，目前不将其归为已确认抢占。新任务进度、心跳先本地写入，镜像失败只标待归档；原始数据HTTPS PUT后独立GET核SHA才释放新RAM缓冲。控制代码本地缓存候选尚未部署，在跑案例保持原代码。</p><p><a href="task10-r10-https-resume-20261104.json">完整状态JSON</a> · <a href="task10-r9-diagnostics-20261104.html">三口径、开环和失败诊断</a></p></html>

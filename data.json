@@ -36344,9 +36344,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -36359,7 +36359,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": true,
@@ -36386,46 +36391,57 @@
           "ratio_to_reference": 1.0
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "mem0_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -36558,9 +36574,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -36573,7 +36589,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": true,
@@ -36600,46 +36621,57 @@
           "ratio_to_reference": 1.0
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "mem0_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -36772,9 +36804,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -36787,7 +36819,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": true,
@@ -36814,46 +36851,57 @@
           "ratio_to_reference": 1.0725113190160727
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ttc_base_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -36998,9 +37046,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -37013,7 +37061,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": true,
@@ -37040,46 +37093,57 @@
           "ratio_to_reference": 1.0725113190160727
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ttc_base_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest/executor_step30000.pt",
       "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest/FINAL_DELIVERY.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -37224,9 +37288,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -37239,7 +37303,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": true,
@@ -37266,46 +37335,57 @@
           "ratio_to_reference": 1.030610449840502
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ttc_aligned_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -37450,9 +37530,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -37465,7 +37545,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": true,
@@ -37492,46 +37577,57 @@
           "ratio_to_reference": 1.030610449840502
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ttc_aligned_trainresize_30k",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -37676,9 +37772,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -37691,7 +37787,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": false,
@@ -37715,49 +37816,62 @@
           ],
           "queries": 210,
           "RMSE_rad": 0.02008468426682987,
-          "ratio_to_reference": 1.0120330529368968
+          "ratio_to_reference": 1.0120330529368968,
+          "own_parquet_audit_file": "reports/task7-eval-v1-20261103/weak-own-parquet-audit.json",
+          "own_parquet_audit_sha256": "2c339d57fbcd7e8ab0fb642e446d09faf3d847988200de20414f9074e6beff7c"
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "mem0_weak_30k",
       "handoff_issue": 3,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。本弱版还待自身converted parquet核验。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -37890,9 +38004,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -37905,7 +38019,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": false,
@@ -37929,49 +38048,62 @@
           ],
           "queries": 210,
           "RMSE_rad": 0.02008468426682987,
-          "ratio_to_reference": 1.0120330529368968
+          "ratio_to_reference": 1.0120330529368968,
+          "own_parquet_audit_file": "reports/task7-eval-v1-20261103/weak-own-parquet-audit.json",
+          "own_parquet_audit_sha256": "2c339d57fbcd7e8ab0fb642e446d09faf3d847988200de20414f9074e6beff7c"
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "mem0_weak_30k",
       "handoff_issue": 3,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/3",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0_weak/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0_weak/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。本弱版还待自身converted parquet核验。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -38104,9 +38236,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -38119,7 +38251,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": false,
@@ -38143,49 +38280,62 @@
           ],
           "queries": 210,
           "RMSE_rad": 0.019035571954321037,
-          "ratio_to_reference": 0.9591700692625418
+          "ratio_to_reference": 0.9591700692625418,
+          "own_parquet_audit_file": "reports/task7-eval-v1-20261103/weak-own-parquet-audit.json",
+          "own_parquet_audit_sha256": "2c339d57fbcd7e8ab0fb642e446d09faf3d847988200de20414f9074e6beff7c"
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ttc_weak_aligned_30k",
       "handoff_issue": 18,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。本弱版还待自身converted parquet核验。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -38329,9 +38479,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -38344,7 +38494,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": false,
@@ -38368,49 +38523,62 @@
           ],
           "queries": 210,
           "RMSE_rad": 0.019035571954321037,
-          "ratio_to_reference": 0.9591700692625418
+          "ratio_to_reference": 0.9591700692625418,
+          "own_parquet_audit_file": "reports/task7-eval-v1-20261103/weak-own-parquet-audit.json",
+          "own_parquet_audit_sha256": "2c339d57fbcd7e8ab0fb642e446d09faf3d847988200de20414f9074e6beff7c"
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ttc_weak_aligned_30k",
       "handoff_issue": 18,
       "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/18",
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/ours_weak/chest/weights/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours_weak/chest/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。本弱版还待自身converted parquet核验。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -38554,9 +38722,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -38569,7 +38737,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": false,
@@ -38578,46 +38751,57 @@
           "gate_type": "soft"
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "placement-v1.1独立待测配置：与TTC对齐loss的Gen基线分列，原生分类头控制切换；全13关节统一执行链。seed0同冻结100场景、正反各50、chest训练侧缩放、原接触；completed0/success=null，无旧严格诊断或池等价成绩混入。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ours_aligned_30k_native_classifier_switch_v1",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,
@@ -38764,9 +38948,9 @@
       },
       "admission": {
         "expert_replay": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
+          "passed": true,
+          "status": "passed_placement_oracle_validation_component",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#oracle",
           "gate_type": "hard",
           "negative_video_component": {
             "passed": true,
@@ -38779,7 +38963,12 @@
             "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
             "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
             "does_not_grant_overall_expert_pass": true
-          }
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/placement-oracle-component-review.json",
+          "evidence_sha256": "51c9d1721163a6c760a1ec1e58789776926d9782381677e0126eef2eddcc1d14",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true
         },
         "open_loop": {
           "passed": false,
@@ -38788,46 +38977,57 @@
           "gate_type": "soft"
         },
         "render_multiframe": {
-          "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#render",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/render-multiframe-component-review.json",
+          "evidence_sha256": "49fd26663579dd44c2557177f595a89c9dc6275cf520003cd3b11bb091afc76f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true
         },
         "smoke20": {
           "passed": false,
-          "status": "pending",
-          "report": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-          "gate_type": "hard"
+          "status": "not_started_under_v11_executor",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#formal",
+          "gate_type": "hard",
+          "diagnostic57_not_relabelled_as_smoke": true
         },
         "executor_parity": {
           "passed": false,
-          "status": "partial_pair_RMSE_failed_diagnosing",
-          "report": "reports/task7-eval-v1-20261103/diagnostic-progress.html#executor-partial",
+          "status": "failed_complete10_RMSE",
+          "report": "reports/task7-eval-v1-20261103/admission-components-20261104.html#executor",
           "gate_type": "hard",
-          "evidence_file": "reports/task7-eval-v1-20261103/executor-partial-diagnostic-20261104.json",
-          "evidence_sha256": "dd64d9c80d33df0dae87151794e4e9036a56bcaaf7ef136538addd39ae8cdd88",
-          "partial_pairs": 1,
-          "complete10": false,
-          "q13_RMSE_rad": 0.03365081073806397,
-          "limit_rad": 0.005
+          "evidence_file": "reports/task7-eval-v1-20261103/admission-components-20261104.json",
+          "evidence_sha256": "d6d6ec7d935356be479c47b5e3322dcde9b859fe471d2bc035a943a7e81a2c32",
+          "complete10": true,
+          "q13_RMSE_rad": 0.03417494878805389,
+          "limit_rad": 0.005,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "all_10_pair_RMSE_failed": true
         }
       },
       "protocol": "placement-v1.1独立待测配置：与TTC对齐loss的Gen基线分列，原生分类头控制切换；全13关节统一执行链。seed0同冻结100场景、正反各50、chest训练侧缩放、原接触；completed0/success=null，无旧严格诊断或池等价成绩混入。",
       "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
       "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T02:46:11.675138+00:00",
+      "updated_at": "2026-11-04T03:17:04.874638+00:00",
       "variant": "ours_aligned_30k_native_classifier_switch_v1",
       "handoff_issue": null,
       "handoff_url": null,
       "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
       "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "执行链首对专家q13 RMSE=0.03365rad，高于0.005门槛，主要来自手指；正在排查，不能放量。专家全10对、多帧渲染和新版冒烟仍未完成。",
+      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
       "expected_start_conditions": [
-        "placement-v1.1专家和负例验证",
-        "10条15Hz至120Hz执行链验收",
-        "多帧渲染准入",
-        "左右各10条h8冒烟",
-        "开环软准入通过后最终确认"
+        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
+        "该配置左右各10条h8真实闭环冒烟通过",
+        "本模型开环软准入和所有独立组件最终核对"
       ],
       "expected_start_at": null,
       "legacy_metrics_reused": false,

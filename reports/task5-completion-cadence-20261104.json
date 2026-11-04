@@ -1,0 +1,82 @@
+{
+  "stage": "diagnostic",
+  "case_id": "r4_new30_A_s0_h8_014",
+  "horizon": 8,
+  "classification_cadence": "every actual15Hz observation, independent of action chunk cadence",
+  "counter_cadence": "once per old-instruction observation; positive>=0.5 adds1; negative adds0 without resetting cumulative count",
+  "action_cadence": "new diffusion chunk when next_prediction_frame due, normally everyh8 observations, or immediately after instruction change",
+  "probability_cache": "none across observation frames in verified path; cached fused features/raw_action chunks are not reused classifier probabilities",
+  "planner_order": [
+    "observe old instruction: encode currentRGB, update memory, compute fresh classifier probability, update count",
+    "if count>=2: planner requests next instruction",
+    "new_subtask clears new-lane counters/features/action history",
+    "observe same frame once with new instruction and reset memory",
+    "predict new action chunk; next_prediction_frame=currentframe+h8"
+  ],
+  "window_examples": [
+    {
+      "switch_frame": 375,
+      "first_positive": {
+        "frame_index": 374,
+        "native_tick": 3120,
+        "completion_probability": 0.8095541596412659,
+        "positive_count": 1,
+        "action_chunk_recomputed": false,
+        "switched": false
+      },
+      "second_positive_and_switch": {
+        "frame_index": 375,
+        "native_tick": 3128,
+        "completion_probability": 0.6300967931747437,
+        "positive_count": 2,
+        "action_chunk_recomputed": true,
+        "switched": true
+      },
+      "positive_gap_observation_frames": 1,
+      "old_decision_threshold": 0.5,
+      "positive_count_threshold": 2.0,
+      "new_instruction_same_frame_refresh_probability": 0.0004562954418361187,
+      "new_instruction_same_frame_refresh_count": 0,
+      "all_25_observations_have_new_classifier_call_telemetry": true,
+      "distinct_observation_probabilities": 25
+    },
+    {
+      "switch_frame": 861,
+      "first_positive": {
+        "frame_index": 860,
+        "native_tick": 7008,
+        "completion_probability": 0.5957374572753906,
+        "positive_count": 1,
+        "action_chunk_recomputed": false,
+        "switched": false
+      },
+      "second_positive_and_switch": {
+        "frame_index": 861,
+        "native_tick": 7016,
+        "completion_probability": 0.9814460873603821,
+        "positive_count": 2,
+        "action_chunk_recomputed": true,
+        "switched": true
+      },
+      "positive_gap_observation_frames": 1,
+      "old_decision_threshold": 0.5,
+      "positive_count_threshold": 2.0,
+      "new_instruction_same_frame_refresh_probability": 0.0005901487893424928,
+      "new_instruction_same_frame_refresh_count": 0,
+      "all_25_observations_have_new_classifier_call_telemetry": true,
+      "distinct_observation_probabilities": 25
+    }
+  ],
+  "archive_evidence": {
+    "archive_bytes": 14558541,
+    "archive_sha256": "5aa5fb9f543133bb4916a602800ab5816abc3818907b9ce432c20f44e9abd1ae",
+    "member_sha256": "607f56b6e56943477e41357781ca84b3e998eb1db7381818eea80e221ac4b6bf",
+    "source_frames": 1148
+  },
+  "hypothesis_verdict": "rejected_for_current_v3_path: two positives are one observation apart, not two predictions8frames apart; no last8-vs-two-h8 classifier sampling mismatch found",
+  "scope_limit": "Two positive switch windows from one verified baseline scene014; no general model accuracy conclusion or live performance timings. No classifier/model was executed by this audit.",
+  "GPU_used": false,
+  "new_model_calls": 0,
+  "new_simulations": 0,
+  "site_or_runtime_changes": false
+}

@@ -1,0 +1,115 @@
+{
+  "source/safelab/mn_runtime_reference.py": {
+    "sha256": "78618a44b04e64d6141ffb8e4589095a0224030ffadc9375b27e1f8daa8a3118",
+    "lines": [
+      {
+        "line": 510,
+        "text": "                    self._keymem_switched = bool(decision.switched)\n                self._keymem_current_label = int(decision.current_label)\n                raw_completion_score = getattr(decision, \"completion_score\", None)\n                self._keymem_last_completion_score = (\n                    None\n                    if raw_completion_score is None\n                    else float(raw_completion_score)"
+      },
+      {
+        "line": 511,
+        "text": "                self._keymem_current_label = int(decision.current_label)\n                raw_completion_score = getattr(decision, \"completion_score\", None)\n                self._keymem_last_completion_score = (\n                    None\n                    if raw_completion_score is None\n                    else float(raw_completion_score)\n                )"
+      },
+      {
+        "line": 513,
+        "text": "                self._keymem_last_completion_score = (\n                    None\n                    if raw_completion_score is None\n                    else float(raw_completion_score)\n                )\n                if (\n                    str(self.keymem_config.get(\"runtime_version\", \"\"))"
+      },
+      {
+        "line": 514,
+        "text": "                    None\n                    if raw_completion_score is None\n                    else float(raw_completion_score)\n                )\n                if (\n                    str(self.keymem_config.get(\"runtime_version\", \"\"))\n                    .strip()"
+      },
+      {
+        "line": 540,
+        "text": "                    f\"switch={decision.switched} \"\n                    f\"proposal={getattr(decision, 'switch_proposed', False)} \"\n                    f\"completion_score={getattr(decision, 'completion_score', None)!r} \"\n                    f\"added={runtime_result.added_keyframes} \"\n                    f\"prompt={effective_instruction[:160]!r}\",\n                    \"cyan\",\n                )"
+      },
+      {
+        "line": 611,
+        "text": "                    official_summary\n                )\n            self._last_official_completion_score = float(\n                official_prediction[\"prob\"].reshape(-1)[0].item()\n            )\n\n        state = obs_payload.get(\"state\")"
+      },
+      {
+        "line": 640,
+        "text": "                stage=int(self.stage),\n                instruction=effective_instruction,\n                official_completion_score=self._last_official_completion_score,\n                learned_completion_score=self._keymem_last_completion_score,\n                sub_end_flag=bool(sub_end_flag),\n                action_count=int(self.action_count),\n                encoder_switched=bool(self._keymem_switched),"
+      },
+      {
+        "line": 641,
+        "text": "                instruction=effective_instruction,\n                official_completion_score=self._last_official_completion_score,\n                learned_completion_score=self._keymem_last_completion_score,\n                sub_end_flag=bool(sub_end_flag),\n                action_count=int(self.action_count),\n                encoder_switched=bool(self._keymem_switched),\n                encoder_label=self._keymem_current_label,"
+      }
+    ]
+  },
+  "source/keymem/gen21_312_cluster.py": {
+    "sha256": "85177cac79045371c09352569fccd124bb934ac427fcbda5fb8c14d30eaaf6c4",
+    "lines": [
+      {
+        "line": 60,
+        "text": "    audit = dict(schema='gen21_312_cluster_selection_v1', mode=mode,\n                 config=asdict(config), subtask_start=int(ids[0]),\n                 subtask_end=int(ids[-1]), frame_count=len(ids), candidates=[])\n\n    def finish(groups, reason):\n        records = []\n        for group in groups:"
+      }
+    ]
+  },
+  "source/keymem/native_classifier.py": {
+    "sha256": "4b6331e6b4e8ea6e6fa808754c634472a17bfebbec55a21c67129bf00230247b",
+    "lines": [
+      {
+        "line": 10,
+        "text": "\nLAMBDA_CLASSIFIER = 0.2\nTRAINING_OBJECTIVE = \"action_plus_native_classifier\"\nLEGACY_ACTION_ONLY_OBJECTIVE = \"action_only\"\n\n\ndef require_native_classifier(cfg):"
+      },
+      {
+        "line": 14,
+        "text": "\n\ndef require_native_classifier(cfg):\n    module = cfg.execution_module\n    if not module.get(\"classifier\", {}).get(\"enabled\", False):\n        raise ValueError(\"SafeLab M(n) training requires execution_module.classifier.enabled=true\")\n    if module.get(\"loss_weights\", {}).get(\"lambda_classifier\") != LAMBDA_CLASSIFIER:"
+      },
+      {
+        "line": 23,
+        "text": "    if trainer is not None and trainer.get(\"checkpoint_provenance_json\"):\n        provenance = json.loads(trainer.checkpoint_provenance_json)\n        if (provenance.get(\"native_classifier_enabled\") is not True\n                or provenance.get(\"training_objective\") != TRAINING_OBJECTIVE\n                or provenance.get(\"lambda_classifier\") != LAMBDA_CLASSIFIER):\n            raise ValueError(\"Checkpoint provenance must record the native classifier objective\")\n    return cfg"
+      }
+    ]
+  },
+  "source/models/mn_execution_module/memorymatters_executor.py": {
+    "sha256": "c790cbb7bb8b65f9a74593ad19d211ac44b98a193c19aeb1af232f5cf248faa5",
+    "lines": [
+      {
+        "line": 240,
+        "text": "\n        # Prepare classifier labels\n        cls_labels = [ex.get(\"subtask_end\", 0) for ex in examples]  # [B]\n        \n        # Extract episode_ids if available, otherwise use batch indices\n        episode_ids = [example[\"episode_id\"] for example in examples]  # [B]\n        subtask_end_flags = [example.get(\"subtask_end\", 0) for example in examples]"
+      },
+      {
+        "line": 244,
+        "text": "        # Extract episode_ids if available, otherwise use batch indices\n        episode_ids = [example[\"episode_id\"] for example in examples]  # [B]\n        subtask_end_flags = [example.get(\"subtask_end\", 0) for example in examples]\n        subtask_ids = [example.get(\"subtask_id\") for example in examples] if self.keymem_enabled else None\n        keyframe_flags = [example.get(\"is_keyframe\", False) for example in examples] if self.keymem_enabled else None\n        required_ancestor_source_ids = (\n            [example.get(\"dag_required_ancestor_source_ids\") for example in examples]"
+      },
+      {
+        "line": 295,
+        "text": "            image_feature,\n            episode_ids=episode_ids,\n            subtask_end_flags=subtask_end_flags,\n            subtask_ids=subtask_ids,\n            keyframe_flags=keyframe_flags,\n            required_ancestor_source_ids=required_ancestor_source_ids,\n            **memory_kwargs,"
+      },
+      {
+        "line": 365,
+        "text": "            cls_labels = torch.tensor(cls_labels, device=summary_feature_for_classifier.device, dtype=summary_feature_for_classifier.dtype)  # (B,)\n            \n            classifier_output = self.classifier(\n                fused_hidden=summary_feature_for_classifier,  # (B, 3 * hidden_size)\n                labels=cls_labels,\n            )\n            classifier_loss = classifier_output[\"loss\"]"
+      },
+      {
+        "line": 506,
+        "text": "        return {\n            \"normalized_actions\": pred_actions.detach().cpu().numpy(),\n            \"subtask_end_flag\": sub_end_flag,  # List of bools, one per sample\n        }\n\n        \n        "
+      },
+      {
+        "line": 534,
+        "text": "            \"lang\": \"This is a fake for testing. whatever it is\",\n            \"state\" : np.random.uniform(-1, 1, size=(1, 16)).astype(np.float16), # chunk, state_dim\n            \"subtask_end\": 0, # binary label\n            \"episode_id\": 0, # episode id\n        },\n        {\n            \"action\": np.random.uniform(-1, 1, size=(16, 16)).astype(np.float16), # action_chunk, action_dim"
+      },
+      {
+        "line": 542,
+        "text": "            \"lang\": \"This is a fake for testing\",\n            \"state\" : np.random.uniform(-1, 1, size=(1, 16)).astype(np.float16), # chunk, state_dim\n            \"subtask_end\": 0, # binary label\n            \"episode_id\": 0, # episode id\n        }\n    ]  # batch size 2\n    "
+      },
+      {
+        "line": 559,
+        "text": "        predict_output = model.predict(batch_images=[example[\"image\"]], instructions=[example[\"lang\"]], state=[example[\"state\"]], episode_ids=example[\"episode_id\"])\n        print(f\"normalized action: {predict_output['normalized_actions'].shape}\")\n        print(f\"subtask_end_flag: {predict_output['subtask_end_flag']}\")"
+      }
+    ]
+  },
+  "source/safelab/executor_inference.py": {
+    "sha256": "f9be19d4119c73caf8a7da55659fd774d6c9e1c780f17dc253f08e201de7154e",
+    "lines": [
+      {
+        "line": 174,
+        "text": "            \"frame_index\": self._last_frame_index,\n            \"subtask\": self._subtask,\n            \"subtask_end_flag\": self._last_end_flag,\n            \"end_signal_count\": int(self._agent.end_signal_count),\n            \"subtask_end\": self._agent.end_signal_count >= self._agent.threshold,\n        }\n"
+      },
+      {
+        "line": 176,
+        "text": "            \"subtask_end_flag\": self._last_end_flag,\n            \"end_signal_count\": int(self._agent.end_signal_count),\n            \"subtask_end\": self._agent.end_signal_count >= self._agent.threshold,\n        }\n\n    @torch.inference_mode()\n    def observe("
+      }
+    ]
+  }
+}

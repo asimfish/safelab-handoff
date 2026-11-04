@@ -1,13 +1,29 @@
 """Run on an authorized node with tos2.9.3 and ZENITH_API_TOKEN in environment.
 No bucket-policy/CORS mutation, no overwrite, no deletion, no credential output.
 """
-import argparse,hashlib,json,logging,os,pathlib,urllib.request,urllib.error,urllib.parse
+import argparse,hashlib,json,logging,os,pathlib,urllib.request,urllib.error,urllib.parse,subprocess,shlex
 logging.getLogger('tos').setLevel(logging.CRITICAL)
-ap=argparse.ArgumentParser();ap.add_argument('repo',type=pathlib.Path);ap.add_argument('plan',type=pathlib.Path);ap.add_argument('receipt',type=pathlib.Path);a=ap.parse_args();root=a.repo.resolve();items=json.loads(a.plan.read_text())['objects'];token=os.environ['ZENITH_API_TOKEN'];base=os.environ.get('ZENITH_API_BASE','http://10.1.130.101/pt/api2')
+ap=argparse.ArgumentParser();ap.add_argument('repo',type=pathlib.Path);ap.add_argument('plan',type=pathlib.Path);ap.add_argument('receipt',type=pathlib.Path);a=ap.parse_args();root=a.repo.resolve();items=json.loads(a.plan.read_text())['objects'];token=os.environ['ZENITH_API_TOKEN'];base=os.environ.get('ZENITH_API_BASE','https://zenith.bza.edu.cn/pt/api2')
 class NoRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,*args,**kwargs):return None
 op=urllib.request.build_opener(urllib.request.ProxyHandler({}),NoRedirect())
 def request(path,body=None):
+ if os.environ.get('ZENITH_API_SSH_TARGET'):
+  assert base=='https://zenith.bza.edu.cn/pt/api2'
+  remote="""import sys,json,urllib.request,urllib.error,os
+x=json.load(sys.stdin);os.environ['ZENITH_API_TOKEN']=x.pop('token')
+req=urllib.request.Request(x['url'],data=None if x['body'] is None else json.dumps(x['body']).encode(),headers={'Authorization':'Bearer '+os.environ['ZENITH_API_TOKEN'],'Content-Type':'application/json'})
+op=urllib.request.build_opener(urllib.request.ProxyHandler({}))
+try:
+ with op.open(req,timeout=30) as r:sys.stdout.write(json.dumps({'status':r.status,'data':json.load(r)}))
+except urllib.error.HTTPError as e:sys.stdout.write(json.dumps({'status':e.code}))
+except Exception as e:sys.stdout.write(json.dumps({'status':0,'error_type':type(e).__name__}))
+"""
+  r=subprocess.run(['ssh','-T','-o','BatchMode=yes','-o','ConnectTimeout=8','-p',os.environ.get('ZENITH_API_SSH_PORT','4009'),os.environ['ZENITH_API_SSH_TARGET'],'python3 -c '+shlex.quote(remote)],input=json.dumps({'token':token,'url':base+path,'body':body}),text=True,capture_output=True,timeout=45)
+  if r.returncode:raise RuntimeError('SSH transport failed; credential output suppressed')
+  result=json.loads(r.stdout)
+  if result['status']!=200:raise RuntimeError('API status '+str(result['status'])+' endpoint '+base+path)
+  return result['data']
  req=urllib.request.Request(base+path,data=None if body is None else json.dumps(body).encode(),headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'},method='GET' if body is None else 'POST')
  with op.open(req,timeout=30) as r:return json.load(r)
 def anonymous(item):

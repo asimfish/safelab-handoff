@@ -46,6 +46,7 @@ function inspect(root,files,limits=LIMITS){
  const tracked=new Set(files),frames=new Map(),report={snapshot_bytes:0,media_bytes:0,frame_log_bytes:0,frame_logs:0,manifests:0,public_media_references:0,legacy_public_media_references:0};
  for(const name of files){
   const stat=fs.lstatSync(path.join(root,name));report.snapshot_bytes+=stat.size;
+  if(name.startsWith('reports/')&&stat.size>200000)throw Error('Evidence over 200000 bytes must use TOS reports-v1: '+name);
   if(name.startsWith('media/')){if(stat.isSymbolicLink()||!stat.isFile())throw Error('Media must be regular tracked files');report.media_bytes+=stat.size;}
   if(name.startsWith('media/frame_logs/')&&!name.endsWith('/.gitkeep')){
    if(!/\.json(?:\.gz)?$/.test(name))throw Error('Only derived JSON frame logs allowed');

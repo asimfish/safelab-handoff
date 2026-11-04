@@ -59769,5 +59769,109 @@
       }
     ],
     "duplicate_policy": "Issue8 duplicates7; keep both issue references on one weight; do not close automatically."
+  },
+  "long_task_collection": {
+    "owner": "T536 · 5a/5b/7/10 数据采集与验收",
+    "updated_at": "2026-11-04T07:00:04.903957+00:00",
+    "protocol_version": "SafeLab-Eval-v1.1",
+    "target": 400,
+    "historical_candidates": 347,
+    "accepted": 0,
+    "status": "原始日志复核完成，原生修复验证进行中；正式验收未完成",
+    "scope_note": "±3cm 新泛化数据已交接给独立负责会话；本面板只报告现行 5a/5b/7/10。",
+    "counts_note": "历史候选是旧机器验收的累计记录；尚未逐条通过当前全部质量门槛。正式验收 0 不代表新放置判定下已确认全部失败。",
+    "rows": [
+      {
+        "task": "5a · 干燥箱",
+        "variant": "AB / BA 各 50",
+        "target": 100,
+        "historical_candidates": 100,
+        "accepted": 0,
+        "state": "100条均超180秒。实测长段58秒；已定位轨迹几何导致反复降速，正在保持碰撞等检查下优化。"
+      },
+      {
+        "task": "5b · 六垫避障",
+        "variant": "烧杯/锥形瓶左右互换，各 50",
+        "target": 100,
+        "historical_candidates": 100,
+        "accepted": 0,
+        "state": "当前100候选继续追溯；另旧发布100条逐条120Hz实测均超V/A/J上限，正在修复13维控制与记录。"
+      },
+      {
+        "task": "7 · 四杯称量",
+        "variant": "1234 / 4321 各 50；末杯留在天平",
+        "target": 100,
+        "historical_candidates": 100,
+        "accepted": 0,
+        "state": "100条真实事件均为8动作。已固定第7事件截点，仍须重验末态、视频及标签。"
+      },
+      {
+        "task": "10 · 五杯称量",
+        "variant": "12345 / 54321 各 50",
+        "target": 100,
+        "historical_candidates": 47,
+        "accepted": 0,
+        "state": "已恢复47条原始来源与哈希（正序46、反序1）；时长334–364秒，全部超180秒。"
+      }
+    ],
+    "placement_rule": "进入原目标区域、直立、已释放且由目标表面支撑，连续≥0.25秒；不再要求低速度或低角速度。阶段必须顺序推进，初始位于目标上不计完成。",
+    "quality_rule": "平滑、原生三相机、渲染质量、≤180秒、阶段边界及120Hz执行链仍须分别通过；缺少原始证据记为待核验。",
+    "job": {
+      "id": "job-vp3cusgtvzf0",
+      "purpose": "固定布局四路调试",
+      "state": "FAILED",
+      "ended_at": "2026-11-03T17:16:20Z",
+      "own_parents_closed": 4,
+      "new_pos3_jobs": 0
+    },
+    "storage": {
+      "measurement_at": "2026-11-03T21:26:10Z",
+      "remote_small_pilot_bytes": 21137,
+      "remote_large_pilot_bytes": 17041,
+      "legacy_project_lerobot_bytes": 523204125,
+      "fast_storage_R7_pending_migration_bytes": 4854579858,
+      "fast_storage_total_pending_bytes": null,
+      "note": "只统计已核对的本任务目录；旧快盘全树统计超时，全agent两处合计占用尚未核清。不声称已满足2TB全局上限。原文件未删除。"
+    },
+    "report_url": "reports/t536-5710-collection-20261104.html",
+    "evidence_summary": {
+      "5a_historical100_duration_fail": 100,
+      "t10_historical47_duration_fail": 47,
+      "t7_current100_metadata_duration_pass": 100,
+      "T7_video_decode_or_success_not_implied": true,
+      "native_v11_runtime_integration": "5b/10 source-bound CPU successors exist. Actual observerV2 closed196.37s after121physics ticks; stage identity and offset handling not qualified. V3 repair underway, no Native acceptance.",
+      "raw_archive": "Original closed logs/videos archived to BOS; current empty local directories do not prove data lost.",
+      "T7_stage_count": {
+        "source_records_with8": 100,
+        "actual_native_event_examples_checked": 100,
+        "actual_actions_each": 8,
+        "initial_phase0": false,
+        "latest7_requirement": "last beaker remains pan; new derived prefix must preserve physical events and allQA",
+        "event_pinned_prefix_derivations": 100
+      },
+      "old_published5b_separate_batch": {
+        "episodes": 100,
+        "frames": 203007,
+        "metadata_duration_pass": 100,
+        "min_video_s": 125.0666666667,
+        "max_video_s": 164.6,
+        "not_added_to_current_candidates": true,
+        "SHA_verified_native_rows": 1624437,
+        "native_q13_files_verified": 100,
+        "V_A_J_each_fail": 100,
+        "success_remains_unknown": true
+      },
+      "actual_observer_V2": {
+        "new_cards": 0,
+        "duration_wall_s": 196.3665496041067,
+        "physics_ticks_observed": 121,
+        "saved_raw_rows": 120,
+        "frames_each_camera": 15,
+        "task_actions": 0,
+        "formal_accepted": 0,
+        "result": "blocked: stage identity getter returned0 despite actualheaders/cache9223001; autooffset -inf needs explicitunknown",
+        "camera_review": "fivecup scene chestonly3fullcups; headcropped. Third originalprofile has0.8scale/custompose, nativecalibration notproved."
+      }
+    }
   }
 }

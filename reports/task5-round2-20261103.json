@@ -10254,5 +10254,49 @@
     "source_manifest_original_preserved_fail_closed_on_bootstrap_reexecution": true,
     "root_cause_claim": "cache race/visibility suspected; not proven; mitigation only",
     "official_source": "https://github.com/NVIDIA/warp/blob/main/docs/user_guide/faq.rst"
+  },
+  "round4_missing_Gen_module": {
+    "observed_http_error": "ModuleNotFoundError",
+    "CPU_reproducer": {
+      "returncode": 0,
+      "stdout": "{\"source.keymem.gen21_311_kf_anchor_runtime\": {\"import_ok\": false, \"missing_name\": \"source.keymem.gen21_311_kf_anchor_runtime\", \"error\": \"No module named 'source.keymem.gen21_311_kf_anchor_runtime'\", \"traceback\": \"Traceback (most recent call last):\\n  File \\\"<string>\\\", line 6, in <module>\\n  File \\\"/opt/conda/lib/python3.11/importlib/__init__.py\\\", line 126, in import_module\\n    return _bootstrap._gcd_import(name[level:], package, level)\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"<frozen importlib._bootstrap>\\\", line 1204, in _gcd_import\\n  File \\\"<frozen importlib._bootstrap>\\\", line 1176, in _find_and_load\\n  File \\\"<frozen importlib._bootstrap>\\\", line 1140, in _find_and_load_unlocked\\nModuleNotFoundError: No module named 'source.keymem.gen21_311_kf_anchor_runtime'\\n\"}, \"source.keymem.gen21_312_cluster\": {\"import_ok\": true, \"path\": \"/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_5b_ours_aligned_weak_20261102/public/safelab_runtime/psibot_5b_obstruction_pos1cm_v1_20261025/ours_weak/third_person/code/source/keymem/gen21_312_cluster.py\"}}\n",
+      "stderr": "",
+      "CPU_only": true,
+      "models_loaded": 0
+    },
+    "original_delivery_file_manifest_entries": 456,
+    "module_listed_in_original_manifest": false,
+    "requested_artifact": "matching training version source/keymem/gen21_311_kf_anchor_runtime.py, build_gen21_encoder_observation and dependencies/SHA",
+    "guidance_reply_accepted": {
+      "epoch": 1793775139.5994868,
+      "http_status": 200,
+      "accepted": true,
+      "response_keys": [
+        "ok",
+        "message_id",
+        "submitted_at",
+        "composer_id",
+        "queued",
+        "kicked",
+        "offline_pending",
+        "queue_position",
+        "reverse_reply",
+        "model_switched",
+        "restore_model_after_run",
+        "status_url",
+        "result_url",
+        "stream_url",
+        "wait_url",
+        "length_url",
+        "messages_url",
+        "single_use_consumed",
+        "delivery_state",
+        "execution_confirmed",
+        "delivery_note"
+      ],
+      "message_id": "xlaw32hglpf5msl9mehkdsaz4",
+      "single_use_consumed_or_attempted": true
+    },
+    "original_code_not_patched_with_unverified_substitute": true
   }
 }

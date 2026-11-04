@@ -40467,9 +40467,14 @@
           "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
           "episodes": 10,
           "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        },
+        "runtime_dependencies": {
+          "passed": false,
+          "missing": "source.keymem.gen21_311_kf_anchor_runtime.build_gen21_encoder_observation",
+          "scope": "Gen encoder lazy-import path; action prefix admission did not exercise it"
         }
       },
-      "status": "四卡混跑运行中：本模型已领取6/20条、已闭合0条、unknown1；完整成功率待整批完成。",
+      "status": "四卡混跑运行中：本模型已领取6/20条、已闭合0条、unknown1；完整成功率待整批完成。 已复现交付缺失Gen编码模块，管线待查；不据此把该变体判为训练不佳。",
       "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
       "updated_at": "2026-11-04T06:31:11.031926+00:00",
@@ -40500,7 +40505,8 @@
       "in_flight": 5,
       "cloud_job_id": "job-rhqry41sghls",
       "run_label": "round4_mixed4_repair1",
-      "local_log_storage": "approved NAS: metadata small prefix; original scientific streams big prefix; no old fast-storage outputs"
+      "local_log_storage": "approved NAS: metadata small prefix; original scientific streams big prefix; no old fast-storage outputs",
+      "pipeline_review": "observed runtime ModuleNotFoundError; CPU reproducer confirms missing source.keymem.gen21_311_kf_anchor_runtime; matching training build_gen21_encoder_observation source requested from delivery owner"
     },
     {
       "id": "task5-round2-old30-h8-original-v1-hermite-smoke20-placement-v11",

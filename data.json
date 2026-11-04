@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T23:33:26.490284+00:00",
+  "updated_at": "2026-11-04T06:34:36.595530+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -33640,12 +33640,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 24,
+      "completed": 25,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T23:58:44.555277+00:00",
+      "status": "第8轮4卡续跑；已独立核验25/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T06:34:36.595530+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -33653,8 +33653,8 @@
         "num_envs_actual": 1,
         "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33663,11 +33663,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.5,
+      "mean_phase": 1.44,
       "phase_hist": {
         "1": 10,
         "2": 8,
-        "0": 4,
+        "0": 5,
         "5": 2
       },
       "wilson95": null,
@@ -33707,9 +33707,9 @@
           "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 24,
-      "independently_verified": 24,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 25,
+      "independently_verified": 25,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -33744,8 +33744,24 @@
       "formal_score_eligible": false,
       "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
       "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
-      "note": "CPU已核验24条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
-      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 25,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-attach-h8",
@@ -33762,12 +33778,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 28,
+      "completed": 29,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T23:58:44.555277+00:00",
+      "status": "第8轮4卡续跑；已独立核验29/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T06:34:36.595530+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -33775,8 +33791,8 @@
         "num_envs_actual": 1,
         "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33785,11 +33801,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 2.0,
+      "mean_phase": 1.9310344827586208,
       "phase_hist": {
         "2": 9,
         "1": 10,
-        "0": 3,
+        "0": 4,
         "3": 1,
         "4": 2,
         "5": 1,
@@ -33832,9 +33848,9 @@
           "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 28,
-      "independently_verified": 28,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 29,
+      "independently_verified": 29,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -33869,8 +33885,24 @@
       "formal_score_eligible": false,
       "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
       "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
-      "note": "CPU已核验28条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
-      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 25,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-mem0_weak-attach-h4",
@@ -33887,21 +33919,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 2,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T23:58:44.555277+00:00",
+      "status": "第8轮4卡续跑；已独立核验2/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T06:34:36.595530+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33910,8 +33942,11 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "2": 1,
+        "0": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -33946,9 +33981,9 @@
           "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 2,
+      "independently_verified": 2,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -33964,7 +33999,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -33983,8 +34018,24 @@
       "formal_score_eligible": false,
       "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
       "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
-      "note": "尚无该配置可核验的终态日志；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
-      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 25,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-mem0_weak-attach-h8",
@@ -34001,21 +34052,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 2,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T23:58:44.555277+00:00",
+      "status": "第8轮4卡续跑；已独立核验2/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T06:34:36.595530+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -34024,8 +34075,10 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "1": 2
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -34060,9 +34113,9 @@
           "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 2,
+      "independently_verified": 2,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -34078,7 +34131,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -34097,8 +34150,24 @@
       "formal_score_eligible": false,
       "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
       "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
-      "note": "尚无该配置可核验的终态日志；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
-      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 25,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-off-h4",
@@ -34359,19 +34428,19 @@
       "unknown": 0,
       "completed": 0,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T23:58:44.555277+00:00",
+      "status": "第8轮4卡续跑；已独立核验0/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T06:34:36.595530+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -34418,7 +34487,7 @@
       },
       "known_terminal_count": 0,
       "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -34434,7 +34503,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -34453,8 +34522,24 @@
       "formal_score_eligible": false,
       "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
       "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
-      "note": "尚无该配置可核验的终态日志；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
-      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 25,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-attach-h8",
@@ -34471,21 +34556,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 1,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T23:58:44.555277+00:00",
+      "status": "第8轮4卡续跑；已独立核验1/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T06:34:36.595530+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -34494,8 +34579,10 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "1": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
@@ -34530,9 +34617,9 @@
           "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 1,
+      "independently_verified": 1,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -34548,7 +34635,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -34567,8 +34654,24 @@
       "formal_score_eligible": false,
       "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
       "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
-      "note": "尚无该配置可核验的终态日志；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
-      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 25,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned_weak-off-h4",

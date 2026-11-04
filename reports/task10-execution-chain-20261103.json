@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T23:58:44.555277+00:00",
+  "updated_at": "2026-11-04T00:58:58.623288+00:00",
   "protocol_version": "SafeLab-Eval-v1.1",
   "metric_role": "execution-chain diagnostic; excluded from learned policy SR",
   "formal_admission_passed": false,
@@ -2637,6 +2637,539 @@
       404,
       404
     ],
-    "limitation": "exact known source keys only; absence is not a whole-bucket search or proof of deletion"
+    "limitation": "exact known source keys only; absence is not a whole-bucket search or proof of deletion",
+    "latest_finding": "Found migration archive; two original physics120 files verified by archive, member and native-manifest SHA contain stride4/30Hz only. True per-tick reference remains unavailable.",
+    "required_input": "true per-tick native_controls_120hz or equivalent commands, velocity targets and measured joints; start with episode0/50"
+  },
+  "source_sampling_audit": {
+    "epoch": 1793753446.8574848,
+    "CPU_only": true,
+    "scored": false,
+    "actual120_reference_recovered": false,
+    "finding": "Archived physics120 filename contains every fourth native tick; native-row counter in capture manifest counts simulated ticks, not saved JSONL rows",
+    "scope": "two archived forward episodes2/4 independently restored and SHA checked; no extrapolation to unseen files",
+    "files": [
+      {
+        "episode_index": 2,
+        "archive_member": "raw/w453_t10_order12345/ep45308/physics120.jsonl.gz",
+        "recovered_path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task10_new_variants_20261102/native120_recovered_20261103/episode_000002_physics120.jsonl.gz",
+        "compressed_sha256": "a0d1edcf0aab2631a7f355709c3c7c44a0e4a7867b37890703897b010657a23e",
+        "archive_sha256": "87fa33469bf139f3b2687cb384e5f33d21938c7ef1e4caebdbf6cd18c3e844e1",
+        "archive_and_member_and_source_native_manifest_SHA_verified": true,
+        "uncompressed_sha256": "f7c24c1358f43e84dc5636a7c4966227155cc608a8dfd456a7f5ea258ae6d11c",
+        "compressed_bytes": 32305995,
+        "uncompressed_bytes": 150440716,
+        "actual_file_rows": 5336,
+        "actual_first_tick": 124,
+        "actual_last_tick": 21464,
+        "tick_stride_hist": {
+          "4": 5335
+        },
+        "observed_rate_hz": 29.999998435378156,
+        "manifest_actual_native_rows_counter": 21346,
+        "manifest_first_tick": 121,
+        "manifest_last_tick": 21466,
+        "matched_original30_rows": 5336,
+        "q18_max_difference_from_original30_rad": 0.0,
+        "target18_max_difference_rad": 0.0,
+        "velocity_target18_max_difference_rad_s": 0.0,
+        "qualifies_as_native120_reference": false
+      },
+      {
+        "episode_index": 4,
+        "archive_member": "raw/w465_t10_order12345/ep46514/physics120.jsonl.gz",
+        "recovered_path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task10_new_variants_20261102/native120_recovered_20261103/episode_000004_physics120.jsonl.gz",
+        "compressed_sha256": "abf829007ca4045af9a21ec2c17b2f58515ec9ad8e813c304ad64e5d7ef09c32",
+        "archive_sha256": "87fa33469bf139f3b2687cb384e5f33d21938c7ef1e4caebdbf6cd18c3e844e1",
+        "archive_and_member_and_source_native_manifest_SHA_verified": true,
+        "uncompressed_sha256": "738a577a3a32af06319dbc36d95353959f182ec5f82a26a28efff565163a66c8",
+        "compressed_bytes": 32328284,
+        "uncompressed_bytes": 150671607,
+        "actual_file_rows": 5344,
+        "actual_first_tick": 124,
+        "actual_last_tick": 21496,
+        "tick_stride_hist": {
+          "4": 5343
+        },
+        "observed_rate_hz": 29.999998435378156,
+        "manifest_actual_native_rows_counter": 21379,
+        "manifest_first_tick": 121,
+        "manifest_last_tick": 21499,
+        "matched_original30_rows": 5344,
+        "q18_max_difference_from_original30_rad": 0.0,
+        "target18_max_difference_rad": 0.0,
+        "velocity_target18_max_difference_rad_s": 0.0,
+        "qualifies_as_native120_reference": false
+      }
+    ],
+    "searched_native_controls_120hz": {
+      "archive_manifests": 4,
+      "matching_members": 0,
+      "scope": "three original data/assets bundles and supplemental JSONL bundle for t5710_v180; not global storage absence"
+    },
+    "required_input": "true per-tick native_controls_120hz stream or equivalent original command/velocity/measured-joint trace, beginning with episode0 and50",
+    "recovery_full_bundle_source_retained": true,
+    "restored_members_retained": true,
+    "interpretation_limit": "This identifies a reference sampling limit; it does not establish the cause of all-zero learned-policy success or make the current executor pass.",
+    "recovery_script_sha256": "fc28860e353a178befff5bd1893203571889a55421fd4119eec97cb677ae2ebb",
+    "corrective_audit": "The recovery continuity assertion deliberately failed; the two fully SHA-verified source files were retained and explicitly reclassified as30Hz, with no missing ticks invented."
+  },
+  "contact_pose_and_passive_target_diagnostic": {
+    "epoch": 1793752805.6550672,
+    "scored": false,
+    "scope": "observational source30Hz versus endpoint replay; no native120 reference or causal claim",
+    "unused_joint_check_scope": "authored default targets vs all original30Hz rows, not live36DOF command readback",
+    "cases": [
+      {
+        "episode": 0,
+        "source_reference_sha256": "4504248440695804c1d492e92c075b8f23b3cabf53cbfe481240926b91779818",
+        "matched_samples": 5263,
+        "first_replay_contact_tick": 1312,
+        "precontact": {
+          "samples": 296,
+          "object_position_RMS_m": 0.0,
+          "object_max_position_error_m": 0.0,
+          "object_max_angle_error_rad": 4.2146848510894035e-08
+        },
+        "source_extra5_targets": {
+          "joint_names": [
+            "hand2_joint_link_2_2",
+            "hand2_joint_link_3_2",
+            "hand2_joint_link_4_2",
+            "hand2_joint_link_5_2",
+            "hand2_joint_link_1_3"
+          ],
+          "range_rad": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "value_first": [
+            1.559999942779541,
+            1.559999942779541,
+            1.559999942779541,
+            1.559999942779541,
+            0.029999999329447746
+          ],
+          "eval_authored_default": [
+            1.56,
+            1.56,
+            1.56,
+            1.56,
+            0.03
+          ],
+          "max_difference_from_authored_default_rad": 5.7220459037665705e-08
+        },
+        "samples_near_contact": [
+          {
+            "tick": 128,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              2.9802322387695312e-08,
+              2.9802322387695312e-08,
+              2.9802322387695312e-08,
+              0.0
+            ],
+            "hand_RMS_rad": 7.348645415126226e-06
+          },
+          {
+            "tick": 500,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "hand_RMS_rad": 3.208793598863959e-06
+          },
+          {
+            "tick": 900,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "hand_RMS_rad": 3.242891659043069e-05
+          },
+          {
+            "tick": 1308,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              4.2146848510894035e-08,
+              0.0,
+              0.0,
+              0.0,
+              4.2146848510894035e-08
+            ],
+            "hand_RMS_rad": 0.00010370400870533303
+          },
+          {
+            "tick": 1316,
+            "object_position_errors_m": [
+              4.915124923727108e-07,
+              0.0,
+              0.0,
+              0.0,
+              4.951133646320149e-07
+            ],
+            "object_orientation_errors_rad": [
+              5.99375013827383e-06,
+              0.0,
+              0.0,
+              0.0,
+              7.1276788372443476e-06
+            ],
+            "hand_RMS_rad": 9.717866123080268e-05
+          },
+          {
+            "tick": 1412,
+            "object_position_errors_m": [
+              0.000837657605006754,
+              0.0,
+              0.0,
+              0.0,
+              4.2981520598697533e-07
+            ],
+            "object_orientation_errors_rad": [
+              0.025073042815246974,
+              0.0,
+              0.0,
+              0.0,
+              3.397707867748657e-05
+            ],
+            "hand_RMS_rad": 0.004142010476588352
+          },
+          {
+            "tick": 1812,
+            "object_position_errors_m": [
+              0.0016955222701422151,
+              1.1071071398858255e-06,
+              1.1071071398858255e-06,
+              1.1071071398858255e-06,
+              1.6858739404357614e-07
+            ],
+            "object_orientation_errors_rad": [
+              0.033460688693806154,
+              1.7582814563498398e-05,
+              1.7582814563498398e-05,
+              1.7582814563498398e-05,
+              4.145794415404002e-05
+            ],
+            "hand_RMS_rad": 0.0023875795976515284
+          }
+        ],
+        "per_object": [
+          {
+            "object": "A",
+            "first_position_error_over2mm_tick": 1836,
+            "max_position_error_m": 0.003812682949902647
+          },
+          {
+            "object": "B",
+            "first_position_error_over2mm_tick": 5796,
+            "max_position_error_m": 0.007464952298051748
+          },
+          {
+            "object": "C",
+            "first_position_error_over2mm_tick": 9776,
+            "max_position_error_m": 0.00854274065720703
+          },
+          {
+            "object": "D",
+            "first_position_error_over2mm_tick": 13800,
+            "max_position_error_m": 0.009726496920658046
+          },
+          {
+            "object": "E",
+            "first_position_error_over2mm_tick": 17720,
+            "max_position_error_m": 0.005327213323815268
+          }
+        ]
+      },
+      {
+        "episode": 50,
+        "source_reference_sha256": "99e523bee7bec0810c633f63347a58df9b69f89b689f69be789280c963c80a08",
+        "matched_samples": 5110,
+        "first_replay_contact_tick": 963,
+        "precontact": {
+          "samples": 209,
+          "object_position_RMS_m": 0.0,
+          "object_max_position_error_m": 0.0,
+          "object_max_angle_error_rad": 4.2146848510894035e-08
+        },
+        "source_extra5_targets": {
+          "joint_names": [
+            "hand2_joint_link_2_2",
+            "hand2_joint_link_3_2",
+            "hand2_joint_link_4_2",
+            "hand2_joint_link_5_2",
+            "hand2_joint_link_1_3"
+          ],
+          "range_rad": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "value_first": [
+            1.559999942779541,
+            1.559999942779541,
+            1.559999942779541,
+            1.559999942779541,
+            0.029999999329447746
+          ],
+          "eval_authored_default": [
+            1.56,
+            1.56,
+            1.56,
+            1.56,
+            0.03
+          ],
+          "max_difference_from_authored_default_rad": 5.7220459037665705e-08
+        },
+        "samples_near_contact": [
+          {
+            "tick": 128,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              2.9802322387695312e-08,
+              2.9802322387695312e-08,
+              2.9802322387695312e-08,
+              0.0
+            ],
+            "hand_RMS_rad": 7.348645415126226e-06
+          },
+          {
+            "tick": 500,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "hand_RMS_rad": 4.919038599905854e-06
+          },
+          {
+            "tick": 900,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "hand_RMS_rad": 8.357322598889213e-05
+          },
+          {
+            "tick": 960,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "hand_RMS_rad": 8.472573650712052e-05
+          },
+          {
+            "tick": 968,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "object_orientation_errors_rad": [
+              4.2146848510894035e-08,
+              4.2146848510894035e-08,
+              4.2146848510894035e-08,
+              4.2146848510894035e-08,
+              4.2146848510894035e-08
+            ],
+            "hand_RMS_rad": 7.218352989287864e-05
+          },
+          {
+            "tick": 1064,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0005335272217157453
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.01223397005595831
+            ],
+            "hand_RMS_rad": 0.000809301145710917
+          },
+          {
+            "tick": 1464,
+            "object_position_errors_m": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0011016804389474932
+            ],
+            "object_orientation_errors_rad": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.03795530807007958
+            ],
+            "hand_RMS_rad": 0.004951065524007925
+          }
+        ],
+        "per_object": [
+          {
+            "object": "A",
+            "first_position_error_over2mm_tick": 17324,
+            "max_position_error_m": 0.007675639090612323
+          },
+          {
+            "object": "B",
+            "first_position_error_over2mm_tick": 13492,
+            "max_position_error_m": 0.016969656842112952
+          },
+          {
+            "object": "C",
+            "first_position_error_over2mm_tick": 8996,
+            "max_position_error_m": 0.013592465052527926
+          },
+          {
+            "object": "D",
+            "first_position_error_over2mm_tick": 5200,
+            "max_position_error_m": 0.004267568768355334
+          },
+          {
+            "object": "E",
+            "first_position_error_over2mm_tick": 1132,
+            "max_position_error_m": 0.008022448309165847
+          }
+        ]
+      }
+    ]
+  },
+  "historical_archive_recovery_progress": {
+    "started_epoch": 1793753617.7228818,
+    "status": "running",
+    "CPU_only": true,
+    "GPU_used": false,
+    "new_formal_trials": 0,
+    "target_unknown": 3358,
+    "qualified_recovered": 93,
+    "still_unknown_after_recovery": 0,
+    "archive_bundles_verified": 2,
+    "archive_bundles_target": 16,
+    "physical_bytes_checked": 6783148038,
+    "source_manifest_sha256": "e4a0387efd6588a1f7815997ba0e9457e792d7211803202aaea465acf2bdf401",
+    "oracle_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+    "inflight_results_are_qualified": false,
+    "current_bundle": "15b09f7e414f418f9cdc2e6308cece8c",
+    "inflight_cases_unqualified": 200,
+    "observed_epoch": 1793753933.155554,
+    "wall_s": 315.43267273902893,
+    "archive_member_matches": 3358,
+    "archive_bytes_to_scan": 43407143262,
+    "selected_expanded_bytes": 102567068798,
+    "streamed_without_extracting_raw_logs": true,
+    "unknown_reclassification_rule": "only after member SHA, full archive SHA, embedded manifest and contiguous tick/terminal coverage checks",
+    "initial_rescore_summary_is_not_replaced_before_full_batch_closes": true,
+    "script_sha256": "a6ab6b53f5f9389c310d4e71b26d9ded78c646b81724c1bbb520ecc18fd9312b"
+  },
+  "negative_temporal_review": {
+    "updated_at": "2026-11-04T00:58:58.623288+00:00",
+    "cases_each": 10,
+    "classes": [
+      "held",
+      "toppled",
+      "out_of_region"
+    ],
+    "source_video_hashes_checked": true,
+    "reviewed_event_frame_samples": 120,
+    "views": [
+      "third_person",
+      "chest"
+    ],
+    "times": [
+      "event video_frame minus7frames",
+      "event video_frame"
+    ],
+    "visual_review_scope": "two temporal frames from each of two views per case; source clips retained",
+    "held_observation": "hands remain around the target cup; no observed visual contradiction to held labels",
+    "topple_observation": "visible leaning/tipping in selected frames; cups may be occluded or terminal video may precede exact60degree crossing",
+    "out_of_region_observation": "cup placement offset is visible in multiple cases;25mm threshold is checked from raw XY, not inferred from pixels",
+    "oracle_negative_video_admission_complete": false,
+    "entire_episode_frame_by_frame_review": false,
+    "scored": false,
+    "receipt_sha256": "019ca1688156c654d6135fb1c41577d95228c7c88c73762dfb73f6db8318052c"
   }
 }

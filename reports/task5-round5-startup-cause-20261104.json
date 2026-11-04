@@ -1,7 +1,7 @@
 {
   "scope": "启动链诊断；不属于模型评测成绩",
-  "snapshot_at": "2026-11-04T10:07:09.935821+00:00",
-  "watch_source_epoch": 1793786829.935821,
+  "snapshot_at": "2026-11-04T10:32:50.377173+00:00",
+  "watch_source_epoch": 1793788370.3771727,
   "first_portable_failure": {
     "job_id": "job-0ujjn1fq67mu",
     "seconds_from_entry_birth_to_failure": 0.0753319263458252,
@@ -66,15 +66,39 @@
     }
   },
   "replacement": {
-    "job_id": "job-u8rxnsr9ic02",
-    "platform_status": "STOPPED",
-    "state_text": "已停止并确认释放",
-    "detail": "固定输入自检读取NPZ时缺rgb键；未到首个scene-ready，新增轨迹和GT验收数均为0",
-    "hard_failure_marker": true,
-    "running_gpus": 0,
-    "reserved_gpus": 0,
-    "first_scene_ready": false,
+    "job_id": "job-ls7xx6m3uc0y",
+    "platform_status": "RUNNING",
+    "state_text": "RUNNING",
+    "detail": "真实模型完成日志自检通过（动作最大差0、状态一致）；已scene-ready，N1密度图像准入中，尚无新验收轨迹",
+    "hard_failure_marker": false,
+    "running_gpus": 4,
+    "reserved_gpus": 4,
+    "first_scene_ready": true,
     "new_oracle_diagnostic_completed": 0,
+    "all_replicas_terminal": null
+  },
+  "real_NN_logging_parity": {
+    "passed": true,
+    "frames": 4,
+    "maximum_action_delta": 0.0,
+    "status_exact": true,
+    "fresh_private_lane": "round4b_parity",
+    "version": "pre_refresh_completion_trace_v4b",
+    "scored": false
+  },
+  "prior_parity_fixture_failure": {
+    "job_id": "job-u8rxnsr9ic02",
+    "cause": "startup probe selected a metadata-only NPZ; RGB exists in its paired video",
+    "repair": {
+      "passed": true,
+      "cause": "startup parity probe selected metadata-only NPZ; raw RGB is in paired video",
+      "fix": "private four-frame input fixture, exact cached training RGB and measuredq13, video difference0",
+      "fixture_sha256": "d87964549d36a9d3f7055980429329696d055bee230a1f8d264d4a38669351d1",
+      "source_originals_unchanged": true,
+      "formal_model_observation_pipeline_unchanged": true,
+      "scientific_driver_rollout_ledger_identical": true,
+      "new_GPU_submitted": false
+    },
     "all_replicas_terminal": true
   },
   "evidence": {
@@ -94,10 +118,14 @@
       "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/BOOT_GUARD_FIX_PROOF.json",
       "sha256": "bbb6bd7a35dc9aa919ea7bab00a8953e71a18b7b42fd4a8771abf4a26edfb52a"
     },
-    "portable_job_v2/WATCH_LATEST.json": {
-      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v2/WATCH_LATEST.json",
-      "sha256": "3ac3ff7617aed09225776a60379aebd9da8c883c3a81ad962344b7f93a922502"
+    "portable_job_v3/WATCH_LATEST.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v3/WATCH_LATEST.json",
+      "sha256": "da1be09fd777c20d029af7fbaedcf917f5faf0a28e7fcedc2e6b415d6f98576c"
+    },
+    "portable_job_v3/INITIAL_MODEL_PROGRESS.json": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v3/INITIAL_MODEL_PROGRESS.json",
+      "sha256": "34f12ffd6c37185cc29a983ad84461514e1c743da61524bfe25805a55f774feb"
     }
   },
-  "claim_boundary": "CPU/observation evidence and local platform receipts only; synthetic CPU initialize health is not real NN parity; no new case is scored here."
+  "claim_boundary": "Actual four-frame NN parity passed; density admission is in progress. No scientific case is scored by startup checks."
 }

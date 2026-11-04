@@ -62906,12 +62906,12 @@
   },
   "long_task_collection": {
     "owner": "T536 · 5a/5b/7/10 数据采集与验收",
-    "updated_at": "2026-11-04T11:28:43.181790+00:00",
+    "updated_at": "2026-11-04T12:45:34.217592+00:00",
     "protocol_version": "SafeLab-Eval-v1.1",
     "target": 400,
     "historical_candidates": 347,
     "accepted": 0,
-    "status": "首个四卡低优镜像自检通过；GPU清单校验触发硬停止，平台已确认FAILED并释放。正修复设备识别后重跑。",
+    "status": "第三轮四卡真实CUDA与渲染PCI门全部通过、4场景冷启动完成；随后cuRobo批大小契约报错，全部自有进程已回收且平台FAILED。修复环境参数并准备完整质量探针。",
     "scope_note": "±3cm 新泛化数据已交接给独立负责会话；本面板只报告现行 5a/5b/7/10。",
     "counts_note": "历史候选是旧机器验收的累计记录；尚未逐条通过当前全部质量门槛。正式验收 0 不代表新放置判定下已确认全部失败。",
     "rows": [
@@ -62929,7 +62929,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "V2.2已修复源码绑定；首个四卡镜像通过401源码及929依赖校验，随后GPU清单门禁拒绝，四个自有进程已回收；正式动作仍未完成。"
+        "state": "V4四张卡的同child CUDA/Torch/scalar及Kit真实PCI全部通过，4场景均到120tick。cuRobo SINGLE_ONLY=1但未显式BATCH_SIZE=1，动作前硬失败；源已定位默认batch10，后继补双1保留原guard。"
       },
       {
         "task": "7 · 四杯称量",
@@ -62937,7 +62937,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "100条真实事件均为8动作。已固定第7事件截点，仍须重验末态、视频及标签。"
+        "state": "100条真实事件为8动作；第7事件裁点已固定。旧源精简模式仅落30Hz，正在核对两条真实manifest确认120Hz证据；缺日志不能靠裁切补齐。"
       },
       {
         "task": "10 · 五杯称量",
@@ -62966,12 +62966,19 @@
       "fast_storage_R7_pending_migration_bytes": 4854579858,
       "fast_storage_total_pending_bytes": null,
       "note": "只统计已核对的本任务目录；旧快盘全树统计超时，全agent两处合计占用尚未核清。不声称已满足2TB全局上限。原文件未删除。",
-      "remote_new_task_scope_measurement_epoch": 1793788784,
-      "remote_new_task_small_bytes": 13554912,
-      "remote_new_task_bucket_bytes": 2330199633,
-      "local_task_small_bytes": 108072923,
-      "local_task_bucket_bytes": 9920484,
-      "local_task_measurement_note": "2026-11-04T11:25Z task subtree only; root workstation and Pro GPFS are distinct scopes; later small increments not included"
+      "remote_new_task_scope_measurement_epoch": 1793792939.1244345,
+      "remote_new_task_small_bytes": 16422635,
+      "remote_new_task_bucket_bytes": 2343700369,
+      "local_task_small_bytes": 112376686,
+      "local_task_bucket_bytes": 10044921,
+      "local_task_measurement_note": "2026-11-04T12:25Z Root task regular files only; complete bounded walk, later small increments excluded; distinct from Pro GPFS",
+      "exact_5a_asset_read": {
+        "table_bytes": 688,
+        "table_SHA_matches_original": true,
+        "oven_bytes": 41673795,
+        "oven_SHA_matches_original": true,
+        "copied_or_deleted": false
+      }
     },
     "report_url": "reports/t536-5710-collection-20261104.html",
     "evidence_summary": {
@@ -63077,6 +63084,88 @@
           2.033333
         ],
         "all100_or_native120_acceptance": false
+      },
+      "cloud_second4": {
+        "job_id": "job-c98e840twsd4",
+        "state": "FAILED",
+        "ended_at_ms": 1793793376845,
+        "execution_class": "low_priority",
+        "GPUs": 4,
+        "initial_processes_each_GPU": 1,
+        "actual_RPBZZZ6_PCI_memory_validation_passed": true,
+        "materialized_sources": 402,
+        "readonly_dependency_checks": 929,
+        "scene_ready": 0,
+        "actions_completed": 0,
+        "all_own_children_reaped": true,
+        "short_initialization_GPU_usage_pct": 0,
+        "full10min_window": false,
+        "formal_credit": 0,
+        "error": "No CUDA GPUs are available",
+        "durable_error_archives_GET_SHA_verified": 3,
+        "fourth_debug_raw_durable": false
+      },
+      "actual_selector_domain_RO41_RO42": {
+        "same_driver_library_and_environment": true,
+        "NVML_UUID_cuInit": 100,
+        "NVML_UUID_driver_count": 0,
+        "CUDA_UUID_driver_count": 1,
+        "CUDA_UUID_Torch_device_count": 0,
+        "CUDA_UUID_Torch_error": "Invalid device id",
+        "PCI_joined_numeric_CUDA_ordinal_driver_count": 1,
+        "PCI_joined_numeric_CUDA_ordinal_Torch_device_count": 1,
+        "PCI_joined_numeric_CUDA_ordinal_scalar_sync": true,
+        "Native_steps": 0,
+        "new_cards": 0
+      },
+      "T7_exact_native_camera_recheck": {
+        "head_orientation_error_deg": 8.13202647,
+        "head_mount_current_V23_pass": false,
+        "chest_mount_pass": true,
+        "head_chest_K_pass": true,
+        "actual14_render_settings_match_eval": true,
+        "default_OFF_restore_CPU_tests": 7,
+        "restore_actual_Native_credit": 0,
+        "lighting_material_whole_video_quality": "UNKNOWN"
+      },
+      "cloud_third4": {
+        "job_id": "job-vbw834h1h680",
+        "intent_key": "T536-5B-V2P2-CLOUD4-DEBUG32-20261104-03",
+        "state": "FAILED",
+        "GPUs": 4,
+        "execution_class": "low_priority",
+        "initial_processes_each_GPU": 1,
+        "four_fresh_driver_Torch_scalar_selector_proofs": true,
+        "actual_CUDA_ordinals": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "actual_target_PCI": [
+          "0000:a1:00.0",
+          "0000:a2:00.0",
+          "0000:a3:00.0",
+          "0000:a4:00.0"
+        ],
+        "scene_ready": 4,
+        "same_child_Kit_GPU_proof": "PENDING",
+        "full10min_window": false,
+        "formal_credit": 0,
+        "bootstrap_PUT_complete_GET_SHA": true,
+        "CPU_sources": 405,
+        "readonly_dependencies": 929,
+        "ended_at_ms": 1793796125232,
+        "same_child_CUDA_Torch_scalar_pass": 4,
+        "same_child_Kit_GPU_proof_pass": 4,
+        "scene_ready_actual_native_tick": 120,
+        "actions_completed": 0,
+        "all_own_children_reaped": true,
+        "durable_archives_GET_SHA_verified": 3,
+        "fourth_error_case_raw_durable": false,
+        "failure": "ValueError: CHEMBENCH_CUROBO_SINGLE_ONLY=1 requires batch_size=1",
+        "exact_source_cause": "planner default batch_size10; cloud environment omitted CHEMBENCH_CUROBO_BATCH_SIZE=1",
+        "next": "explicit double1 env and CPU original guard replay; one complete quality probe"
       }
     },
     "resources": {
@@ -63084,21 +63173,22 @@
       "first_job_GPUs": 4,
       "new_running_jobs": 0,
       "new_running_GPUs": 0,
-      "new_jobs_submitted": 1,
+      "new_jobs_submitted": 3,
       "debug_workpackage_cases": 32,
       "debug_workpackage_task": "5b t5_obstruction; unique attempt identities; no formal dataset credit",
       "processes_per_GPU": 0,
       "sustained_10min_utilization_pct": null,
       "sustained_10min_VRAM_pct": null,
       "scale_up_qualified": false,
-      "admission": "first low_priority4 job accepted and reached terminalFAILED; no active new cards",
-      "blocker": "GPU inventory contract: existing Pro dev devices use NVIDIA RPBZZZ6 + PCI0x2BB910DE; new job must log actual inventory and bind CUDA by actual UUID before Native",
+      "admission": "key03创建约63秒完成；4卡新JOB已FAILED且全部ownchild回收，未扩第二组",
+      "blocker": "云准备器遗漏cuRobo BATCH_SIZE=1；将最小参数修复与OwnerV3/原生head恢复/curve33完整单条质量探针结合，不重复旧未合格动作",
       "startup_rules": "hard software failure cancel immediately; first scene<=1200s; no real progress300s; async transport retry; empty queue exits",
       "JOB_storage": "local raw/cache then HTTPS PUT and complete GET SHA; project small files only; no bucket mount assumed",
-      "last_job_id": "job-f9c2bdajokbj",
+      "last_job_id": "job-vbw834h1h680",
       "last_job_state": "FAILED",
       "last_job_terminal_verified": true,
-      "last_initial_N1_per_GPU": 1
+      "last_initial_N1_per_GPU": 1,
+      "new_pending_operations": 0
     }
   }
 }

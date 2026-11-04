@@ -1,0 +1,85 @@
+{
+  "schema": "task7_root_weak_fixed10_soft_input_review.v1",
+  "epoch": 1793801978.7416046,
+  "passed": true,
+  "reviewer": "/root",
+  "canonical_30109_root": "/home/dataset-assist-0/wangpeishuo/safelab_mem/weak_v1/psibot_7_weigh_4beakers_v180/lerobot_v21",
+  "actual_original_files_SHA_verified": 14,
+  "actual_fixed_episode_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    50,
+    51,
+    52,
+    53,
+    54
+  ],
+  "actual_rows_compared": 22817,
+  "actual_queries": 210,
+  "field_match": 255,
+  "field_mismatch": 0,
+  "field_unknown": 0,
+  "source_reference": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/weak_converted_30109_discovery_v3/OWN_OBJECTS.json",
+    "sha256": "e2086a810cf6108be141186fa3e5668eb68f78c12bd977dedf7cb2290c21c6d1"
+  },
+  "original_validation": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/weak_converted_30109_discovery_v3/original_objects_v2/DATASET_VALIDATION.json",
+    "sha256": "5bf92ceca20eb44eae4389db761645d1587a63837cc44a6d9f74f7e7f14cda3c"
+  },
+  "actual_comparison": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/weak_own_parquet_parity_cpu_v1/ACTUAL_OWN_PARQUET_COMPARISON_V1.json",
+    "sha256": "a34474c2fea378f50811592e04c4129d844b66e695843215e10c723543cf687b"
+  },
+  "CPU_reader_source": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/weak_own_parquet_parity_cpu_v1/compare_own_parquet.py",
+    "sha256": "a7fbc2f4f5e6837353b4f29a9ede69899739636e2f68c1560fc66c3a20261175"
+  },
+  "frozen_training_norm": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/MEM0_WEAK_TRAINING_INPUT_AUDIT_20261103/delivery/norm_stats_all100.json",
+    "sha256": "c3ae905d707d191cee45a6aa4889406061062d4120255a9814df9a369256e2e3"
+  },
+  "canonical_dataset_norm": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/weak_converted_30109_discovery_v3/original_objects_v2/norm_stats_all100.json",
+    "sha256": "76af22150d7322c8f65cd61f1783ce00c1303e43ffa815c691decbcfaa0ba829"
+  },
+  "norm_raw_SHA_equal": false,
+  "norm_normalization_values_bitwise_equal": true,
+  "only_norm_metadata_differences": [
+    "dataset_fingerprint",
+    "dataset_root"
+  ],
+  "models": [
+    {
+      "variant": "mem0_weak_30k",
+      "RMSE_rad": 0.02008468426682987,
+      "ratio_to_Mem0": 1.0120330529368968,
+      "relative_RMSE_rule_passed": true,
+      "own_fixed10_parquet_input_gap_closed": true,
+      "soft_rule_review": "passed_declared_fixed10_continuous_teacherforced_protocol",
+      "original_result_flags_rewritten": false
+    },
+    {
+      "variant": "ours_weak_aligned_30k",
+      "RMSE_rad": 0.019035571954321037,
+      "ratio_to_Mem0": 0.9591700692625418,
+      "relative_RMSE_rule_passed": true,
+      "own_fixed10_parquet_input_gap_closed": true,
+      "soft_rule_review": "passed_declared_fixed10_continuous_teacherforced_protocol",
+      "original_result_flags_rewritten": false
+    }
+  ],
+  "accepted_rule": "Same fixed10 training episodes; actual own state/interval_end targets/masks/endflag/language agree with already executed original continuous-forward openloop input; candidate armRMSE <=1.5x Mem0. Canonical relocation metadata does not change normalization.",
+  "limits": [
+    "Historical scratch byte identity and exact trainer batch/shuffle are not established or required under this declared fixed diagnostic.",
+    "Current own-video pixels were not independently rehashed in this CPU task; original validation declares symlinks to the same base chest files, and existing rendering admission remains separate.",
+    "No new NN run or formal closedloop success is implied.",
+    "Original immutable soft_admission_verified=false fields and older pending records remain unchanged; this is a separate explicit new review.",
+    "20-case closedloop admission and full StageA are still pending; P8 failed evaluator audit and has0GPUs."
+  ],
+  "hard_admission_granted": false,
+  "formal_StageA_cases_added": 0
+}

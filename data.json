@@ -75589,12 +75589,12 @@
   },
   "long_task_collection": {
     "owner": "T536 · 5a/5b/7/10 数据采集与验收",
-    "updated_at": "2026-11-04T13:42:59.360737+00:00",
+    "updated_at": "2026-11-04T14:25:29.414783+00:00",
     "protocol_version": "SafeLab-Eval-v1.1",
     "target": 400,
     "historical_candidates": 347,
     "accepted": 0,
-    "status": "完整pre-App四case已通过；第五轮四卡真实场景均到120tick，恢复头相机时触发光心不变检查，平台FAILED且卡已释放。正修相机变换，5a/T7并行准备独立入口。",
+    "status": "头相机光心零位移、三路实景标定已通过；现有Pro GPU1已启动完整五步曲线试运行。5a/T7真实解释器完整pre-App已通过，正式验收仍0/400。",
     "scope_note": "±3cm 新泛化数据已交接给独立负责会话；本面板只报告现行 5a/5b/7/10。",
     "counts_note": "历史候选是旧机器验收的累计记录；尚未逐条通过当前全部质量门槛。正式验收 0 不代表新放置判定下已确认全部失败。",
     "rows": [
@@ -75604,7 +75604,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "历史100条均超180秒。真冷启动C3 ON业务包与178项源归档已核SHA；JOB双根路由、真实GPU身份和原生材质解析待准入，未计采集通过。"
+        "state": "100历史条时长超标。真冷启动+C3 ON已在原采集解释器完成真实pre-App，含源/材质配置/原数值后端/输出IO；正在完成GPU1原生准入。未计数据通过。"
       },
       {
         "task": "5b · 六垫避障",
@@ -75612,7 +75612,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "第五轮4case均通过完整pre-App、同child CUDA/Torch及KitPCI、真实scene120；恢复head触发光心不变检查，任务FAILED。正诊断原生local/world变换，不放宽相机要求。"
+        "state": "head局部朝向API实景通过：光心XYZ差0、旋转误差2.04e-08、三相机标定true。14:21:48UTC启动完整五步p1pregrasp曲线ON；构图边界、全段轨迹及v1.1仍须验收。"
       },
       {
         "task": "7 · 四杯称量",
@@ -75620,7 +75620,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "旧100条是8动作且旧recorder只落30Hz，两条120Hz路径未找到；不可靠改元数据验收。已读取真实四杯99源，准备原CPU物理的7动作新入口，末杯留天平。"
+        "state": "真实四杯七动作新入口已完成1031源/SDK/原银行SHA及原解释器完整pre-App；末杯留天平、原CPU物理保留。已显式绑定新head，准备Native完整7步。"
       },
       {
         "task": "10 · 五杯称量",
@@ -75628,7 +75628,7 @@
         "target": 100,
         "historical_candidates": 47,
         "accepted": 0,
-        "state": "已恢复47条原始来源与哈希（正序46、反序1）；时长334–364秒，全部超180秒。"
+        "state": "历史47条全部334–364秒。已恢复真实来源，现回到五杯完整十动作入口和慢段/等待优化；尚无现行标准合格条。"
       }
     ],
     "placement_rule": "进入原目标区域、直立、已释放且由目标表面支撑，连续≥0.25秒；不再要求低速度或低角速度。阶段必须顺序推进，初始位于目标上不计完成。",
@@ -75884,6 +75884,45 @@
         "failure": "head_parent_or_optical_origin_changed",
         "sanitized_native_error_saved": true,
         "full10min_window": false
+      },
+      "native_headlocal_actual_probe": {
+        "case": "native-local-orientation-0003",
+        "status": "camera_setup_checked",
+        "exit": 0,
+        "actual_same_child_CUDA_Torch_pass": true,
+        "actual_same_child_Kit_PCI_pass": true,
+        "scene_ready_tick": 120,
+        "head_optical_origin_max_delta_m": 0.0,
+        "head_world_rotation_max_abs_error": 2.0399478444987663e-08,
+        "three_camera_calibration_passed": true,
+        "physical_and_lens_unchanged": true,
+        "original_1e7_guard_relaxed": false,
+        "all_own_children_reaped": true,
+        "formal_credit": 0,
+        "whole_episode_visual_acceptance": false,
+        "remaining_visual_issues": [
+          "chest flask touches right border",
+          "head/chest cannot see two left temporary pads; third camera sees six mats"
+        ],
+        "own_reference_png_SHA256": [
+          "640e61213694165b1f66463f685e601e2b8df87cb84c2ec98796a07c28e8418b",
+          "cbc56d56aab1980b9f5d3a29147280eb90cf6183fd51ef6ecc5c03d62958d429",
+          "61fcc7dea7ccec4edfef21f635666fb86ec86003ade3333a8e8389af3e688e12"
+        ]
+      },
+      "fiveA_actual_full_preApp": {
+        "interpreter": "original NPY/privateLD",
+        "passed": true,
+        "App_Native_GPU": false,
+        "formal_credit": 0
+      },
+      "T7_actual_full_preApp": {
+        "files_SHA_verified": 1031,
+        "original_interpreter_exit": 0,
+        "CPU_physics_preserved": true,
+        "phases": 7,
+        "App_Native_GPU": false,
+        "formal_credit": 0
       }
     },
     "resources": {
@@ -75898,15 +75937,24 @@
       "sustained_10min_utilization_pct": null,
       "sustained_10min_VRAM_pct": null,
       "scale_up_qualified": false,
-      "admission": "第五创建35秒完成；4GPU均有真实Native场景证据，13:37:39UTC平台FAILED；无活跃新任务，未扩第二组",
-      "blocker": "原生head恢复触发head_parent_or_optical_origin_changed；保持光心/安装位姿要求，核对变换与精度。5a与T7独立CPU入口并行准备。",
+      "admission": "五次低优四卡创建均已终态FAILED且回收；未扩第二组。现用已连通Pro GPU1验证完整五步。",
+      "blocker": "完整五步轨迹/接触/时长/执行链及画面边缘仍待实测；5a/T7主机入口并行准备。",
       "startup_rules": "hard software failure cancel immediately; first scene<=1200s; no real progress300s; async transport retry; empty queue exits",
       "JOB_storage": "local raw/cache then HTTPS PUT and complete GET SHA; project small files only; no bucket mount assumed",
       "last_job_id": "job-gszu3ao152p9",
       "last_job_state": "FAILED",
       "last_job_terminal_verified": true,
       "last_initial_N1_per_GPU": 1,
-      "new_pending_operations": 0
+      "new_pending_operations": 0,
+      "existing_host_running_processes": 1,
+      "existing_host_GPUs_used": 1,
+      "existing_host_processes_per_GPU": {
+        "Pro30018_GPU1": 1
+      },
+      "existing_host_sustained_10min_utilization_pct": null,
+      "current_existing_host_case": "full5-headlocal-p1pregrasp-0001",
+      "current_existing_host_guardian_pid": 353766,
+      "current_existing_host_launch_epoch": 1793802108.2607696
     }
   }
 }

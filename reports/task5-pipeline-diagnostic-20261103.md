@@ -47,7 +47,7 @@ task5-all、task5-grasp-attach、task5-ours-aligned-weak（#17）三个旧矩阵
 
 以下历史对照图使用修正前评测RGB，仅作根因证据：
 
-![训练与旧评测图像对照](task5-train-eval-first-frame.png)
+![训练与旧评测图像对照](https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/5/task5-train-eval-first-frame.png)
 
 ## 连续图像开环复查
 

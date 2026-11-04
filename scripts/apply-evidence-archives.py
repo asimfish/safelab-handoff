@@ -10,7 +10,6 @@ for name in files:
  # Frozen report JSON bytes and media assets stay untouched. Only living page/data links change.
  if p.suffix=='.json' and name!='data.json':continue
  s=p.read_text();before=s
- for old,item in mapping.items():s=s.replace(old,item['url'])
  if p.suffix=='.html':
   def resolve(m):
    attribute,quote,url=m.group(1),m.group(2),m.group(3);u=urllib.parse.urlsplit(url)
@@ -18,6 +17,9 @@ for name in files:
    path=posixpath.normpath(posixpath.join(posixpath.dirname(name),u.path));item=mapping.get(path)
    return attribute+'='+quote+item['url']+('#'+u.fragment if u.fragment else '')+quote if item else m.group(0)
   s=re.sub(r'(href|src)=([\"\'])([^\"\']+)\2',resolve,s)
+ for old,item in mapping.items():
+  s=s.replace('https://asimfish.github.io/safelab-handoff/'+old,item['url'])
+  s=s.replace(old,item['url'])
  if s!=before:p.write_text(s)
 index={'schema_version':'safelab-evidence-archive-v1','policy':'Evidence over200000 bytes lives in TOS; data.json and same-origin frame logs exempt. No CORS dependency for ordinary download links.','objects':[{**i,'public_get_verified':True} for i in plan['objects']]};(root/'reports/archive-index.json').write_text(json.dumps(index,ensure_ascii=False,indent=2)+'\n')
 for path in mapping:subprocess.run(['git','rm','--',path],check=True)

@@ -807,7 +807,7 @@
       "runtime": "",
       "norm": null,
       "training": {},
-      "note": "运行包及30k独立权重完整SHA核验通过；已启动本包Gen与归一化绑定的GPU执行器4/8步检查队列（latest_ours_family_gpu_checks_v2）。正式5seed物理闭环未启动。",
+      "note": "T-1035 R9：交付权重和各自norm严格加载；修正observe调用及global_task运行时上下文后，30k执行器4/8步GPU接口均通过（有限30×13）。输入为冻结N1 V13诊断图像，不代表latest渲染准入或完整Planner/DAG物理闭环；正式成功率尚未产生。",
       "evidence_level": "训练同学报告 / 待交付原件",
       "source": "用户2026-10-31交接消息",
       "task": "3",
@@ -850,7 +850,7 @@
       "runtime": "",
       "norm": null,
       "training": {},
-      "note": "20k/30k全部427个资产（约10.8GB）已下载并核验，429暂存阻塞已解除。已启动独立weak Gen/norm绑定的GPU执行器4/8步检查队列（latest_ours_family_gpu_checks_v2）；正式物理闭环尚未启动。",
+      "note": "T-1035 R9：交付权重和各自norm严格加载；修正observe调用及global_task运行时上下文后，20k/30k执行器4/8步GPU接口均通过（有限30×13）。输入为冻结N1 V13诊断图像，不代表latest渲染准入或完整Planner/DAG物理闭环；正式成功率尚未产生。",
       "evidence_level": "训练同学报告 / 待交付原件",
       "source": "用户2026-10-31交接消息",
       "task": "3",
@@ -11380,11 +11380,11 @@
       "stage": "diagnostic",
       "condition_version": "diagnostic-D2a-v1",
       "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
-      "success": null,
+      "success": 0,
       "trials": 100,
       "unknown": 0,
-      "completed": 36,
-      "status": "正在评测",
+      "completed": 100,
+      "status": "诊断完成；不进入正式表",
       "kind": "诊断",
       "topology": {
         "num_envs_actual": 1,
@@ -11397,11 +11397,38 @@
         "antialias": null,
         "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
       },
-      "seed_results": [],
-      "lr_split": null,
-      "phase_hist": null,
-      "mean_phase": null,
-      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "phase_hist": {
+        "0": 100
+      },
+      "mean_phase": 0.0,
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": false,
@@ -11426,12 +11453,14 @@
       },
       "protocol": "预注册诊断D2a；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"intervention\": \"executor action branch RGB zeros; raw completion branch and learned Planner images untouched; separate private action MemoryBank to prevent classifier contamination\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "updated_at": "2026-11-03T21:45:24.053602+00:00",
       "variant": "D2a",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
-      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json"
+      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json",
+      "evaluation_started": true,
+      "source_plan_id": "3df10f46559e5bec3b32a9463fbf79a1cdd0a57a29e7593f4b1e50f045591e23"
     },
     {
       "id": "t1035-r3-diag-d2b",
@@ -11510,11 +11539,11 @@
       "stage": "diagnostic",
       "condition_version": "diagnostic-D3-v1",
       "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
-      "success": null,
+      "success": 13,
       "trials": 100,
       "unknown": 0,
-      "completed": 50,
-      "status": "正在评测",
+      "completed": 100,
+      "status": "诊断完成；不进入正式表",
       "kind": "诊断",
       "topology": {
         "num_envs_actual": 1,
@@ -11527,11 +11556,41 @@
         "antialias": null,
         "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
       },
-      "seed_results": [],
-      "lr_split": null,
-      "phase_hist": null,
-      "mean_phase": null,
-      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 13,
+          "unknown": 0,
+          "failure": 87
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 13,
+          "unknown": 0,
+          "failure": 37
+        }
+      },
+      "phase_hist": {
+        "0": 11,
+        "1": 52,
+        "3": 13,
+        "2": 24
+      },
+      "mean_phase": 1.39,
+      "wilson95": {
+        "low": 0.07757167427240512,
+        "high": 0.20980351440076428,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": false,
@@ -11556,12 +11615,14 @@
       },
       "protocol": "预注册诊断D3；100条左右各50；复用seed0 model seeds；{\"trials\": 100, \"left\": 50, \"right\": 50, \"intervention\": \"executor state before normalization, independent Gaussian sigma0.01rad on13 measured joints per15Hz observation; same frame refresh reuses same noise; independent diagnostic RNG never consumes model/scene RNG\"}；原物理阈值不改，unknown留在分母，不进入正式表。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "updated_at": "2026-11-03T21:45:24.053602+00:00",
       "variant": "D3",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
-      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json"
+      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json",
+      "evaluation_started": true,
+      "source_plan_id": "b4710d18493ac97a3a3d5fad1c76edea196f0b5dbe2a5db546dc78373ff80196"
     },
     {
       "id": "t1035-r3-diag-d0",
@@ -11575,11 +11636,11 @@
       "stage": "diagnostic",
       "condition_version": "diagnostic-D0-v1",
       "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
-      "success": null,
+      "success": 24,
       "trials": 100,
       "unknown": 0,
-      "completed": 66,
-      "status": "正在评测",
+      "completed": 100,
+      "status": "诊断完成；不进入正式表",
       "kind": "诊断",
       "topology": {
         "num_envs_actual": 1,
@@ -11592,11 +11653,40 @@
         "antialias": null,
         "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
       },
-      "seed_results": [],
-      "lr_split": null,
-      "phase_hist": null,
-      "mean_phase": null,
-      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 24,
+          "unknown": 0,
+          "failure": 76
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 24,
+          "unknown": 0,
+          "failure": 26
+        }
+      },
+      "phase_hist": {
+        "1": 59,
+        "3": 24,
+        "2": 17
+      },
+      "mean_phase": 1.65,
+      "wilson95": {
+        "low": 0.16691325556948772,
+        "high": 0.33232336349814473,
+        "confidence": 0.95
+      },
       "admission": {
         "expert_replay": {
           "passed": false,
@@ -11621,12 +11711,14 @@
       },
       "protocol": "预注册补充1：无黑图/无state噪声，原1cm场景，其他同D1-D3的R4运行时；控制初始液体修复的潜在混杂。额外100条，16卡上限不变。旧24/100只作历史背景，配对效应用本D0。",
       "source": "T-1035独立目录 eval_v1 第3轮冻结计划及逐条账本",
-      "report_url": "reports/task3-round3-20261103.html",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "updated_at": "2026-11-03T21:45:24.053602+00:00",
       "variant": "D0 matched runtime control",
       "metric_role": "diagnostic",
       "matched_reference": "t1035-r3-diag-d0",
-      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json"
+      "preregister_amendment": "reports/task3-round3-20261103/preregister-amendment1.json",
+      "evaluation_started": true,
+      "source_plan_id": "5054c389869b22d17da92d8a79aca61e583b4acb2eb93a9be7059acc8c7cfea0"
     },
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -20703,8 +20795,8 @@
     {
       "id": "t1035-r4-Mem0-V13-30k-trainresize-c30000-h4",
       "record": "3-v13-mem0",
-      "checkpoint_issue": null,
-      "checkpoint_issue_url": null,
+      "checkpoint_issue": 38,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/38",
       "dataset": "3-v13",
       "method": "Mem-0",
       "checkpoint": 30000,
@@ -20717,20 +20809,20 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
-      "status": "已登记：等待20条冒烟及专家执行链准入修复",
+      "completed": 100,
+      "status": "阶段A已完成100/100；严格与放置诊断已公开，正式成绩等待执行链准入",
       "kind": "原始条件阶段A",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 3,
         "gpu_type": "Pro6000"
       },
-      "topology_status": "planned; not running",
+      "topology_status": "N1×3实际执行；job-8n1kn9qrbxba已SUCCEEDED",
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "每个交付包自身训练实现；逐位一致性检查待该组合完成"
+        "source": "已验证训练侧张量双线性+antialias；本阶段A使用冻结trainresize适配器"
       },
       "seed_results": [],
       "lr_split": null,
@@ -20760,19 +20852,19 @@
         }
       },
       "source": "T-1035 round4 checkpoint issues#1-26核对及已读冻结交付说明",
-      "report_url": "reports/task3-round4-20261103.html",
+      "report_url": "reports/task3-v11-round7-20261103.html",
       "protocol": "固定seed0同100个XY±1cm场景；左右50/50；N1×3计划；每配置先20条左右10/10冒烟。75s不变。缺准入不进正式表。",
-      "blocked_reason": "共享专家执行链原生3/10、端点插值0/10未过硬门槛；当前16卡用于在跑诊断/收尾。",
-      "estimated_start": "下一个4卡槽释放后开始可独立的准入检查；正式阶段A等待执行链修复，暂无可靠时间承诺",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "blocked_reason": "旧端点链专家验收待三路配对回放；不发布为正式主表成绩",
+      "estimated_start": "已完成阶段A；统一执行链准入待定",
+      "updated_at": "2026-11-03T22:31:41.317889+00:00",
       "checkpoint_binding_note": "已有3-v13-mem0记录的30k权重，实际SHA在历史冻结PLAN；#9是20k，不冒称30k对应#9。",
-      "evaluation_started": false
+      "evaluation_started": true
     },
     {
       "id": "t1035-r4-Mem0-V13-30k-trainresize-c30000-h8",
       "record": "3-v13-mem0",
-      "checkpoint_issue": null,
-      "checkpoint_issue_url": null,
+      "checkpoint_issue": 38,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/38",
       "dataset": "3-v13",
       "method": "Mem-0",
       "checkpoint": 30000,
@@ -20785,20 +20877,20 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
-      "status": "已登记：等待20条冒烟及专家执行链准入修复",
+      "completed": 100,
+      "status": "阶段A已完成100/100；严格与放置诊断已公开，正式成绩等待执行链准入",
       "kind": "原始条件阶段A",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 3,
         "gpu_type": "Pro6000"
       },
-      "topology_status": "planned; not running",
+      "topology_status": "N1×3实际执行；job-8n1kn9qrbxba已SUCCEEDED",
       "preprocess_resize": {
         "implementation": "training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "每个交付包自身训练实现；逐位一致性检查待该组合完成"
+        "source": "已验证训练侧张量双线性+antialias；本阶段A使用冻结trainresize适配器"
       },
       "seed_results": [],
       "lr_split": null,
@@ -20828,13 +20920,13 @@
         }
       },
       "source": "T-1035 round4 checkpoint issues#1-26核对及已读冻结交付说明",
-      "report_url": "reports/task3-round4-20261103.html",
+      "report_url": "reports/task3-v11-round7-20261103.html",
       "protocol": "固定seed0同100个XY±1cm场景；左右50/50；N1×3计划；每配置先20条左右10/10冒烟。75s不变。缺准入不进正式表。",
-      "blocked_reason": "共享专家执行链原生3/10、端点插值0/10未过硬门槛；当前16卡用于在跑诊断/收尾。",
-      "estimated_start": "下一个4卡槽释放后开始可独立的准入检查；正式阶段A等待执行链修复，暂无可靠时间承诺",
-      "updated_at": "2026-11-03T15:12:34.830436+00:00",
+      "blocked_reason": "旧端点链专家验收待三路配对回放；不发布为正式主表成绩",
+      "estimated_start": "已完成阶段A；统一执行链准入待定",
+      "updated_at": "2026-11-03T22:31:41.317889+00:00",
       "checkpoint_binding_note": "已有3-v13-mem0记录的30k权重，实际SHA在历史冻结PLAN；#9是20k，不冒称30k对应#9。",
-      "evaluation_started": false
+      "evaluation_started": true
     },
     {
       "id": "t1035-r4-latest-chest-c20000-h4",
@@ -27502,7 +27594,7 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "status": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "status": "准入中：GPU接口通过，尚未开始物理冒烟/阶段A",
       "estimated_start": "准入通过后的首个可用slot；暂按12卡调度，未得到pi0.5拿卡通知前不恢复16卡",
       "topology": {
         "num_envs_actual": 1,
@@ -27539,11 +27631,11 @@
       },
       "report_url": "reports/task3-v11-round7-20261103.html",
       "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
-      "updated_at": "2026-11-03T19:09:14.308498+00:00",
+      "updated_at": "2026-11-03T23:13:45.673927+00:00",
       "note": "首次输入预处理按各方法自己训练实现；本行尚未开跑，success=null。旧执行链若未过专家准入，受影响配置阶段A必须重跑。",
       "camera": "third_person",
       "controller_version": "interval-end13-linear-fd-v1.1-r7",
-      "pending_reason": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "pending_reason": "执行器4/8步GPU接口已通过；运行时任务上下文已修复；等待latest训练输入一致性/开环拟合与统一执行链物理准入。",
       "expected_start_at": null
     },
     {
@@ -27579,7 +27671,7 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "status": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "status": "准入中：GPU接口通过，尚未开始物理冒烟/阶段A",
       "estimated_start": "准入通过后的首个可用slot；暂按12卡调度，未得到pi0.5拿卡通知前不恢复16卡",
       "topology": {
         "num_envs_actual": 1,
@@ -27616,11 +27708,11 @@
       },
       "report_url": "reports/task3-v11-round7-20261103.html",
       "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
-      "updated_at": "2026-11-03T19:09:14.308498+00:00",
+      "updated_at": "2026-11-03T23:13:45.673927+00:00",
       "note": "首次输入预处理按各方法自己训练实现；本行尚未开跑，success=null。旧执行链若未过专家准入，受影响配置阶段A必须重跑。",
       "camera": "third_person",
       "controller_version": "interval-end13-linear-fd-v1.1-r7",
-      "pending_reason": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "pending_reason": "执行器4/8步GPU接口已通过；运行时任务上下文已修复；等待latest训练输入一致性/开环拟合与统一执行链物理准入。",
       "expected_start_at": null
     },
     {
@@ -27656,7 +27748,7 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "status": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "status": "准入中：GPU接口通过，尚未开始物理冒烟/阶段A",
       "estimated_start": "准入通过后的首个可用slot；暂按12卡调度，未得到pi0.5拿卡通知前不恢复16卡",
       "topology": {
         "num_envs_actual": 1,
@@ -27693,11 +27785,11 @@
       },
       "report_url": "reports/task3-v11-round7-20261103.html",
       "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
-      "updated_at": "2026-11-03T19:09:14.308498+00:00",
+      "updated_at": "2026-11-03T23:13:45.673927+00:00",
       "note": "首次输入预处理按各方法自己训练实现；本行尚未开跑，success=null。旧执行链若未过专家准入，受影响配置阶段A必须重跑。",
       "camera": "third_person",
       "controller_version": "interval-end13-linear-fd-v1.1-r7",
-      "pending_reason": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "pending_reason": "执行器4/8步GPU接口已通过；运行时任务上下文已修复；等待latest训练输入一致性/开环拟合与统一执行链物理准入。",
       "expected_start_at": null
     },
     {
@@ -27733,7 +27825,7 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "status": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "status": "准入中：GPU接口通过，尚未开始物理冒烟/阶段A",
       "estimated_start": "准入通过后的首个可用slot；暂按12卡调度，未得到pi0.5拿卡通知前不恢复16卡",
       "topology": {
         "num_envs_actual": 1,
@@ -27770,11 +27862,11 @@
       },
       "report_url": "reports/task3-v11-round7-20261103.html",
       "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
-      "updated_at": "2026-11-03T19:09:14.308498+00:00",
+      "updated_at": "2026-11-03T23:13:45.673927+00:00",
       "note": "首次输入预处理按各方法自己训练实现；本行尚未开跑，success=null。旧执行链若未过专家准入，受影响配置阶段A必须重跑。",
       "camera": "third_person",
       "controller_version": "interval-end13-linear-fd-v1.1-r7",
-      "pending_reason": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "pending_reason": "执行器4/8步GPU接口已通过；运行时任务上下文已修复；等待latest训练输入一致性/开环拟合与统一执行链物理准入。",
       "expected_start_at": null
     },
     {
@@ -27810,7 +27902,7 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "status": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "status": "准入中：GPU接口通过，尚未开始物理冒烟/阶段A",
       "estimated_start": "准入通过后的首个可用slot；暂按12卡调度，未得到pi0.5拿卡通知前不恢复16卡",
       "topology": {
         "num_envs_actual": 1,
@@ -27847,11 +27939,11 @@
       },
       "report_url": "reports/task3-v11-round7-20261103.html",
       "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
-      "updated_at": "2026-11-03T19:09:14.308498+00:00",
+      "updated_at": "2026-11-03T23:13:45.673927+00:00",
       "note": "首次输入预处理按各方法自己训练实现；本行尚未开跑，success=null。旧执行链若未过专家准入，受影响配置阶段A必须重跑。",
       "camera": "third_person",
       "controller_version": "interval-end13-linear-fd-v1.1-r7",
-      "pending_reason": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "pending_reason": "执行器4/8步GPU接口已通过；运行时任务上下文已修复；等待latest训练输入一致性/开环拟合与统一执行链物理准入。",
       "expected_start_at": null
     },
     {
@@ -27887,7 +27979,7 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "status": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "status": "准入中：GPU接口通过，尚未开始物理冒烟/阶段A",
       "estimated_start": "准入通过后的首个可用slot；暂按12卡调度，未得到pi0.5拿卡通知前不恢复16卡",
       "topology": {
         "num_envs_actual": 1,
@@ -27924,11 +28016,11 @@
       },
       "report_url": "reports/task3-v11-round7-20261103.html",
       "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
-      "updated_at": "2026-11-03T19:09:14.308498+00:00",
+      "updated_at": "2026-11-03T23:13:45.673927+00:00",
       "note": "首次输入预处理按各方法自己训练实现；本行尚未开跑，success=null。旧执行链若未过专家准入，受影响配置阶段A必须重跑。",
       "camera": "third_person",
       "controller_version": "interval-end13-linear-fd-v1.1-r7",
-      "pending_reason": "准入中：等待统一13维执行链专家准入；现存strict批次继续运行/离线重算，仅作诊断",
+      "pending_reason": "执行器4/8步GPU接口已通过；运行时任务上下文已修复；等待latest训练输入一致性/开环拟合与统一执行链物理准入。",
       "expected_start_at": null
     },
     {
@@ -35185,8 +35277,8 @@
       "success": null,
       "trials": 500,
       "unknown": 0,
-      "completed": 189,
-      "status": "阶段B正在执行；seed0阶段A100条保留，seed1–4按优先队列续测；pending专家口径",
+      "completed": 300,
+      "status": "阶段B进度300/500：seed0、seed1、seed2已完成；seed3/4遵照临时让卡要求未启动，完整配置完成前不发布成功率",
       "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
@@ -35228,7 +35320,7 @@
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
       "report_url": "reports/task3-round6-20261103.html",
-      "updated_at": "2026-11-03T18:32:01.407232+00:00",
+      "updated_at": "2026-11-03T23:35:18.893227+00:00",
       "variant": "ours-V13-30k-trainresize",
       "valid_for_comparison": false,
       "requested_phase": "A",
@@ -35250,7 +35342,8 @@
       "target": 500,
       "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h4",
       "source_phaseA_condition_version": "original-v1",
-      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。"
+      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
+      "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json"
     },
     {
       "id": "t1035-r6b-ttc-V13-trainresize-B-c30-h8",
@@ -35267,8 +35360,8 @@
       "success": null,
       "trials": 500,
       "unknown": 0,
-      "completed": 100,
-      "status": "阶段B正在执行；seed0阶段A100条保留，seed1–4按优先队列续测；pending专家口径",
+      "completed": 300,
+      "status": "阶段B进度300/500：seed0、seed1、seed2已完成；seed3/4遵照临时让卡要求未启动，完整配置完成前不发布成功率",
       "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
@@ -35310,7 +35403,7 @@
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
       "report_url": "reports/task3-round6-20261103.html",
-      "updated_at": "2026-11-03T18:32:01.407232+00:00",
+      "updated_at": "2026-11-03T23:35:18.893227+00:00",
       "variant": "ours-V13-30k-trainresize",
       "valid_for_comparison": false,
       "requested_phase": "A",
@@ -35332,7 +35425,758 @@
       "target": 500,
       "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h8",
       "source_phaseA_condition_version": "original-v1",
-      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。"
+      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
+      "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json"
+    },
+    {
+      "id": "t1035-r7-placement-d2a-c30000-h4",
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "diagnostic",
+      "kind": "诊断：放置判定离线重算",
+      "completed": 100,
+      "success": 0,
+      "trials": 100,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 100
+      },
+      "mean_phase": 0.0,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "display_priority": 0,
+      "status": "离线重算完成；执行链/完整负例准入未通过，仅诊断",
+      "topology": null,
+      "source_declared_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "topology_verification": "not yet audited across every original source plan; diagnostic only",
+      "protocol": "CPU diagnostic aggregation or placement rescore of frozen source cohort; no v1/v1.1 formal admission claimed",
+      "method": "Mem-0",
+      "preprocess_resize": {
+        "implementation": "PIL",
+        "mode": "bicubic",
+        "antialias": null,
+        "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
+      },
+      "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+      "condition_version": "diagnostic-D2a-v1",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "source": "reports/task3-v11-round7-20261103/d-completed-public-groups.json",
+      "rescore_script_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "updated_at": "2026-11-03T21:45:24.053602+00:00",
+      "source_controller_unverified": true,
+      "sensitivity_upper": 0.0,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_evaluation_id": "t1035-r3-diag-d2a",
+      "note": "已完成100条诊断的放置判定离线重算；保留原PIL输入和旧执行链，仅干预指定执行器输入；无正式执行链准入。",
+      "variant": "executor-black-only",
+      "render_alignment": "source cohort retained; NOT the newly repaired render stage A",
+      "unknown_reasons": {},
+      "matched_reference": "t1035-r7-placement-d0-c30000-h4",
+      "source_rescore_payload_sha256": "f9cc4a5efc2b28215964201f2345de79694f18820079d0e9a2ea0a251f6dd95c"
+    },
+    {
+      "id": "t1035-r7-placement-d3-c30000-h4",
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "diagnostic",
+      "kind": "诊断：放置判定离线重算",
+      "completed": 100,
+      "success": 30,
+      "trials": 100,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 11,
+        "1": 52,
+        "3": 30,
+        "2": 7
+      },
+      "mean_phase": 1.56,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 30,
+          "unknown": 0,
+          "failure": 70
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 30,
+          "unknown": 0,
+          "failure": 20
+        }
+      },
+      "wilson95": {
+        "low": 0.2189488529493276,
+        "high": 0.3958485463334666,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "display_priority": 0,
+      "status": "离线重算完成；执行链/完整负例准入未通过，仅诊断",
+      "topology": null,
+      "source_declared_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "topology_verification": "not yet audited across every original source plan; diagnostic only",
+      "protocol": "CPU diagnostic aggregation or placement rescore of frozen source cohort; no v1/v1.1 formal admission claimed",
+      "method": "Mem-0",
+      "preprocess_resize": {
+        "implementation": "PIL",
+        "mode": "bicubic",
+        "antialias": null,
+        "source": "原冻结交付 LiveObservation.policy_payload + native Agent resize；为旧baseline配对保留，不能冒充v1训练缩放"
+      },
+      "scene_list_hash": "sha256:8054906467f3396077865c88184593dc14240329f2dd035bf1a19934c2eecc27",
+      "condition_version": "diagnostic-D3-v1",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "source": "reports/task3-v11-round7-20261103/d-completed-public-groups.json",
+      "rescore_script_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "updated_at": "2026-11-03T21:45:24.053602+00:00",
+      "source_controller_unverified": true,
+      "sensitivity_upper": 0.3,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_evaluation_id": "t1035-r3-diag-d3",
+      "note": "已完成100条诊断的放置判定离线重算；保留原PIL输入和旧执行链，仅干预指定执行器输入；无正式执行链准入。",
+      "variant": "state-noise-sigma0p01rad",
+      "render_alignment": "source cohort retained; NOT the newly repaired render stage A",
+      "unknown_reasons": {},
+      "matched_reference": "t1035-r7-placement-d0-c30000-h4",
+      "source_rescore_payload_sha256": "f9cc4a5efc2b28215964201f2345de79694f18820079d0e9a2ea0a251f6dd95c"
+    },
+    {
+      "id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h4",
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 4,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "diagnostic",
+      "kind": "诊断：放置判定离线重算",
+      "completed": 100,
+      "success": 38,
+      "trials": 100,
+      "unknown": 0,
+      "phase_hist": {
+        "2": 20,
+        "1": 41,
+        "3": 39
+      },
+      "mean_phase": 1.98,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 38,
+          "unknown": 0,
+          "failure": 62
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 16,
+          "unknown": 0,
+          "failure": 34
+        },
+        "right": {
+          "trials": 50,
+          "success": 22,
+          "unknown": 0,
+          "failure": 28
+        }
+      },
+      "wilson95": {
+        "low": 0.29097599252478734,
+        "high": 0.47790244704488916,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "display_priority": 0,
+      "status": "离线重算完成；执行链/完整负例准入未通过，仅诊断",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "protocol": "CPU diagnostic aggregation or placement rescore of frozen source cohort; no v1/v1.1 formal admission claimed",
+      "method": "Mem-0",
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "已验证训练侧张量双线性+antialias；本阶段A使用冻结trainresize适配器"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "source": "reports/task3-v11-round7-20261103/fair-resize-h4-h8-final.json",
+      "source_snapshot_sha256": "a88bb976d1cdbb4548d552ff5ce8f122027aa9fe6f1c48320e16473c7ff27759",
+      "rescore_script_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "updated_at": "2026-11-03T22:31:41.317889+00:00",
+      "source_controller_unverified": false,
+      "sensitivity_upper": 0.38,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_evaluation_id": "t1035-r4-Mem0-V13-30k-trainresize-c30000-h4",
+      "note": "seed0同100场景；旧执行链保留；仅诊断，不宣称新执行链准入。unknown保留分母、不进phase_hist。",
+      "variant": "training-preprocess-aligned-existing-controller",
+      "render_alignment": "V13 render; not V14/latest",
+      "unknown_reasons": {},
+      "checkpoint_issue": 38,
+      "controller_version": "V13_position_linear8_curoboFF_ramp_v1"
+    },
+    {
+      "id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h8",
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "diagnostic",
+      "kind": "诊断：放置判定离线重算",
+      "completed": 100,
+      "success": 51,
+      "trials": 100,
+      "unknown": 0,
+      "phase_hist": {
+        "3": 51,
+        "1": 28,
+        "2": 20,
+        "0": 1
+      },
+      "mean_phase": 2.21,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 51,
+          "unknown": 0,
+          "failure": 49
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 22,
+          "unknown": 0,
+          "failure": 28
+        },
+        "right": {
+          "trials": 50,
+          "success": 29,
+          "unknown": 0,
+          "failure": 21
+        }
+      },
+      "wilson95": {
+        "low": 0.4134801193402717,
+        "high": 0.6057800106955886,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "display_priority": 0,
+      "status": "离线重算完成；执行链/完整负例准入未通过，仅诊断",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "protocol": "CPU diagnostic aggregation or placement rescore of frozen source cohort; no v1/v1.1 formal admission claimed",
+      "method": "Mem-0",
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "已验证训练侧张量双线性+antialias；本阶段A使用冻结trainresize适配器"
+      },
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "source": "reports/task3-v11-round7-20261103/fair-resize-h4-h8-final.json",
+      "source_snapshot_sha256": "a88bb976d1cdbb4548d552ff5ce8f122027aa9fe6f1c48320e16473c7ff27759",
+      "rescore_script_sha256": "af375557427fb3531d9250e682fe16da2e83d01cafa5249a91d67b058bddceba",
+      "updated_at": "2026-11-03T22:31:41.317889+00:00",
+      "source_controller_unverified": false,
+      "sensitivity_upper": 0.51,
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending_source_metadata_or_executor_gate",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_evaluation_id": "t1035-r4-Mem0-V13-30k-trainresize-c30000-h8",
+      "note": "seed0同100场景；旧执行链保留；仅诊断，不宣称新执行链准入。unknown保留分母、不进phase_hist。",
+      "variant": "training-preprocess-aligned-existing-controller",
+      "render_alignment": "V13 render; not V14/latest",
+      "unknown_reasons": {},
+      "checkpoint_issue": 38,
+      "controller_version": "V13_position_linear8_curoboFF_ramp_v1"
+    },
+    {
+      "dataset": "3-latest",
+      "protocol": "计划diagnostic校准：新的100场景、左右各50、h4/h8；最多2候选；训练缩放与执行链先通过；锁定后另立阶段A/B记录；此行无成绩。",
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "每个交付包自身训练实现；逐位一致性检查待该组合完成"
+      },
+      "id": "t1035-r9-nativehead-calibration-ttc-aligned-c30000-h4",
+      "record": "ttc-aligned",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "kind": "计划：原生对齐分类头切换独立校准",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "native_head_switch_calibration",
+      "condition_version": "original-contact-nativehead-pending-calibration",
+      "variant": "native-classifier-stage-switch-pending-calibration",
+      "trials": 100,
+      "target": 100,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": null,
+      "wilson95": null,
+      "evaluation_started": false,
+      "formal_score_eligible": false,
+      "status": "未开始：待记录原生分类头分数、冻结独立校准场景和候选规则",
+      "estimated_start": "分数采集与统一执行链准入后；当前未开跑，无可靠墙钟时间承诺",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000",
+        "qualification": "pending exact config density and executor gates"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
+      "updated_at": "2026-11-03T23:17:27.296971+00:00",
+      "note": "同一30k权重的切换规则变体计划，未改物理；阈值/连续计数/EMA/最短停留等规则尚未冻结，不能冒称已评测。",
+      "camera": "third_person",
+      "controller_version": "interval-end13-linear-fd-v1.1-r7",
+      "pending_reason": "当前交付Policy采用外部Gen切换；原生分类头切换需先采分数并按预注册独立校准。禁止直接用默认阈值放量或在留出集回调。",
+      "expected_start_at": null
+    },
+    {
+      "dataset": "3-latest",
+      "protocol": "计划diagnostic校准：新的100场景、左右各50、h4/h8；最多2候选；训练缩放与执行链先通过；锁定后另立阶段A/B记录；此行无成绩。",
+      "scene_list_hash": null,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "每个交付包自身训练实现；逐位一致性检查待该组合完成"
+      },
+      "id": "t1035-r9-nativehead-calibration-ttc-aligned-c30000-h8",
+      "record": "ttc-aligned",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "kind": "计划：原生对齐分类头切换独立校准",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "native_head_switch_calibration",
+      "condition_version": "original-contact-nativehead-pending-calibration",
+      "variant": "native-classifier-stage-switch-pending-calibration",
+      "trials": 100,
+      "target": 100,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "phase_hist": {},
+      "mean_phase": null,
+      "seed_results": [],
+      "lr_split": null,
+      "wilson95": null,
+      "evaluation_started": false,
+      "formal_score_eligible": false,
+      "status": "未开始：待记录原生分类头分数、冻结独立校准场景和候选规则",
+      "estimated_start": "分数采集与统一执行链准入后；当前未开跑，无可靠墙钟时间承诺",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000",
+        "qualification": "pending exact config density and executor gates"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "source": "T-1035 v1.1 inventory; planned, not a native result; no existing strict score overwritten",
+      "updated_at": "2026-11-03T23:17:27.297053+00:00",
+      "note": "同一30k权重的切换规则变体计划，未改物理；阈值/连续计数/EMA/最短停留等规则尚未冻结，不能冒称已评测。",
+      "camera": "third_person",
+      "controller_version": "interval-end13-linear-fd-v1.1-r7",
+      "pending_reason": "当前交付Policy采用外部Gen切换；原生分类头切换需先采分数并按预注册独立校准。禁止直接用默认阈值放量或在留出集回调。",
+      "expected_start_at": null
+    },
+    {
+      "id": "t1035-r9-mem0-V13-trainresize-B-c30000-h4",
+      "record": "3-v13-mem0",
+      "checkpoint_issue": 38,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/38",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "B",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": null,
+      "trials": 500,
+      "target": 500,
+      "completed": 100,
+      "unknown": 0,
+      "seed_results": [],
+      "lr_split": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "seed0已完成100条；seed1/2共400条配对清单已冻结，CPU等待存储IO canary后提交，不占卡空等；seed3/4待两边同步推进",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "冻结Mem-0 V13阶段A训练缩放实现，未改控制链"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_shared_executor_review",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending_shared_executor_review",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h4",
+      "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "updated_at": "2026-11-04T00:03:18.972230+00:00"
+    },
+    {
+      "id": "t1035-r9-mem0-V13-trainresize-B-c30000-h8",
+      "record": "3-v13-mem0",
+      "checkpoint_issue": 38,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/38",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "B",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": null,
+      "trials": 500,
+      "target": 500,
+      "completed": 100,
+      "unknown": 0,
+      "seed_results": [],
+      "lr_split": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "wilson95": null,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "seed0已完成100条；seed1/2共400条配对清单已冻结，CPU等待存储IO canary后提交，不占卡空等；seed3/4待两边同步推进",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "冻结Mem-0 V13阶段A训练缩放实现，未改控制链"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_shared_executor_review",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": false,
+          "status": "pending_shared_executor_review",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h8",
+      "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
+      "report_url": "reports/task3-v11-round7-20261103.html",
+      "updated_at": "2026-11-04T00:03:18.972230+00:00"
     }
   ],
   "agents": [

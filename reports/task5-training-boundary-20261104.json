@@ -1,0 +1,38 @@
+{
+  "stage": "diagnostic",
+  "scope": "pos1cm ep0 forward + ep1 reverse, four internal subtask_index boundaries each; not fixed30; no extra episodes",
+  "training_source_parquet_files": 2,
+  "internal_boundaries": 8,
+  "native_replay_v11_success": "2/2",
+  "gap_ticks_range": [
+    568,
+    644
+  ],
+  "remaining_training_native_clock_seconds_range": [
+    4.733333580195904,
+    5.400000281631947
+  ],
+  "old_label_eef_up_displacement_m_range": [
+    0.1496899127960205,
+    0.1501849889755249
+  ],
+  "old_label_eef_distance_increase_m_range": [
+    0.07850305479723199,
+    0.08991475317612765
+  ],
+  "arm7_q_delta_l2_rad_range": [
+    0.7947902284601919,
+    1.2105211572053682
+  ],
+  "replayed_placed_object_robot_contact_ticks_between_v11_completion_and_label_change": 0,
+  "verified_label": "original source parquet subtask_index only",
+  "subtask_end_supervision_verified": false,
+  "subtask_end_gap": "Inspected original state13 source parquet has no subtask_end column; adapter info declares it exists in adapted Mem-0 view, but adapted data/loader end-supervision alignment was not acquired. Teacher-forcing predictions are not supervision labels.",
+  "motion_conclusion": "The old training phase label includes a measured ~15cm upward withdrawal after replayed physical placement completes. The current oracle-GT next-instruction condition can advance before this demonstrated old-label tail.",
+  "not_proven": "This does not prove the withdrawal tail is the source of low live completion probability or that skipping it caused the observed GT topple. Original collection physical contact/placement times were not available; physical event ticks come from matching existing native-target replay.",
+  "new_simulations": 0,
+  "new_inference_requests": 0,
+  "GPU_used": false,
+  "API_calls": 0,
+  "site_or_active_runtime_changes": false
+}

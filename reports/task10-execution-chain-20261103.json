@@ -6,7 +6,8 @@
   "formal_pending": [
     "original complete native120Hz expert trace is unavailable; reconstruction is not a golden reference",
     "all13 measured-joint RMSE exceeds0.005rad on available recorded30Hz reference",
-    "10held+10toppled+10outregion full video validation pending"
+    "10held+10toppled+10outregion full video validation pending",
+    "issue26 open_loop soft gate awaits weak sidecar SHA734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41"
   ],
   "expert_audit": {
     "epoch": 1793750191.3978357,
@@ -2434,18 +2435,208 @@
     "old_three_model_attach_cases_remaining": 548
   },
   "historical_8523_rescore_progress": {
-    "epoch": 1793750316.4021785,
-    "status": "running",
+    "epoch": 1793750799.7931077,
+    "status": "complete",
     "scored": false,
     "metric_role": "historical diagnostic CPU rescore; not new formal admission",
     "total": 8523,
-    "completed": 4900,
-    "unknown": 2299,
+    "completed": 8523,
+    "unknown": 3358,
     "CPU_workers": 2,
     "GPU_used": false,
     "source_manifest_sha256": "e4a0387efd6588a1f7815997ba0e9457e792d7211803202aaea465acf2bdf401",
     "oracle_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
-    "wall_s": 570.4106013774872
+    "wall_s": 1053.80131316185
   },
-  "new_formal_trajectories": 0
+  "new_formal_trajectories": 0,
+  "historical_8523_rescore_summary": {
+    "valid_source_visible": 5165,
+    "unknown": 3358,
+    "new_whole_task_successes": 0,
+    "strict_mean_phase_visible_subset": 0.7980638915779283,
+    "v11_mean_phase_visible_subset": 0.8104549854791868,
+    "report": "task10-historical-rescore-v11-20261103.json"
+  },
+  "policy_phase_selected48_summary": {
+    "10-mem0": {
+      "n": 16,
+      "lag_over5s_cases": 5,
+      "ahead_over5s_cases": 5,
+      "max_lag_s": 14.399999999999999
+    },
+    "10-mem0-weak": {
+      "n": 16,
+      "lag_over5s_cases": 1,
+      "ahead_over5s_cases": 3,
+      "max_lag_s": 6.333333333333332
+    },
+    "10-ours-aligned": {
+      "n": 16,
+      "lag_over5s_cases": 1,
+      "ahead_over5s_cases": 0,
+      "max_lag_s": 5.133333333333333
+    }
+  },
+  "hand_velocity_FF_candidate": {
+    "epoch": 1793751144.7168658,
+    "scored": false,
+    "formal_admission_passed": false,
+    "candidate_change": "hand velocity FF only: zero -> finite difference of interpolated commanded targets; same13 position targets",
+    "diagnostic_two_case_gate_passed": false,
+    "decision": "reject this candidate; retain existing chain; no model phaseA replay",
+    "source_sha256": "7b4b4de5c0874113ed1a8cb34b3e3d480ab53b4f8c44632f6f94ff2b4d718572",
+    "cases": [
+      {
+        "episode": 0,
+        "order": "12345",
+        "artifact_verified": true,
+        "v11_success": false,
+        "v11_phase": 5,
+        "ticks": 11985,
+        "matched_original30_samples": 2996,
+        "baseline_matched_samples": 5263,
+        "full_reference_coverage": false,
+        "RMSE_all13_rad": 0.039297740973384766,
+        "RMSE_arm_rad": 0.0020055926522251646,
+        "RMSE_hand_rad": 0.0578041304460439,
+        "baseline_RMSE_all13_rad": 0.0058974248264641975,
+        "baseline_RMSE_hand_rad": 0.008605233804217613,
+        "raw_manifest_sha256": "75d79bb6eb82ec83c59dfe425c2f333c88c0d647ba77f01ae4f1febc6118935a",
+        "matched_prefix_baseline_RMSE_all13_rad": 0.005583258842532638,
+        "matched_prefix_baseline_RMSE_hand_rad": 0.008141261535051725,
+        "baseline_comparison_same_reference_ticks": 2996
+      },
+      {
+        "episode": 50,
+        "order": "54321",
+        "artifact_verified": true,
+        "v11_success": false,
+        "v11_phase": 3,
+        "ticks": 9447,
+        "matched_original30_samples": 2361,
+        "baseline_matched_samples": 5110,
+        "full_reference_coverage": false,
+        "RMSE_all13_rad": 0.04431269910113671,
+        "RMSE_arm_rad": 0.0016920853793673623,
+        "RMSE_hand_rad": 0.06520091621371203,
+        "baseline_RMSE_all13_rad": 0.009124819898413822,
+        "baseline_RMSE_hand_rad": 0.013376768062582712,
+        "raw_manifest_sha256": "bb5573217a9243548ba61c9df7413aca74f875dc694cb33dd82d25fb0c652466",
+        "matched_prefix_baseline_RMSE_all13_rad": 0.00654816804605817,
+        "matched_prefix_baseline_RMSE_hand_rad": 0.009546436250616892,
+        "baseline_comparison_same_reference_ticks": 2361
+      }
+    ],
+    "comparison_scope": "candidate and baseline RMSE paired on identical recorded30Hz ticks; candidate terminated early, full_reference_coverage remains false"
+  },
+  "initial_drive_equality": {
+    "epoch": 1793751308.5239165,
+    "cases": [
+      {
+        "episode": 0,
+        "initial_native_drive_arrays_exactly_equal": true,
+        "quantities": [
+          "get_dof_stiffnesses",
+          "get_dof_dampings",
+          "get_dof_max_forces",
+          "get_dof_max_velocities"
+        ],
+        "DOFs": 36,
+        "source_sha256": "a2eac087bc3c976fcc047df2baf3ec9297e3b443a0246c552e8433c7d28e54d6",
+        "eval_sha256": "a2eac087bc3c976fcc047df2baf3ec9297e3b443a0246c552e8433c7d28e54d6",
+        "scope": "initial arrays only; not proof of runtime drive parameter equality"
+      },
+      {
+        "episode": 50,
+        "initial_native_drive_arrays_exactly_equal": true,
+        "quantities": [
+          "get_dof_stiffnesses",
+          "get_dof_dampings",
+          "get_dof_max_forces",
+          "get_dof_max_velocities"
+        ],
+        "DOFs": 36,
+        "source_sha256": "a2eac087bc3c976fcc047df2baf3ec9297e3b443a0246c552e8433c7d28e54d6",
+        "eval_sha256": "a2eac087bc3c976fcc047df2baf3ec9297e3b443a0246c552e8433c7d28e54d6",
+        "scope": "initial arrays only; not proof of runtime drive parameter equality"
+      }
+    ]
+  },
+  "contact_divergence_localization": {
+    "epoch": 1793751510.169136,
+    "scored": false,
+    "scope": "endpoint baseline0/50; observed reference available only every4ticks; contact timing from replay, not source original contact stream",
+    "causal_status": "temporal localization only; does not identify a collision or drive bug",
+    "cases": [
+      {
+        "episode": 0,
+        "order": "12345",
+        "first_any_robot_object_contact_tick": 1312,
+        "first_contact_actors": [
+          {
+            "object": "A",
+            "actor": "/World/envs/env_0/Robot/hand2_link_1_3",
+            "contact_count": 1,
+            "min_separation_m": 0.003350192680954933,
+            "deepest_contact_position_world_m": [
+              -1.2268332242965698,
+              -4.9092864990234375,
+              0.9998461008071899
+            ],
+            "deepest_contact_normal_world": [
+              -0.5688896179199219,
+              0.8224107623100281,
+              0.0022918428294360638
+            ]
+          }
+        ],
+        "first_recorded30_sample_hand_RMS_over0_005_tick": 1404,
+        "pre_contact_matched30_samples": 296,
+        "pre_contact_all13_RMSE_rad": 0.0007630362340893907,
+        "pre_contact_hand_RMSE_rad": 0.00010024718130963632,
+        "pre_contact_max_hand_RMS_rad": 0.0003623648582065308,
+        "after_contact_hand_RMSE_rad": 0.00885789692270743
+      },
+      {
+        "episode": 50,
+        "order": "54321",
+        "first_any_robot_object_contact_tick": 963,
+        "first_contact_actors": [
+          {
+            "object": "E",
+            "actor": "/World/envs/env_0/Robot/hand2_link_2_2",
+            "contact_count": 1,
+            "min_separation_m": 0.0033377038780599833,
+            "deepest_contact_position_world_m": [
+              -1.1853033304214478,
+              -5.4240522384643555,
+              1.011614203453064
+            ],
+            "deepest_contact_normal_world": [
+              0.7875158190727234,
+              -0.5592395663261414,
+              -0.2589786648750305
+            ]
+          }
+        ],
+        "first_recorded30_sample_hand_RMS_over0_005_tick": 1320,
+        "pre_contact_matched30_samples": 209,
+        "pre_contact_all13_RMSE_rad": 0.0010109582234661479,
+        "pre_contact_hand_RMSE_rad": 0.0001196261503106611,
+        "pre_contact_max_hand_RMS_rad": 0.0003623648582065308,
+        "after_contact_hand_RMSE_rad": 0.01365898995081958
+      }
+    ]
+  },
+  "native_reference_search": {
+    "scope": "readonly Zone5 TOS search for missing native120Hz expert reference",
+    "known_source_object_keys_checked": 4,
+    "HTTP_statuses": [
+      404,
+      404,
+      404,
+      404
+    ],
+    "limitation": "exact known source keys only; absence is not a whole-bucket search or proof of deletion"
+  }
 }

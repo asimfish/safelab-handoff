@@ -5004,5 +5004,132 @@
     "same_frozen_placement_geometry": true,
     "source_runtime_or_oracle_changed": false,
     "interpretation": "Only observed physical-event to model-switch interval; if A placement regresses, interval must not be described as continuously valid completion delay."
-  }
+  },
+  "existing_training_terminal_flags_CPU_review": {
+    "CPU_only": true,
+    "new_inference_requests": 0,
+    "reuses_completed_teacher_forcing": true,
+    "source_sha256": "efa61aa274677d9f92c29eb64c4244fbe906d9fc92e333227d286e4bfd009538",
+    "episodes": 2,
+    "phases": 10,
+    "rows": [
+      {
+        "episode": 0,
+        "phase": 0,
+        "length": 428,
+        "positive_count": 9,
+        "first_positive": 419,
+        "last_positive": 427,
+        "first_positive_before_phase_end_frames": 9
+      },
+      {
+        "episode": 0,
+        "phase": 1,
+        "length": 458,
+        "positive_count": 10,
+        "first_positive": 876,
+        "last_positive": 885,
+        "first_positive_before_phase_end_frames": 10
+      },
+      {
+        "episode": 0,
+        "phase": 2,
+        "length": 382,
+        "positive_count": 9,
+        "first_positive": 1259,
+        "last_positive": 1267,
+        "first_positive_before_phase_end_frames": 9
+      },
+      {
+        "episode": 0,
+        "phase": 3,
+        "length": 343,
+        "positive_count": 10,
+        "first_positive": 1601,
+        "last_positive": 1610,
+        "first_positive_before_phase_end_frames": 10
+      },
+      {
+        "episode": 0,
+        "phase": 4,
+        "length": 542,
+        "positive_count": 9,
+        "first_positive": 2144,
+        "last_positive": 2152,
+        "first_positive_before_phase_end_frames": 9
+      },
+      {
+        "episode": 1,
+        "phase": 0,
+        "length": 504,
+        "positive_count": 9,
+        "first_positive": 495,
+        "last_positive": 503,
+        "first_positive_before_phase_end_frames": 9
+      },
+      {
+        "episode": 1,
+        "phase": 1,
+        "length": 440,
+        "positive_count": 10,
+        "first_positive": 934,
+        "last_positive": 943,
+        "first_positive_before_phase_end_frames": 10
+      },
+      {
+        "episode": 1,
+        "phase": 2,
+        "length": 389,
+        "positive_count": 8,
+        "first_positive": 1325,
+        "last_positive": 1332,
+        "first_positive_before_phase_end_frames": 8
+      },
+      {
+        "episode": 1,
+        "phase": 3,
+        "length": 355,
+        "positive_count": 10,
+        "first_positive": 1678,
+        "last_positive": 1687,
+        "first_positive_before_phase_end_frames": 10
+      },
+      {
+        "episode": 1,
+        "phase": 4,
+        "length": 479,
+        "positive_count": 8,
+        "first_positive": 2159,
+        "last_positive": 2166,
+        "first_positive_before_phase_end_frames": 8
+      }
+    ],
+    "conclusion": "GT RGB/q/instruction input produced terminal positives near all ten phase ends; live57s delay cannot by itself establish broken training end labels or changed runtime threshold."
+  },
+  "native_completion_counter_note": "SDK采用累计阳性计数（不是连续阳性），默认计数门槛2；单个合格放置样本的首个旧指令阳性在frame1223，frame1224阴性时count仍1，frame1225切换。未改运行逻辑或阈值。",
+  "live_completion_flags_CPU": {
+    "CPU_only": true,
+    "source_case": "hermite1_new30_smoke20_h8_seed0_000",
+    "source_closed_gzip": true,
+    "stage0_observed_frames": 1225,
+    "old_instruction_positive_frames": [
+      1223
+    ],
+    "old_instruction_count_hist": {
+      "0": 1223,
+      "1": 2
+    },
+    "last_old_instruction_status": {
+      "episode_id": 2,
+      "frame_index": 1224,
+      "subtask": "Move beaker1 from the red pad to the yellow pad.",
+      "subtask_end_flag": false,
+      "end_signal_count": 1,
+      "subtask_end": false
+    },
+    "stage1_first_frame": 1225,
+    "note": "switch frame old-instruction status is unavailable after refresh, not fabricated here",
+    "new_inference_requests": 0
+  },
+  "pending_weight_resource_note": "其余四个pos1cm权重等待资源规则满足或例外许可，fixed_v1等待独立光学和专家准入；均未提供未经证实的开跑时间。"
 }

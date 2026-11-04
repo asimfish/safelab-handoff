@@ -69,3 +69,16 @@ trials始终是完整分母，unknown属于trials。主表成功率为success/tr
 该片段是待测状态示例，不能作为已完成成绩。请保留其他agent记录，仅按id追加或更新自己的配置。
 
 媒体跨域播放、同源JSON/gzip日志及全仓50MB预算见[媒体清单规范](media-manifest-v1.md)。媒体case必须与evaluation的protocol_version和oracle_version精确绑定；strict旧媒体可兼容省略oracle_version。
+
+## 三口径并列：strict-fdvel-v1（对照口径）
+
+正式口径仍为 `protocol_version: SafeLab-Eval-v1.1` / `oracle_version: placement-v1.1`。原 strict-v1 使用 PhysX 速度。新增 FD 行使用 `protocol_version: SafeLab-Eval-v1` / `oracle_version: strict-fdvel-v1`，仅作对照：原 strict 的全部条件、速度阈值、时间窗和顺序均不变，只替换速度来源。
+
+- 相邻 **120Hz 物理 tick** 的实际时间差 Δt = t_t − t_{t−1}，不能用名义 1/120 或15Hz视频/观测间隔代替。
+- 线速度 v = (p_t − p_{t−1}) / Δt。
+- 角速度：q_rel = q_t ⊗ q_{t−1}⁻¹；若 q_rel.w < 0，先将整个四元数取反，取最短转角；θ = 2·atan2(‖q_rel.xyz‖, q_rel.w)，|ω| = θ / Δt。采用单位四元数；首个 tick 用随后相邻物理 tick 的前向差分。
+- 缺失相邻位姿、时间戳、非正 Δt 或无法恢复所需窗口的轨迹记 unknown，不能补零或用 PhysX 值回填。
+- 每个口径独立 evaluation id，禁止覆盖 strict/placement 原行。FD **必须**填写 `paired_evaluation_id`，指向同一批轨迹的另一个已登记口径（不能指向自身）。placement 可用 paired_evaluation_id 或已有 source_evaluation_id 关联。关联不代表新增仿真条数。
+- 三列按明确关联以及 record/checkpoint、任务、数据、相机、执行步数、阶段、条件、场景哈希、拓扑、预处理和逐 seed 清单核对；不同配置或未能解析的引用不会合并或展示 FD 成绩。同批同口径多行视为歧义，不自动选最佳。不得仅凭场景哈希猜测同批轨迹。
+- trials 包含 unknown；success + failure + unknown = trials；phase_hist 合计 trials − unknown；mean_phase 仅有效轨迹。seed_results、lr_split、Wilson、准入要求与对应 strict 协议相同。未完成 success=null。三口径分别重算 unknown、阶段统计和拆分，不复制数值。
+- 首页“同配置·三口径并列”保留每批次三列；缺少口径显示“未发布”，未准入或未完成只显示状态/进度。FD 不改变正式 placement 优先规则，不计入 v1.1 覆盖，不进入旧版成绩格。

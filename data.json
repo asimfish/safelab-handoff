@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T21:47:14.614991+00:00",
+  "updated_at": "2026-11-04T07:20:57.369535+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -33163,7 +33163,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33186,13 +33186,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
       "split_axis": "forward_reverse_task_order",
-      "formal_score_eligible": true,
+      "formal_score_eligible": false,
       "phase_mean_denominator": 100,
       "phase_unknown": 0,
       "id": "task10-eval-v11-20261103-mem0_weak-off-h4",
@@ -33201,18 +33201,20 @@
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "source": "reports/task10-placement-v11-20261103.json",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "final_verified": false,
       "display_priority": 300,
-      "result_label": "SafeLab-Eval-v1 · 阶段A100条",
-      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h4",
       "evaluation_started": true,
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
       "expected_start_at": null,
-      "independently_verified": 100
+      "independently_verified": 100,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "protocol_version": "SafeLab-Eval-v1.1",
@@ -33318,7 +33320,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33341,13 +33343,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
       "split_axis": "forward_reverse_task_order",
-      "formal_score_eligible": true,
+      "formal_score_eligible": false,
       "phase_mean_denominator": 100,
       "phase_unknown": 0,
       "id": "task10-eval-v11-20261103-mem0_weak-off-h8",
@@ -33356,18 +33358,20 @@
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "source": "reports/task10-placement-v11-20261103.json",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "final_verified": false,
       "display_priority": 300,
-      "result_label": "SafeLab-Eval-v1 · 阶段A100条",
-      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h8",
       "evaluation_started": true,
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
       "expected_start_at": null,
-      "independently_verified": 100
+      "independently_verified": 100,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-off-h4",
@@ -33389,7 +33393,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -33423,7 +33427,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33451,8 +33455,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -33487,8 +33491,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-off-h8",
@@ -33510,7 +33519,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -33544,7 +33553,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33572,8 +33581,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -33608,8 +33617,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-attach-h4",
@@ -33626,12 +33640,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 24,
+      "completed": 36,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "status": "第8轮4卡续跑；已独立核验36/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T07:20:57.369535+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -33639,8 +33653,8 @@
         "num_envs_actual": 1,
         "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33649,19 +33663,19 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 1.5,
+      "mean_phase": 1.4444444444444444,
       "phase_hist": {
-        "1": 10,
-        "2": 8,
-        "0": 4,
-        "5": 2
+        "1": 15,
+        "2": 11,
+        "0": 7,
+        "5": 3
       },
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33689,13 +33703,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 24,
-      "independently_verified": 24,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 36,
+      "independently_verified": 36,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -33725,8 +33739,29 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 35,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-attach-h8",
@@ -33743,12 +33778,12 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 28,
+      "completed": 37,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "status": "第8轮4卡续跑；已独立核验37/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T07:20:57.369535+00:00",
       "checkpoint_issue": null,
       "source_issue": null,
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -33756,8 +33791,8 @@
         "num_envs_actual": 1,
         "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33766,22 +33801,23 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": 2.0,
+      "mean_phase": 1.945945945945946,
       "phase_hist": {
-        "2": 9,
-        "1": 10,
-        "0": 3,
+        "2": 11,
+        "1": 15,
+        "0": 4,
         "3": 1,
         "4": 2,
         "5": 1,
-        "6": 2
+        "6": 2,
+        "7": 1
       },
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33809,13 +33845,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 28,
-      "independently_verified": 28,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 37,
+      "independently_verified": 37,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -33845,8 +33881,29 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 35,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-mem0_weak-attach-h4",
@@ -33863,21 +33920,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 11,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:23:16.370647+00:00",
+      "status": "第8轮4卡续跑；已独立核验11/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T07:20:57.369535+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33886,14 +33943,18 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.1818181818181819,
+      "phase_hist": {
+        "2": 4,
+        "0": 2,
+        "1": 5
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -33918,13 +33979,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 11,
+      "independently_verified": 11,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -33940,7 +34001,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -33954,8 +34015,29 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 35,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-mem0_weak-attach-h8",
@@ -33972,21 +34054,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 10,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:23:16.370647+00:00",
+      "status": "第8轮4卡续跑；已独立核验10/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T07:20:57.369535+00:00",
       "checkpoint_issue": 21,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -33995,14 +34077,17 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.2,
+      "phase_hist": {
+        "1": 8,
+        "2": 2
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34027,13 +34112,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 10,
+      "independently_verified": 10,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -34049,7 +34134,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -34063,8 +34148,29 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 35,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-off-h4",
@@ -34086,7 +34192,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -34119,7 +34225,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34144,8 +34250,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -34180,8 +34286,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned-off-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned-off-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-off-h8",
@@ -34203,7 +34314,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -34234,7 +34345,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34259,8 +34370,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -34295,8 +34406,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned-off-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned-off-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-attach-h4",
@@ -34313,21 +34429,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 6,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:23:16.370647+00:00",
+      "status": "第8轮4卡续跑；已独立核验6/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T07:20:57.369535+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -34336,14 +34452,19 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "1": 1,
+        "0": 3,
+        "3": 1,
+        "2": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34368,13 +34489,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 6,
+      "independently_verified": 6,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -34390,7 +34511,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -34404,8 +34525,29 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned-attach-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned-attach-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 35,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-attach-h8",
@@ -34422,21 +34564,21 @@
       "success": null,
       "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 4,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
-      "source": "reports/task10-placement-v11-20261103.json",
-      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:23:16.370647+00:00",
+      "status": "第8轮4卡续跑；已独立核验4/100，执行链按诊断口径推进",
+      "source": "reports/task10-r8-restore-20261104.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-r8-restore-20261104.html",
+      "updated_at": "2026-11-04T07:20:57.369535+00:00",
       "checkpoint_issue": 20,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
       "topology": {
         "num_envs_actual": 1,
-        "procs_per_gpu": null,
+        "procs_per_gpu": 10,
         "planned_procs_per_gpu": 10,
-        "gpu_type": "RTX PRO6000 Blackwell96GB",
-        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+        "gpu_type": "NVIDIA RTX PRO6000 96GB",
+        "source": "R8current N1x10; retained_pre_r8_topology preserves previous evidence"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -34445,14 +34587,18 @@
         "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
-      "mean_phase": null,
-      "phase_hist": {},
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "1": 2,
+        "2": 1,
+        "0": 1
+      },
       "wilson95": null,
       "admission": {
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34477,13 +34623,13 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
-      "known_terminal_count": 0,
-      "independently_verified": 0,
-      "expected_start": "平台续跑创建操作仍在处理中；保留原幂等键，不重复申请卡",
+      "known_terminal_count": 4,
+      "independently_verified": 4,
+      "expected_start": "已启动4卡任务job-s3xzsf7135of",
       "display_priority": 300,
       "lr_split": {
         "left": {
@@ -34499,7 +34645,7 @@
           "unknown": 0
         }
       },
-      "evaluation_started": false,
+      "evaluation_started": true,
       "seed_results": [
         {
           "seed": 0,
@@ -34513,8 +34659,29 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned-attach-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned-attach-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "新启动第8轮4卡低优续跑；completed仅含独立SHA/tick/物理验收通过的终态。正式success保持null，完整native120参考和执行链实测误差准入尚待完成。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795",
+      "retained_pre_r8_topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "r8_resume": {
+        "job_id": "job-s3xzsf7135of",
+        "GPU_count": 4,
+        "N1_procs_per_gpu": 10,
+        "configured_max": 40,
+        "actual_active_at_snapshot": 35,
+        "source_report": "reports/task10-r8-restore-20261104.json",
+        "execution_admission": "diagnostic command-targetRMSE+v1.1 success; dense native120Hz pending"
+      }
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned_weak-off-h4",
@@ -34536,7 +34703,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -34567,7 +34734,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34595,8 +34762,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -34631,8 +34798,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-off-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-off-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成；#26另缺weak sidecar软门槛",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned_weak-off-h8",
@@ -34654,7 +34826,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -34687,7 +34859,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34715,8 +34887,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -34751,8 +34923,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-off-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-off-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成；#26另缺weak sidecar软门槛",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned_weak-attach-h4",
@@ -34774,7 +34951,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -34806,7 +34983,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34834,8 +35011,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -34870,8 +35047,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h4",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成；#26另缺weak sidecar软门槛",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned_weak-attach-h8",
@@ -34893,7 +35075,7 @@
       "status": "CPU重算完成；v1.1专家与执行链准入待完成",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-      "updated_at": "2026-11-03T21:47:14.614991+00:00",
+      "updated_at": "2026-11-03T23:58:44.555277+00:00",
       "checkpoint_issue": 26,
       "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
       "protocol": "placement-v1.1；XY25mm、竖轴余弦≥0.97、无任何Robot接触、目标支撑或静置高度±5mm、连续30tick；保留有序lift/称量与60°倾倒失败，结束时五杯均回原位。CPU重算不代表执行链已获准入。",
@@ -34925,7 +35107,7 @@
         "expert_replay": {
           "passed": false,
           "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "new placement expert replay and real negative-video validation pending"
+          "status": "forward5/reverse5 endpoint expert10/10 passed; real negative-video validation pending"
         },
         "render_multiframe": {
           "passed": true,
@@ -34953,8 +35135,8 @@
         },
         "executor_parity": {
           "passed": false,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
-          "status": "pending 10 loader-endpoint vs native 120Hz paired replays"
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-execution-chain-20261103.html",
+          "status": "20 expert replays independently audited; endpoint10/10; measured13-jointRMSE exceeds0.005rad; complete native120Hz reference unavailable"
         }
       },
       "known_terminal_count": 100,
@@ -34989,8 +35171,13 @@
       "oracle_version": "placement-v1.1",
       "source_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-ours_aligned_weak-attach-h8",
-      "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成；#26另缺weak sidecar软门槛",
-      "expected_start_at": null
+      "pending_reason": "端点专家10/10；实测13维关节RMSE与完整native120参考、真实负例视频准入未通过",
+      "expected_start_at": null,
+      "formal_score_eligible": false,
+      "oracle_source_sha256": "b1d3aeb5406c006d7641c851b0f83e921dc92b53400ba5c199ed0c9b1600c121",
+      "result_label": "SafeLab-Eval-v1.1 · 待执行链准入",
+      "note": "CPU已核验100条终态；初始已在目标的边界保护通过正反序与1047条全量回归。实测关节执行链及真实负例视频验收尚未完成，当前正式成功数为null。",
+      "rescore_source_sha256": "aacde127623496c1277d9021e8e5cd359a5cda6469d753cd6be9d9d700d27795"
     },
     {
       "id": "t1035-r6b-mem0_v13-smoke-h8",

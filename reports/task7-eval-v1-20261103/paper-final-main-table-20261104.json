@@ -1,0 +1,1137 @@
+{
+  "schema": "task7_paper_two_main_cells_final_delivery.v1",
+  "epoch": 1793832400.41059,
+  "protocol_version": "SafeLab-Eval-v1.1",
+  "stage": "A",
+  "seed_index": 0,
+  "cohort": "A739",
+  "scene_list_hash": "f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+  "condition": "original contact; world0/jitter0; same K-cubic execution; training tensor bilinear antialias",
+  "topology": {
+    "num_envs_actual": 1,
+    "processes_per_GPU": 4,
+    "GPU_model": "Pro6000",
+    "current_running_GPUs": 0
+  },
+  "rows": [
+    {
+      "record": 39,
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "n": 100,
+      "valid_n": 100,
+      "success": 5,
+      "failure": 95,
+      "unknown": 0,
+      "strict": {
+        "success": 0,
+        "failure": 95,
+        "unknown": 5,
+        "censored": 5
+      },
+      "FD": {
+        "success": 0,
+        "failure": 95,
+        "unknown": 5,
+        "censored": 5
+      },
+      "placement_rate": 0.05,
+      "placement_bootstrap_CI95": [
+        0.01,
+        0.09
+      ],
+      "placement_Wilson_CI95": [
+        0.02154367915436796,
+        0.11175046923191913
+      ],
+      "phase": {
+        "N": 100,
+        "definition": "Canonical placement-v1.1 attained phase, reach>=j; not historical Gen labels",
+        "hist": {
+          "0": 10,
+          "1": 32,
+          "2": 27,
+          "3": 5,
+          "4": 9,
+          "5": 6,
+          "6": 6,
+          "7": 5
+        },
+        "mean": 2.38,
+        "mean_bootstrap_CI95": [
+          2.01,
+          2.77
+        ],
+        "reach_ge": {
+          "0": 100,
+          "1": 90,
+          "2": 58,
+          "3": 31,
+          "4": 26,
+          "5": 17,
+          "6": 11,
+          "7": 5
+        },
+        "sum": 238,
+        "unknown": 0
+      },
+      "by_order": {
+        "1234": {
+          "N": 50,
+          "label": "正序",
+          "scores": {
+            "FD": {
+              "F": 47,
+              "N": 50,
+              "S": 0,
+              "censored": 3,
+              "complete_verdict_success_rate": null,
+              "unknown": 3
+            },
+            "placement": {
+              "F": 47,
+              "N": 50,
+              "S": 3,
+              "censored": 0,
+              "complete_verdict_success_rate": 0.06,
+              "unknown": 0
+            },
+            "strict": {
+              "F": 47,
+              "N": 50,
+              "S": 0,
+              "censored": 3,
+              "complete_verdict_success_rate": null,
+              "unknown": 3
+            }
+          },
+          "v11_phase_hist": {
+            "0": 9,
+            "1": 9,
+            "2": 17,
+            "3": 3,
+            "4": 5,
+            "5": 3,
+            "6": 1,
+            "7": 3
+          },
+          "v11_phase_mean": 2.28
+        },
+        "4321": {
+          "N": 50,
+          "label": "逆序",
+          "scores": {
+            "FD": {
+              "F": 48,
+              "N": 50,
+              "S": 0,
+              "censored": 2,
+              "complete_verdict_success_rate": null,
+              "unknown": 2
+            },
+            "placement": {
+              "F": 48,
+              "N": 50,
+              "S": 2,
+              "censored": 0,
+              "complete_verdict_success_rate": 0.04,
+              "unknown": 0
+            },
+            "strict": {
+              "F": 48,
+              "N": 50,
+              "S": 0,
+              "censored": 2,
+              "complete_verdict_success_rate": null,
+              "unknown": 2
+            }
+          },
+          "v11_phase_hist": {
+            "0": 1,
+            "1": 23,
+            "2": 10,
+            "3": 2,
+            "4": 4,
+            "5": 3,
+            "6": 5,
+            "7": 2
+          },
+          "v11_phase_mean": 2.48
+        }
+      },
+      "sensitivity": {
+        "inclusive_ever_unknown_as_failure": {
+          "CI95": [
+            0.0,
+            0.07
+          ],
+          "S": 3,
+          "mask_n": 33,
+          "rate": 0.03
+        },
+        "runtime_only": {
+          "CI95": [
+            0.01,
+            0.08
+          ],
+          "S": 4,
+          "mask_n": 17,
+          "rate": 0.04
+        },
+        "runtime_startup_overlap_n": 0,
+        "startup_abort_unique_mask_n": 16
+      }
+    },
+    {
+      "record": 41,
+      "method": "TTC aligned loss (G8 Gen/Planner, training resize)",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "n": 100,
+      "valid_n": 99,
+      "success": 7,
+      "failure": 92,
+      "unknown": 1,
+      "strict": {
+        "success": 0,
+        "failure": 92,
+        "unknown": 8,
+        "censored": 7
+      },
+      "FD": {
+        "success": 0,
+        "failure": 92,
+        "unknown": 8,
+        "censored": 7
+      },
+      "placement_rate": 0.07,
+      "placement_bootstrap_CI95": [
+        0.03,
+        0.12
+      ],
+      "placement_Wilson_CI95": [
+        0.03431926106727268,
+        0.137495147390735
+      ],
+      "phase": {
+        "CI95": [
+          2.323232323232323,
+          3.0606060606060606
+        ],
+        "by_order_known_n": {
+          "1234": 50,
+          "4321": 49
+        },
+        "hist": {
+          "0": 13,
+          "1": 30,
+          "2": 14,
+          "3": 7,
+          "4": 6,
+          "5": 18,
+          "6": 4,
+          "7": 7
+        },
+        "known_n": 99,
+        "mean": 2.686868686868687,
+        "reach_ge_known_only": {
+          "0": 99,
+          "1": 86,
+          "2": 56,
+          "3": 42,
+          "4": 35,
+          "5": 29,
+          "6": 11,
+          "7": 7
+        },
+        "unknown_n": 1
+      },
+      "by_order": {
+        "1234": {
+          "trials": 50,
+          "success": 2,
+          "failure": 48,
+          "unknown": 0,
+          "mean_phase": 1.58,
+          "phase_n": 50
+        },
+        "4321": {
+          "trials": 50,
+          "success": 5,
+          "failure": 44,
+          "unknown": 1,
+          "mean_phase": 3.816326530612245,
+          "phase_n": 49
+        }
+      },
+      "sensitivity": {
+        "runtime": {
+          "S": 5,
+          "bootstrap_CI95": [
+            0.01,
+            0.1
+          ],
+          "denominator": 100,
+          "not_a_reclassification_of_physical_verdict": true,
+          "rate": 0.05
+        },
+        "inclusive": {
+          "S": 4,
+          "bootstrap_CI95": [
+            0.01,
+            0.08
+          ],
+          "denominator": 100,
+          "not_a_reclassification_of_physical_verdict": true,
+          "rate": 0.04
+        },
+        "counts": {
+          "runtime_mask_n": 31,
+          "startup_mask_n": 32,
+          "runtime_startup_overlap_n": 16,
+          "inclusive_union_n": 47
+        }
+      }
+    }
+  ],
+  "paired_phase": {
+    "by_order_paired_n": {
+      "1234": 50,
+      "4321": 49
+    },
+    "conditional_paired_bootstrap_CI95": [
+      -0.24242424242424243,
+      0.8484848484848485
+    ],
+    "mean_TTC_minus_Mem0_phase_known_pairs_only": 0.30303030303030304,
+    "original_expected_pairs": 100,
+    "paired_n": 99,
+    "pairs": [
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 3,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r000",
+        "seed": 739000
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r001",
+        "seed": 739001
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r002",
+        "seed": 739002
+      },
+      {
+        "Mem0_phase": 7,
+        "TTC_minus_Mem0_phase": -7,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r003",
+        "seed": 739003
+      },
+      {
+        "Mem0_phase": 5,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 2,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r004",
+        "seed": 739004
+      },
+      {
+        "Mem0_phase": 6,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 5,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r005",
+        "seed": 739005
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r006",
+        "seed": 739006
+      },
+      {
+        "Mem0_phase": 3,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 7,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r007",
+        "seed": 739007
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r008",
+        "seed": 739008
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r009",
+        "seed": 739009
+      },
+      {
+        "Mem0_phase": 3,
+        "TTC_minus_Mem0_phase": -2,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r010",
+        "seed": 739010
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r011",
+        "seed": 739011
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r012",
+        "seed": 739012
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r013",
+        "seed": 739013
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -2,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r014",
+        "seed": 739014
+      },
+      {
+        "Mem0_phase": 3,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r015",
+        "seed": 739015
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r016",
+        "seed": 739016
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r017",
+        "seed": 739017
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 3,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r018",
+        "seed": 739018
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r019",
+        "seed": 739019
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r020",
+        "seed": 739020
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r021",
+        "seed": 739021
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r022",
+        "seed": 739022
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 7,
+        "TTC_phase": 7,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r023",
+        "seed": 739023
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 6,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r024",
+        "seed": 739024
+      },
+      {
+        "Mem0_phase": 5,
+        "TTC_minus_Mem0_phase": -4,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r025",
+        "seed": 739025
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r026",
+        "seed": 739026
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r027",
+        "seed": 739027
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r028",
+        "seed": 739028
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 3,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r029",
+        "seed": 739029
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -2,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r030",
+        "seed": 739030
+      },
+      {
+        "Mem0_phase": 7,
+        "TTC_minus_Mem0_phase": -2,
+        "TTC_phase": 5,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r031",
+        "seed": 739031
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 2,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r032",
+        "seed": 739032
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r033",
+        "seed": 739033
+      },
+      {
+        "Mem0_phase": 7,
+        "TTC_minus_Mem0_phase": -7,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r034",
+        "seed": 739034
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r035",
+        "seed": 739035
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -2,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r036",
+        "seed": 739036
+      },
+      {
+        "Mem0_phase": 5,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 5,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r037",
+        "seed": 739037
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r038",
+        "seed": 739038
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r039",
+        "seed": 739039
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r040",
+        "seed": 739040
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r041",
+        "seed": 739041
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r042",
+        "seed": 739042
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r043",
+        "seed": 739043
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r044",
+        "seed": 739044
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r045",
+        "seed": 739045
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 1,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r046",
+        "seed": 739046
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 2,
+        "TTC_phase": 4,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r047",
+        "seed": 739047
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 3,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r048",
+        "seed": 739048
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 0,
+        "order": "1234",
+        "scenario_id": "v180_o1234_r049",
+        "seed": 739049
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 5,
+        "TTC_phase": 6,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r000",
+        "seed": 739050
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 2,
+        "TTC_phase": 4,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r001",
+        "seed": 739051
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 2,
+        "TTC_phase": 3,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r002",
+        "seed": 739052
+      },
+      {
+        "Mem0_phase": 5,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r003",
+        "seed": 739053
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 2,
+        "TTC_phase": 3,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r004",
+        "seed": 739054
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r005",
+        "seed": 739055
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r006",
+        "seed": 739056
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 1,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r007",
+        "seed": 739057
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 6,
+        "TTC_phase": 7,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r008",
+        "seed": 739058
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r009",
+        "seed": 739059
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 1,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r010",
+        "seed": 739060
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r011",
+        "seed": 739061
+      },
+      {
+        "Mem0_phase": 6,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r012",
+        "seed": 739062
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 1,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r013",
+        "seed": 739063
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r014",
+        "seed": 739064
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": null,
+        "TTC_phase": null,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r015",
+        "seed": 739065
+      },
+      {
+        "Mem0_phase": 7,
+        "TTC_minus_Mem0_phase": -5,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r016",
+        "seed": 739066
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r017",
+        "seed": 739067
+      },
+      {
+        "Mem0_phase": 3,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r018",
+        "seed": 739068
+      },
+      {
+        "Mem0_phase": 7,
+        "TTC_minus_Mem0_phase": -5,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r019",
+        "seed": 739069
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r020",
+        "seed": 739070
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r021",
+        "seed": 739071
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 1,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r022",
+        "seed": 739072
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r023",
+        "seed": 739073
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 5,
+        "TTC_phase": 6,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r024",
+        "seed": 739074
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 4,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r025",
+        "seed": 739075
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r026",
+        "seed": 739076
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r027",
+        "seed": 739077
+      },
+      {
+        "Mem0_phase": 3,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 6,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r028",
+        "seed": 739078
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 6,
+        "TTC_phase": 7,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r029",
+        "seed": 739079
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": -2,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r030",
+        "seed": 739080
+      },
+      {
+        "Mem0_phase": 6,
+        "TTC_minus_Mem0_phase": -4,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r031",
+        "seed": 739081
+      },
+      {
+        "Mem0_phase": 6,
+        "TTC_minus_Mem0_phase": -5,
+        "TTC_phase": 1,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r032",
+        "seed": 739082
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r033",
+        "seed": 739083
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 6,
+        "TTC_phase": 7,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r034",
+        "seed": 739084
+      },
+      {
+        "Mem0_phase": 5,
+        "TTC_minus_Mem0_phase": -1,
+        "TTC_phase": 4,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r035",
+        "seed": 739085
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r036",
+        "seed": 739086
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r037",
+        "seed": 739087
+      },
+      {
+        "Mem0_phase": 4,
+        "TTC_minus_Mem0_phase": 0,
+        "TTC_phase": 4,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r038",
+        "seed": 739088
+      },
+      {
+        "Mem0_phase": 6,
+        "TTC_minus_Mem0_phase": -3,
+        "TTC_phase": 3,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r039",
+        "seed": 739089
+      },
+      {
+        "Mem0_phase": 6,
+        "TTC_minus_Mem0_phase": -5,
+        "TTC_phase": 1,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r040",
+        "seed": 739090
+      },
+      {
+        "Mem0_phase": 0,
+        "TTC_minus_Mem0_phase": 5,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r041",
+        "seed": 739091
+      },
+      {
+        "Mem0_phase": 5,
+        "TTC_minus_Mem0_phase": 2,
+        "TTC_phase": 7,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r042",
+        "seed": 739092
+      },
+      {
+        "Mem0_phase": 2,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r043",
+        "seed": 739093
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r044",
+        "seed": 739094
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r045",
+        "seed": 739095
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 1,
+        "TTC_phase": 2,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r046",
+        "seed": 739096
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 6,
+        "TTC_phase": 7,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r047",
+        "seed": 739097
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 3,
+        "TTC_phase": 4,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r048",
+        "seed": 739098
+      },
+      {
+        "Mem0_phase": 1,
+        "TTC_minus_Mem0_phase": 4,
+        "TTC_phase": 5,
+        "order": "4321",
+        "scenario_id": "v180_o4321_r049",
+        "seed": 739099
+      }
+    ],
+    "schema": "task7_complete100_known_phase_pair_difference.v1",
+    "unknown_n": 1,
+    "unknown_pair_delta_not_imputed": true
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20261104,
+    "CI": "95% percentile, stratified positive/reverse; phase/pairs only known values"
+  },
+  "counts_scope": "100 final scenarios each; strict and FD positive placement exits remain censored; infrastructure unknown remains denominator100; unknown phases never0",
+  "admission_status": "both_exact_paper_scopes_accepted_with_recorded_limitations",
+  "source_files": [
+    {
+      "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/paper_sprint_mem0_final_delivery_2110_v1/MEM0_FINAL_DELIVERY.json",
+      "sha256": "bc5383270e365083e61d46467e8ecef3a523ea728eddbc41e19e5e5cd13161c1"
+    },
+    {
+      "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/paper_sprint_final_table_v1/BOTH_FINAL_2110_20261104/TTC_FINAL_METRICS_AND_PAIRED.json",
+      "sha256": "1650be4ffa8acbeb472af8bed3cbbb54443d704ece3f5f2163c579d51e25b2d3"
+    }
+  ],
+  "TTC_root_adjudication": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/paper_sprint_final_table_v1/BOTH_FINAL_2110_20261104/ROOT_TTC_ADMISSION_ADJUDICATION.json",
+    "sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f"
+  }
+}

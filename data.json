@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T10:49:38.876455Z",
+  "updated_at": "2026-11-04T22:52:28.702354+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -37304,55 +37304,75 @@
       "condition_version": "original-v1",
       "kind": "自主闭环",
       "metric_role": "original",
-      "status": "admission_pending",
-      "success": null,
-      "trials": 0,
+      "status": "completed",
+      "success": 5,
+      "trials": 100,
       "unknown": 0,
-      "completed": 0,
+      "completed": 100,
       "target": 100,
       "planned_trials": 100,
       "provisional_successes": null,
-      "final_verified": false,
+      "final_verified": true,
       "seed_results": [
         {
           "seed": 0,
           "inference_master_seed": 739000,
-          "trials": 0,
-          "completed": 0,
-          "success": null,
+          "trials": 100,
+          "completed": 100,
+          "success": 5,
+          "failure": 95,
           "unknown": 0
         }
       ],
       "lr_split": {
         "left": {
           "label": "order1234",
-          "trials": 0,
-          "success": null,
+          "order_meaning": "正序",
+          "trials": 50,
+          "success": 3,
+          "failure": 47,
           "unknown": 0,
-          "planned_trials": 50
+          "mean_phase": 2.28,
+          "phase_n": 50
         },
         "right": {
           "label": "order4321",
-          "trials": 0,
-          "success": null,
+          "order_meaning": "逆序",
+          "trials": 50,
+          "success": 2,
+          "failure": 48,
           "unknown": 0,
-          "planned_trials": 50
+          "mean_phase": 2.48,
+          "phase_n": 50
         }
       },
-      "mean_phase": null,
-      "phase_hist": {},
-      "phase_mean_denominator": 0,
-      "wilson95": null,
+      "mean_phase": 2.38,
+      "phase_hist": {
+        "0": 10,
+        "1": 32,
+        "2": 27,
+        "3": 5,
+        "4": 9,
+        "5": 6,
+        "6": 6,
+        "7": 5
+      },
+      "phase_mean_denominator": 100,
+      "wilson95": {
+        "low": 0.02154367915436796,
+        "high": 0.11175046923191913,
+        "confidence": 0.95
+      },
       "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
       "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
       "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
       "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
         "gpu_type": "Pro6000",
-        "required_num_envs_actual": 1,
-        "status": "planned N1×k; v1.1 evaluation not started",
-        "actual_Apps": 0
+        "status": "completed N1×4 independent physical processes; serial private Policy lanes",
+        "actual_Apps": 0,
+        "current_GPUs": 0
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -37373,6 +37393,165 @@
         "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
       },
       "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "accepted_exact_paper_scope",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "negative_video_component": {
+            "passed": true,
+            "windows": 30,
+            "episodes_per_category": {
+              "held": 10,
+              "tilted": 7,
+              "outside_XY": 3
+            },
+            "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
+            "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
+            "does_not_grant_overall_expert_pass": true
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-mem0-admission-review-20261104.json",
+          "evidence_sha256": "990debf59140f9be9d8142b10c5621b9a0539d4b3aae38712a0c971cc44674a1",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true,
+          "exact_scope": "#39/30000/h8/A739/original-contact/world0/N1x4"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "accepted_exact_paper_scope",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "soft",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-mem0-admission-review-20261104.json",
+          "evidence_sha256": "990debf59140f9be9d8142b10c5621b9a0539d4b3aae38712a0c971cc44674a1",
+          "reference_variant": "mem0_30k",
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "queries": 210,
+          "RMSE_rad": 0.01984587776905564,
+          "ratio_to_reference": 1.0,
+          "exact_scope": "#39/30000/h8/A739/original-contact/world0/N1x4",
+          "limit": 1.5,
+          "historical_training_shuffle_reproduced": false
+        },
+        "render_multiframe": {
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-mem0-admission-review-20261104.json",
+          "evidence_sha256": "990debf59140f9be9d8142b10c5621b9a0539d4b3aae38712a0c971cc44674a1",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true,
+          "exact_scope": "#39/30000/h8/A739/original-contact/world0/N1x4"
+        },
+        "smoke20": {
+          "passed": true,
+          "status": "passed_same_identity_A739_balanced20_no_extra_trials",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-mem0-admission-review-20261104.json",
+          "evidence_sha256": "990debf59140f9be9d8142b10c5621b9a0539d4b3aae38712a0c971cc44674a1",
+          "exact_scope": "#39/30000/h8/A739/original-contact/world0/N1x4",
+          "trials": 20,
+          "valid": 20,
+          "unknown": 0,
+          "order_split": {
+            "1234": 10,
+            "4321": 10
+          },
+          "phase0": 1,
+          "duplicate_A_trials_added": 0
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "accepted_latest_physical_native_minus1_rule_exact_paper_scope",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-mem0-admission-review-20261104.json",
+          "evidence_sha256": "990debf59140f9be9d8142b10c5621b9a0539d4b3aae38712a0c971cc44674a1",
+          "complete10": true,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "exact_scope": "#39/30000/h8/A739/original-contact/world0/N1x4",
+          "acceptance_rule": "endpoint_successes >= native_successes - 1",
+          "trials": 10,
+          "historical_q13_RMSE_rad": 0.007269026025248203,
+          "historical_q13_limit_rad": 0.005,
+          "historical_RMSE_passed": false,
+          "current_rule_does_not_rewrite_historical_RMSE": true
+        }
+      },
+      "protocol": "SafeLab-Eval-v1.1 Stage A，原始接触/world0/jitter0/chest，训练tensor bilinear+AA，30k/h8，A739原100场景和原seed0（739000系），正序1234/逆序4321各50，非随机位置泛化。每split前10条为同identity冒烟并只计一次A；主值采用首个有效闭合，一次基础设施重试保留ever-unknown。100条final已齐，unknown仍在100分母，阶段只对valid均值；strict/FD删失不写成完整已知0%SR。负责人按最新物理K9>=Native10−1规则仅接受此论文范围，旧RMSE>.005=false及渲染非像素一致边界保留。",
+      "source": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html",
+      "report_url": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html",
+      "updated_at": "2026-11-04T22:52:28.702354+00:00",
+      "variant": "mem0_30k",
+      "handoff_issue": 39,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/39",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
+      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
+      "pending_reason": null,
+      "expected_start_conditions": [],
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "mem0_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "applicable": false,
+        "completion": "native classifier+next planner",
+        "scope": "Mem0 executor resize includes action/native classifier; Planner original RGB path"
+      },
+      "completion_source_audit": {
+        "online_switch": "native classifier+next planner",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": null,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "oracle_version": "placement-v1.1",
+      "paired_evaluation_id": "task7-eval-v1-A-original-mem0_30k-h8",
+      "evaluation_started": true,
+      "prior_admission_snapshot": {
         "expert_replay": {
           "passed": true,
           "status": "passed_placement_oracle_validation_component",
@@ -37458,63 +37637,85 @@
           "all_10_pair_RMSE_failed": true
         }
       },
-      "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
-      "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T03:17:04.874638+00:00",
-      "variant": "mem0_30k",
-      "handoff_issue": null,
-      "handoff_url": null,
-      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_7_weigh_4beakers_v180/mem0/weights/executor_step30000.pt",
-      "delivery_document": "/home/dataset-assist-0/wangpeishuo/safelab_docs/inference/psibot_7_weigh_4beakers_v180/mem0/FINAL_DELIVERY.md",
-      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
-      "expected_start_conditions": [
-        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
-        "该配置左右各10条h8真实闭环冒烟通过",
-        "本模型开环软准入和所有独立组件最终核对"
+      "failure": 95,
+      "valid_trials": 100,
+      "phase_mean_bootstrap95": [
+        2.01,
+        2.77
       ],
-      "expected_start_at": null,
-      "legacy_metrics_reused": false,
-      "attach_results_reused": false,
-      "performance_observation": {
-        "mean_GPU_utilization_10min": null,
-        "mean_VRAM_utilization_10min": null,
-        "actual_GPUs": 0,
-        "scope": "this new v1 campaign only"
+      "success_bootstrap95": [
+        0.01,
+        0.09
+      ],
+      "unknown_reasons": {},
+      "paper_final_result": true,
+      "paper_cohort": "A739",
+      "runtime_variant": "mem0_30k",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "oracle_comparison": {
+        "strict": {
+          "success": 0,
+          "failure": 95,
+          "unknown": 5,
+          "censored": 5
+        },
+        "strict_fdvel": {
+          "success": 0,
+          "failure": 95,
+          "unknown": 5,
+          "censored": 5
+        },
+        "complete_verdict_success_rate": null,
+        "censored_not_physical_failure": true
       },
-      "owner": "T-939 七任务评测",
-      "input_source_audit": {
-        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
-        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
-        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
-        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
-        "model_key": "mem0_30k",
-        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
-        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
-        "same_runtime_CPU_resize_max_difference": 0,
-        "test_input_count": 5,
-        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
-        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
-        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
-        "cross_version_bitwise_verified": false,
-        "full_video_decoder_Qwen_tensor_or_render_verified": false,
-        "GPU_model_or_simulator_calls": false,
-        "hard_admission_passed_by_this_audit": false
+      "sensitivity": {
+        "inclusive_ever_unknown_as_failure": {
+          "CI95": [
+            0.0,
+            0.07
+          ],
+          "S": 3,
+          "mask_n": 33,
+          "rate": 0.03
+        },
+        "runtime_only": {
+          "CI95": [
+            0.01,
+            0.08
+          ],
+          "S": 4,
+          "mask_n": 17,
+          "rate": 0.04
+        },
+        "runtime_startup_overlap_n": 0,
+        "startup_abort_unique_mask_n": 16
       },
-      "gen_preprocess": {
-        "applicable": false,
-        "completion": "native classifier+next planner",
-        "scope": "Mem0 executor resize includes action/native classifier; Planner original RGB path"
+      "root_admission_review": {
+        "file": "reports/task7-eval-v1-20261103/paper-final-mem0-admission-review-20261104.json",
+        "sha256": "990debf59140f9be9d8142b10c5621b9a0539d4b3aae38712a0c971cc44674a1",
+        "bytes": 5744
       },
-      "completion_source_audit": {
-        "online_switch": "native classifier+next planner",
-        "native_classifier_trained": true,
-        "native_classifier_tensor_count": null,
-        "online_Gen_threshold_patch_installed": false
+      "final_report": {
+        "file": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.json",
+        "sha256": "f94c4beed1895721a0523f4b4a0ffcec551f84759d1a161a7a10848ecf24462f",
+        "bytes": 27618
       },
-      "oracle_version": "placement-v1.1",
-      "paired_evaluation_id": "task7-eval-v1-A-original-mem0_30k-h8",
-      "evaluation_started": false
+      "phase_comparison_evaluation_id": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8",
+      "execution_chain": {
+        "name": "K-cubic",
+        "position_kernel_sha256": "d997bd8f58897f7ce6d0f8d4cea62eb9c5c014f60ef132189979c4f85e4db83d",
+        "historical_q13_RMSE_rad": 0.007269026025248203,
+        "historical_q13_RMSE_limit_rad": 0.005,
+        "historical_RMSE_passed": false,
+        "current_acceptance": "latest_user_physical_endpoint_successes_ge_native_minus1",
+        "native_successes": 10,
+        "endpoint_successes": 9
+      }
     },
     {
       "id": "task7-eval-v11-A-original-ttc_base_trainresize_30k-h4",
@@ -38260,55 +38461,75 @@
       "condition_version": "original-v1",
       "kind": "自主闭环",
       "metric_role": "original",
-      "status": "admission_pending",
-      "success": null,
-      "trials": 0,
-      "unknown": 0,
-      "completed": 0,
+      "status": "completed",
+      "success": 7,
+      "trials": 100,
+      "unknown": 1,
+      "completed": 100,
       "target": 100,
       "planned_trials": 100,
       "provisional_successes": null,
-      "final_verified": false,
+      "final_verified": true,
       "seed_results": [
         {
           "seed": 0,
           "inference_master_seed": 739000,
-          "trials": 0,
-          "completed": 0,
-          "success": null,
-          "unknown": 0
+          "trials": 100,
+          "completed": 100,
+          "success": 7,
+          "failure": 92,
+          "unknown": 1
         }
       ],
       "lr_split": {
         "left": {
           "label": "order1234",
-          "trials": 0,
-          "success": null,
+          "order_meaning": "正序",
+          "trials": 50,
+          "success": 2,
+          "failure": 48,
           "unknown": 0,
-          "planned_trials": 50
+          "mean_phase": 1.58,
+          "phase_n": 50
         },
         "right": {
           "label": "order4321",
-          "trials": 0,
-          "success": null,
-          "unknown": 0,
-          "planned_trials": 50
+          "order_meaning": "逆序",
+          "trials": 50,
+          "success": 5,
+          "failure": 44,
+          "unknown": 1,
+          "mean_phase": 3.816326530612245,
+          "phase_n": 49
         }
       },
-      "mean_phase": null,
-      "phase_hist": {},
-      "phase_mean_denominator": 0,
-      "wilson95": null,
+      "mean_phase": 2.686868686868687,
+      "phase_hist": {
+        "0": 13,
+        "1": 30,
+        "2": 14,
+        "3": 7,
+        "4": 6,
+        "5": 18,
+        "6": 4,
+        "7": 7
+      },
+      "phase_mean_denominator": 99,
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
       "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
       "scene_list_status": "frozen model-independent fixedV180 scene-only100; not100 random layouts",
       "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
       "topology": {
-        "num_envs_actual": null,
-        "procs_per_gpu": null,
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
         "gpu_type": "Pro6000",
-        "required_num_envs_actual": 1,
-        "status": "planned N1×k; v1.1 evaluation not started",
-        "actual_Apps": 0
+        "status": "completed N1×4 independent physical processes; serial private Policy lanes",
+        "actual_Apps": 0,
+        "current_GPUs": 0
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -38329,6 +38550,177 @@
         "scope": "Actor current/initial/keyframe images; Gen unchanged"
       },
       "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "accepted_exact_paper_scope",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "negative_video_component": {
+            "passed": true,
+            "windows": 30,
+            "episodes_per_category": {
+              "held": 10,
+              "tilted": 7,
+              "outside_XY": 3
+            },
+            "report": "reports/task7-eval-v1-20261103/placement-negative-video-component.json",
+            "evidence_sha256": "0503b9a6f846dcf439682d5f2562169850baf29bde66b4251e863cedbca26683",
+            "does_not_grant_overall_expert_pass": true
+          },
+          "scope": "placement oracle expert/negative/initial component only",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-ttc-admission-review-20261104.json",
+          "evidence_sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f",
+          "native_expert_episodes": 10,
+          "does_not_grant_executor_or_StageA": true,
+          "exact_scope": "#41/30000/h8/A739/original-contact/world0/N1x4"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "accepted_exact_paper_scope",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "soft",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-ttc-admission-review-20261104.json",
+          "evidence_sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f",
+          "reference_variant": "mem0_30k",
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "queries": 210,
+          "RMSE_rad": 0.02045336901504605,
+          "ratio_to_reference": 1.030610449840502,
+          "exact_scope": "#41/30000/h8/A739/original-contact/world0/N1x4",
+          "limit": 1.5,
+          "historical_training_shuffle_reproduced": false
+        },
+        "render_multiframe": {
+          "passed": true,
+          "status": "required_multiframe_comparison_completed_residuals_retained",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "criterion_scope": "original Eval-v1 section2 required multiframe comparison procedure accepted by responsible maintainer",
+          "comparison_completed": true,
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-ttc-admission-review-20261104.json",
+          "evidence_sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f",
+          "bitwise_render_identity": false,
+          "full_pipeline_equivalence_proven": false,
+          "input_cause_of_low_SR_excluded": false,
+          "old_internal_1p0_false_preserved": true,
+          "exact_scope": "#41/30000/h8/A739/original-contact/world0/N1x4"
+        },
+        "smoke20": {
+          "passed": true,
+          "status": "passed_same_identity_A739_balanced20_no_extra_trials",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-ttc-admission-review-20261104.json",
+          "evidence_sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f",
+          "exact_scope": "#41/30000/h8/A739/original-contact/world0/N1x4",
+          "trials": 20,
+          "valid": 20,
+          "unknown": 0,
+          "order_split": {
+            "1234": 10,
+            "4321": 10
+          },
+          "phase0": 2,
+          "duplicate_A_trials_added": 0
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "accepted_latest_physical_native_minus1_rule_exact_paper_scope",
+          "report": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html#admission",
+          "gate_type": "hard",
+          "evidence_file": "reports/task7-eval-v1-20261103/paper-final-ttc-admission-review-20261104.json",
+          "evidence_sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f",
+          "complete10": true,
+          "complete_pairs": 10,
+          "native_successes": 10,
+          "endpoint_successes": 9,
+          "success_count_gate_passed": true,
+          "exact_scope": "#41/30000/h8/A739/original-contact/world0/N1x4",
+          "acceptance_rule": "endpoint_successes >= native_successes - 1",
+          "trials": 10,
+          "historical_q13_RMSE_rad": 0.007269026025248203,
+          "historical_q13_limit_rad": 0.005,
+          "historical_RMSE_passed": false,
+          "current_rule_does_not_rewrite_historical_RMSE": true
+        }
+      },
+      "protocol": "SafeLab-Eval-v1.1 Stage A，原始接触/world0/jitter0/chest，训练tensor bilinear+AA，30k/h8，A739原100场景和原seed0（739000系），正序1234/逆序4321各50，非随机位置泛化。每split前10条为同identity冒烟并只计一次A；主值采用首个有效闭合，一次基础设施重试保留ever-unknown。100条final已齐，unknown仍在100分母，阶段只对valid均值；strict/FD删失不写成完整已知0%SR。负责人按最新物理K9>=Native10−1规则仅接受此论文范围，旧RMSE>.005=false及渲染非像素一致边界保留。",
+      "source": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html",
+      "report_url": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.html",
+      "updated_at": "2026-11-04T22:52:28.702354+00:00",
+      "variant": "ttc_aligned_trainresize_30k",
+      "handoff_issue": 41,
+      "handoff_url": "https://github.com/asimfish/safelab-handoff/issues/41",
+      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
+      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
+      "pending_reason": null,
+      "expected_start_conditions": [],
+      "expected_start_at": null,
+      "legacy_metrics_reused": false,
+      "attach_results_reused": false,
+      "performance_observation": {
+        "mean_GPU_utilization_10min": null,
+        "mean_VRAM_utilization_10min": null,
+        "actual_GPUs": 0,
+        "scope": "this new v1 campaign only"
+      },
+      "classifier_online_status": "21-tensor head strictly loaded; delivered online switching remains Gen/Planner, not classifier authority; separate classifier-switch integration/admission required",
+      "owner": "T-939 七任务评测",
+      "input_source_audit": {
+        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
+        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
+        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
+        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
+        "model_key": "ours_aligned_30k",
+        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
+        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
+        "same_runtime_CPU_resize_max_difference": 0,
+        "test_input_count": 5,
+        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
+        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
+        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
+        "cross_version_bitwise_verified": false,
+        "full_video_decoder_Qwen_tensor_or_render_verified": false,
+        "GPU_model_or_simulator_calls": false,
+        "hard_admission_passed_by_this_audit": false
+      },
+      "gen_preprocess": {
+        "implementation": "PIL",
+        "mode": "bilinear",
+        "size": [
+          224,
+          224
+        ],
+        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
+        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
+        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
+        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
+        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
+        "state": "raw measured q13, float32 clone; no executor minmax",
+        "candidate_unchanged": true
+      },
+      "completion_source_audit": {
+        "online_switch": "external Gen+next/DAG planners",
+        "native_classifier_trained": true,
+        "native_classifier_tensor_count": 21,
+        "online_Gen_threshold_patch_installed": false
+      },
+      "oracle_version": "placement-v1.1",
+      "paired_evaluation_id": "task7-eval-v1-A-original-ttc_aligned_trainresize_30k-h8",
+      "evaluation_started": true,
+      "prior_admission_snapshot": {
         "expert_replay": {
           "passed": true,
           "status": "passed_placement_oracle_validation_component",
@@ -38414,75 +38806,93 @@
           "all_10_pair_RMSE_failed": true
         }
       },
-      "protocol": "SafeLab-Eval-v1.1待测登记：seed0，同一冻结100场景，正反顺序各50交错；h4/h8、原接触、chest训练侧缩放。放置判定及interval_end全关节线性插值执行链必须先验收，旧strict-v1诊断和历史分数不改协议、不计本行。target100是计划，completed0、success=null、尚未开始。",
-      "source": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "report_url": "reports/task7-eval-v1-20261103/placement-v11-pending.html",
-      "updated_at": "2026-11-04T03:17:04.874638+00:00",
-      "variant": "ttc_aligned_trainresize_30k",
-      "handoff_issue": null,
-      "handoff_url": null,
-      "checkpoint_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_models/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/executor_step30000.pt",
-      "delivery_document": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_docs/inference/psibot_7_weigh_4beakers_v180/ours/chest_aligned_loss/START_HERE.md",
-      "pending_reason": "placement oracle专家/负例/初始检查及原标准多帧比较程序组件已接受；执行链10/10对q13 RMSE均超过0.005rad（总0.03417495），新版20条冒烟未开，正式A未获准。",
-      "expected_start_conditions": [
-        "修复并重新验收10对原15Hz至120Hz执行链差分门槛",
-        "该配置左右各10条h8真实闭环冒烟通过",
-        "本模型开环软准入和所有独立组件最终核对"
+      "failure": 92,
+      "valid_trials": 99,
+      "phase_mean_bootstrap95": [
+        2.323232323232323,
+        3.0606060606060606
       ],
-      "expected_start_at": null,
-      "legacy_metrics_reused": false,
-      "attach_results_reused": false,
-      "performance_observation": {
-        "mean_GPU_utilization_10min": null,
-        "mean_VRAM_utilization_10min": null,
-        "actual_GPUs": 0,
-        "scope": "this new v1 campaign only"
+      "success_bootstrap95": [
+        0.03,
+        0.12
+      ],
+      "unknown_reasons": {
+        "infrastructure": 1
       },
-      "classifier_online_status": "21-tensor head strictly loaded; delivered online switching remains Gen/Planner, not classifier authority; separate classifier-switch integration/admission required",
-      "owner": "T-939 七任务评测",
-      "input_source_audit": {
-        "source_audit_file": "reports/task7-eval-v1-20261103/five-model-input-audit.json",
-        "source_audit_sha256": "746e568d06aa6ebc39fe980b0cca7d8a21d346c4eef35cbd27400d97f4d462cb",
-        "CPU_parity_file": "reports/task7-eval-v1-20261103/training-resize-cpu-parity.json",
-        "CPU_parity_sha256": "3a9ee881b72b49c879ad423c0468aac40eaeba6b5cb6d501d18ed0187460e826",
-        "model_key": "ours_aligned_30k",
-        "candidate_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_model_inputs/training_resize.py",
-        "candidate_source_sha256": "831bcccdc93bd9d8efa4b86bed6642469df3a05199d34d0ab778c52f3f223a18",
-        "same_runtime_CPU_resize_max_difference": 0,
-        "test_input_count": 5,
-        "test_input_scope": "1 recorded chest frame,3 deterministic synthetic RGB inputs,1 already224 input; one shared identical training constructor, not5 model inference or5 training episodes",
-        "tested_runtime": "Torch2.7.1/torchvision0.22.1/NumPy2.2.6",
-        "training_reference_runtime": "Torch2.6.0 as delivered inventory",
-        "cross_version_bitwise_verified": false,
-        "full_video_decoder_Qwen_tensor_or_render_verified": false,
-        "GPU_model_or_simulator_calls": false,
-        "hard_admission_passed_by_this_audit": false
+      "paper_final_result": true,
+      "paper_cohort": "A739",
+      "runtime_variant": "ours_aligned_30k",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "oracle_comparison": {
+        "strict": {
+          "success": 0,
+          "failure": 92,
+          "unknown": 8,
+          "censored": 7
+        },
+        "strict_fdvel": {
+          "success": 0,
+          "failure": 92,
+          "unknown": 8,
+          "censored": 7
+        },
+        "complete_verdict_success_rate": null,
+        "censored_not_physical_failure": true
       },
-      "gen_preprocess": {
-        "implementation": "PIL",
-        "mode": "bilinear",
-        "size": [
-          224,
-          224
-        ],
-        "antialias_parameter": "not separately specified by PIL resize; not torchvision tensor AA",
-        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/keymem/safelab_gen21_311_models.py",
-        "source_sha256": "79e4c0184c8b4af147ebb94d234429c6eb875d908b9c406599fcbf7276bf168b",
-        "training_and_online_same_function": "keymem.safelab_gen21_311_models._preprocess_image",
-        "training_video_decode": "PyAV rawRGB->lossless PNG, no pre-resize",
-        "normalization": "float32/255 then ImageNet mean(.485,.456,.406)/std(.229,.224,.225)",
-        "state": "raw measured q13, float32 clone; no executor minmax",
-        "candidate_unchanged": true
+      "sensitivity": {
+        "runtime": {
+          "S": 5,
+          "bootstrap_CI95": [
+            0.01,
+            0.1
+          ],
+          "denominator": 100,
+          "not_a_reclassification_of_physical_verdict": true,
+          "rate": 0.05
+        },
+        "inclusive": {
+          "S": 4,
+          "bootstrap_CI95": [
+            0.01,
+            0.08
+          ],
+          "denominator": 100,
+          "not_a_reclassification_of_physical_verdict": true,
+          "rate": 0.04
+        },
+        "counts": {
+          "runtime_mask_n": 31,
+          "startup_mask_n": 32,
+          "runtime_startup_overlap_n": 16,
+          "inclusive_union_n": 47
+        }
       },
-      "completion_source_audit": {
-        "online_switch": "external Gen+next/DAG planners",
-        "native_classifier_trained": true,
-        "native_classifier_tensor_count": 21,
-        "online_Gen_threshold_patch_installed": false
+      "root_admission_review": {
+        "file": "reports/task7-eval-v1-20261103/paper-final-ttc-admission-review-20261104.json",
+        "sha256": "6ce6878f65668665d914695efecdb66b2c9571a89ead8cf136938427c497a69f",
+        "bytes": 6549
       },
-      "oracle_version": "placement-v1.1",
-      "paired_evaluation_id": "task7-eval-v1-A-original-ttc_aligned_trainresize_30k-h8",
-      "evaluation_started": false
+      "final_report": {
+        "file": "reports/task7-eval-v1-20261103/paper-final-main-table-20261104.json",
+        "sha256": "f94c4beed1895721a0523f4b4a0ffcec551f84759d1a161a7a10848ecf24462f",
+        "bytes": 27618
+      },
+      "phase_comparison_evaluation_id": "task7-eval-v11-A-original-mem0_30k-h8",
+      "execution_chain": {
+        "name": "K-cubic",
+        "position_kernel_sha256": "d997bd8f58897f7ce6d0f8d4cea62eb9c5c014f60ef132189979c4f85e4db83d",
+        "historical_q13_RMSE_rad": 0.007269026025248203,
+        "historical_q13_RMSE_limit_rad": 0.005,
+        "historical_RMSE_passed": false,
+        "current_acceptance": "latest_user_physical_endpoint_successes_ge_native_minus1",
+        "native_successes": 10,
+        "endpoint_successes": 9
+      }
     },
     {
       "id": "task7-eval-v11-A-original-mem0_weak_30k-h4",

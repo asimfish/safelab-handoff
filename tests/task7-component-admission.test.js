@@ -39,9 +39,11 @@ test('complete10 success-count gate cannot hide RMSE failure or manufacture four
  assert.equal(e.retrospective_cases.length,4);assert.ok(e.retrospective_cases.every(p=>p.original_FINAL_ARCHIVE_present===false&&p.not_original_archive_receipt&&p.current_independent_listed_artifacts_verified));
 });
 
-test('all12 rows keep empty formal denominators after the exact weak fixed10 soft review',()=>{
- assert.equal(rows.length,12);assert.equal(s.stage_A_authorized,false);
- for(const e of rows){
+test('ten untested rows stay empty; the historical weak review does not grant their hard gates',()=>{
+  assert.equal(rows.length,12);assert.equal(s.stage_A_authorized,false);
+  const pending=rows.filter(e=>!['task7-eval-v11-A-original-mem0_30k-h8','task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8'].includes(e.id));
+  assert.equal(pending.length,10);
+  for(const e of pending){
   assert.equal(e.trials,0);assert.equal(e.completed,0);assert.equal(e.success,null);assert.equal(e.evaluation_started,false);assert.equal(e.mean_phase,null);assert.deepEqual(e.phase_hist,{});
   assert.equal(e.scene_list_hash,'sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f');
   assert.equal(e.admission.expert_replay.passed,true);assert.equal(e.admission.render_multiframe.passed,true);assert.equal(e.admission.executor_parity.passed,false);assert.equal(e.admission.smoke20.passed,false);

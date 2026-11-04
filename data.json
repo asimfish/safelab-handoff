@@ -62106,7 +62106,7 @@
   },
   "long_task_collection": {
     "owner": "T536 · 5a/5b/7/10 数据采集与验收",
-    "updated_at": "2026-11-04T07:00:04.903957+00:00",
+    "updated_at": "2026-11-04T08:22:00.983782+00:00",
     "protocol_version": "SafeLab-Eval-v1.1",
     "target": 400,
     "historical_candidates": 347,
@@ -62121,7 +62121,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "100条均超180秒。实测长段58秒；已定位轨迹几何导致反复降速，正在保持碰撞等检查下优化。"
+        "state": "100条时长超标。最新R7复现是接触姿态续接在初始化碰撞门槛被拒；正追溯真正冷启动全五步。"
       },
       {
         "task": "5b · 六垫避障",
@@ -62129,7 +62129,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "当前100候选继续追溯；另旧发布100条逐条120Hz实测均超V/A/J上限，正在修复13维控制与记录。"
+        "state": "新冷启动源389项依赖校验通过。首轮153.66秒在路径路由初始化失败；修复V2准备中，尚未执行动作。"
       },
       {
         "task": "7 · 四杯称量",
@@ -62165,7 +62165,10 @@
       "legacy_project_lerobot_bytes": 523204125,
       "fast_storage_R7_pending_migration_bytes": 4854579858,
       "fast_storage_total_pending_bytes": null,
-      "note": "只统计已核对的本任务目录；旧快盘全树统计超时，全agent两处合计占用尚未核清。不声称已满足2TB全局上限。原文件未删除。"
+      "note": "只统计已核对的本任务目录；旧快盘全树统计超时，全agent两处合计占用尚未核清。不声称已满足2TB全局上限。原文件未删除。",
+      "remote_new_task_scope_measurement_epoch": 1793776249.1626072,
+      "remote_new_task_small_bytes": 1188526,
+      "remote_new_task_bucket_bytes": 687023217
     },
     "report_url": "reports/t536-5710-collection-20261104.html",
     "evidence_summary": {
@@ -62173,7 +62176,7 @@
       "t10_historical47_duration_fail": 47,
       "t7_current100_metadata_duration_pass": 100,
       "T7_video_decode_or_success_not_implied": true,
-      "native_v11_runtime_integration": "5b/10 source-bound CPU successors exist. Actual observerV2 closed196.37s after121physics ticks; stage identity and offset handling not qualified. V3 repair underway, no Native acceptance.",
+      "native_v11_runtime_integration": "Actual observerV3 closed213.50s with240ticks,1200positivecontrols,30frames/camera; stagebinding fixed butcontactabsenceUNKNOWN. Actual5b coldV1 closed153.66s atmetadata-preload outputrouting beforeManualTask; V2fix pending.",
       "raw_archive": "Original closed logs/videos archived to BOS; current empty local directories do not prove data lost.",
       "T7_stage_count": {
         "source_records_with8": 100,
@@ -62205,6 +62208,28 @@
         "formal_accepted": 0,
         "result": "blocked: stage identity getter returned0 despite actualheaders/cache9223001; autooffset -inf needs explicitunknown",
         "camera_review": "fivecup scene chestonly3fullcups; headcropped. Third originalprofile has0.8scale/custompose, nativecalibration notproved."
+      },
+      "actual_observer_V3": {
+        "new_cards": 0,
+        "duration_wall_s": 213.50470126001164,
+        "physics_ticks_observed": 240,
+        "ledger_failed": [],
+        "positive_object_controls": 1200,
+        "separated_controls": 0,
+        "frames_each_camera": 30,
+        "camera_parameter_frames": 30,
+        "formal_accepted": 0,
+        "remaining": "cup321runtime shapes vs320queriedhulls; strictzeroabsenceUNKNOWN, no retroactivequalification",
+        "next_contact_route": "before-reset owner event stream + independent Native point-count matrix; source-specific successor pendingNative"
+      },
+      "actual_5b_cold_V1": {
+        "CPU_source_pins": 368,
+        "CPU_external_pins": 21,
+        "source_clone_completed": true,
+        "duration_wall_s": 153.6633438207209,
+        "own_child_reaped": true,
+        "formal_accepted": 0,
+        "result": "failed beforeManualTask: preload metadata Path(output) would drop dual-root routing; V2fix withoutglobalroutingrelaxation"
       }
     }
   }

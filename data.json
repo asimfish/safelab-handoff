@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T10:41:06.291055Z",
+  "updated_at": "2026-11-04T10:49:38.876455Z",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1461,17 +1461,37 @@
       "camera": "third_person",
       "method": "pi0.5",
       "delivery": "重建运行时已恢复，待准入",
-      "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
+      "doc": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/RECONSTRUCTED_RUNTIME.json",
       "weights": [
         {
           "step": 40000,
-          "path": "",
-          "availability": "重建运行时已恢复，待准入"
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "availability": "重建运行时已恢复，待准入",
+          "bytes": 7473091464,
+          "sha256": "1bba29110a4a9e8d7c50aa6fde3134389e79f31b35621ad981c587f775b845ff",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "object_key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "sha256_evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
+          "existence_verification": {
+            "status": "副本存在性已核对",
+            "method": "GET /pt/api/ai/files/objects",
+            "via": "5090",
+            "source_id": "k32181r1qe5gh73u8yvqyur5e",
+            "key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+            "http_status": 200,
+            "bytes": 7473091464,
+            "last_modified": 1793787460000,
+            "checked_at": "2026-11-04T10:50:33.947502Z",
+            "downloaded_weight_bytes": 0,
+            "sha256_independently_recomputed": false
+          }
         }
       ],
-      "training": {},
-      "note": "总负责报告：已找回 formal 40000 model.safetensors（SHA256前缀 1bba2911），并从 Pro 的 release/code.bundle 与 norm_stats 重建运行时。类型为 reconstructed_runtime，不是官方 START_HERE，不等于通过准入或已有评测成绩。原“交付包搬运中”状态已解除。维护端暂未读到恢复报告；TOS副本完整文件路径、来源run及完整SHA待核对，未填写猜测路径。原交付文档仅保留为历史来源。",
-      "source": "GitHub checkpoint issue #23",
+      "training": {
+        "executor_run": "wangpeishuo/pi05-safelab/runs/pi05-5b-pos1cm-h10-all100-b256-40k-pro4-20261101"
+      },
+      "note": "重建运行时已恢复，待准入。来源：pi0.5 agent 回信，经总负责转发（2026-11-04）。完整权重路径、SHA和训练源码/归一化证据已登记；SHA沿用转发证据，维护端未独立重算。类型为 reconstructed_runtime，不是官方 START_HERE；不代表准入通过或已有成绩。维护端已通过files API核对：副本存在，7473091464字节；未下载权重，未独立重算SHA。",
+      "source": "pi0.5 agent 回信，经总负责转发（2026-11-04）；GitHub checkpoint issue #23",
       "checkpoint_issues": [
         {
           "number": 23,
@@ -1484,22 +1504,77 @@
           "delivery_path": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
           "delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
           "supplied_camera": "third_person",
-          "recorded_state": "untested"
+          "recorded_state": "untested",
+          "recovered_delivery_path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "runtime_document": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/RECONSTRUCTED_RUNTIME.json"
         }
       ],
       "recovery": {
         "runtime_type": "reconstructed_runtime",
-        "reported_by": "总负责追加指导",
+        "evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
         "status": "重建运行时已恢复，待准入",
         "report_path": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/search_20261104/FIVE_SEVEN_RECOVERY_REPORT.json",
-        "report_sha256_prefix": "7df5126e",
-        "weight_sha256_prefix": "1bba2911",
-        "source_run_root": "BOS wangpeishuo/pi05-safelab/runs/",
-        "copy_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/",
-        "exact_copy_path": null,
-        "verification": "awaiting_readable_report",
-        "updated_at": "2026-11-04T10:41:06.291055Z"
-      }
+        "report_bytes": 7773,
+        "report_sha256": "7df5126ed8e02f35f95955d606b9a21fe78c2e5382c00c00c61b2dfc3a93a9d3",
+        "source_weight": {
+          "vendor": "BOS",
+          "source_id": "ic0fsbfuxw9e7drmt7p09nkf6",
+          "key": "wangpeishuo/pi05-safelab/runs/pi05-5b-pos1cm-h10-all100-b256-40k-pro4-20261101/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "1bba29110a4a9e8d7c50aa6fde3134389e79f31b35621ad981c587f775b845ff"
+        },
+        "copy_weight": {
+          "vendor": "TOS",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "1bba29110a4a9e8d7c50aa6fde3134389e79f31b35621ad981c587f775b845ff"
+        },
+        "runtime_root": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/five_pos1cm_40k/",
+        "training_code": {
+          "path": "/public_fast_storage/wangpeishuo/pi05-safelab-5b-pos1cm-20261101/release/code.bundle",
+          "bytes": 3850943,
+          "sha256": "9ef8ff4ab293c2db0fbb014a540b85301b3c291bc6187b97778830bf7c232ccc"
+        },
+        "norm_stats": {
+          "name": "norm_stats.json",
+          "bytes": 3175,
+          "sha256": "26b24f3d8c27b0f20685a6a5e6595d3d20a06a976dc4823a52b210fc3dd7c503"
+        },
+        "contract": {
+          "state_dim": 13,
+          "model_dim": 32,
+          "action_chunk": [
+            10,
+            13
+          ],
+          "action_type": "absolute_joint_targets",
+          "units": "radian",
+          "observation_hz": 15,
+          "instruction": "global_task",
+          "label_convention": "interval_end",
+          "token": 200,
+          "camera": "third_person"
+        },
+        "copy_verification_reported": "pi0.5 agent：源全文SHA → 流式复制 → 目标全文GET核对一致；维护端未下载权重或独立重算SHA",
+        "verification": "forwarded_evidence_metadata_verified",
+        "updated_at": "2026-11-04T10:49:38.876455Z",
+        "copy_existence_verification": {
+          "status": "副本存在性已核对",
+          "method": "GET /pt/api/ai/files/objects",
+          "via": "5090",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/five_pos1cm_40k/checkpoints/formal/40000/model.safetensors",
+          "http_status": 200,
+          "bytes": 7473091464,
+          "last_modified": 1793787460000,
+          "checked_at": "2026-11-04T10:50:33.947502Z",
+          "downloaded_weight_bytes": 0,
+          "sha256_independently_recomputed": false
+        }
+      },
+      "historical_delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md"
     },
     {
       "id": "7-pi05-issue24",
@@ -1508,17 +1583,37 @@
       "camera": "chest",
       "method": "pi0.5",
       "delivery": "重建运行时已恢复，待准入",
-      "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
+      "doc": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/seven_chest_40k/",
       "weights": [
         {
           "step": 40000,
-          "path": "",
-          "availability": "重建运行时已恢复，待准入"
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "availability": "重建运行时已恢复，待准入",
+          "bytes": 7473091464,
+          "sha256": "2f7e4b91422dd1df2a39797df3a09c3d61dc6bb79ca50c54ca096639e3c2edfe",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "object_key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "sha256_evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
+          "existence_verification": {
+            "status": "副本存在性已核对",
+            "method": "GET /pt/api/ai/files/objects",
+            "via": "5090",
+            "source_id": "k32181r1qe5gh73u8yvqyur5e",
+            "key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+            "http_status": 200,
+            "bytes": 7473091464,
+            "last_modified": 1793787719000,
+            "checked_at": "2026-11-04T10:50:33.947502Z",
+            "downloaded_weight_bytes": 0,
+            "sha256_independently_recomputed": false
+          }
         }
       ],
-      "training": {},
-      "note": "总负责报告：已找回 formal 40000 model.safetensors（SHA256前缀 2f7e4b91），并从 Pro 的 release/code.bundle 与 norm_stats 重建运行时。类型为 reconstructed_runtime，不是官方 START_HERE，不等于通过准入或已有评测成绩。原“交付包搬运中”状态已解除。维护端暂未读到恢复报告；TOS副本完整文件路径、来源run及完整SHA待核对，未填写猜测路径。原交付文档仅保留为历史来源。",
-      "source": "GitHub checkpoint issue #24",
+      "training": {
+        "executor_run": "wangpeishuo/pi05-safelab/runs/pi05-7-chest-h10-all100-b256-40k-pro4-20261101-r2"
+      },
+      "note": "重建运行时已恢复，待准入。来源：pi0.5 agent 回信，经总负责转发（2026-11-04）。完整权重路径、SHA和训练源码/归一化证据已登记；SHA沿用转发证据，维护端未独立重算。类型为 reconstructed_runtime，不是官方 START_HERE；不代表准入通过或已有成绩。维护端已通过files API核对：副本存在，7473091464字节；未下载权重，未独立重算SHA。",
+      "source": "pi0.5 agent 回信，经总负责转发（2026-11-04）；GitHub checkpoint issue #24",
       "checkpoint_issues": [
         {
           "number": 24,
@@ -1531,22 +1626,78 @@
           "delivery_path": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
           "delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
           "supplied_camera": "chest",
-          "recorded_state": "untested"
+          "recorded_state": "untested",
+          "recovered_delivery_path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "runtime_document": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/seven_chest_40k/"
         }
       ],
       "recovery": {
         "runtime_type": "reconstructed_runtime",
-        "reported_by": "总负责追加指导",
+        "evidence_source": "pi0.5 agent 回信，经总负责转发（2026-11-04）",
         "status": "重建运行时已恢复，待准入",
         "report_path": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/search_20261104/FIVE_SEVEN_RECOVERY_REPORT.json",
-        "report_sha256_prefix": "7df5126e",
-        "weight_sha256_prefix": "2f7e4b91",
-        "source_run_root": "BOS wangpeishuo/pi05-safelab/runs/",
-        "copy_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/",
-        "exact_copy_path": null,
-        "verification": "awaiting_readable_report",
-        "updated_at": "2026-11-04T10:41:06.291055Z"
-      }
+        "report_bytes": 7773,
+        "report_sha256": "7df5126ed8e02f35f95955d606b9a21fe78c2e5382c00c00c61b2dfc3a93a9d3",
+        "source_weight": {
+          "vendor": "BOS",
+          "source_id": "ic0fsbfuxw9e7drmt7p09nkf6",
+          "key": "wangpeishuo/pi05-safelab/runs/pi05-7-chest-h10-all100-b256-40k-pro4-20261101-r2/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "2f7e4b91422dd1df2a39797df3a09c3d61dc6bb79ca50c54ca096639e3c2edfe"
+        },
+        "copy_weight": {
+          "vendor": "TOS",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "bytes": 7473091464,
+          "sha256": "2f7e4b91422dd1df2a39797df3a09c3d61dc6bb79ca50c54ca096639e3c2edfe"
+        },
+        "runtime_root": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/seven_chest_40k/",
+        "training_code": {
+          "path": "/public_fast_storage/wangpeishuo/pi05-safelab-7-chest-20261101-r2/release/code.bundle",
+          "bytes": 3871147,
+          "sha256": "65c66c9600290056a2a9232f33912d0c32744f3125f386a076afa9476ec5d483"
+        },
+        "norm_stats": {
+          "name": "norm_stats.json",
+          "bytes": 3190,
+          "sha256": "7e582717c754b96d26574e7829eb207831e10cd9b41723744004f4c0289e1712"
+        },
+        "contract": {
+          "state_dim": 13,
+          "model_dim": 32,
+          "action_chunk": [
+            10,
+            13
+          ],
+          "action_type": "absolute_joint_targets",
+          "units": "radian",
+          "observation_hz": 15,
+          "instruction": "global_task",
+          "label_convention": "interval_end",
+          "token": 200,
+          "camera": "chest"
+        },
+        "copy_verification_reported": "pi0.5 agent：源全文SHA → 流式复制 → 目标全文GET核对一致；维护端未下载权重或独立重算SHA",
+        "verification": "forwarded_evidence_metadata_verified",
+        "updated_at": "2026-11-04T10:49:38.876455Z",
+        "r2_notes": "带动作维7的分位数退化修复；prefix7时末杯留在天平上；旧非r2 run没有40000 checkpoint。",
+        "copy_existence_verification": {
+          "status": "副本存在性已核对",
+          "method": "GET /pt/api/ai/files/objects",
+          "via": "5090",
+          "source_id": "k32181r1qe5gh73u8yvqyur5e",
+          "key": "liyufeng/pi05_handoff_20261103/seven_chest_40k/checkpoints/formal/40000/model.safetensors",
+          "http_status": 200,
+          "bytes": 7473091464,
+          "last_modified": 1793787719000,
+          "checked_at": "2026-11-04T10:50:33.947502Z",
+          "downloaded_weight_bytes": 0,
+          "sha256_independently_recomputed": false
+        }
+      },
+      "historical_delivery_document": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md"
     },
     {
       "id": "10-ttc-aligned-weak-issue26",

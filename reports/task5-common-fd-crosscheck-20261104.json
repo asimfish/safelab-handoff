@@ -1,0 +1,117 @@
+{
+  "CPU_only": true,
+  "new_simulation": false,
+  "common_script": {
+    "source_repo": "asimfish/safelab-handoff",
+    "source_revision": "57be77829f3f8890b0276bb9de65707e1285bae3",
+    "source_path": "reports/task3-round12-20261104/fd_velocity_strict_v1.py",
+    "bytes": 9092,
+    "sha256": "a08ee1cd5722ea49f49147a03bc24a1594bbd65f068d1b5fc03092637a21b0d0",
+    "time_source": "actual_physics_elapsed_s genericoverride t_sim",
+    "first_tick": "forward_difference",
+    "local_private_copy_only": true
+  },
+  "synthetic_fixtures": 292,
+  "maximum_velocity_difference": 2.2737367544323206e-13,
+  "maximum_angular_difference_vs_SciPy": 2.2737367544323206e-13,
+  "negative_contract_checks": {
+    "missing_time": "missing_adjacent_pose_or_clock",
+    "repeated_time": "nonpositive_or_nonfinite_dt",
+    "skipped_tick": "nonadjacent_physical_tick",
+    "invalid_quaternion": "zero_quaternion",
+    "nonfinite_pose": "nonfinite_pose"
+  },
+  "sources": [
+    {
+      "source_path": "/public_fast_storage/liyufeng/safelab_5b_stable_attach_20261101/round2_static_noise_20261103_v1/runs/static_0/static_120hz.jsonl",
+      "bytes": 743700,
+      "sha256": "9a6b5f2ca414a1915931c1e8a6889876e6dce83f6eb6c0f2601512c688162398",
+      "physical_ticks": 601,
+      "samples_including_first_forward_difference": 601,
+      "actual_clock": "t_sim"
+    },
+    {
+      "source_path": "/public_fast_storage/liyufeng/safelab_5b_stable_attach_20261101/round2_static_noise_20261103_v1/runs/static_1/static_120hz.jsonl",
+      "bytes": 739317,
+      "sha256": "a21925c61f5457baa5edb8c2184be97a57436ea09ea0bcf078af039e249168b0",
+      "physical_ticks": 601,
+      "samples_including_first_forward_difference": 601,
+      "actual_clock": "t_sim"
+    }
+  ],
+  "total_physical_samples": 1202,
+  "real_static_maximum_difference": 6.938893903907228e-18,
+  "first_tick": "forward difference from first two physical samples (published common convention)",
+  "per_object": {
+    "A": {
+      "FD_linear_m_s": {
+        "p50": 0.00011555310073902161,
+        "p95": 0.0002328703965582806,
+        "p99": 0.0002875265777506782
+      },
+      "FD_angular_rad_s": {
+        "p50": 6.0171576160143904e-05,
+        "p95": 0.0003274334388166471,
+        "p99": 0.0007748194014073264
+      },
+      "PhysX_linear_m_s": {
+        "p50": 1.5287628257697234e-05,
+        "p95": 0.0001135561728413932,
+        "p99": 0.0001884031435591337
+      },
+      "PhysX_angular_rad_s": {
+        "p50": 0.0004672915382804497,
+        "p95": 0.0014898342212564051,
+        "p99": 0.0023208236549291912
+      }
+    },
+    "B": {
+      "FD_linear_m_s": {
+        "p50": 5.89814990847255e-05,
+        "p95": 0.00023066304440398842,
+        "p99": 0.00028788488098379944
+      },
+      "FD_angular_rad_s": {
+        "p50": 1.7135766737292006e-05,
+        "p95": 0.0003108762996008357,
+        "p99": 0.0005383787961207671
+      },
+      "PhysX_linear_m_s": {
+        "p50": 1.5018077170725933e-05,
+        "p95": 0.00015313330315028595,
+        "p99": 0.0002123784634256616
+      },
+      "PhysX_angular_rad_s": {
+        "p50": 0.00020946642576640532,
+        "p95": 0.0011929037300903824,
+        "p99": 0.002200297361298836
+      }
+    },
+    "C": {
+      "FD_linear_m_s": {
+        "p50": 0.0002436598162889052,
+        "p95": 0.000593817352653233,
+        "p99": 0.0006702981586276659
+      },
+      "FD_angular_rad_s": {
+        "p50": 0.005004469840248412,
+        "p95": 0.011127327325232519,
+        "p99": 0.016573940727273966
+      },
+      "PhysX_linear_m_s": {
+        "p50": 0.0009453518442070132,
+        "p95": 0.0016021840220752362,
+        "p99": 0.002083383186990026
+      },
+      "PhysX_angular_rad_s": {
+        "p50": 0.02197067632266804,
+        "p95": 0.04789425258654626,
+        "p99": 0.06452277209182437
+      },
+      "angular_p99_relative_reduction": 0.7431303679313859
+    }
+  },
+  "strict_oracle_uses_velocity": false,
+  "score_role": "FD math/noise verification; not fabricated formal FD success counts",
+  "original_600_pair_report_retained": true
+}

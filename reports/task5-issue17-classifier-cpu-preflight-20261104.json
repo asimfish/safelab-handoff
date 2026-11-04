@@ -1,0 +1,196 @@
+{
+  "stage": "diagnostic",
+  "metric_role": "CPU_classifier_dependency_preflight",
+  "passed": true,
+  "load_classifier_bundle_device": "cpu",
+  "four_Gen_checkpoint_contracts_passed": true,
+  "unique_Gen_checkpoints": 4,
+  "torch_load_calls": 8,
+  "four_weights_total_bytes": 291828323,
+  "all_weights_SHA_verified_before_torch_load": true,
+  "checkpoint_and_head_shapes": {
+    "num_phases": 5,
+    "native_state_dim": 13,
+    "state_classes": 3,
+    "metric_embedding_dim": 128,
+    "shared_prefix_contract": true,
+    "completion_and_state_share_loaded_lower_encoder": true
+  },
+  "module_parameter_counts": {
+    "shared_model": 20039264,
+    "completion_head": 11616129,
+    "state_head": 11616387
+  },
+  "real_training_fixture": {
+    "episode": 0,
+    "progress_percent": 0,
+    "frame_index": 0,
+    "source_video": {
+      "episode": 0,
+      "kind": "video",
+      "local": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/training/pos1cm/lerobot_v21/videos/chunk-000/observation.images.third_person/episode_000000.mp4",
+      "source": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_pos1cm_v1_20261025/lerobot_v21/videos/chunk-000/observation.images.third_person/episode_000000.mp4",
+      "bytes": 1430993,
+      "sha256": "3d5fcb3e6466f4bf62d1595746471db5261492c12ac09033de3ebb7a984db90d"
+    },
+    "source_parquet": {
+      "episode": 0,
+      "kind": "parquet",
+      "local": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/training/pos1cm/lerobot_v21_state13/data/chunk-000/episode_000000.parquet",
+      "source": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_pos1cm_v1_20261025/lerobot_v21_state13/data/chunk-000/episode_000000.parquet",
+      "bytes": 1310064,
+      "sha256": "8622b4ed2a0e24c74af601fdb2677c53ce09f23fb8de82c5aba604fc445aa0d4"
+    },
+    "raw_RGB_sha256": "1392e209a9bd839588cad0be4babc48fbf1646f670fdf5fbbee1aa5d73250ffb",
+    "raw_native13_sha256": "438b9f0cd440aace69712e8fac532e2e2bbf2ef553a34cc799ce90d9f8bd7b4f"
+  },
+  "actual_Gen_State_encoder_path": {
+    "module": "source.keymem.safelab_gen21_311_runtime_reference",
+    "lines": [
+      392,
+      399
+    ],
+    "operation": "raw RGB -> actual Gen PIL bilinear224 + ImageNet normalization; raw q13 -> _preprocess_state; shared ResNet stem..layer3 -> State-private layer4+native13MLP+projector -> L2 normalized128d",
+    "fixture": {
+      "fixture_index": 0,
+      "episode": 0,
+      "progress_percent": 0,
+      "frame_index": 0,
+      "native_tick": 128,
+      "camera_read_tick": 128,
+      "subtask_index": 0,
+      "RGB_shape": [
+        480,
+        640,
+        3
+      ],
+      "RGB_dtype": "uint8",
+      "decoded_RGB_sha256": "1392e209a9bd839588cad0be4babc48fbf1646f670fdf5fbbee1aa5d73250ffb",
+      "q13_shape": [
+        13
+      ],
+      "q13_dtype": "float32",
+      "q13_sha256": "438b9f0cd440aace69712e8fac532e2e2bbf2ef553a34cc799ce90d9f8bd7b4f",
+      "parquet_source": {
+        "episode": 0,
+        "kind": "parquet",
+        "local": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/training/pos1cm/lerobot_v21_state13/data/chunk-000/episode_000000.parquet",
+        "source": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_pos1cm_v1_20261025/lerobot_v21_state13/data/chunk-000/episode_000000.parquet",
+        "bytes": 1310064,
+        "sha256": "8622b4ed2a0e24c74af601fdb2677c53ce09f23fb8de82c5aba604fc445aa0d4"
+      },
+      "video_source": {
+        "episode": 0,
+        "kind": "video",
+        "local": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/training/pos1cm/lerobot_v21/videos/chunk-000/observation.images.third_person/episode_000000.mp4",
+        "source": "/home/dataset-assist-0/wangpeishuo/safelab_mem/psibot_5b_obstruction_pos1cm_v1_20261025/lerobot_v21/videos/chunk-000/observation.images.third_person/episode_000000.mp4",
+        "bytes": 1430993,
+        "sha256": "3d5fcb3e6466f4bf62d1595746471db5261492c12ac09033de3ebb7a984db90d"
+      },
+      "state_semantics": "13 raw measured joint angles radians, confirmed by issue17 ours_executor_inference.py:255-271 and Gen training contract; not Mem0-normalized state",
+      "decoder": "ffmpeg CPU threads1, exact zero-based decoded frame index; no seek approximation"
+    },
+    "not_policy_AA_preprocessing": "This is actual Gen classifier State path consuming original selected-camera RGB in ours_executor_inference.py:261, unlike policy image train-side Resize path."
+  },
+  "outputs": {
+    "image": {
+      "shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "minimum": -2.1007792949676514,
+      "maximum": 2.1694118976593018,
+      "sha256": "f55ad57c487246f443dc6014ba4b14c6ff75150547c322112283886bdfffbb19"
+    },
+    "state": {
+      "shape": [
+        1,
+        13
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "minimum": -1.0301153659820557,
+      "maximum": 3.1029882431030273,
+      "sha256": "438b9f0cd440aace69712e8fac532e2e2bbf2ef553a34cc799ce90d9f8bd7b4f"
+    },
+    "shared_prefix": {
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "minimum": 0.0,
+      "maximum": 2.3552677631378174,
+      "sha256": "af449d19916b0f443c86b95028303ca2d203bb6f08603a885a237259a260385b"
+    },
+    "state_base": {
+      "shape": [
+        128
+      ],
+      "dtype": "float32",
+      "finite": true,
+      "minimum": -0.19801893830299377,
+      "maximum": 0.21856702864170074,
+      "sha256": "82fa480cb95c4d87cad78a394bc7b4d03d7240fd28276e6324fd40b485a102d9"
+    }
+  },
+  "State_embedding_L2_error_under_1e_5": true,
+  "timing": {
+    "child_wall_seconds": 11.166877693962306,
+    "load_classifier_bundle_seconds": 3.2271158676594496,
+    "watchdog_wall_seconds": 12.01268922071904
+  },
+  "memory": {
+    "absolute_limit_bytes": 2147483648,
+    "monitored_peak_RSS_bytes": 1068658688,
+    "child_ru_maxrss_bytes": 1027358720,
+    "child_ru_maxrss_after_torch_import_bytes": 503558144
+  },
+  "constraints": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "CUDA_initialized": false,
+    "OMP_BLAS_threads": 1,
+    "torch_intra_threads": 1,
+    "torch_inter_threads": 1,
+    "network": "audit hook rejects connect and DNS; offline environment enabled",
+    "unexpected_torch_load": "only four verified Gen paths allowed",
+    "training_cache": "runtime_only mode skips labels/language_features; audit blocks training data/text cache opens",
+    "Qwen_or_2B_8B_constructed": false,
+    "MiniLM_constructed": false,
+    "GPU_used": false,
+    "API_model_calls": 0,
+    "simulation_runs": 0
+  },
+  "path_relocation": {
+    "original_contract_sha256": "d5d0d4f187fb2c106383cff42891499ae2a91a235a33949bb5ab2b240721e023",
+    "private_contract_sha256": "9c94e0d6430d0ad5b1b7bdbfb614bce61cb865be53a5faf7c37b90147085d3a9",
+    "changes": "only four artifact.path values rebased to exact own-package files; original SHA/schema/rules/shape fields unchanged; private marker bound to private contract",
+    "original_contract_and_marker_unchanged": true,
+    "original_training_artifact_paths_present_on_host": false
+  },
+  "claim_boundary": "Independent dependency strengthening only. Real CPU Gen State encoding consumes original RGB through Gen PIL bilinear224/ImageNet preprocessing. It is NOT full executor-bridge value parity: the separately verified helper preserves the incoming AA-resized224 policy image and uses raw_image only as keyframe_image.",
+  "previous_builder_parity": "Separate immutable10-observation test; not rerun or changed by this task.",
+  "pending": [
+    "Full Qwen executor and Planner closed loop",
+    "Actual GPU four-frame admission",
+    "MiniLM live-language embeddings and completion-head scoring",
+    "Physical smoke and formal evaluation"
+  ],
+  "source_result": {
+    "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/issue17_search_v1/classifier_cpu_preflight_v1/CPU_CLASSIFIER_RESULT.json",
+    "bytes": 150153,
+    "sha256": "e6f82ae153dac8ac774fffbce8d37fc3f6423c34b12f4fbc582bf45927e6efbb"
+  },
+  "source_watchdog": {
+    "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/issue17_search_v1/classifier_cpu_preflight_v1/WATCHDOG_RESULT.json",
+    "bytes": 567,
+    "sha256": "6afc92e467c8084cdd80b96c968fc652b4aa7fd7a63d9f6574abded56ef3f004"
+  }
+}

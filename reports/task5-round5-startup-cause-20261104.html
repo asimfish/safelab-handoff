@@ -1,0 +1,131 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>五任务启动链诊断</title><style>body{font:16px system-ui;margin:24px;max-width:1100px}pre{white-space:pre-wrap}</style><section id="round5-live-link"><p><strong>后续进度：</strong><a href="task5-round5-live-20261104.html">四卡32路真实评测最新快照</a>；下方为各自日期的历史诊断。</p></section><h1>五任务启动链诊断</h1><p>首个portable任务在入口出生约75ms后、模型启动之前被显示名称守卫拦截。观察任务确认分配的4卡驱动别名为NVIDIA RPBZZZ6；每卡总显存97887MiB、空闲97250MiB。官方规格为NVIDIA RTX PRO 6000 96GB。鉴权环境存在、代码哈希无差异。</p><p>修复改按官方规格、已分配UUID、卡数、显存及独占余量核验；6项CPU正反测试通过。控制和物理文件不变。观察任务已成功终止并释放。</p><p>最新替代任务快照：2026-11-04T10:32:50.377173+00:00；RUNNING；真实模型完成日志自检通过（动作最大差0、状态一致）；已scene-ready，N1密度图像准入中，尚无新验收轨迹。启动自检不计入任何模型成绩，GT轨迹须验收后才记数。</p><p><a href="task5-round5-startup-cause-20261104.json">机器可读证据与源SHA</a> · <a href="task5-round5-cpu-three-metrics-20261104.html">三口径对比</a></p><pre>{
+  &quot;scope&quot;: &quot;启动链诊断；不属于模型评测成绩&quot;,
+  &quot;snapshot_at&quot;: &quot;2026-11-04T10:32:50.377173+00:00&quot;,
+  &quot;watch_source_epoch&quot;: 1793788370.3771727,
+  &quot;first_portable_failure&quot;: {
+    &quot;job_id&quot;: &quot;job-0ujjn1fq67mu&quot;,
+    &quot;seconds_from_entry_birth_to_failure&quot;: 0.0753319263458252,
+    &quot;cause&quot;: &quot;driver display-name guard rejected allocated GPU alias before models&quot;,
+    &quot;generic_failure_marker&quot;: &quot;object_transfer_failed&quot;,
+    &quot;all_replicas_terminal&quot;: true
+  },
+  &quot;observation_only_job&quot;: {
+    &quot;job_id&quot;: &quot;job-lejoqf9oxzn8&quot;,
+    &quot;terminal&quot;: &quot;SUCCEEDED&quot;,
+    &quot;all_replicas_terminal&quot;: true,
+    &quot;model_calls&quot;: 0,
+    &quot;simulations&quot;: 0,
+    &quot;token_environment_present&quot;: true,
+    &quot;manifest_mismatches&quot;: [],
+    &quot;devices&quot;: [
+      {
+        &quot;index&quot;: 0,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      },
+      {
+        &quot;index&quot;: 1,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      },
+      {
+        &quot;index&quot;: 2,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      },
+      {
+        &quot;index&quot;: 3,
+        &quot;driver_display_name&quot;: &quot;NVIDIA RPBZZZ6&quot;,
+        &quot;total_MiB&quot;: 97887,
+        &quot;free_MiB&quot;: 97250
+      }
+    ]
+  },
+  &quot;official_allocation&quot;: {
+    &quot;id&quot;: &quot;ejtfr2ncissf7f89rspag0ls9&quot;,
+    &quot;gpu_model&quot;: &quot;NVIDIA RTX PRO 6000 96GB&quot;,
+    &quot;gpu_count&quot;: 4
+  },
+  &quot;repair&quot;: {
+    &quot;passed&quot;: true,
+    &quot;binding&quot;: &quot;catalog offering + assigned UUID set + GPU count + memory/free-memory guards&quot;,
+    &quot;physics_and_control_files_unchanged&quot;: [
+      &quot;job.py&quot;,
+      &quot;rollout.py&quot;,
+      &quot;RESUME_SEED.json&quot;,
+      &quot;oracle_switch.py&quot;
+    ],
+    &quot;tests&quot;: {
+      &quot;command&quot;: &quot;python3 -B -m unittest -v test_inventory_contract.py&quot;,
+      &quot;passed&quot;: 6,
+      &quot;source_sha256&quot;: &quot;7fe325e77927ced77a3061cc8454b6cabb18923615c1f792e38d30edccff8f37&quot;,
+      &quot;test_sha256&quot;: &quot;170da143538b393312bf13343841e8a5c793b5d0104a48a852d1b3ce82889c55&quot;
+    }
+  },
+  &quot;replacement&quot;: {
+    &quot;job_id&quot;: &quot;job-ls7xx6m3uc0y&quot;,
+    &quot;platform_status&quot;: &quot;RUNNING&quot;,
+    &quot;state_text&quot;: &quot;RUNNING&quot;,
+    &quot;detail&quot;: &quot;真实模型完成日志自检通过（动作最大差0、状态一致）；已scene-ready，N1密度图像准入中，尚无新验收轨迹&quot;,
+    &quot;hard_failure_marker&quot;: false,
+    &quot;running_gpus&quot;: 4,
+    &quot;reserved_gpus&quot;: 4,
+    &quot;first_scene_ready&quot;: true,
+    &quot;new_oracle_diagnostic_completed&quot;: 0,
+    &quot;all_replicas_terminal&quot;: null
+  },
+  &quot;real_NN_logging_parity&quot;: {
+    &quot;passed&quot;: true,
+    &quot;frames&quot;: 4,
+    &quot;maximum_action_delta&quot;: 0.0,
+    &quot;status_exact&quot;: true,
+    &quot;fresh_private_lane&quot;: &quot;round4b_parity&quot;,
+    &quot;version&quot;: &quot;pre_refresh_completion_trace_v4b&quot;,
+    &quot;scored&quot;: false
+  },
+  &quot;prior_parity_fixture_failure&quot;: {
+    &quot;job_id&quot;: &quot;job-u8rxnsr9ic02&quot;,
+    &quot;cause&quot;: &quot;startup probe selected a metadata-only NPZ; RGB exists in its paired video&quot;,
+    &quot;repair&quot;: {
+      &quot;passed&quot;: true,
+      &quot;cause&quot;: &quot;startup parity probe selected metadata-only NPZ; raw RGB is in paired video&quot;,
+      &quot;fix&quot;: &quot;private four-frame input fixture, exact cached training RGB and measuredq13, video difference0&quot;,
+      &quot;fixture_sha256&quot;: &quot;d87964549d36a9d3f7055980429329696d055bee230a1f8d264d4a38669351d1&quot;,
+      &quot;source_originals_unchanged&quot;: true,
+      &quot;formal_model_observation_pipeline_unchanged&quot;: true,
+      &quot;scientific_driver_rollout_ledger_identical&quot;: true,
+      &quot;new_GPU_submitted&quot;: false
+    },
+    &quot;all_replicas_terminal&quot;: true
+  },
+  &quot;evidence&quot;: {
+    &quot;startup_observer/OBSERVATIONS.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/OBSERVATIONS.json&quot;,
+      &quot;sha256&quot;: &quot;92fc4e3ea742612986f6f5d8e39e47faeafa5cf1c38a4423b5d52e4b8b7bf94a&quot;
+    },
+    &quot;startup_observer/TERMINAL_RELEASE.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/TERMINAL_RELEASE.json&quot;,
+      &quot;sha256&quot;: &quot;450b114e8e23c146a2e8dbd0a69d7e78ef3418a66dc687170754dd3dbfd0ff3d&quot;
+    },
+    &quot;ALIAS_OFFICIAL_OFFERING.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/ALIAS_OFFICIAL_OFFERING.json&quot;,
+      &quot;sha256&quot;: &quot;1bbe153a30dc510764bcca6c74d60f2b333c177691b8d18648574b1ea9fa9f10&quot;
+    },
+    &quot;BOOT_GUARD_FIX_PROOF.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/BOOT_GUARD_FIX_PROOF.json&quot;,
+      &quot;sha256&quot;: &quot;bbb6bd7a35dc9aa919ea7bab00a8953e71a18b7b42fd4a8771abf4a26edfb52a&quot;
+    },
+    &quot;portable_job_v3/WATCH_LATEST.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v3/WATCH_LATEST.json&quot;,
+      &quot;sha256&quot;: &quot;da1be09fd777c20d029af7fbaedcf917f5faf0a28e7fcedc2e6b415d6f98576c&quot;
+    },
+    &quot;portable_job_v3/INITIAL_MODEL_PROGRESS.json&quot;: {
+      &quot;path&quot;: &quot;/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v3/INITIAL_MODEL_PROGRESS.json&quot;,
+      &quot;sha256&quot;: &quot;34f12ffd6c37185cc29a983ad84461514e1c743da61524bfe25805a55f774feb&quot;
+    }
+  },
+  &quot;claim_boundary&quot;: &quot;Actual four-frame NN parity passed; density admission is in progress. No scientific case is scored by startup checks.&quot;
+}</pre></html>

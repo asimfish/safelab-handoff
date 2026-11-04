@@ -1,0 +1,5570 @@
+{
+  "schema_version": 1,
+  "task": 5,
+  "stage": "diagnostic",
+  "CPU_only": true,
+  "generated_at": "2026-11-04T10:33:05.654687+00:00",
+  "new_simulations": 0,
+  "strict_fdvel_identity": "五任务原 strict oracle 只读取位姿和接触，以121个有效tick的位置/姿态漂移判稳定，无线速度或角速度条件；按“只改速度来源”原则，strict-fdvel-v1 与 strict-v1 完全相同。这里是判定逻辑的等价诊断，不是独立正式FD评测；历史轨迹缺实际t_sim，不用名义1/120秒补造FD速度。",
+  "oracle_source_sha256": "ab916d46da2733765f9e093f847b6ad8904729c5459896995c07b3810082d712",
+  "code_provenance": {
+    "physical_tick_FD": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/task5_fd_velocity_v1.py",
+      "sha256": "8b9f9172c4b3e4a8a9024293afdd71f112d30153cb0baa0a75eeaa1e71d430a8"
+    },
+    "CPU_diagnostics": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5_cpu_diagnostics.py",
+      "sha256": "f9daccc2f3b82cb352ac75217fcc532aa65526f224d6bd79eacc32708600f037"
+    },
+    "publisher": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/publish_round5.py",
+      "sha256": "78d3557a0b7b87b26134744ec3c1a316e098faaa362fea5bc9abdeb6076b2211"
+    },
+    "FD_numerical_regression": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/test_task5_fd_velocity_v1.py",
+      "sha256": "430830587988b78781c2f41ed8f5b677bde82923b9f0c7a4f371be44ef10d4bf"
+    }
+  },
+  "sources": {
+    "historical": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round2/LATEST_RESCORE_RESULT.json",
+      "sha256": "76d65f4c544fd3b90aa395bbd1fa4a937ab8752bfe3e9736834ecb862368ba6f"
+    },
+    "historical_lr_seed": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/HISTORICAL_LR_SEED.json",
+      "sha256": "2b3ab6197fa3ae6b4caf865488b00a6cf629050f2e961c8dceefb1f004e30e50"
+    },
+    "current_inputs": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/CPU_INPUTS.json",
+      "sha256": "a4580e16f238b51c7de6dc95bcd966772d95307f7aeee653df4d2cacbbe4b847"
+    },
+    "current_cpu_result": {
+      "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/CPU_RESULT_v2.json",
+      "sha256": "f4d565ab71e9cc601625fa8cd4fbe3f7b034628f8b12dd25222e6a343a290233"
+    }
+  },
+  "comparison_rows": [
+    {
+      "id": "task5-round5-cpu-7f9f69c6d270a2835430",
+      "cohort": "expert_original8",
+      "source_group": "expert_original8|expert|None|None|baseline",
+      "record": null,
+      "dataset": "5-pos",
+      "method": "专家回放",
+      "variant": "expert",
+      "checkpoint": null,
+      "horizon": null,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "expert_original8",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 8,
+      "unknown": 0,
+      "valid": 8,
+      "strict_v1_success": 8,
+      "strict_fdvel_v1_success": 8,
+      "placement_v11_success": 8,
+      "mean_phase_v11": 5.0,
+      "phase_hist_v11": {
+        "5": 8
+      },
+      "strict_phase_hist": {
+        "5": 8
+      },
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 4,
+          "failure": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 4,
+          "success": 4,
+          "failure": 0,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "5": 4
+        },
+        "reverse": {
+          "5": 4
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 8,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 8
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "独立历史诊断批次；不并入新冒烟",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-1e1bc51adbf961174d38",
+      "cohort": "cloud4_current_row_smoke20_v4",
+      "source_group": "cloud4_current_row_smoke20_v4|new30|30000|8|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "cloud4_current_row_smoke20_v4",
+      "training_resize": true,
+      "training_resize_evidence": [
+        {
+          "field": "preprocessing",
+          "value": "train_aligned",
+          "n": 20
+        }
+      ],
+      "n": 20,
+      "unknown": 0,
+      "valid": 20,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.45,
+      "phase_hist_v11": {
+        "0": 16,
+        "2": 3,
+        "3": 1
+      },
+      "strict_phase_hist": {
+        "0": 16,
+        "2": 3,
+        "3": 1
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6,
+          "2": 3,
+          "3": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "failure": 20,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "true": 20
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "独立历史诊断批次；不并入新冒烟",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-820c05a3948976161cc7",
+      "cohort": "cloud4_source_optics_smoke20_v1",
+      "source_group": "cloud4_source_optics_smoke20_v1|new30|30000|8|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "cloud4_source_optics_smoke20_v1",
+      "training_resize": true,
+      "training_resize_evidence": [
+        {
+          "field": "preprocessing",
+          "value": "train_aligned",
+          "n": 20
+        }
+      ],
+      "n": 20,
+      "unknown": 0,
+      "valid": 20,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.25,
+      "phase_hist_v11": {
+        "0": 17,
+        "1": 1,
+        "2": 2
+      },
+      "strict_phase_hist": {
+        "0": 17,
+        "1": 1,
+        "2": 2
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 7,
+          "1": 1,
+          "2": 2
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "failure": 20,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "true": 20
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "独立历史诊断批次；不并入新冒烟",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-772464615a50bda8a3fc",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|old30|30000|8|baseline",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "variant": "old30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 1.115,
+      "phase_hist_v11": {
+        "4": 1,
+        "3": 27,
+        "2": 40,
+        "1": 58,
+        "0": 74
+      },
+      "strict_phase_hist": {
+        "4": 1,
+        "3": 27,
+        "2": 40,
+        "1": 58,
+        "0": 74
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 21,
+          "1": 40,
+          "2": 29,
+          "3": 9,
+          "4": 1
+        },
+        "reverse": {
+          "0": 53,
+          "1": 18,
+          "2": 11,
+          "3": 18
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-old30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-886879b076866dc94f9d",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|old30|30000|4|baseline",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "variant": "old30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 1.27,
+      "phase_hist_v11": {
+        "3": 30,
+        "2": 58,
+        "1": 48,
+        "0": 64
+      },
+      "strict_phase_hist": {
+        "3": 30,
+        "2": 58,
+        "1": 48,
+        "0": 64
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 13,
+          "1": 31,
+          "2": 52,
+          "3": 4
+        },
+        "reverse": {
+          "0": 51,
+          "1": 17,
+          "2": 6,
+          "3": 26
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-old30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-3a6f9832806f2347ae46",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|old30|30000|8|attachment",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "variant": "old30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 1.115,
+      "phase_hist_v11": {
+        "3": 28,
+        "2": 32,
+        "1": 75,
+        "0": 65
+      },
+      "strict_phase_hist": {
+        "3": 26,
+        "2": 28,
+        "1": 78,
+        "0": 68
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 21,
+          "1": 59,
+          "2": 16,
+          "3": 4
+        },
+        "reverse": {
+          "0": 44,
+          "1": 16,
+          "2": 16,
+          "3": 24
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-old30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-b960f0418d6c517650e1",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|old30|30000|30|attachment",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "variant": "old30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.48,
+      "phase_hist_v11": {
+        "3": 6,
+        "2": 16,
+        "1": 46,
+        "0": 132
+      },
+      "strict_phase_hist": {
+        "3": 6,
+        "2": 16,
+        "1": 45,
+        "0": 133
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 55,
+          "1": 33,
+          "2": 10,
+          "3": 2
+        },
+        "reverse": {
+          "0": 77,
+          "1": 13,
+          "2": 6,
+          "3": 4
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-old30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-efaace5f23518e1efde3",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|old30|30000|4|attachment",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "variant": "old30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.845,
+      "phase_hist_v11": {
+        "3": 14,
+        "2": 23,
+        "1": 81,
+        "0": 82
+      },
+      "strict_phase_hist": {
+        "3": 13,
+        "2": 17,
+        "1": 86,
+        "0": 84
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 13,
+          "1": 69,
+          "2": 16,
+          "3": 2
+        },
+        "reverse": {
+          "0": 69,
+          "1": 12,
+          "2": 7,
+          "3": 12
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-old30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-c036ea3164a37a528dc6",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|old30|30000|30|baseline",
+      "record": "5-fixed-mem0",
+      "dataset": "5-fixed",
+      "method": "Mem-0",
+      "variant": "old30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.145,
+      "phase_hist_v11": {
+        "2": 3,
+        "1": 23,
+        "0": 174
+      },
+      "strict_phase_hist": {
+        "2": 3,
+        "1": 22,
+        "0": 175
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 81,
+          "1": 17,
+          "2": 2
+        },
+        "reverse": {
+          "0": 93,
+          "1": 6,
+          "2": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-old30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-fa50b6f7e94daf455ce8",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new30|30000|30|attachment",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.025,
+      "phase_hist_v11": {
+        "2": 2,
+        "1": 1,
+        "0": 197
+      },
+      "strict_phase_hist": {
+        "2": 2,
+        "1": 1,
+        "0": 197
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 97,
+          "1": 1,
+          "2": 2
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-c7246e46dede8cc72b4a",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new30|30000|8|attachment",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.095,
+      "phase_hist_v11": {
+        "2": 2,
+        "1": 15,
+        "0": 183
+      },
+      "strict_phase_hist": {
+        "2": 1,
+        "1": 15,
+        "0": 184
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 92,
+          "1": 8
+        },
+        "reverse": {
+          "0": 91,
+          "1": 7,
+          "2": 2
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-d1da80368cb99ce48bba",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new20|20000|30|attachment",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.035,
+      "phase_hist_v11": {
+        "2": 2,
+        "1": 3,
+        "0": 195
+      },
+      "strict_phase_hist": {
+        "2": 1,
+        "1": 4,
+        "0": 195
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 97,
+          "1": 2,
+          "2": 1
+        },
+        "reverse": {
+          "0": 98,
+          "1": 1,
+          "2": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new20-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-7ef59f904a62db44902b",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new30|30000|8|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.05,
+      "phase_hist_v11": {
+        "1": 10,
+        "0": 190
+      },
+      "strict_phase_hist": {
+        "1": 10,
+        "0": 190
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 90,
+          "1": 10
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-new30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-2f0bc16bdaf4df21db16",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new20|20000|8|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.03,
+      "phase_hist_v11": {
+        "1": 6,
+        "0": 194
+      },
+      "strict_phase_hist": {
+        "1": 6,
+        "0": 194
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 94,
+          "1": 6
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-new20-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-6a49e1feb7479541a2da",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new20|20000|4|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.055,
+      "phase_hist_v11": {
+        "1": 11,
+        "0": 189
+      },
+      "strict_phase_hist": {
+        "1": 11,
+        "0": 189
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 91,
+          "1": 9
+        },
+        "reverse": {
+          "0": 98,
+          "1": 2
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-new20-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-2464c7bea749968d7d30",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new30|30000|4|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.06,
+      "phase_hist_v11": {
+        "1": 12,
+        "0": 188
+      },
+      "strict_phase_hist": {
+        "1": 12,
+        "0": 188
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 91,
+          "1": 9
+        },
+        "reverse": {
+          "0": 97,
+          "1": 3
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-new30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-d0960dd217c0941f798d",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|ours30|30000|8|baseline",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 146,
+      "unknown": 0,
+      "valid": 146,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.00684931506849315,
+      "phase_hist_v11": {
+        "1": 1,
+        "0": 145
+      },
+      "strict_phase_hist": {
+        "1": 1,
+        "0": 145
+      },
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 72,
+          "1": 1
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-ours30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-cc6608674049e3606a6c",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new30|30000|30|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.005,
+      "phase_hist_v11": {
+        "1": 1,
+        "0": 199
+      },
+      "strict_phase_hist": {
+        "1": 1,
+        "0": 199
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 99,
+          "1": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-new30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-6380fff9cef528d72986",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new20|20000|30|baseline",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.005,
+      "phase_hist_v11": {
+        "1": 1,
+        "0": 199
+      },
+      "strict_phase_hist": {
+        "1": 1,
+        "0": 199
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 99,
+          "1": 1
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-new20-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-a6dbc38710d3682ca0d9",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new20|20000|4|attachment",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.035,
+      "phase_hist_v11": {
+        "1": 5,
+        "2": 1,
+        "0": 194
+      },
+      "strict_phase_hist": {
+        "1": 4,
+        "0": 196
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 95,
+          "1": 5
+        },
+        "reverse": {
+          "0": 99,
+          "2": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new20-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-3ed62ba46b87a2afeed4",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new30|30000|4|attachment",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.03,
+      "phase_hist_v11": {
+        "2": 2,
+        "1": 2,
+        "0": 196
+      },
+      "strict_phase_hist": {
+        "1": 4,
+        "0": 196
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 96,
+          "1": 2,
+          "2": 2
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-16c6725f5807881bd635",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|new20|20000|8|attachment",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.015,
+      "phase_hist_v11": {
+        "1": 3,
+        "0": 197
+      },
+      "strict_phase_hist": {
+        "1": 3,
+        "0": 197
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 98,
+          "1": 2
+        },
+        "reverse": {
+          "0": 99,
+          "1": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-new20-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-e7b578885d7f861dcd75",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak30|30000|8|attachment",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 149,
+      "unknown": 0,
+      "valid": 149,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.026845637583892617,
+      "phase_hist_v11": {
+        "1": 4,
+        "0": 145
+      },
+      "strict_phase_hist": {
+        "1": 4,
+        "0": 145
+      },
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 71,
+          "1": 4
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-ecb10042d2687b842788",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|oursalignedweak30|30000|4|baseline",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 76,
+      "unknown": 0,
+      "valid": 76,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.013157894736842105,
+      "phase_hist_v11": {
+        "1": 1,
+        "0": 75
+      },
+      "strict_phase_hist": {
+        "1": 1,
+        "0": 75
+      },
+      "lr_split": {
+        "left": {
+          "trials": 36,
+          "success": 0,
+          "failure": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 36
+        },
+        "reverse": {
+          "0": 39,
+          "1": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 76,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 76
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-76f28ec5ab4def94a8fe",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|oursalignedweak30|30000|30|attachment",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 77,
+      "unknown": 0,
+      "valid": 77,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.012987012987012988,
+      "phase_hist_v11": {
+        "1": 1,
+        "0": 76
+      },
+      "strict_phase_hist": {
+        "1": 1,
+        "0": 76
+      },
+      "lr_split": {
+        "left": {
+          "trials": 37,
+          "success": 0,
+          "failure": 37,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 36,
+          "1": 1
+        },
+        "reverse": {
+          "0": 40
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 77,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 77
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-56db3e42a9ea2d17ca4d",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|oursalignedweak30|30000|8|attachment",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 76,
+      "unknown": 0,
+      "valid": 76,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.02631578947368421,
+      "phase_hist_v11": {
+        "1": 2,
+        "0": 74
+      },
+      "strict_phase_hist": {
+        "1": 2,
+        "0": 74
+      },
+      "lr_split": {
+        "left": {
+          "trials": 36,
+          "success": 0,
+          "failure": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 35,
+          "1": 1
+        },
+        "reverse": {
+          "0": 39,
+          "1": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 76,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 76
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-c7c13656d7276d6f2c9b",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|oursalignedweak30|30000|4|attachment",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 74,
+      "unknown": 0,
+      "valid": 74,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.02702702702702703,
+      "phase_hist_v11": {
+        "1": 2,
+        "0": 72
+      },
+      "strict_phase_hist": {
+        "1": 2,
+        "0": 72
+      },
+      "lr_split": {
+        "left": {
+          "trials": 36,
+          "success": 0,
+          "failure": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 38,
+          "success": 0,
+          "failure": 38,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 36
+        },
+        "reverse": {
+          "0": 36,
+          "1": 2
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 74,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 74
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-7b61a0ea920bbab934c9",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak20|20000|4|baseline",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 200
+      },
+      "strict_phase_hist": {
+        "0": 200
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-weak20-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-767919ecae01a77f381b",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak20|20000|30|baseline",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 200
+      },
+      "strict_phase_hist": {
+        "0": 200
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-weak20-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-221a8cc6935bc0049646",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak20|20000|8|baseline",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 200
+      },
+      "strict_phase_hist": {
+        "0": 200
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-weak20-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-128c84c925058c4e0845",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak30|30000|4|baseline",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 149,
+      "unknown": 0,
+      "valid": 149,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 149
+      },
+      "strict_phase_hist": {
+        "0": 149
+      },
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-weak30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-f483aa22112c8cfbb6f9",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak30|30000|8|baseline",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 149,
+      "unknown": 0,
+      "valid": 149,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 149
+      },
+      "strict_phase_hist": {
+        "0": 149
+      },
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-weak30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-124170c6832fecc6e51a",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak30|30000|30|baseline",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 149,
+      "unknown": 0,
+      "valid": 149,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 149
+      },
+      "strict_phase_hist": {
+        "0": 149
+      },
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-weak30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-219dcd4c0b6cd5d91139",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|ours30|30000|4|baseline",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 146,
+      "unknown": 0,
+      "valid": 146,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 146
+      },
+      "strict_phase_hist": {
+        "0": 146
+      },
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 73
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-ours30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-32862584fab18dab3c24",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|ours30|30000|30|baseline",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 146,
+      "unknown": 0,
+      "valid": 146,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 146
+      },
+      "strict_phase_hist": {
+        "0": 146
+      },
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 73
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-all-20261101-ours30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-703a3b14a01316e145a6",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak30|30000|4|attachment",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 149,
+      "unknown": 0,
+      "valid": 149,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 149
+      },
+      "strict_phase_hist": {
+        "0": 149
+      },
+      "lr_split": {
+        "left": {
+          "trials": 75,
+          "success": 0,
+          "failure": 75,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 75
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 149,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 149
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-20fa7cbde0de96c00e9c",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak30|30000|30|attachment",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 148,
+      "unknown": 0,
+      "valid": 148,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 148
+      },
+      "strict_phase_hist": {
+        "0": 148
+      },
+      "lr_split": {
+        "left": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 74,
+          "success": 0,
+          "failure": 74,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 74
+        },
+        "reverse": {
+          "0": 74
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 148,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 148
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-1df34b30973dc4f3d0a6",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak20|20000|4|attachment",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 200
+      },
+      "strict_phase_hist": {
+        "0": 200
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak20-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-51345c8dde45e1585de6",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak20|20000|30|attachment",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.005,
+      "phase_hist_v11": {
+        "0": 199,
+        "1": 1
+      },
+      "strict_phase_hist": {
+        "0": 200
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 99,
+          "1": 1
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak20-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-bc16bf643781b8877d64",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|weak20|20000|8|attachment",
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 200,
+      "unknown": 0,
+      "valid": 200,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 200
+      },
+      "strict_phase_hist": {
+        "0": 200
+      },
+      "lr_split": {
+        "left": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 100
+        },
+        "reverse": {
+          "0": 100
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 200,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 200
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-weak20-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-5167a426be815e26ab19",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|ours30|30000|4|attachment",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 146,
+      "unknown": 0,
+      "valid": 146,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 146
+      },
+      "strict_phase_hist": {
+        "0": 146
+      },
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 73
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-ours30-h4",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-60aefe3ac88bc6829196",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|ours30|30000|8|attachment",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 146,
+      "unknown": 0,
+      "valid": 146,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.00684931506849315,
+      "phase_hist_v11": {
+        "0": 145,
+        "1": 1
+      },
+      "strict_phase_hist": {
+        "0": 146
+      },
+      "lr_split": {
+        "left": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 72,
+          "1": 1
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 146,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 146
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-ours30-h8",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-75b9c3cda1fd439393b0",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|ours30|30000|30|attachment",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "legacy-attachment-unverified",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 145,
+      "unknown": 0,
+      "valid": 145,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 145
+      },
+      "strict_phase_hist": {
+        "0": 145
+      },
+      "lr_split": {
+        "left": {
+          "trials": 72,
+          "success": 0,
+          "failure": 72,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 73,
+          "success": 0,
+          "failure": 73,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 72
+        },
+        "reverse": {
+          "0": 73
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 145,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 145
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": "task5-grasp-attach-20261101-ours30-h30",
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-cf22d6ceba55f17afef3",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|oursalignedweak30|30000|30|baseline",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 30,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 75,
+      "unknown": 0,
+      "valid": 75,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 75
+      },
+      "strict_phase_hist": {
+        "0": 75
+      },
+      "lr_split": {
+        "left": {
+          "trials": 35,
+          "success": 0,
+          "failure": 35,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 35
+        },
+        "reverse": {
+          "0": 40
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 75,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 75
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-d5f7cfc80a99b1782241",
+      "cohort": "legacy_pipeline_suspect",
+      "source_group": "legacy_pipeline_suspect|oursalignedweak30|30000|8|baseline",
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "legacy_pipeline_suspect",
+      "training_resize": null,
+      "training_resize_evidence": [],
+      "n": 77,
+      "unknown": 0,
+      "valid": 77,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 77
+      },
+      "strict_phase_hist": {
+        "0": 77
+      },
+      "lr_split": {
+        "left": {
+          "trials": 37,
+          "success": 0,
+          "failure": 37,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 40,
+          "success": 0,
+          "failure": 40,
+          "unknown": 0
+        }
+      },
+      "layout_mapping": "forward=left; reverse=right",
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 37
+        },
+        "reverse": {
+          "0": 40
+        }
+      },
+      "seed_results": null,
+      "inference_seed_coverage": {
+        "explicit_n": 0,
+        "missing_n": 77,
+        "accepted_source_field": "inference_seed",
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "training_resize_coverage": {
+        "unknown": 77
+      },
+      "complete_snapshot": true,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "旧7023管线待查，仅诊断",
+      "quarantined": true,
+      "source_evaluation_id": null,
+      "topology": null,
+      "scene_list_hash": null,
+      "strict_fdvel_identity": true
+    },
+    {
+      "id": "task5-round5-cpu-5c2b6604efbb4fd94c02",
+      "cohort": "round4_cloud_repair1",
+      "source_group": [
+        "round4_cloud_repair1",
+        "new30",
+        30000,
+        4,
+        "baseline",
+        "phase_A",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "phase_A",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 7,
+      "unknown": 5,
+      "valid": 2,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 2
+      },
+      "strict_phase_hist": {
+        "0": 2
+      },
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 3
+        },
+        "right": {
+          "trials": 3,
+          "success": 0,
+          "unknown": 2
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 7,
+          "success": 0,
+          "unknown": 5
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 7,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {
+        "agent_handover_interrupted_observable_native_case": 5
+      },
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "r4_new30_A_s0_h4_000",
+        "r4_new30_A_s0_h4_001",
+        "r4_new30_A_s0_h4_002",
+        "r4_new30_A_s0_h4_003",
+        "r4_new30_A_s0_h4_004",
+        "r4_new30_A_s0_h4_005",
+        "r4_new30_A_s0_h4_006"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 1
+        },
+        "reverse": {
+          "0": 1
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 1,
+        "no_successful_grasp_or_lift": 1,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "time_limit": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-8d9092dbafc101b901e2",
+      "cohort": "round4_cloud_repair1",
+      "source_group": [
+        "round4_cloud_repair1",
+        "new30",
+        30000,
+        8,
+        "baseline",
+        "phase_A",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "phase_A",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 7,
+      "unknown": 4,
+      "valid": 3,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 3
+      },
+      "strict_phase_hist": {
+        "0": 3
+      },
+      "lr_split": {
+        "left": {
+          "trials": 4,
+          "success": 0,
+          "unknown": 3
+        },
+        "right": {
+          "trials": 3,
+          "success": 0,
+          "unknown": 1
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 7,
+          "success": 0,
+          "unknown": 4
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 7,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {
+        "agent_handover_interrupted_observable_native_case": 4
+      },
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "r4_new30_A_s0_h8_000",
+        "r4_new30_A_s0_h8_001",
+        "r4_new30_A_s0_h8_002",
+        "r4_new30_A_s0_h8_003",
+        "r4_new30_A_s0_h8_004",
+        "r4_new30_A_s0_h8_005",
+        "r4_new30_A_s0_h8_006"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 1
+        },
+        "reverse": {
+          "0": 2
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 2,
+        "no_successful_grasp_or_lift": 2,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "time_limit": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-5d6fb5c2ca8d4589b927",
+      "cohort": "round4_cloud_repair1",
+      "source_group": [
+        "round4_cloud_repair1",
+        "ours30",
+        30000,
+        8,
+        "baseline",
+        "admission_smoke",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "variant": "ours30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "admission_smoke",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 20,
+      "unknown": 2,
+      "valid": 18,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.05555555555555555,
+      "phase_hist_v11": {
+        "0": 17,
+        "1": 1
+      },
+      "strict_phase_hist": {
+        "0": 17,
+        "1": 1
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 2
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 2
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {
+        "AssertionError": 2
+      },
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "hermite1_ours30_smoke20_h8_seed0_000",
+        "hermite1_ours30_smoke20_h8_seed0_001",
+        "hermite1_ours30_smoke20_h8_seed0_002",
+        "hermite1_ours30_smoke20_h8_seed0_003",
+        "hermite1_ours30_smoke20_h8_seed0_004",
+        "hermite1_ours30_smoke20_h8_seed0_005",
+        "hermite1_ours30_smoke20_h8_seed0_006",
+        "hermite1_ours30_smoke20_h8_seed0_007",
+        "hermite1_ours30_smoke20_h8_seed0_008",
+        "hermite1_ours30_smoke20_h8_seed0_009",
+        "hermite1_ours30_smoke20_h8_seed0_010",
+        "hermite1_ours30_smoke20_h8_seed0_011",
+        "hermite1_ours30_smoke20_h8_seed0_012",
+        "hermite1_ours30_smoke20_h8_seed0_013",
+        "hermite1_ours30_smoke20_h8_seed0_014",
+        "hermite1_ours30_smoke20_h8_seed0_015",
+        "hermite1_ours30_smoke20_h8_seed0_016",
+        "hermite1_ours30_smoke20_h8_seed0_017",
+        "hermite1_ours30_smoke20_h8_seed0_018",
+        "hermite1_ours30_smoke20_h8_seed0_019"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 10
+        },
+        "reverse": {
+          "0": 7,
+          "1": 1
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 7,
+        "no_successful_grasp_or_lift": 17,
+        "time_limit": 11,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "physical_complete_instruction_retained": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 1,
+        "delay_seconds": [
+          208.91666666666666
+        ],
+        "never_switched_events": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-6a4533ed2e9cd55f4451",
+      "cohort": "round4_cloud_repair1",
+      "source_group": [
+        "round4_cloud_repair1",
+        "oursalignedweak30",
+        30000,
+        8,
+        "baseline",
+        "admission_smoke",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-ttc-aligned-weak",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐削弱版",
+      "variant": "oursalignedweak30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "admission_smoke",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 20,
+      "unknown": 10,
+      "valid": 10,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 10
+      },
+      "strict_phase_hist": {
+        "0": 10
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 4
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {
+        "AssertionError": 10
+      },
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_000",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_001",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_002",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_003",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_004",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_005",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_006",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_007",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_008",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_009",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_010",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_011",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_012",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_013",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_014",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_015",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_016",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_017",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_018",
+        "hermite1_oursalignedweak30_smoke20_h8_seed0_019"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6
+        },
+        "reverse": {
+          "0": 4
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "released_outside_target_region": 3,
+        "possible_slip_requires_video_confirmation": 3,
+        "time_limit": 9,
+        "no_successful_grasp_or_lift": 7,
+        "toppled_collision_attribution_unconfirmed": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-677f7ddeb12f07bd4417",
+      "cohort": "round4_cloud_repair1",
+      "source_group": [
+        "round4_cloud_repair1",
+        "weak20",
+        20000,
+        8,
+        "baseline",
+        "admission_smoke",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak20",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "admission_smoke",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 17,
+      "unknown": 1,
+      "valid": 16,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.25,
+      "phase_hist_v11": {
+        "0": 12,
+        "1": 4
+      },
+      "strict_phase_hist": {
+        "0": 12,
+        "1": 4
+      },
+      "lr_split": {
+        "left": {
+          "trials": 9,
+          "success": 0,
+          "unknown": 1
+        },
+        "right": {
+          "trials": 8,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 17,
+          "success": 0,
+          "unknown": 1
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 17,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {
+        "AssertionError": 1
+      },
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "hermite1_weak20_smoke20_h8_seed0_000",
+        "hermite1_weak20_smoke20_h8_seed0_001",
+        "hermite1_weak20_smoke20_h8_seed0_002",
+        "hermite1_weak20_smoke20_h8_seed0_003",
+        "hermite1_weak20_smoke20_h8_seed0_004",
+        "hermite1_weak20_smoke20_h8_seed0_005",
+        "hermite1_weak20_smoke20_h8_seed0_006",
+        "hermite1_weak20_smoke20_h8_seed0_007",
+        "hermite1_weak20_smoke20_h8_seed0_008",
+        "hermite1_weak20_smoke20_h8_seed0_009",
+        "hermite1_weak20_smoke20_h8_seed0_010",
+        "hermite1_weak20_smoke20_h8_seed0_011",
+        "hermite1_weak20_smoke20_h8_seed0_012",
+        "hermite1_weak20_smoke20_h8_seed0_013",
+        "hermite1_weak20_smoke20_h8_seed0_014",
+        "hermite1_weak20_smoke20_h8_seed0_015",
+        "hermite1_weak20_smoke20_h8_seed0_016"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 8
+        },
+        "reverse": {
+          "0": 4,
+          "1": 4
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "no_successful_grasp_or_lift": 15,
+        "time_limit": 13,
+        "physical_complete_instruction_retained": 4,
+        "toppled_collision_attribution_unconfirmed": 3,
+        "released_outside_target_region": 1,
+        "premature_instruction_switch": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 1,
+        "retained_after_physical_complete_events": 4,
+        "delay_seconds": [
+          4.166666666666667,
+          210.375,
+          211.125,
+          50.275
+        ],
+        "never_switched_events": 3
+      }
+    },
+    {
+      "id": "task5-round5-cpu-7e736bac90cfb237a324",
+      "cohort": "round4_cloud_repair1",
+      "source_group": [
+        "round4_cloud_repair1",
+        "weak30",
+        30000,
+        8,
+        "baseline",
+        "admission_smoke",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-mem0-weak",
+      "dataset": "5-pos",
+      "method": "Mem-0 · 削弱版",
+      "variant": "weak30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "admission_smoke",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 20,
+      "unknown": 0,
+      "valid": 20,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.05,
+      "phase_hist_v11": {
+        "0": 19,
+        "1": 1
+      },
+      "strict_phase_hist": {
+        "0": 19,
+        "1": 1
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {},
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 5,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "hermite1_weak30_smoke20_h8_seed0_000",
+        "hermite1_weak30_smoke20_h8_seed0_001",
+        "hermite1_weak30_smoke20_h8_seed0_002",
+        "hermite1_weak30_smoke20_h8_seed0_003",
+        "hermite1_weak30_smoke20_h8_seed0_004",
+        "hermite1_weak30_smoke20_h8_seed0_005",
+        "hermite1_weak30_smoke20_h8_seed0_006",
+        "hermite1_weak30_smoke20_h8_seed0_007",
+        "hermite1_weak30_smoke20_h8_seed0_008",
+        "hermite1_weak30_smoke20_h8_seed0_009",
+        "hermite1_weak30_smoke20_h8_seed0_010",
+        "hermite1_weak30_smoke20_h8_seed0_011",
+        "hermite1_weak30_smoke20_h8_seed0_012",
+        "hermite1_weak30_smoke20_h8_seed0_013",
+        "hermite1_weak30_smoke20_h8_seed0_014",
+        "hermite1_weak30_smoke20_h8_seed0_015",
+        "hermite1_weak30_smoke20_h8_seed0_016",
+        "hermite1_weak30_smoke20_h8_seed0_017",
+        "hermite1_weak30_smoke20_h8_seed0_018",
+        "hermite1_weak30_smoke20_h8_seed0_019"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 9,
+          "1": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 8,
+        "no_successful_grasp_or_lift": 13,
+        "released_outside_target_region": 7,
+        "possible_slip_requires_video_confirmation": 6,
+        "time_limit": 12,
+        "physical_complete_instruction_retained": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 1,
+        "delay_seconds": [
+          45.325
+        ],
+        "never_switched_events": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-62815dd1f6667fbfc91c",
+      "cohort": "shared_new20_hermite_fullsmoke20_v1",
+      "source_group": [
+        "shared_new20_hermite_fullsmoke20_v1",
+        "new20",
+        20000,
+        8,
+        "baseline",
+        "admission_smoke",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new20",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "admission_smoke",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 20,
+      "unknown": 0,
+      "valid": 20,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.0,
+      "phase_hist_v11": {
+        "0": 20
+      },
+      "strict_phase_hist": {
+        "0": 20
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {},
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "hermite1_new20_smoke20_h8_seed0_000",
+        "hermite1_new20_smoke20_h8_seed0_001",
+        "hermite1_new20_smoke20_h8_seed0_002",
+        "hermite1_new20_smoke20_h8_seed0_003",
+        "hermite1_new20_smoke20_h8_seed0_004",
+        "hermite1_new20_smoke20_h8_seed0_005",
+        "hermite1_new20_smoke20_h8_seed0_006",
+        "hermite1_new20_smoke20_h8_seed0_007",
+        "hermite1_new20_smoke20_h8_seed0_008",
+        "hermite1_new20_smoke20_h8_seed0_009",
+        "hermite1_new20_smoke20_h8_seed0_010",
+        "hermite1_new20_smoke20_h8_seed0_011",
+        "hermite1_new20_smoke20_h8_seed0_012",
+        "hermite1_new20_smoke20_h8_seed0_013",
+        "hermite1_new20_smoke20_h8_seed0_014",
+        "hermite1_new20_smoke20_h8_seed0_015",
+        "hermite1_new20_smoke20_h8_seed0_016",
+        "hermite1_new20_smoke20_h8_seed0_017",
+        "hermite1_new20_smoke20_h8_seed0_018",
+        "hermite1_new20_smoke20_h8_seed0_019"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 10
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "no_successful_grasp_or_lift": 19,
+        "time_limit": 11,
+        "toppled_collision_attribution_unconfirmed": 9,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "premature_instruction_switch": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 1,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-e649818ad7e00a3c029c",
+      "cohort": "shared_new30_hermite_fullsmoke20_v2",
+      "source_group": [
+        "shared_new30_hermite_fullsmoke20_v2",
+        "new30",
+        30000,
+        8,
+        "baseline",
+        "admission_smoke",
+        "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+        "pos1cm_source_optics_v1"
+      ],
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "variant": "new30",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "stage": "diagnostic",
+      "original_role": "admission_smoke",
+      "training_resize": true,
+      "training_resize_evidence": [
+        "train_aligned"
+      ],
+      "n": 20,
+      "unknown": 0,
+      "valid": 20,
+      "strict_v1_success": 0,
+      "strict_fdvel_v1_success": 0,
+      "placement_v11_success": 0,
+      "mean_phase_v11": 0.6,
+      "phase_hist_v11": {
+        "1": 8,
+        "2": 2,
+        "0": 10
+      },
+      "strict_phase_hist": {
+        "1": 8,
+        "2": 2,
+        "0": 10
+      },
+      "lr_split": {
+        "left": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 10,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "inference_seed_coverage": {
+        "explicit_n": 20,
+        "missing_n": 0,
+        "generic_seed_or_repeat_reinterpreted": false
+      },
+      "unknown_reasons": {},
+      "complete_snapshot": true,
+      "rescore_pending": 0,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "CPU三口径已核验的独立快照；不是完整阶段A",
+      "quarantined": false,
+      "source_evaluation_id": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "optics_version": "pos1cm_source_optics_v1",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+      "actual_case_ids": [
+        "hermite1_new30_smoke20_h8_seed0_000",
+        "hermite1_new30_smoke20_h8_seed0_001",
+        "hermite1_new30_smoke20_h8_seed0_002",
+        "hermite1_new30_smoke20_h8_seed0_003",
+        "hermite1_new30_smoke20_h8_seed0_004",
+        "hermite1_new30_smoke20_h8_seed0_005",
+        "hermite1_new30_smoke20_h8_seed0_006",
+        "hermite1_new30_smoke20_h8_seed0_007",
+        "hermite1_new30_smoke20_h8_seed0_008",
+        "hermite1_new30_smoke20_h8_seed0_009",
+        "hermite1_new30_smoke20_h8_seed0_010",
+        "hermite1_new30_smoke20_h8_seed0_011",
+        "hermite1_new30_smoke20_h8_seed0_012",
+        "hermite1_new30_smoke20_h8_seed0_013",
+        "hermite1_new30_smoke20_h8_seed0_014",
+        "hermite1_new30_smoke20_h8_seed0_015",
+        "hermite1_new30_smoke20_h8_seed0_016",
+        "hermite1_new30_smoke20_h8_seed0_017",
+        "hermite1_new30_smoke20_h8_seed0_018",
+        "hermite1_new30_smoke20_h8_seed0_019"
+      ],
+      "strict_fdvel_identity": true,
+      "layout_phase_hist_v11": {
+        "forward": {
+          "1": 5,
+          "2": 2,
+          "0": 3
+        },
+        "reverse": {
+          "1": 3,
+          "0": 7
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "released_outside_target_region": 7,
+        "possible_slip_requires_video_confirmation": 7,
+        "time_limit": 13,
+        "physical_complete_instruction_retained": 10,
+        "no_successful_grasp_or_lift": 11,
+        "premature_instruction_switch": 2,
+        "toppled_collision_attribution_unconfirmed": 7
+      },
+      "switch_diagnostic": {
+        "premature_events": 2,
+        "retained_after_physical_complete_events": 12,
+        "delay_seconds": [
+          56.983333333333334,
+          4.583333333333333,
+          54.975,
+          5.516666666666667,
+          7.033333333333333,
+          75.41666666666667,
+          5.033333333333333,
+          5.266666666666667,
+          212.45833333333334,
+          6.325,
+          2.7583333333333333,
+          37.30833333333333
+        ],
+        "never_switched_events": 1
+      }
+    }
+  ],
+  "pending_oracle_switch": [
+    {
+      "id": "task5-round5-new30-h8-oracle-switch-diagnostic-v1",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "condition_version": "oracle-switch-diagnostic-v1",
+      "metric_role": "oracle_switch_diagnostic",
+      "evaluation_started": false,
+      "trials": 100,
+      "target": 100,
+      "completed": 0,
+      "unknown": 0,
+      "success": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "topology": null,
+      "preprocess_resize": null,
+      "scene_list_hash": null,
+      "lr_split": null,
+      "seed_results": null,
+      "wilson95": null,
+      "kind": "真值切换诊断（未开始）",
+      "formal_score_eligible": false,
+      "status": "未开始；仅CPU包准备，不报0/100",
+      "pending_reason": "真实模型完成日志自检通过（动作最大差0、状态一致）；已scene-ready，N1密度图像准入中，尚无新验收轨迹",
+      "operational_snapshot_at": "2026-11-04T10:32:50.377173+00:00",
+      "expected_start_at": null
+    },
+    {
+      "id": "task5-round5-ours30-h8-oracle-switch-diagnostic-v1",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "condition_version": "oracle-switch-diagnostic-v1",
+      "metric_role": "oracle_switch_diagnostic",
+      "evaluation_started": false,
+      "trials": 100,
+      "target": 100,
+      "completed": 0,
+      "unknown": 0,
+      "success": null,
+      "phase_hist": {},
+      "mean_phase": null,
+      "topology": null,
+      "preprocess_resize": null,
+      "scene_list_hash": null,
+      "lr_split": null,
+      "seed_results": null,
+      "wilson95": null,
+      "kind": "真值切换诊断（未开始）",
+      "formal_score_eligible": false,
+      "status": "未开始；仅CPU包准备，不报0/100",
+      "pending_reason": "TTC私有CPU依赖预检及仅完成信号替换适配器准备中；旧503未保留模块名，不能归因于#17缺失函数",
+      "operational_snapshot_at": "2026-11-04T10:32:50.377173+00:00",
+      "expected_start_at": null
+    }
+  ],
+  "startup_diagnosis": {
+    "scope": "启动链诊断；不属于模型评测成绩",
+    "snapshot_at": "2026-11-04T10:32:50.377173+00:00",
+    "watch_source_epoch": 1793788370.3771727,
+    "first_portable_failure": {
+      "job_id": "job-0ujjn1fq67mu",
+      "seconds_from_entry_birth_to_failure": 0.0753319263458252,
+      "cause": "driver display-name guard rejected allocated GPU alias before models",
+      "generic_failure_marker": "object_transfer_failed",
+      "all_replicas_terminal": true
+    },
+    "observation_only_job": {
+      "job_id": "job-lejoqf9oxzn8",
+      "terminal": "SUCCEEDED",
+      "all_replicas_terminal": true,
+      "model_calls": 0,
+      "simulations": 0,
+      "token_environment_present": true,
+      "manifest_mismatches": [],
+      "devices": [
+        {
+          "index": 0,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        },
+        {
+          "index": 1,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        },
+        {
+          "index": 2,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        },
+        {
+          "index": 3,
+          "driver_display_name": "NVIDIA RPBZZZ6",
+          "total_MiB": 97887,
+          "free_MiB": 97250
+        }
+      ]
+    },
+    "official_allocation": {
+      "id": "ejtfr2ncissf7f89rspag0ls9",
+      "gpu_model": "NVIDIA RTX PRO 6000 96GB",
+      "gpu_count": 4
+    },
+    "repair": {
+      "passed": true,
+      "binding": "catalog offering + assigned UUID set + GPU count + memory/free-memory guards",
+      "physics_and_control_files_unchanged": [
+        "job.py",
+        "rollout.py",
+        "RESUME_SEED.json",
+        "oracle_switch.py"
+      ],
+      "tests": {
+        "command": "python3 -B -m unittest -v test_inventory_contract.py",
+        "passed": 6,
+        "source_sha256": "7fe325e77927ced77a3061cc8454b6cabb18923615c1f792e38d30edccff8f37",
+        "test_sha256": "170da143538b393312bf13343841e8a5c793b5d0104a48a852d1b3ce82889c55"
+      }
+    },
+    "replacement": {
+      "job_id": "job-ls7xx6m3uc0y",
+      "platform_status": "RUNNING",
+      "state_text": "RUNNING",
+      "detail": "真实模型完成日志自检通过（动作最大差0、状态一致）；已scene-ready，N1密度图像准入中，尚无新验收轨迹",
+      "hard_failure_marker": false,
+      "running_gpus": 4,
+      "reserved_gpus": 4,
+      "first_scene_ready": true,
+      "new_oracle_diagnostic_completed": 0,
+      "all_replicas_terminal": null
+    },
+    "real_NN_logging_parity": {
+      "passed": true,
+      "frames": 4,
+      "maximum_action_delta": 0.0,
+      "status_exact": true,
+      "fresh_private_lane": "round4b_parity",
+      "version": "pre_refresh_completion_trace_v4b",
+      "scored": false
+    },
+    "prior_parity_fixture_failure": {
+      "job_id": "job-u8rxnsr9ic02",
+      "cause": "startup probe selected a metadata-only NPZ; RGB exists in its paired video",
+      "repair": {
+        "passed": true,
+        "cause": "startup parity probe selected metadata-only NPZ; raw RGB is in paired video",
+        "fix": "private four-frame input fixture, exact cached training RGB and measuredq13, video difference0",
+        "fixture_sha256": "d87964549d36a9d3f7055980429329696d055bee230a1f8d264d4a38669351d1",
+        "source_originals_unchanged": true,
+        "formal_model_observation_pipeline_unchanged": true,
+        "scientific_driver_rollout_ledger_identical": true,
+        "new_GPU_submitted": false
+      },
+      "all_replicas_terminal": true
+    },
+    "evidence": {
+      "startup_observer/OBSERVATIONS.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/OBSERVATIONS.json",
+        "sha256": "92fc4e3ea742612986f6f5d8e39e47faeafa5cf1c38a4423b5d52e4b8b7bf94a"
+      },
+      "startup_observer/TERMINAL_RELEASE.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/startup_observer/TERMINAL_RELEASE.json",
+        "sha256": "450b114e8e23c146a2e8dbd0a69d7e78ef3418a66dc687170754dd3dbfd0ff3d"
+      },
+      "ALIAS_OFFICIAL_OFFERING.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/ALIAS_OFFICIAL_OFFERING.json",
+        "sha256": "1bbe153a30dc510764bcca6c74d60f2b333c177691b8d18648574b1ea9fa9f10"
+      },
+      "BOOT_GUARD_FIX_PROOF.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/BOOT_GUARD_FIX_PROOF.json",
+        "sha256": "bbb6bd7a35dc9aa919ea7bab00a8953e71a18b7b42fd4a8771abf4a26edfb52a"
+      },
+      "portable_job_v3/WATCH_LATEST.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v3/WATCH_LATEST.json",
+        "sha256": "da1be09fd777c20d029af7fbaedcf917f5faf0a28e7fcedc2e6b415d6f98576c"
+      },
+      "portable_job_v3/INITIAL_MODEL_PROGRESS.json": {
+        "path": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/portable_job_v3/INITIAL_MODEL_PROGRESS.json",
+        "sha256": "34f12ffd6c37185cc29a983ad84461514e1c743da61524bfe25805a55f774feb"
+      }
+    },
+    "claim_boundary": "Actual four-frame NN parity passed; density admission is in progress. No scientific case is scored by startup checks."
+  },
+  "operational_snapshot": {
+    "owned_low_priority_gpus": 4,
+    "reserved_low_priority_gpus": 4,
+    "snapshot_at": "2026-11-04T10:32:50.377173+00:00",
+    "higher_density_admission_passed": false,
+    "GT_GPU_trials_started": 0
+  },
+  "incidents": [
+    {
+      "incident": "hot-handover process identification missed r4_new30_A prefix",
+      "agent_interrupted_cases": 9,
+      "disposition": "unknown/no_retry; original69 valid preserved",
+      "evidence": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round2/round4_mixed4_repair1/round4b_replacement/RECONCILIATION.json"
+    },
+    {
+      "incident": "standalone replacement omitted audit_smoke.py dependency",
+      "job_id": "job-2qip3pmot2is",
+      "terminal_state": "FAILED",
+      "new_model_calls": 0,
+      "new_simulations": 0,
+      "evidence": "/home/liyufeng/ops/safelab_5b_stable_attach_20261101/eval_v1_pipeline_20261103/round5/FAILED_REPLACEMENT_REPLICAS.json"
+    }
+  ],
+  "stage_funnels_and_failures": [
+    {
+      "id": "task5-round5-cpu-7f9f69c6d270a2835430",
+      "cohort": "expert_original8",
+      "variant": "expert",
+      "horizon": null,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 8,
+          "previous_phase_reached": 8,
+          "conditional_reach_rate": 1.0
+        },
+        {
+          "physical_phase": 2,
+          "reached": 8,
+          "previous_phase_reached": 8,
+          "conditional_reach_rate": 1.0
+        },
+        {
+          "physical_phase": 3,
+          "reached": 8,
+          "previous_phase_reached": 8,
+          "conditional_reach_rate": 1.0
+        },
+        {
+          "physical_phase": 4,
+          "reached": 8,
+          "previous_phase_reached": 8,
+          "conditional_reach_rate": 1.0
+        },
+        {
+          "physical_phase": 5,
+          "reached": 8,
+          "previous_phase_reached": 8,
+          "conditional_reach_rate": 1.0
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "5": 4
+        },
+        "reverse": {
+          "5": 4
+        }
+      },
+      "failure_modes_nonexclusive": null,
+      "switch_diagnostic": null
+    },
+    {
+      "id": "task5-round5-cpu-1e1bc51adbf961174d38",
+      "cohort": "cloud4_current_row_smoke20_v4",
+      "variant": "new30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 4,
+          "previous_phase_reached": 20,
+          "conditional_reach_rate": 0.2
+        },
+        {
+          "physical_phase": 2,
+          "reached": 4,
+          "previous_phase_reached": 4,
+          "conditional_reach_rate": 1.0
+        },
+        {
+          "physical_phase": 3,
+          "reached": 1,
+          "previous_phase_reached": 4,
+          "conditional_reach_rate": 0.25
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 1,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6,
+          "2": 3,
+          "3": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": null,
+      "switch_diagnostic": null
+    },
+    {
+      "id": "task5-round5-cpu-820c05a3948976161cc7",
+      "cohort": "cloud4_source_optics_smoke20_v1",
+      "variant": "new30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 3,
+          "previous_phase_reached": 20,
+          "conditional_reach_rate": 0.15
+        },
+        {
+          "physical_phase": 2,
+          "reached": 2,
+          "previous_phase_reached": 3,
+          "conditional_reach_rate": 0.6666666666666666
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 2,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 7,
+          "1": 1,
+          "2": 2
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": null,
+      "switch_diagnostic": null
+    },
+    {
+      "id": "task5-round5-cpu-5c2b6604efbb4fd94c02",
+      "cohort": "round4_cloud_repair1",
+      "variant": "new30",
+      "horizon": 4,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 0,
+          "previous_phase_reached": 2,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 1
+        },
+        "reverse": {
+          "0": 1
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 1,
+        "no_successful_grasp_or_lift": 1,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "time_limit": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-8d9092dbafc101b901e2",
+      "cohort": "round4_cloud_repair1",
+      "variant": "new30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 0,
+          "previous_phase_reached": 3,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 1
+        },
+        "reverse": {
+          "0": 2
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 2,
+        "no_successful_grasp_or_lift": 2,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "time_limit": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-5d6fb5c2ca8d4589b927",
+      "cohort": "round4_cloud_repair1",
+      "variant": "ours30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 1,
+          "previous_phase_reached": 18,
+          "conditional_reach_rate": 0.05555555555555555
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 1,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 10
+        },
+        "reverse": {
+          "0": 7,
+          "1": 1
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 7,
+        "no_successful_grasp_or_lift": 17,
+        "time_limit": 11,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "physical_complete_instruction_retained": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 1,
+        "delay_seconds": [
+          208.91666666666666
+        ],
+        "never_switched_events": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-6a4533ed2e9cd55f4451",
+      "cohort": "round4_cloud_repair1",
+      "variant": "oursalignedweak30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 0,
+          "previous_phase_reached": 10,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 6
+        },
+        "reverse": {
+          "0": 4
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "released_outside_target_region": 3,
+        "possible_slip_requires_video_confirmation": 3,
+        "time_limit": 9,
+        "no_successful_grasp_or_lift": 7,
+        "toppled_collision_attribution_unconfirmed": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-677f7ddeb12f07bd4417",
+      "cohort": "round4_cloud_repair1",
+      "variant": "weak20",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 4,
+          "previous_phase_reached": 16,
+          "conditional_reach_rate": 0.25
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 4,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 8
+        },
+        "reverse": {
+          "0": 4,
+          "1": 4
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "no_successful_grasp_or_lift": 15,
+        "time_limit": 13,
+        "physical_complete_instruction_retained": 4,
+        "toppled_collision_attribution_unconfirmed": 3,
+        "released_outside_target_region": 1,
+        "premature_instruction_switch": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 1,
+        "retained_after_physical_complete_events": 4,
+        "delay_seconds": [
+          4.166666666666667,
+          210.375,
+          211.125,
+          50.275
+        ],
+        "never_switched_events": 3
+      }
+    },
+    {
+      "id": "task5-round5-cpu-7e736bac90cfb237a324",
+      "cohort": "round4_cloud_repair1",
+      "variant": "weak30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 1,
+          "previous_phase_reached": 20,
+          "conditional_reach_rate": 0.05
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 1,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 9,
+          "1": 1
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "toppled_collision_attribution_unconfirmed": 8,
+        "no_successful_grasp_or_lift": 13,
+        "released_outside_target_region": 7,
+        "possible_slip_requires_video_confirmation": 6,
+        "time_limit": 12,
+        "physical_complete_instruction_retained": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 0,
+        "retained_after_physical_complete_events": 1,
+        "delay_seconds": [
+          45.325
+        ],
+        "never_switched_events": 1
+      }
+    },
+    {
+      "id": "task5-round5-cpu-62815dd1f6667fbfc91c",
+      "cohort": "shared_new20_hermite_fullsmoke20_v1",
+      "variant": "new20",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 0,
+          "previous_phase_reached": 20,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 2,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "0": 10
+        },
+        "reverse": {
+          "0": 10
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "no_successful_grasp_or_lift": 19,
+        "time_limit": 11,
+        "toppled_collision_attribution_unconfirmed": 9,
+        "released_outside_target_region": 1,
+        "possible_slip_requires_video_confirmation": 1,
+        "premature_instruction_switch": 1
+      },
+      "switch_diagnostic": {
+        "premature_events": 1,
+        "retained_after_physical_complete_events": 0,
+        "delay_seconds": [],
+        "never_switched_events": 0
+      }
+    },
+    {
+      "id": "task5-round5-cpu-e649818ad7e00a3c029c",
+      "cohort": "shared_new30_hermite_fullsmoke20_v2",
+      "variant": "new30",
+      "horizon": 8,
+      "funnel": [
+        {
+          "physical_phase": 1,
+          "reached": 10,
+          "previous_phase_reached": 20,
+          "conditional_reach_rate": 0.5
+        },
+        {
+          "physical_phase": 2,
+          "reached": 2,
+          "previous_phase_reached": 10,
+          "conditional_reach_rate": 0.2
+        },
+        {
+          "physical_phase": 3,
+          "reached": 0,
+          "previous_phase_reached": 2,
+          "conditional_reach_rate": 0.0
+        },
+        {
+          "physical_phase": 4,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        },
+        {
+          "physical_phase": 5,
+          "reached": 0,
+          "previous_phase_reached": 0,
+          "conditional_reach_rate": null
+        }
+      ],
+      "layout_phase_hist_v11": {
+        "forward": {
+          "1": 5,
+          "2": 2,
+          "0": 3
+        },
+        "reverse": {
+          "1": 3,
+          "0": 7
+        }
+      },
+      "failure_modes_nonexclusive": {
+        "released_outside_target_region": 7,
+        "possible_slip_requires_video_confirmation": 7,
+        "time_limit": 13,
+        "physical_complete_instruction_retained": 10,
+        "no_successful_grasp_or_lift": 11,
+        "premature_instruction_switch": 2,
+        "toppled_collision_attribution_unconfirmed": 7
+      },
+      "switch_diagnostic": {
+        "premature_events": 2,
+        "retained_after_physical_complete_events": 12,
+        "delay_seconds": [
+          56.983333333333334,
+          4.583333333333333,
+          54.975,
+          5.516666666666667,
+          7.033333333333333,
+          75.41666666666667,
+          5.033333333333333,
+          5.266666666666667,
+          212.45833333333334,
+          6.325,
+          2.7583333333333333,
+          37.30833333333333
+        ],
+        "never_switched_events": 1
+      }
+    }
+  ],
+  "video_candidates": {
+    "no_successful_grasp_or_lift": [
+      {
+        "case_id": "hermite1_new30_smoke20_h8_seed0_012",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1/hermite1_new30_smoke20_h8_seed0_012/preview.mp4",
+        "bytes": 1754928,
+        "sha256": "c1ff6fb0abd74953ed4cee148dd11624384bb9d7539b91d3ec9730650a17d118",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      },
+      {
+        "case_id": "hermite1_ours30_smoke20_h8_seed0_001",
+        "record": "5-pos-ours-aligned",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-ours-aligned/30000/original-v1/hermite1_ours30_smoke20_h8_seed0_001/preview.mp4",
+        "bytes": 1718181,
+        "sha256": "f312c90ff93316803ff44b27c6a7fed2a8c79daa0928a46cf190cc9fcae8b36d",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      }
+    ],
+    "possible_slip_requires_video_confirmation": [
+      {
+        "case_id": "hermite1_new30_smoke20_h8_seed0_002",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1/hermite1_new30_smoke20_h8_seed0_002/preview.mp4",
+        "bytes": 1755463,
+        "sha256": "db7ada0a6c4cf8a2516e875df650e1a7a43a11dbbf94449b1bea68ab4f65e3e0",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      },
+      {
+        "case_id": "hermite1_ours30_smoke20_h8_seed0_009",
+        "record": "5-pos-ours-aligned",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-ours-aligned/30000/original-v1/hermite1_ours30_smoke20_h8_seed0_009/preview.mp4",
+        "bytes": 1730909,
+        "sha256": "10d11d5aab59b2502ba52e0d82b8d95828ebeec4c9549c92672e19013a6caf81",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      }
+    ],
+    "toppled_collision_attribution_unconfirmed": [
+      {
+        "case_id": "hermite1_new30_smoke20_h8_seed0_018",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1/hermite1_new30_smoke20_h8_seed0_018/preview.mp4",
+        "bytes": 1724663,
+        "sha256": "76d60a410fadadfd50ef4878087b094c94aa17fd191e71508ab6ba6c22e82cc0",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      },
+      {
+        "case_id": "hermite1_ours30_smoke20_h8_seed0_001",
+        "record": "5-pos-ours-aligned",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-ours-aligned/30000/original-v1/hermite1_ours30_smoke20_h8_seed0_001/preview.mp4",
+        "bytes": 1718181,
+        "sha256": "f312c90ff93316803ff44b27c6a7fed2a8c79daa0928a46cf190cc9fcae8b36d",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      }
+    ],
+    "released_outside_target_region": [
+      {
+        "case_id": "hermite1_new30_smoke20_h8_seed0_002",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1/hermite1_new30_smoke20_h8_seed0_002/preview.mp4",
+        "bytes": 1755463,
+        "sha256": "db7ada0a6c4cf8a2516e875df650e1a7a43a11dbbf94449b1bea68ab4f65e3e0",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      },
+      {
+        "case_id": "hermite1_ours30_smoke20_h8_seed0_009",
+        "record": "5-pos-ours-aligned",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-ours-aligned/30000/original-v1/hermite1_ours30_smoke20_h8_seed0_009/preview.mp4",
+        "bytes": 1730909,
+        "sha256": "10d11d5aab59b2502ba52e0d82b8d95828ebeec4c9549c92672e19013a6caf81",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      }
+    ],
+    "physical_complete_instruction_retained": [
+      {
+        "case_id": "hermite1_new30_smoke20_h8_seed0_010",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1/hermite1_new30_smoke20_h8_seed0_010/preview.mp4",
+        "bytes": 1754746,
+        "sha256": "b14dd758cf5feac5799fa251183e9e8e4210a9cf8a4c98337822d7203281b535",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      },
+      {
+        "case_id": "hermite1_ours30_smoke20_h8_seed0_019",
+        "record": "5-pos-ours-aligned",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-ours-aligned/30000/original-v1/hermite1_ours30_smoke20_h8_seed0_019/preview.mp4",
+        "bytes": 1754988,
+        "sha256": "a5f6a68a8a81fc0e2f4462123e33b49d07f5a2cd14aa65ff4a4821d7a79f7f5c",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      }
+    ],
+    "premature_instruction_switch": [
+      {
+        "case_id": "hermite1_new30_smoke20_h8_seed0_002",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/30000/original-v1/hermite1_new30_smoke20_h8_seed0_002/preview.mp4",
+        "bytes": 1755463,
+        "sha256": "db7ada0a6c4cf8a2516e875df650e1a7a43a11dbbf94449b1bea68ab4f65e3e0",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      },
+      {
+        "case_id": "hermite1_new20_smoke20_h8_seed0_019",
+        "record": "5-pos-mem0",
+        "public_https_url": "https://zenith-a02012413.bj.bcebos.com/liyufeng/safelab-public/media-v1/5/5-pos-mem0/20000/original-v1/hermite1_new20_smoke20_h8_seed0_019/preview.mp4",
+        "bytes": 1754645,
+        "sha256": "7cf05ad8e64bb2e1eff53094d1c8951e4be81e84531bd8a83fb3e4ed1acc735f",
+        "verification": "PUT/anonymous GET full SHA verified; failure classification still awaits video review"
+      }
+    ]
+  },
+  "canonical_scene_list": {
+    "url": "https://asimfish.github.io/safelab-handoff/reports/task5-round5-cpu-three-metrics-20261104-scenes100.json",
+    "sha256": "acaba6258441bb84cac57850c6b3835728ff4745228f3ede60774d262e6f897c",
+    "count": 100,
+    "actual_109valid_and_22unknown_profile_fields_verified": true
+  },
+  "FD_formal_score_caveat": "Table FD column is logical oracle identity, not a separate schema-admitted FD evaluation. Most historical physical traces lack actual t_sim; no nominal dt is substituted. Newly started rollout records float(scene.sim.current_time) per120Hz tick.",
+  "new30_full_smoke_layout_correction": {
+    "cohort": "shared_new30_hermite_fullsmoke20_v2",
+    "forward": {
+      "0": 3,
+      "1": 5,
+      "2": 2
+    },
+    "reverse": {
+      "0": 7,
+      "1": 3
+    },
+    "note": "反向全阶段0是更早独立批次，不适用于该闭合20条"
+  },
+  "static_noise": {
+    "CPU_only": true,
+    "new_simulation": false,
+    "sources": [
+      {
+        "path": "/public_fast_storage/liyufeng/safelab_5b_stable_attach_20261101/round2_static_noise_20261103_v1/runs/static_0/static_120hz.jsonl",
+        "sha256": "9a6b5f2ca414a1915931c1e8a6889876e6dce83f6eb6c0f2601512c688162398",
+        "physical_rows": 601,
+        "model_actions": 0,
+        "actual_t_sim_delta_s": {
+          "p50": 0.008333333333333304,
+          "p95": 0.008333333333333748,
+          "p99": 0.008333333333333748
+        }
+      },
+      {
+        "path": "/public_fast_storage/liyufeng/safelab_5b_stable_attach_20261101/round2_static_noise_20261103_v1/runs/static_1/static_120hz.jsonl",
+        "sha256": "a21925c61f5457baa5edb8c2184be97a57436ea09ea0bcf078af039e249168b0",
+        "physical_rows": 601,
+        "model_actions": 0,
+        "actual_t_sim_delta_s": {
+          "p50": 0.008333333333333304,
+          "p95": 0.008333333333333748,
+          "p99": 0.008333333333333748
+        }
+      }
+    ],
+    "first_sample_velocity": null,
+    "per_object": {
+      "A": {
+        "FD_linear_m_s": {
+          "p50": 0.00011555310073902161,
+          "p95": 0.00023287039655828064,
+          "p99": 0.00028753013738319773
+        },
+        "FD_angular_rad_s": {
+          "p50": 5.982455102462681e-05,
+          "p95": 0.0003277177120345154,
+          "p99": 0.0007748532400330217
+        },
+        "PhysX_linear_m_s": {
+          "p50": 1.532056575976933e-05,
+          "p95": 0.00011381909236114544,
+          "p99": 0.00018842072569346402
+        },
+        "PhysX_angular_rad_s": {
+          "p50": 0.0004672915382804497,
+          "p95": 0.0014898538714756381,
+          "p99": 0.0023226758884834367
+        }
+      },
+      "B": {
+        "FD_linear_m_s": {
+          "p50": 5.89814990847255e-05,
+          "p95": 0.00023066304440398842,
+          "p99": 0.00028788488098379966
+        },
+        "FD_angular_rad_s": {
+          "p50": 1.713576673729201e-05,
+          "p95": 0.00031108313751192923,
+          "p99": 0.000538561491773526
+        },
+        "PhysX_linear_m_s": {
+          "p50": 1.5018074043512821e-05,
+          "p95": 0.00015313288763454158,
+          "p99": 0.00021239235988947865
+        },
+        "PhysX_angular_rad_s": {
+          "p50": 0.00020946638580244154,
+          "p95": 0.0011641718967431854,
+          "p99": 0.0021555447840904372
+        }
+      },
+      "C": {
+        "FD_linear_m_s": {
+          "p50": 0.00024329190815012132,
+          "p95": 0.0005935071212360289,
+          "p99": 0.0006703781587655938
+        },
+        "FD_angular_rad_s": {
+          "p50": 0.005004469840248413,
+          "p95": 0.011133159504039784,
+          "p99": 0.01658438792472498
+        },
+        "PhysX_linear_m_s": {
+          "p50": 0.0009447449113210383,
+          "p95": 0.0016021408729460604,
+          "p99": 0.0020843855766727796
+        },
+        "PhysX_angular_rad_s": {
+          "p50": 0.021966303652972297,
+          "p95": 0.0479006657336347,
+          "p99": 0.06452937559000256
+        }
+      }
+    },
+    "strict_oracle_uses_velocity": false,
+    "strict_FD_equivalence": "original ObstructionFive.observe reads only poses and contacts; no velocity predicate to replace"
+  },
+  "limitations": [
+    "历史45组正反拆分已补齐；7031条缺显式推理seed，不由episode seed或repeat推断",
+    "仅40条历史记录有显式train_aligned声明；其余历史training_resize=null",
+    "失败方式分类需视频人工核对；不由自动标签推断碰撞部位",
+    "当前没有完成的真值切换100条结果"
+  ]
+}

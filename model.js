@@ -41,7 +41,8 @@ function formalIssues(e){
  const issues=[],count=x=>Number.isInteger(x)&&x>=0;
  const conserved=x=>x&&count(x.success)&&count(x.unknown)&&x.success+x.unknown<=x.trials&&(!Object.hasOwn(x,'failure')||count(x.failure)&&x.success+x.failure+x.unknown===x.trials);
  if(![PROTOCOL,CURRENT_PROTOCOL].includes(e.protocol_version)||!['A','B'].includes(e.stage))issues.push('非正式协议阶段A/B');
- if(e.protocol_version===CURRENT_PROTOCOL?e.oracle_version!=='placement-v1.1':e.oracle_version!=null&&e.oracle_version!=='strict-v1')issues.push('判定版本不匹配');
+ if(e.protocol_version===CURRENT_PROTOCOL?e.oracle_version!=='placement-v1.1':e.oracle_version!=null&&!['strict-v1','strict-fdvel-v1'].includes(e.oracle_version))issues.push('判定版本不匹配');
+ if(oracleFor(e)==='strict-fdvel-v1'&&(!safeText(e.paired_evaluation_id,300)||!e.paired_evaluation_id?.trim()||e.paired_evaluation_id===e.id))issues.push('FD缺少同批轨迹paired_evaluation_id');
  if(![4,8].includes(e.horizon))issues.push('仅4/8步');
  if(['assisted','rescored_v1.1_candidate'].includes(e.metric_role)||/诊断/.test(e.kind||''))issues.push('诊断或辅助指标');
  const n=e.stage==='B'?500:100;
@@ -62,7 +63,7 @@ function formalIssues(e){
 function formalComparisons(board,view='auto'){
  const groups=new Map(),index=evaluationIndex(board),placementTasks=new Set(index.filter(e=>e.protocol_version===CURRENT_PROTOCOL&&!formalIssues(e).length).map(e=>e.task));
  for(const e of index){
-  if(formalIssues(e).length)continue;
+  if(formalIssues(e).length||fdPairIssues(e,index).length)continue;
   const desired=view==='auto'?(placementTasks.has(e.task)?'placement-v1.1':'strict-v1'):view;
   if(oracleFor(e)!==desired)continue;
   // Dataset, view, scene list, stage and condition are separate comparison cohorts.
@@ -72,10 +73,34 @@ function formalComparisons(board,view='auto'){
  }
  return [...groups.values()].sort((a,b)=>Number(a.task)-Number(b.task)||a.dataset.localeCompare(b.dataset)||a.method.localeCompare(b.method)||a.stage.localeCompare(b.stage));
 }
+// Parallel oracle columns are rollout-linked, never inferred from a shared scene roster.
+function sameRolloutConfig(a,b){
+ const fields=['trials','rowKey','task','dataset','camera','checkpoint','horizon','stage','condition_version','scene_list_hash'];
+ return fields.every(k=>a[k]===b[k])&&JSON.stringify(a.topology)===JSON.stringify(b.topology)&&JSON.stringify(a.preprocess_resize)===JSON.stringify(b.preprocess_resize)&&JSON.stringify((a.seed_results||[]).map(x=>[x.seed,x.trials]))===JSON.stringify((b.seed_results||[]).map(x=>[x.seed,x.trials]));
+}
+function fdPairIssues(e,index){
+ if(oracleFor(e)!=='strict-fdvel-v1')return [];
+ const other=index.find(x=>x.id===e.paired_evaluation_id);
+ return other&&['strict-v1','placement-v1.1'].includes(oracleFor(other))&&sameRolloutConfig(e,other)?[]:['FD配对不存在或配置不一致'];
+}
+function oracleComparisons(board){
+ const kinds=['strict-v1','strict-fdvel-v1','placement-v1.1'],all=evaluationIndex(board).filter(e=>[PROTOCOL,CURRENT_PROTOCOL].includes(e.protocol_version)&&['A','B'].includes(e.stage)&&kinds.includes(oracleFor(e))),ids=new Map(all.map(e=>[e.id,e])),parent=new Map(all.map(e=>[e.id,e.id])),invalid=new Set();
+ const root=id=>{while(parent.get(id)!==id)id=parent.get(id);return id;};
+ for(const e of all){const ref=e.paired_evaluation_id||(oracleFor(e)==='placement-v1.1'?e.source_evaluation_id:null),other=ids.get(ref);
+  if(ref&&other&&ref!==e.id&&sameRolloutConfig(e,other)&&oracleFor(e)!==oracleFor(other))parent.set(root(e.id),root(other.id));
+  else if(oracleFor(e)==='strict-fdvel-v1')invalid.add(e.id);
+ }
+ const groups=new Map();
+ for(const e of all){const key=root(e.id);if(!groups.has(key))groups.set(key,{...e,oracles:{}});const g=groups.get(key),kind=oracleFor(e),issues=formalIssues(e);if(invalid.has(e.id))issues.push('FD配对不存在或配置不一致');const value={...e,score_eligible:issues.length===0,comparison_issues:issues,wilson95:wilson95(e.success,e.trials)};
+  // Multiple rows for one oracle are ambiguous: expose the conflict instead of picking best.
+  if(g.oracles[kind])g.oracles[kind]={...value,score_eligible:false,comparison_issues:['同批次同口径存在多行，需明确来源']};else g.oracles[kind]=value;
+ }
+ return [...groups.values()];
+}
 // Revoked drift-candidate records remain in the raw archive only.
 function rescoredCandidates(){return [];}
 function resultFor(evaluations,horizon){
- let rows=evaluations.filter(e=>e.protocol_version!==CURRENT_PROTOCOL&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
+ let rows=evaluations.filter(e=>e.protocol_version!==CURRENT_PROTOCOL&&oracleFor(e)!=='strict-fdvel-v1'&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success!==null&&e.completed===e.trials&&!/诊断/.test(e.kind));
  const priority=Math.max(...rows.map(e=>e.display_priority||0));rows=rows.filter(e=>(e.display_priority||0)===priority);
  if(!rows.length)return null;
  const five=rows.filter(e=>e.kind==='自主闭环 · 5-seed');
@@ -83,7 +108,7 @@ function resultFor(evaluations,horizon){
  return {success:chosen.reduce((s,e)=>s+e.success,0),trials:chosen.reduce((s,e)=>s+e.trials,0),unknown:chosen.reduce((s,e)=>s+e.unknown,0),label:five.length?five.length+'轮汇总':chosen[0].result_label||chosen[0].kind,protocol:chosen[0].protocol,rows:chosen,reported:false};
 }
 function progressFor(evaluations,horizon){
- const rows=evaluations.filter(e=>e.protocol_version!==CURRENT_PROTOCOL&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success===null&&e.evaluation_started!==false&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
+ const rows=evaluations.filter(e=>e.protocol_version!==CURRENT_PROTOCOL&&oracleFor(e)!=='strict-fdvel-v1'&&!['assisted','rescored_v1.1_candidate'].includes(e.metric_role)&&e.formal_score_eligible!==false&&e.metric_role!=='assisted'&&e.horizon===horizon&&e.success===null&&e.evaluation_started!==false&&Number.isInteger(e.completed)&&Number.isInteger(e.trials)&&e.trials>0&&e.completed>=0&&e.completed<=e.trials);
  return rows.sort((a,b)=>(b.display_priority||0)-(a.display_priority||0)||String(b.updated_at||'').localeCompare(String(a.updated_at||'')))[0]||null;
 }
 function buildBoard(data,edits=[]){
@@ -147,6 +172,6 @@ function evaluationIndex(board){
 }
 function pendingRows(board){return board.rows.filter(r=>r.path&&r.state==='untested');}
 function handoffPacket(board,row){const d=board.datasets.find(d=>d.id===row.dataset);return {task:row.task,method:row.method,dataset_version:d?.version||row.dataset,training_dataset:d?.path||row.shared?.data_path||null,camera:row.camera,checkpoint_step:row.step,checkpoint_path:row.path,delivery_document:row.doc||null,training_run:row.run||null,normalization_hash:row.record?.norm||null,training_config:row.training,owner:row.owner,execution_horizons_to_test:[4,8],test_protocol:'请根据该数据版本的交付文档确认泛化、控制频率和成功验收条件，不沿用其他版本',availability:row.availability,shared_handoff:row.shared?.url||null};}
-const api={PROTOCOL,CURRENT_PROTOCOL,isRevoked,oracleFor,admissionKeys,wilson95,formalIssues,formalComparisons,rescoredCandidates,STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
+const api={fdPairIssues,oracleComparisons,sameRolloutConfig,PROTOCOL,CURRENT_PROTOCOL,isRevoked,oracleFor,admissionKeys,wilson95,formalIssues,formalComparisons,rescoredCandidates,STATES,CAMERAS,TASKS,VERSIONS,key,parseScore,validateEdit,parseIssue,resultFor,progressFor,buildBoard,issueBody,evaluationIndex,pendingRows,handoffPacket};
 if(typeof module!=='undefined')module.exports=api;root.HandoffModel=api;
 })(typeof window==='undefined'?globalThis:window);

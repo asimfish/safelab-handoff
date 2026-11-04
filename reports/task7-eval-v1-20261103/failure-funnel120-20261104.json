@@ -1,0 +1,789 @@
+{
+  "schema": "task7_failure_funnel120_CPU_diagnostic.v1",
+  "epoch": 1793790174.1256568,
+  "stage": "diagnostic",
+  "source_protocol": "P1 original strict-v1 world0 h8; not v1.1 formal, K, or new A/B",
+  "total": 120,
+  "strict_success": 4,
+  "strict_failure": 116,
+  "formal_StageA": false,
+  "formal_success": null,
+  "phase_definition": "phase p is the original strict completed-physical-task prefix; reached(p)=count(final_prefix>=p). phase 0 is the 120-trial start, not one passed physical task.",
+  "conditional_rate_definition": "reached(p)/reached(p-1); null when p=0 or denominator=0. It is a prefix transition rate, not a causal failure attribution.",
+  "aggregate": {
+    "phase_hist": {
+      "0": 26,
+      "1": 31,
+      "2": 19,
+      "3": 18,
+      "4": 13,
+      "5": 3,
+      "6": 6,
+      "7": 4
+    },
+    "phase_funnel": [
+      {
+        "phase": 0,
+        "reached": 120,
+        "conditional_denominator": null,
+        "conditional_pass_rate": null
+      },
+      {
+        "phase": 1,
+        "reached": 94,
+        "conditional_denominator": 120,
+        "conditional_pass_rate": 0.7833333333333333
+      },
+      {
+        "phase": 2,
+        "reached": 63,
+        "conditional_denominator": 94,
+        "conditional_pass_rate": 0.6702127659574468
+      },
+      {
+        "phase": 3,
+        "reached": 44,
+        "conditional_denominator": 63,
+        "conditional_pass_rate": 0.6984126984126984
+      },
+      {
+        "phase": 4,
+        "reached": 26,
+        "conditional_denominator": 44,
+        "conditional_pass_rate": 0.5909090909090909
+      },
+      {
+        "phase": 5,
+        "reached": 13,
+        "conditional_denominator": 26,
+        "conditional_pass_rate": 0.5
+      },
+      {
+        "phase": 6,
+        "reached": 10,
+        "conditional_denominator": 13,
+        "conditional_pass_rate": 0.7692307692307693
+      },
+      {
+        "phase": 7,
+        "reached": 4,
+        "conditional_denominator": 10,
+        "conditional_pass_rate": 0.4
+      }
+    ],
+    "terminal_status_counts": {
+      "physical_failure": 42,
+      "time_limit": 74,
+      "success": 4
+    }
+  },
+  "configurations": [
+    {
+      "variant": "mem0_30k",
+      "stage": "diagnostic",
+      "n": 20,
+      "horizon": 8,
+      "checkpoint": 30000,
+      "strict_success": 2,
+      "phase_hist": {
+        "0": 3,
+        "1": 4,
+        "2": 4,
+        "3": 2,
+        "4": 0,
+        "5": 1,
+        "6": 4,
+        "7": 2
+      },
+      "phase_funnel": [
+        {
+          "phase": 0,
+          "reached": 20,
+          "conditional_denominator": null,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 1,
+          "reached": 17,
+          "conditional_denominator": 20,
+          "conditional_pass_rate": 0.85
+        },
+        {
+          "phase": 2,
+          "reached": 13,
+          "conditional_denominator": 17,
+          "conditional_pass_rate": 0.7647058823529411
+        },
+        {
+          "phase": 3,
+          "reached": 9,
+          "conditional_denominator": 13,
+          "conditional_pass_rate": 0.6923076923076923
+        },
+        {
+          "phase": 4,
+          "reached": 7,
+          "conditional_denominator": 9,
+          "conditional_pass_rate": 0.7777777777777778
+        },
+        {
+          "phase": 5,
+          "reached": 7,
+          "conditional_denominator": 7,
+          "conditional_pass_rate": 1.0
+        },
+        {
+          "phase": 6,
+          "reached": 6,
+          "conditional_denominator": 7,
+          "conditional_pass_rate": 0.8571428571428571
+        },
+        {
+          "phase": 7,
+          "reached": 2,
+          "conditional_denominator": 6,
+          "conditional_pass_rate": 0.3333333333333333
+        }
+      ],
+      "mean_phase": 3.05,
+      "terminal_status_counts": {
+        "physical_failure": 6,
+        "time_limit": 12,
+        "success": 2
+      },
+      "direct_observation_counts": {
+        "object_toppled": 6,
+        "time_limit": 12,
+        "strict_success": 2
+      },
+      "causal_failure_mechanism_unknown": 18,
+      "formal_StageA": false,
+      "formal_success": null
+    },
+    {
+      "variant": "mem0_weak_30k",
+      "stage": "diagnostic",
+      "n": 20,
+      "horizon": 8,
+      "checkpoint": 30000,
+      "strict_success": 0,
+      "phase_hist": {
+        "0": 3,
+        "1": 4,
+        "2": 2,
+        "3": 8,
+        "4": 3,
+        "5": 0,
+        "6": 0,
+        "7": 0
+      },
+      "phase_funnel": [
+        {
+          "phase": 0,
+          "reached": 20,
+          "conditional_denominator": null,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 1,
+          "reached": 17,
+          "conditional_denominator": 20,
+          "conditional_pass_rate": 0.85
+        },
+        {
+          "phase": 2,
+          "reached": 13,
+          "conditional_denominator": 17,
+          "conditional_pass_rate": 0.7647058823529411
+        },
+        {
+          "phase": 3,
+          "reached": 11,
+          "conditional_denominator": 13,
+          "conditional_pass_rate": 0.8461538461538461
+        },
+        {
+          "phase": 4,
+          "reached": 3,
+          "conditional_denominator": 11,
+          "conditional_pass_rate": 0.2727272727272727
+        },
+        {
+          "phase": 5,
+          "reached": 0,
+          "conditional_denominator": 3,
+          "conditional_pass_rate": 0.0
+        },
+        {
+          "phase": 6,
+          "reached": 0,
+          "conditional_denominator": 0,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 7,
+          "reached": 0,
+          "conditional_denominator": 0,
+          "conditional_pass_rate": null
+        }
+      ],
+      "mean_phase": 2.2,
+      "terminal_status_counts": {
+        "time_limit": 13,
+        "physical_failure": 7
+      },
+      "direct_observation_counts": {
+        "time_limit": 13,
+        "object_toppled": 7
+      },
+      "causal_failure_mechanism_unknown": 20,
+      "formal_StageA": false,
+      "formal_success": null
+    },
+    {
+      "variant": "ours_aligned_30k",
+      "stage": "diagnostic",
+      "n": 20,
+      "horizon": 8,
+      "checkpoint": 30000,
+      "strict_success": 2,
+      "phase_hist": {
+        "0": 3,
+        "1": 6,
+        "2": 1,
+        "3": 2,
+        "4": 3,
+        "5": 2,
+        "6": 1,
+        "7": 2
+      },
+      "phase_funnel": [
+        {
+          "phase": 0,
+          "reached": 20,
+          "conditional_denominator": null,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 1,
+          "reached": 17,
+          "conditional_denominator": 20,
+          "conditional_pass_rate": 0.85
+        },
+        {
+          "phase": 2,
+          "reached": 11,
+          "conditional_denominator": 17,
+          "conditional_pass_rate": 0.6470588235294118
+        },
+        {
+          "phase": 3,
+          "reached": 10,
+          "conditional_denominator": 11,
+          "conditional_pass_rate": 0.9090909090909091
+        },
+        {
+          "phase": 4,
+          "reached": 8,
+          "conditional_denominator": 10,
+          "conditional_pass_rate": 0.8
+        },
+        {
+          "phase": 5,
+          "reached": 5,
+          "conditional_denominator": 8,
+          "conditional_pass_rate": 0.625
+        },
+        {
+          "phase": 6,
+          "reached": 3,
+          "conditional_denominator": 5,
+          "conditional_pass_rate": 0.6
+        },
+        {
+          "phase": 7,
+          "reached": 2,
+          "conditional_denominator": 3,
+          "conditional_pass_rate": 0.6666666666666666
+        }
+      ],
+      "mean_phase": 2.8,
+      "terminal_status_counts": {
+        "time_limit": 12,
+        "physical_failure": 6,
+        "success": 2
+      },
+      "direct_observation_counts": {
+        "time_limit": 12,
+        "object_toppled": 6,
+        "strict_success": 2
+      },
+      "causal_failure_mechanism_unknown": 18,
+      "formal_StageA": false,
+      "formal_success": null
+    },
+    {
+      "variant": "ours_aligned_30k_native_classifier_switch_v1",
+      "stage": "diagnostic",
+      "n": 20,
+      "horizon": 8,
+      "checkpoint": 30000,
+      "strict_success": 0,
+      "phase_hist": {
+        "0": 4,
+        "1": 8,
+        "2": 3,
+        "3": 2,
+        "4": 2,
+        "5": 0,
+        "6": 1,
+        "7": 0
+      },
+      "phase_funnel": [
+        {
+          "phase": 0,
+          "reached": 20,
+          "conditional_denominator": null,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 1,
+          "reached": 16,
+          "conditional_denominator": 20,
+          "conditional_pass_rate": 0.8
+        },
+        {
+          "phase": 2,
+          "reached": 8,
+          "conditional_denominator": 16,
+          "conditional_pass_rate": 0.5
+        },
+        {
+          "phase": 3,
+          "reached": 5,
+          "conditional_denominator": 8,
+          "conditional_pass_rate": 0.625
+        },
+        {
+          "phase": 4,
+          "reached": 3,
+          "conditional_denominator": 5,
+          "conditional_pass_rate": 0.6
+        },
+        {
+          "phase": 5,
+          "reached": 1,
+          "conditional_denominator": 3,
+          "conditional_pass_rate": 0.3333333333333333
+        },
+        {
+          "phase": 6,
+          "reached": 1,
+          "conditional_denominator": 1,
+          "conditional_pass_rate": 1.0
+        },
+        {
+          "phase": 7,
+          "reached": 0,
+          "conditional_denominator": 1,
+          "conditional_pass_rate": 0.0
+        }
+      ],
+      "mean_phase": 1.7,
+      "terminal_status_counts": {
+        "physical_failure": 5,
+        "time_limit": 15
+      },
+      "direct_observation_counts": {
+        "object_toppled": 5,
+        "time_limit": 15
+      },
+      "causal_failure_mechanism_unknown": 20,
+      "formal_StageA": false,
+      "formal_success": null
+    },
+    {
+      "variant": "ours_native_30k",
+      "stage": "diagnostic",
+      "n": 20,
+      "horizon": 8,
+      "checkpoint": 30000,
+      "strict_success": 0,
+      "phase_hist": {
+        "0": 9,
+        "1": 3,
+        "2": 6,
+        "3": 0,
+        "4": 2,
+        "5": 0,
+        "6": 0,
+        "7": 0
+      },
+      "phase_funnel": [
+        {
+          "phase": 0,
+          "reached": 20,
+          "conditional_denominator": null,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 1,
+          "reached": 11,
+          "conditional_denominator": 20,
+          "conditional_pass_rate": 0.55
+        },
+        {
+          "phase": 2,
+          "reached": 8,
+          "conditional_denominator": 11,
+          "conditional_pass_rate": 0.7272727272727273
+        },
+        {
+          "phase": 3,
+          "reached": 2,
+          "conditional_denominator": 8,
+          "conditional_pass_rate": 0.25
+        },
+        {
+          "phase": 4,
+          "reached": 2,
+          "conditional_denominator": 2,
+          "conditional_pass_rate": 1.0
+        },
+        {
+          "phase": 5,
+          "reached": 0,
+          "conditional_denominator": 2,
+          "conditional_pass_rate": 0.0
+        },
+        {
+          "phase": 6,
+          "reached": 0,
+          "conditional_denominator": 0,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 7,
+          "reached": 0,
+          "conditional_denominator": 0,
+          "conditional_pass_rate": null
+        }
+      ],
+      "mean_phase": 1.15,
+      "terminal_status_counts": {
+        "time_limit": 12,
+        "physical_failure": 8
+      },
+      "direct_observation_counts": {
+        "time_limit": 12,
+        "object_toppled": 8
+      },
+      "causal_failure_mechanism_unknown": 20,
+      "formal_StageA": false,
+      "formal_success": null
+    },
+    {
+      "variant": "ours_weak_aligned_30k",
+      "stage": "diagnostic",
+      "n": 20,
+      "horizon": 8,
+      "checkpoint": 30000,
+      "strict_success": 0,
+      "phase_hist": {
+        "0": 4,
+        "1": 6,
+        "2": 3,
+        "3": 4,
+        "4": 3,
+        "5": 0,
+        "6": 0,
+        "7": 0
+      },
+      "phase_funnel": [
+        {
+          "phase": 0,
+          "reached": 20,
+          "conditional_denominator": null,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 1,
+          "reached": 16,
+          "conditional_denominator": 20,
+          "conditional_pass_rate": 0.8
+        },
+        {
+          "phase": 2,
+          "reached": 10,
+          "conditional_denominator": 16,
+          "conditional_pass_rate": 0.625
+        },
+        {
+          "phase": 3,
+          "reached": 7,
+          "conditional_denominator": 10,
+          "conditional_pass_rate": 0.7
+        },
+        {
+          "phase": 4,
+          "reached": 3,
+          "conditional_denominator": 7,
+          "conditional_pass_rate": 0.42857142857142855
+        },
+        {
+          "phase": 5,
+          "reached": 0,
+          "conditional_denominator": 3,
+          "conditional_pass_rate": 0.0
+        },
+        {
+          "phase": 6,
+          "reached": 0,
+          "conditional_denominator": 0,
+          "conditional_pass_rate": null
+        },
+        {
+          "phase": 7,
+          "reached": 0,
+          "conditional_denominator": 0,
+          "conditional_pass_rate": null
+        }
+      ],
+      "mean_phase": 1.8,
+      "terminal_status_counts": {
+        "time_limit": 10,
+        "physical_failure": 10
+      },
+      "direct_observation_counts": {
+        "time_limit": 10,
+        "object_toppled": 10
+      },
+      "causal_failure_mechanism_unknown": 20,
+      "formal_StageA": false,
+      "formal_success": null
+    }
+  ],
+  "failure_mode_evidence": {
+    "not_approached_or_empty_grasp": {
+      "count": null,
+      "status": "unknown_not_zero",
+      "missing_fields": [
+        "Target-specific hand-to-object distance and actual robot-object grasp/contact interval; phase 0 alone is insufficient."
+      ]
+    },
+    "post_grasp_slip": {
+      "count": null,
+      "status": "unknown_not_zero",
+      "missing_fields": [
+        "Time-aligned verified grasp followed by lost contact/height and object identity; terminal topple is insufficient."
+      ]
+    },
+    "collision_topple_with_body": {
+      "count": null,
+      "status": "unknown_not_zero",
+      "missing_fields": [
+        "Explicit impact body/contact event and object orientation at the impact; RESULT only reports object_toppled."
+      ]
+    },
+    "placement_tolerance_violation": {
+      "count": null,
+      "status": "unknown_not_zero",
+      "missing_fields": [
+        "Current target geometry/stability values at the attempted placement and target semantic binding; completed-phase prefix is insufficient."
+      ]
+    },
+    "physical_completed_but_not_switched": {
+      "count": null,
+      "status": "unknown_not_zero",
+      "missing_fields": [
+        "Semantically matched current Policy instruction to strict physical predicate plus event/switch timing; no subtask-to-physical mapping is available."
+      ]
+    },
+    "premature_switch": {
+      "count": null,
+      "status": "unknown_not_zero",
+      "missing_fields": [
+        "Same semantic instruction/predicate binding and current predicate state at the exact switch; historical phase or index comparison is insufficient."
+      ]
+    },
+    "time_limit": {
+      "count": 74,
+      "status": "direct_original_RESULT_status",
+      "is_root_cause": false
+    },
+    "object_toppled": {
+      "count": 42,
+      "status": "direct_original_RESULT_failure_reason",
+      "collision_cause_and_body_unknown": true
+    }
+  },
+  "terminal_facts_classified": 120,
+  "causal_failure_mechanism_unknown": 116,
+  "overlapping_labels_not_to_sum_as_independent_causes": true,
+  "media_examples": {
+    "object_toppled": [
+      {
+        "case_id": "mem0_30k__smoke20_h8_v180_o1234_r005",
+        "variant": "mem0_30k",
+        "label": "object_toppled",
+        "evidence": {
+          "file": "RESULT.json",
+          "sha256": "647cc50061269de1626459805e164cf39a6fbc58ddf371a948fa2fb244e2d71a",
+          "bytes": 1910,
+          "capture": {
+            "file": "NEW_CASE_CLOSURE_DELTA_ACTUAL_1793760768.json",
+            "bytes": 519074,
+            "sha256": "0a8b08785a004b4b2d49cd0079027be7cb4a20fa89fc8ec0a2993f5c418c52db"
+          }
+        },
+        "video": {
+          "url": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/7/7-mem0/30000/original-v1/mem0_30k__smoke20_h8_v180_o1234_r005/chest.af802c935a090325.mp4",
+          "sha256": "af802c935a0903255e8699c70e14161fdd23dcb606f9bde40a5f1b65235c2a6e",
+          "bytes": 1537001
+        },
+        "frame_log": {
+          "url": "https://asimfish.github.io/safelab-handoff/media/frame_logs/7/p1-strict-diagnostic-20261104/mem0_30k__smoke20_h8_v180_o1234_r005.json",
+          "sha256": "474aed73740e552ef5c84ff79ddb98e60a43472852bf6072ed29f85ee41c7f0f",
+          "bytes": 14907
+        },
+        "selection": "Existing public video, chosen from exact terminal RESULT label; no new visual causal/body annotation.",
+        "visual_causal_validation": false,
+        "impact_body": null
+      },
+      {
+        "case_id": "mem0_weak_30k__smoke20_h8_v180_o1234_r001",
+        "variant": "mem0_weak_30k",
+        "label": "object_toppled",
+        "evidence": {
+          "file": "RESULT.json",
+          "sha256": "83a3da0bd8d2d00e441c31b144543e0711444d76426ed4d82e23912c11467f33",
+          "bytes": 1911,
+          "capture": {
+            "file": "BATCH02_ACTUAL_CLOSED_CAPTURE.json",
+            "bytes": 514888,
+            "sha256": "cf315cf0d09265c306e103cb8086c62d00a3e699c83c7179763137fb3a73dd1d"
+          }
+        },
+        "video": {
+          "url": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/7/7-mem0-weak/30000/original-v1/mem0_weak_30k__smoke20_h8_v180_o1234_r001/chest.764f5fc4b517a88e.mp4",
+          "sha256": "764f5fc4b517a88e167054ef4b6dcf1205f39fd3b16729de04eae624e84c2247",
+          "bytes": 1536801
+        },
+        "frame_log": {
+          "url": "https://asimfish.github.io/safelab-handoff/media/frame_logs/7/p1-strict-diagnostic-20261104/mem0_weak_30k__smoke20_h8_v180_o1234_r001.json",
+          "sha256": "d8d25580692e6e8fe225eda9ab13722ac4594f59b558d414d55df78d60e373d9",
+          "bytes": 15079
+        },
+        "selection": "Existing public video, chosen from exact terminal RESULT label; no new visual causal/body annotation.",
+        "visual_causal_validation": false,
+        "impact_body": null
+      }
+    ],
+    "time_limit": [
+      {
+        "case_id": "mem0_30k__smoke20_h8_v180_o1234_r001",
+        "variant": "mem0_30k",
+        "label": "time_limit",
+        "evidence": {
+          "file": "RESULT.json",
+          "sha256": "01292d292bce715614c5d653d1978bb9acfe69d8af708d512accdb5a0fd5095b",
+          "bytes": 1464,
+          "capture": {
+            "file": "NEW_CASE_CLOSURE_DELTA_ACTUAL_1793751255.json",
+            "bytes": 459221,
+            "sha256": "b0fb26d3e1ea608865d46fa21f7918274e181ae652357e66d82f1e6de91dbb82"
+          }
+        },
+        "video": {
+          "url": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/7/7-mem0/30000/original-v1/mem0_30k__smoke20_h8_v180_o1234_r001/chest.25f5f6ad191aa75f.mp4",
+          "sha256": "25f5f6ad191aa75f8d2eecc070f7fe87b2d415558b5c9f9ac06673263b3a654f",
+          "bytes": 1552983
+        },
+        "frame_log": {
+          "url": "https://asimfish.github.io/safelab-handoff/media/frame_logs/7/p1-strict-diagnostic-20261104/mem0_30k__smoke20_h8_v180_o1234_r001.json",
+          "sha256": "7f7c657da8d850e11cd8474ceaf0c627b1225f53973def09f2275eae0c376dcd",
+          "bytes": 40972
+        },
+        "selection": "Existing public video, chosen from exact terminal RESULT label; no new visual causal/body annotation.",
+        "visual_causal_validation": false,
+        "impact_body": null
+      },
+      {
+        "case_id": "mem0_weak_30k__smoke20_h8_v180_o1234_r003",
+        "variant": "mem0_weak_30k",
+        "label": "time_limit",
+        "evidence": {
+          "file": "RESULT.json",
+          "sha256": "e38d4c441600bf5fab3cfa6b9d59b73387d37a5d7d7d7ce5663f84b47fc4e05f",
+          "bytes": 1862,
+          "capture": {
+            "file": "BATCH07_ACTUAL_CLOSED_CAPTURE.json",
+            "bytes": 1092120,
+            "sha256": "07324fcf3276901e9066e22dd530500e4b217ef9078bf04e74d5531c62a00d10"
+          }
+        },
+        "video": {
+          "url": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/7/7-mem0-weak/30000/original-v1/mem0_weak_30k__smoke20_h8_v180_o1234_r003/chest.dde1be842ff47fc0.mp4",
+          "sha256": "dde1be842ff47fc043379b70b5385223dcd7f2f7768466dc52076c715f98d43d",
+          "bytes": 1556386
+        },
+        "frame_log": {
+          "url": "https://asimfish.github.io/safelab-handoff/media/frame_logs/7/p1-strict-diagnostic-20261104/mem0_weak_30k__smoke20_h8_v180_o1234_r003.json",
+          "sha256": "5ab55245e388f46c6bae316ea14af7bb40bc7b72c4c85fa8190018eb73b1f2a5",
+          "bytes": 42424
+        },
+        "selection": "Existing public video, chosen from exact terminal RESULT label; no new visual causal/body annotation.",
+        "visual_causal_validation": false,
+        "impact_body": null
+      }
+    ]
+  },
+  "media_source": {
+    "file": "task7-p1-strict-diagnostic-20261104.json",
+    "bytes": 62866,
+    "sha256": "14c800e3ed4908f9c014084a95e20c9d81d7d88803f24db399e1fe8fcb5974b9"
+  },
+  "media_files_copied": 0,
+  "source_summary": {
+    "file": "DIAGNOSTICS120_INDEPENDENT_VERIFIED_SUMMARY.json",
+    "bytes": 21460,
+    "sha256": "b5aa57dba59e2a567eee23392e2df47a57072233b1d54aff4e529d46f5ae7cf2"
+  },
+  "three_score_reference": {
+    "file": "THREE_SCORE120_DIAGNOSTIC_SUMMARY.json",
+    "bytes": 69105,
+    "sha256": "c6dfa7dd0df5f5ea587ce83a4ed55630affaf81ef65c603af7e6599381d9f3b1"
+  },
+  "case_evidence": {
+    "file": "CASE_EVIDENCE120.json",
+    "bytes": 219731,
+    "sha256": "eba8c9a1173a60bb2d7577e2d6886cc31b0363bca2c8237707281a7ed4e765b3"
+  },
+  "source_reference_closure": {
+    "file": "SOURCE_REFERENCE_CLOSURE.json",
+    "bytes": 37268,
+    "sha256": "35d4b3d35fa4cea81957f0d3f7d7cc051ed588dd5cce04752615d0549e51f845"
+  },
+  "arithmetic_checks": {
+    "unique_cases": 120,
+    "configurations": 6,
+    "cases_per_config": 20,
+    "phase_hist_total": 120,
+    "phase_hist_matches_original120": true,
+    "phase_hist_matches_three_score120": true,
+    "all120_original_RESULT_SHA_matches_closed_ledger": true,
+    "original_stop_and_outcomes_unchanged": true
+  },
+  "limitations": [
+    "No new raw/frame/physical scan or visual causal labelling was performed.",
+    "object_toppled establishes the terminal topple observation; collision cause/body and preceding grasp status remain unknown.",
+    "time_limit establishes termination by the original time limit; it does not establish why the policy failed to finish.",
+    "Placement-v11 rescore remains a mathematical archived-contact candidate; all 120 formal qualified contact outcomes remain unknown.",
+    "Public sampled logs preserve events but their subtask_physical_targets is null; do not infer completion/switch error rates from phase/index alone."
+  ],
+  "new_GPU_Kit_NN_API_calls": 0,
+  "raw_reads": 0,
+  "W_or_existing_evidence_changed": false,
+  "private_source_report_sha256": "2ae70297ce27d78a97dbc29a4ce5eb8c5a6fc7930ad8dabade4db0f7942810ea",
+  "public_paths": "Source locations reduced to basenames; original SHA bindings retained. This is a public derivative, not a new scientific rescore."
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "task7_eval_v1_offline_audit_failure.v1",
+  "updated_at": "2026-11-03T22:22:45.302802Z",
+  "role": "diagnostic_only",
+  "formal_trials_added": 0,
+  "formal_success": null,
+  "admission_granted": false,
+  "frozen_scientific_sources_changed": false,
+  "failure": {
+    "component": "offline_audit_wrapper",
+    "class": "FileNotFoundError",
+    "missing_path": "/tmp/native_source/ENV_BASE_T563.json",
+    "cause": "Wrapper set frozen auditor N to relocated source.parent, which is /tmp; pinned environment configuration was not placed at its expected metadata path.",
+    "happened_after": "Native completed and physical/action trace assertions; before video validation and model SDK parity",
+    "model_failure_counted": false,
+    "raw_retained": true
+  },
+  "baseline_snapshot": {
+    "source_job": "job-17xnw4v8alnr",
+    "base_variants": [
+      "mem0_30k",
+      "ours_native_30k",
+      "ours_aligned_30k",
+      "ours_weak_aligned_30k"
+    ],
+    "each_launched": 1,
+    "each_audited": 0,
+    "each_unknown": 1,
+    "each_not_run": 19,
+    "mem0_weak_shards": {
+      "gpu1": "closed_first_case_audit_failed",
+      "gpu2": "closed_first_case_audit_failed",
+      "gpu0": "running_in_archived_STATE_at_snapshot",
+      "gpu3": "running_in_archived_STATE_at_snapshot"
+    },
+    "live_process_inventory_not_inferred_from_STATE": true
+  },
+  "native_classifier_snapshot": {
+    "source_job": "job-p7doapdnvsq9",
+    "variant": "ours_aligned_30k_native_classifier_switch_v1",
+    "planned": 20,
+    "launched": 4,
+    "audited": 0,
+    "unknown": 4,
+    "not_run": 16,
+    "complete_raw_cases": 1,
+    "other_started_cases": "interrupted by same-candidate peer failure; not model failures",
+    "four_shards": "requires_inspection",
+    "same_audit_path_error_confirmed": true
+  },
+  "recovery": {
+    "CPU_reaudit_started_at_snapshot": false,
+    "new_private_wrapper": "pending",
+    "reuse_complete_raw_before_any_physics_rerun": true,
+    "original_video_checks_required": true,
+    "original_SDK_parity_still_required": true,
+    "sealed_jobs_hot_patched": false,
+    "new_GPU_intent_submitted": false
+  },
+  "sources": [
+    {
+      "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke20_world0_v3/CURRENT_TWO_JOB_READBACK_1793744265.json",
+      "sha256": "2a16458f28a05ed1f32459d2d4715f16c74767237cded272cc9c20f229a6f789"
+    },
+    {
+      "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke20_world0_v3/NATIVE20_FIRST_ERROR_READBACK_1793744330.json",
+      "sha256": "c524d266d22bfd7ef1a3e4aa5aec67c36eee44e740a064e1ce7044ba103f08a0"
+    },
+    {
+      "source_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_original_contact_20261103/v1_smoke20_world0_v3/AUDIT_FIRST_ERROR_READBACK_1793743714.json",
+      "sha256": "1be6b477fd038dfa082b2bde18b688f2da2e5ce8e5ad1a688ebb5a46c41a02e8"
+    }
+  ]
+}

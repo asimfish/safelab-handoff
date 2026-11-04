@@ -1,0 +1,118 @@
+{
+  "schema": "task7_actual_training_interval_end_label_summary.v1",
+  "source_receipt": {
+    "local_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/cubic_midpoint_expert10_v1/label_contract_audit_v1/TRAINING_LABEL_CONTRACT.json",
+    "sha256": "4706b311b22b2fc64b921eb9241c1da8811eea2020b001b3a5973e3e432c2c7e"
+  },
+  "passed": true,
+  "effective_label": "max(valid_steps-1,0)",
+  "effective_action_hz": 15,
+  "prediction_horizon": 30,
+  "raw_action_equals_first_chunk_step_but_is_overwritten_before_supervision": true,
+  "raw_first_difference_is_not_evidence_of_a_training_label_bug": true,
+  "requires_raw_firsttick_decoder": false,
+  "actual_episodes_checked": 10,
+  "actual_frames_checked": 22817,
+  "models": [
+    {
+      "variant": "mem0_30k",
+      "training_config_sha256": "7557daa54f6752eb54208f9bb964663166aa74497b1da9f99f5ae79d7fec53a0",
+      "selected_action_target": "interval_end",
+      "trainer_builder_sha256": "12b71fe0b4f42151779b504e389516a211bbe4c959d74924e6a73661c78b7c82",
+      "trainer_forwards_config_target": true,
+      "actual_loader_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+      "effective_training_label": "chunk[row,max(valid_steps-1,0),joint]",
+      "raw_action_field_is_training_target": false,
+      "decoder": "same action normalization inverse only; no first/last substep label shift",
+      "checkpoint_metadata": {
+        "path": "/public_fast_storage/liyufeng/t939_stable_attach_20261101/mem0_30k/cache/model_assets/executor_step30000.pt",
+        "pickle_sha256": "8ed923eb2d2908e0d1da11bc0872b664e8eed2f1ba705c4e2e0f8f1537799bb7",
+        "pickle_bytes": 216862,
+        "literal_action_target": null,
+        "independently_saved_training_config_provenance": "not present in model-only exported checkpoint; not independently proven",
+        "pickle_executed": false,
+        "tensor_storage_read": false
+      }
+    },
+    {
+      "variant": "mem0_weak_30k",
+      "training_config_sha256": "5c142940a33ea18cf8a9f60e4b3d0a32d8f1327e3b7e7ce3858483b2d6f50446",
+      "selected_action_target": "interval_end",
+      "trainer_builder_sha256": "4f25fd4a91213e2190d7a7e3f1de436e369d9e6e9ba903a1d242b96debf9f045",
+      "trainer_forwards_config_target": true,
+      "actual_loader_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+      "effective_training_label": "chunk[row,max(valid_steps-1,0),joint]",
+      "raw_action_field_is_training_target": false,
+      "decoder": "same action normalization inverse only; no first/last substep label shift",
+      "checkpoint_metadata": {
+        "path": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/mem0_weakened_v1/package/weights/executor_step30000.pt",
+        "pickle_sha256": "9d91b483b7a04f580e53c749390dd6463ded11e962330e8bff123f00ba39bce7",
+        "pickle_bytes": 216831,
+        "literal_action_target": null,
+        "independently_saved_training_config_provenance": "not present in model-only exported checkpoint; not independently proven",
+        "pickle_executed": false,
+        "tensor_storage_read": false
+      }
+    },
+    {
+      "variant": "ours_native_30k",
+      "training_config_sha256": "b931ef9cda97e00ee53f0596414373382fa372d5d0dd3679613c12a13253656c",
+      "selected_action_target": "interval_end",
+      "trainer_builder_sha256": "bbf1da47c66e0d79afba0cf960559763c64e7689c5ec67b4438a1b858fca7fa0",
+      "trainer_forwards_config_target": true,
+      "actual_loader_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+      "effective_training_label": "chunk[row,max(valid_steps-1,0),joint]",
+      "raw_action_field_is_training_target": false,
+      "decoder": "same action normalization inverse only; no first/last substep label shift",
+      "checkpoint_metadata": {
+        "path": "/public_fast_storage/liyufeng/t939_stable_attach_20261101/ours_native_30k/cache/model_assets/executor_step30000.pt",
+        "pickle_sha256": "44218a9a01fa55882d2c57aba3289a7fa55856f503a47147e1e6b91b980adfe2",
+        "pickle_bytes": 217048,
+        "literal_action_target": "interval_end",
+        "independently_saved_training_config_provenance": "literal checkpoint_provenance tokens corroborate interval_end",
+        "pickle_executed": false,
+        "tensor_storage_read": false
+      }
+    },
+    {
+      "variant": "ours_aligned_30k",
+      "training_config_sha256": "fba6694537a95f60852a6b21f0c315c7e323c76cf7664d94df89428119d2fbba",
+      "selected_action_target": "interval_end",
+      "trainer_builder_sha256": "b6a01017a96076f860a5562ea2bae45c91736a93d5e64101e8d334e8adc58998",
+      "trainer_forwards_config_target": true,
+      "actual_loader_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+      "effective_training_label": "chunk[row,max(valid_steps-1,0),joint]",
+      "raw_action_field_is_training_target": false,
+      "decoder": "same action normalization inverse only; no first/last substep label shift",
+      "checkpoint_metadata": {
+        "path": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/ours_chest_aligned_loss_v1/assets/executor_step30000.pt",
+        "pickle_sha256": "0a1e2d1f6f7a32086e2214533448aa96a0a580d00558ca90d349bd33deb7df70",
+        "pickle_bytes": 220099,
+        "literal_action_target": "interval_end",
+        "independently_saved_training_config_provenance": "literal checkpoint_provenance tokens corroborate interval_end",
+        "pickle_executed": false,
+        "tensor_storage_read": false
+      }
+    },
+    {
+      "variant": "ours_weak_aligned_30k",
+      "training_config_sha256": "b908514fcb2eb9f006418086be4a6ee1e984ba6d609b8e882380b23c09323683",
+      "selected_action_target": "interval_end",
+      "trainer_builder_sha256": "b6a01017a96076f860a5562ea2bae45c91736a93d5e64101e8d334e8adc58998",
+      "trainer_forwards_config_target": true,
+      "actual_loader_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+      "effective_training_label": "chunk[row,max(valid_steps-1,0),joint]",
+      "raw_action_field_is_training_target": false,
+      "decoder": "same action normalization inverse only; no first/last substep label shift",
+      "checkpoint_metadata": {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_mem0_7weigh_eval_20261027/ours_weak_aligned_v1/runtime/weights/executor_step30000.pt",
+        "pickle_sha256": "dc5569aead1d2a41fd3a4c1cdb859d4b2079fc8f31637573f7c96208b0ad8a26",
+        "pickle_bytes": 220062,
+        "literal_action_target": "interval_end",
+        "independently_saved_training_config_provenance": "literal checkpoint_provenance tokens corroborate interval_end",
+        "pickle_executed": false,
+        "tensor_storage_read": false
+      }
+    }
+  ]
+}

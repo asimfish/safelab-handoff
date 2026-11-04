@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T02:46:11.675138+00:00",
+  "updated_at": "2026-11-04T10:41:06.291055Z",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1460,17 +1460,17 @@
       "dataset": "5-pos",
       "camera": "third_person",
       "method": "pi0.5",
-      "delivery": "交付包搬运中",
+      "delivery": "重建运行时已恢复，待准入",
       "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/five_pos1cm_40k/START_HERE.md",
       "weights": [
         {
           "step": 40000,
           "path": "",
-          "availability": "交付文档已登记，checkpoint文件路径待核验"
+          "availability": "重建运行时已恢复，待准入"
         }
       ],
       "training": {},
-      "note": "交付包搬运未成功；资源区5源目录存在且非空。授权搬运重试在调度前取消、无GPU作业，现等待训练方直接同步TOS；没有正在运行的搬包任务，尚未核验模型权重。",
+      "note": "总负责报告：已找回 formal 40000 model.safetensors（SHA256前缀 1bba2911），并从 Pro 的 release/code.bundle 与 norm_stats 重建运行时。类型为 reconstructed_runtime，不是官方 START_HERE，不等于通过准入或已有评测成绩。原“交付包搬运中”状态已解除。维护端暂未读到恢复报告；TOS副本完整文件路径、来源run及完整SHA待核对，未填写猜测路径。原交付文档仅保留为历史来源。",
       "source": "GitHub checkpoint issue #23",
       "checkpoint_issues": [
         {
@@ -1486,7 +1486,20 @@
           "supplied_camera": "third_person",
           "recorded_state": "untested"
         }
-      ]
+      ],
+      "recovery": {
+        "runtime_type": "reconstructed_runtime",
+        "reported_by": "总负责追加指导",
+        "status": "重建运行时已恢复，待准入",
+        "report_path": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/search_20261104/FIVE_SEVEN_RECOVERY_REPORT.json",
+        "report_sha256_prefix": "7df5126e",
+        "weight_sha256_prefix": "1bba2911",
+        "source_run_root": "BOS wangpeishuo/pi05-safelab/runs/",
+        "copy_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/",
+        "exact_copy_path": null,
+        "verification": "awaiting_readable_report",
+        "updated_at": "2026-11-04T10:41:06.291055Z"
+      }
     },
     {
       "id": "7-pi05-issue24",
@@ -1494,17 +1507,17 @@
       "dataset": "7-weigh",
       "camera": "chest",
       "method": "pi0.5",
-      "delivery": "交付包搬运中",
+      "delivery": "重建运行时已恢复，待准入",
       "doc": "/project_a02012413/public/wangpeishuo/pi05-safelab-inference-packages/20261103/seven_chest_40k/START_HERE.md",
       "weights": [
         {
           "step": 40000,
           "path": "",
-          "availability": "交付文档已登记，checkpoint文件路径待核验"
+          "availability": "重建运行时已恢复，待准入"
         }
       ],
       "training": {},
-      "note": "交付包搬运未成功；资源区5源目录存在且非空。授权搬运重试在调度前取消、无GPU作业，现等待训练方直接同步TOS；没有正在运行的搬包任务，尚未核验模型权重。",
+      "note": "总负责报告：已找回 formal 40000 model.safetensors（SHA256前缀 2f7e4b91），并从 Pro 的 release/code.bundle 与 norm_stats 重建运行时。类型为 reconstructed_runtime，不是官方 START_HERE，不等于通过准入或已有评测成绩。原“交付包搬运中”状态已解除。维护端暂未读到恢复报告；TOS副本完整文件路径、来源run及完整SHA待核对，未填写猜测路径。原交付文档仅保留为历史来源。",
       "source": "GitHub checkpoint issue #24",
       "checkpoint_issues": [
         {
@@ -1520,7 +1533,20 @@
           "supplied_camera": "chest",
           "recorded_state": "untested"
         }
-      ]
+      ],
+      "recovery": {
+        "runtime_type": "reconstructed_runtime",
+        "reported_by": "总负责追加指导",
+        "status": "重建运行时已恢复，待准入",
+        "report_path": "/project_a02012413/public/liyufeng/pi05_handoff_20261103/search_20261104/FIVE_SEVEN_RECOVERY_REPORT.json",
+        "report_sha256_prefix": "7df5126e",
+        "weight_sha256_prefix": "2f7e4b91",
+        "source_run_root": "BOS wangpeishuo/pi05-safelab/runs/",
+        "copy_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/pi05_handoff_20261103/",
+        "exact_copy_path": null,
+        "verification": "awaiting_readable_report",
+        "updated_at": "2026-11-04T10:41:06.291055Z"
+      }
     },
     {
       "id": "10-ttc-aligned-weak-issue26",
@@ -62106,12 +62132,12 @@
   },
   "long_task_collection": {
     "owner": "T536 · 5a/5b/7/10 数据采集与验收",
-    "updated_at": "2026-11-04T08:22:00.983782+00:00",
+    "updated_at": "2026-11-04T10:35:41.306771+00:00",
     "protocol_version": "SafeLab-Eval-v1.1",
     "target": 400,
     "historical_candidates": 347,
     "accepted": 0,
-    "status": "原始日志复核完成，原生修复验证进行中；正式验收未完成",
+    "status": "5b冷启动已完成初始化，旧源码绑定拦截动作；正修复整条入口。四卡低优平台准入通过，尚未提交。",
     "scope_note": "±3cm 新泛化数据已交接给独立负责会话；本面板只报告现行 5a/5b/7/10。",
     "counts_note": "历史候选是旧机器验收的累计记录；尚未逐条通过当前全部质量门槛。正式验收 0 不代表新放置判定下已确认全部失败。",
     "rows": [
@@ -62121,7 +62147,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "100条时长超标。最新R7复现是接触姿态续接在初始化碰撞门槛被拒；正追溯真正冷启动全五步。"
+        "state": "100条时长超标。真正冷启动全五步候选19项CPU通过，保留原抓持及碰撞门槛；现准备原生运行准入，未算采集通过。"
       },
       {
         "task": "5b · 六垫避障",
@@ -62129,7 +62155,7 @@
         "target": 100,
         "historical_candidates": 100,
         "accepted": 0,
-        "state": "新冷启动源389项依赖校验通过。首轮153.66秒在路径路由初始化失败；修复V2准备中，尚未执行动作。"
+        "state": "V2真实运行230.67秒完成场景初始化，随后被swap_pregrasp919旧runtime哈希拒绝，未执行动作；已取回237份实际源码统一修复绑定与输出分类。"
       },
       {
         "task": "7 · 四杯称量",
@@ -62176,7 +62202,7 @@
       "t10_historical47_duration_fail": 47,
       "t7_current100_metadata_duration_pass": 100,
       "T7_video_decode_or_success_not_implied": true,
-      "native_v11_runtime_integration": "Actual observerV3 closed213.50s with240ticks,1200positivecontrols,30frames/camera; stagebinding fixed butcontactabsenceUNKNOWN. Actual5b coldV1 closed153.66s atmetadata-preload outputrouting beforeManualTask; V2fix pending.",
+      "native_v11_runtime_integration": "ObserverV3 is closed and contact absence remains UNKNOWN. Actual5b V2 passed constructor then source-verifier rejected derived runtime before actions; exit0 is not task success.",
       "raw_archive": "Original closed logs/videos archived to BOS; current empty local directories do not prove data lost.",
       "T7_stage_count": {
         "source_records_with8": 100,
@@ -62230,7 +62256,35 @@
         "own_child_reaped": true,
         "formal_accepted": 0,
         "result": "failed beforeManualTask: preload metadata Path(output) would drop dual-root routing; V2fix withoutglobalroutingrelaxation"
+      },
+      "actual_5b_cold_V2": {
+        "CPU_source_pins": 368,
+        "CPU_external_pins": 21,
+        "duration_wall_s": 230.67002355959266,
+        "own_child_reaped": true,
+        "process_exit_code": 0,
+        "RESULT_status": "failed",
+        "actions_completed": 0,
+        "formal_accepted": 0,
+        "result": "constructor completed; original swap_pregrasp919 source verifier rejected derived runtime. Exact inverse-AST source-pin successor in progress; verifier is not bypassed."
       }
+    },
+    "resources": {
+      "temporary_low_priority_GPU_cap": 8,
+      "first_job_GPUs": 4,
+      "new_running_jobs": 0,
+      "new_running_GPUs": 0,
+      "new_jobs_submitted": 0,
+      "debug_workpackage_cases": 32,
+      "debug_workpackage_task": "5b t5_obstruction; unique attempt identities; no formal dataset credit",
+      "processes_per_GPU": null,
+      "sustained_10min_utilization_pct": null,
+      "sustained_10min_VRAM_pct": null,
+      "scale_up_qualified": false,
+      "admission": "HTTPS API2 HTTP200 allowed for 4 Pro6000 low_priority; advisory, no reservation",
+      "blocker": "source-verifier successor and portable runtime CPU closure before submission",
+      "startup_rules": "hard software failure cancel immediately; first scene<=1200s; no real progress300s; async transport retry; empty queue exits",
+      "JOB_storage": "local raw/cache then HTTPS PUT and complete GET SHA; project small files only; no bucket mount assumed"
     }
   }
 }

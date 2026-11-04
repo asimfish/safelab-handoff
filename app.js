@@ -24,7 +24,7 @@ function campaignStrip(){
  }).join('');
 }
 
-function trainingStatus(row){if(row.state==='training')return badge('training',row.record?.delivery?.includes('待确认')&&!row.shared?'训练中（待确认）':'训练中');return row.path?badge('delivered','权重已交付'):row.step>0&&row.doc?badge('verify','交付入口待核验'):badge('verify','交付待补');}
+function trainingStatus(row){if(row.record?.recovery?.runtime_type==='reconstructed_runtime')return badge('verify','重建运行时已恢复，待准入');if(row.state==='training')return badge('training',row.record?.delivery?.includes('待确认')&&!row.shared?'训练中（待确认）':'训练中');return row.path?badge('delivered','权重已交付'):row.step>0&&row.doc?badge('verify','交付入口待核验'):badge('verify','交付待补');}
 function evalStatus(row){if(row.state==='evaluating')return badge('evaluating',row.h4||row.h8||row.h30?'复测中 · 已有结果':'评测中');if(row.h4||row.h8||row.h30||row.evaluations.some(e=>e.success!==null))return badge('results','已评测');if(row.state==='untested')return badge('untested','未评测');if(row.state==='training')return '<span class="muted">尚未评测</span>';return badge(row.state,row.state==='blocked'?'阻塞':'待确认');}
 function compareRows(a,b){const tasks=['3','5','7','10','other'],order=id=>{const d=dataset(id);return M.TASKS.find(t=>t.id===d?.task)?.versions.indexOf(id)??99;};return tasks.indexOf(a.task)-tasks.indexOf(b.task)||order(a.dataset)-order(b.dataset)||a.dataset.localeCompare(b.dataset)||a.camera.localeCompare(b.camera)||a.method.localeCompare(b.method)||a.step-b.step;}
 function oracleTable(){

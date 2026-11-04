@@ -14,11 +14,11 @@ jobs:
       - name: Verify live index, all pi05 logs, and representative videos
         env:
           SAFELAB_MEDIA_QA_DIR: /tmp/safelab-live-media
-        run: node tests/media-live-browser.mjs
+        run: node tests/fd-live.mjs
       - name: Preserve actual browser evidence including display limitations
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: safelab-live-media-evidence
+          name: safelab-fd-live-evidence
           path: /tmp/safelab-live-media/
           retention-days: 3

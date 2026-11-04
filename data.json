@@ -40164,6 +40164,145 @@
       "expected_start_at": null,
       "paired_evaluation_id": "task5-round2-old30-h8-original-v1-A-placement-v11",
       "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+    },
+    {
+      "id": "task5-new30-hermite-policy-preflight-placement-v11-20261103",
+      "record": "5-pos-mem0",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol": "SafeLab-Eval-v1.1",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "condition": "original physical contact",
+      "kind": "新控制器闭环预检，非正式成绩",
+      "metric_role": "execution_chain_policy_preflight",
+      "evaluation_started": true,
+      "success": null,
+      "trials": 2,
+      "target": 3,
+      "completed": 1,
+      "audited": 1,
+      "unknown": 1,
+      "phase_hist": {
+        "0": 1
+      },
+      "mean_phase": 0.0,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 2,
+          "success": 0,
+          "unknown": 1
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 2,
+          "success": 0,
+          "unknown": 1
+        },
+        "right": {
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "wilson95": null,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "checkpoint-specific train_resize / weak_geometry / ours_geometry; frozen training dataset_min_max.py"
+      },
+      "scene_list_hash": "sha256:3319756ffd58df6b94117d5a74cb106ecb3245c0f7a575b8638127c55d2d7019",
+      "optics_version": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "input_state": "lerobot_v21_state13",
+      "stall_timeout": null,
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#open-loop"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#admission"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#new-controller-model-smoke",
+          "required_per_model": 20,
+          "controller_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html#controller-candidate",
+          "joint_rmse_rad": 0.004591478644270955,
+          "source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+          "episodes": 10,
+          "scope": "pos1cm,正反各5,全部13维120Hz实测轨迹聚合RMSE"
+        }
+      },
+      "status": "诊断进度：1条闭合停阶段0、1条初始化基础设施unknown、1条反向正在运行；success=null。不能替代每模型20条冒烟或正式A/B。",
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task5-round2-20261103.html",
+      "updated_at": "2026-11-04T00:45:57.468793+00:00",
+      "estimated_start": "已启动",
+      "note": "trials暂为已闭合+终态unknown；在跑条目未结算。保留原unknown，不重试或漏计。正向映射left，反向映射right。",
+      "evaluation_owner": "五任务评测",
+      "oracle_version": "placement-v1.1",
+      "pending_reason": "反向诊断在跑；仍需每模型20条独立冒烟",
+      "expected_start_at": null,
+      "control_source_sha256": "86a69c233411c7183374fc06932eedcc5ee7431cdc3cbee42ec67b5bcc777dfb",
+      "unknown_reasons": {
+        "temporary_disk_guard_during_initialization": 1
+      },
+      "started_count": 3,
+      "in_flight": 1,
+      "source_case_subset": "forward0 unknown, forward1 audited failure, reverse0 in flight",
+      "case_ledger": [
+        {
+          "id": "hermite_new30_pre_smoke_000",
+          "scene": "new_forward_000.json",
+          "layout": "forward",
+          "status": "unknown",
+          "physical_phase": null,
+          "reason": "temporary disk guard before a valid inference rollout",
+          "retried": false
+        },
+        {
+          "id": "hermite_new30_pre2_v2_000",
+          "scene": "new_forward_001.json",
+          "layout": "forward",
+          "status": "independently_audited_failure",
+          "physical_phase": 0,
+          "sim_seconds": 240.0,
+          "actual_PhysX_writes": 28800
+        },
+        {
+          "id": "hermite_new30_pre2_v3_reverse_000",
+          "scene": "new_reverse_000.json",
+          "layout": "reverse",
+          "status": "running",
+          "physical_phase": null,
+          "predecessor_case": "hermite_new30_pre2_v2_001",
+          "predecessor_was_unstarted": true
+        }
+      ]
     }
   ],
   "agents": [

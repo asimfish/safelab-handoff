@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T00:07:28.730114+00:00",
+  "updated_at": "2026-11-04T00:45:57.468793+00:00",
   "protocol_version": "SafeLab-Eval-v1.1",
   "models": [
     {
@@ -4324,9 +4324,10 @@
     "baseline_installed": false,
     "new_cloud_GPUs": 0,
     "remaining": [
-      "每模型独立20条新控制器/placement-v1.1闭环冒烟",
-      "通过后才启动新阶段A，h4/h8",
-      "fixed_v1第七权重独立核验光学/专家准入"
+      "完成反向预检及独立PhysX/placement验收",
+      "六个pos1cm权重各20条新链冒烟，尚未全部开跑",
+      "fixed_v1第七权重独立光学和专家门槛仍待核验",
+      "每模型冒烟通过后才允许阶段A"
     ],
     "diagnostic_model_chain_installed": true
   },
@@ -4372,18 +4373,292 @@
     "new_cloud_GPUs": 0
   },
   "learned_controller_preflight_v2": {
+    "closed": 1,
+    "unknown": 0,
+    "unstarted": 1,
+    "source": "existing_new30_hermite_smoke2_v2",
+    "forward_case": {
+      "id": "hermite_new30_pre2_v2_000",
+      "execution_horizon": 8,
+      "layout": "forward",
+      "seed": 0,
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "dataset_revision": "psibot_5b_obstruction_pos1cm_v1_20261025",
+      "position_randomization": true,
+      "preprocessing": "train_aligned",
+      "profile_name": "new_forward_001.json",
+      "reference_tick": 128,
+      "scene_seed": 2026103101,
+      "offsets_xy_m": {
+        "A": [
+          -0.0004041570112626007,
+          0.006244693106120186
+        ],
+        "B": [
+          0.002100507307365147,
+          -0.00014090243997674952
+        ],
+        "C": [
+          0.001996681486755242,
+          0.007709700068623667
+        ]
+      },
+      "method": "mem0",
+      "repeat": 0,
+      "run_seed": 0,
+      "base_case_id": "oursalignedweak30_mem0_30000_h8_forward_000",
+      "base_episode_seed": 729000,
+      "condition": "baseline",
+      "paired_reference_id": "ours30_mem0_30000_h8_forward_000",
+      "inference_seed": 0,
+      "source_original_inference_seed": 729000,
+      "score_role": "admission_smoke",
+      "formal_score_eligible": false,
+      "renderer_episode_policy": "pos1cm_source_optics_v1",
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "scene_index": 2,
+      "profile_sha256": "8dcb9d7febdfdc5d29a46b7510abf9cb6ad82b4ab83a31a49490fe4395d8ed5a",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "source_original_case_id": "round2_new30_A_seed0_h8_002",
+      "case_role": "new unused forward1/reverse0; prior forward0 unknown preserved and not retried",
+      "status": "time_limit",
+      "scored": false,
+      "success": false,
+      "physical_phases": 0,
+      "prediction_horizon": 30,
+      "denoising_steps": 8,
+      "physics_device": "cpu",
+      "camera": "third_person",
+      "simulation_limit_s": 240.0,
+      "physical_events": [],
+      "sim_seconds": 240.0
+    },
+    "audit": {
+      "control_audit": {
+        "actual_PhysX_position_writes": 28800,
+        "actual_PhysX_velocity_writes": 28800,
+        "next_physical_tick_labels_verified": 3600,
+        "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+        "interpolation_math": "same frozen core; separate raw model chunk/clock and actual readback audit"
+      },
+      "id": "hermite_new30_pre2_v2_000",
+      "variant": "new30",
+      "checkpoint_step": 30000,
+      "execution_horizon": 8,
+      "layout": "forward",
+      "passed": true,
+      "success": false,
+      "physical_phases": 0,
+      "physics_ticks": 28800,
+      "commands": 3600,
+      "physics_sha256": "0776da04cbc633f7bd933e57ac8324d69d64ed2a1fa1db980dc8d99f7b22aaa7",
+      "full_placement_v11_stream_recomputed": true,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "camera": "third_person",
+      "preprocessing": "train_aligned"
+    },
+    "success_rate_not_published": true,
+    "own_CPU_parent_retired_at_resource_wait": true,
+    "no_Native_or_inference_interrupted": true,
+    "reason": "overlay free1.3GiB below1.5GiB startup margin; all safety floors retained"
+  },
+  "learned_controller_preflight_v3": {
+    "target": 1,
     "closed": 0,
     "unknown": 0,
-    "target": 2,
-    "checkpoint": 30000,
-    "horizon": 8,
-    "role": "diagnostic only; not20smoke or formalA",
-    "status": "现有Pro6000模型服务已ready，按资源保护顺序执行两条未使用/未启动场景",
-    "new_cloud_GPUs": 0,
-    "per_case_regenerable_cache": "private_GPFS",
-    "source_case_profiles": [
-      "new_forward_001.json",
-      "new_reverse_000.json"
-    ]
+    "status": "reverse Native started",
+    "source_case": "hermite_new30_pre2_v3_reverse_000",
+    "predecessor_unstarted": "hermite_new30_pre2_v2_001",
+    "same_model_stats_preprocess_controller": true,
+    "science_logs": "original gzip on node-local /dev/shm, async SHA archive,512MiB own cap",
+    "cache": "private GPFS",
+    "minimum_runtime_local_and_shm_MiB": 1024,
+    "minimum_runtime_host_MiB": 16384,
+    "minimum_runtime_GPU_MiB": 8192,
+    "new_cloud_GPUs": 0
+  },
+  "learned_controller_preflight_aggregate": {
+    "planned": 3,
+    "closed": 1,
+    "unknown": 1,
+    "in_flight": 1,
+    "settled_trials": 2,
+    "success": null,
+    "phase_hist": {
+      "0": 1
+    },
+    "formal_trials_added": 0,
+    "admission_smoke20_passed": false,
+    "unknown_source_kept_in_ledger": true
+  },
+  "new_forward_failure_evidence": {
+    "analysis_scope": "completed case plus earlier measured prefix; manual sampled-frame review only",
+    "sim_seconds": 240.0,
+    "physical_phase": 0,
+    "max_A_lift_m": 0.0034031602231743285,
+    "required_lift_m": 0.052000000000000005,
+    "source_prefix_ticks": 24085,
+    "robot_contact_ticks_in_prefix": 533,
+    "initial_planner_instruction": "Move beaker1 from the red pad to the yellow pad.",
+    "inference_oracle_feedback": false,
+    "actual_PhysX_write_checks": 28800,
+    "visual_review": "八帧可见手移动、杯子未随手抬起；未形成有效抓持。不能只归因于静止/完成判定；未声称定位到抓取偏差的具体参数。",
+    "view_frame_times_s": [
+      0,
+      6,
+      12,
+      15,
+      20,
+      30,
+      60,
+      120
+    ],
+    "full_video_retained": true,
+    "all_full_video_watched": false,
+    "figure": "task5-model-preflight-new30-h8-20261103.jpg"
+  },
+  "gzip_log_IO_CPU_equivalence": {
+    "passed": true,
+    "CPU_only": true,
+    "scope": "200-frame valid live-log prefix only; no terminal or success claim",
+    "frames": 200,
+    "physics_ticks": 1600,
+    "source_case_id": "hermite_new30_pre2_v2_000",
+    "plain_delivery_audit": {
+      "actual_PhysX_position_writes": 1600,
+      "actual_PhysX_velocity_writes": 1600,
+      "next_physical_tick_labels_verified": 200,
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "interpolation_math": "same frozen core; separate raw model chunk/clock and actual readback audit"
+    },
+    "gzip_delivery_audit": {
+      "actual_PhysX_position_writes": 1600,
+      "actual_PhysX_velocity_writes": 1600,
+      "next_physical_tick_labels_verified": 200,
+      "control_version": "current_row_central_hermite_DIAGNOSTIC_v1",
+      "interpolation_math": "same frozen core; separate raw model chunk/clock and actual readback audit"
+    },
+    "rows": [
+      {
+        "file": "frames.jsonl",
+        "bytes": 1038619,
+        "compressed_bytes": 324222,
+        "decoded_sha256": "c40e7a982cb1e32fdb1bc3bbf3a81628b6a3e0f78eb54322fd9ec6a03a096e03",
+        "source_prefix_sha256": "c40e7a982cb1e32fdb1bc3bbf3a81628b6a3e0f78eb54322fd9ec6a03a096e03",
+        "compression_median_s": 0.008417441975325346,
+        "compression_stdev_s": 0.0004123485337762555,
+        "runs": 10,
+        "warmup": 3
+      },
+      {
+        "file": "physical_120hz.jsonl",
+        "bytes": 3038874,
+        "compressed_bytes": 847866,
+        "decoded_sha256": "37d9caa98b798140f4aa884007d2c73fe2140db98e7cdcfae0370d04a4d9e7db",
+        "source_prefix_sha256": "37d9caa98b798140f4aa884007d2c73fe2140db98e7cdcfae0370d04a4d9e7db",
+        "compression_median_s": 0.022833073511719704,
+        "compression_stdev_s": 0.0005740940329284471,
+        "runs": 10,
+        "warmup": 3
+      }
+    ],
+    "source_files_changed": false,
+    "scientific_originals_removed": 0,
+    "additional_model_or_Native_runs": 0,
+    "uncompressed_fields_preserved_exactly": true
+  },
+  "new_smoke_bundles_prepared": {
+    "passed": true,
+    "CPU_only": true,
+    "n": 6,
+    "cases_prepared": 120,
+    "models": [
+      {
+        "variant": "new20",
+        "passed": true,
+        "source_files": 186,
+        "archive_SHA": true,
+        "source_SHA": true,
+        "stats_SHA": true,
+        "weight_exists": true,
+        "backbones_exist": true,
+        "weight_full_SHA_pending_before_model_load": true,
+        "Native_or_model_runs": 0,
+        "new_cloud_GPUs": 0
+      },
+      {
+        "variant": "new30",
+        "passed": true,
+        "source_files": 186,
+        "archive_SHA": true,
+        "source_SHA": true,
+        "stats_SHA": true,
+        "weight_exists": true,
+        "backbones_exist": true,
+        "weight_full_SHA_pending_before_model_load": true,
+        "Native_or_model_runs": 0,
+        "new_cloud_GPUs": 0
+      },
+      {
+        "variant": "weak20",
+        "passed": true,
+        "source_files": 196,
+        "archive_SHA": true,
+        "source_SHA": true,
+        "stats_SHA": true,
+        "weight_exists": true,
+        "backbones_exist": true,
+        "weight_full_SHA_pending_before_model_load": true,
+        "Native_or_model_runs": 0,
+        "new_cloud_GPUs": 0
+      },
+      {
+        "variant": "weak30",
+        "passed": true,
+        "source_files": 196,
+        "archive_SHA": true,
+        "source_SHA": true,
+        "stats_SHA": true,
+        "weight_exists": true,
+        "backbones_exist": true,
+        "weight_full_SHA_pending_before_model_load": true,
+        "Native_or_model_runs": 0,
+        "new_cloud_GPUs": 0
+      },
+      {
+        "variant": "ours30",
+        "passed": true,
+        "source_files": 196,
+        "archive_SHA": true,
+        "source_SHA": true,
+        "stats_SHA": true,
+        "weight_exists": true,
+        "backbones_exist": true,
+        "weight_full_SHA_pending_before_model_load": true,
+        "Native_or_model_runs": 0,
+        "new_cloud_GPUs": 0
+      },
+      {
+        "variant": "oursalignedweak30",
+        "passed": true,
+        "source_files": 196,
+        "archive_SHA": true,
+        "source_SHA": true,
+        "stats_SHA": true,
+        "weight_exists": true,
+        "backbones_exist": true,
+        "weight_full_SHA_pending_before_model_load": true,
+        "Native_or_model_runs": 0,
+        "new_cloud_GPUs": 0
+      }
+    ],
+    "new_GPU_requests": 0,
+    "no_campaign_started": true,
+    "small_root": "/project_a02012413/public/liyufeng/safelab_task5_round2_20261103/frozen_hermite_smoke6_v1",
+    "large_root": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_round2_20261103/frozen_hermite_smoke6_v1",
+    "execution_status": "CPU staged only;120 cases not yet started"
   }
 }

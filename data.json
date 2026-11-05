@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-03T21:47:14.614991+00:00",
+  "updated_at": "2026-11-05T14:12:39.803203+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -557,14 +557,14 @@
         {
           "step": 20000,
           "path": "/public_fast_storage/liyufeng/safelab_mem0_10weigh_eval_20261101/executor_step20000.pt",
-          "status": "三项配置已完成并通过独立复核",
+          "status": "旧评测预处理不一致（已作废）；本轮不重跑20k",
           "availability": "完整SHA256已核对；此路径为Zone10共享快盘上的已验证评测副本。",
           "delivery_declared_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0/chest/weights/executor_step20000.pt"
         },
         {
           "step": 30000,
           "path": "/public_fast_storage/liyufeng/safelab_mem0_10weigh_eval_20261101/executor_step30000.pt",
-          "status": "三项配置已完成并通过独立复核",
+          "status": "旧评测预处理不一致（已作废）；30k原始条件复测中",
           "availability": "完整SHA256已核对；此路径为Zone10共享快盘上的已验证评测副本。",
           "delivery_declared_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0/chest/weights/executor_step30000.pt"
         }
@@ -584,7 +584,7 @@
         "planner": "LoRA r8 / alpha16；25epochs；global128；lr1e-4（已列配方的版本）",
         "planner_cutoff": 4096
       },
-      "note": "初版Mem-0原始接触：20k/30k × 执行4/8/30步，六组各5seed×100条，全部3000条已通过独立证据复核；完整十阶段均为0/500。",
+      "note": "预处理不一致（已作废）：旧闭环数字保留归档；已确认隐藏PIL缩放并修复。原版/削弱版30k原始条件h4/h8按原场景原seed重测；附着版暂不重跑。 初版Mem-0原始接触：20k/30k × 执行4/8/30步，六组各5seed×100条，全部3000条已通过独立证据复核；完整十阶段均为0/500。",
       "evidence_level": "交付文件和基座SHA256 + 实际闭环观测/物理结果",
       "source": "reports/task10-original-audit-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-original-audit-20261102.html",
@@ -1013,14 +1013,14 @@
         {
           "step": 20000,
           "path": "/public_fast_storage/liyufeng/safelab_mem0_10weigh_eval_20261101/executor_step20000.pt",
-          "status": "2/3项配置已复核，其余保留无效样本待处理",
+          "status": "旧评测预处理不一致（已作废）；本轮不重跑20k",
           "availability": "完整SHA256已核对；此路径为Zone10共享快盘上的已验证评测副本。",
           "delivery_declared_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0/chest/weights/executor_step20000.pt"
         },
         {
           "step": 30000,
           "path": "/public_fast_storage/liyufeng/safelab_mem0_10weigh_eval_20261101/executor_step30000.pt",
-          "status": "三项配置已完成并通过独立复核",
+          "status": "旧评测预处理不一致（已作废）；30k原始条件复测中",
           "availability": "完整SHA256已核对；此路径为Zone10共享快盘上的已验证评测副本。",
           "delivery_declared_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0/chest/weights/executor_step30000.pt"
         }
@@ -1040,7 +1040,7 @@
         "planner": "LoRA r8 / alpha16；25epochs；global128；lr1e-4（已列配方的版本）",
         "planner_cutoff": 4096
       },
-      "note": "初版Mem-0稳抓attach v1（原生求解32）：2999条已通过独立证据复核；五组各500条已完成且均为0/500。20k执行4步仍缺1条固定约束异常，保留499条有效及1条未知，不发布该组最终成功率。与新版attach v2分开。 历史附着版本为v1_solver32，不能与新版v2_solver128比较；不属于SafeLab-Eval-v1新成绩。",
+      "note": "预处理不一致（已作废）：旧闭环数字保留归档；已确认隐藏PIL缩放并修复。原版/削弱版30k原始条件h4/h8按原场景原seed重测；附着版暂不重跑。 初版Mem-0稳抓attach v1（原生求解32）：2999条已通过独立证据复核；五组各500条已完成且均为0/500。20k执行4步仍缺1条固定约束异常，保留499条有效及1条未知，不发布该组最终成功率。与新版attach v2分开。 历史附着版本为v1_solver32，不能与新版v2_solver128比较；不属于SafeLab-Eval-v1新成绩。",
       "evidence_level": "交付文件和基座SHA256 + 实际闭环观测/物理结果",
       "source": "reports/task10-original-audit-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-original-audit-20261102.html"
@@ -1154,7 +1154,7 @@
         {
           "step": 30000,
           "path": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0_weak/weights/executor_step30000.pt",
-          "status": "历史全量已停止；SafeLab-Eval-v1准入中",
+          "status": "旧评测预处理不一致（已作废）；30k原始条件复测中",
           "sha256": "7b523b56a19ece5ff02a60fb371f40d4bb887367137a3abc1963ec82e8bc3957",
           "availability": "TOS交付已同步至Zone10评测区，完整SHA256与配置绑定通过；GPU实际进度见评测报告"
         }
@@ -1172,7 +1172,7 @@
         "torch": "2.7.1+cu128（评测环境，与当前基线一致）",
         "image_preprocessing": "历史推理PIL默认224；训练floatCHW双线性抗锯齿；新候选已通过逐像素对照"
       },
-      "note": "历史协议已停止扩量；h30及额外seed不再派发。N1×k 多进程并行，每个Isaac进程1环境、每卡最多8进程。原始接触。原交付推理使用PIL默认缩放，已确认与训练张量双线性抗锯齿不同；旧结果保留，新协议成绩须经准入。",
+      "note": "预处理不一致（已作废）：旧闭环数字保留归档；已确认隐藏PIL缩放并修复。原版/削弱版30k原始条件h4/h8按原场景原seed重测；附着版暂不重跑。 历史协议已停止扩量；h30及额外seed不再派发。N1×k 多进程并行，每个Isaac进程1环境、每卡最多8进程。原始接触。原交付推理使用PIL默认缩放，已确认与训练张量双线性抗锯齿不同；旧结果保留，新协议成绩须经准入。",
       "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
@@ -1205,7 +1205,7 @@
         {
           "step": 30000,
           "path": "/public_fast_storage/liyufeng/safelab_task10_new_variants_20261102/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0_weak/weights/executor_step30000.pt",
-          "status": "历史全量已停止；SafeLab-Eval-v1准入中",
+          "status": "旧评测预处理不一致（已作废）；30k原始条件复测中",
           "sha256": "7b523b56a19ece5ff02a60fb371f40d4bb887367137a3abc1963ec82e8bc3957",
           "availability": "TOS交付已同步至Zone10评测区，完整SHA256与配置绑定通过；GPU实际进度见评测报告"
         }
@@ -1223,7 +1223,7 @@
         "torch": "2.7.1+cu128（评测环境，与当前基线一致）",
         "image_preprocessing": "历史推理PIL默认224；训练floatCHW双线性抗锯齿；新候选已通过逐像素对照"
       },
-      "note": "历史协议已停止扩量；h30及额外seed不再派发。N1×k 多进程并行，每个Isaac进程1环境、每卡最多8进程。附着v2_solver128（启用128、释放恢复32），与旧v1_solver32分列、不可跨版本比较。原交付推理使用PIL默认缩放，已确认与训练张量双线性抗锯齿不同；旧结果保留，新协议成绩须经准入。",
+      "note": "预处理不一致（已作废）：旧闭环数字保留归档；已确认隐藏PIL缩放并修复。原版/削弱版30k原始条件h4/h8按原场景原seed重测；附着版暂不重跑。 历史协议已停止扩量；h30及额外seed不再派发。N1×k 多进程并行，每个Isaac进程1环境、每卡最多8进程。附着v2_solver128（启用128、释放恢复32），与旧v1_solver32分列、不可跨版本比较。原交付推理使用PIL默认缩放，已确认与训练张量双线性抗锯齿不同；旧结果保留，新协议成绩须经准入。",
       "evidence_level": "交付文件SHA256、CPU预检、实际原生观测与严格物理验收",
       "source": "/home/liyufeng/ops/safelab_task10_new_variants_20261102/PROGRESS.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
@@ -1666,7 +1666,7 @@
         {
           "step": 30000,
           "path": "/public_fast_storage/liyufeng/safelab_mem0_10weigh_eval_20261101/executor_step30000.pt",
-          "status": "三项配置已完成并通过独立复核",
+          "status": "旧评测预处理不一致（已作废）；30k原始条件复测中",
           "availability": "完整SHA256已核对；此路径为Zone10共享快盘上的已验证评测副本。",
           "delivery_declared_path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/safelab_public/safelab_runtime/psibot_10_weigh_5beakers_v180/mem0/chest/weights/executor_step30000.pt"
         }
@@ -1686,7 +1686,7 @@
         "planner": "LoRA r8 / alpha16；25epochs；global128；lr1e-4（已列配方的版本）",
         "planner_cutoff": 4096
       },
-      "note": "SafeLab-Eval-v1辅助条件；与历史v1_solver32分列。",
+      "note": "预处理不一致（已作废）：旧闭环数字保留归档；已确认隐藏PIL缩放并修复。原版/削弱版30k原始条件h4/h8按原场景原seed重测；附着版暂不重跑。 SafeLab-Eval-v1辅助条件；与历史v1_solver32分列。",
       "evidence_level": "交付文件和基座SHA256 + 实际闭环观测/物理结果",
       "source": "reports/task10-original-audit-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
@@ -7280,7 +7280,7 @@
       "checkpoint": 20000,
       "horizon": 4,
       "kind": "自主闭环",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -7391,7 +7391,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -7402,7 +7405,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-20261101-20000-8",
@@ -7412,7 +7427,7 @@
       "checkpoint": 20000,
       "horizon": 8,
       "kind": "自主闭环",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -7524,7 +7539,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -7535,7 +7553,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-20261101-20000-30",
@@ -7545,7 +7575,7 @@
       "checkpoint": 20000,
       "horizon": 30,
       "kind": "自主闭环",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -7653,7 +7683,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -7664,7 +7697,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-20261101-30000-4",
@@ -7674,7 +7719,7 @@
       "checkpoint": 30000,
       "horizon": 4,
       "kind": "自主闭环",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -7811,7 +7856,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -7822,7 +7870,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-20261101-30000-8",
@@ -7832,7 +7892,7 @@
       "checkpoint": 30000,
       "horizon": 8,
       "kind": "自主闭环",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -7973,7 +8033,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -7984,7 +8047,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-20261101-30000-30",
@@ -7994,7 +8069,7 @@
       "checkpoint": 30000,
       "horizon": 30,
       "kind": "自主闭环",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -8108,7 +8183,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -8119,7 +8197,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-attach-20261101-20000-4",
@@ -8129,7 +8219,7 @@
       "checkpoint": 20000,
       "horizon": 4,
       "kind": "自主闭环 · 稳抓attach",
-      "status": "499条已复核，1条约束异常待处理",
+      "status": "预处理不一致（已作废）",
       "success": null,
       "provisional_successes": 0,
       "trials": 500,
@@ -8240,14 +8330,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "499条已复核，1条约束异常待处理",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-attach-20261101-20000-8",
@@ -8257,7 +8362,7 @@
       "checkpoint": 20000,
       "horizon": 8,
       "kind": "自主闭环 · 稳抓attach",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -8369,7 +8474,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -8380,7 +8488,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-attach-20261101-20000-30",
@@ -8390,7 +8510,7 @@
       "checkpoint": 20000,
       "horizon": 30,
       "kind": "自主闭环 · 稳抓attach",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -8503,7 +8623,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -8514,7 +8637,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-attach-20261101-30000-4",
@@ -8524,7 +8659,7 @@
       "checkpoint": 30000,
       "horizon": 4,
       "kind": "自主闭环 · 稳抓attach",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -8659,7 +8794,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -8670,7 +8808,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-attach-20261101-30000-8",
@@ -8680,7 +8830,7 @@
       "checkpoint": 30000,
       "horizon": 8,
       "kind": "自主闭环 · 稳抓attach",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -8815,7 +8965,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -8826,7 +8979,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-mem0-attach-20261101-30000-30",
@@ -8836,7 +9001,7 @@
       "checkpoint": 30000,
       "horizon": 30,
       "kind": "自主闭环 · 稳抓attach",
-      "status": "完整500条已独立复核",
+      "status": "预处理不一致（已作废）",
       "success": 0,
       "provisional_successes": 0,
       "trials": 500,
@@ -8953,7 +9118,10 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
@@ -8964,7 +9132,19 @@
         "high": 0.007624340461552241,
         "confidence": 0.95
       },
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "完整500条已独立复核",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task5-ours-aligned-weak-20261102-baseline-h4",
@@ -9523,7 +9703,7 @@
       "success_rate_mean_pct": null,
       "success_rate_std_pct": null,
       "kind": "自主闭环 · 5-seed",
-      "status": "历史全量已停止；只保留既有记录",
+      "status": "预处理不一致（已作废）",
       "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。",
       "seed_count": 5,
       "trials_per_seed": 100,
@@ -9583,14 +9763,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "历史全量已停止；只保留既有记录",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-new-variants-20261102-10-mem0-weak-h8",
@@ -9615,7 +9810,7 @@
       "success_rate_mean_pct": null,
       "success_rate_std_pct": null,
       "kind": "自主闭环 · 5-seed",
-      "status": "历史全量已停止；只保留既有记录",
+      "status": "预处理不一致（已作废）",
       "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。",
       "seed_count": 5,
       "trials_per_seed": 100,
@@ -9675,14 +9870,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "历史全量已停止；只保留既有记录",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-new-variants-20261102-10-mem0-weak-h30",
@@ -9708,7 +9918,7 @@
       "success_rate_mean_pct": null,
       "success_rate_std_pct": null,
       "kind": "自主闭环 · 5-seed",
-      "status": "历史全量已停止；只保留既有记录",
+      "status": "预处理不一致（已作废）",
       "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。",
       "seed_count": 5,
       "trials_per_seed": 100,
@@ -9768,14 +9978,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "历史全量已停止；只保留既有记录",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-new-variants-20261102-10-mem0-weak-attach-h4",
@@ -9801,7 +10026,7 @@
       "success_rate_mean_pct": null,
       "success_rate_std_pct": null,
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
-      "status": "历史全量已停止；只保留既有记录",
+      "status": "预处理不一致（已作废）",
       "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂原生读回128、释放恢复32，场景配置上限仍为32；该上限对原生动态控制接口的影响尚在配对验证，不能将它作为已确认的约束故障根因。当前保留原配置，候选版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
@@ -9861,14 +10086,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "历史全量已停止；只保留既有记录",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-new-variants-20261102-10-mem0-weak-attach-h8",
@@ -9894,7 +10134,7 @@
       "success_rate_mean_pct": null,
       "success_rate_std_pct": null,
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
-      "status": "历史全量已停止；只保留既有记录",
+      "status": "预处理不一致（已作废）",
       "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂原生读回128、释放恢复32，场景配置上限仍为32；该上限对原生动态控制接口的影响尚在配对验证，不能将它作为已确认的约束故障根因。当前保留原配置，候选版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
@@ -9954,14 +10194,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "历史全量已停止；只保留既有记录",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-new-variants-20261102-10-mem0-weak-attach-h30",
@@ -9986,7 +10241,7 @@
       "success_rate_mean_pct": null,
       "success_rate_std_pct": null,
       "kind": "自主闭环 · 稳抓attach v2 · 5-seed",
-      "status": "历史全量已停止；只保留既有记录",
+      "status": "预处理不一致（已作废）",
       "protocol": "十阶段，固定训练布局，位置扰动0；chest原始RGB640×480和实测13维弧度；15Hz观测/120Hz物理；预测30步、去噪8次，分别执行4/8/30步。每配置5seed×100条，每seed正逆序各50；模型记忆与RNG逐轨迹隔离，原FullTen释放并稳定归位验收。 附着v2原配置：机械臂原生读回128、释放恢复32，场景配置上限仍为32；该上限对原生动态控制接口的影响尚在配对验证，不能将它作为已确认的约束故障根因。当前保留原配置，候选版本另列。真实稳抓抬升后才附着，原碰撞和约束误差门槛保留。与旧附着v1成绩分开。",
       "seed_count": 5,
       "trials_per_seed": 100,
@@ -10046,14 +10301,29 @@
         "procs_per_gpu": null,
         "gpu_type": null
       },
-      "preprocess_resize": null,
+      "preprocess_resize": {
+        "implementation": "legacy_PIL_default_before_training_tensor",
+        "source": "; invalidated by task10-tensor-input-audit-20261105"
+      },
       "condition_version": null,
       "scene_list_hash": null,
       "lr_split": null,
       "mean_phase": null,
       "phase_hist": null,
       "wilson95": null,
-      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。"
+      "comparability_note": "attach v1 与 v2_solver128 不可比；须按 condition_version 分组，不得合并。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": null,
+        "legacy_status": "历史全量已停止；只保留既有记录",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-new-variants-20261102-10-ours-aligned-h4",
@@ -11775,18 +12045,18 @@
         "2": 18,
         "3": 1
       },
-      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
-      "stage": "A",
+      "status": "预处理不一致（已作废）",
+      "stage": "legacy",
       "dataset": "10-weigh",
       "checkpoint": 30000,
       "horizon": 4,
       "trials": 100,
       "completed": 100,
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "seed_results": [
@@ -11852,7 +12122,7 @@
       },
       "known_terminal_count": 100,
       "split_axis": "forward_reverse_task_order",
-      "formal_score_eligible": true,
+      "formal_score_eligible": false,
       "phase_mean_denominator": 100,
       "phase_unknown": 0,
       "id": "task10-eval-v1-20261103-mem0_weak-off-h4",
@@ -11865,7 +12135,24 @@
       "final_verified": true,
       "display_priority": 300,
       "result_label": "SafeLab-Eval-v1 · 阶段A100条",
-      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。"
+      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        },
+        "legacy_status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "protocol_version": "SafeLab-Eval-v1",
@@ -11922,18 +12209,18 @@
         "2": 8,
         "3": 2
       },
-      "status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
-      "stage": "A",
+      "status": "预处理不一致（已作废）",
+      "stage": "legacy",
       "dataset": "10-weigh",
       "checkpoint": 30000,
       "horizon": 8,
       "trials": 100,
       "completed": 100,
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "seed_results": [
@@ -11999,7 +12286,7 @@
       },
       "known_terminal_count": 100,
       "split_axis": "forward_reverse_task_order",
-      "formal_score_eligible": true,
+      "formal_score_eligible": false,
       "phase_mean_denominator": 100,
       "phase_unknown": 0,
       "id": "task10-eval-v1-20261103-mem0_weak-off-h8",
@@ -12012,7 +12299,24 @@
       "final_verified": true,
       "display_priority": 300,
       "result_label": "SafeLab-Eval-v1 · 阶段A100条",
-      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。"
+      "note": "三项硬门槛与同10条训练episode开环1.5倍门槛均通过；逐条120Hz物理/输入/源码独立核验。",
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        },
+        "legacy_status": "complete StageA; 121tick oracle; unknown retained in100 denominator",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "7-base-4",
@@ -21742,14 +22046,14 @@
       "checkpoint": 30000,
       "horizon": 4,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "original-v1",
       "success": 0,
       "trials": 100,
       "unknown": 2,
       "completed": 100,
       "kind": "自主闭环",
-      "status": "完整100已结算并独立核验",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "updated_at": "2026-11-03T21:15:14.609582+00:00",
@@ -21764,10 +22068,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 1.5918367346938775,
@@ -21845,7 +22149,25 @@
           "unknown": 2
         }
       ],
-      "final_verified": true
+      "final_verified": true,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "完整100已结算并独立核验",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v1-20261103-mem0_original-off-h8",
@@ -21857,14 +22179,14 @@
       "checkpoint": 30000,
       "horizon": 8,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "original-v1",
       "success": 0,
       "trials": 100,
       "unknown": 1,
       "completed": 100,
       "kind": "自主闭环",
-      "status": "完整100已结算并独立核验",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "updated_at": "2026-11-03T21:15:14.609582+00:00",
@@ -21879,10 +22201,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 1.606060606060606,
@@ -21960,7 +22282,25 @@
           "unknown": 1
         }
       ],
-      "final_verified": true
+      "final_verified": true,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "完整100已结算并独立核验",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v1-20261103-mem0_original-attach-h4",
@@ -21972,14 +22312,14 @@
       "checkpoint": 30000,
       "horizon": 4,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 24,
       "kind": "自主闭环",
-      "status": "已核验结果保留；续跑job因Stale file handle退出",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "updated_at": "2026-11-03T21:47:14.614991+00:00",
@@ -21994,10 +22334,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 1.5,
@@ -22067,7 +22407,25 @@
           "unknown": 0
         }
       ],
-      "final_verified": false
+      "final_verified": false,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "已核验结果保留；续跑job因Stale file handle退出",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v1-20261103-mem0_original-attach-h8",
@@ -22079,14 +22437,14 @@
       "checkpoint": 30000,
       "horizon": 8,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 28,
       "kind": "自主闭环",
-      "status": "已核验结果保留；续跑job因Stale file handle退出",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "updated_at": "2026-11-03T21:47:14.614991+00:00",
@@ -22101,10 +22459,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 2.0,
@@ -22177,7 +22535,25 @@
           "unknown": 0
         }
       ],
-      "final_verified": false
+      "final_verified": false,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "已核验结果保留；续跑job因Stale file handle退出",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v1-20261103-mem0_weak-attach-h4",
@@ -22189,14 +22565,14 @@
       "checkpoint": 30000,
       "horizon": 4,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 0,
       "kind": "自主闭环",
-      "status": "续跑启动失败，原因已定位为归档目录白名单；未产生新case，保留已完成结果",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "updated_at": "2026-11-03T21:15:14.609582+00:00",
@@ -22211,10 +22587,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": null,
@@ -22276,7 +22652,25 @@
           "unknown": 0
         }
       ],
-      "final_verified": false
+      "final_verified": false,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "续跑启动失败，原因已定位为归档目录白名单；未产生新case，保留已完成结果",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v1-20261103-mem0_weak-attach-h8",
@@ -22288,14 +22682,14 @@
       "checkpoint": 30000,
       "horizon": 8,
       "protocol_version": "SafeLab-Eval-v1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 0,
       "kind": "自主闭环",
-      "status": "续跑启动失败，原因已定位为归档目录白名单；未产生新case，保留已完成结果",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-round4-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "updated_at": "2026-11-03T21:15:14.609582+00:00",
@@ -22310,10 +22704,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": null,
@@ -22375,7 +22769,25 @@
           "unknown": 0
         }
       ],
-      "final_verified": false
+      "final_verified": false,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "续跑启动失败，原因已定位为归档目录白名单；未产生新case，保留已完成结果",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v1-20261103-ours_aligned-off-h4",
@@ -33114,18 +33526,18 @@
         "2": 18,
         "3": 1
       },
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
-      "stage": "A",
+      "status": "预处理不一致（已作废）",
+      "stage": "legacy",
       "dataset": "10-weigh",
       "checkpoint": 30000,
       "horizon": 4,
       "trials": 100,
       "completed": 100,
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "seed_results": [
@@ -33192,7 +33604,7 @@
       },
       "known_terminal_count": 100,
       "split_axis": "forward_reverse_task_order",
-      "formal_score_eligible": true,
+      "formal_score_eligible": false,
       "phase_mean_denominator": 100,
       "phase_unknown": 0,
       "id": "task10-eval-v11-20261103-mem0_weak-off-h4",
@@ -33212,7 +33624,24 @@
       "evaluation_started": true,
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
       "expected_start_at": null,
-      "independently_verified": 100
+      "independently_verified": 100,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        },
+        "legacy_status": "CPU重算完成；v1.1专家与执行链准入待完成",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "protocol_version": "SafeLab-Eval-v1.1",
@@ -33269,18 +33698,18 @@
         "2": 8,
         "3": 2
       },
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
-      "stage": "A",
+      "status": "预处理不一致（已作废）",
+      "stage": "legacy",
       "dataset": "10-weigh",
       "checkpoint": 30000,
       "horizon": 8,
       "trials": 100,
       "completed": 100,
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "seed_results": [
@@ -33347,7 +33776,7 @@
       },
       "known_terminal_count": 100,
       "split_axis": "forward_reverse_task_order",
-      "formal_score_eligible": true,
+      "formal_score_eligible": false,
       "phase_mean_denominator": 100,
       "phase_unknown": 0,
       "id": "task10-eval-v11-20261103-mem0_weak-off-h8",
@@ -33367,7 +33796,24 @@
       "evaluation_started": true,
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
       "expected_start_at": null,
-      "independently_verified": 100
+      "independently_verified": 100,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "delivered dataset_min_max.Resize + SafeLabDataset uint8 conversion; eval_v1_preprocessing.py"
+        },
+        "legacy_status": "CPU重算完成；v1.1专家与执行链准入待完成",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-off-h4",
@@ -33379,14 +33825,14 @@
       "checkpoint": 30000,
       "horizon": 4,
       "protocol_version": "SafeLab-Eval-v1.1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "original-v1",
       "success": null,
       "trials": 100,
       "unknown": 2,
       "completed": 100,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "updated_at": "2026-11-03T21:47:14.614991+00:00",
@@ -33401,10 +33847,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 1.5918367346938775,
@@ -33488,7 +33934,25 @@
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "expected_start_at": null,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "CPU重算完成；v1.1专家与执行链准入待完成",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-off-h8",
@@ -33500,14 +33964,14 @@
       "checkpoint": 30000,
       "horizon": 8,
       "protocol_version": "SafeLab-Eval-v1.1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "original-v1",
       "success": null,
       "trials": 100,
       "unknown": 1,
       "completed": 100,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "updated_at": "2026-11-03T21:47:14.614991+00:00",
@@ -33522,10 +33986,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 1.6161616161616161,
@@ -33609,7 +34073,25 @@
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "expected_start_at": null,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "CPU重算完成；v1.1专家与执行链准入待完成",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-attach-h4",
@@ -33621,14 +34103,14 @@
       "checkpoint": 30000,
       "horizon": 4,
       "protocol_version": "SafeLab-Eval-v1.1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 24,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "updated_at": "2026-11-03T21:47:14.614991+00:00",
@@ -33643,10 +34125,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 1.5,
@@ -33726,7 +34208,25 @@
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h4",
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "expected_start_at": null,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "CPU重算完成；v1.1专家与执行链准入待完成",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_original-attach-h8",
@@ -33738,14 +34238,14 @@
       "checkpoint": 30000,
       "horizon": 8,
       "protocol_version": "SafeLab-Eval-v1.1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 28,
       "kind": "自主闭环",
-      "status": "CPU重算完成；v1.1专家与执行链准入待完成",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "updated_at": "2026-11-03T21:47:14.614991+00:00",
@@ -33760,10 +34260,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": 2.0,
@@ -33846,7 +34346,25 @@
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_original-attach-h8",
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "expected_start_at": null,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "CPU重算完成；v1.1专家与执行链准入待完成",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_weak-attach-h4",
@@ -33858,14 +34376,14 @@
       "checkpoint": 30000,
       "horizon": 4,
       "protocol_version": "SafeLab-Eval-v1.1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 0,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "updated_at": "2026-11-03T21:23:16.370647+00:00",
@@ -33880,10 +34398,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": null,
@@ -33955,7 +34473,25 @@
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h4",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h4",
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "expected_start_at": null,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-mem0_weak-attach-h8",
@@ -33967,14 +34503,14 @@
       "checkpoint": 30000,
       "horizon": 8,
       "protocol_version": "SafeLab-Eval-v1.1",
-      "stage": "A",
+      "stage": "legacy",
       "condition_version": "attach-v2_solver128",
       "success": null,
       "trials": 100,
       "unknown": 0,
       "completed": 0,
       "kind": "自主闭环",
-      "status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
+      "status": "预处理不一致（已作废）",
       "source": "reports/task10-placement-v11-20261103.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
       "updated_at": "2026-11-03T21:23:16.370647+00:00",
@@ -33989,10 +34525,10 @@
         "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
       },
       "preprocess_resize": {
-        "implementation": "training_tensor",
+        "implementation": "legacy_PIL_default_before_training_tensor",
         "mode": "bilinear",
         "antialias": true,
-        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion; invalidated by task10-tensor-input-audit-20261105"
       },
       "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
       "mean_phase": null,
@@ -34064,7 +34600,25 @@
       "source_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h8",
       "paired_evaluation_id": "task10-eval-v1-20261103-mem0_weak-attach-h8",
       "pending_reason": "端点执行链10条5正5反与真实负例视频验收尚未完成",
-      "expected_start_at": null
+      "expected_start_at": null,
+      "preprocessing_invalidity": {
+        "confirmed": true,
+        "reason": "LiveObservation.policy_payload performed PIL default224 before the deterministic training tensor resize",
+        "confirmed_at": "2026-11-05T14:06:28.037128+00:00",
+        "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+        "legacy_preprocess_resize": {
+          "implementation": "training_tensor",
+          "mode": "bilinear",
+          "antialias": true,
+          "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+        },
+        "legacy_status": "未开始：附着续跑任务已失败，等待恢复与v1.1准入",
+        "raw_scores_retained": true,
+        "rerun_condition": "original-v1 h4/h8 only; attach paused",
+        "legacy_stage": "A"
+      },
+      "formal_score_eligible": false,
+      "invalidated_reason": "隐藏PIL默认224缩放；保留旧数字与归档，单次训练缩放版另行重测"
     },
     {
       "id": "task10-eval-v11-20261103-ours_aligned-off-h4",
@@ -36103,6 +36657,469 @@
       "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
       "report_url": "reports/task3-v11-round7-20261103.html",
       "updated_at": "2026-11-04T00:03:18.972230+00:00"
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-rawrgb-audit20261105-mem0_original-30k-h4-original-placement-A",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "completed": 4,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "阶段A：训练单次缩放入口复测中",
+      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "source": "reports/task10-tensor-input-audit-20261105.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+      "formal_score_eligible": false,
+      "mean_phase": 0.25,
+      "phase_hist": {
+        "1": 1,
+        "0": 3
+      },
+      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 4,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 4,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "阶段A执行中；执行链原生120Hz实测轨迹准入仍待原文件，不以指令目标RMSE冒充",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
+      "preprocessing_cohort": "rawRGB_trainresize_v2"
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-rawrgb-audit20261105-mem0_original-30k-h8-original-placement-A",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "completed": 2,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "阶段A：训练单次缩放入口复测中",
+      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "source": "reports/task10-tensor-input-audit-20261105.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+      "formal_score_eligible": false,
+      "mean_phase": 0.5,
+      "phase_hist": {
+        "0": 1,
+        "1": 1
+      },
+      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 2,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 2,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "阶段A执行中；执行链原生120Hz实测轨迹准入仍待原文件，不以指令目标RMSE冒充",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
+      "preprocessing_cohort": "rawRGB_trainresize_v2"
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-rawrgb-audit20261105-mem0_weak-30k-h4-original-placement-A",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "completed": 12,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "阶段A：SIGBUS续跑排队，已核验结果保留",
+      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "source": "reports/task10-tensor-input-audit-20261105.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+      "formal_score_eligible": false,
+      "mean_phase": 0.9166666666666666,
+      "phase_hist": {
+        "0": 6,
+        "2": 3,
+        "1": 2,
+        "3": 1
+      },
+      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 12,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 7,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 5,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "原4卡作业SIGBUS(-7)后FAILED；保留23条原始日志核验结果，剩余177条同seed新意图续跑已提交，等待平台job ID。",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h4",
+      "preprocessing_cohort": "rawRGB_trainresize_v2"
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-rawrgb-audit20261105-mem0_weak-30k-h8-original-placement-A",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "A",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": null,
+      "trials": 100,
+      "target": 100,
+      "completed": 11,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "阶段A：SIGBUS续跑排队，已核验结果保留",
+      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "source": "reports/task10-tensor-input-audit-20261105.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+      "formal_score_eligible": false,
+      "mean_phase": 0.5454545454545454,
+      "phase_hist": {
+        "1": 4,
+        "0": 6,
+        "2": 1
+      },
+      "wilson95": null,
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 11,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 5,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 6,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "原4卡作业SIGBUS(-7)后FAILED；保留23条原始日志核验结果，剩余177条同seed新意图续跑已提交，等待平台job ID。",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h8",
+      "preprocessing_cohort": "rawRGB_trainresize_v2"
     }
   ],
   "agents": [
@@ -36528,7 +37545,37 @@
       "仅覆盖读取时刻的8个会话可见历史；运行中的会话此后可能有新消息。",
       "五任务TTC尚无已核对的权重/结果；用户澄清可能尚未评测，状态待确认。",
       "初始基线的交付缺项不等于没有训练或没有评测。"
-    ]
+    ],
+    "task10-tensor-input-audit-20261105": {
+      "report": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
+      "invalidated_count": 34,
+      "new_rows": [
+        {
+          "id": "task10-rawrgb-audit20261105-mem0_original-30k-h4-original-placement-A",
+          "completed_verified": 4,
+          "target": 100,
+          "success": null
+        },
+        {
+          "id": "task10-rawrgb-audit20261105-mem0_original-30k-h8-original-placement-A",
+          "completed_verified": 2,
+          "target": 100,
+          "success": null
+        },
+        {
+          "id": "task10-rawrgb-audit20261105-mem0_weak-30k-h4-original-placement-A",
+          "completed_verified": 12,
+          "target": 100,
+          "success": null
+        },
+        {
+          "id": "task10-rawrgb-audit20261105-mem0_weak-30k-h8-original-placement-A",
+          "completed_verified": 11,
+          "target": 100,
+          "success": null
+        }
+      ]
+    }
   },
   "coverage_notes": [
     {

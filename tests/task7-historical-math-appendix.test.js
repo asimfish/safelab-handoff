@@ -35,3 +35,11 @@ test('legacy193missing plus25censored and oldP1 seed889 remain distinct from A73
  assert.ok(smoke.groups.every(g=>g.execution_and_preprocess_evidence.execution_scope==='P1 original smoke chain'));
  assert.ok(pub.boundaries.some(x=>x.includes('seed889')&&x.includes('mainA739K')));
 });
+test('older original N1 completed100 matrices are distinct from the new formal notrun grid and assisted baseline8',()=>{
+ const p=root+'old-original-N1-coverage-v1.json',c=read(p);assert.equal(sha(p),'d48f083e9f49e2413e14515adcebbd5a9e8ace416646e344fe401ed41ee2dc76');
+ const q=c.scope.old_original_30k_h4_h8;assert.equal(q.historically_completed_reported,1000);assert.equal(q.complete_raw_index_obtained_n,0);assert.equal(q.included_current_2265,0);assert.equal(q.included_current_main200,0);assert.equal(q.included_current_smoke120,0);
+ assert.equal(c.legacy_universe_verified.baseline,8);assert.equal(c.legacy_universe_verified.h4_h8_baseline,6);assert.equal(c.scope.additional_old_20k_h4_h8.historically_completed_reported,206);
+ const mem=c.configurations.filter(r=>r.variant==='mem0_30k');assert.deepEqual(mem.map(r=>r.historical_success_original),[9,12]);assert.ok(mem.every(r=>r.new_formal_planned_notrun===false));
+ const aligned=c.configurations.filter(r=>r.variant==='ours_aligned_loss_30k');assert.deepEqual(aligned.map(r=>r.historical_success_original),[4,7]);
+ assert.equal(pub.additional_old_original_coverage.new_CPU_rescored_from_this_matrix_n,0);assert.equal(pub.additional_old_original_coverage.missing_index_is_not_proof_raw_lost,true);
+});

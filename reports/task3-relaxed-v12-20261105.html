@@ -1,0 +1,125 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>三任务 SafeLab-Eval-v1.2-relaxed 离线重算</title><style>body{max-width:1300px;margin:2rem auto;padding:1rem;font:15px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere}li{overflow-wrap:anywhere}</style><h1>三任务 SafeLab-Eval-v1.2-relaxed 离线重算</h1><p>独立候选判定；原 strict-v1 / v1.1 记录保留。专家回放未全部通过，未进入正式主表。</p><pre># 三任务 v1.2-relaxed 离线重算
+
+三种判定使用同一批已录制120Hz日志。unknown保留在完整分母，另列有效数；不模拟原终止后的反事实轨迹。参数在重算前冻结。
+
+|配置|口径|成功/有效数|完整分母|Wilson 95%（完整分母）|SR@2|平均阶段|unknown|
+|---|---|---:|---:|---|---:|---:|---:|
+|main_trainresize|ttc|V13|30000|4|strict|210/500|500|37.8–46.4%|68.2%|2.066|0|
+|main_trainresize|ttc|V13|30000|4|v11|331/500|500|61.9–70.2%|68.2%|2.308|0|
+|main_trainresize|ttc|V13|30000|4|relaxed|339/500|500|63.6–71.7%|69.4%|2.336|0|
+|main_trainresize|mem0|V13|30000|4|strict|133/500|500|22.9–30.6%|59.2%|1.854|0|
+|main_trainresize|mem0|V13|30000|4|v11|204/500|500|36.6–45.2%|59.2%|2.004|0|
+|main_trainresize|mem0|V13|30000|4|relaxed|232/500|500|42.1–50.8%|60.2%|2.062|0|
+|main_trainresize|ttc|V13|30000|8|strict|202/499|500|36.2–44.8%|66.6%|2.028|1|
+|main_trainresize|ttc|V13|30000|8|v11|311/499|500|57.9–66.3%|66.6%|2.246|1|
+|main_trainresize|ttc|V13|30000|8|relaxed|324/499|500|60.5–68.9%|68.2%|2.289|1|
+|main_trainresize|mem0|V13|30000|8|strict|143/500|500|24.8–32.7%|65.8%|1.942|0|
+|main_trainresize|mem0|V13|30000|8|v11|246/500|500|44.8–53.6%|65.8%|2.148|0|
+|main_trainresize|mem0|V13|30000|8|relaxed|266/500|500|48.8–57.5%|67.6%|2.204|0|
+|expert_replay|native120hz|expert|None|None|strict|2/10|10|5.7–51.0%|70.0%|1.900|0|
+|expert_replay|native120hz|expert|None|None|v11|6/10|10|31.3–83.2%|70.0%|2.300|0|
+|expert_replay|native120hz|expert|None|None|relaxed|7/10|10|39.7–89.2%|80.0%|2.500|0|
+|expert_replay|endpoint_linear8_ff13|expert|None|None|strict|2/9|10|5.7–51.0%|70.0%|2.000|1|
+|expert_replay|endpoint_linear8_ff13|expert|None|None|v11|4/9|10|16.8–68.7%|70.0%|2.222|1|
+|expert_replay|endpoint_linear8_ff13|expert|None|None|relaxed|4/9|10|16.8–68.7%|70.0%|2.222|1|
+|expert_replay|old_endpoint|expert|None|None|strict|0/0|1|0.0–79.3%|0.0%|NA|1|
+|expert_replay|old_endpoint|expert|None|None|v11|0/0|1|0.0–79.3%|0.0%|NA|1|
+|expert_replay|old_endpoint|expert|None|None|relaxed|0/0|1|0.0–79.3%|0.0%|NA|1|
+|priority_ttc_trainresize|ours|v13|30000|8|strict|39/99|100|30.0–48.8%|66.0%|2.020|1|
+|priority_ttc_trainresize|ours|v13|30000|8|v11|62/99|100|52.2–70.9%|66.0%|2.253|1|
+|priority_ttc_trainresize|ours|v13|30000|8|relaxed|64/99|100|54.2–72.7%|66.0%|2.273|1|
+|priority_d0|mem0|v13|30000|4|strict|24/100|100|16.7–33.2%|41.0%|1.650|0|
+|priority_d0|mem0|v13|30000|4|v11|35/100|100|26.4–44.7%|41.0%|1.770|0|
+|priority_d0|mem0|v13|30000|4|relaxed|40/100|100|30.9–49.8%|41.0%|1.810|0|
+|priority_latest_phase2_timeout|mem0|latest|30000|4|strict|0/141|141|0.0–2.7%|100.0%|2.000|0|
+|priority_latest_phase2_timeout|mem0|latest|30000|4|v11|46/141|141|25.4–40.7%|100.0%|2.333|0|
+|priority_latest_phase2_timeout|mem0|latest|30000|4|relaxed|50/141|141|28.0–43.6%|100.0%|2.355|0|
+|priority_latest_phase2_timeout|mem0|latest|30000|8|strict|0/145|145|0.0–2.6%|100.0%|2.000|0|
+|priority_latest_phase2_timeout|mem0|latest|30000|8|v11|52/145|145|28.5–43.9%|100.0%|2.359|0|
+|priority_latest_phase2_timeout|mem0|latest|30000|8|relaxed|57/145|145|31.7–47.4%|100.0%|2.393|0|
+|history_|mem0|latest|30000|8|strict|64/500|500|10.2–16.0%|43.0%|1.542|0|
+|history_|mem0|latest|30000|8|v11|118/500|500|20.1–27.5%|43.0%|1.650|0|
+|history_|mem0|latest|30000|8|relaxed|123/500|500|21.0–28.6%|43.4%|1.664|0|
+|history_|mem0|latest|30000|4|strict|65/500|500|10.3–16.2%|42.8%|1.554|0|
+|history_|mem0|latest|30000|4|v11|111/500|500|18.8–26.0%|42.8%|1.648|0|
+|history_|mem0|latest|30000|4|relaxed|116/500|500|19.7–27.1%|43.2%|1.662|0|
+|history_|mem0|v13|30000|8|strict|96/500|500|16.0–22.9%|42.6%|1.610|0|
+|history_|mem0|v13|30000|8|v11|168/500|500|29.6–37.9%|42.6%|1.758|0|
+|history_|mem0|v13|30000|8|relaxed|190/500|500|33.9–42.3%|44.2%|1.814|0|
+|history_|mem0|v13|30000|4|strict|124/500|500|21.2–28.8%|46.8%|1.712|0|
+|history_|mem0|v13|30000|4|v11|199/500|500|35.6–44.2%|46.8%|1.862|0|
+|history_|mem0|v13|30000|4|relaxed|222/500|500|40.1–48.8%|47.6%|1.918|0|
+|history_|pi05|v13|30000|8|strict|0/457|500|0.0–0.8%|0.0%|0.249|43|
+|history_|pi05|v13|30000|8|v11|0/457|500|0.0–0.8%|0.0%|0.249|43|
+|history_|pi05|v13|30000|8|relaxed|0/457|500|0.0–0.8%|0.0%|0.271|43|
+|history_|pi05|v13|30000|4|strict|0/475|500|0.0–0.8%|0.0%|0.051|25|
+|history_|pi05|v13|30000|4|v11|0/475|500|0.0–0.8%|0.0%|0.051|25|
+|history_|pi05|v13|30000|4|relaxed|0/475|500|0.0–0.8%|0.0%|0.059|25|
+|history_|pi05|v13|20000|8|strict|2/499|500|0.1–1.4%|3.8%|0.745|1|
+|history_|pi05|v13|20000|8|v11|7/499|500|0.7–2.9%|3.8%|0.756|1|
+|history_|pi05|v13|20000|8|relaxed|8/499|500|0.8–3.1%|4.6%|0.772|1|
+|history_|pi05|v13|20000|4|strict|0/500|500|0.0–0.8%|3.4%|0.376|0|
+|history_|pi05|v13|20000|4|v11|0/500|500|0.0–0.8%|3.4%|0.376|0|
+|history_|pi05|v13|20000|4|relaxed|0/500|500|0.0–0.8%|3.6%|0.420|0|
+|history_|ours|v13|20000|4|strict|16/500|500|2.0–5.1%|15.2%|1.114|0|
+|history_|ours|v13|20000|4|v11|28/500|500|3.9–8.0%|15.2%|1.138|0|
+|history_|ours|v13|20000|4|relaxed|40/500|500|5.9–10.7%|16.4%|1.180|0|
+|history_|ours|v13|20000|8|strict|20/500|500|2.6–6.1%|13.8%|1.060|0|
+|history_|ours|v13|20000|8|v11|31/500|500|4.4–8.7%|13.8%|1.082|0|
+|history_|ours|v13|20000|8|relaxed|47/500|500|7.1–12.3%|14.2%|1.124|0|
+|history_|mem0|latest|20000|4|strict|6/500|500|0.6–2.6%|3.6%|0.680|0|
+|history_|mem0|latest|20000|4|v11|11/500|500|1.2–3.9%|3.6%|0.690|0|
+|history_|mem0|latest|20000|4|relaxed|11/500|500|1.2–3.9%|3.6%|0.696|0|
+|history_|mem0|latest|20000|8|strict|4/500|500|0.3–2.0%|3.6%|0.618|0|
+|history_|mem0|latest|20000|8|v11|9/500|500|0.9–3.4%|3.6%|0.630|0|
+|history_|mem0|latest|20000|8|relaxed|11/500|500|1.2–3.9%|3.6%|0.646|0|
+|history_|mem0|v13|20000|8|strict|65/500|500|10.3–16.2%|24.4%|1.254|0|
+|history_|mem0|v13|20000|8|v11|91/500|500|15.1–21.8%|24.4%|1.308|0|
+|history_|mem0|v13|20000|8|relaxed|104/500|500|17.5–24.6%|25.0%|1.342|0|
+|history_|mem0|v13|20000|4|strict|76/500|500|12.3–18.6%|26.2%|1.296|0|
+|history_|mem0|v13|20000|4|v11|112/500|500|19.0–26.3%|26.2%|1.368|0|
+|history_|mem0|v13|20000|4|relaxed|119/500|500|20.3–27.7%|26.8%|1.392|0|
+|priority_ttc_trainresize|ours|v13|30000|4|strict|40/100|100|30.9–49.8%|65.0%|2.010|0|
+|priority_ttc_trainresize|ours|v13|30000|4|v11|62/100|100|52.2–70.9%|65.0%|2.230|0|
+|priority_ttc_trainresize|ours|v13|30000|4|relaxed|65/100|100|55.3–73.6%|66.0%|2.270|0|
+|priority_ttc_original|ours|v13|30000|4|strict|19/100|100|12.5–27.8%|29.0%|1.420|0|
+|priority_ttc_original|ours|v13|30000|4|v11|19/100|100|12.5–27.8%|29.0%|1.430|0|
+|priority_ttc_original|ours|v13|30000|4|relaxed|23/100|100|15.8–32.2%|32.0%|1.490|0|
+|priority_ttc_original|ours|v13|30000|8|strict|11/100|100|6.3–18.6%|24.0%|1.270|0|
+|priority_ttc_original|ours|v13|30000|8|v11|17/100|100|10.9–25.5%|24.0%|1.330|0|
+|priority_ttc_original|ours|v13|30000|8|relaxed|17/100|100|10.9–25.5%|24.0%|1.340|0|
+|history_|ours|v13|30000|4|strict|78/500|500|12.7–19.0%|28.6%|1.386|0|
+|history_|ours|v13|30000|4|v11|108/500|500|18.2–25.4%|28.6%|1.448|0|
+|history_|ours|v13|30000|4|relaxed|118/500|500|20.1–27.5%|30.2%|1.482|0|
+|history_|ours|v13|30000|8|strict|73/500|500|11.8–18.0%|25.0%|1.302|0|
+|history_|ours|v13|30000|8|v11|106/500|500|17.8–25.0%|25.0%|1.368|0|
+|history_|ours|v13|30000|8|relaxed|108/500|500|18.2–25.4%|25.2%|1.378|0|
+
+SR@1/2/3及逐阶段通过数见JSON。平均阶段仅按有效轨迹；SR分母含unknown。严格口径/v1.1中完成阶段后若违反保持条件，SR@3可能高于整任务成功率。
+
+## 配对（TTC − Mem-0）
+
+
+## 验证状态
+
+专家回放全部通过：False。未通过的原有物理/安全终止保留，未为提高成功率更改阈值。
+15个合成负例通过；真实trace中的握持、倾倒、出区域各5帧已验证放置谓词拒绝，视频人工复核待完成。五个专家开局120tick未误计阶段。
+正式发布状态：admitted_mentor_decision_20261106。原生7/10中3条原有物理/安全失败仅从准入分母排除；干净回放7/7通过。安全阈值及所有评测数字和分母不变。重算数字与原strict/v1.1行并列，不覆盖原行。
+
+## 固定证据
+
+- PARAMETERS.json: bytes=860, sha256=a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f
+- oracle_relaxed.py: bytes=6397, sha256=d275fa40b288ca7b98176f0848433f4383153c3f4c04d18d72bb91a1d147235b
+- batch_rescore.py: bytes=10222, sha256=d97da8c999bcb9b9330f08e033cdebbdeca32888cb157cb05a9fa567fb62cb69
+- rescore_bundles.py: bytes=3826, sha256=57d94dee051d15f8a86c1122234c04cf193b42b433ce6d9e4e425981e094ffc1
+- VALIDATION.json: bytes=37823, sha256=93cb45a6a430c620ab0a1d03268cc4480f0c904ffd95dac75f9a3d5233c739bd
+</pre><h2>公开证据</h2><ul><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_TABLE_FINAL.json">MAIN_TABLE_FINAL.json</a> · 7794 B · SHA256 ade261cf60ef91c7f9e3b6ac84b3a546d2d800328d7208d22f68854dda1ec9c9</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_REPORT.md">MAIN_REPORT.md</a> · 3154 B · SHA256 f49e5558b3a8a4e3754d443b104c5ed6c3db133a180a53a502e0693da69fa650</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_REPORT_INPUT_ARTIFACTS.json">MAIN_REPORT_INPUT_ARTIFACTS.json</a> · 1292 B · SHA256 73b3724ef98205b526d121a7c0ddf754e5fcabe35160caf1641a190826406d71</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_REPORT_NEW_EVALUATION_ROWS.json">MAIN_REPORT_NEW_EVALUATION_ROWS.json</a> · 3827 B · SHA256 06e3960d7441e091926f6a7dc0d18624cccc44c160e3a8f808b68148b6478480</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/PARAMETERS.json">PARAMETERS.json</a> · 860 B · SHA256 a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/oracle_relaxed.py">oracle_relaxed.py</a> · 6397 B · SHA256 d275fa40b288ca7b98176f0848433f4383153c3f4c04d18d72bb91a1d147235b</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/VALIDATION.json">VALIDATION.json</a> · 37823 B · SHA256 93cb45a6a430c620ab0a1d03268cc4480f0c904ffd95dac75f9a3d5233c739bd</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/EXPERT_PHYSICAL_FAILURES.json">EXPERT_PHYSICAL_FAILURES.json</a> · 390 B · SHA256 190887ff328b3f2864a9b253a3d32d91b7fe6089a878281c8f8b8f43997ae3c9</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/REGION_OVERLAP_CHECK.json">REGION_OVERLAP_CHECK.json</a> · 253 B · SHA256 42f5714e208f5f3305d22d9c95d2f4f73ccb92c77bb5b70e38a2dba8eba99648</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json">FINAL.json</a> · 21099907 B · SHA256 d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/ALL_REPORT.md">ALL_REPORT.md</a> · 8583 B · SHA256 2aa012f33ce5cd89dd14368283ee32860400b1d317b21bc0236a13002dcdafb8</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/ALL_REPORT_INPUT_ARTIFACTS.json">ALL_REPORT_INPUT_ARTIFACTS.json</a> · 1292 B · SHA256 73b3724ef98205b526d121a7c0ddf754e5fcabe35160caf1641a190826406d71</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/ALL_REPORT_NEW_EVALUATION_ROWS.json">ALL_REPORT_NEW_EVALUATION_ROWS.json</a> · 95530 B · SHA256 656dc085057af1b7e8d1f833e578e437578e9a93fb5e28faaad6314755a45a75</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/BUNDLE_FINAL.json">BUNDLE_FINAL.json</a> · 36641 B · SHA256 f3a447951118e69558b55541a279aae2b65efff1fcba4bfa5270ce58258f3eb3</li></ul><h2>逐例原口径回归校验</h2><pre>{
+  &quot;trials&quot;: 2000,
+  &quot;valid&quot;: 1999,
+  &quot;unknown&quot;: 1,
+  &quot;strict_v11_per_case_mismatches&quot;: [],
+  &quot;relaxed_lost_v11_success_cases&quot;: [],
+  &quot;passed&quot;: true,
+  &quot;parameters_sha256&quot;: &quot;a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f&quot;,
+  &quot;epoch&quot;: 1793906036.8888927
+}</pre><section id="unknown-sensitivity"><h2>保守敏感性：出现过unknown均按失败</h2><p>保留完整分母500。h4：TTC339/500、Mem-0 186/500，差+30.6pp [22.2,38.8]；h8：TTC304/500、Mem-0 266/500，差+7.6pp [-0.2,15.2]。h8区间跨零，不能将优势描述为对该保守口径稳健显著。此项不替换首次有效闭合的主计分。</p><p>旧strict/v1.1逐例回归：主表1999条有效、历史7931条有效，均零不一致。</p><ul><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/SENSITIVITY_V12.json">SENSITIVITY_V12.json</a> · 1734 B · SHA256 ff31c22a713ca908db667675036ea277a74dbfcab9ab9644fcf5d6357aa705d2</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/HISTORY_PARITY_VALIDATION.json">HISTORY_PARITY_VALIDATION.json</a> · 82 B · SHA256 47a5a7dbd19fb32d483a684d8adab39adae682fc9c25f6029975839644bd42eb</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_PARITY_VALIDATION.json">MAIN_PARITY_VALIDATION.json</a> · 255 B · SHA256 7fe13a42476fa8bf15fee4498befe3759fee12f14e0707f79bc7b9d7f8862613</li><li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/DELIVERY_SCOPE.json">DELIVERY_SCOPE.json</a> · 409 B · SHA256 0d2dfcbdaabfe38ff9ddf53cbd04d7555b9863548b0a960169dd1ea9892d9e0b</li></ul></section><section id="mentor-admission"><h2>导师准入决定（2026-11-06）</h2><p>admitted_mentor_decision_20261106。真实握持、倾倒、出区域负例各5条均拒绝；后补3个已松手且区域外窗口，不阻塞准入。历史验证文件保留原状，本决定取代其中待验证状态，不代表重新完成其他继承检查。MemoryVLA #73 不受影响。</p><p><a href="task3-v12-admission-20261106.json">准入决定</a> · SHA256 3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092</p></section><p><a href="task3-final-four-oracles-20261106.html">四口径五seed最终配对与分级成功率</a></p><p>v1.2来源：SafeLab-Eval-v1.2-relaxed，admitted_mentor_decision_20261106；<a href="task3-v12-admission-source-20261106.json">导师决定来源及原文摘要</a>。参数 SHA256 a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f。</p></html>

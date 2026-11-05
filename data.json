@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-04T22:52:28.702354+00:00",
+  "updated_at": "2026-11-05T07:46:40.182098+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -35382,8 +35382,8 @@
       "success": null,
       "trials": 500,
       "unknown": 0,
-      "completed": 300,
-      "status": "五seed正在评测；已完成300/500。逐seed进度：0=100/100,1=100/100,2=100/100,3=0/100,4=0/100。h8前三seed FD跨实现核对已完成；完整五seed结束前不发布最终成功率。",
+      "completed": 500,
+      "status": "五seed strict计分已闭合，数字及全部配对证据见最终报告；本行准入/strict阶段分布绑定未齐，success保持null。",
       "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
@@ -35424,8 +35424,8 @@
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
-      "report_url": "reports/task3-round12-20261104.html",
-      "updated_at": "2026-11-04T11:15:42.098088+00:00",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
       "variant": "ours-V13-30k-trainresize",
       "valid_for_comparison": false,
       "requested_phase": "A",
@@ -35450,35 +35450,18 @@
       "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
       "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json",
       "runtime_progress": {
-        "official_snapshot_epoch": 1793786408.2278275,
-        "temporary_gpu_cap": 24,
-        "running_jobs": 6,
-        "running_gpus": 24,
-        "new_h8_jobs": [
-          {
-            "seed": 4,
-            "job_id": "job-61g0fe3fkpb7"
-          },
-          {
-            "seed": 3,
-            "job_id": "job-807ao37oifvq"
-          }
-        ],
-        "new_h4_submitted": false,
-        "new_workers_10min_utilization_percent": null,
-        "source": "reports/task3-round13-20261104/work-progress.json",
-        "seed_completed": {
-          "0": 100,
-          "1": 100,
-          "2": 100,
-          "3": 0,
-          "4": 0
-        },
-        "case_snapshot_epoch": 1793790723.7848613,
-        "all24_gpu_utilization_600s_percent": 86.33194787109892,
-        "utilization_source": "reports/task3-round13-20261104/all24-continuous600s-utilization.json",
-        "FD_concordance_report": "reports/task3-round13-20261104.html"
-      }
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "evaluation_complete": true,
+      "closed_strict_success": 210
     },
     {
       "id": "t1035-r6b-ttc-V13-trainresize-B-c30-h8",
@@ -35495,8 +35478,8 @@
       "success": null,
       "trials": 500,
       "unknown": 1,
-      "completed": 379,
-      "status": "五seed正在评测；已完成379/500。逐seed进度：0=100/100,1=100/100,2=100/100,3=39/100,4=40/100。h8前三seed FD跨实现核对已完成；完整五seed结束前不发布最终成功率。",
+      "completed": 500,
+      "status": "五seed strict计分已闭合，数字及全部配对证据见最终报告；本行准入/strict阶段分布绑定未齐，success保持null。",
       "kind": "自主闭环诊断 · 训练缩放候选",
       "topology": {
         "num_envs_actual": 1,
@@ -35537,8 +35520,8 @@
       },
       "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
       "source": "T-1035 round6b isolated five-seed extension plans; phaseA same frozen scientific cases carried only in report, not rerun",
-      "report_url": "reports/task3-round12-20261104.html",
-      "updated_at": "2026-11-04T11:15:42.098088+00:00",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
       "variant": "ours-V13-30k-trainresize",
       "valid_for_comparison": false,
       "requested_phase": "A",
@@ -35563,36 +35546,18 @@
       "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
       "source_progress_report": "reports/task3-v11-round7-20261103/ttc-seed12-progress.json",
       "runtime_progress": {
-        "official_snapshot_epoch": 1793786408.2278275,
-        "temporary_gpu_cap": 24,
-        "running_jobs": 6,
-        "running_gpus": 24,
-        "new_h8_jobs": [
-          {
-            "seed": 4,
-            "job_id": "job-61g0fe3fkpb7"
-          },
-          {
-            "seed": 3,
-            "job_id": "job-807ao37oifvq"
-          }
-        ],
-        "new_h4_submitted": false,
-        "new_workers_10min_utilization_percent": null,
-        "source": "reports/task3-round13-20261104/work-progress.json",
-        "all24_gpu_utilization_600s_percent": 86.33194787109892,
-        "utilization_source": "reports/task3-round13-20261104/all24-continuous600s-utilization.json",
-        "three_seed_three_oracle_report": "reports/task3-round12-20261104.html",
-        "seed_completed": {
-          "0": 100,
-          "1": 100,
-          "2": 100,
-          "3": 39,
-          "4": 40
-        },
-        "case_snapshot_epoch": 1793790723.7848613,
-        "FD_concordance_report": "reports/task3-round13-20261104.html"
-      }
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "evaluation_complete": true,
+      "closed_strict_success": 202
     },
     {
       "id": "t1035-r7-placement-d2a-c30000-h4",
@@ -36218,7 +36183,7 @@
       "success": null,
       "trials": 500,
       "target": 500,
-      "completed": 231,
+      "completed": 500,
       "unknown": 0,
       "seed_results": [],
       "lr_split": null,
@@ -36227,7 +36192,7 @@
       "wilson95": null,
       "evaluation_started": true,
       "formal_score_eligible": false,
-      "status": "五seed正在评测；已完成231/500。逐seed进度：0=100/100,1=69/100,2=62/100,3=0/100,4=0/100。h8前三seed FD跨实现核对已完成；完整五seed结束前不发布最终成功率。",
+      "status": "五seed计分已闭合500/500；正式准入证据尚待绑定，success保持null。完整三口径配对数字见最终诊断报告。",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 3,
@@ -36267,38 +36232,84 @@
         }
       },
       "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h4",
-      "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
-      "report_url": "reports/task3-round12-20261104.html",
-      "updated_at": "2026-11-04T11:15:42.098088+00:00",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/final-five-seed-20261105/FINAL_FIVE_SEED_MAIN_TABLE.json",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
       "runtime_progress": {
-        "official_snapshot_epoch": 1793786408.2278275,
-        "temporary_gpu_cap": 24,
-        "running_jobs": 6,
-        "running_gpus": 24,
-        "new_h8_jobs": [
-          {
-            "seed": 3,
-            "job_id": "job-x5j1slyfr3tb"
-          },
-          {
-            "seed": 4,
-            "job_id": "job-uc7b6pde8io2"
-          }
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
         ],
-        "new_h4_submitted": false,
-        "new_workers_10min_utilization_percent": null,
-        "source": "reports/task3-round13-20261104/work-progress.json",
         "seed_completed": {
           "0": 100,
-          "1": 69,
-          "2": 62,
-          "3": 0,
-          "4": 0
+          "1": 100,
+          "2": 100,
+          "3": 100,
+          "4": 100
         },
-        "case_snapshot_epoch": 1793790723.7848613,
-        "all24_gpu_utilization_600s_percent": 86.33194787109892,
-        "utilization_source": "reports/task3-round13-20261104/all24-continuous600s-utilization.json",
-        "FD_concordance_report": "reports/task3-round13-20261104.html"
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "final_report": "reports/task3-five-seed-final-20261105.html",
+        "recovery_topology": {
+          "num_envs_actual": 1,
+          "procs_per_gpu": 3,
+          "gpu_type": "Pro6000"
+        }
+      },
+      "source_sha256": "1418e095014898efdee3296c3a5f86f6c848fe457dbdc2b60c9b81bed3b457db",
+      "source_bytes": 1276597,
+      "side_oracles": {
+        "strict": {
+          "success": 133,
+          "trials": 500,
+          "unknown": 0
+        },
+        "FD": {
+          "success": 192,
+          "trials": 500,
+          "unknown": 0
+        }
+      },
+      "ever_unknown_counted_failure_sensitivity": {
+        "trials": 500,
+        "ttc_success": 331,
+        "mem0_success": 165,
+        "both_success": 121,
+        "ttc_only": 210,
+        "mem0_only": 44,
+        "both_failure_or_unknown": 125,
+        "unknown_pairs": 0,
+        "difference_pp": 33.2,
+        "scene_clustered_left_right_stratified_bootstrap_95_pp": [
+          24.800000000000004,
+          41.4
+        ],
+        "bootstrap_replicates": 20000,
+        "bootstrap_rng_seed": 20261103,
+        "unknown_in_denominator": true,
+        "lr_split": {
+          "left": {
+            "trials": 250,
+            "ttc_success": 155,
+            "mem0_success": 63
+          },
+          "right": {
+            "trials": 250,
+            "ttc_success": 176,
+            "mem0_success": 102
+          }
+        }
+      },
+      "pending_reason": "正式准入证据未齐，数字发布于独立diagnostic行",
+      "evaluation_complete": true,
+      "closed_counts": {
+        "placement_success": 204,
+        "trials": 500,
+        "unknown": 0,
+        "report_url": "reports/task3-five-seed-final-20261105.html"
       }
     },
     {
@@ -36321,7 +36332,7 @@
       "success": null,
       "trials": 500,
       "target": 500,
-      "completed": 380,
+      "completed": 500,
       "unknown": 0,
       "seed_results": [],
       "lr_split": null,
@@ -36330,7 +36341,7 @@
       "wilson95": null,
       "evaluation_started": true,
       "formal_score_eligible": false,
-      "status": "五seed正在评测；已完成380/500。逐seed进度：0=100/100,1=100/100,2=100/100,3=41/100,4=39/100。h8前三seed FD跨实现核对已完成；完整五seed结束前不发布最终成功率。",
+      "status": "五seed计分已闭合500/500；正式准入证据尚待绑定，success保持null。完整三口径配对数字见最终诊断报告。",
       "topology": {
         "num_envs_actual": 1,
         "procs_per_gpu": 3,
@@ -36370,44 +36381,84 @@
         }
       },
       "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h8",
-      "source": "reports/task3-v11-round7-20261103/mem0-paired-stageB-plan.json",
-      "report_url": "reports/task3-round12-20261104.html",
-      "updated_at": "2026-11-04T11:15:42.098088+00:00",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/final-five-seed-20261105/FINAL_FIVE_SEED_MAIN_TABLE.json",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
       "runtime_progress": {
-        "official_snapshot_epoch": 1793786408.2278275,
-        "temporary_gpu_cap": 24,
-        "running_jobs": 6,
-        "running_gpus": 24,
-        "new_h8_jobs": [
-          {
-            "seed": 3,
-            "job_id": "job-x5j1slyfr3tb"
-          },
-          {
-            "seed": 4,
-            "job_id": "job-uc7b6pde8io2"
-          }
-        ],
-        "new_h4_submitted": false,
-        "new_workers_10min_utilization_percent": null,
-        "source": "reports/task3-round13-20261104/work-progress.json",
         "completed_inference_seeds": [
           0,
           1,
-          2
+          2,
+          3,
+          4
         ],
-        "all24_gpu_utilization_600s_percent": 86.33194787109892,
-        "utilization_source": "reports/task3-round13-20261104/all24-continuous600s-utilization.json",
-        "three_seed_three_oracle_report": "reports/task3-round12-20261104.html",
         "seed_completed": {
           "0": 100,
           "1": 100,
           "2": 100,
-          "3": 41,
-          "4": 39
+          "3": 100,
+          "4": 100
         },
-        "case_snapshot_epoch": 1793790723.7848613,
-        "FD_concordance_report": "reports/task3-round13-20261104.html"
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "final_report": "reports/task3-five-seed-final-20261105.html",
+        "recovery_topology": {
+          "num_envs_actual": 1,
+          "procs_per_gpu": 3,
+          "gpu_type": "Pro6000"
+        }
+      },
+      "source_sha256": "1418e095014898efdee3296c3a5f86f6c848fe457dbdc2b60c9b81bed3b457db",
+      "source_bytes": 1276597,
+      "side_oracles": {
+        "strict": {
+          "success": 143,
+          "trials": 500,
+          "unknown": 0
+        },
+        "FD": {
+          "success": 234,
+          "trials": 500,
+          "unknown": 0
+        }
+      },
+      "ever_unknown_counted_failure_sensitivity": {
+        "trials": 500,
+        "ttc_success": 292,
+        "mem0_success": 246,
+        "both_success": 156,
+        "ttc_only": 136,
+        "mem0_only": 90,
+        "both_failure_or_unknown": 118,
+        "unknown_pairs": 1,
+        "difference_pp": 9.199999999999998,
+        "scene_clustered_left_right_stratified_bootstrap_95_pp": [
+          1.2,
+          16.8
+        ],
+        "bootstrap_replicates": 20000,
+        "bootstrap_rng_seed": 20261103,
+        "unknown_in_denominator": true,
+        "lr_split": {
+          "left": {
+            "trials": 250,
+            "ttc_success": 128,
+            "mem0_success": 100
+          },
+          "right": {
+            "trials": 250,
+            "ttc_success": 164,
+            "mem0_success": 146
+          }
+        }
+      },
+      "pending_reason": "正式准入证据未齐，数字发布于独立diagnostic行",
+      "evaluation_complete": true,
+      "closed_counts": {
+        "placement_success": 246,
+        "trials": 500,
+        "unknown": 0,
+        "report_url": "reports/task3-five-seed-final-20261105.html"
       }
     },
     {
@@ -42037,6 +42088,4512 @@
         "actual_Apps": 0,
         "current_GPUs": 0
       }
+    },
+    {
+      "id": "t1035-final-ttc-V13-trainresize-B-placement-c30000-h4",
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-trainresize-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 331,
+      "trials": 500,
+      "unknown": 0,
+      "completed": 500,
+      "status": "五seed配对计分已闭合；既有准入未齐，仅发布诊断结果，不进入正式主表。",
+      "kind": "自主闭环诊断 · 训练缩放候选",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 62,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 62,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 65,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 72,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 70,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 155,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 176,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 331,
+        "0": 18,
+        "1": 141,
+        "2": 10
+      },
+      "mean_phase": 2.308,
+      "wilson95": {
+        "low": 0.6194427380354692,
+        "high": 0.7020869756549879,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "passed_relative_success_rule_global_rmse_exception_documented",
+          "report": "reports/task3-round10-20261104/three-chain-final.json"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行4步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/final-five-seed-20261105/FINAL_FIVE_SEED_MAIN_TABLE.json",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
+      "variant": "ours-V13-30k-trainresize",
+      "valid_for_comparison": false,
+      "requested_phase": "B",
+      "formal_score_eligible": false,
+      "metric_role": "diagnostic",
+      "evaluation_started": true,
+      "target": 500,
+      "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h4",
+      "source_phaseA_condition_version": "original-v1",
+      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
+      "runtime_progress": {
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 100,
+          "4": 100
+        },
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "final_report": "reports/task3-five-seed-final-20261105.html",
+        "recovery_topology": {
+          "num_envs_actual": 1,
+          "procs_per_gpu": 3,
+          "gpu_type": "Pro6000"
+        }
+      },
+      "oracle_version": "placement-v1.1",
+      "checkpoint_issue": 12,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/12",
+      "source_evaluation_id": "t1035-r6b-ttc-V13-trainresize-B-c30-h4",
+      "source_sha256": "1418e095014898efdee3296c3a5f86f6c848fe457dbdc2b60c9b81bed3b457db",
+      "source_bytes": 1276597,
+      "side_oracles": {
+        "strict": {
+          "success": 210,
+          "trials": 500,
+          "unknown": 0
+        },
+        "FD": {
+          "success": 317,
+          "trials": 500,
+          "unknown": 0
+        }
+      },
+      "ever_unknown_counted_failure_sensitivity": {
+        "trials": 500,
+        "ttc_success": 331,
+        "mem0_success": 165,
+        "both_success": 121,
+        "ttc_only": 210,
+        "mem0_only": 44,
+        "both_failure_or_unknown": 125,
+        "unknown_pairs": 0,
+        "difference_pp": 33.2,
+        "scene_clustered_left_right_stratified_bootstrap_95_pp": [
+          24.800000000000004,
+          41.4
+        ],
+        "bootstrap_replicates": 20000,
+        "bootstrap_rng_seed": 20261103,
+        "unknown_in_denominator": true,
+        "lr_split": {
+          "left": {
+            "trials": 250,
+            "ttc_success": 155,
+            "mem0_success": 63
+          },
+          "right": {
+            "trials": 250,
+            "ttc_success": 176,
+            "mem0_success": 102
+          }
+        }
+      },
+      "pending_reason": "既有准入证据待绑定/核验；不修改passed字段",
+      "evaluation_complete": true,
+      "topology_status": "N1独立进程；既有分批拓扑保留原声明，本次恢复N1×3；不改名追认旧结果。",
+      "condition_alias_note": "保留既有模型配置的条件版本标签；本报告配对的是同一原接触物理、同一100场景和推理seed，未为合并界面改写历史标签。"
+    },
+    {
+      "id": "t1035-final-ttc-V13-trainresize-B-placement-c30000-h8",
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-trainresize-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 311,
+      "trials": 500,
+      "unknown": 1,
+      "completed": 500,
+      "status": "五seed配对计分已闭合；既有准入未齐，仅发布诊断结果，不进入正式主表。",
+      "kind": "自主闭环诊断 · 训练缩放候选",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 2,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1/train_resize.py::resize_tensor；张量float32 CHW/255，torchvision v2.Resize BILINEAR AA"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 62,
+          "unknown": 1
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 65,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 64,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 60,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 60,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 136,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 175,
+          "unknown": 1
+        }
+      },
+      "phase_hist": {
+        "3": 311,
+        "1": 144,
+        "0": 22,
+        "2": 22
+      },
+      "mean_phase": 2.246492985971944,
+      "wilson95": {
+        "low": 0.5787204544668169,
+        "high": 0.6634192064605645,
+        "confidence": 0.95
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "failed_strict_v1 / pending_v1.1",
+          "report": "reports/task3-round6-20261103.html#expert"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_correct_interval_end_labels",
+          "report": "reports/task3-round3-20261103/status.json#corrections"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending",
+          "report": "T-1035 eval_v1；对应证据未齐前不进入正式表"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "reports/task3-round4-20261103/ours-smoke20.json"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "passed_relative_success_rule_global_rmse_exception_documented",
+          "report": "reports/task3-round10-20261104/three-chain-final.json"
+        }
+      },
+      "protocol": "seed0固定100场景左右各50，A XY±1cm，预测30步执行8步，15Hz实测13维rad及第三人称。ours-V13-30k-trainresize。缺完整准入证据时仅折叠展示；完成前不发布部分成功率。",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/final-five-seed-20261105/FINAL_FIVE_SEED_MAIN_TABLE.json",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
+      "variant": "ours-V13-30k-trainresize",
+      "valid_for_comparison": false,
+      "requested_phase": "B",
+      "formal_score_eligible": false,
+      "metric_role": "diagnostic",
+      "evaluation_started": true,
+      "target": 500,
+      "source_phaseA_evaluation_id": "t1035-r3-ours-V13-30k-trainresize-c30-h8",
+      "source_phaseA_condition_version": "original-v1",
+      "note": "原接触物理未变；A的original-v1与B的original-trainresize-v1仅描述标签不同，同源SHA与控制不变。完成全部5×100后才发布成功率。",
+      "runtime_progress": {
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 100,
+          "4": 100
+        },
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "final_report": "reports/task3-five-seed-final-20261105.html",
+        "recovery_topology": {
+          "num_envs_actual": 1,
+          "procs_per_gpu": 3,
+          "gpu_type": "Pro6000"
+        }
+      },
+      "oracle_version": "placement-v1.1",
+      "checkpoint_issue": 12,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/12",
+      "source_evaluation_id": "t1035-r6b-ttc-V13-trainresize-B-c30-h8",
+      "source_sha256": "1418e095014898efdee3296c3a5f86f6c848fe457dbdc2b60c9b81bed3b457db",
+      "source_bytes": 1276597,
+      "side_oracles": {
+        "strict": {
+          "success": 202,
+          "trials": 500,
+          "unknown": 1
+        },
+        "FD": {
+          "success": 304,
+          "trials": 500,
+          "unknown": 1
+        }
+      },
+      "ever_unknown_counted_failure_sensitivity": {
+        "trials": 500,
+        "ttc_success": 292,
+        "mem0_success": 246,
+        "both_success": 156,
+        "ttc_only": 136,
+        "mem0_only": 90,
+        "both_failure_or_unknown": 118,
+        "unknown_pairs": 1,
+        "difference_pp": 9.199999999999998,
+        "scene_clustered_left_right_stratified_bootstrap_95_pp": [
+          1.2,
+          16.8
+        ],
+        "bootstrap_replicates": 20000,
+        "bootstrap_rng_seed": 20261103,
+        "unknown_in_denominator": true,
+        "lr_split": {
+          "left": {
+            "trials": 250,
+            "ttc_success": 128,
+            "mem0_success": 100
+          },
+          "right": {
+            "trials": 250,
+            "ttc_success": 164,
+            "mem0_success": 146
+          }
+        }
+      },
+      "pending_reason": "既有准入证据待绑定/核验；不修改passed字段",
+      "evaluation_complete": true,
+      "topology_status": "N1独立进程；既有分批拓扑保留原声明，本次恢复N1×3；不改名追认旧结果。",
+      "condition_alias_note": "保留既有模型配置的条件版本标签；本报告配对的是同一原接触物理、同一100场景和推理seed，未为合并界面改写历史标签。"
+    },
+    {
+      "id": "t1035-final-mem0-V13-trainresize-B-placement-c30000-h4",
+      "record": "3-v13-mem0",
+      "checkpoint_issue": 38,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/38",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 204,
+      "trials": 500,
+      "target": 500,
+      "completed": 500,
+      "unknown": 0,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 38,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 36,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 42,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 44,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 44,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 77,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 127,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "2": 88,
+        "1": 202,
+        "3": 208,
+        "0": 2
+      },
+      "mean_phase": 2.004,
+      "wilson95": {
+        "low": 0.3657823909308153,
+        "high": 0.45162048771411034,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "五seed配对计分已闭合；既有准入未齐，仅发布诊断结果，不进入正式主表。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "冻结Mem-0 V13阶段A训练缩放实现，未改控制链"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_shared_executor_review",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "passed_relative_success_rule_global_rmse_exception_documented",
+          "report": "reports/task3-round10-20261104/three-chain-final.json"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h4",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/final-five-seed-20261105/FINAL_FIVE_SEED_MAIN_TABLE.json",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
+      "runtime_progress": {
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 100,
+          "4": 100
+        },
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "final_report": "reports/task3-five-seed-final-20261105.html",
+        "recovery_topology": {
+          "num_envs_actual": 1,
+          "procs_per_gpu": 3,
+          "gpu_type": "Pro6000"
+        }
+      },
+      "source_sha256": "1418e095014898efdee3296c3a5f86f6c848fe457dbdc2b60c9b81bed3b457db",
+      "source_bytes": 1276597,
+      "side_oracles": {
+        "strict": {
+          "success": 133,
+          "trials": 500,
+          "unknown": 0
+        },
+        "FD": {
+          "success": 192,
+          "trials": 500,
+          "unknown": 0
+        }
+      },
+      "ever_unknown_counted_failure_sensitivity": {
+        "trials": 500,
+        "ttc_success": 331,
+        "mem0_success": 165,
+        "both_success": 121,
+        "ttc_only": 210,
+        "mem0_only": 44,
+        "both_failure_or_unknown": 125,
+        "unknown_pairs": 0,
+        "difference_pp": 33.2,
+        "scene_clustered_left_right_stratified_bootstrap_95_pp": [
+          24.800000000000004,
+          41.4
+        ],
+        "bootstrap_replicates": 20000,
+        "bootstrap_rng_seed": 20261103,
+        "unknown_in_denominator": true,
+        "lr_split": {
+          "left": {
+            "trials": 250,
+            "ttc_success": 155,
+            "mem0_success": 63
+          },
+          "right": {
+            "trials": 250,
+            "ttc_success": 176,
+            "mem0_success": 102
+          }
+        }
+      },
+      "pending_reason": "既有准入证据待绑定/核验；不修改passed字段",
+      "evaluation_complete": true,
+      "requested_phase": "B",
+      "metric_role": "diagnostic",
+      "source_evaluation_id": "t1035-r9-mem0-V13-trainresize-B-c30000-h4",
+      "topology_status": "N1独立进程；既有分批拓扑保留原声明，本次恢复N1×3；不改名追认旧结果。",
+      "condition_alias_note": "保留既有模型配置的条件版本标签；本报告配对的是同一原接触物理、同一100场景和推理seed，未为合并界面改写历史标签。"
+    },
+    {
+      "id": "t1035-final-mem0-V13-trainresize-B-placement-c30000-h8",
+      "record": "3-v13-mem0",
+      "checkpoint_issue": 38,
+      "checkpoint_issue_url": "https://github.com/asimfish/safelab-handoff/issues/38",
+      "dataset": "3-v13",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "checkpoint_sha256": "753b4d9131ae1cc47b9715ecb97a32c0a962c6ebd8061185232ad6d2293cce61",
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-trainresize-renderalign-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "success": 246,
+      "trials": 500,
+      "target": 500,
+      "completed": 500,
+      "unknown": 0,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 51,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 51,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 45,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 51,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 48,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 100,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 146,
+          "unknown": 0
+        }
+      },
+      "phase_hist": {
+        "3": 247,
+        "1": 169,
+        "2": 82,
+        "0": 2
+      },
+      "mean_phase": 2.148,
+      "wilson95": {
+        "low": 0.44840780608924286,
+        "high": 0.535714183358142,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "status": "五seed配对计分已闭合；既有准入未齐，仅发布诊断结果，不进入正式主表。",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 3,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "冻结Mem-0 V13阶段A训练缩放实现，未改控制链"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "status": "pending_shared_executor_review",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "passed_relative_success_rule_global_rmse_exception_documented",
+          "report": "reports/task3-round10-20261104/three-chain-final.json"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "pending_final_binding",
+          "report": "reports/task3-v11-round7-20261103.html"
+        }
+      },
+      "source_seed0_evaluation_id": "t1035-r8-placement-mem0-V13-trainresize-c30000-h8",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/final-five-seed-20261105/FINAL_FIVE_SEED_MAIN_TABLE.json",
+      "report_url": "reports/task3-five-seed-final-20261105.html",
+      "updated_at": "2026-11-05T07:46:40.182098+00:00",
+      "runtime_progress": {
+        "completed_inference_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "seed_completed": {
+          "0": 100,
+          "1": 100,
+          "2": 100,
+          "3": 100,
+          "4": 100
+        },
+        "running_jobs": 0,
+        "running_gpus": 0,
+        "final_report": "reports/task3-five-seed-final-20261105.html",
+        "recovery_topology": {
+          "num_envs_actual": 1,
+          "procs_per_gpu": 3,
+          "gpu_type": "Pro6000"
+        }
+      },
+      "source_sha256": "1418e095014898efdee3296c3a5f86f6c848fe457dbdc2b60c9b81bed3b457db",
+      "source_bytes": 1276597,
+      "side_oracles": {
+        "strict": {
+          "success": 143,
+          "trials": 500,
+          "unknown": 0
+        },
+        "FD": {
+          "success": 234,
+          "trials": 500,
+          "unknown": 0
+        }
+      },
+      "ever_unknown_counted_failure_sensitivity": {
+        "trials": 500,
+        "ttc_success": 292,
+        "mem0_success": 246,
+        "both_success": 156,
+        "ttc_only": 136,
+        "mem0_only": 90,
+        "both_failure_or_unknown": 118,
+        "unknown_pairs": 1,
+        "difference_pp": 9.199999999999998,
+        "scene_clustered_left_right_stratified_bootstrap_95_pp": [
+          1.2,
+          16.8
+        ],
+        "bootstrap_replicates": 20000,
+        "bootstrap_rng_seed": 20261103,
+        "unknown_in_denominator": true,
+        "lr_split": {
+          "left": {
+            "trials": 250,
+            "ttc_success": 128,
+            "mem0_success": 100
+          },
+          "right": {
+            "trials": 250,
+            "ttc_success": 164,
+            "mem0_success": 146
+          }
+        }
+      },
+      "pending_reason": "既有准入证据待绑定/核验；不修改passed字段",
+      "evaluation_complete": true,
+      "requested_phase": "B",
+      "metric_role": "diagnostic",
+      "source_evaluation_id": "t1035-r9-mem0-V13-trainresize-B-c30000-h8",
+      "topology_status": "N1独立进程；既有分批拓扑保留原声明，本次恢复N1×3；不改名追认旧结果。",
+      "condition_alias_note": "保留既有模型配置的条件版本标签；本报告配对的是同一原接触物理、同一100场景和推理seed，未为合并界面改写历史标签。"
+    },
+    {
+      "id": "t1035-v12-relaxed-a7eca15f87219dcc",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "main_trainresize|ttc|V13|30000|4",
+      "trials": 500,
+      "success": 339,
+      "unknown": 0,
+      "wilson_95": [
+        0.6358218272211889,
+        0.7174639075744986
+      ],
+      "mean_phase": 2.336,
+      "SR_at": {
+        "1": 0.964,
+        "2": 0.694,
+        "3": 0.678
+      },
+      "phase_pass_counts": {
+        "1": 482,
+        "2": 347,
+        "3": 339
+      },
+      "fall_after_place": 1,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "3": 339,
+        "0": 18,
+        "1": 135,
+        "2": 8
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 65,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 63,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 66,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 73,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 72,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 156,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 183,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.6358218272211889,
+        "high": 0.7174639075744986,
+        "confidence": 0.95
+      },
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_TABLE_FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-978e239f2ee2ca72",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "main_trainresize|mem0|V13|30000|4",
+      "trials": 500,
+      "success": 232,
+      "unknown": 0,
+      "wilson_95": [
+        0.42072818700752684,
+        0.5078207655057051
+      ],
+      "mean_phase": 2.062,
+      "SR_at": {
+        "1": 0.996,
+        "2": 0.602,
+        "3": 0.464
+      },
+      "phase_pass_counts": {
+        "1": 498,
+        "2": 301,
+        "3": 232
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "2": 69,
+        "1": 197,
+        "3": 232,
+        "0": 2
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 44,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 41,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 48,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 47,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 52,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 80,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 152,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.42072818700752684,
+        "high": 0.5078207655057051,
+        "confidence": 0.95
+      },
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_TABLE_FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-a519cc9bf4efbf10",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "main_trainresize|ttc|V13|30000|8",
+      "trials": 500,
+      "success": 324,
+      "unknown": 1,
+      "wilson_95": [
+        0.6051540371141233,
+        0.6885891581092574
+      ],
+      "mean_phase": 2.288577154308617,
+      "SR_at": {
+        "1": 0.954,
+        "2": 0.682,
+        "3": 0.648
+      },
+      "phase_pass_counts": {
+        "1": 477,
+        "2": 341,
+        "3": 324
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "3": 324,
+        "1": 136,
+        "0": 22,
+        "2": 17
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 64,
+          "unknown": 1
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 66,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 69,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 61,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 64,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 138,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 186,
+          "unknown": 1
+        }
+      },
+      "wilson95": {
+        "low": 0.6051540371141233,
+        "high": 0.6885891581092574,
+        "confidence": 0.95
+      },
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_TABLE_FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-13bcde0ec5f93079",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "main_trainresize|mem0|V13|30000|8",
+      "trials": 500,
+      "success": 266,
+      "unknown": 0,
+      "wilson_95": [
+        0.48818610813244,
+        0.5753259340780207
+      ],
+      "mean_phase": 2.204,
+      "SR_at": {
+        "1": 0.996,
+        "2": 0.676,
+        "3": 0.532
+      },
+      "phase_pass_counts": {
+        "1": 498,
+        "2": 338,
+        "3": 266
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "3": 266,
+        "1": 160,
+        "2": 72,
+        "0": 2
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 55,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 55,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 46,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 57,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 53,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 103,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 163,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.48818610813244,
+        "high": 0.5753259340780207,
+        "confidence": 0.95
+      },
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:54ca0af36d5b5e7d72b14c9a778ab9001fafd28cb2b585c2e76b91808d75de9b",
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/MAIN_TABLE_FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-b3a5060294c191d1",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_ttc_trainresize|ours|v13|30000|8",
+      "trials": 100,
+      "success": 64,
+      "unknown": 1,
+      "wilson_95": [
+        0.5423540245160874,
+        0.7272877959859567
+      ],
+      "mean_phase": 2.272727272727273,
+      "SR_at": {
+        "1": 0.95,
+        "2": 0.66,
+        "3": 0.64
+      },
+      "phase_pass_counts": {
+        "1": 95,
+        "2": 66,
+        "3": 64
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 100,
+      "phase_hist": {
+        "3": 64,
+        "0": 4,
+        "1": 29,
+        "2": 2
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 64,
+          "unknown": 1
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 27,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 37,
+          "unknown": 1
+        }
+      },
+      "wilson95": {
+        "low": 0.5423540245160874,
+        "high": 0.7272877959859567,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_ttc_trainresize",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-4c27d77d2516ba95",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_d0|mem0|v13|30000|4",
+      "trials": 100,
+      "success": 40,
+      "unknown": 0,
+      "wilson_95": [
+        0.3094012864324589,
+        0.4979974132089382
+      ],
+      "mean_phase": 1.81,
+      "SR_at": {
+        "1": 1.0,
+        "2": 0.41,
+        "3": 0.4
+      },
+      "phase_pass_counts": {
+        "1": 100,
+        "2": 41,
+        "3": 40
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 100,
+      "phase_hist": {
+        "1": 59,
+        "3": 40,
+        "2": 1
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 40,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 1,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 39,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.3094012864324589,
+        "high": 0.4979974132089382,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_d0",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-7e56b270981a7630",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_latest_phase2_timeout|mem0|latest|30000|4",
+      "trials": 141,
+      "success": 50,
+      "unknown": 0,
+      "wilson_95": [
+        0.2804614644937273,
+        0.4364704116843788
+      ],
+      "mean_phase": 2.354609929078014,
+      "SR_at": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.3546099290780142
+      },
+      "phase_pass_counts": {
+        "1": 141,
+        "2": 141,
+        "3": 50
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 141,
+      "phase_hist": {
+        "3": 50,
+        "2": 91
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 31,
+          "success": 11,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 22,
+          "success": 8,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 30,
+          "success": 12,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 25,
+          "success": 8,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 33,
+          "success": 11,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 46,
+          "success": 13,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 95,
+          "success": 37,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.2804614644937273,
+        "high": 0.4364704116843788,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_latest_phase2_timeout",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-356ba29d0ac02da2",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_latest_phase2_timeout|mem0|latest|30000|8",
+      "trials": 145,
+      "success": 57,
+      "unknown": 0,
+      "wilson_95": [
+        0.3173450841066292,
+        0.47437961245560356
+      ],
+      "mean_phase": 2.393103448275862,
+      "SR_at": {
+        "1": 1.0,
+        "2": 1.0,
+        "3": 0.3931034482758621
+      },
+      "phase_pass_counts": {
+        "1": 145,
+        "2": 145,
+        "3": 57
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 145,
+      "phase_hist": {
+        "3": 57,
+        "2": 88
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 33,
+          "success": 12,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 29,
+          "success": 13,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 28,
+          "success": 10,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 26,
+          "success": 8,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 29,
+          "success": 14,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 52,
+          "success": 20,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 93,
+          "success": 37,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.3173450841066292,
+        "high": 0.47437961245560356,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_latest_phase2_timeout",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-ec7cd16b735cf4c6",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|latest|30000|8",
+      "trials": 500,
+      "success": 123,
+      "unknown": 0,
+      "wilson_95": [
+        0.2102809916856707,
+        0.2855921732687978
+      ],
+      "mean_phase": 1.664,
+      "SR_at": {
+        "1": 0.984,
+        "2": 0.434,
+        "3": 0.246
+      },
+      "phase_pass_counts": {
+        "1": 492,
+        "2": 217,
+        "3": 123
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "3": 123,
+        "1": 275,
+        "2": 94,
+        "0": 8
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 22,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 26,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 28,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 25,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 22,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 48,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 75,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.2102809916856707,
+        "high": 0.2855921732687978,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-2d5e816b50204999",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|latest|30000|4",
+      "trials": 500,
+      "success": 116,
+      "unknown": 0,
+      "wilson_95": [
+        0.19712923845271468,
+        0.2709574080346774
+      ],
+      "mean_phase": 1.662,
+      "SR_at": {
+        "1": 0.998,
+        "2": 0.432,
+        "3": 0.232
+      },
+      "phase_pass_counts": {
+        "1": 499,
+        "2": 216,
+        "3": 116
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "2": 100,
+        "3": 116,
+        "1": 283,
+        "0": 1
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 21,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 23,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 26,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 24,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 22,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 36,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 80,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.19712923845271468,
+        "high": 0.2709574080346774,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-b5f070280a9b0494",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|v13|30000|8",
+      "trials": 500,
+      "success": 190,
+      "unknown": 0,
+      "wilson_95": [
+        0.33852233078455757,
+        0.42330751092621505
+      ],
+      "mean_phase": 1.814,
+      "SR_at": {
+        "1": 0.992,
+        "2": 0.442,
+        "3": 0.38
+      },
+      "phase_pass_counts": {
+        "1": 496,
+        "2": 221,
+        "3": 190
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "3": 190,
+        "2": 31,
+        "1": 275,
+        "0": 4
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 34,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 38,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 40,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 42,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 36,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 184,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.33852233078455757,
+        "high": 0.42330751092621505,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-1abc5f4afaad0ceb",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|v13|30000|4",
+      "trials": 500,
+      "success": 222,
+      "unknown": 0,
+      "wilson_95": [
+        0.4010408191814197,
+        0.4878131069502743
+      ],
+      "mean_phase": 1.918,
+      "SR_at": {
+        "1": 0.998,
+        "2": 0.476,
+        "3": 0.444
+      },
+      "phase_pass_counts": {
+        "1": 499,
+        "2": 238,
+        "3": 222
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "1": 261,
+        "3": 222,
+        "2": 16,
+        "0": 1
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 41,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 45,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 46,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 47,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 43,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 3,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 219,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.4010408191814197,
+        "high": 0.4878131069502743,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-c0ceb72342cf306a",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|pi05|v13|30000|8",
+      "trials": 500,
+      "success": 0,
+      "unknown": 43,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ],
+      "mean_phase": 0.2713347921225383,
+      "SR_at": {
+        "1": 0.248,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "phase_pass_counts": {
+        "1": 124,
+        "2": 0,
+        "3": 0
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-pi05",
+      "dataset": "3-v13",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "0": 333,
+        "1": 124
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 43
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 25
+        },
+        "right": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 18
+        }
+      },
+      "wilson95": {
+        "low": 4.336808689942018e-19,
+        "high": 0.007624340461552241,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-b83fa4df3fb4adbf",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|pi05|v13|30000|4",
+      "trials": 500,
+      "success": 0,
+      "unknown": 25,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ],
+      "mean_phase": 0.05894736842105263,
+      "SR_at": {
+        "1": 0.056,
+        "2": 0.0,
+        "3": 0.0
+      },
+      "phase_pass_counts": {
+        "1": 28,
+        "2": 0,
+        "3": 0
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-pi05",
+      "dataset": "3-v13",
+      "method": "pi0.5",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "0": 447,
+        "1": 28
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 25
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 11
+        },
+        "right": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 14
+        }
+      },
+      "wilson95": {
+        "low": 4.336808689942018e-19,
+        "high": 0.007624340461552241,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-34ebdae031afc705",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|pi05|v13|20000|8",
+      "trials": 500,
+      "success": 8,
+      "unknown": 1,
+      "wilson_95": [
+        0.008129253033388314,
+        0.03125110853339426
+      ],
+      "mean_phase": 0.7715430861723447,
+      "SR_at": {
+        "1": 0.708,
+        "2": 0.046,
+        "3": 0.016
+      },
+      "phase_pass_counts": {
+        "1": 354,
+        "2": 23,
+        "3": 8
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-pi05",
+      "dataset": "3-v13",
+      "method": "pi0.5",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "0": 145,
+        "1": 331,
+        "2": 15,
+        "3": 8
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 1,
+          "unknown": 1
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 2,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 2,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 1,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 2,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 5,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 3,
+          "unknown": 1
+        }
+      },
+      "wilson95": {
+        "low": 0.008129253033388314,
+        "high": 0.03125110853339426,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-f982bd16ee7ff340",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|pi05|v13|20000|4",
+      "trials": 500,
+      "success": 0,
+      "unknown": 0,
+      "wilson_95": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ],
+      "mean_phase": 0.42,
+      "SR_at": {
+        "1": 0.384,
+        "2": 0.036,
+        "3": 0.0
+      },
+      "phase_pass_counts": {
+        "1": 192,
+        "2": 18,
+        "3": 0
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-pi05",
+      "dataset": "3-v13",
+      "method": "pi0.5",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "0": 308,
+        "1": 174,
+        "2": 18
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 4.336808689942018e-19,
+        "high": 0.007624340461552241,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-3604c2bfdc4e4a9b",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|ours|v13|20000|4",
+      "trials": 500,
+      "success": 40,
+      "unknown": 0,
+      "wilson_95": [
+        0.059298129409852594,
+        0.1071063165778513
+      ],
+      "mean_phase": 1.18,
+      "SR_at": {
+        "1": 0.936,
+        "2": 0.164,
+        "3": 0.08
+      },
+      "phase_pass_counts": {
+        "1": 468,
+        "2": 82,
+        "3": 40
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "2": 42,
+        "1": 386,
+        "3": 40,
+        "0": 32
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 10,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 9,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 6,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 8,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 33,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 7,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.059298129409852594,
+        "high": 0.1071063165778513,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-492128a456635e34",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|ours|v13|20000|8",
+      "trials": 500,
+      "success": 47,
+      "unknown": 0,
+      "wilson_95": [
+        0.0714264085922213,
+        0.12276455586255913
+      ],
+      "mean_phase": 1.124,
+      "SR_at": {
+        "1": 0.888,
+        "2": 0.142,
+        "3": 0.094
+      },
+      "phase_pass_counts": {
+        "1": 444,
+        "2": 71,
+        "3": 47
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "1": 373,
+        "0": 56,
+        "2": 24,
+        "3": 47
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 11,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 9,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 8,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 11,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 8,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 43,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 4,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.0714264085922213,
+        "high": 0.12276455586255913,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-cb647adb9a866cac",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|latest|20000|4",
+      "trials": 500,
+      "success": 11,
+      "unknown": 0,
+      "wilson_95": [
+        0.012328008269927582,
+        0.03896086121131637
+      ],
+      "mean_phase": 0.696,
+      "SR_at": {
+        "1": 0.638,
+        "2": 0.036,
+        "3": 0.022
+      },
+      "phase_pass_counts": {
+        "1": 319,
+        "2": 18,
+        "3": 11
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "0": 181,
+        "1": 301,
+        "2": 7,
+        "3": 11
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 2,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 3,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 4,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 1,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 1,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.012328008269927582,
+        "high": 0.03896086121131637,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-e606e24c2a1f432a",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|latest|20000|8",
+      "trials": 500,
+      "success": 11,
+      "unknown": 0,
+      "wilson_95": [
+        0.012328008269927582,
+        0.03896086121131637
+      ],
+      "mean_phase": 0.646,
+      "SR_at": {
+        "1": 0.588,
+        "2": 0.036,
+        "3": 0.022
+      },
+      "phase_pass_counts": {
+        "1": 294,
+        "2": 18,
+        "3": 11
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-latest-third",
+      "dataset": "3-latest",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "1": 276,
+        "0": 206,
+        "3": 11,
+        "2": 7
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 3,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 2,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 1,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 3,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 2,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.012328008269927582,
+        "high": 0.03896086121131637,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-86cb16267d6ed1aa",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|v13|20000|8",
+      "trials": 500,
+      "success": 104,
+      "unknown": 0,
+      "wilson_95": [
+        0.17471631170962926,
+        0.24573630311991723
+      ],
+      "mean_phase": 1.342,
+      "SR_at": {
+        "1": 0.884,
+        "2": 0.25,
+        "3": 0.208
+      },
+      "phase_pass_counts": {
+        "1": 442,
+        "2": 125,
+        "3": 104
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "2": 21,
+        "0": 58,
+        "3": 104,
+        "1": 317
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 18,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 21,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 21,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 23,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 21,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 104,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.17471631170962926,
+        "high": 0.24573630311991723,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-c6b4efda3ef5a9f1",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|mem0|v13|20000|4",
+      "trials": 500,
+      "success": 119,
+      "unknown": 0,
+      "wilson_95": [
+        0.2027590191807921,
+        0.2772361352210613
+      ],
+      "mean_phase": 1.392,
+      "SR_at": {
+        "1": 0.886,
+        "2": 0.268,
+        "3": 0.238
+      },
+      "phase_pass_counts": {
+        "1": 443,
+        "2": 134,
+        "3": 119
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-mem0",
+      "dataset": "3-v13",
+      "method": "Mem-0",
+      "checkpoint": 20000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "0": 57,
+        "3": 119,
+        "1": 309,
+        "2": 15
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 22,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 19,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 28,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 26,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 24,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 119,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.2027590191807921,
+        "high": 0.2772361352210613,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-3461cb270a00a551",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_ttc_trainresize|ours|v13|30000|4",
+      "trials": 100,
+      "success": 65,
+      "unknown": 0,
+      "wilson_95": [
+        0.5525444329688796,
+        0.7363575175690247
+      ],
+      "mean_phase": 2.27,
+      "SR_at": {
+        "1": 0.96,
+        "2": 0.66,
+        "3": 0.65
+      },
+      "phase_pass_counts": {
+        "1": 96,
+        "2": 66,
+        "3": 65
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 100,
+      "phase_hist": {
+        "3": 65,
+        "0": 4,
+        "1": 30,
+        "2": 1
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 65,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 30,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 35,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.5525444329688796,
+        "high": 0.7363575175690247,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_ttc_trainresize",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-c123d8d910d20a4a",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_ttc_original|ours|v13|30000|4",
+      "trials": 100,
+      "success": 23,
+      "unknown": 0,
+      "wilson_95": [
+        0.15843265880303448,
+        0.3215438302287378
+      ],
+      "mean_phase": 1.49,
+      "SR_at": {
+        "1": 0.94,
+        "2": 0.32,
+        "3": 0.23
+      },
+      "phase_pass_counts": {
+        "1": 94,
+        "2": 32,
+        "3": 23
+      },
+      "fall_after_place": 1,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 100,
+      "phase_hist": {
+        "1": 62,
+        "2": 9,
+        "0": 6,
+        "3": 23
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 23,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 14,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 9,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.15843265880303448,
+        "high": 0.3215438302287378,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_ttc_original",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-768a6e8c1fe00175",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "priority_ttc_original|ours|v13|30000|8",
+      "trials": 100,
+      "success": 17,
+      "unknown": 0,
+      "wilson_95": [
+        0.10893566114059931,
+        0.25548004767601123
+      ],
+      "mean_phase": 1.34,
+      "SR_at": {
+        "1": 0.93,
+        "2": 0.24,
+        "3": 0.17
+      },
+      "phase_pass_counts": {
+        "1": 93,
+        "2": 24,
+        "3": 17
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 100,
+      "phase_hist": {
+        "1": 69,
+        "3": 17,
+        "2": 7,
+        "0": 7
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 13,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:priority_ttc_original",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-a1f6aebfc9fabb42",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|ours|v13|30000|4",
+      "trials": 500,
+      "success": 118,
+      "unknown": 0,
+      "wilson_95": [
+        0.20088129547155886,
+        0.27514435629214073
+      ],
+      "mean_phase": 1.482,
+      "SR_at": {
+        "1": 0.944,
+        "2": 0.302,
+        "3": 0.236
+      },
+      "phase_pass_counts": {
+        "1": 472,
+        "2": 151,
+        "3": 118
+      },
+      "fall_after_place": 1,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "1": 321,
+        "3": 118,
+        "0": 28,
+        "2": 33
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 23,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 21,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 27,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 23,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 24,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 78,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 40,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.20088129547155886,
+        "high": 0.27514435629214073,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "t1035-v12-relaxed-fd683d5481cda23c",
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "离线重算完成；导师决定准入",
+      "configuration": "history_|ours|v13|30000|8",
+      "trials": 500,
+      "success": 108,
+      "unknown": 0,
+      "wilson_95": [
+        0.18216774485419415,
+        0.25416288052796754
+      ],
+      "mean_phase": 1.378,
+      "SR_at": {
+        "1": 0.91,
+        "2": 0.252,
+        "3": 0.216
+      },
+      "phase_pass_counts": {
+        "1": 455,
+        "2": 126,
+        "3": 108
+      },
+      "fall_after_place": 0,
+      "source_report": "/project_a02012413/public/liyufeng/safelab_mem0_five_seed_pro8_20261029/eval_v1/round7/relaxed_v12_20261105/FINAL.json",
+      "source_report_sha256": "d783eab0fd2bddbf3923c9be4d77810b2b7ce99ce37782f76689d2a5ba263925",
+      "parameters_sha256": "a84515dd365992ce16393b27b945346311118404c6479bfcea007df82c604e8f",
+      "replaces_existing_record": false,
+      "record": "3-v13-ours",
+      "dataset": "3-v13",
+      "method": "TTC（ours）",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "camera": "third_person",
+      "oracle_version": "placement-v1.2-relaxed",
+      "metric_role": "rescored_v1.2_relaxed",
+      "kind": "诊断 · 统一放宽判定离线重算",
+      "formal_score_eligible": false,
+      "valid_for_comparison": false,
+      "evaluation_started": true,
+      "completed": 500,
+      "phase_hist": {
+        "3": 108,
+        "0": 45,
+        "1": 329,
+        "2": 18
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        },
+        {
+          "seed": 1,
+          "trials": 100,
+          "success": 20,
+          "unknown": 0
+        },
+        {
+          "seed": 2,
+          "trials": 100,
+          "success": 32,
+          "unknown": 0
+        },
+        {
+          "seed": 3,
+          "trials": 100,
+          "success": 20,
+          "unknown": 0
+        },
+        {
+          "seed": 4,
+          "trials": 100,
+          "success": 19,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 250,
+          "success": 81,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 250,
+          "success": 27,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0.18216774485419415,
+        "high": 0.25416288052796754,
+        "confidence": 0.95
+      },
+      "condition_version": "source-cohort:history_",
+      "scene_list_hash": null,
+      "topology": {
+        "num_envs_actual": null,
+        "procs_per_gpu": null,
+        "gpu_type": null,
+        "note": "离线重算，不产生新仿真；原拓扑见逐例源账本"
+      },
+      "preprocess_resize": {
+        "implementation": "inherited_original",
+        "source": "逐例源账本；此次只改离线判定，无重新推理"
+      },
+      "protocol": "v1.2-relaxed冻结参数；原终止后未发生的反事实不外推。unknown留在完整分母；专家3条仍因原35–36度安全终止失败。",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "admitted_mentor_decision_20261106",
+          "report": "reports/task3-v12-admission-20261106.json",
+          "clean_passes": 7,
+          "clean_trials": 7,
+          "native_total": 10,
+          "original_physical_safety_failures": 3,
+          "exclusion_scope": "admission_denominator_only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "inherited_not_reassessed"
+        }
+      },
+      "report_url": "reports/task3-relaxed-v12-20261105.html",
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/3/relaxed-v12-20261105/FINAL.json",
+      "admission_status": "admitted_mentor_decision_20261106",
+      "admission_decision": {
+        "report": "reports/task3-v12-admission-20261106.json",
+        "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
     }
   ],
   "agents": [
@@ -42211,6 +46768,10 @@
     {
       "label": "原实验面板",
       "url": "https://asimfish.github.io/psibot-dashboard/"
+    },
+    {
+      "label": "三任务 V13 30k trainresize 五seed最终配对表（含strict/FD/placement及四seed存档）",
+      "url": "reports/task3-five-seed-final-20261105.html"
     }
   ],
   "sources": [
@@ -42291,6 +46852,11 @@
         "t1035-r3-diag-d2b",
         "t1035-r3-diag-d3"
       ]
+    },
+    {
+      "time": "2026-11-05T07:46:40.182098+00:00",
+      "author": "T-1035",
+      "text": "完成TTC/Mem-0 h4/h8各500条五seed计分；保留四seed存档及现有准入状态，所有恢复任务已释放。"
     }
   ],
   "method_aliases": {

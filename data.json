@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T18:00:31.609976+00:00",
+  "updated_at": "2026-11-05T21:46:37.949457+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -51232,6 +51232,455 @@
       "admission_decision": {
         "report": "reports/task3-v12-admission-20261106.json",
         "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
+      }
+    },
+    {
+      "id": "task10-codecdiag-20261105-mem0_original-30k-h8-causal-C",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "observation_codec_diagnostic",
+      "kind": "诊断",
+      "formal_score_eligible": false,
+      "condition_version": "observation-codec-causal-v1",
+      "grasp_attachment": "off",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB bridge fixed; frozen per-lane causal H264 decode then unchanged training-side resize once."
+      },
+      "observation_transform": {
+        "setting": "h264_crf23_yuv420p_causal_b0_lookahead0",
+        "settings_sha256": "3663d2c7069b56ee8ac668babda13d44e967def91fe81c0aac8459938c6958a5",
+        "experimental": true,
+        "per_episode_lane": true
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "inference_seed_rule": "910100 + scene_index; matched with baseline case by case",
+      "paired_baseline_evaluation_id": "task10-rawrgb-audit20261105-mem0_original-30k-h8-original-placement-A",
+      "baseline_unknown": 4,
+      "protocol": "编解码单变量诊断：原编号前20场景（均为12345正序），h8，300秒；控制、物理、判定和k不变。C-live逐lane流式H264，B0、前瞻0，完整参数与源GOP差异见报告。主表不变。",
+      "source": "reports/task10-codec-alignment-20261105.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-codec-alignment-20261105.html",
+      "updated_at": "2026-11-05T21:46:37.949457+00:00",
+      "trials": 20,
+      "target": 20,
+      "completed": 20,
+      "success": 0,
+      "unknown": 0,
+      "valid_trials": 20,
+      "mean_phase": 0.6,
+      "phase_hist": {
+        "0": 13,
+        "1": 6,
+        "6": 1
+      },
+      "evaluation_started": true,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "status": "完成：20条编解码诊断，正式主表不变",
+      "pending_reason": null,
+      "expected_start_at": null,
+      "expected_start_note": null,
+      "open_loop_evidence": {
+        "complete": true,
+        "episodes": 20,
+        "frames": 6828,
+        "frame0_control_episodes": 20,
+        "same_A_pointwise_reference": true
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "type": "single-variable diagnostic completed; not a new checkpoint fit admission",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-codec-alignment-20261105.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This diagnostic uses numbered first20, all forward; it is not the balanced formal smoke20."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; no formal-chain admission is claimed."
+        }
+      },
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 20,
+        "observed_epoch": 1793915059.014292
+      },
+      "resource_window": {
+        "valid10min": true,
+        "duration_s": 601.7780094146729,
+        "samples": 21,
+        "GPU_count": 4,
+        "mean_GPU_util_percent": 7.916666666666667,
+        "mean_memory_percent": 13.820065605287342,
+        "start_epoch": 1793914450.2700648,
+        "end_epoch": 1793915052.0480742,
+        "method": "equal30s observation samples, all4 exclusive jobGPUs; never instantaneous peak",
+        "per_GPU": {
+          "0": {
+            "mean_util_percent": 0.0,
+            "mean_memory_percent": 0.041155326331090224
+          },
+          "1": {
+            "mean_util_percent": 15.952380952380953,
+            "mean_memory_percent": 32.08519833607945
+          },
+          "2": {
+            "mean_util_percent": 0.0,
+            "mean_memory_percent": 0.0058376349405801714
+          },
+          "3": {
+            "mean_util_percent": 15.714285714285714,
+            "mean_memory_percent": 23.148071123798246
+          }
+        }
+      },
+      "wilson95": {
+        "low": 0.0,
+        "high": 0.16112515805281938,
+        "confidence": 0.95
+      },
+      "mean_phase_ci95": [
+        0.15,
+        1.3
+      ],
+      "paired_codec_minus_raw": {
+        "full20_phase_delta_worst_case_bounds": [
+          -1.8,
+          0.2
+        ],
+        "bounds_are_not_confidence_intervals": true,
+        "paired_valid": 16,
+        "scene_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          17
+        ],
+        "mean_phase_delta_codec_minus_raw": -0.25,
+        "phase_delta_bootstrap95": [
+          -0.6875,
+          0.1875
+        ],
+        "success_rate_delta_codec_minus_raw": 0.0,
+        "success_delta_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "resampling_unit": "scene",
+        "replicates": 10000,
+        "seed": 20261105,
+        "unknown_not_imputed": true
+      }
+    },
+    {
+      "id": "task10-codecdiag-20261105-ours_aligned-30k-h8-causal-C",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "observation_codec_diagnostic",
+      "kind": "诊断",
+      "formal_score_eligible": false,
+      "condition_version": "observation-codec-causal-v1",
+      "grasp_attachment": "off",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB bridge fixed; frozen per-lane causal H264 decode then unchanged training-side resize once."
+      },
+      "observation_transform": {
+        "setting": "h264_crf23_yuv420p_causal_b0_lookahead0",
+        "settings_sha256": "3663d2c7069b56ee8ac668babda13d44e967def91fe81c0aac8459938c6958a5",
+        "experimental": true,
+        "per_episode_lane": true
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "inference_seed_rule": "910100 + scene_index; matched with baseline case by case",
+      "paired_baseline_evaluation_id": "task10-eval-v11-20261103-ours_aligned-off-h8",
+      "baseline_unknown": 0,
+      "protocol": "编解码单变量诊断：原编号前20场景（均为12345正序），h8，300秒；控制、物理、判定和k不变。C-live逐lane流式H264，B0、前瞻0，完整参数与源GOP差异见报告。主表不变。",
+      "source": "reports/task10-codec-alignment-20261105.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-codec-alignment-20261105.html",
+      "updated_at": "2026-11-05T21:46:37.949457+00:00",
+      "trials": 20,
+      "target": 20,
+      "completed": 20,
+      "success": 0,
+      "unknown": 0,
+      "valid_trials": 20,
+      "mean_phase": 0.7,
+      "phase_hist": {
+        "0": 12,
+        "1": 4,
+        "2": 3,
+        "4": 1
+      },
+      "evaluation_started": true,
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 20,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "status": "完成：20条编解码诊断，正式主表不变",
+      "pending_reason": null,
+      "expected_start_at": null,
+      "expected_start_note": null,
+      "open_loop_evidence": {
+        "complete": true,
+        "episodes": 20,
+        "frames": 6828,
+        "frame0_control_episodes": 20,
+        "same_A_pointwise_reference": true
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "type": "single-variable diagnostic completed; not a new checkpoint fit admission",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-codec-alignment-20261105.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This diagnostic uses numbered first20, all forward; it is not the balanced formal smoke20."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; no formal-chain admission is claimed."
+        }
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 20,
+        "observed_epoch": 1793915059.014292
+      },
+      "resource_window": {
+        "valid10min": true,
+        "duration_s": 601.7780094146729,
+        "samples": 21,
+        "GPU_count": 4,
+        "mean_GPU_util_percent": 7.916666666666667,
+        "mean_memory_percent": 13.820065605287342,
+        "start_epoch": 1793914450.2700648,
+        "end_epoch": 1793915052.0480742,
+        "method": "equal30s observation samples, all4 exclusive jobGPUs; never instantaneous peak",
+        "per_GPU": {
+          "0": {
+            "mean_util_percent": 0.0,
+            "mean_memory_percent": 0.041155326331090224
+          },
+          "1": {
+            "mean_util_percent": 15.952380952380953,
+            "mean_memory_percent": 32.08519833607945
+          },
+          "2": {
+            "mean_util_percent": 0.0,
+            "mean_memory_percent": 0.0058376349405801714
+          },
+          "3": {
+            "mean_util_percent": 15.714285714285714,
+            "mean_memory_percent": 23.148071123798246
+          }
+        }
+      },
+      "wilson95": {
+        "low": 0.0,
+        "high": 0.16112515805281938,
+        "confidence": 0.95
+      },
+      "mean_phase_ci95": [
+        0.2987500000000011,
+        1.2
+      ],
+      "paired_codec_minus_raw": {
+        "full20_phase_delta_worst_case_bounds": [
+          0.05,
+          0.05
+        ],
+        "bounds_are_not_confidence_intervals": true,
+        "paired_valid": 20,
+        "scene_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "mean_phase_delta_codec_minus_raw": 0.05,
+        "phase_delta_bootstrap95": [
+          -0.35,
+          0.5
+        ],
+        "success_rate_delta_codec_minus_raw": 0.0,
+        "success_delta_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "resampling_unit": "scene",
+        "replicates": 10000,
+        "seed": 20261105,
+        "unknown_not_imputed": true
       }
     }
   ],

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T14:17:53.159504+00:00",
+  "updated_at": "2026-11-05T15:25:11.494266+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -40504,25 +40504,31 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 4,
+      "completed": 32,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A：训练单次缩放入口复测中",
-      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "status": "阶段A复测中；签名API限流、CPU逐条核验",
+      "updated_at": "2026-11-05T15:25:11.494266+00:00",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 0.25,
+      "mean_phase": 1.90625,
       "phase_hist": {
-        "1": 1,
-        "0": 3
+        "0": 12,
+        "1": 5,
+        "2": 6,
+        "3": 2,
+        "4": 1,
+        "5": 3,
+        "6": 2,
+        "7": 1
       },
       "wilson95": null,
       "seed_results": [
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 4,
+          "trials": 32,
           "success": 0,
           "unknown": 0
         }
@@ -40530,13 +40536,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 4,
+          "trials": 19,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 0,
+          "trials": 13,
           "success": 0,
           "unknown": 0
         }
@@ -40557,7 +40563,17 @@
       "pending_reason": "阶段A执行中；执行链原生120Hz实测轨迹准入仍待原文件，不以指令目标RMSE冒充",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
-      "preprocessing_cohort": "rawRGB_trainresize_v2"
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": "job-do640r3la6wp"
     },
     {
       "record": "10-mem0",
@@ -40623,25 +40639,30 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 2,
+      "completed": 39,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A：训练单次缩放入口复测中",
-      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "status": "阶段A复测中；签名API限流、CPU逐条核验",
+      "updated_at": "2026-11-05T15:25:11.494266+00:00",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 0.5,
+      "mean_phase": 1.8974358974358974,
       "phase_hist": {
-        "0": 1,
-        "1": 1
+        "0": 13,
+        "1": 8,
+        "2": 9,
+        "4": 2,
+        "5": 4,
+        "6": 2,
+        "8": 1
       },
       "wilson95": null,
       "seed_results": [
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 2,
+          "trials": 39,
           "success": 0,
           "unknown": 0
         }
@@ -40649,13 +40670,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 2,
+          "trials": 22,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 0,
+          "trials": 17,
           "success": 0,
           "unknown": 0
         }
@@ -40676,7 +40697,17 @@
       "pending_reason": "阶段A执行中；执行链原生120Hz实测轨迹准入仍待原文件，不以指令目标RMSE冒充",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
-      "preprocessing_cohort": "rawRGB_trainresize_v2"
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": "job-do640r3la6wp"
     },
     {
       "record": "10-mem0-weak",
@@ -40734,27 +40765,28 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 12,
+      "completed": 36,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A：SIGBUS续跑排队，已核验结果保留",
-      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "status": "阶段A复测中；签名API限流、CPU逐条核验",
+      "updated_at": "2026-11-05T15:25:11.494266+00:00",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 0.9166666666666666,
+      "mean_phase": 1.1388888888888888,
       "phase_hist": {
-        "0": 6,
-        "2": 3,
-        "1": 2,
-        "3": 1
+        "0": 11,
+        "1": 13,
+        "2": 9,
+        "3": 2,
+        "4": 1
       },
       "wilson95": null,
       "seed_results": [
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 12,
+          "trials": 36,
           "success": 0,
           "unknown": 0
         }
@@ -40762,13 +40794,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 7,
+          "trials": 20,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 5,
+          "trials": 16,
           "success": 0,
           "unknown": 0
         }
@@ -40789,7 +40821,17 @@
       "pending_reason": "原4卡作业SIGBUS(-7)后FAILED；保留23条原始日志核验结果，剩余177条同seed新意图续跑已提交，等待平台job ID。",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h4",
-      "preprocessing_cohort": "rawRGB_trainresize_v2"
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": "job-s45xya1hy7s8"
     },
     {
       "record": "10-mem0-weak",
@@ -40847,26 +40889,28 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 11,
+      "completed": 39,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A：SIGBUS续跑排队，已核验结果保留",
-      "updated_at": "2026-11-05T14:12:39.803203+00:00",
+      "status": "阶段A复测中；签名API限流、CPU逐条核验",
+      "updated_at": "2026-11-05T15:25:11.494266+00:00",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 0.5454545454545454,
+      "mean_phase": 1.2564102564102564,
       "phase_hist": {
-        "1": 4,
-        "0": 6,
-        "2": 1
+        "0": 14,
+        "1": 12,
+        "2": 6,
+        "3": 3,
+        "4": 4
       },
       "wilson95": null,
       "seed_results": [
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 11,
+          "trials": 39,
           "success": 0,
           "unknown": 0
         }
@@ -40874,13 +40918,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 5,
+          "trials": 17,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 6,
+          "trials": 22,
           "success": 0,
           "unknown": 0
         }
@@ -40901,7 +40945,17 @@
       "pending_reason": "原4卡作业SIGBUS(-7)后FAILED；保留23条原始日志核验结果，剩余177条同seed新意图续跑已提交，等待平台job ID。",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h8",
-      "preprocessing_cohort": "rawRGB_trainresize_v2"
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": "job-s45xya1hy7s8"
     }
   ],
   "agents": [

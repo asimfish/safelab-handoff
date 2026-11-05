@@ -1,0 +1,31 @@
+{
+  "debounce_ticks": 12,
+  "fall_after_place_rule": "count unique previously placed objects that subsequently fall/topple; do not revoke completed placements or whole-task success. Before whole-task completion, preserve the original catastrophic termination check for the active object and objects not yet placed.",
+  "frozen_before_relaxed_scoring_UTC": "2026-11-05T17:11:07.924962+00:00",
+  "missing_raw_trace": "unknown; never infer relaxed phase from old score",
+  "nonplacement_applicability": "5b table-pad obstruction has no door, pouring, timed carry, or weighing condition; do not invent numeric thresholds. Original source-lift/order guard retained.",
+  "nonplacement_overrides": {},
+  "ordered_phases": true,
+  "physics_hz": 120,
+  "preserve_catastrophic_fall_below_table_m": 0.1,
+  "preserve_catastrophic_topple_cos_min": 0.5,
+  "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+  "require_final_target_validation": false,
+  "require_no_active_attachment": true,
+  "require_no_robot_contact": true,
+  "rest_height_tolerance_m": 0.01,
+  "scope": "offline CPU rescore; no trajectory rerun or model/control/physics changes",
+  "source_lift_fraction": 0.65,
+  "specified_cross_task_nonplacement_defaults": {
+    "carry_minimum_s": 1.5,
+    "pour_minimum_s": 1.0,
+    "pour_received_minimum_fraction": 0.9,
+    "spill_maximum_fraction": 0.04
+  },
+  "success_rule": "all five placement phases completed in order at any recorded time",
+  "support_rule": "target-support contact OR abs(z-rest_z)<=0.010m",
+  "task": "5b_obstruction",
+  "upright_cos_min": 0.9,
+  "velocity_threshold": null,
+  "xy_tolerance_m": 0.05
+}

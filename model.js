@@ -161,7 +161,7 @@ function issueBody(edit){validateEdit(edit);return '## SafeLab 共享交接记�
 function evaluationIndex(board){
  const index=[];
  for(const row of board.rows){
-  for(const e of row.evaluations.filter(e=>!isRevoked(e)))index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.metric_role==='rescored_v1.1_candidate'?'diagnostic':e.success===null?'progress':formalIssues(e).length?'legacy':'formal'});
+  for(const e of row.evaluations.filter(e=>!isRevoked(e)))index.push({...e,rowKey:row.key,task:row.task,camera:row.camera,method:row.method,phase:e.protocol_version==='SafeLab-Eval-v1.2-relaxed'||e.metric_role==='rescored_v1.1_candidate'?'diagnostic':e.success===null?'progress':formalIssues(e).length?'legacy':'formal'});
   for(const horizon of [4,8,30]){const score=row['h'+horizon];if(score?.reported)index.push({id:'shared-'+row.shared.issue+'-'+horizon,rowKey:row.key,task:row.task,dataset:row.dataset,camera:row.camera,method:row.method,checkpoint:row.step,horizon,success:score.success,trials:score.trials,unknown:score.unknown,completed:score.trials,status:'团队填报',kind:'团队共享评测',phase:'reported',protocol:score.protocol,source:row.shared.url,report_url:row.shared.url,note:'团队填报成绩；原始验收证据请见共享交接单。'});}
  }
  for(const d of board.diagnostics.filter(e=>!isRevoked(e))){

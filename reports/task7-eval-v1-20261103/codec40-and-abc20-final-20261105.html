@@ -1,0 +1,45 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>七任务40条codec闭环与20训练前缀ABC诊断</title><link rel="stylesheet" href="../../style.css"><main style="max-width:1150px;margin:2rem auto;padding:1rem">
+<h1>最终诊断：40/40计分闭合，未显示低延迟codec闭环改善</h1>
+<p>固定快照 2026-11-05T18:16:08.566803+00:00。仅stage=diagnostic；正式Mem-0 #39 h8仍5/100、TTC对齐 #41 h8仍7/100。两方法各取原A739前20场景，正逆各10，同scene/seed739、训练缩放、K-cubic、物理、判定和时限。不是新增正式A，也没有按结果挑场景。</p>
+<table><thead><tr><th>方法</th><th>原版placement S/F/U</th><th>codecB0 S/F/U</th><th>原版→codec平均阶段</th><th>配对阶段差及95% bootstrap CI</th><th>配对成功率差及95% bootstrap CI</th></tr></thead><tbody>
+<tr><td>mem0_30k</td><td>1/19/0</td><td>0/20/0</td><td>2.45 → 2.5</td><td>0.05 [-1.1, 1.15]</td><td>-0.05 [-0.15, 0.0]</td></tr>
+<tr><td>ours_aligned_30k</td><td>2/18/0</td><td>1/19/0</td><td>3.25 → 2.95</td><td>-0.3 [-1.6, 0.95]</td><td>-0.05 [-0.2, 0.1]</td></tr>
+</tbody></table><p>配对bootstrap 10,000次、seed20261105，正逆各10共享抽样。阶段差区间均包含0；小样本不证明不存在任何codec效应。源JSON的CI95为bootstrap；新增网站行的wilson95独立使用原Wilson函数，0/20的Wilson上界不为0。</p>
+<h2>三口径与基础设施边界</h2><table><thead><tr><th>方法/条件</th><th>placement S/F/U</th><th>strict S/F/U</th><th>FD S/F/U</th></tr></thead><tbody>
+<tr><td>mem0_30k / baseline</td><td>1/19/0</td><td>0/19/1</td><td>0/19/1</td></tr>
+<tr><td>mem0_30k / codec</td><td>0/20/0</td><td>0/20/0</td><td>0/20/0</td></tr>
+<tr><td>ours_aligned_30k / baseline</td><td>2/18/0</td><td>0/18/2</td><td>0/18/2</td></tr>
+<tr><td>ours_aligned_30k / codec</td><td>1/19/0</td><td>0/19/1</td><td>0/19/1</td></tr>
+</tbody></table><p>placement最终infra unknown均0；TTC codec发生过2次基础设施中断，同seed重试恢复有效闭合。strict/FD未知是placement提前结束时的原判定删失，保留null rate，不能叫完整已知0%成功率。七任务strict没有可替换的瞬时velocity谓词，此处FD与strict相同。</p>
+<p>“曾unknown一律按F”是另列敏感性：原版inclusive startup-abort覆盖前20后，Mem0/TTC均0成功，codec分别0/1；原版runtime-only分别1/1。该历史启动mask差异不能作为图像干预的因果增益。</p>
+<h2>A/B/C：20训练episode前缀，每法8,380查询</h2><p>A为训练视频解码图，B为记录观测位姿重渲染，C为B按恢复的训练codec离线编解码。A推进共同teacher-forced历史，B/C从同一个pre-A记忆、q/text/RNG私有分叉；B0首episode原预测只复用一次，不重复计数。按有效arm7/hand6元素合计SSE/count后开方；h8/h30是预测前缀，不是新闭环轨迹。</p>
+<table><thead><tr><th>方法</th><th>前缀/部位</th><th>A / B / C RMSE(rad)</th><th>C−B及95% episode bootstrap CI</th></tr></thead><tbody>
+<tr><td>mem0_30k</td><td>h8/arm7</td><td>0.0116378 / 0.0190947 / 0.0178852</td><td>-0.00120955 [-0.0016438256819144533, -0.0008320236591933626]</td></tr>
+<tr><td>mem0_30k</td><td>h8/hand6</td><td>0.0112286 / 0.0423151 / 0.0420324</td><td>-0.000282677 [-0.0008177419764239012, 0.0002898965086894463]</td></tr>
+<tr><td>mem0_30k</td><td>h30/arm7</td><td>0.0192911 / 0.0396298 / 0.0397223</td><td>9.25419e-05 [-0.001805621864884428, 0.002158679735608462]</td></tr>
+<tr><td>mem0_30k</td><td>h30/hand6</td><td>0.010048 / 0.0286144 / 0.0282587</td><td>-0.000355723 [-0.0009374295459427054, 0.00021439802958895913]</td></tr>
+<tr><td>ours_aligned_30k</td><td>h8/arm7</td><td>0.0134762 / 0.0201768 / 0.0189339</td><td>-0.00124299 [-0.001549556495866668, -0.0009455831087687083]</td></tr>
+<tr><td>ours_aligned_30k</td><td>h8/hand6</td><td>0.0113764 / 0.0454785 / 0.0435555</td><td>-0.00192297 [-0.0026065967495421003, -0.0013176885991684638]</td></tr>
+<tr><td>ours_aligned_30k</td><td>h30/arm7</td><td>0.0207256 / 0.0399417 / 0.0416616</td><td>0.00171986 [-0.0003929242684711625, 0.004104052428678054]</td></tr>
+<tr><td>ours_aligned_30k</td><td>h30/hand6</td><td>0.0104329 / 0.0302433 / 0.0289562</td><td>-0.0012871 [-0.001872669548839926, -0.0007213039101979018]</td></tr>
+</tbody></table><p>原始RGB图像MAE A/B 2.581965 → A/C 2.103409；训练tensorAA224后1.984848 →1.496255。直接B↔C像素MAE未记录，保留null。h8手臂两模型C−B CI小于0，但仍差于A；Mem0手部CI跨0，h30手臂无改善证据。all、tail40、trim_last40以及approach/close/transport/unknown的原统计格均完整保留在下方两份公开摘录中。</p>
+<p>B使用tick124+8i记录状态，A曝光对应tick121+8i，保留3tick混杂和历史渲染状态缺失；不是纯光学因果对照。C只编码432/406帧前缀，末尾flush缺源episode后续前瞻；尾40及去尾40仅描述敏感性，不能靠裁尾证明纯codec原因。来源av17解码逐像素一致核验只覆盖C0固定0/8/16/32/50五帧，不外推全20。</p>
+<h2>输入张量、P1与条件版本</h2><p>Mem0/TTC各5个固定训练帧的最终image/state/token及固定噪声30×13动作对照通过；范围限于审计帧和固定规划上下文，不外推所有变体/帧/Gen。pi0.5由其agent维护，本次不动其行。</p>
+<p>P1独立诊断4/100，平均phase2.60 [2.22,3.01]；与原K 5/100的逐场景phase差+0.22 [−0.32,0.76]、success差−0.01 [−0.07,0.05]，无显著改善证据，不换链。P1专家全13关节RMSE0.008301848仍大于0.005；仅物理10/10 vs Native10/10通过，不称全部专家验收通过。</p>
+<p>离线C为恢复训练x264core164/B3/lookahead40；闭环codecB0为PyAV16/x264core165/B0/lookahead0/zerolatency持续lane流，两者不是同bitstream条件。训练preset名称未知，不猜测。不据此推荐v1.2采用，也不改变原主表。</p>
+<h2>资源、计分闭合与归档分别报告</h2><p>官方HTTP200 SUCCEEDED；本轮0运行job、0张GPU、0Apps，队列40闭合，原进程positive cleanup通过，自有monitor停止。稳态全四卡600秒均值50.7387%，未达80%。</p>
+<p><strong>完整归档仍pending：</strong>1,936对象经原上传器PUT/GET SHA核验，最终upload pending=0；但journal有22项small路由拒绝，文件名和原SHA仍未知，不能称全归档。该未知项与已独立SHA核对的40个CPU/SDK计分闭合分开，不抹去错误，也不把它们当模型失败。</p>
+<h2>冻结来源与完整统计</h2><ul>
+<li>paired：<a href="codec40-paired-statistics-20261105.json">codec40-paired-statistics-20261105.json</a> · SHA256 <code>85f020be251a4a58e3b7516046f9f9b4cc385538e82d25fe7bc07a3129eca174</code></li>
+<li>closures：<a href="codec40-verified-closure-index-20261105.json">codec40-verified-closure-index-20261105.json</a> · SHA256 <code>4f70e45eff955432c0cc95b409f69dba08f80cb10a40ca7db9b972dc879d0730</code></li>
+<li>root_delivery：<a href="codec40-root-delivery-20261105.json">codec40-root-delivery-20261105.json</a> · SHA256 <code>9412fa6d84dd85333aba34f710afd554793562ab239be5d1a4f59d63019fc783</code></li>
+<li>root_report：<a href="codec40-root-report-20261105.md">codec40-root-report-20261105.md</a> · SHA256 <code>d34a20bf8d072a45f12ec74f8944b169eaf9ae312d5e7b681c931a8a0e7fa912</code></li>
+<li>openloop_brief：<a href="abc20-openloop-brief-20261105.md">abc20-openloop-brief-20261105.md</a> · SHA256 <code>4a25a0f133385fb917b16bb28826d6a777af8c6bb4035fd728e9e0b97f1f4b09</code></li>
+<li>boundaries：<a href="codec-diagnostic-boundaries-20261105.md">codec-diagnostic-boundaries-20261105.md</a> · SHA256 <code>c2afc611285cce8e0a9d3e34544036b11549c97498a99eca5b056c2baf7f0dde</code></li>
+<li>provider：<a href="codec40-provider-final-20261105.json">codec40-provider-final-20261105.json</a> · SHA256 <code>aff7ebb581944877b3bcd473abcd13acdf52c0a96ad98a0daca3af18f2e17f91</code></li>
+<li>monitor：<a href="codec40-monitor-closed-20261105.json">codec40-monitor-closed-20261105.json</a> · SHA256 <code>96aebed17799fe1a8a7910426324808519054b4e73d0c3323d2bc713911dd869</code></li>
+<li>tensor：<a href="training-tensor-five-frame-audit-20261105.json">training-tensor-five-frame-audit-20261105.json</a> · SHA256 <code>df1d1a3eb97cebaa7fe8f351886b60df2be915cc2f959c0fa0d911f7c757f70d</code></li>
+<li>P1：<a href="p1-policy100-diagnostic-20261105.json">p1-policy100-diagnostic-20261105.json</a> · SHA256 <code>466e62ac73cb778153e4c0d720e6e9df23a625f7feef7019fef7b725fd2747b8</code></li>
+<li>ABC_mem0_30k：<a href="abc20-mem0_30k-all-trim-tail-20261105.json">abc20-mem0_30k-all-trim-tail-20261105.json</a> · SHA256 <code>57c7114c47fa33bc682483aa91b800eade33225e7fd6050918b99c57b8525e69</code></li>
+<li>ABC_ours_aligned_30k：<a href="abc20-ours_aligned_30k-all-trim-tail-20261105.json">abc20-ours_aligned_30k-all-trim-tail-20261105.json</a> · SHA256 <code>66fe98bba858a02c33a70d17b1daf1815409f3c1fe2d8be3f5f322b174df7640</code></li>
+</ul><p>ABC完整原始统计SHA256 <code>3659344159bdfd74acd7652e80a08fe3d8c65500310242f6c2f3b56a2638cbe9</code>；受单报告200KB预算，两份公开摘录保留all/trim_last40/tail40的原值及所有分段，完整first_task/post30和逐EP SSE/count仍在冻结S交付。<a href="codec40-and-abc20-final-20261105.json">本页机器可读摘要</a>。</p><p><a href="../task7-eval-v1-20261103.html">返回七任务报告</a> · <a href="paper-final-main-table-20261104.html">保持不变的最终A100两格</a></p></main></html>

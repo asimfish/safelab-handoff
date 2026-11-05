@@ -40407,6 +40407,932 @@
       "evaluation_started": false,
       "completion_switch": "original trained native classifier; external Gen switch disabled",
       "baseline_online_switch_changed": false
+    },
+    {
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "id": "task7-eval-v11-diagnostic-codecB0-mem0_30k-h8-20261105",
+      "handoff_issue": 39,
+      "variant": "mem0_30k",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "kind": "观测编解码诊断自主闭环",
+      "metric_role": "codec_observation_diagnostic",
+      "condition": "original_contact_codecB0",
+      "condition_version": "original-v1-codecB0-x264165-v1",
+      "source_worklist_condition_version": "original-contact-v1.1",
+      "status": "completed",
+      "evaluation_started": true,
+      "completed": 20,
+      "trials": 20,
+      "target": 20,
+      "success": 0,
+      "failure": 20,
+      "unknown": 0,
+      "final_verified": true,
+      "scientific_closures_SHA_verified": 20,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "mean_phase": 2.5,
+      "phase_hist": {
+        "1": 6,
+        "2": 7,
+        "3": 3,
+        "4": 1,
+        "5": 1,
+        "6": 2
+      },
+      "phase_mean_denominator": 20,
+      "wilson95": {
+        "low": 0,
+        "high": 0.16112515805281938,
+        "confidence": 0.95
+      },
+      "success_bootstrap_CI95": [
+        0.0,
+        0.0
+      ],
+      "bootstrap": {
+        "CI": "95% percentile, linear quantiles",
+        "censored_valid_verdict": "null rate/CI, never reclassified as a failure",
+        "final_infra_unknown_success_value": 0,
+        "paired_phase_scope": "Only pairs with valid observed phase in both conditions; unknown phase never imputed0.",
+        "replicates": 10000,
+        "sampling": "Within-order10+10 with replacement; same paired indices for both conditions and all statistics.",
+        "seed": 20261105
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 20,
+          "completed": 20,
+          "success": 0,
+          "failure": 20,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "order_meaning": "正序",
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0,
+          "mean_phase": 2.3,
+          "phase_n": 10
+        },
+        "right": {
+          "label": "order4321",
+          "order_meaning": "逆序",
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0,
+          "mean_phase": 2.7,
+          "phase_n": 10
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "actual_Apps": 0,
+        "current_GPUs": 0
+      },
+      "observation_codec": {
+        "runtime": "PyAV16/libavcodec62.11/x264core165",
+        "pixel_format": "yuv420p",
+        "B_frames": 0,
+        "lookahead": 0,
+        "tune": "zerolatency",
+        "persistent_stream_per_lane_episode": true,
+        "same_bitstream_as_offline_C": false
+      },
+      "diagnostic_subset": {
+        "source_stage_A_row": "task7-eval-v11-A-original-mem0_30k-h8",
+        "fixed_dispatch_first20": true,
+        "order_split": {
+          "1234": 10,
+          "4321": 10
+        },
+        "same_scene_seed_as_baseline": true
+      },
+      "report_url": "reports/task7-eval-v1-20261103/codec40-and-abc20-final-20261105.html",
+      "source": "reports/task7-eval-v1-20261103/codec40-paired-statistics-20261105.json",
+      "evidence_sha256": "85f020be251a4a58e3b7516046f9f9b4cc385538e82d25fe7bc07a3129eca174",
+      "oracle_comparison": {
+        "placement": {
+          "success": 0,
+          "failure": 20,
+          "unknown": 0,
+          "censored": 0,
+          "complete_verdict_success_rate": 0.0
+        },
+        "strict": {
+          "success": 0,
+          "failure": 20,
+          "unknown": 0,
+          "censored": 0,
+          "complete_verdict_success_rate": 0.0
+        },
+        "strict_fdvel": {
+          "success": 0,
+          "failure": 20,
+          "unknown": 0,
+          "censored": 0,
+          "complete_verdict_success_rate": 0.0
+        }
+      },
+      "paired_baseline": {
+        "ever_unknown": {
+          "inclusive": 10,
+          "runtime": 0,
+          "startup": 10
+        },
+        "expected_n": 20,
+        "final_infra_unknown_n": 0,
+        "final_n": 20,
+        "pending_n": 0,
+        "placement": {
+          "funnel_valid_only": {
+            "1": {
+              "denominator": 20,
+              "n": 19
+            },
+            "2": {
+              "denominator": 20,
+              "n": 12
+            },
+            "3": {
+              "denominator": 20,
+              "n": 6
+            },
+            "4": {
+              "denominator": 20,
+              "n": 5
+            },
+            "5": {
+              "denominator": 20,
+              "n": 4
+            },
+            "6": {
+              "denominator": 20,
+              "n": 2
+            },
+            "7": {
+              "denominator": 20,
+              "n": 1
+            }
+          },
+          "mean_phase": 2.45,
+          "mean_phase_denominator_valid": 20,
+          "orders": {
+            "1234": {
+              "F": 9,
+              "S": 1,
+              "U": 0,
+              "final_n": 10,
+              "mean_phase": 3.0,
+              "n": 10,
+              "success_rate": 0.1,
+              "valid_n": 10
+            },
+            "4321": {
+              "F": 10,
+              "S": 0,
+              "U": 0,
+              "final_n": 10,
+              "mean_phase": 1.9,
+              "n": 10,
+              "success_rate": 0.0,
+              "valid_n": 10
+            }
+          },
+          "phase_hist_valid_only": {
+            "0": 1,
+            "1": 7,
+            "2": 6,
+            "3": 1,
+            "4": 1,
+            "5": 2,
+            "6": 1,
+            "7": 1
+          }
+        },
+        "scores": {
+          "FD": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "F": 20,
+              "S": 0,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 1,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.0
+            },
+            "primary": {
+              "CI95": null,
+              "F": 19,
+              "S": 0,
+              "U": 1,
+              "censored_or_missing_valid_verdict_n": 1,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 1,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "F": 19,
+              "S": 0,
+              "U": 1,
+              "censored_or_missing_valid_verdict_n": 1,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 1,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            }
+          },
+          "placement": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "F": 20,
+              "S": 0,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 0,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.0
+            },
+            "primary": {
+              "CI95": [
+                0.0,
+                0.15
+              ],
+              "F": 19,
+              "S": 1,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 0,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.05
+            },
+            "runtime_only": {
+              "CI95": [
+                0.0,
+                0.15
+              ],
+              "F": 19,
+              "S": 1,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 0,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.05
+            }
+          },
+          "strict": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "F": 20,
+              "S": 0,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 1,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.0
+            },
+            "primary": {
+              "CI95": null,
+              "F": 19,
+              "S": 0,
+              "U": 1,
+              "censored_or_missing_valid_verdict_n": 1,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 1,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "F": 19,
+              "S": 0,
+              "U": 1,
+              "censored_or_missing_valid_verdict_n": 1,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 1,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            }
+          }
+        },
+        "status": "final",
+        "valid_n": 20
+      },
+      "paired_codec_minus_baseline": {
+        "phase_bootstrap_valid_replicates": 10000,
+        "placement_mean_phase_CI95": [
+          -1.1,
+          1.15
+        ],
+        "placement_mean_phase_difference": 0.05,
+        "placement_mean_phase_pair_n": 20,
+        "scores": {
+          "FD": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "success_rate_difference": 0.0
+            },
+            "primary": {
+              "CI95": null,
+              "success_rate_difference": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "success_rate_difference": null
+            }
+          },
+          "placement": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "success_rate_difference": 0.0
+            },
+            "primary": {
+              "CI95": [
+                -0.15,
+                0.0
+              ],
+              "success_rate_difference": -0.05
+            },
+            "runtime_only": {
+              "CI95": [
+                -0.15,
+                0.0
+              ],
+              "success_rate_difference": -0.05
+            }
+          },
+          "strict": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "success_rate_difference": 0.0
+            },
+            "primary": {
+              "CI95": null,
+              "success_rate_difference": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "success_rate_difference": null
+            }
+          }
+        },
+        "status": "final"
+      },
+      "ever_unknown": {
+        "inclusive": 0,
+        "runtime": 0,
+        "startup": 0
+      },
+      "archive_complete": false,
+      "archive_status": "archive_pending",
+      "archive_boundary": "40 scoring closures verified;1936 uploads verified;upload pending0 but22 journal rejections have unidentified file names/SHA.",
+      "execution_chain_changed": false,
+      "main_paper_rows_changed": false,
+      "updated_at": "2026-11-05T18:16:08.566803+00:00",
+      "paired_baseline_evaluation_id": "task7-eval-v11-A-original-mem0_30k-h8"
+    },
+    {
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss · 训练缩放",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "id": "task7-eval-v11-diagnostic-codecB0-ours_aligned_30k-h8-20261105",
+      "handoff_issue": 41,
+      "variant": "ours_aligned_30k",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "kind": "观测编解码诊断自主闭环",
+      "metric_role": "codec_observation_diagnostic",
+      "condition": "original_contact_codecB0",
+      "condition_version": "original-v1-codecB0-x264165-v1",
+      "source_worklist_condition_version": "original-contact-v1.1",
+      "status": "completed",
+      "evaluation_started": true,
+      "completed": 20,
+      "trials": 20,
+      "target": 20,
+      "success": 1,
+      "failure": 19,
+      "unknown": 0,
+      "final_verified": true,
+      "scientific_closures_SHA_verified": 20,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "mean_phase": 2.95,
+      "phase_hist": {
+        "0": 3,
+        "1": 2,
+        "2": 5,
+        "3": 3,
+        "4": 1,
+        "5": 3,
+        "6": 2,
+        "7": 1
+      },
+      "phase_mean_denominator": 20,
+      "wilson95": {
+        "low": 0.008881448800795402,
+        "high": 0.23613119344674205,
+        "confidence": 0.95
+      },
+      "success_bootstrap_CI95": [
+        0.0,
+        0.15
+      ],
+      "bootstrap": {
+        "CI": "95% percentile, linear quantiles",
+        "censored_valid_verdict": "null rate/CI, never reclassified as a failure",
+        "final_infra_unknown_success_value": 0,
+        "paired_phase_scope": "Only pairs with valid observed phase in both conditions; unknown phase never imputed0.",
+        "replicates": 10000,
+        "sampling": "Within-order10+10 with replacement; same paired indices for both conditions and all statistics.",
+        "seed": 20261105
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 20,
+          "completed": 20,
+          "success": 1,
+          "failure": 19,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "order_meaning": "正序",
+          "trials": 10,
+          "success": 0,
+          "failure": 10,
+          "unknown": 0,
+          "mean_phase": 1.9,
+          "phase_n": 10
+        },
+        "right": {
+          "label": "order4321",
+          "order_meaning": "逆序",
+          "trials": 10,
+          "success": 1,
+          "failure": 9,
+          "unknown": 0,
+          "mean_phase": 4.0,
+          "phase_n": 10
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "actual_Apps": 0,
+        "current_GPUs": 0
+      },
+      "observation_codec": {
+        "runtime": "PyAV16/libavcodec62.11/x264core165",
+        "pixel_format": "yuv420p",
+        "B_frames": 0,
+        "lookahead": 0,
+        "tune": "zerolatency",
+        "persistent_stream_per_lane_episode": true,
+        "same_bitstream_as_offline_C": false
+      },
+      "diagnostic_subset": {
+        "source_stage_A_row": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8",
+        "fixed_dispatch_first20": true,
+        "order_split": {
+          "1234": 10,
+          "4321": 10
+        },
+        "same_scene_seed_as_baseline": true
+      },
+      "report_url": "reports/task7-eval-v1-20261103/codec40-and-abc20-final-20261105.html",
+      "source": "reports/task7-eval-v1-20261103/codec40-paired-statistics-20261105.json",
+      "evidence_sha256": "85f020be251a4a58e3b7516046f9f9b4cc385538e82d25fe7bc07a3129eca174",
+      "oracle_comparison": {
+        "placement": {
+          "success": 1,
+          "failure": 19,
+          "unknown": 0,
+          "censored": 0,
+          "complete_verdict_success_rate": 0.05
+        },
+        "strict": {
+          "success": 0,
+          "failure": 19,
+          "unknown": 1,
+          "censored": 1,
+          "complete_verdict_success_rate": null
+        },
+        "strict_fdvel": {
+          "success": 0,
+          "failure": 19,
+          "unknown": 1,
+          "censored": 1,
+          "complete_verdict_success_rate": null
+        }
+      },
+      "paired_baseline": {
+        "ever_unknown": {
+          "inclusive": 20,
+          "runtime": 10,
+          "startup": 20
+        },
+        "expected_n": 20,
+        "final_infra_unknown_n": 0,
+        "final_n": 20,
+        "pending_n": 0,
+        "placement": {
+          "funnel_valid_only": {
+            "1": {
+              "denominator": 20,
+              "n": 18
+            },
+            "2": {
+              "denominator": 20,
+              "n": 13
+            },
+            "3": {
+              "denominator": 20,
+              "n": 12
+            },
+            "4": {
+              "denominator": 20,
+              "n": 9
+            },
+            "5": {
+              "denominator": 20,
+              "n": 8
+            },
+            "6": {
+              "denominator": 20,
+              "n": 3
+            },
+            "7": {
+              "denominator": 20,
+              "n": 2
+            }
+          },
+          "mean_phase": 3.25,
+          "mean_phase_denominator_valid": 20,
+          "orders": {
+            "1234": {
+              "F": 9,
+              "S": 1,
+              "U": 0,
+              "final_n": 10,
+              "mean_phase": 2.1,
+              "n": 10,
+              "success_rate": 0.1,
+              "valid_n": 10
+            },
+            "4321": {
+              "F": 9,
+              "S": 1,
+              "U": 0,
+              "final_n": 10,
+              "mean_phase": 4.4,
+              "n": 10,
+              "success_rate": 0.1,
+              "valid_n": 10
+            }
+          },
+          "phase_hist_valid_only": {
+            "0": 2,
+            "1": 5,
+            "2": 1,
+            "3": 3,
+            "4": 1,
+            "5": 5,
+            "6": 1,
+            "7": 2
+          }
+        },
+        "scores": {
+          "FD": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "F": 20,
+              "S": 0,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 2,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.0
+            },
+            "primary": {
+              "CI95": null,
+              "F": 18,
+              "S": 0,
+              "U": 2,
+              "censored_or_missing_valid_verdict_n": 2,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 2,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "F": 19,
+              "S": 0,
+              "U": 1,
+              "censored_or_missing_valid_verdict_n": 1,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 2,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            }
+          },
+          "placement": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "F": 20,
+              "S": 0,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 0,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.0
+            },
+            "primary": {
+              "CI95": [
+                0.0,
+                0.25
+              ],
+              "F": 18,
+              "S": 2,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 0,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.1
+            },
+            "runtime_only": {
+              "CI95": [
+                0.0,
+                0.15
+              ],
+              "F": 19,
+              "S": 1,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 0,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.05
+            }
+          },
+          "strict": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.0
+              ],
+              "F": 20,
+              "S": 0,
+              "U": 0,
+              "censored_or_missing_valid_verdict_n": 0,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 2,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": 0.0
+            },
+            "primary": {
+              "CI95": null,
+              "F": 18,
+              "S": 0,
+              "U": 2,
+              "censored_or_missing_valid_verdict_n": 2,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 2,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "F": 19,
+              "S": 0,
+              "U": 1,
+              "censored_or_missing_valid_verdict_n": 1,
+              "final_infra_unknown_success_value": 0,
+              "original_censored_valid_n": 2,
+              "pending": 0,
+              "success_denominator": 20,
+              "success_rate": null
+            }
+          }
+        },
+        "status": "final",
+        "valid_n": 20
+      },
+      "paired_codec_minus_baseline": {
+        "phase_bootstrap_valid_replicates": 10000,
+        "placement_mean_phase_CI95": [
+          -1.6,
+          0.95
+        ],
+        "placement_mean_phase_difference": -0.3,
+        "placement_mean_phase_pair_n": 20,
+        "scores": {
+          "FD": {
+            "inclusive": {
+              "CI95": null,
+              "success_rate_difference": null
+            },
+            "primary": {
+              "CI95": null,
+              "success_rate_difference": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "success_rate_difference": null
+            }
+          },
+          "placement": {
+            "inclusive": {
+              "CI95": [
+                0.0,
+                0.15
+              ],
+              "success_rate_difference": 0.05
+            },
+            "primary": {
+              "CI95": [
+                -0.2,
+                0.1
+              ],
+              "success_rate_difference": -0.05
+            },
+            "runtime_only": {
+              "CI95": [
+                -0.15,
+                0.15
+              ],
+              "success_rate_difference": 0.0
+            }
+          },
+          "strict": {
+            "inclusive": {
+              "CI95": null,
+              "success_rate_difference": null
+            },
+            "primary": {
+              "CI95": null,
+              "success_rate_difference": null
+            },
+            "runtime_only": {
+              "CI95": null,
+              "success_rate_difference": null
+            }
+          }
+        },
+        "status": "final"
+      },
+      "ever_unknown": {
+        "inclusive": 2,
+        "runtime": 2,
+        "startup": 0
+      },
+      "archive_complete": false,
+      "archive_status": "archive_pending",
+      "archive_boundary": "40 scoring closures verified;1936 uploads verified;upload pending0 but22 journal rejections have unidentified file names/SHA.",
+      "execution_chain_changed": false,
+      "main_paper_rows_changed": false,
+      "updated_at": "2026-11-05T18:16:08.566803+00:00",
+      "paired_baseline_evaluation_id": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8"
     }
   ],
   "agents": [

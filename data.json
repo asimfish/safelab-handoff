@@ -41333,6 +41333,710 @@
       "main_paper_rows_changed": false,
       "updated_at": "2026-11-05T18:16:08.566803+00:00",
       "paired_baseline_evaluation_id": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8"
+    },
+    {
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "id": "task7-rescore-v12-relaxed-original-mem0_30k-h8-A739-20261105",
+      "source_evaluation_id": "task7-eval-v11-A-original-mem0_30k-h8",
+      "variant": "mem0_30k",
+      "handoff_issue": 39,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "offline_rescore_v1_2_relaxed",
+      "kind": "CPU离线重算诊断",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "source_condition": "main_K_cubic_trainresize_A739",
+      "source_condition_version": "original-contact-v1.1",
+      "status": "completed",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 5,
+      "failure": 95,
+      "unknown": 0,
+      "final_verified": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "mean_phase": 2.59,
+      "phase_hist": {
+        "0": 8,
+        "1": 27,
+        "2": 32,
+        "3": 5,
+        "4": 8,
+        "5": 4,
+        "6": 11,
+        "7": 5
+      },
+      "phase_mean_denominator": 100,
+      "wilson95": {
+        "low": 0.02154367915436796,
+        "high": 0.11175046923191913,
+        "confidence": 0.95
+      },
+      "wilson_metric_role": "confirmed_success_indicator_full_expected_n; U is not F",
+      "success_rate": 0.05,
+      "confirmed_success_fraction_full_n": 0.05,
+      "success_rate_identification_bounds": [
+        0.05,
+        0.05
+      ],
+      "valid_verdict_n": 100,
+      "conditional_valid_verdict_SR": 0.05,
+      "per_stage": {
+        "1": {
+          "S": 92,
+          "F": 8,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.92,
+          "complete_verdict_SR": 0.92,
+          "SR_identification_bounds": [
+            0.92,
+            0.92
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.8500189229905127,
+            "high": 0.9589065385156194,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.92,
+          "Wilson95_valid_denominator": {
+            "low": 0.8500189229905127,
+            "high": 0.9589065385156194,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "S": 65,
+          "F": 35,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.65,
+          "complete_verdict_SR": 0.65,
+          "SR_identification_bounds": [
+            0.65,
+            0.65
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.5525444329688796,
+            "high": 0.7363575175690247,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.65,
+          "Wilson95_valid_denominator": {
+            "low": 0.5525444329688796,
+            "high": 0.7363575175690247,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "S": 33,
+          "F": 67,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.33,
+          "complete_verdict_SR": 0.33,
+          "SR_identification_bounds": [
+            0.33,
+            0.33
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.24563122734128034,
+            "high": 0.4269465620490947,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.33,
+          "Wilson95_valid_denominator": {
+            "low": 0.24563122734128034,
+            "high": 0.4269465620490947,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "S": 28,
+          "F": 72,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.28,
+          "complete_verdict_SR": 0.28,
+          "SR_identification_bounds": [
+            0.28,
+            0.28
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.20139685211186212,
+            "high": 0.3748802870992116,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.28,
+          "Wilson95_valid_denominator": {
+            "low": 0.20139685211186212,
+            "high": 0.3748802870992116,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "S": 20,
+          "F": 80,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.2,
+          "complete_verdict_SR": 0.2,
+          "SR_identification_bounds": [
+            0.2,
+            0.2
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.1333669333310325,
+            "high": 0.2888291655931589,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.2,
+          "Wilson95_valid_denominator": {
+            "low": 0.1333669333310325,
+            "high": 0.2888291655931589,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "S": 16,
+          "F": 84,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.16,
+          "complete_verdict_SR": 0.16,
+          "SR_identification_bounds": [
+            0.16,
+            0.16
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.10095288488804782,
+            "high": 0.24420269389270244,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.16,
+          "Wilson95_valid_denominator": {
+            "low": 0.10095288488804782,
+            "high": 0.24420269389270244,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "S": 5,
+          "F": 95,
+          "U": 0,
+          "total_n": 100,
+          "valid_verdict_n": 100,
+          "pending_n": 0,
+          "SR_total_denominator": 0.05,
+          "complete_verdict_SR": 0.05,
+          "SR_identification_bounds": [
+            0.05,
+            0.05
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.02154367915436796,
+            "high": 0.11175046923191913,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.05,
+          "Wilson95_valid_denominator": {
+            "low": 0.02154367915436796,
+            "high": 0.11175046923191913,
+            "confidence": 0.95
+          }
+        }
+      },
+      "observed_phase_lower_bound_mean": 2.59,
+      "phase_known_n": 100,
+      "observed_phase_lower_bound_hist": {
+        "0": 8,
+        "1": 27,
+        "2": 32,
+        "3": 5,
+        "4": 8,
+        "5": 4,
+        "6": 11,
+        "7": 5
+      },
+      "raw_verified_n": 100,
+      "source_original_stopping_extended": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "report_url": "reports/task7-v12-relaxed-20261105/index.html",
+      "source": "reports/task7-v12-relaxed-20261105/three-oracle-statistics.json",
+      "evidence_sha256": "193891e403189e0e3b5c0ed51464aa1b3ba439e6e2a3b334dfb23ac09e80684e",
+      "qualification": {
+        "passed": false,
+        "status": "pending_formal_adjudication",
+        "report": "reports/task7-v12-relaxed-20261105/qualification-v4.json",
+        "sha256": "aed9a53728e35450263f2a850f9a6a7a2f6aa71a2a9739a6e99b7e50452ec5d4",
+        "CPU_expert_and_15_negative_numeric_checks_completed": true,
+        "limits_retained": [
+          "E10 paths contain3 unique raw SHA; not10 independent action trajectories",
+          "K historicalq13 RMSE .007269>.005 remains failed",
+          "Exact full expert video references missing",
+          "New full manual negative-video review not completed",
+          "No new historical all-Robot contact coverage qualification"
+        ]
+      },
+      "updated_at": "2026-11-05T19:20:42.523846+00:00",
+      "unknown_reasons": {
+        "missing_original_first_valid_raw_closure": 0,
+        "original_stop_censors_new_relaxed_completion": 0
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 100,
+          "completed": 100,
+          "success": 5,
+          "failure": 95,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "order_meaning": "正序",
+          "trials": 50,
+          "success": 3,
+          "failure": 47,
+          "unknown": 0,
+          "mean_phase": 2.64,
+          "phase_n": 50
+        },
+        "right": {
+          "label": "order4321",
+          "order_meaning": "逆序",
+          "trials": 50,
+          "success": 2,
+          "failure": 48,
+          "unknown": 0,
+          "mean_phase": 2.54,
+          "phase_n": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "status": "completed N1×4 independent physical processes; serial private Policy lanes",
+        "actual_Apps": 0,
+        "current_GPUs": 0
+      }
+    },
+    {
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss · 训练缩放",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "id": "task7-rescore-v12-relaxed-original-ours_aligned_30k-h8-A739-20261105",
+      "source_evaluation_id": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8",
+      "variant": "ours_aligned_30k",
+      "handoff_issue": 41,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "offline_rescore_v1_2_relaxed",
+      "kind": "CPU离线重算诊断",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "source_condition": "main_K_cubic_trainresize_A739",
+      "source_condition_version": "original-contact-v1.1",
+      "status": "completed",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 11,
+      "failure": 83,
+      "unknown": 6,
+      "final_verified": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "mean_phase": 2.904255319148936,
+      "phase_hist": {
+        "0": 8,
+        "1": 32,
+        "2": 13,
+        "3": 5,
+        "4": 6,
+        "5": 15,
+        "6": 4,
+        "7": 11
+      },
+      "phase_mean_denominator": 94,
+      "wilson95": {
+        "low": 0.06254196357064568,
+        "high": 0.18631296503080313,
+        "confidence": 0.95
+      },
+      "wilson_metric_role": "confirmed_success_indicator_full_expected_n; U is not F",
+      "success_rate": null,
+      "confirmed_success_fraction_full_n": 0.11,
+      "success_rate_identification_bounds": [
+        0.11,
+        0.17
+      ],
+      "valid_verdict_n": 94,
+      "conditional_valid_verdict_SR": 0.11702127659574468,
+      "per_stage": {
+        "1": {
+          "S": 91,
+          "F": 8,
+          "U": 1,
+          "total_n": 100,
+          "valid_verdict_n": 99,
+          "pending_n": 0,
+          "SR_total_denominator": 0.91,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.91,
+            0.92
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.837737871472837,
+            "high": 0.9519274599974348,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.9191919191919192,
+          "Wilson95_valid_denominator": {
+            "low": 0.8485819115773596,
+            "high": 0.9584855974970883,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "S": 59,
+          "F": 40,
+          "U": 1,
+          "total_n": 100,
+          "valid_verdict_n": 99,
+          "pending_n": 0,
+          "SR_total_denominator": 0.59,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.59,
+            0.6
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.4920143005341078,
+            "high": 0.6813268697886348,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.5959595959595959,
+          "Wilson95_valid_denominator": {
+            "low": 0.49746896182579103,
+            "high": 0.6872814318177571,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "S": 43,
+          "F": 53,
+          "U": 4,
+          "total_n": 100,
+          "valid_verdict_n": 96,
+          "pending_n": 0,
+          "SR_total_denominator": 0.43,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.43,
+            0.47
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.33733298524110106,
+            "high": 0.5278461045078768,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.4479166666666667,
+          "Wilson95_valid_denominator": {
+            "low": 0.3523575930459819,
+            "high": 0.5474836140225261,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "S": 38,
+          "F": 58,
+          "U": 4,
+          "total_n": 100,
+          "valid_verdict_n": 96,
+          "pending_n": 0,
+          "SR_total_denominator": 0.38,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.38,
+            0.42
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.29097599252478734,
+            "high": 0.47790244704488916,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.3958333333333333,
+          "Wilson95_valid_denominator": {
+            "low": 0.3038335346205102,
+            "high": 0.4958488795165056,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "S": 31,
+          "F": 64,
+          "U": 5,
+          "total_n": 100,
+          "valid_verdict_n": 95,
+          "pending_n": 0,
+          "SR_total_denominator": 0.31,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.31,
+            0.36
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.22779697212376038,
+            "high": 0.40626055719489407,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.3263157894736842,
+          "Wilson95_valid_denominator": {
+            "low": 0.24038712734007606,
+            "high": 0.42574487441574094,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "S": 16,
+          "F": 79,
+          "U": 5,
+          "total_n": 100,
+          "valid_verdict_n": 95,
+          "pending_n": 0,
+          "SR_total_denominator": 0.16,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.16,
+            0.21
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.10095288488804782,
+            "high": 0.24420269389270244,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.16842105263157894,
+          "Wilson95_valid_denominator": {
+            "low": 0.10641255003021141,
+            "high": 0.25620308968543903,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "S": 11,
+          "F": 83,
+          "U": 6,
+          "total_n": 100,
+          "valid_verdict_n": 94,
+          "pending_n": 0,
+          "SR_total_denominator": 0.11,
+          "complete_verdict_SR": null,
+          "SR_identification_bounds": [
+            0.11,
+            0.17
+          ],
+          "total_denominator_metric_role": "confirmed_success_indicator; unknown contributes0 only to this descriptive/sensitivity statistic, never reclassified F",
+          "Wilson95_total_denominator": {
+            "low": 0.06254196357064568,
+            "high": 0.18631296503080313,
+            "confidence": 0.95
+          },
+          "SR_valid_denominator": 0.11702127659574468,
+          "Wilson95_valid_denominator": {
+            "low": 0.06661362828276755,
+            "high": 0.19750200462139433,
+            "confidence": 0.95
+          }
+        }
+      },
+      "observed_phase_lower_bound_mean": 2.919191919191919,
+      "phase_known_n": 99,
+      "observed_phase_lower_bound_hist": {
+        "0": 8,
+        "1": 32,
+        "2": 16,
+        "3": 5,
+        "4": 7,
+        "5": 15,
+        "6": 5,
+        "7": 11
+      },
+      "raw_verified_n": 99,
+      "source_original_stopping_extended": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "report_url": "reports/task7-v12-relaxed-20261105/index.html",
+      "source": "reports/task7-v12-relaxed-20261105/three-oracle-statistics.json",
+      "evidence_sha256": "193891e403189e0e3b5c0ed51464aa1b3ba439e6e2a3b334dfb23ac09e80684e",
+      "qualification": {
+        "passed": false,
+        "status": "pending_formal_adjudication",
+        "report": "reports/task7-v12-relaxed-20261105/qualification-v4.json",
+        "sha256": "aed9a53728e35450263f2a850f9a6a7a2f6aa71a2a9739a6e99b7e50452ec5d4",
+        "CPU_expert_and_15_negative_numeric_checks_completed": true,
+        "limits_retained": [
+          "E10 paths contain3 unique raw SHA; not10 independent action trajectories",
+          "K historicalq13 RMSE .007269>.005 remains failed",
+          "Exact full expert video references missing",
+          "New full manual negative-video review not completed",
+          "No new historical all-Robot contact coverage qualification"
+        ]
+      },
+      "updated_at": "2026-11-05T19:20:42.523846+00:00",
+      "unknown_reasons": {
+        "missing_original_first_valid_raw_closure": 1,
+        "original_stop_censors_new_relaxed_completion": 5
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 100,
+          "completed": 100,
+          "success": 11,
+          "failure": 83,
+          "unknown": 6
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "order_meaning": "正序",
+          "trials": 50,
+          "success": 3,
+          "failure": 46,
+          "unknown": 1,
+          "mean_phase": 1.7346938775510203,
+          "phase_n": 49
+        },
+        "right": {
+          "label": "order4321",
+          "order_meaning": "逆序",
+          "trials": 50,
+          "success": 8,
+          "failure": 37,
+          "unknown": 5,
+          "mean_phase": 4.177777777777778,
+          "phase_n": 45
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "status": "completed N1×4 independent physical processes; serial private Policy lanes",
+        "actual_Apps": 0,
+        "current_GPUs": 0
+      }
     }
   ],
   "agents": [

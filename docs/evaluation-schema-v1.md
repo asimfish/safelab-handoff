@@ -82,3 +82,15 @@ trials始终是完整分母，unknown属于trials。主表成功率为success/tr
 - 三列按明确关联以及 record/checkpoint、任务、数据、相机、执行步数、阶段、条件、场景哈希、拓扑、预处理和逐 seed 清单核对；不同配置或未能解析的引用不会合并或展示 FD 成绩。同批同口径多行视为歧义，不自动选最佳。不得仅凭场景哈希猜测同批轨迹。
 - trials 包含 unknown；success + failure + unknown = trials；phase_hist 合计 trials − unknown；mean_phase 仅有效轨迹。seed_results、lr_split、Wilson、准入要求与对应 strict 协议相同。未完成 success=null。三口径分别重算 unknown、阶段统计和拆分，不复制数值。
 - 首页“同配置·三口径并列”保留每批次三列；缺少口径显示“未发布”，未准入或未完成只显示状态/进度。FD 不改变正式 placement 优先规则，不计入 v1.1 覆盖，不进入旧版成绩格。
+
+## 2026-11-05 七任务 v1.2-relaxed 离线重算（独立诊断）
+
+使用新 `id`，绑定同一原轨迹的 `source_evaluation_id`，原 strict/v1.1 行及历史分数不覆盖。固定字段为 `protocol_version:"SafeLab-Eval-v1.2-relaxed"`、`oracle_version:"placement-v1.2-relaxed"`、`stage:"diagnostic"`、`metric_role:"offline_rescore_v1_2_relaxed"`、`formal_score_eligible:false`。不得重用已撤销的 `rescored_v1.1_candidate` 角色，也不得把 relaxed 结果标作 v1.1。
+
+本次不更改全站 `CURRENT_PROTOCOL`，不自动进入正式表或 v1.1 覆盖。独立报告并列原 strict、v1.1、relaxed 的逐案重算统计、源代码与原始文件 SHA。若负例验证尚不足，明确 `qualification.status:"pending"`、`qualification.passed:false`；数值重算完成不等于准入通过。源结果中的版本字段原值须保留；展示用的 oracle 版本依据源码模块 `ORACLE_VERSION` 常量规范化，并记录源码 SHA 和原字段值，不能用元数据拼写差异冒充不同算法。
+
+`trials` 始终是该源配置完整预期分母，unknown 保留在内。全任务 S/F/U 保留完整分母；S/N 与全N Wilson95 明确标记为 confirmed-success-indicator（已确认成功指示量），U不归为F。有U时完整已知SR为null，并列真实SR的可识别范围[S/N,(S+U)/N]；可另列有明确标签的有效判定分母与区间。source scorer显式提供全部阶段 `per_k`（k=1..7）的S/F/U；不得从整案 unknown 擅自推断前缀失败。SR@7 表示“至少已完成7阶段”，与 episode 终局复验后的全任务成功率分别报告：前缀已到7、终局却失败或删失的情况不能合并。
+
+`mean_phase` 只使用原口径判定已知的有效闭合 case，直方图分母写明；观测前缀 `observed_phase_lower_bound`、`phase_known_n` 和漏斗另列为诊断。完全缺 raw 的 case 在全部口径及阈值均为 U，phase 保持 null，不补0。尚未重算与已核缺件 unknown 分开：未处理记录显示 pending、`success:null`，不能凭旧摘要填 relaxed 成绩。
+
+TTC−Mem0 配对仅使用同 scene、seed、condition 以及相同推理步数/相机/源场景契约的交集；阶段差仅双方有效闭合且 phase 已知的配对。报告matched/有效/unknown/缺配对数、10,000次正逆分层bootstrap的seed与区间。含U时全匹配的真实paired whole SR差为null，给可识别界限；原全N数值差及bootstrap只能标为confirmed-success-indicator/unknown-as-failure敏感性。另列双方whole均已知的complete-case n、未知对数和其bootstrap，不能把该选择子集冒称全体。严格口径敏感性CI[0,0]不表示未知对的真实差已知为零。离线重新判定不增加物理仿真条数，原源码和 raw 不修改。

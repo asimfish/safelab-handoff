@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T15:25:11.494266+00:00",
+  "updated_at": "2026-11-05T16:39:02Z",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -40504,23 +40504,23 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 32,
+      "completed": 73,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A复测中；签名API限流、CPU逐条核验",
-      "updated_at": "2026-11-05T15:25:11.494266+00:00",
+      "status": "仿真完成；完整日志归档与CPU核验尚未闭合",
+      "updated_at": "2026-11-05T16:39:02Z",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 1.90625,
+      "mean_phase": 1.9452054794520548,
       "phase_hist": {
-        "0": 12,
-        "1": 5,
-        "2": 6,
-        "3": 2,
+        "0": 24,
+        "1": 14,
+        "2": 14,
+        "3": 5,
         "4": 1,
-        "5": 3,
-        "6": 2,
+        "5": 10,
+        "6": 4,
         "7": 1
       },
       "wilson95": null,
@@ -40528,7 +40528,7 @@
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 32,
+          "trials": 73,
           "success": 0,
           "unknown": 0
         }
@@ -40536,13 +40536,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 19,
+          "trials": 38,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 13,
+          "trials": 35,
           "success": 0,
           "unknown": 0
         }
@@ -40560,7 +40560,7 @@
         "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
       },
       "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
-      "pending_reason": "阶段A执行中；执行链原生120Hz实测轨迹准入仍待原文件，不以指令目标RMSE冒充",
+      "pending_reason": "归档曾因上传签名429未闭合；最新单次上传签名200，管理员提额和持续容量仍待确认。源容器已结束，缺日志条目不推断失败。原生120Hz实测执行链准入仍待原文件。",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
       "preprocessing_cohort": "rawRGB_trainresize_v2",
@@ -40573,7 +40573,11 @@
         "media_may_remain_pending": true,
         "report": "reports/task10-tensor-input-audit-20261105.json"
       },
-      "active_job_id": "job-do640r3la6wp"
+      "active_job_id": null,
+      "last_job_id": "job-do640r3la6wp",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 27
     },
     {
       "record": "10-mem0",
@@ -40639,22 +40643,23 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 39,
+      "completed": 74,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A复测中；签名API限流、CPU逐条核验",
-      "updated_at": "2026-11-05T15:25:11.494266+00:00",
+      "status": "仿真完成；完整日志归档与CPU核验尚未闭合",
+      "updated_at": "2026-11-05T16:39:02Z",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 1.8974358974358974,
+      "mean_phase": 1.8918918918918919,
       "phase_hist": {
-        "0": 13,
-        "1": 8,
-        "2": 9,
+        "0": 23,
+        "1": 20,
+        "2": 11,
+        "3": 4,
         "4": 2,
-        "5": 4,
-        "6": 2,
+        "5": 8,
+        "6": 5,
         "8": 1
       },
       "wilson95": null,
@@ -40662,7 +40667,7 @@
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 39,
+          "trials": 74,
           "success": 0,
           "unknown": 0
         }
@@ -40670,13 +40675,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 22,
+          "trials": 34,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 17,
+          "trials": 40,
           "success": 0,
           "unknown": 0
         }
@@ -40694,7 +40699,7 @@
         "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
       },
       "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
-      "pending_reason": "阶段A执行中；执行链原生120Hz实测轨迹准入仍待原文件，不以指令目标RMSE冒充",
+      "pending_reason": "归档曾因上传签名429未闭合；最新单次上传签名200，管理员提额和持续容量仍待确认。源容器已结束，缺日志条目不推断失败。原生120Hz实测执行链准入仍待原文件。",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
       "preprocessing_cohort": "rawRGB_trainresize_v2",
@@ -40707,7 +40712,11 @@
         "media_may_remain_pending": true,
         "report": "reports/task10-tensor-input-audit-20261105.json"
       },
-      "active_job_id": "job-do640r3la6wp"
+      "active_job_id": null,
+      "last_job_id": "job-do640r3la6wp",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 26
     },
     {
       "record": "10-mem0-weak",
@@ -40765,20 +40774,20 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 36,
+      "completed": 55,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A复测中；签名API限流、CPU逐条核验",
-      "updated_at": "2026-11-05T15:25:11.494266+00:00",
+      "status": "仿真完成；完整日志归档与CPU核验尚未闭合",
+      "updated_at": "2026-11-05T16:39:02Z",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 1.1388888888888888,
+      "mean_phase": 1.1818181818181819,
       "phase_hist": {
-        "0": 11,
-        "1": 13,
-        "2": 9,
-        "3": 2,
+        "0": 17,
+        "1": 19,
+        "2": 12,
+        "3": 6,
         "4": 1
       },
       "wilson95": null,
@@ -40786,7 +40795,7 @@
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 36,
+          "trials": 55,
           "success": 0,
           "unknown": 0
         }
@@ -40794,13 +40803,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 20,
+          "trials": 27,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 16,
+          "trials": 28,
           "success": 0,
           "unknown": 0
         }
@@ -40818,7 +40827,7 @@
         "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
       },
       "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
-      "pending_reason": "原4卡作业SIGBUS(-7)后FAILED；保留23条原始日志核验结果，剩余177条同seed新意图续跑已提交，等待平台job ID。",
+      "pending_reason": "归档曾因上传签名429未闭合；最新单次上传签名200，管理员提额和持续容量仍待确认。源容器已结束，缺日志条目不推断失败。原生120Hz实测执行链准入仍待原文件。",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h4",
       "preprocessing_cohort": "rawRGB_trainresize_v2",
@@ -40831,7 +40840,11 @@
         "media_may_remain_pending": true,
         "report": "reports/task10-tensor-input-audit-20261105.json"
       },
-      "active_job_id": "job-s45xya1hy7s8"
+      "active_job_id": null,
+      "last_job_id": "job-s45xya1hy7s8",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 45
     },
     {
       "record": "10-mem0-weak",
@@ -40889,28 +40902,28 @@
       "success": null,
       "trials": 100,
       "target": 100,
-      "completed": 39,
+      "completed": 62,
       "unknown": 0,
       "kind": "自主闭环",
-      "status": "阶段A复测中；签名API限流、CPU逐条核验",
-      "updated_at": "2026-11-05T15:25:11.494266+00:00",
+      "status": "仿真完成；完整日志归档与CPU核验尚未闭合",
+      "updated_at": "2026-11-05T16:39:02Z",
       "source": "reports/task10-tensor-input-audit-20261105.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-tensor-input-audit-20261105.html",
       "formal_score_eligible": false,
-      "mean_phase": 1.2564102564102564,
+      "mean_phase": 1.3064516129032258,
       "phase_hist": {
-        "0": 14,
-        "1": 12,
-        "2": 6,
-        "3": 3,
-        "4": 4
+        "0": 20,
+        "1": 20,
+        "2": 10,
+        "3": 7,
+        "4": 5
       },
       "wilson95": null,
       "seed_results": [
         {
           "seed": 0,
           "inference_seed": 910100,
-          "trials": 39,
+          "trials": 62,
           "success": 0,
           "unknown": 0
         }
@@ -40918,13 +40931,13 @@
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 17,
+          "trials": 30,
           "success": 0,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 22,
+          "trials": 32,
           "success": 0,
           "unknown": 0
         }
@@ -40942,7 +40955,7 @@
         "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
       },
       "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
-      "pending_reason": "原4卡作业SIGBUS(-7)后FAILED；保留23条原始日志核验结果，剩余177条同seed新意图续跑已提交，等待平台job ID。",
+      "pending_reason": "归档曾因上传签名429未闭合；最新单次上传签名200，管理员提额和持续容量仍待确认。源容器已结束，缺日志条目不推断失败。原生120Hz实测执行链准入仍待原文件。",
       "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
       "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h8",
       "preprocessing_cohort": "rawRGB_trainresize_v2",
@@ -40955,7 +40968,11 @@
         "media_may_remain_pending": true,
         "report": "reports/task10-tensor-input-audit-20261105.json"
       },
-      "active_job_id": "job-s45xya1hy7s8"
+      "active_job_id": null,
+      "last_job_id": "job-s45xya1hy7s8",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 38
     }
   ],
   "agents": [

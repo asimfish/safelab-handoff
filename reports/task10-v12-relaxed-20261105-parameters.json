@@ -1,0 +1,66 @@
+{
+  "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+  "task": "10",
+  "phase_count": 10,
+  "placement": {
+    "xy_tolerance_m": 0.05,
+    "upright_cos_min": 0.9,
+    "height_fallback_m": 0.01,
+    "debounce_ticks_120hz": 12,
+    "no_velocity_threshold": true,
+    "no_robot_contact": true,
+    "no_attachment": true,
+    "support_contact_or_height_fallback": true
+  },
+  "sequence": {
+    "ordered_stages": true,
+    "initially_on_target_is_not_completion": true,
+    "same_pickup_lift_guard_as_v11": true
+  },
+  "task_success": {
+    "all_ordered_stages_completed": true,
+    "require_terminal_all_placed_invariant": false,
+    "success_is_sticky_after_all_stages": true
+  },
+  "nonplacement": {
+    "interpretation": "double allowed error/shortfall, halve existing duration gates; never halve required fraction",
+    "reference_received_fraction_min": 0.9,
+    "reference_spill_fraction_max": 0.04,
+    "reference_carry_seconds": 1.5,
+    "reference_pour_seconds": 1.0,
+    "task10_applicable_extra_numeric_or_duration_thresholds": [],
+    "task10_new_numeric_thresholds": []
+  },
+  "early_termination": {
+    "topple_angle_degrees": 60,
+    "topple_up_cos_min": 0.5,
+    "scope": "all five objects; unchanged historical early stop",
+    "fall_below_table_m": 0.1,
+    "unobserved_future_after_original_early_stop": "never extrapolate",
+    "after_all_stages": "record but do not revoke task success"
+  },
+  "fall_after_place": {
+    "count": "unique objects whose own final pad-restoration stage completed and which later exceed60degree tilt or fall below original floor",
+    "double_count_same_object": false,
+    "revoke_completed_stage_or_task_success": false,
+    "before_all_stages": "original all-object early-stop truncation remains; no invented continuation"
+  },
+  "unknown": {
+    "missing_or_incomplete_raw_log": true,
+    "retain_in_full_denominator": true,
+    "phase_hist_excludes_unknown": true
+  },
+  "metrics": {
+    "sr_at_least_k": [
+      1,
+      5,
+      9,
+      10
+    ],
+    "Wilson_95": "publish full-denominator intervals plus valid-only intervals explicitly",
+    "paired": "same scene_id and inference seed, per preprocessing cohort and condition; bootstrap10000 seed20261105"
+  },
+  "base_oracle_sha256": "8958b6480fd785495296704a7b3c75f5c12cb134009cd5d55690077ec4225679",
+  "frozen_before_rescore": true,
+  "frozen_utc": "2026-11-05T17:00:36Z"
+}

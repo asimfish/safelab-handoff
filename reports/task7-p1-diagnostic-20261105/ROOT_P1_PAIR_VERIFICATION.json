@@ -1,0 +1,65 @@
+{
+  "schema": "task7_P1_reconciled_instruction_CPU_verification.v1",
+  "epoch": 1793911939.4096293,
+  "status": "Existing completed scientific experiment independently verified; no duplicate jobs required",
+  "source_final": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/low_sr_diagnostic_traininit_p1_v1/p1_mem0_policy100_cpu_v1/FINAL_P1_POLICY100_DIAGNOSTIC.json",
+    "sha256": "466e62ac73cb778153e4c0d720e6e9df23a625f7feef7019fef7b725fd2747b8"
+  },
+  "small_closure_full_SHA_verified": 100,
+  "source_raw_reread_in_this_audit": false,
+  "case_id_seed_scene_pairing_verified": 100,
+  "orders": {
+    "1234": 50,
+    "4321": 50
+  },
+  "paired_file": {
+    "file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/low_sr_diagnostic_traininit_p1_v1/p1_instruction_reconcile_20261105/PAIRED100.json",
+    "sha256": "d4ea43d198b52bd9af1c63a9cc8e03b7e9a855633932f288323365c71e081328"
+  },
+  "original_oracle": "placement-v1.1 for both P1 and K; not mixed with relaxed v1.2",
+  "P1": {
+    "n": 100,
+    "success": 4,
+    "mean_phase": 2.6,
+    "mean_phase_CI95": [
+      2.22,
+      3.01
+    ],
+    "unknown": 0
+  },
+  "K": {
+    "n": 100,
+    "success": 5,
+    "mean_phase": 2.38,
+    "mean_phase_CI95": [
+      2.01,
+      2.77
+    ],
+    "unknown": 0
+  },
+  "P1_minus_K": {
+    "phase_difference": 0.22,
+    "phase_CI95": [
+      -0.32,
+      0.76
+    ],
+    "SR_difference": -0.01,
+    "SR_CI95": [
+      -0.07,
+      0.05
+    ]
+  },
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20261104,
+    "strata": "order 50+50; shared paired draws"
+  },
+  "actual_original_job_GPUs": 4,
+  "actual_original_k": 4,
+  "new_GPU_jobs": 0,
+  "new_Zenith_API_calls": 0,
+  "TTC_P1_condition_triggered": false,
+  "reason": "No demonstrated P1 improvement: success4vs5 and both paired intervals include0",
+  "expert_limit": "P1/native10/10 physical; q13RMSE0.008301848410079147 >0.005 retained; diagnostic only"
+}

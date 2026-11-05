@@ -46594,6 +46594,233 @@
         "report": "reports/task3-v12-admission-20261106.json",
         "sha256": "3d583e2e7321865033259671cefdf1fb29a07c1b49575d48db27a32cd8322092"
       }
+    },
+    {
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "ckpt": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "id": "task7-eval-v11-diagnostic-P1-linear8-mem0_30k-h8-20261105",
+      "handoff_issue": 39,
+      "variant": "mem0_30k",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "kind": "P1执行链诊断自主闭环",
+      "metric_role": "execution_chain_P1_diagnostic",
+      "condition": "original_contact_P1_linear8",
+      "condition_version": "original-v1-P1-linear8-arm7cap3p14-handFF0-v1",
+      "status": "completed",
+      "evaluation_started": true,
+      "completed": 100,
+      "trials": 100,
+      "target": 100,
+      "success": 4,
+      "failure": 96,
+      "unknown": 0,
+      "final_verified": true,
+      "scientific_closures_SHA_verified": 100,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "mean_phase": 2.6,
+      "phase_hist": {
+        "0": 13,
+        "1": 29,
+        "2": 14,
+        "3": 11,
+        "4": 11,
+        "5": 10,
+        "6": 8,
+        "7": 4
+      },
+      "phase_mean_denominator": 100,
+      "phase_mean_bootstrap95": [
+        2.22,
+        3.01
+      ],
+      "wilson95": {
+        "low": 0.01566330399154762,
+        "high": 0.0983707143588792,
+        "confidence": 0.95
+      },
+      "bootstrap": {
+        "replicates": 10000,
+        "seed": 20261104,
+        "strata": "order 50+50; shared paired draws"
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_master_seed": 739000,
+          "trials": 100,
+          "completed": 100,
+          "success": 4,
+          "failure": 96,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "order_meaning": "正序",
+          "trials": 50,
+          "success": 3,
+          "failure": 47,
+          "unknown": 0,
+          "mean_phase": 2.3,
+          "phase_n": 50
+        },
+        "right": {
+          "label": "order4321",
+          "order_meaning": "逆序",
+          "trials": 50,
+          "success": 1,
+          "failure": 49,
+          "unknown": 0,
+          "mean_phase": 2.9,
+          "phase_n": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "original_job_id": "job-txdf93hin5hn",
+        "original_job_count": 1,
+        "original_GPUs": 4,
+        "official_status": "SUCCEEDED",
+        "status_scope": "archived original completed job; no new job or live resource claim"
+      },
+      "execution_chain": {
+        "name": "P1",
+        "position_interpolation": "linear8",
+        "arm7_velocity_cap_rad_s": 3.14,
+        "hand6_feedforward_positive_zero": true,
+        "native_expert_successes": 10,
+        "native_reference_successes": 10,
+        "q13_RMSE_rad": 0.008301848410079147,
+        "q13_RMSE_limit_rad": 0.005,
+        "q13_RMSE_passed": false
+      },
+      "paired_baseline_evaluation_id": "task7-eval-v11-A-original-mem0_30k-h8",
+      "paired_P1_minus_K": {
+        "phase_difference": 0.22,
+        "phase_CI95": [
+          -0.32,
+          0.76
+        ],
+        "SR_difference": -0.01,
+        "SR_CI95": [
+          -0.07,
+          0.05
+        ]
+      },
+      "paired_n": 100,
+      "paired_baseline_mean_phase": 2.38,
+      "paired_baseline_oracle": "placement-v1.1",
+      "phase_funnel_reach_ge": {
+        "1": 87,
+        "2": 58,
+        "3": 44,
+        "4": 33,
+        "5": 22,
+        "6": 12,
+        "7": 4
+      },
+      "oracle_comparison": {
+        "placement": {
+          "success": 4,
+          "failure": 96,
+          "unknown": 0,
+          "censored": 0,
+          "complete_verdict_success_rate": 0.04
+        },
+        "strict": {
+          "success": 0,
+          "failure": 96,
+          "unknown": 4,
+          "censored": 4,
+          "complete_verdict_success_rate": null,
+          "source_observed_phase_hist_including_censored": {
+            "0": 13,
+            "1": 29,
+            "2": 14,
+            "3": 11,
+            "4": 11,
+            "5": 10,
+            "6": 12
+          }
+        },
+        "strict_fdvel": {
+          "success": 0,
+          "failure": 96,
+          "unknown": 4,
+          "censored": 4,
+          "complete_verdict_success_rate": null,
+          "source_observed_phase_hist_including_censored": {
+            "0": 13,
+            "1": 29,
+            "2": 14,
+            "3": 11,
+            "4": 11,
+            "5": 10,
+            "6": 12
+          }
+        }
+      },
+      "sensitivity": {
+        "ever_infrastructure_unknown_cases": 4,
+        "ever_unknown_as_failure_success": 4,
+        "denominator": 100,
+        "final_infrastructure_unknown": 0
+      },
+      "report_url": "reports/task7-p1-diagnostic-20261105/index.html",
+      "source": "reports/task7-p1-diagnostic-20261105/FINAL_P1_POLICY100_DIAGNOSTIC.json",
+      "evidence_sha256": "466e62ac73cb778153e4c0d720e6e9df23a625f7feef7019fef7b725fd2747b8",
+      "root_verification": {
+        "file": "reports/task7-p1-diagnostic-20261105/ROOT_P1_PAIR_VERIFICATION.json",
+        "bytes": 1986,
+        "sha256": "15867cabd04356d9381e0051c9abb02cc019f13f1922f2ceec3628944cd7cbd9",
+        "original_file": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/low_sr_diagnostic_traininit_p1_v1/p1_instruction_reconcile_20261105/ROOT_P1_PAIR_VERIFICATION.json"
+      },
+      "TTC_P1_condition_triggered": false,
+      "new_GPU_jobs": 0,
+      "source_raw_reread_in_this_audit": false,
+      "main_paper_rows_changed": false,
+      "updated_at": "2026-11-05T20:59:20.387726+00:00"
     }
   ],
   "agents": [

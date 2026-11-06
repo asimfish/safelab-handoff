@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Import SHA-pinned task5 producer evidence; never infer missing measurements."""
-import argparse, gzip, hashlib, json, pathlib, tarfile, urllib.parse
+import argparse, datetime, gzip, hashlib, json, pathlib, tarfile, urllib.parse
 SHA = {'TASK5_MEDIA_MANIFEST_v2_1.json':'d08cfcd4278faa91f46f4207ccb1785692513de038aa963c62033e39461c1793','TASK5_SCENE_INDEX_TO_ID_v2.json':'eb105bb6737c34bbad7d9c0c4f42ec50b5d9d0dd016d78b020350a5f486a7635','TASK5_MEDIA_METADATA_v2_1.tar.gz':'189ccd2db48c4de8dc301376ae0257c4162692091cc0abfa891a48cd88305322'}
 BASE='https://asimfish.github.io/safelab-handoff/'
 def digest(b): return hashlib.sha256(b).hexdigest()
@@ -12,6 +12,7 @@ def run(root, inputs):
         raise ValueError('v2.1 already imported; refusing to overwrite migration originals')
     for name,sha in SHA.items():
         b=(inputs/name).read_bytes(); assert len(b)<15000000 and digest(b)==sha,name; blobs[name]=b
+    now=datetime.datetime.now(datetime.timezone.utc).isoformat()
     source=json.loads(blobs['TASK5_MEDIA_MANIFEST_v2_1.json']); cases={c['case_id']:c for c in source['cases']}; members={}
     with tarfile.open(inputs/'TASK5_MEDIA_METADATA_v2_1.tar.gz') as tar:
         assert len(tar.getmembers())<200 and sum(m.size for m in tar.getmembers())<10000000
@@ -24,7 +25,7 @@ def run(root, inputs):
     assert members['TASK5_SCENE_INDEX_TO_ID_v2.json']==blobs['TASK5_SCENE_INDEX_TO_ID_v2.json']
     report={'source_sha256':SHA,'scope':'diagnostic strict declared-scene/seed/recorded-optics pairing; not bitwise initial-state equality or formal-score promotion','cases':[]}
     for manifest in manifests:
-        doc=json.loads(manifest.read_bytes())
+        doc=json.loads(manifest.read_bytes());doc.update(updated_at=now,metadata_source_updated_at=source['updated_at'])
         for c in doc['cases']:
             s=cases[c['case_id']]
             c['metadata_v21_source_sha256']=SHA['TASK5_MEDIA_MANIFEST_v2_1.json']
@@ -77,9 +78,10 @@ def run(root, inputs):
             c['frame_log'].update(sha256=digest(wire),bytes=len(wire),decoded_sha256=digest(decoded),decoded_bytes=len(decoded))
             report['cases'].append({'case_id':c['case_id'],'scene_index':c['scene_index'],'method':c['method'],'horizon':c['horizon'],'switch_records':len(raw['switch']['records']),'switches':sum(bool((r.get('raw_completion_trace') or {}).get('switched')) for r in raw['switch']['records']),'evidence':refs})
         manifest.write_bytes(packed(doc))
-    idx=root/'media/index.json';j=json.loads(idx.read_bytes())
+    idx=root/'media/index.json';j=json.loads(idx.read_bytes());j['updated_at']=now
     for ref in j['manifests']:
         path=root/urllib.parse.urlparse(ref['url']).path.removeprefix('/safelab-handoff/');ref['sha256']=digest(path.read_bytes())
+        if '/5/task5-t939-' in ref['url']:ref['updated_at']=now
     idx.write_bytes(packed(j))
     out=root/'all_task_videos/task5-metadata-v21-verification.json';out.write_bytes(packed(report));print(json.dumps({'verified_cases':len(report['cases']),'switches':sum(c['switches'] for c in report['cases'])}))
 if __name__=='__main__':

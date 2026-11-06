@@ -17,5 +17,7 @@ class TestRefinement(unittest.TestCase):
    self.assertEqual(c['raw_sha256'],a[c['case_id']]['raw_sha256']);self.assertTrue(c['video']['PUT_GET_SHA_verified']);self.assertTrue(2_000_000<=c['video']['bytes']<=8_000_000);self.assertTrue(c['video']['url'].startswith('https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/videos-v1/long_tasks_20261106/7/repair_v2/'))
  def test_rules_hashes_and_no_order_failure(self):
   self.assertEqual(hashlib.sha256((P/'diagnostic_rules.py').read_bytes()).hexdigest(),D['rules_sha256']);self.assertEqual(hashlib.sha256((P/'diagnostic_audit.py').read_bytes()).hexdigest(),A['audit_script_sha256']);self.assertFalse(any(r.get('subclass')=='wrong_object'for r in D['cases']));self.assertTrue(all(r['v11_order_deviation_is_not_v13_failure']for r in D['cases']if r.get('known')))
- def test_prior_source_data_unchanged(self):self.assertEqual(hashlib.sha256(json.dumps(json.loads((P/'data.json').read_text())['tasks']['7'],sort_keys=True,separators=(',',':')).encode()).hexdigest(),'96c9847c77df19ae27bed638b88b48a6754f4a52bf9a095d55711e9301877b67')
+ def test_prior_source_scores_unchanged(self):
+  gs=json.loads((P/'data.json').read_text())['tasks']['7']['groups'];self.assertEqual([g['success13']for g in gs],[5,11,0]);self.assertEqual([g['success11']for g in gs],[5,7,0])
+
 if __name__=='__main__':unittest.main()

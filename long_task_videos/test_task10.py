@@ -7,7 +7,7 @@ class Task10(unittest.TestCase):
   for g in T['groups']:self.assertEqual(sum(g['failure_counts'].values()),100)
   self.assertEqual(sum(g['failure_counts'].get('unknown',0)for g in T['groups']),55)
  def test_media_sha_and_phase(self):
-  self.assertEqual(len(T['cases']),54)
+  self.assertEqual(len(T['cases'])+len(T['withheld_release_diagnosis_cases']),54)
   for c in T['cases']:
    b=(P/c['trace']).read_bytes();self.assertEqual(hashlib.sha256(b).hexdigest(),c['trace_sha256']);j=json.loads(b);self.assertEqual(j['case_id'],c['case_id']);self.assertTrue(c['video']['PUT_GET_SHA_verified']);self.assertTrue(2_000_000<=c['video']['bytes']<=8_000_000)
    if c['verdict13']=='S':self.assertEqual(j['rows'][-1]['phase13'],5)

@@ -3,7 +3,7 @@ from pathlib import Path
 W=Path(__file__).parent;P=W;D=json.loads((P/'data.json').read_text())
 class RepairRegression(unittest.TestCase):
  def test_version_and_frozen_oracle(self):
-  self.assertEqual(D.get('classification_status'),'corrected-v2');self.assertEqual(D.get('oracle_sha256'),'84da94e16d3290b869ef2f713dbdab96bc00169f682a33a4f0fa65502179080d')
+  self.assertEqual(D.get('classification_status'),'corrected-v3-contact-segment');self.assertEqual(D.get('oracle_sha256'),'84da94e16d3290b869ef2f713dbdab96bc00169f682a33a4f0fa65502179080d')
  def test_success_traces_reach_four(self):
   for c in D['tasks']['7']['cases']:
    b=(P/c['trace']).read_bytes();self.assertEqual(hashlib.sha256(b).hexdigest(),c['trace_sha256']);rows=json.loads(b)['rows'];self.assertTrue(rows)
@@ -16,7 +16,7 @@ class RepairRegression(unittest.TestCase):
   gs=D['tasks']['7']['groups'];self.assertEqual([g['failure_counts'].get('unknown',0)for g in gs],[0,1,14]);self.assertEqual([g['success13']for g in gs],[5,11,0])
   for g in gs:self.assertEqual(sum(g['failure_counts'].values()),100)
  def test_independent_release_audit(self):
-  a=json.loads((P/'independent-checks.json').read_text());self.assertTrue(a['passed']);counts=sum(g['failure_counts'].get('wrong_target',0)for g in D['tasks']['7']['groups']);self.assertEqual(a['wrong_release_sample_count'],min(20,counts))
+  a=json.loads((P/'independent-checks.json').read_text());self.assertTrue(a['passed']);counts=sum(g['failure_counts'].get('wrong_target',0)for g in D['tasks']['7']['groups']);self.assertEqual(a['wrong_release_sample_count'],20);self.assertEqual(counts,0);v3=json.loads((P/'release-segment-review.json').read_text());self.assertEqual(v3['counts']['7']['retained_wrong'],0)
   self.assertTrue(all(c['passed']for c in a['sample_checks']))
   for c in a['reported_case_regressions']:self.assertIsNot(c['first_progress_release_wrong'],True)
  def test_no_borrowed_media_or_old_overlay(self):

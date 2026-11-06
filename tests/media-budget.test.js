@@ -33,3 +33,9 @@ test('manifest inspection enforces public media prefix and reports legacy migrat
  write('safelab-public/media-v1/');assert.equal(B.inspect(root,[manifest]).legacy_public_media_references,1);
  write('forbidden/');assert.throws(()=>B.inspect(root,[manifest]),/Public media path/);
 }));
+
+test('one-release plain compatibility copy must be the exact decoded gzip case',()=>setup(root=>{
+ const oldName='media/frame_logs/10/run/case.json',newName=oldName+'.gz',old=log(root,oldName),current=log(root,newName),manifest='media/manifests/10/run.json';
+ const write=previous=>fs.writeFileSync(path.join(root,manifest),JSON.stringify({cases:[{case_id:'case',frame_log:current,frame_log_previous:previous}]}));write(old);assert.equal(B.inspect(root,[oldName,newName,manifest]).frame_logs,2);
+ fs.writeFileSync(path.join(root,oldName),JSON.stringify({schema_version:'safelab-frame-log-v1',case_id:'case',rows:[row(0,0)]}));const b=fs.readFileSync(path.join(root,oldName));write({...old,bytes:b.length,sha256:hash(b)});assert.throws(()=>B.inspect(root,[oldName,newName,manifest]),/byte-identical/);
+}));

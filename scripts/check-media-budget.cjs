@@ -61,7 +61,9 @@ function inspect(root,files,limits=LIMITS){
   const manifest=JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));if(!Array.isArray(manifest.cases))throw Error('Missing manifest cases');report.manifests++;
   for(const item of manifest.cases){
    for(const asset of Object.values(item.videos||{})){if(!asset)continue;const policy=publicMediaURL(asset.url,item.task,asset.publication_prefix_alias);report.public_media_references++;if(policy.legacy)report.legacy_public_media_references++;}
-   if(!item.frame_log)continue;const target=localLogPath(item.frame_log.url);if(!tracked.has(target)||!frames.has(target))throw Error('Frame log is not a tracked local asset');const entry=frames.get(target);validateAsset(item.frame_log,entry);if(entry.log.case_id!==item.case_id)throw Error('Frame-log case binding mismatch');used.add(target);}
+   if(!item.frame_log)continue;const target=localLogPath(item.frame_log.url);if(!tracked.has(target)||!frames.has(target))throw Error('Frame log is not a tracked local asset');const entry=frames.get(target);validateAsset(item.frame_log,entry);if(entry.log.case_id!==item.case_id)throw Error('Frame-log case binding mismatch');used.add(target);
+   if(item.frame_log_previous){const previous=localLogPath(item.frame_log_previous.url);if(!tracked.has(previous)||!frames.has(previous))throw Error('Previous compatibility log must remain tracked');const old=frames.get(previous);validateAsset(item.frame_log_previous,old);if(!entry.gzip||old.gzip||old.log.case_id!==item.case_id||!entry.decoded.equals(old.decoded))throw Error('Compatibility log must be byte-identical plain predecessor of gzip');used.add(previous);}
+  }
  }
  for(const name of frames.keys())if(!used.has(name))throw Error('Unreferenced frame log: '+name);
  return report;

@@ -125,6 +125,7 @@
         },
         "horizon": {
           "enum": [
+            2,
             4,
             8,
             30
@@ -138,7 +139,9 @@
             "SafeLab-Eval-v1.2-relaxed",
             "SafeLab-Eval-v1.3",
             "SafeLab-Eval-v1.4",
-            "SafeLab-Eval-v1.4-A"
+            "SafeLab-Eval-v1.4-A",
+            "SafeLab-Eval-v1.4-B",
+            "SafeLab-Eval-v1.4-r1"
           ]
         },
         "evaluation_id": {
@@ -315,6 +318,32 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 160
+        },
+        "variant": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "grasp_attachment": {
+          "type": [
+            "string",
+            "boolean",
+            "null"
+          ],
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "scene_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000,
+          "description": "Canonical main-scene index from reviewed producer mapping; never inferred from a repeat number."
         }
       },
       "allOf": [
@@ -490,7 +519,9 @@
               "protocol_version": {
                 "enum": [
                   "SafeLab-Eval-v1.4",
-                  "SafeLab-Eval-v1.4-A"
+                  "SafeLab-Eval-v1.4-A",
+                  "SafeLab-Eval-v1.4-B",
+                  "SafeLab-Eval-v1.4-r1"
                 ]
               }
             }

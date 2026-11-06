@@ -22,3 +22,7 @@ test('fixed-scene default selects at most one config per method and never bypass
 test('attachment version is read from attachment context, not the baseline original-v1 prefix',()=>{assert.match(P.title({...base,condition_version:'original-v1-attach-v6'}),/辅助附着 v6/);assert.match(P.title({...base,condition_version:'SafeLab-Eval-v1.4-B-attach-v6'}),/辅助附着 v6/);});
 
 test('published native latched-grasp variants are auxiliary even without a redundant assisted boolean',()=>{const c={...base,horizon:2,protocol_version:'SafeLab-Eval-v1.1',grasp_attachment:'latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt',condition_version:'latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt',variant:'stable30-h2'};const g=P.rows([c],[],'3')[0];assert.equal(g.assisted,true);assert.match(g.title,/辅助附着 v6/);assert.doesNotMatch(g.title,/时限扩展|v1 /);assert.equal(M.auxiliary({...c,grasp_attachment:'off'}),null);assert.equal(M.auxiliary({...c,grasp_attachment:false}),null);});
+
+test('source declares pending grading even when all currently reported traces are closed',()=>{assert.equal(P.metricCell({...base,success:null,status:'进行中：仅显示已核验进度，成功率未定稿'}),'评测中 100/100');});
+
+test('an explicit prelift attachment field retains its declared version even without a grasp prefix',()=>{assert.match(P.title({...base,grasp_attachment:'prelift_settled_contact8_native32_v8_actualopen3mrad_targetonlystop_assisted'}),/辅助附着 v8/);});

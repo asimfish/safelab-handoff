@@ -54089,6 +54089,1269 @@
       "source_raw_reread_in_this_audit": false,
       "main_paper_rows_changed": false,
       "updated_at": "2026-11-05T20:59:20.387726+00:00"
+    },
+    {
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "source_original_stopping_extended": false,
+      "updated_at": "2026-11-06T10:18:34.043850+00:00",
+      "source": "reports/task7-v13-contact-20261106/FIRST_FOUR_PROTOCOL_TABLE.json",
+      "report_url": "reports/task7-v13-contact-20261106/index.html",
+      "evidence_sha256": "a349607497400c01503ad818fd153fd002b05ddc8b9b209860f92c4c7c10d46d",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "status": "completed N1×4 independent physical processes; serial private Policy lanes",
+        "actual_Apps": 0,
+        "current_GPUs": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "execution_chain": {
+        "name": "K-cubic",
+        "position_kernel_sha256": "d997bd8f58897f7ce6d0f8d4cea62eb9c5c014f60ef132189979c4f85e4db83d",
+        "historical_q13_RMSE_rad": 0.007269026025248203,
+        "historical_q13_RMSE_limit_rad": 0.005,
+        "historical_RMSE_passed": false,
+        "current_acceptance": "latest_user_physical_endpoint_successes_ge_native_minus1",
+        "native_successes": 10,
+        "endpoint_successes": 9
+      },
+      "source_admission_retained_at": "task7-eval-v11-A-original-mem0_30k-h8",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 5,
+      "failure": 95,
+      "unknown": 0,
+      "mean_phase": 1.5,
+      "phase_hist": {
+        "0": 8,
+        "1": 59,
+        "2": 13,
+        "3": 15,
+        "4": 5
+      },
+      "phase_mean_denominator": 100,
+      "phase_mean_bootstrap95": [
+        1.3,
+        1.7
+      ],
+      "wilson95": {
+        "low": 0.02154367915436796,
+        "high": 0.11175046923191913,
+        "confidence": 0.95
+      },
+      "success_rate": 0.05,
+      "success_rate_identification_bounds": [
+        0.05,
+        0.05
+      ],
+      "confirmed_success_fraction_full_n": 0.05,
+      "wilson_metric_role": "confirmed-success-indicator on complete planned denominator; unknown is not failure",
+      "sr_at_k": {
+        "1": {
+          "S": 92,
+          "F": 8,
+          "U": 0,
+          "confirmed_fraction": 0.92,
+          "identification_bounds": [
+            0.92,
+            0.92
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.8500189229905127,
+            0.9589065385156194
+          ]
+        },
+        "2": {
+          "S": 33,
+          "F": 67,
+          "U": 0,
+          "confirmed_fraction": 0.33,
+          "identification_bounds": [
+            0.33,
+            0.33
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.24563122734128034,
+            0.4269465620490947
+          ]
+        },
+        "3": {
+          "S": 20,
+          "F": 80,
+          "U": 0,
+          "confirmed_fraction": 0.2,
+          "identification_bounds": [
+            0.2,
+            0.2
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.1333669333310325,
+            0.2888291655931589
+          ]
+        },
+        "4": {
+          "S": 5,
+          "F": 95,
+          "U": 0,
+          "confirmed_fraction": 0.05,
+          "identification_bounds": [
+            0.05,
+            0.05
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.02154367915436796,
+            0.11175046923191913
+          ]
+        }
+      },
+      "half_task": {
+        "S": 33,
+        "F": 67,
+        "U": 0,
+        "confirmed_fraction": 0.33
+      },
+      "half_task_k": 2,
+      "total_stages": 4,
+      "phase_unit": "distinct cups on pan",
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 50,
+          "success": 3,
+          "failure": 47,
+          "unknown": 0
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 50,
+          "success": 2,
+          "failure": 48,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 5,
+          "failure": 95,
+          "unknown": 0
+        }
+      ],
+      "id": "task7-rescore-v13-measured-support-mem0_30k_h8-20261106",
+      "source_evaluation_id": "task7-eval-v11-A-original-mem0_30k-h8",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient-measured-support",
+      "metric_role": "offline_rescore_v1_3_lenient",
+      "kind": "CPU离线重算 · 用户确认实测支撑接触",
+      "protocol": "v1.3 counts4 distinct cups ever supported by the weighing pan, unordered, no pad-start credit or terminal revalidation. Original ordered7-stage protocols stay separate. User confirmed measured target-support contact; height alone gives no credit. Original60deg/time-limit truncation retained. Same parameters for every method. Full expected denominator includes unknown. Diagnostic publication, not v1.1 StageA coverage.",
+      "qualification": {
+        "passed": true,
+        "scope": "v1.3 oracle component only; original inference/admission limits unchanged",
+        "report": "reports/task7-v13-contact-20261106/VALIDATION.json",
+        "expert_paths": 10,
+        "expert_distinct_raw_sha": 3,
+        "negative_windows": 15,
+        "all_negative_windows_rejected": true,
+        "manual_video_review_newly_completed": false
+      },
+      "oracle_source": {
+        "file": "reports/task7-v13-contact-20261106/oracle_v13.py",
+        "sha256": "84da94e16d3290b869ef2f713dbdab96bc00169f682a33a4f0fa65502179080d"
+      },
+      "oracle_parameters": {
+        "file": "reports/task7-v13-contact-20261106/FROZEN_PARAMETERS.json",
+        "sha256": "8d643fb486fd3ee8fad9198efea99a251eb790df9d1f489dc581f1ab743ce255"
+      },
+      "source_trace_verification": {
+        "full_raw_SHA_verified": true,
+        "available_policy_traces": 385,
+        "new_runtime_generated": false
+      },
+      "unknown_reasons": {
+        "missing_original_full_raw_trace": 0
+      }
+    },
+    {
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "source_original_stopping_extended": false,
+      "updated_at": "2026-11-06T10:18:34.043850+00:00",
+      "source": "reports/task7-v13-contact-20261106/FIRST_FOUR_PROTOCOL_TABLE.json",
+      "report_url": "reports/task7-v13-contact-20261106/index.html",
+      "evidence_sha256": "a349607497400c01503ad818fd153fd002b05ddc8b9b209860f92c4c7c10d46d",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000",
+        "status": "completed N1×4 independent physical processes; serial private Policy lanes",
+        "actual_Apps": 0,
+        "current_GPUs": 0
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "scene_list_url": "reports/task7-eval-v1-20261103/scenes.json",
+      "condition": "original_contact",
+      "condition_version": "original-v1",
+      "actual_world_origin": [
+        0,
+        0,
+        0
+      ],
+      "position_jitter_m": 0,
+      "execution_chain": {
+        "name": "K-cubic",
+        "position_kernel_sha256": "d997bd8f58897f7ce6d0f8d4cea62eb9c5c014f60ef132189979c4f85e4db83d",
+        "historical_q13_RMSE_rad": 0.007269026025248203,
+        "historical_q13_RMSE_limit_rad": 0.005,
+        "historical_RMSE_passed": false,
+        "current_acceptance": "latest_user_physical_endpoint_successes_ge_native_minus1",
+        "native_successes": 10,
+        "endpoint_successes": 9
+      },
+      "source_admission_retained_at": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 11,
+      "failure": 88,
+      "unknown": 1,
+      "mean_phase": 1.8181818181818181,
+      "phase_hist": {
+        "0": 6,
+        "1": 48,
+        "2": 14,
+        "3": 20,
+        "4": 11
+      },
+      "phase_mean_denominator": 99,
+      "phase_mean_bootstrap95": [
+        1.6161616161616161,
+        2.0303030303030303
+      ],
+      "wilson95": {
+        "low": 0.06254196357064568,
+        "high": 0.18631296503080313,
+        "confidence": 0.95
+      },
+      "success_rate": null,
+      "success_rate_identification_bounds": [
+        0.11,
+        0.12
+      ],
+      "confirmed_success_fraction_full_n": 0.11,
+      "wilson_metric_role": "confirmed-success-indicator on complete planned denominator; unknown is not failure",
+      "sr_at_k": {
+        "1": {
+          "S": 93,
+          "F": 6,
+          "U": 1,
+          "confirmed_fraction": 0.93,
+          "identification_bounds": [
+            0.93,
+            0.94
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.8625048526092651,
+            0.9656807389327273
+          ]
+        },
+        "2": {
+          "S": 45,
+          "F": 54,
+          "U": 1,
+          "confirmed_fraction": 0.45,
+          "identification_bounds": [
+            0.45,
+            0.46
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.3561453797951198,
+            0.5475539700255787
+          ]
+        },
+        "3": {
+          "S": 31,
+          "F": 68,
+          "U": 1,
+          "confirmed_fraction": 0.31,
+          "identification_bounds": [
+            0.31,
+            0.32
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.22779697212376038,
+            0.40626055719489407
+          ]
+        },
+        "4": {
+          "S": 11,
+          "F": 88,
+          "U": 1,
+          "confirmed_fraction": 0.11,
+          "identification_bounds": [
+            0.11,
+            0.12
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.06254196357064568,
+            0.18631296503080313
+          ]
+        }
+      },
+      "half_task": {
+        "S": 45,
+        "F": 54,
+        "U": 1,
+        "confirmed_fraction": 0.45
+      },
+      "half_task_k": 2,
+      "total_stages": 4,
+      "phase_unit": "distinct cups on pan",
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 50,
+          "success": 3,
+          "failure": 47,
+          "unknown": 0
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 50,
+          "success": 8,
+          "failure": 41,
+          "unknown": 1
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 11,
+          "failure": 88,
+          "unknown": 1
+        }
+      ],
+      "id": "task7-rescore-v13-measured-support-ours_aligned_30k_h8-20261106",
+      "source_evaluation_id": "task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient-measured-support",
+      "metric_role": "offline_rescore_v1_3_lenient",
+      "kind": "CPU离线重算 · 用户确认实测支撑接触",
+      "protocol": "v1.3 counts4 distinct cups ever supported by the weighing pan, unordered, no pad-start credit or terminal revalidation. Original ordered7-stage protocols stay separate. User confirmed measured target-support contact; height alone gives no credit. Original60deg/time-limit truncation retained. Same parameters for every method. Full expected denominator includes unknown. Diagnostic publication, not v1.1 StageA coverage.",
+      "qualification": {
+        "passed": true,
+        "scope": "v1.3 oracle component only; original inference/admission limits unchanged",
+        "report": "reports/task7-v13-contact-20261106/VALIDATION.json",
+        "expert_paths": 10,
+        "expert_distinct_raw_sha": 3,
+        "negative_windows": 15,
+        "all_negative_windows_rejected": true,
+        "manual_video_review_newly_completed": false
+      },
+      "oracle_source": {
+        "file": "reports/task7-v13-contact-20261106/oracle_v13.py",
+        "sha256": "84da94e16d3290b869ef2f713dbdab96bc00169f682a33a4f0fa65502179080d"
+      },
+      "oracle_parameters": {
+        "file": "reports/task7-v13-contact-20261106/FROZEN_PARAMETERS.json",
+        "sha256": "8d643fb486fd3ee8fad9198efea99a251eb790df9d1f489dc581f1ab743ce255"
+      },
+      "source_trace_verification": {
+        "full_raw_SHA_verified": true,
+        "available_policy_traces": 385,
+        "new_runtime_generated": false
+      },
+      "unknown_reasons": {
+        "missing_original_full_raw_trace": 1
+      }
+    },
+    {
+      "record": "7-pi05-issue24",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 4,
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "source_original_stopping_extended": false,
+      "updated_at": "2026-11-06T10:18:34.043850+00:00",
+      "source": "reports/task7-v13-contact-20261106/FIRST_FOUR_PROTOCOL_TABLE.json",
+      "report_url": "reports/task7-v13-contact-20261106/index.html",
+      "evidence_sha256": "a349607497400c01503ad818fd153fd002b05ddc8b9b209860f92c4c7c10d46d",
+      "condition": "original_contact",
+      "condition_version": "pi05-original-contact-archive",
+      "source_manifest_sha256": "b990f41c0dcf1c31b0ef751672e9ba0f539cb2e965963c48bc4f29181f7d30c2",
+      "scene_list_hash": null,
+      "scene_list_verification": "Canonical 100 episode ids and orders; full source manifest hash retained. Exact shared scene-list digest not asserted here.",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "scope": "source archived SDK contract; per-card density not requalified by CPU rescore"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI",
+        "mode": "bilinear",
+        "antialias": null,
+        "resize_with_pad": true,
+        "source": "pi0.5 source delivery; CPU scoring does not requalify inference"
+      },
+      "metadata_qualification": "diagnostic archive only; no copied Mem-0/TTC admission",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 0,
+      "failure": 100,
+      "unknown": 0,
+      "mean_phase": 0.03,
+      "phase_hist": {
+        "0": 97,
+        "1": 3
+      },
+      "phase_mean_denominator": 100,
+      "phase_mean_bootstrap95": [
+        0.0,
+        0.07
+      ],
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "success_rate": 0.0,
+      "success_rate_identification_bounds": [
+        0.0,
+        0.0
+      ],
+      "confirmed_success_fraction_full_n": 0.0,
+      "wilson_metric_role": "confirmed-success-indicator on complete planned denominator; unknown is not failure",
+      "sr_at_k": {
+        "1": {
+          "S": 3,
+          "F": 97,
+          "U": 0,
+          "confirmed_fraction": 0.03,
+          "identification_bounds": [
+            0.03,
+            0.03
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.010254524024038925,
+            0.0845193642905276
+          ]
+        },
+        "2": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "3": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "4": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "5": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "6": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "7": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "half_task": {
+        "S": 0,
+        "F": 100,
+        "U": 0,
+        "confirmed_fraction": 0.0
+      },
+      "half_task_k": 4,
+      "total_stages": 7,
+      "phase_unit": "ordered subtasks",
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "id": "task7-pi05-source-v11-h4-archive-20261106",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "metric_role": "archived_pi05_source_verdicts",
+      "kind": "原归档判定对照，非新增仿真",
+      "protocol": "Verified original 120Hz archive source verdicts, full expected100 denominator; missing14 h8 cases stay unknown. No new formal admission."
+    },
+    {
+      "record": "7-pi05-issue24",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 4,
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "source_original_stopping_extended": false,
+      "updated_at": "2026-11-06T10:18:34.043850+00:00",
+      "source": "reports/task7-v13-contact-20261106/FIRST_FOUR_PROTOCOL_TABLE.json",
+      "report_url": "reports/task7-v13-contact-20261106/index.html",
+      "evidence_sha256": "a349607497400c01503ad818fd153fd002b05ddc8b9b209860f92c4c7c10d46d",
+      "condition": "original_contact",
+      "condition_version": "pi05-original-contact-archive",
+      "source_manifest_sha256": "b990f41c0dcf1c31b0ef751672e9ba0f539cb2e965963c48bc4f29181f7d30c2",
+      "scene_list_hash": null,
+      "scene_list_verification": "Canonical 100 episode ids and orders; full source manifest hash retained. Exact shared scene-list digest not asserted here.",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "scope": "source archived SDK contract; per-card density not requalified by CPU rescore"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI",
+        "mode": "bilinear",
+        "antialias": null,
+        "resize_with_pad": true,
+        "source": "pi0.5 source delivery; CPU scoring does not requalify inference"
+      },
+      "metadata_qualification": "diagnostic archive only; no copied Mem-0/TTC admission",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 0,
+      "failure": 100,
+      "unknown": 0,
+      "mean_phase": 0.05,
+      "phase_hist": {
+        "0": 95,
+        "1": 5
+      },
+      "phase_mean_denominator": 100,
+      "phase_mean_bootstrap95": [
+        0.01,
+        0.1
+      ],
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "success_rate": 0.0,
+      "success_rate_identification_bounds": [
+        0.0,
+        0.0
+      ],
+      "confirmed_success_fraction_full_n": 0.0,
+      "wilson_metric_role": "confirmed-success-indicator on complete planned denominator; unknown is not failure",
+      "sr_at_k": {
+        "1": {
+          "S": 5,
+          "F": 95,
+          "U": 0,
+          "confirmed_fraction": 0.05,
+          "identification_bounds": [
+            0.05,
+            0.05
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.02154367915436796,
+            0.11175046923191913
+          ]
+        },
+        "2": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "3": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "4": {
+          "S": 0,
+          "F": 100,
+          "U": 0,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.0
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "half_task": {
+        "S": 0,
+        "F": 100,
+        "U": 0,
+        "confirmed_fraction": 0.0
+      },
+      "half_task_k": 2,
+      "total_stages": 4,
+      "phase_unit": "distinct cups on pan",
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 50,
+          "success": 0,
+          "failure": 50,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "id": "task7-rescore-v13-measured-support-pi05_40k_h4-20261106",
+      "source_evaluation_id": "task7-pi05-source-v11-h4-archive-20261106",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient-measured-support",
+      "metric_role": "offline_rescore_v1_3_lenient",
+      "kind": "CPU离线重算 · 用户确认实测支撑接触",
+      "protocol": "v1.3 counts4 distinct cups ever supported by the weighing pan, unordered, no pad-start credit or terminal revalidation. Original ordered7-stage protocols stay separate. User confirmed measured target-support contact; height alone gives no credit. Original60deg/time-limit truncation retained. Same parameters for every method. Full expected denominator includes unknown. Diagnostic publication, not v1.1 StageA coverage.",
+      "qualification": {
+        "passed": true,
+        "scope": "v1.3 oracle component only; original inference/admission limits unchanged",
+        "report": "reports/task7-v13-contact-20261106/VALIDATION.json",
+        "expert_paths": 10,
+        "expert_distinct_raw_sha": 3,
+        "negative_windows": 15,
+        "all_negative_windows_rejected": true,
+        "manual_video_review_newly_completed": false
+      },
+      "oracle_source": {
+        "file": "reports/task7-v13-contact-20261106/oracle_v13.py",
+        "sha256": "84da94e16d3290b869ef2f713dbdab96bc00169f682a33a4f0fa65502179080d"
+      },
+      "oracle_parameters": {
+        "file": "reports/task7-v13-contact-20261106/FROZEN_PARAMETERS.json",
+        "sha256": "8d643fb486fd3ee8fad9198efea99a251eb790df9d1f489dc581f1ab743ce255"
+      },
+      "source_trace_verification": {
+        "full_raw_SHA_verified": true,
+        "available_policy_traces": 385,
+        "new_runtime_generated": false
+      },
+      "unknown_reasons": {
+        "missing_original_full_raw_trace": 0
+      }
+    },
+    {
+      "record": "7-pi05-issue24",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "source_original_stopping_extended": false,
+      "updated_at": "2026-11-06T10:18:34.043850+00:00",
+      "source": "reports/task7-v13-contact-20261106/FIRST_FOUR_PROTOCOL_TABLE.json",
+      "report_url": "reports/task7-v13-contact-20261106/index.html",
+      "evidence_sha256": "a349607497400c01503ad818fd153fd002b05ddc8b9b209860f92c4c7c10d46d",
+      "condition": "original_contact",
+      "condition_version": "pi05-original-contact-archive",
+      "source_manifest_sha256": "b990f41c0dcf1c31b0ef751672e9ba0f539cb2e965963c48bc4f29181f7d30c2",
+      "scene_list_hash": null,
+      "scene_list_verification": "Canonical 100 episode ids and orders; full source manifest hash retained. Exact shared scene-list digest not asserted here.",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "scope": "source archived SDK contract; per-card density not requalified by CPU rescore"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI",
+        "mode": "bilinear",
+        "antialias": null,
+        "resize_with_pad": true,
+        "source": "pi0.5 source delivery; CPU scoring does not requalify inference"
+      },
+      "metadata_qualification": "diagnostic archive only; no copied Mem-0/TTC admission",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 0,
+      "failure": 86,
+      "unknown": 14,
+      "mean_phase": 0.45348837209302323,
+      "phase_hist": {
+        "0": 47,
+        "1": 39
+      },
+      "phase_mean_denominator": 86,
+      "phase_mean_bootstrap95": [
+        0.3488372093023256,
+        0.5581395348837209
+      ],
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "success_rate": null,
+      "success_rate_identification_bounds": [
+        0.0,
+        0.14
+      ],
+      "confirmed_success_fraction_full_n": 0.0,
+      "wilson_metric_role": "confirmed-success-indicator on complete planned denominator; unknown is not failure",
+      "sr_at_k": {
+        "1": {
+          "S": 39,
+          "F": 47,
+          "U": 14,
+          "confirmed_fraction": 0.39,
+          "identification_bounds": [
+            0.39,
+            0.53
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.3001687400639441,
+            0.4879698295415926
+          ]
+        },
+        "2": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "3": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "4": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "5": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "6": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "7": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "half_task": {
+        "S": 0,
+        "F": 86,
+        "U": 14,
+        "confirmed_fraction": 0.0
+      },
+      "half_task_k": 4,
+      "total_stages": 7,
+      "phase_unit": "ordered subtasks",
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 50,
+          "success": 0,
+          "failure": 46,
+          "unknown": 4
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 50,
+          "success": 0,
+          "failure": 40,
+          "unknown": 10
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "failure": 86,
+          "unknown": 14
+        }
+      ],
+      "id": "task7-pi05-source-v11-h8-archive-20261106",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "metric_role": "archived_pi05_source_verdicts",
+      "kind": "原归档判定对照，非新增仿真",
+      "protocol": "Verified original 120Hz archive source verdicts, full expected100 denominator; missing14 h8 cases stay unknown. No new formal admission."
+    },
+    {
+      "record": "7-pi05-issue24",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "pi0.5",
+      "checkpoint": 40000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "new_physical_trials": 0,
+      "new_model_calls": 0,
+      "source_original_stopping_extended": false,
+      "updated_at": "2026-11-06T10:18:34.043850+00:00",
+      "source": "reports/task7-v13-contact-20261106/FIRST_FOUR_PROTOCOL_TABLE.json",
+      "report_url": "reports/task7-v13-contact-20261106/index.html",
+      "evidence_sha256": "a349607497400c01503ad818fd153fd002b05ddc8b9b209860f92c4c7c10d46d",
+      "condition": "original_contact",
+      "condition_version": "pi05-original-contact-archive",
+      "source_manifest_sha256": "b990f41c0dcf1c31b0ef751672e9ba0f539cb2e965963c48bc4f29181f7d30c2",
+      "scene_list_hash": null,
+      "scene_list_verification": "Canonical 100 episode ids and orders; full source manifest hash retained. Exact shared scene-list digest not asserted here.",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "gpu_type": "Pro6000",
+        "scope": "source archived SDK contract; per-card density not requalified by CPU rescore"
+      },
+      "preprocess_resize": {
+        "implementation": "OpenPI",
+        "mode": "bilinear",
+        "antialias": null,
+        "resize_with_pad": true,
+        "source": "pi0.5 source delivery; CPU scoring does not requalify inference"
+      },
+      "metadata_qualification": "diagnostic archive only; no copied Mem-0/TTC admission",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 0,
+      "failure": 86,
+      "unknown": 14,
+      "mean_phase": 0.7325581395348837,
+      "phase_hist": {
+        "0": 24,
+        "1": 61,
+        "2": 1
+      },
+      "phase_mean_denominator": 86,
+      "phase_mean_bootstrap95": [
+        0.6395348837209303,
+        0.8255813953488372
+      ],
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "success_rate": null,
+      "success_rate_identification_bounds": [
+        0.0,
+        0.14
+      ],
+      "confirmed_success_fraction_full_n": 0.0,
+      "wilson_metric_role": "confirmed-success-indicator on complete planned denominator; unknown is not failure",
+      "sr_at_k": {
+        "1": {
+          "S": 62,
+          "F": 24,
+          "U": 14,
+          "confirmed_fraction": 0.62,
+          "identification_bounds": [
+            0.62,
+            0.76
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.5220975529551107,
+            0.7090240074752127
+          ]
+        },
+        "2": {
+          "S": 1,
+          "F": 85,
+          "U": 14,
+          "confirmed_fraction": 0.01,
+          "identification_bounds": [
+            0.01,
+            0.15
+          ],
+          "Wilson95_confirmed_fullN": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ]
+        },
+        "3": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "4": {
+          "S": 0,
+          "F": 86,
+          "U": 14,
+          "confirmed_fraction": 0.0,
+          "identification_bounds": [
+            0.0,
+            0.14
+          ],
+          "Wilson95_confirmed_fullN": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "half_task": {
+        "S": 1,
+        "F": 85,
+        "U": 14,
+        "confirmed_fraction": 0.01
+      },
+      "half_task_k": 2,
+      "total_stages": 4,
+      "phase_unit": "distinct cups on pan",
+      "lr_split": {
+        "left": {
+          "label": "order1234",
+          "trials": 50,
+          "success": 0,
+          "failure": 46,
+          "unknown": 4
+        },
+        "right": {
+          "label": "order4321",
+          "trials": 50,
+          "success": 0,
+          "failure": 40,
+          "unknown": 10
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "failure": 86,
+          "unknown": 14
+        }
+      ],
+      "id": "task7-rescore-v13-measured-support-pi05_40k_h8-20261106",
+      "source_evaluation_id": "task7-pi05-source-v11-h8-archive-20261106",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient-measured-support",
+      "metric_role": "offline_rescore_v1_3_lenient",
+      "kind": "CPU离线重算 · 用户确认实测支撑接触",
+      "protocol": "v1.3 counts4 distinct cups ever supported by the weighing pan, unordered, no pad-start credit or terminal revalidation. Original ordered7-stage protocols stay separate. User confirmed measured target-support contact; height alone gives no credit. Original60deg/time-limit truncation retained. Same parameters for every method. Full expected denominator includes unknown. Diagnostic publication, not v1.1 StageA coverage.",
+      "qualification": {
+        "passed": true,
+        "scope": "v1.3 oracle component only; original inference/admission limits unchanged",
+        "report": "reports/task7-v13-contact-20261106/VALIDATION.json",
+        "expert_paths": 10,
+        "expert_distinct_raw_sha": 3,
+        "negative_windows": 15,
+        "all_negative_windows_rejected": true,
+        "manual_video_review_newly_completed": false
+      },
+      "oracle_source": {
+        "file": "reports/task7-v13-contact-20261106/oracle_v13.py",
+        "sha256": "84da94e16d3290b869ef2f713dbdab96bc00169f682a33a4f0fa65502179080d"
+      },
+      "oracle_parameters": {
+        "file": "reports/task7-v13-contact-20261106/FROZEN_PARAMETERS.json",
+        "sha256": "8d643fb486fd3ee8fad9198efea99a251eb790df9d1f489dc581f1ab743ce255"
+      },
+      "source_trace_verification": {
+        "full_raw_SHA_verified": true,
+        "available_policy_traces": 385,
+        "new_runtime_generated": false
+      },
+      "unknown_reasons": {
+        "missing_original_full_raw_trace": 14
+      }
     }
   ],
   "agents": [

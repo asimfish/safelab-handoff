@@ -134,7 +134,11 @@
           "enum": [
             "SafeLab-Eval-v1",
             "SafeLab-Eval-v1.1",
-            "legacy"
+            "legacy",
+            "SafeLab-Eval-v1.2-relaxed",
+            "SafeLab-Eval-v1.3",
+            "SafeLab-Eval-v1.4",
+            "SafeLab-Eval-v1.4-A"
           ]
         },
         "evaluation_id": {
@@ -281,10 +285,36 @@
           }
         },
         "oracle_version": {
-          "enum": [
-            "strict-v1",
-            "placement-v1.1"
-          ]
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "frame_log_previous": {
+          "$ref": "#/$defs/frameLogAsset"
+        },
+        "time_limit_multiplier": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "timeout_multiplier": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "time_budget_multiplier": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "assisted": {
+          "type": "boolean"
+        },
+        "assistance_protocol": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
         }
       },
       "allOf": [
@@ -421,6 +451,54 @@
                 "const": "strict-v1"
               }
             }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "frame_log_previous"
+            ]
+          },
+          "then": {
+            "properties": {
+              "frame_log": {
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/frameLogAsset"
+                  },
+                  {
+                    "properties": {
+                      "encoding": {
+                        "const": "gzip"
+                      }
+                    },
+                    "required": [
+                      "encoding"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "protocol_version"
+            ],
+            "properties": {
+              "protocol_version": {
+                "enum": [
+                  "SafeLab-Eval-v1.4",
+                  "SafeLab-Eval-v1.4-A"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "oracle_version"
+            ]
           }
         }
       ]

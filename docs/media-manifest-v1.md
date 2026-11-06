@@ -119,3 +119,15 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 旧 `safelab-public/media-v1/` **只在已有素材迁移期间兼容**，不是新发布路径。CI输出 `legacy_public_media_references` 作为待迁移数；收尾后移除旧前缀。十任务/pi0.5迁移PR必须遵循复制→逐文件匿名GET及bytes/SHA核对→更新引用，保持case_id、evaluation_id、协议、stage、视频字节和时钟不变。原对象先保留，删除需用户批准。只改URL但没有完成复制和SHA核验的PR不合并。
 
 同源 `media/frame_logs/` 日志继续适用现有规则，本次不开放未经CORS验收的外部JSON；视频可播不证明JSON可fetch。播放器和完整schema/来源核验要求不变，CI白名单也不代替实际匿名读取和SHA证据。
+
+## 2026-11-06 gzip 容量迁移
+
+现有消费者已通过 `DecompressionStream('gzip')` 的双 SHA、2MB 有界解压和视频时钟验收。仅压缩原文件字节，不改 JSON 序列化、不抽稀、不更改事件或帧数。压缩身份使用 frame_log.bytes/sha256，解压身份使用 decoded_bytes/decoded_sha256（与迁移前原文件完全相同）。
+
+滚动发布保留 `frame_log_previous` 为原同源 identity 资产；CI 同时检查新旧文件、case_id 和解压内容逐字节相等，不能把兼容字段指向不相关日志。旧路径在启用 gzip 的已部署版本中继续可 GET，下一版本且至少跨过一次5分钟同步窗口后才移除；移除仅指 GitHub 的过期派生副本，源日志及已核对的归档不删除。迁移清单记录在 `media/migrations/`，压缩脚本复用意图必须先退出，不能重复改写。
+
+因为首版保留原路径，压缩副本会暂时增加快照，不得把预期节省计作现有余量。先用剩余预算上线第一批，再在后继版本释放该批旧派生副本、上线下一批；每个版本都检查全仓50MB上限。不改变 CORS、bucket ACL、视频路径、评分或配对身份。
+
+### 辅助协议展示
+
+`SafeLab-Eval-v1.4-A` 或显式 `assisted:true` / `assistance_protocol` / `time_limit_multiplier`、`timeout_multiplier`、`time_budget_multiplier` 大于1的配置，进入“辅助协议”分区。只读已声明的倍率，不能从录像时长推定倍率。协议/倍率进入配置和物理配对身份，不与同权重的纯物理行合并；v1.4只是重评分时仍按对应来源批次展示。新口径必须填写真实 oracle_version，不猜测或沿用v1.1；原v1.1/strict的oracle约束不变。各口径单列x/n，不拿宽松结果填正式列。辅助均值的阶段上限未发布时分母用“–”，不把杯数误当成子任务数。

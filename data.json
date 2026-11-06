@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T22:55:03.555506+00:00",
+  "updated_at": "2026-11-06T18:29:38Z",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -1868,6 +1868,46 @@
       "source": "reports/task10-original-audit-20261102.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
       "raw_runtime_source": "/project_a02012413/public/liyufeng/safelab_mem0_10weigh_eval_20261101/attach/five_seed/AGGREGATE_NATIVE_CLOSED.json"
+    },
+    {
+      "id": "5-pos-memoryvla-issue74",
+      "task": "5",
+      "dataset": "5-pos",
+      "method": "MemoryVLA",
+      "camera": "third_person",
+      "delivery": "issue #74 交付及h4/h8各100条已核验",
+      "weights": [
+        {
+          "step": 30000,
+          "path": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/memoryvla-safelab-inference-packages/20261105/five_1025_30k/",
+          "status": "评测完成",
+          "availability": "h4/h8各100，unknown0；详见报告，不表示通过网站全部准入门槛",
+          "source_checkpoint_sha256": "16e3e32a4832bc8756714492029536cf329c77c0f6cd879edd559923326211c0",
+          "exported_model_sha256": "7b4bef78bed398372c46846e1d82a632d3adaae89e1d5e4423a92fc224cc76ca",
+          "package_manifest_sha256": "efdf2169bfff0cf4d93b3852d1e32b10f20a1bd06672c41db346a67bed2d2dfe"
+        }
+      ],
+      "doc": "/projects/a02012413/buckets/zenith-a02012413/wangpeishuo/memoryvla-safelab-inference-packages/20261105/five_1025_30k/START_HERE.md",
+      "training": {
+        "input": "third_person原始RGB uint8及完整global_task；不输入qpos或子任务",
+        "prediction_horizon": 16,
+        "observation_hz": 15,
+        "action": "13维绝对关节目标，current_row"
+      },
+      "source": "https://github.com/asimfish/safelab-handoff/issues/74",
+      "report_url": "reports/task5-t939-final-20261106.json",
+      "note": "包原生预处理；32实例各5帧完整部署链图像、文本、张量及固定seed动作差0。cu128；h4/h8各100条，均0成功。",
+      "checkpoint_issues": [
+        {
+          "number": 74,
+          "checkpoint": 30000,
+          "url": "https://github.com/asimfish/safelab-handoff/issues/74",
+          "recorded_state": "results",
+          "supplied_camera": "third_person"
+        }
+      ],
+      "norm": "7e820aeb81db171d1ed3fafe45f669fbcb35cfd9835364886ff9eb3a1016cb51",
+      "source_code_commit": "2fea9cf0efadad19c5bbdd53d55449b70046bf8f"
     }
   ],
   "evaluations": [
@@ -51710,6 +51750,2851 @@
         "seed": 20261105,
         "unknown_not_imputed": true
       }
+    },
+    {
+      "id": "task5-t939-20261106-ours-h4-strict",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 90,
+        "3": 2,
+        "1": 8
+      },
+      "mean_phase": 0.14,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 10,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h4-fd",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-fdvel-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 90,
+        "3": 2,
+        "1": 8
+      },
+      "mean_phase": 0.14,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 10,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": true,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "paired_evaluation_id": "task5-t939-20261106-ours-h4-strict",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h4-v11",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 90,
+        "3": 2,
+        "1": 8
+      },
+      "mean_phase": 0.14,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 10,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-ours-h4-strict",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h4-v12",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 81,
+        "3": 2,
+        "1": 17
+      },
+      "mean_phase": 0.23,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 19,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "relaxed_protocol_diagnostic",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-ours-h4-strict",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h8-strict",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 88,
+        "1": 12
+      },
+      "mean_phase": 0.12,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 12,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h8-fd",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-fdvel-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 88,
+        "1": 12
+      },
+      "mean_phase": 0.12,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 12,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": true,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "paired_evaluation_id": "task5-t939-20261106-ours-h8-strict",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h8-v11",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 88,
+        "1": 12
+      },
+      "mean_phase": 0.12,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 12,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-ours-h8-strict",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-ours-h8-v12",
+      "task": "5",
+      "record": "5-pos-ours-aligned",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 85,
+        "3": 2,
+        "1": 13
+      },
+      "mean_phase": 0.19,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#expert-replay"
+        },
+        "open_loop": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#open-loop",
+          "reference": "same-model training-video input; corrected Native/train RMSE ratio0.77–1.35"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#render-multiframe",
+          "mae_255": [
+            1.56,
+            2.02
+          ],
+          "threshold_waiver": "User authorized20 diagnostics without hardMAE<=1 gate; not a claim of pixel identity."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#failed-smoke",
+          "phase0_observed": 17,
+          "trials_observed": 18,
+          "target": 20,
+          "reason": "Original smoke17/18 atphase0; paper-sprint fullmain explicitly authorized despitegate; failedgate retained."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 15,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "relaxed_protocol_diagnostic",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-ours-h8-strict",
+      "paper_override": "2026-11-04 paper-sprint authorizedfull100 despitefailedsmoke; failedgate remainsfalse"
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h4-strict",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 3,
+      "phase_hist": {
+        "0": 81,
+        "1": 9,
+        "2": 6,
+        "3": 1
+      },
+      "mean_phase": 0.24742268041237114,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 3,
+          "failure": 97
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 1,
+          "failure": 49
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 16,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 3
+      }
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h4-fd",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-fdvel-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 3,
+      "phase_hist": {
+        "0": 81,
+        "1": 9,
+        "2": 6,
+        "3": 1
+      },
+      "mean_phase": 0.24742268041237114,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 3,
+          "failure": 97
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 1,
+          "failure": 49
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 16,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": true,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 3
+      },
+      "paired_evaluation_id": "task5-t939-20261106-mem0-h4-strict"
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h4-v11",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 3,
+      "phase_hist": {
+        "0": 81,
+        "1": 9,
+        "2": 6,
+        "3": 1
+      },
+      "mean_phase": 0.24742268041237114,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 3,
+          "failure": 97
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 1,
+          "failure": 49
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 16,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 3
+      },
+      "source_evaluation_id": "task5-t939-20261106-mem0-h4-strict"
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h4-v12",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 3,
+      "phase_hist": {
+        "0": 53,
+        "2": 15,
+        "1": 27,
+        "3": 2
+      },
+      "mean_phase": 0.6494845360824743,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 3,
+          "failure": 97
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 1,
+          "failure": 49
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 44,
+        "3": 2,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "relaxed_protocol_diagnostic",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 3
+      },
+      "source_evaluation_id": "task5-t939-20261106-mem0-h4-strict"
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h8-strict",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 4,
+      "phase_hist": {
+        "0": 67,
+        "2": 10,
+        "1": 19
+      },
+      "mean_phase": 0.40625,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 4,
+          "failure": 96
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 29,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 4
+      }
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h8-fd",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-fdvel-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 4,
+      "phase_hist": {
+        "0": 67,
+        "2": 10,
+        "1": 19
+      },
+      "mean_phase": 0.40625,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 4,
+          "failure": 96
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 29,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": true,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 4
+      },
+      "paired_evaluation_id": "task5-t939-20261106-mem0-h8-strict"
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h8-v11",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 4,
+      "phase_hist": {
+        "0": 67,
+        "2": 10,
+        "1": 19
+      },
+      "mean_phase": 0.40625,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 4,
+          "failure": 96
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 29,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 4
+      },
+      "source_evaluation_id": "task5-t939-20261106-mem0-h8-strict"
+    },
+    {
+      "id": "task5-t939-20261106-mem0-h8-v12",
+      "task": "5",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 4,
+      "phase_hist": {
+        "2": 16,
+        "1": 34,
+        "0": 43,
+        "3": 3
+      },
+      "mean_phase": 0.78125,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 4,
+          "failure": 96
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 2,
+          "failure": 48
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Training tensor bilinear+antialias; full deployment avoids duplicatePILresize; see tensor audit report"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-mem0"
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 53,
+        "3": 3,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "relaxed_protocol_diagnostic",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "unknown_reasons": {
+        "original_raw_archive_unavailable": 4
+      },
+      "source_evaluation_id": "task5-t939-20261106-mem0-h8-strict"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h4-strict",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "2": 27,
+        "1": 61,
+        "0": 12
+      },
+      "mean_phase": 1.15,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 88,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h4-fd",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-fdvel-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "2": 27,
+        "1": 61,
+        "0": 12
+      },
+      "mean_phase": 1.15,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 88,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": true,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "paired_evaluation_id": "task5-t939-20261106-memoryvla-h4-strict"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h4-v11",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "2": 27,
+        "1": 61,
+        "0": 12
+      },
+      "mean_phase": 1.15,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 88,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-memoryvla-h4-strict"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h4-v12",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "2": 36,
+        "1": 63,
+        "3": 1
+      },
+      "mean_phase": 1.38,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 100,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      },
+      "metric_role": "relaxed_protocol_diagnostic",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-memoryvla-h4-strict"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h8-strict",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 93,
+        "4": 1,
+        "1": 6
+      },
+      "mean_phase": 0.1,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 7,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h8-fd",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1",
+      "oracle_version": "strict-fdvel-v1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 93,
+        "4": 1,
+        "1": 6
+      },
+      "mean_phase": 0.1,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 7,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": true,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "paired_evaluation_id": "task5-t939-20261106-memoryvla-h8-strict"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h8-v11",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 93,
+        "4": 1,
+        "1": 6
+      },
+      "mean_phase": 0.1,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 7,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "metric_role": "cpu_rescore",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-memoryvla-h8-strict"
+    },
+    {
+      "id": "task5-t939-20261106-memoryvla-h8-v12",
+      "task": "5",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "camera": "third_person",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 16,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "condition_version": "original-contact-v1",
+      "kind": "诊断 · 已闭合自主闭环，CPU逐tick重算",
+      "evaluation_started": true,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "success": 0,
+      "unknown": 0,
+      "phase_hist": {
+        "0": 92,
+        "4": 1,
+        "1": 6,
+        "2": 1
+      },
+      "mean_phase": 0.12,
+      "wilson95": {
+        "low": 0,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0,
+          "failure": 100
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000-96GB"
+      },
+      "preprocess_resize": {
+        "implementation": "package_native_TF_official",
+        "mode": "package_native",
+        "antialias": null,
+        "source": "Issue74 package-native whole-deployment tensor audit,32instancesx5frames exact"
+      },
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#admission-memoryvla"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "reports/task5-t939-final-20261106.json#memoryvla-smoke",
+          "trials_observed": 5,
+          "target": 20,
+          "reason": "Issue74 delivery contract used5-case smoke; never relabeled20-case passed."
+        },
+        "executor_parity": {
+          "passed": true,
+          "report": "reports/task5-t939-final-20261106.json#executor-parity",
+          "trials": 10,
+          "left_trials": 5,
+          "right_trials": 5,
+          "native_success": 10,
+          "endpoint_success": 10,
+          "joint_rmse_rad": 0.00459148
+        }
+      },
+      "source": "reports/task5-t939-final-20261106.json",
+      "report_url": "reports/task5-t939-final-20261106.html",
+      "formal_score_eligible": false,
+      "status": "已完成100条；准入例外/缺项如实保留，不追认为全部门槛通过",
+      "protocol": "同100场景、seed0、正反各50；left=forward，right=reverse；训练侧输入处理；current_row已验收Hermite链，120Hz/15Hz、240秒、原始碰撞和原倾倒终止不变。CPU重算不补轨迹缺失尾部。",
+      "note": "测量结果已闭合。网站准入与论文冲刺授权分开记录，failed/pending gate不改成passed。Mem-0缺原始归档7条仅在本次CPU重算行记unknown，不覆盖原在线判定结果。",
+      "updated_at": "2026-11-06T18:29:38Z",
+      "SR_at": {
+        "1": 8,
+        "3": 1,
+        "4": 1,
+        "5": 0
+      },
+      "metric_role": "relaxed_protocol_diagnostic",
+      "fd_identity": false,
+      "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
+      "source_evaluation_id": "task5-t939-20261106-memoryvla-h8-strict"
     }
   ],
   "agents": [

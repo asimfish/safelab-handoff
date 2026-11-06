@@ -135,3 +135,7 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 R2 实施说明：首批原URL已通过线上双SHA核验，并在后继版本提交前等待≥600秒；仅退役该批GitHub派生JSON。其余185份启用gzip时继续保留各自 frame_log_previous。`scripts/retire-frame-log-compat.py` 默认只预览，apply需要完整线上回执、保留窗口、case绑定、新旧及归档逐字节一致；拒绝符号链接、超2MB解压、重复意图或不匹配归档。归档及TOS原对象永不在此脚本中删除。
 
 既有大报告 `long_task_videos/task7-diagnostics.json`（1,326,742B）已按原字节复制到授权TOS `reports-v1/visualization-gzip-20261106/<sha>/`，匿名GET/SHA核对记录在 `media/migrations/report-task7-diagnostics-20261106.json`。页面下载链接指向TOS，不做跨域fetch；仓库仅保留62KB、带原报告SHA的回归事实摘要。旧完整报告路径保留R2一个发布周期后，仅移除其GitHub副本，归档与TOS原件保留。根 data.json 为实时控制清单，非报告归档，不随报告迁移。
+
+### 2026-11-06 capacity exception
+
+Explicit user instruction supersedes the compatibility retention window for the R2 backlog: remove verified derived plain JSON copies in the same PR as gzip migration. Original producer archives remain intact; wire and decoded SHA verification remains required. This exception does not assert that R2 was previously published.

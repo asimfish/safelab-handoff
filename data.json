@@ -54126,56 +54126,57 @@
       "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
       "time_limit_seconds": 300,
       "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Follow-up100 includes the already counted balanced first50; comparisons remain separate and no overlapping results are pooled.",
-      "trials": 50,
+      "trials": 100,
       "target": 100,
-      "completed": 50,
-      "success": null,
+      "completed": 100,
+      "success": 6,
       "unknown": 0,
-      "valid_trials": 50,
-      "mean_phase": 2.58,
+      "valid_trials": 100,
+      "mean_phase": 2.76,
       "phase_hist": {
-        "0": 11,
-        "1": 10,
-        "2": 12,
-        "3": 5,
-        "5": 6,
+        "0": 14,
+        "1": 28,
+        "2": 22,
+        "3": 10,
+        "4": 1,
+        "5": 13,
         "6": 1,
-        "7": 1,
-        "8": 1,
+        "7": 2,
+        "8": 2,
         "9": 1,
-        "10": 2
+        "10": 6
       },
       "mean_phase_ci95": [
-        1.9,
-        3.32
+        2.24,
+        3.31
       ],
       "SR_at_k": {
-        "1": 0.78,
+        "1": 0.86,
         "2": 0.58,
-        "3": 0.34,
-        "4": 0.24,
-        "5": 0.24,
+        "3": 0.36,
+        "4": 0.26,
+        "5": 0.25,
         "6": 0.12,
-        "7": 0.1,
-        "8": 0.08,
-        "9": 0.06,
-        "10": 0.04
+        "7": 0.11,
+        "8": 0.09,
+        "9": 0.07,
+        "10": 0.06
       },
       "half_task": {
         "threshold": 5,
-        "success": 12,
-        "trials": 50
+        "success": 25,
+        "trials": 100
       },
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 25,
-          "success": 2,
+          "trials": 50,
+          "success": 6,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 25,
+          "trials": 50,
           "success": 0,
           "unknown": 0
         }
@@ -54183,27 +54184,31 @@
       "seed_results": [
         {
           "seed": 0,
-          "trials": 50,
-          "success": 2,
+          "trials": 100,
+          "success": 6,
           "unknown": 0
         }
       ],
-      "wilson95": null,
+      "wilson95": {
+        "low": 0.02778612396318876,
+        "high": 0.1247681544589569,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
-      "status": "进行中：仅显示已核验进度，成功率未定稿",
-      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "status": "完成：辅助条件100条，正式主表不变",
+      "pending_reason": null,
       "expected_start_at": null,
       "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
       "case_manifest": "reports/task10-inference-stable30-h2-expanded100-cases-20261106.json",
       "unknown_reasons": {},
-      "attachment_triggered": 39,
+      "attachment_triggered": 86,
       "ever_infrastructure_unknown": 4,
       "sensitivity_ever_unknown_as_failure": {
         "affected": 4,
-        "success": 2
+        "success": 6
       },
-      "updated_at": "2026-11-06T21:55:12.308877+00:00",
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -54213,8 +54218,12 @@
         },
         "open_loop": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
-          "type": "unchanged model; native temporal-ensemble H2 prefix parity passed for all three methods"
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
         },
         "render_multiframe": {
           "passed": true,
@@ -54234,7 +54243,8 @@
         "verified_archives": 50,
         "target": 100,
         "snapshot_epoch": 1794002045.2165663
-      }
+      },
+      "report_note": " Paired h2-vs-h4 improvement is not significant; 95% CI crosses zero."
     },
     {
       "id": "task10-inference-20261106-target-only-stop-h4-ours_aligned_weak-v13",
@@ -54768,47 +54778,47 @@
       "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
       "time_limit_seconds": 300,
       "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Follow-up100 includes the already counted balanced first50; comparisons remain separate and no overlapping results are pooled.",
-      "trials": 90,
+      "trials": 100,
       "target": 100,
-      "completed": 90,
-      "success": null,
+      "completed": 100,
+      "success": 3,
       "unknown": 0,
-      "valid_trials": 90,
-      "mean_phase": 1.3555555555555556,
+      "valid_trials": 100,
+      "mean_phase": 1.42,
       "phase_hist": {
-        "0": 22,
-        "1": 40,
-        "2": 10,
-        "3": 12,
+        "0": 23,
+        "1": 42,
+        "2": 15,
+        "3": 13,
         "4": 4,
-        "5": 2
+        "5": 3
       },
       "mean_phase_ci95": [
-        1.1,
-        1.6222222222222222
+        1.18,
+        1.67
       ],
       "SR_at_k": {
-        "1": 0.7555555555555555,
-        "2": 0.3111111111111111,
+        "1": 0.77,
+        "2": 0.35,
         "3": 0.2,
-        "4": 0.06666666666666667,
-        "5": 0.022222222222222223
+        "4": 0.07,
+        "5": 0.03
       },
       "half_task": {
         "threshold": 3,
-        "success": 18,
-        "trials": 90
+        "success": 20,
+        "trials": 100
       },
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 45,
-          "success": 1,
+          "trials": 50,
+          "success": 2,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 45,
+          "trials": 50,
           "success": 1,
           "unknown": 0
         }
@@ -54816,27 +54826,31 @@
       "seed_results": [
         {
           "seed": 0,
-          "trials": 90,
-          "success": 2,
+          "trials": 100,
+          "success": 3,
           "unknown": 0
         }
       ],
-      "wilson95": null,
+      "wilson95": {
+        "low": 0.010254524024039209,
+        "high": 0.08451936429052548,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
-      "status": "进行中：仅显示已核验进度，成功率未定稿",
-      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "status": "完成：辅助条件100条，正式主表不变",
+      "pending_reason": null,
       "expected_start_at": null,
       "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
       "case_manifest": "reports/task10-inference-stable30-h4-expanded100-cases-20261106.json",
       "unknown_reasons": {},
-      "attachment_triggered": 75,
+      "attachment_triggered": 85,
       "ever_infrastructure_unknown": 0,
       "sensitivity_ever_unknown_as_failure": {
         "affected": 0,
-        "success": 2
+        "success": 3
       },
-      "updated_at": "2026-11-06T21:55:12.308877+00:00",
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -54846,8 +54860,12 @@
         },
         "open_loop": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
-          "type": "unchanged model; native temporal-ensemble H2 prefix parity passed for all three methods"
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
         },
         "render_multiframe": {
           "passed": true,
@@ -54867,7 +54885,8 @@
         "verified_archives": 90,
         "target": 100,
         "snapshot_epoch": 1794002045.2165663
-      }
+      },
+      "report_note": " Paired h2-vs-h4 improvement is not significant; 95% CI crosses zero."
     },
     {
       "id": "task10-inference-20261106-stable30-h4-ours_aligned-v11",
@@ -56386,56 +56405,56 @@
       "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
       "time_limit_seconds": 300,
       "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Follow-up100 includes the already counted balanced first50; comparisons remain separate and no overlapping results are pooled.",
-      "trials": 90,
+      "trials": 100,
       "target": 100,
-      "completed": 90,
-      "success": null,
+      "completed": 100,
+      "success": 3,
       "unknown": 0,
-      "valid_trials": 90,
-      "mean_phase": 2.811111111111111,
+      "valid_trials": 100,
+      "mean_phase": 2.98,
       "phase_hist": {
         "0": 15,
-        "1": 9,
-        "2": 36,
+        "1": 10,
+        "2": 38,
         "3": 3,
-        "4": 6,
-        "5": 4,
-        "6": 9,
+        "4": 7,
+        "5": 8,
+        "6": 10,
         "7": 3,
         "8": 3,
-        "10": 2
+        "10": 3
       },
       "mean_phase_ci95": [
-        2.3222222222222224,
-        3.3222222222222224
+        2.49975,
+        3.47
       ],
       "SR_at_k": {
-        "1": 0.8333333333333334,
-        "2": 0.7333333333333333,
-        "3": 0.3333333333333333,
-        "4": 0.3,
-        "5": 0.23333333333333334,
-        "6": 0.18888888888888888,
-        "7": 0.08888888888888889,
-        "8": 0.05555555555555555,
-        "9": 0.022222222222222223,
-        "10": 0.022222222222222223
+        "1": 0.85,
+        "2": 0.75,
+        "3": 0.37,
+        "4": 0.34,
+        "5": 0.27,
+        "6": 0.19,
+        "7": 0.09,
+        "8": 0.06,
+        "9": 0.03,
+        "10": 0.03
       },
       "half_task": {
         "threshold": 5,
-        "success": 21,
-        "trials": 90
+        "success": 27,
+        "trials": 100
       },
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 45,
-          "success": 1,
+          "trials": 50,
+          "success": 2,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 45,
+          "trials": 50,
           "success": 1,
           "unknown": 0
         }
@@ -56443,27 +56462,31 @@
       "seed_results": [
         {
           "seed": 0,
-          "trials": 90,
-          "success": 2,
+          "trials": 100,
+          "success": 3,
           "unknown": 0
         }
       ],
-      "wilson95": null,
+      "wilson95": {
+        "low": 0.010254524024039209,
+        "high": 0.08451936429052548,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
-      "status": "进行中：仅显示已核验进度，成功率未定稿",
-      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "status": "完成：辅助条件100条，正式主表不变",
+      "pending_reason": null,
       "expected_start_at": null,
       "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
       "case_manifest": "reports/task10-inference-stable30-h4-expanded100-cases-20261106.json",
       "unknown_reasons": {},
-      "attachment_triggered": 75,
+      "attachment_triggered": 85,
       "ever_infrastructure_unknown": 0,
       "sensitivity_ever_unknown_as_failure": {
         "affected": 0,
-        "success": 2
+        "success": 3
       },
-      "updated_at": "2026-11-06T21:55:12.308877+00:00",
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -56473,8 +56496,12 @@
         },
         "open_loop": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
-          "type": "unchanged model; native temporal-ensemble H2 prefix parity passed for all three methods"
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
         },
         "render_multiframe": {
           "passed": true,
@@ -56494,7 +56521,8 @@
         "verified_archives": 90,
         "target": 100,
         "snapshot_epoch": 1794002045.2165663
-      }
+      },
+      "report_note": " Paired h2-vs-h4 improvement is not significant; 95% CI crosses zero."
     },
     {
       "id": "task10-inference-20261106-stable30-h2-ours_aligned_weak-v11",
@@ -57823,56 +57851,57 @@
       "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
       "time_limit_seconds": 300,
       "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Follow-up100 includes the already counted balanced first50; comparisons remain separate and no overlapping results are pooled.",
-      "trials": 90,
+      "trials": 100,
       "target": 100,
-      "completed": 90,
-      "success": null,
+      "completed": 100,
+      "success": 1,
       "unknown": 0,
-      "valid_trials": 90,
-      "mean_phase": 2.1333333333333333,
+      "valid_trials": 100,
+      "mean_phase": 2.31,
       "phase_hist": {
         "0": 15,
-        "1": 29,
-        "2": 24,
-        "3": 5,
-        "4": 2,
-        "5": 9,
-        "6": 1,
+        "1": 30,
+        "2": 27,
+        "3": 6,
+        "4": 3,
+        "5": 11,
+        "6": 2,
         "7": 1,
         "8": 3,
+        "9": 1,
         "10": 1
       },
       "mean_phase_ci95": [
-        1.7222222222222223,
-        2.588888888888889
+        1.9,
+        2.74
       ],
       "SR_at_k": {
-        "1": 0.8333333333333334,
-        "2": 0.5111111111111111,
-        "3": 0.24444444444444444,
-        "4": 0.18888888888888888,
-        "5": 0.16666666666666666,
-        "6": 0.06666666666666667,
-        "7": 0.05555555555555555,
-        "8": 0.044444444444444446,
-        "9": 0.011111111111111112,
-        "10": 0.011111111111111112
+        "1": 0.85,
+        "2": 0.55,
+        "3": 0.28,
+        "4": 0.22,
+        "5": 0.19,
+        "6": 0.08,
+        "7": 0.06,
+        "8": 0.05,
+        "9": 0.02,
+        "10": 0.01
       },
       "half_task": {
         "threshold": 5,
-        "success": 15,
-        "trials": 90
+        "success": 19,
+        "trials": 100
       },
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 45,
+          "trials": 50,
           "success": 1,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 45,
+          "trials": 50,
           "success": 0,
           "unknown": 0
         }
@@ -57880,27 +57909,31 @@
       "seed_results": [
         {
           "seed": 0,
-          "trials": 90,
+          "trials": 100,
           "success": 1,
           "unknown": 0
         }
       ],
-      "wilson95": null,
+      "wilson95": {
+        "low": 0.0017674320641407164,
+        "high": 0.05448619617870333,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
-      "status": "进行中：仅显示已核验进度，成功率未定稿",
-      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "status": "完成：辅助条件100条，正式主表不变",
+      "pending_reason": null,
       "expected_start_at": null,
       "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
       "case_manifest": "reports/task10-inference-stable30-h4-expanded100-cases-20261106.json",
       "unknown_reasons": {},
-      "attachment_triggered": 75,
+      "attachment_triggered": 85,
       "ever_infrastructure_unknown": 0,
       "sensitivity_ever_unknown_as_failure": {
         "affected": 0,
         "success": 1
       },
-      "updated_at": "2026-11-06T21:55:12.308877+00:00",
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -57910,8 +57943,12 @@
         },
         "open_loop": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
-          "type": "unchanged model; native temporal-ensemble H2 prefix parity passed for all three methods"
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
         },
         "render_multiframe": {
           "passed": true,
@@ -57931,7 +57968,8 @@
         "verified_archives": 90,
         "target": 100,
         "snapshot_epoch": 1794002045.2165663
-      }
+      },
+      "report_note": " Paired h2-vs-h4 improvement is not significant; 95% CI crosses zero."
     },
     {
       "id": "task10-inference-20261106-stable30-h8-ours_aligned-v12",
@@ -60629,54 +60667,57 @@
       "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
       "time_limit_seconds": 300,
       "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Follow-up100 includes the already counted balanced first50; comparisons remain separate and no overlapping results are pooled.",
-      "trials": 50,
+      "trials": 100,
       "target": 100,
-      "completed": 50,
-      "success": null,
+      "completed": 100,
+      "success": 7,
       "unknown": 0,
-      "valid_trials": 50,
-      "mean_phase": 3.18,
+      "valid_trials": 100,
+      "mean_phase": 3.46,
       "phase_hist": {
-        "0": 11,
-        "1": 2,
-        "2": 16,
-        "3": 5,
-        "5": 6,
-        "6": 3,
-        "8": 4,
-        "10": 3
+        "0": 14,
+        "1": 7,
+        "2": 35,
+        "3": 9,
+        "4": 2,
+        "5": 10,
+        "6": 7,
+        "7": 2,
+        "8": 5,
+        "9": 2,
+        "10": 7
       },
       "mean_phase_ci95": [
-        2.44,
-        3.98
+        2.9,
+        4.05
       ],
       "SR_at_k": {
-        "1": 0.78,
-        "2": 0.74,
-        "3": 0.42,
-        "4": 0.32,
-        "5": 0.32,
-        "6": 0.2,
-        "7": 0.14,
+        "1": 0.86,
+        "2": 0.79,
+        "3": 0.44,
+        "4": 0.35,
+        "5": 0.33,
+        "6": 0.23,
+        "7": 0.16,
         "8": 0.14,
-        "9": 0.06,
-        "10": 0.06
+        "9": 0.09,
+        "10": 0.07
       },
       "half_task": {
         "threshold": 5,
-        "success": 16,
-        "trials": 50
+        "success": 33,
+        "trials": 100
       },
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 25,
-          "success": 3,
+          "trials": 50,
+          "success": 7,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 25,
+          "trials": 50,
           "success": 0,
           "unknown": 0
         }
@@ -60684,27 +60725,31 @@
       "seed_results": [
         {
           "seed": 0,
-          "trials": 50,
-          "success": 3,
+          "trials": 100,
+          "success": 7,
           "unknown": 0
         }
       ],
-      "wilson95": null,
+      "wilson95": {
+        "low": 0.03431926106727332,
+        "high": 0.13749514739073268,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
-      "status": "进行中：仅显示已核验进度，成功率未定稿",
-      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "status": "完成：辅助条件100条，正式主表不变",
+      "pending_reason": null,
       "expected_start_at": null,
       "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
       "case_manifest": "reports/task10-inference-stable30-h2-expanded100-cases-20261106.json",
       "unknown_reasons": {},
-      "attachment_triggered": 39,
+      "attachment_triggered": 86,
       "ever_infrastructure_unknown": 4,
       "sensitivity_ever_unknown_as_failure": {
         "affected": 4,
-        "success": 3
+        "success": 7
       },
-      "updated_at": "2026-11-06T21:55:12.308877+00:00",
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -60714,8 +60759,12 @@
         },
         "open_loop": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
-          "type": "unchanged model; native temporal-ensemble H2 prefix parity passed for all three methods"
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
         },
         "render_multiframe": {
           "passed": true,
@@ -60735,7 +60784,8 @@
         "verified_archives": 50,
         "target": 100,
         "snapshot_epoch": 1794002045.2165663
-      }
+      },
+      "report_note": " Paired h2-vs-h4 improvement is not significant; 95% CI crosses zero."
     },
     {
       "id": "task10-inference-20261106-contact8E-h4-ours_aligned_weak-v11",
@@ -62651,75 +62701,79 @@
       "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
       "time_limit_seconds": 300,
       "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Follow-up100 includes the already counted balanced first50; comparisons remain separate and no overlapping results are pooled.",
-      "trials": 50,
+      "trials": 100,
       "target": 100,
-      "completed": 50,
-      "success": null,
+      "completed": 100,
+      "success": 8,
       "unknown": 0,
-      "valid_trials": 50,
-      "mean_phase": 1.52,
+      "valid_trials": 100,
+      "mean_phase": 1.65,
       "phase_hist": {
-        "0": 11,
-        "1": 22,
-        "2": 7,
-        "3": 3,
-        "4": 4,
-        "5": 3
+        "0": 17,
+        "1": 47,
+        "2": 12,
+        "3": 10,
+        "4": 6,
+        "5": 8
       },
       "mean_phase_ci95": [
-        1.16,
-        1.92
+        1.37,
+        1.94
       ],
       "SR_at_k": {
-        "1": 0.78,
-        "2": 0.34,
-        "3": 0.2,
+        "1": 0.83,
+        "2": 0.36,
+        "3": 0.24,
         "4": 0.14,
-        "5": 0.06
+        "5": 0.08
       },
       "half_task": {
         "threshold": 3,
-        "success": 10,
-        "trials": 50
+        "success": 24,
+        "trials": 100
       },
       "lr_split": {
         "left": {
           "label": "12345",
-          "trials": 25,
-          "success": 3,
+          "trials": 50,
+          "success": 7,
           "unknown": 0
         },
         "right": {
           "label": "54321",
-          "trials": 25,
-          "success": 0,
+          "trials": 50,
+          "success": 1,
           "unknown": 0
         }
       },
       "seed_results": [
         {
           "seed": 0,
-          "trials": 50,
-          "success": 3,
+          "trials": 100,
+          "success": 8,
           "unknown": 0
         }
       ],
-      "wilson95": null,
+      "wilson95": {
+        "low": 0.04109346148438136,
+        "high": 0.14998107700948496,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
-      "status": "进行中：仅显示已核验进度，成功率未定稿",
-      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "status": "完成：辅助条件100条，正式主表不变",
+      "pending_reason": null,
       "expected_start_at": null,
       "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
       "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
       "case_manifest": "reports/task10-inference-stable30-h2-expanded100-cases-20261106.json",
       "unknown_reasons": {},
-      "attachment_triggered": 39,
+      "attachment_triggered": 86,
       "ever_infrastructure_unknown": 4,
       "sensitivity_ever_unknown_as_failure": {
         "affected": 4,
-        "success": 3
+        "success": 8
       },
-      "updated_at": "2026-11-06T21:55:12.308877+00:00",
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -62729,8 +62783,12 @@
         },
         "open_loop": {
           "passed": true,
-          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
-          "type": "unchanged model; native temporal-ensemble H2 prefix parity passed for all three methods"
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
         },
         "render_multiframe": {
           "passed": true,
@@ -62750,7 +62808,8 @@
         "verified_archives": 50,
         "target": 100,
         "snapshot_epoch": 1794002045.2165663
-      }
+      },
+      "report_note": " Paired h2-vs-h4 improvement is not significant; 95% CI crosses zero."
     },
     {
       "id": "task10-inference-20261106-target-only-stop-h4-mem0_original-v11",
@@ -128349,6 +128408,3809 @@
       "status": "完成CPU重算；保留原始准入/管线限制",
       "updated_at": "2026-11-05T18:02:41.922180+00:00",
       "note": "正向=left，反向=right；unknown留在总分母，不填阶段0。只增加放宽判定行，不补跑/更改动作、物理、预处理；并非重新通过原模型准入。旧批次管线待查仍只作诊断。"
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-mem0_original-v11",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 20,
+      "target": 50,
+      "completed": 20,
+      "success": null,
+      "unknown": 11,
+      "valid_trials": 9,
+      "mean_phase": 0.6666666666666666,
+      "phase_hist": {
+        "0": 3,
+        "1": 6
+      },
+      "mean_phase_ci95": [
+        0.3333333333333333,
+        0.8888888888888888
+      ],
+      "SR_at_k": {
+        "1": 0.3,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0
+      },
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 20
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "label": "54321",
+          "trials": 10,
+          "success": 0,
+          "unknown": 5
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 11
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 11
+      },
+      "attachment_triggered": 6,
+      "ever_infrastructure_unknown": 11,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 11,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-mem0_original-v12",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 20,
+      "target": 50,
+      "completed": 20,
+      "success": null,
+      "unknown": 11,
+      "valid_trials": 9,
+      "mean_phase": 1.0,
+      "phase_hist": {
+        "0": 3,
+        "1": 3,
+        "2": 3
+      },
+      "mean_phase_ci95": [
+        0.4444444444444444,
+        1.5555555555555556
+      ],
+      "SR_at_k": {
+        "1": 0.3,
+        "2": 0.15,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0
+      },
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 20
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "label": "54321",
+          "trials": 10,
+          "success": 0,
+          "unknown": 5
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 11
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 11
+      },
+      "attachment_triggered": 6,
+      "ever_infrastructure_unknown": 11,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 11,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-mem0_original-v13",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "SafeLab-Eval-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 20,
+      "target": 50,
+      "completed": 20,
+      "success": null,
+      "unknown": 11,
+      "valid_trials": 9,
+      "mean_phase": 0.5555555555555556,
+      "phase_hist": {
+        "0": 4,
+        "1": 5
+      },
+      "mean_phase_ci95": [
+        0.2222222222222222,
+        0.8888888888888888
+      ],
+      "SR_at_k": {
+        "1": 0.25,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0
+      },
+      "half_task": {
+        "threshold": 3,
+        "success": 0,
+        "trials": 20
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        },
+        "right": {
+          "label": "54321",
+          "trials": 10,
+          "success": 0,
+          "unknown": 5
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 11
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 11
+      },
+      "attachment_triggered": 6,
+      "ever_infrastructure_unknown": 11,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 11,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-ours_aligned-v11",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 20,
+      "target": 50,
+      "completed": 20,
+      "success": null,
+      "unknown": 10,
+      "valid_trials": 10,
+      "mean_phase": 0.6,
+      "phase_hist": {
+        "0": 5,
+        "1": 4,
+        "2": 1
+      },
+      "mean_phase_ci95": [
+        0.2,
+        1.0
+      ],
+      "SR_at_k": {
+        "1": 0.25,
+        "2": 0.05,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0
+      },
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 20
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 10,
+          "success": 0,
+          "unknown": 4
+        },
+        "right": {
+          "label": "54321",
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 10
+      },
+      "attachment_triggered": 6,
+      "ever_infrastructure_unknown": 10,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 10,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-ours_aligned-v12",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 20,
+      "target": 50,
+      "completed": 20,
+      "success": null,
+      "unknown": 10,
+      "valid_trials": 10,
+      "mean_phase": 0.7,
+      "phase_hist": {
+        "0": 4,
+        "1": 5,
+        "2": 1
+      },
+      "mean_phase_ci95": [
+        0.3,
+        1.1
+      ],
+      "SR_at_k": {
+        "1": 0.3,
+        "2": 0.05,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0
+      },
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 20
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 10,
+          "success": 0,
+          "unknown": 4
+        },
+        "right": {
+          "label": "54321",
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 10
+      },
+      "attachment_triggered": 6,
+      "ever_infrastructure_unknown": 10,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 10,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-ours_aligned-v13",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "SafeLab-Eval-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 20,
+      "target": 50,
+      "completed": 20,
+      "success": null,
+      "unknown": 10,
+      "valid_trials": 10,
+      "mean_phase": 0.2,
+      "phase_hist": {
+        "0": 8,
+        "1": 2
+      },
+      "mean_phase_ci95": [
+        0.0,
+        0.5
+      ],
+      "SR_at_k": {
+        "1": 0.1,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0
+      },
+      "half_task": {
+        "threshold": 3,
+        "success": 0,
+        "trials": 20
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 10,
+          "success": 0,
+          "unknown": 4
+        },
+        "right": {
+          "label": "54321",
+          "trials": 10,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 20,
+          "success": 0,
+          "unknown": 10
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 10
+      },
+      "attachment_triggered": 6,
+      "ever_infrastructure_unknown": 10,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 10,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 20,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-ours_aligned_weak-v11",
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 42,
+      "target": 50,
+      "completed": 42,
+      "success": null,
+      "unknown": 20,
+      "valid_trials": 22,
+      "mean_phase": 1.0909090909090908,
+      "phase_hist": {
+        "0": 3,
+        "1": 17,
+        "2": 1,
+        "5": 1
+      },
+      "mean_phase_ci95": [
+        0.7727272727272727,
+        1.5454545454545454
+      ],
+      "SR_at_k": {
+        "1": 0.4523809523809524,
+        "2": 0.047619047619047616,
+        "3": 0.023809523809523808,
+        "4": 0.023809523809523808,
+        "5": 0.023809523809523808,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0
+      },
+      "half_task": {
+        "threshold": 5,
+        "success": 1,
+        "trials": 42
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 21,
+          "success": 0,
+          "unknown": 7
+        },
+        "right": {
+          "label": "54321",
+          "trials": 21,
+          "success": 0,
+          "unknown": 13
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 42,
+          "success": 0,
+          "unknown": 20
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 20
+      },
+      "attachment_triggered": 20,
+      "ever_infrastructure_unknown": 20,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 20,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "epoch": 1793786128.5212398,
+          "status": "passed",
+          "passed": true,
+          "method": "ours_aligned_weak",
+          "checkpoint_issue": 26,
+          "checkpoint": 30000,
+          "arm_rmse_rad": 0.026941591269739787,
+          "reference_arm_rmse_rad": 0.025739512785998578,
+          "ratio": 1.0467016797767477,
+          "maximum_ratio": 1.5,
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "arm_scalar_count": 126000,
+          "sidecar_sha256": "734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41",
+          "DAG_sha256": "489299bf258733120b12abdd299414a5991dcec05e21c561626346a117576ba4",
+          "sidecar_substituted": false,
+          "preprocessing": "training tensor bilinear+AA then uint8 truncation; no augmentation",
+          "source_result_sha256": "b12d7848f3495aed85e4bfc778d729b6827bcd90723d0686fa3abe073c78d815",
+          "formal_execution_admission_unchanged_pending": true,
+          "previous_pending_report_sha256": "d753bb6592d486e49665b5a5c77418694615fa344850260d0d86853115307838",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "runtime_progress": {
+        "verified_archives": 42,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-ours_aligned_weak-v12",
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 42,
+      "target": 50,
+      "completed": 42,
+      "success": null,
+      "unknown": 20,
+      "valid_trials": 22,
+      "mean_phase": 1.4090909090909092,
+      "phase_hist": {
+        "0": 2,
+        "1": 12,
+        "2": 7,
+        "5": 1
+      },
+      "mean_phase_ci95": [
+        1.0454545454545454,
+        1.8636363636363635
+      ],
+      "SR_at_k": {
+        "1": 0.47619047619047616,
+        "2": 0.19047619047619047,
+        "3": 0.023809523809523808,
+        "4": 0.023809523809523808,
+        "5": 0.023809523809523808,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0,
+        "10": 0.0
+      },
+      "half_task": {
+        "threshold": 5,
+        "success": 1,
+        "trials": 42
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 21,
+          "success": 0,
+          "unknown": 7
+        },
+        "right": {
+          "label": "54321",
+          "trials": 21,
+          "success": 0,
+          "unknown": 13
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 42,
+          "success": 0,
+          "unknown": 20
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 20
+      },
+      "attachment_triggered": 20,
+      "ever_infrastructure_unknown": 20,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 20,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "epoch": 1793786128.5212398,
+          "status": "passed",
+          "passed": true,
+          "method": "ours_aligned_weak",
+          "checkpoint_issue": 26,
+          "checkpoint": 30000,
+          "arm_rmse_rad": 0.026941591269739787,
+          "reference_arm_rmse_rad": 0.025739512785998578,
+          "ratio": 1.0467016797767477,
+          "maximum_ratio": 1.5,
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "arm_scalar_count": 126000,
+          "sidecar_sha256": "734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41",
+          "DAG_sha256": "489299bf258733120b12abdd299414a5991dcec05e21c561626346a117576ba4",
+          "sidecar_substituted": false,
+          "preprocessing": "training tensor bilinear+AA then uint8 truncation; no augmentation",
+          "source_result_sha256": "b12d7848f3495aed85e4bfc778d729b6827bcd90723d0686fa3abe073c78d815",
+          "formal_execution_admission_unchanged_pending": true,
+          "previous_pending_report_sha256": "d753bb6592d486e49665b5a5c77418694615fa344850260d0d86853115307838",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "runtime_progress": {
+        "verified_archives": 42,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-expert-slew-h4-ours_aligned_weak-v13",
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "SafeLab-Eval-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "variant": "stable30-expert-slew-h4",
+      "grasp_attachment": "latched_stable_grasp30_native32_v6_command30mrad_gap160um_target_tilt_exempt",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Uniform causal endpoint velocity/acceleration envelope, frozen from all10 experts; expert26083 command endpoints remain bit-identical. Previous command state is private to each lane. Raw model endpoints and delivered endpoints are both logged. This postprocessing is applied to all three methods equally.",
+      "trials": 42,
+      "target": 50,
+      "completed": 42,
+      "success": null,
+      "unknown": 20,
+      "valid_trials": 22,
+      "mean_phase": 0.45454545454545453,
+      "phase_hist": {
+        "0": 13,
+        "1": 8,
+        "2": 1
+      },
+      "mean_phase_ci95": [
+        0.22727272727272727,
+        0.7272727272727273
+      ],
+      "SR_at_k": {
+        "1": 0.21428571428571427,
+        "2": 0.023809523809523808,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0
+      },
+      "half_task": {
+        "threshold": 3,
+        "success": 0,
+        "trials": 42
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 21,
+          "success": 0,
+          "unknown": 7
+        },
+        "right": {
+          "label": "54321",
+          "trials": 21,
+          "success": 0,
+          "unknown": 13
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 42,
+          "success": 0,
+          "unknown": 20
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "已停止：辅助固定关节约束异常，成功率不定稿",
+      "pending_reason": "Assisted fixed-joint rotation exceeded0.2rad. Valid closures and unknown assigned requests remain explicit; unstarted pending cases are not trials. This branch is stopped pending repair of its assisted constraint contract.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-expert-slew-h4-cases-20261106.json",
+      "unknown_reasons": {
+        "interrupted_after_infrastructure_continuation": 20
+      },
+      "attachment_triggered": 20,
+      "ever_infrastructure_unknown": 20,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 20,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "protocol": "placement-v1.1",
+          "experts": 10,
+          "type": "bitwise_command_equivalence_to_existing_native_replays",
+          "endpoint_count": 26083,
+          "new_native_replay_claimed": false
+        },
+        "open_loop": {
+          "epoch": 1793786128.5212398,
+          "status": "passed",
+          "passed": true,
+          "method": "ours_aligned_weak",
+          "checkpoint_issue": 26,
+          "checkpoint": 30000,
+          "arm_rmse_rad": 0.026941591269739787,
+          "reference_arm_rmse_rad": 0.025739512785998578,
+          "ratio": 1.0467016797767477,
+          "maximum_ratio": 1.5,
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "arm_scalar_count": 126000,
+          "sidecar_sha256": "734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41",
+          "DAG_sha256": "489299bf258733120b12abdd299414a5991dcec05e21c561626346a117576ba4",
+          "sidecar_substituted": false,
+          "preprocessing": "training tensor bilinear+AA then uint8 truncation; no augmentation",
+          "source_result_sha256": "b12d7848f3495aed85e4bfc778d729b6827bcd90723d0686fa3abe073c78d815",
+          "formal_execution_admission_unchanged_pending": true,
+          "previous_pending_report_sha256": "d753bb6592d486e49665b5a5c77418694615fa344850260d0d86853115307838",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        },
+        "attachment_runtime_contract": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "source_evidence_sha256": "e076f2d84aaca48837998ba688ebacf2e92b8414950c3e90db37808f0eb195d1"
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "expert-envelope-endpoint-slew-v1",
+        "parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+        "module_sha256": "20d97f43397a69e2c7679dace25502e4a6413c2ab1f33a0c98cdb05f3d2b4e13",
+        "all_methods_identical": true,
+        "limits_source": "per-joint max velocity and acceleration from ten frozen expert command sequences times1.25, rounded up0.01; no policy outcome tuning"
+      },
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "runtime_progress": {
+        "verified_archives": 42,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-mem0_original-v11",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-mem0_original-v12",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-mem0_original-v13",
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "SafeLab-Eval-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 3,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-ours_aligned-v11",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-ours_aligned-v12",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-ours_aligned-v13",
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "SafeLab-Eval-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 3,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-ours_aligned_weak-v11",
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "epoch": 1793786128.5212398,
+          "status": "passed",
+          "passed": true,
+          "method": "ours_aligned_weak",
+          "checkpoint_issue": 26,
+          "checkpoint": 30000,
+          "arm_rmse_rad": 0.026941591269739787,
+          "reference_arm_rmse_rad": 0.025739512785998578,
+          "ratio": 1.0467016797767477,
+          "maximum_ratio": 1.5,
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "arm_scalar_count": 126000,
+          "sidecar_sha256": "734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41",
+          "DAG_sha256": "489299bf258733120b12abdd299414a5991dcec05e21c561626346a117576ba4",
+          "sidecar_substituted": false,
+          "preprocessing": "training tensor bilinear+AA then uint8 truncation; no augmentation",
+          "source_result_sha256": "b12d7848f3495aed85e4bfc778d729b6827bcd90723d0686fa3abe073c78d815",
+          "formal_execution_admission_unchanged_pending": true,
+          "previous_pending_report_sha256": "d753bb6592d486e49665b5a5c77418694615fa344850260d0d86853115307838",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-ours_aligned_weak-v12",
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "SafeLab-Eval-v1.2-relaxed",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 5,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "epoch": 1793786128.5212398,
+          "status": "passed",
+          "passed": true,
+          "method": "ours_aligned_weak",
+          "checkpoint_issue": 26,
+          "checkpoint": 30000,
+          "arm_rmse_rad": 0.026941591269739787,
+          "reference_arm_rmse_rad": 0.025739512785998578,
+          "ratio": 1.0467016797767477,
+          "maximum_ratio": 1.5,
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "arm_scalar_count": 126000,
+          "sidecar_sha256": "734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41",
+          "DAG_sha256": "489299bf258733120b12abdd299414a5991dcec05e21c561626346a117576ba4",
+          "sidecar_substituted": false,
+          "preprocessing": "training tensor bilinear+AA then uint8 truncation; no augmentation",
+          "source_result_sha256": "b12d7848f3495aed85e4bfc778d729b6827bcd90723d0686fa3abe073c78d815",
+          "formal_execution_admission_unchanged_pending": true,
+          "previous_pending_report_sha256": "d753bb6592d486e49665b5a5c77418694615fa344850260d0d86853115307838",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
+    },
+    {
+      "id": "task10-inference-20261106-stable30-finger-hold-h4-ours_aligned_weak-v13",
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "task": "10",
+      "camera": "chest",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "prediction": 30,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "SafeLab-Eval-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "inference_side_enhancement",
+      "kind": "辅助抓取·推理侧变体",
+      "formal_score_eligible": false,
+      "condition": "attach-stable-grasp (assisted)",
+      "condition_version": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "variant": "stable30-finger-hold-h4",
+      "grasp_attachment": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell 96GB",
+        "shared_development_GPU": false,
+        "mixed_topology_note": null,
+        "readonly_model_pool": true,
+        "Isaac_scene_reused": false
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "Raw RGB bridge; one training-side tensor resize, fixed-noise feature/action equivalence passed."
+      },
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "scene_subset": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "inference_seed_rule": "910100 + scene_index; paired against original physics by scene and seed",
+      "time_limit_seconds": 300,
+      "protocol": "First 50 fixed balanced scenes: forward25/reverse25. V6 post-lift stable30 latch, native solver32, retained finger collisions; attached cup exempt from tilt stop. Target-only-stop variant additionally masks neighbor tilt termination. v1.1/v1.2 count10 ordered events; v1.3 counts5 distinct beakers each weighed then restored. Diagnostic only; native measured120Hz executor reference unavailable. Finger-hold assisted controller: actual six finger targets held at measured grasp, raw nominal command remains intact for interpolation/opening; explicit raw thumb opening also releases. Native20 must pass before model cases.",
+      "trials": 0,
+      "target": 50,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "valid_trials": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "mean_phase_ci95": null,
+      "SR_at_k": {},
+      "half_task": {
+        "threshold": 3,
+        "success": 0,
+        "trials": 0
+      },
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 0,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "wilson95": null,
+      "evaluation_started": true,
+      "status": "进行中：仅显示已核验进度，成功率未定稿",
+      "pending_reason": "Remaining cases running or resuming after infrastructure interruption; first valid HTTP/SHA-qualified closure only.",
+      "expected_start_at": null,
+      "source": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.html",
+      "case_manifest": "reports/task10-inference-stable30-finger-hold-h4-cases-20261106.json",
+      "unknown_reasons": {},
+      "attachment_triggered": 0,
+      "ever_infrastructure_unknown": 0,
+      "sensitivity_ever_unknown_as_failure": {
+        "affected": 0,
+        "success": 0
+      },
+      "updated_at": "2026-11-06T23:28:55.506251+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "experts": 10,
+          "release_probes": 5,
+          "unstable_departure_probes": 5
+        },
+        "open_loop": {
+          "epoch": 1793786128.5212398,
+          "status": "passed",
+          "passed": true,
+          "method": "ours_aligned_weak",
+          "checkpoint_issue": 26,
+          "checkpoint": 30000,
+          "arm_rmse_rad": 0.026941591269739787,
+          "reference_arm_rmse_rad": 0.025739512785998578,
+          "ratio": 1.0467016797767477,
+          "maximum_ratio": 1.5,
+          "episodes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            50,
+            51,
+            52,
+            53,
+            54
+          ],
+          "arm_scalar_count": 126000,
+          "sidecar_sha256": "734504167156d1d5f0aa2853012cdd03afe66b179e947240b88f10e7ef1d7b41",
+          "DAG_sha256": "489299bf258733120b12abdd299414a5991dcec05e21c561626346a117576ba4",
+          "sidecar_substituted": false,
+          "preprocessing": "training tensor bilinear+AA then uint8 truncation; no augmentation",
+          "source_result_sha256": "b12d7848f3495aed85e4bfc778d729b6827bcd90723d0686fa3abe073c78d815",
+          "formal_execution_admission_unchanged_pending": true,
+          "previous_pending_report_sha256": "d753bb6592d486e49665b5a5c77418694615fa344850260d0d86853115307838",
+          "shared": true,
+          "type": "inherited raw-model training-fit gate, not H2 prefix parity",
+          "scope": "before optional endpoint postprocessing",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-inference-variants-20261106.json",
+          "evidence_source_sha256": "368b43c238303c6540ed588d39696975c7ffcf3b765614aa1aacb53f71b83e23"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "report": "reports/task10-eval-v1-20261103.html"
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "This balanced first50 assisted diagnostic is not a new formal smoke20 admission."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Native measured120Hz training reference remains unavailable; no formal-chain claim."
+        }
+      },
+      "inference_postprocessing": {
+        "variant": "stable30_native32_latched_finger_hold_v1_raw_open_release",
+        "all_methods_identical": true,
+        "parameters_sha256": "5957f654e8520ba77b1ba0d43f93fe5d9b27bee9f1f73b5d40d0ef62f7c54e1d",
+        "description": "Hold six measured finger joint targets only while latched; raw finger and thumb opening commands immediately release; arm targets, native32, contacts and oracles unchanged."
+      },
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "runtime_progress": {
+        "verified_archives": 0,
+        "target": 50,
+        "snapshot_epoch": 1794007681.601719
+      }
     }
   ],
   "agents": [

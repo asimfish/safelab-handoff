@@ -1,0 +1,118 @@
+{
+  "CPU_only": true,
+  "actual_SDK_mapping_checked": 499,
+  "complete_private_source": {
+    "bytes": 209064,
+    "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/inference_1400_cpu_20261106/action_semantics/RESULT.json",
+    "sha256": "98dace39e70635bb1f46bdb1797932969ad13828bfe3a5acda7cd52c8f10412f"
+  },
+  "conclusion": "No demonstrated action semantic/index mismatch. Seven120Hz-tick start/end difference is the actual training label convention, not seven15Hz-row deployment displacement. Tiny empirical1–2 converted-control-tick minima do not override the exact loader indexing evidence.",
+  "epoch": 1793981189.3259401,
+  "joint_names": [
+    "arm2_joint_link1",
+    "arm2_joint_link2",
+    "arm2_joint_link3",
+    "arm2_joint_link4",
+    "arm2_joint_link5",
+    "arm2_joint_link6",
+    "arm2_joint_link7",
+    "hand2_joint_link_1_1",
+    "hand2_joint_link_2_1",
+    "hand2_joint_link_3_1",
+    "hand2_joint_link_4_1",
+    "hand2_joint_link_5_1",
+    "hand2_joint_link_1_2"
+  ],
+  "mapping_sample_refs": [
+    {
+      "bytes": 7190,
+      "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/new_dense_workpackages/accel_mem0_h8_seed1_20261106v1_retry1/artifacts/gpu0/group1/cases/v11_world0_kcubic_trainresize__r39__mem0_30k__stageB__seed1_h8_v180_o1234_r005/SENT_COMMAND_MAPPING.json",
+      "sha256": "e00046dab1c9d04350f7a2cb4b41f56b023d3a8a6cc90f6d43b38b80621850a4"
+    },
+    {
+      "bytes": 7190,
+      "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/new_dense_workpackages/accel_mem0_h8_seed1_20261106v1_retry1/artifacts/gpu0/group1/cases/v11_world0_kcubic_trainresize__r39__mem0_30k__stageB__seed1_h8_v180_o1234_r004/SENT_COMMAND_MAPPING.json",
+      "sha256": "e00046dab1c9d04350f7a2cb4b41f56b023d3a8a6cc90f6d43b38b80621850a4"
+    }
+  ],
+  "public_summary_only": true,
+  "rows": [
+    {
+      "actual_h4": "first indices0..3 then refresh; K kernel may look ahead2 without executing them",
+      "actual_h8": "first indices0..7 then refresh; K kernel may look ahead2 without executing them",
+      "checkpoint_sha256": "44b74639166adcde6dada1ee435c0116715e8170711088e14a94b933d6d20c50",
+      "checks": {
+        "absolute_target_not_delta": "consistent",
+        "binary_hand_threshold": "not_applicable",
+        "continuous_six_hand_joints_not_binary_gripper": "consistent",
+        "current_row_interval_endpoint": "consistent",
+        "joint_order": "consistent",
+        "no_joint_sign_inversion": "consistent_source_and_SDK_argument_scope",
+        "radians": "consistent",
+        "training_run_normalization_SHA": "consistent"
+      },
+      "expected_first_target": "current query row interval-end, no skipped action row",
+      "hand_execution_caveat": "All6 hand position targets remain continuous. Current K chain uses zero hand velocity feedforward; this is a declared execution-chain design, not an input normalization/sign mapping. Native expert FF is independently recorded, not inferred from position differences.",
+      "native_output_mode": "original temporal_ensemble; timing curve uses the sealed raw model prediction on teacher-forced training frames",
+      "normalization": {
+        "bytes": 3082,
+        "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/package/norm_stats_all100.json",
+        "sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8"
+      },
+      "normalizer_roundtrip_max_abs_rad": 1.1920928955078125e-07,
+      "normalizer_source": {
+        "bytes": 22620,
+        "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/package/source/safelab/sim_bridge.py",
+        "sha256": "d2c86bc5e9141ac1c90e44f9261be33e0a851b71f6ac4adab7045c8cb7854079"
+      },
+      "policy_source": {
+        "bytes": 6606,
+        "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/package/source/safelab/policy_inference.py",
+        "sha256": "fe55c6b0eb177a846b7bd7b8e4187a79d75a7b44d76e1cf503524ff2ab3a8bfb"
+      },
+      "temporal_ensemble_source_line": 106,
+      "variant": "mem0_30k"
+    },
+    {
+      "actual_h4": "first indices0..3 then refresh; K kernel may look ahead2 without executing them",
+      "actual_h8": "first indices0..7 then refresh; K kernel may look ahead2 without executing them",
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "checks": {
+        "absolute_target_not_delta": "consistent",
+        "binary_hand_threshold": "not_applicable",
+        "continuous_six_hand_joints_not_binary_gripper": "consistent",
+        "current_row_interval_endpoint": "consistent",
+        "joint_order": "consistent",
+        "no_joint_sign_inversion": "consistent_source_and_SDK_argument_scope",
+        "radians": "consistent",
+        "training_run_normalization_SHA": "consistent"
+      },
+      "expected_first_target": "current query row interval-end, no skipped action row",
+      "hand_execution_caveat": "All6 hand position targets remain continuous. Current K chain uses zero hand velocity feedforward; this is a declared execution-chain design, not an input normalization/sign mapping. Native expert FF is independently recorded, not inferred from position differences.",
+      "native_output_mode": "original temporal_ensemble; timing curve uses the sealed raw model prediction on teacher-forced training frames",
+      "normalization": {
+        "bytes": 3082,
+        "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/ours_chest_aligned_loss_v1/assets/extracted/norm_stats_all100.json",
+        "sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8"
+      },
+      "normalizer_roundtrip_max_abs_rad": 1.1920928955078125e-07,
+      "normalizer_source": {
+        "bytes": 22620,
+        "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/ours_chest_aligned_loss_v1/assets/extracted/code/source/safelab/sim_bridge.py",
+        "sha256": "d2c86bc5e9141ac1c90e44f9261be33e0a851b71f6ac4adab7045c8cb7854079"
+      },
+      "policy_source": {
+        "bytes": 5327,
+        "file": "/project_a02012413/public/liyufeng/safelab_mem0_7weigh_eval_20261027/ours_chest_aligned_loss_v1/assets/extracted/code/source/safelab/ours_policy_inference.py",
+        "sha256": "4468a696a1ec16b0b369255830beee2a3992f029d08bbca6716570a1f715f3fe"
+      },
+      "temporal_ensemble_source_line": 78,
+      "variant": "ours_aligned_30k"
+    }
+  ],
+  "schema": "task7_action_semantics_actual_source_and_SDK_audit.v1",
+  "scientific_sources_modified": false,
+  "scope": "Mem0#39 and TTC-aligned#41 only; no claim for other checkpoints",
+  "stage": "diagnostic",
+  "vi_o_mismatch_detected": false
+}

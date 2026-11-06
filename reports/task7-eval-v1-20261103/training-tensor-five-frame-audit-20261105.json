@@ -1,0 +1,47 @@
+{
+  "schema": "task7_combined_input_tensor_audit.v1",
+  "scope": "Main Mem0 30k, TTC aligned30k, pi05 40k; five real decoded training frames per model; fixed memory/state/text/RNG; deterministic training resize with stochastic augmentation disabled. Other variants source-only, no all-checkpoint NN claim.",
+  "methods": [
+    {
+      "method": "Mem-0 30k",
+      "report": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/mem0_e2e_tensor_audit_v1/REPORT.json",
+      "sha256": "5bb46ece86a7fbc527463c1145a406d6a400f6f543a6d1364a4d338806d5b538",
+      "image_uint8_max_abs": 0,
+      "state_exact": true,
+      "token_exact": true,
+      "NN_action30x13_max_abs": 0,
+      "status": "consistent_in_fixed_five_frame_scope",
+      "production_change": false
+    },
+    {
+      "method": "TTC aligned 30k",
+      "report": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/ttc_aligned_e2e_tensor_audit_v1/FINAL_TTC_E2E_TENSOR_AUDIT.json",
+      "sha256": "12faf06b0338b4da891de1cc4f03651211354b30d37d2b39dcda0d0783ec3774",
+      "image_uint8_max_abs": 0,
+      "state_exact": true,
+      "token_exact": true,
+      "NN_action30x13_max_abs": 0,
+      "status": "consistent_in_fixed_five_frame_scope",
+      "production_change": false
+    },
+    {
+      "method": "pi0.5 40k",
+      "report": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v11_admission_20261104/low_sr_diagnostic_traininit_p1_v1/input_tensor_audit_20261105/pi05_original_evidence/ROOT_PI05_REUSE_ADJUDICATION.json",
+      "sha256": "a52dd1450b9437084e56c59ee1c4c4612f1bdbadc0d9916625f843792225615b",
+      "final_image_float_max_abs": 1.1920928955078125e-07,
+      "state_exact": true,
+      "token_exact": true,
+      "NN_action_max_abs": 0,
+      "status": "consistent_in_fixed_five_frame_scope",
+      "production_change": false
+    }
+  ],
+  "formal_result_invalidation_required_by_this_audit": false,
+  "new_simulation_starts": 0,
+  "main_results_unchanged": true,
+  "limitations": [
+    "Five fixed frames, not all100 episodes or all task stages.",
+    "Same fixed planner/completion context; not a Gen/Planner neural-output audit.",
+    "pi05 original agent evidence reused and all31 source SHAs freshly checked; no duplicate NN."
+  ]
+}

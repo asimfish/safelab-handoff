@@ -27,14 +27,15 @@ test('fourlane frozen progress distinguishes eight parent closures from seven fu
  assert.equal(f.complete_pooled_RESULTS,0);assert.equal(f.actual_concurrent_policy_count,null);
  for(const k of ['whole_archive_custody_verified','four_lane_GPU_qualification_passed','prior_two_lane_qualification_inherited','physical_chain_qualification_inferred','ordinary_NN_attributes_all_immutable_claimed'])assert.equal(f[k],false);
 });
-test('J expert success and model bridge CPU tests cannot change formal model results or old snapshots',()=>{
+test('J and model bridge CPU evidence grant no later paper result and preserve ten pending rows',()=>{
  assert.equal(s.prior_59_diagnostic_snapshot.diagnostic_closed,59);assert.equal(s.prior_59_diagnostic_snapshot.diagnostic_successes,3);
  assert.equal(s.prior_59_diagnostic_snapshot.placement_CPU_rescored,57);assert.equal(s.prior_59_diagnostic_snapshot.new_two_placement_rescores_claimed,false);
  assert.equal(digest(root+s.prior_59_diagnostic_snapshot.report),s.prior_59_diagnostic_snapshot.sha256);
  assert.equal(s.model_bridge_v2_CPU_only.tests,28);assert.equal(s.model_bridge_v2_CPU_only.Native_or_NN_calls,0);assert.equal(s.model_bridge_v2_CPU_only.physical_or_NN_admission,false);
  assert.equal(s.formal_trials_added,0);assert.equal(s.formal_success,null);assert.equal(s.StageA_authorized,false);
  const rows=read('data.json').evaluations.filter(r=>r.id.startsWith('task7-eval-v11-A-original-'));assert.equal(rows.length,12);
- for(const r of rows){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
+  const pending=rows.filter(r=>r.evaluation_started===false);assert.equal(pending.length,8);
+  for(const r of pending){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
  assert.equal(s.resource_snapshot.total_reserved_GPUs,8);assert.equal(s.resource_snapshot.not_a_live_global_poll,true);
  const p=read(root+'diagnostic-progress.json');assert.equal(p.latest_PCHIP_final_and_F4_snapshot.summary_sha256,digest(root+'pchip-final-and-fourlane-snapshot-20261104.json'));
 });

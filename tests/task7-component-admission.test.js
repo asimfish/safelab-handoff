@@ -39,15 +39,33 @@ test('complete10 success-count gate cannot hide RMSE failure or manufacture four
  assert.equal(e.retrospective_cases.length,4);assert.ok(e.retrospective_cases.every(p=>p.original_FINAL_ARCHIVE_present===false&&p.not_original_archive_receipt&&p.current_independent_listed_artifacts_verified));
 });
 
-test('all12 pending rows retain empty formal denominators despite accepted components; weak inputs stay pending',()=>{
- assert.equal(rows.length,12);assert.equal(s.stage_A_authorized,false);
- for(const e of rows){
+test('eight unstarted rows stay empty; actual h4 progress does not grant their hard gates',()=>{
+  assert.equal(rows.length,12);assert.equal(s.stage_A_authorized,false);
+  const pending=rows.filter(e=>!e.evaluation_started);
+  assert.equal(pending.length,8);
+  for(const e of pending){
   assert.equal(e.trials,0);assert.equal(e.completed,0);assert.equal(e.success,null);assert.equal(e.evaluation_started,false);assert.equal(e.mean_phase,null);assert.deepEqual(e.phase_hist,{});
   assert.equal(e.scene_list_hash,'sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f');
   assert.equal(e.admission.expert_replay.passed,true);assert.equal(e.admission.render_multiframe.passed,true);assert.equal(e.admission.executor_parity.passed,false);assert.equal(e.admission.smoke20.passed,false);
   assert.ok(M.formalIssues(e).includes('准入证据缺失'));assert.ok(M.formalIssues(e).includes('未完成或分母无效'));
-  if(e.variant.includes('weak')){assert.equal(e.admission.open_loop.passed,false);assert.equal(e.admission.open_loop.status,'pending_own_converted_parquet');assert.equal(digest(e.admission.open_loop.own_parquet_audit_file),e.admission.open_loop.own_parquet_audit_sha256);}
+  if(e.variant.includes('weak')){
+   const gate=e.admission.open_loop,sha='7acc8df00014832b35e6b98741d8c21913de2053f6dcbcb2123354613127042f';
+   assert.equal(gate.passed,true);assert.equal(gate.status,'passed_fixed10_fullmemory_relative_RMSE_rule_own_input_review');
+   assert.equal(gate.evidence_sha256,sha);assert.equal(digest(gate.evidence_file),sha);assert.equal(digest(gate.own_parquet_audit_file),sha);
+   const review=read(gate.evidence_file),sourceVariant={mem0_weak_30k:'mem0_weak_30k',ttc_weak_aligned_30k:'ours_weak_aligned_30k'}[e.variant];
+   assert.ok(sourceVariant);const own=review.models.find(m=>m.variant===sourceVariant);assert.ok(own);
+   assert.equal(review.actual_original_files_SHA_verified,14);assert.equal(review.actual_rows_compared,22817);assert.equal(review.actual_queries,210);
+   assert.equal(review.field_match,255);assert.equal(review.field_mismatch,0);assert.equal(review.field_unknown,0);
+   assert.equal(review.norm_raw_SHA_equal,false);assert.equal(review.norm_normalization_values_bitwise_equal,true);
+   assert.equal(own.own_fixed10_parquet_input_gap_closed,true);assert.equal(own.relative_RMSE_rule_passed,true);assert.ok(own.ratio_to_Mem0<=1.5);
+   assert.equal(review.hard_admission_granted,false);assert.equal(review.formal_StageA_cases_added,0);
+   assert.equal(gate.prior_review.passed,false);assert.equal(gate.prior_review.status,'pending_own_converted_parquet');
+   assert.equal(digest(gate.prior_review.own_parquet_audit_file),gate.prior_review.own_parquet_audit_sha256);
+  }
  }
+ const h4=rows.filter(e=>['task7-eval-v11-A-original-mem0_30k-h4','task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h4'].includes(e.id));
+ assert.equal(h4.length,2);
+ for(const e of h4){assert.equal(e.evaluation_started,true);assert.ok(e.completed>0);assert.equal(e.success,null);assert.equal(e.admission.executor_parity.passed,false);assert.ok(M.formalIssues(e).length>0);}
 });
 
 test('expert infrastructure terminal and recorded utilization do not imply model failure or continuous lifecycle coverage',()=>{

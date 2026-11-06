@@ -22,9 +22,10 @@ test('four-lane and PCHIP preparation never grants scientific or formal qualific
  const j=s.independent_qualifications.find(x=>x.kind==='PCHIP_expert_reconstruction');assert.equal(j.planned_expert_executions,8);assert.equal(j.models_called,0);
  const f=s.independent_qualifications.find(x=>x.kind==='four_lane_model_pool');assert.equal(f.logical_lanes_per_slot,4);assert.deepEqual(f.episodes,[0,1,50,51]);assert.equal(f.per_lane_natural_commit_requirement,3);assert.equal(f.prior_two_lane_qualification_not_inherited,true);assert.equal(f.ordinary_NN_attributes_all_immutable_claimed,false);
 });
-test('all12 formal rows remain0/null with executor and smoke gates closed',()=>{
+test('old59 diagnostics leave ten still-untested rows0/null and do not supply the later two paper results',()=>{
  const rows=read('data.json').evaluations.filter(x=>x.id.startsWith('task7-eval-v11-A-original-'));assert.equal(rows.length,12);
  assert.equal(s.formal_trials_added,0);assert.equal(s.formal_success,null);assert.equal(s.stage_A_authorized,false);assert.equal(s.formal_rows_changed,false);
- for(const r of rows){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
+  const pending=rows.filter(r=>r.evaluation_started===false);assert.equal(pending.length,8);
+  for(const r of pending){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
  const summary='diagnostics59-qualifications-20261104.json';assert.equal(read(root+'diagnostic-progress.json').latest_59_qualification_snapshot.summary_sha256,digest(root+summary));
 });

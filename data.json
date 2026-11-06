@@ -74848,6 +74848,4731 @@
       "fd_identity": false,
       "v1_3_status": "待5710冻结定义，不猜测阈值或分数",
       "source_evaluation_id": "task5-t939-20261106-memoryvla-h8-strict"
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_original-30k-h4-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_original-30k-h4-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 2,
+      "failure": 98,
+      "valid_trials": 98,
+      "mean_phase": 0.7244897959183674,
+      "mean_phase_ci95": [
+        0.5714285714285714,
+        0.8877551020408163
+      ],
+      "phase_hist": {
+        "0": 42,
+        "1": 46,
+        "2": 6,
+        "3": 3,
+        "4": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 56,
+          "trials": 100,
+          "rate": 0.56
+        },
+        {
+          "k": 2,
+          "success": 10,
+          "trials": 100,
+          "rate": 0.1
+        },
+        {
+          "k": 3,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 4,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 98,
+          "unknown": 2
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 2
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 1
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 1
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 4,
+      "half_task_rate": 0.04,
+      "mean_phase_missing_bounds": [
+        0.71,
+        0.81
+      ]
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_original-30k-h4-original-rawrgb",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_original-30k-h4-original-rawrgb",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "evaluation_started": true,
+      "success": 1,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 99,
+      "valid_trials": 100,
+      "mean_phase": 1.2,
+      "mean_phase_ci95": [
+        0.96,
+        1.45
+      ],
+      "phase_hist": {
+        "0": 35,
+        "1": 35,
+        "2": 12,
+        "3": 12,
+        "4": 5,
+        "5": 1
+      },
+      "wilson95": {
+        "low": 0.0017674320641406505,
+        "high": 0.054486196178705315,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 65,
+          "trials": 100,
+          "rate": 0.65
+        },
+        {
+          "k": 2,
+          "success": 30,
+          "trials": 100,
+          "rate": 0.3
+        },
+        {
+          "k": 3,
+          "success": 18,
+          "trials": 100,
+          "rate": 0.18
+        },
+        {
+          "k": 4,
+          "success": 6,
+          "trials": 100,
+          "rate": 0.06
+        },
+        {
+          "k": 5,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 1,
+          "failure": 99,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "100/100完整原始日志核验；同场景补跑完成；原生120Hz执行链准入仍待数据",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 1,
+          "unknown": 0,
+          "failure": 49
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 18,
+      "half_task_rate": 0.18,
+      "mean_phase_missing_bounds": [
+        1.2,
+        1.2
+      ],
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 73,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "archival_verification_pending": 0,
+      "simulation_completed": 100
+    },
+    {
+      "record": "10-mem0-attach-v2",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_original-30k-h4-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_original-30k-h4-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 3,
+      "failure": 97,
+      "valid_trials": 97,
+      "mean_phase": 0.7525773195876289,
+      "mean_phase_ci95": [
+        0.5773195876288659,
+        0.9381443298969072
+      ],
+      "phase_hist": {
+        "0": 45,
+        "1": 40,
+        "2": 5,
+        "3": 5,
+        "4": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 52,
+          "trials": 100,
+          "rate": 0.52
+        },
+        {
+          "k": 2,
+          "success": 12,
+          "trials": 100,
+          "rate": 0.12
+        },
+        {
+          "k": 3,
+          "success": 7,
+          "trials": 100,
+          "rate": 0.07
+        },
+        {
+          "k": 4,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 97,
+          "unknown": 3
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 3
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 3
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 7,
+      "half_task_rate": 0.07,
+      "mean_phase_missing_bounds": [
+        0.73,
+        0.88
+      ]
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_original-30k-h8-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_original-30k-h8-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 1,
+      "failure": 99,
+      "valid_trials": 99,
+      "mean_phase": 0.7777777777777778,
+      "mean_phase_ci95": [
+        0.6060606060606061,
+        0.9696969696969697
+      ],
+      "phase_hist": {
+        "0": 44,
+        "1": 42,
+        "2": 5,
+        "3": 7,
+        "4": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 55,
+          "trials": 100,
+          "rate": 0.55
+        },
+        {
+          "k": 2,
+          "success": 13,
+          "trials": 100,
+          "rate": 0.13
+        },
+        {
+          "k": 3,
+          "success": 8,
+          "trials": 100,
+          "rate": 0.08
+        },
+        {
+          "k": 4,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 99,
+          "unknown": 1
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 1
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 1
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 8,
+      "half_task_rate": 0.08,
+      "mean_phase_missing_bounds": [
+        0.77,
+        0.82
+      ]
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_original-30k-h8-original-rawrgb",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_original-30k-h8-original-rawrgb",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "evaluation_started": true,
+      "success": 1,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 99,
+      "valid_trials": 100,
+      "mean_phase": 1.02,
+      "mean_phase_ci95": [
+        0.8,
+        1.26
+      ],
+      "phase_hist": {
+        "0": 43,
+        "1": 31,
+        "2": 12,
+        "3": 10,
+        "4": 3,
+        "5": 1
+      },
+      "wilson95": {
+        "low": 0.0017674320641406505,
+        "high": 0.054486196178705315,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 57,
+          "trials": 100,
+          "rate": 0.57
+        },
+        {
+          "k": 2,
+          "success": 26,
+          "trials": 100,
+          "rate": 0.26
+        },
+        {
+          "k": 3,
+          "success": 14,
+          "trials": 100,
+          "rate": 0.14
+        },
+        {
+          "k": 4,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 5,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 1,
+          "failure": 99,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "100/100完整原始日志核验；同场景补跑完成；原生120Hz执行链准入仍待数据",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 1,
+          "unknown": 0,
+          "failure": 49
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 14,
+      "half_task_rate": 0.14,
+      "mean_phase_missing_bounds": [
+        1.02,
+        1.02
+      ],
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 74,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "archival_verification_pending": 0,
+      "simulation_completed": 100
+    },
+    {
+      "record": "10-mem0-attach-v2",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_original-30k-h8-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_original-30k-h8-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 2,
+      "failure": 98,
+      "valid_trials": 98,
+      "mean_phase": 1.1020408163265305,
+      "mean_phase_ci95": [
+        0.8877551020408163,
+        1.3165816326530575
+      ],
+      "phase_hist": {
+        "0": 32,
+        "1": 43,
+        "2": 9,
+        "3": 9,
+        "4": 5
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 66,
+          "trials": 100,
+          "rate": 0.66
+        },
+        {
+          "k": 2,
+          "success": 23,
+          "trials": 100,
+          "rate": 0.23
+        },
+        {
+          "k": 3,
+          "success": 14,
+          "trials": 100,
+          "rate": 0.14
+        },
+        {
+          "k": 4,
+          "success": 5,
+          "trials": 100,
+          "rate": 0.05
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 98,
+          "unknown": 2
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 2
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 2
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 14,
+      "half_task_rate": 0.14,
+      "mean_phase_missing_bounds": [
+        1.08,
+        1.18
+      ]
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_weak-30k-h4-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_weak-30k-h4-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.28,
+      "mean_phase_ci95": [
+        0.2,
+        0.37
+      ],
+      "phase_hist": {
+        "0": 72,
+        "1": 28
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 28,
+          "trials": 100,
+          "rate": 0.28
+        },
+        {
+          "k": 2,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 3,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        0.28,
+        0.28
+      ]
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_weak-30k-h4-original-rawrgb",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_weak-30k-h4-original-rawrgb",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.79,
+      "mean_phase_ci95": [
+        0.66,
+        0.93
+      ],
+      "phase_hist": {
+        "0": 36,
+        "1": 50,
+        "2": 13,
+        "3": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 64,
+          "trials": 100,
+          "rate": 0.64
+        },
+        {
+          "k": 2,
+          "success": 14,
+          "trials": 100,
+          "rate": 0.14
+        },
+        {
+          "k": 3,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "100/100完整原始日志核验；同场景补跑完成；原生120Hz执行链准入仍待数据",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 1,
+      "half_task_rate": 0.01,
+      "mean_phase_missing_bounds": [
+        0.79,
+        0.79
+      ],
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 55,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "archival_verification_pending": 0,
+      "simulation_completed": 100
+    },
+    {
+      "record": "10-mem0-weak-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": 21,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 5,
+          "order_split": null
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_weak-30k-h4-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_weak-30k-h4-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 14,
+      "failure": 86,
+      "valid_trials": 86,
+      "mean_phase": 0.5,
+      "mean_phase_ci95": [
+        0.38372093023255816,
+        0.627906976744186
+      ],
+      "phase_hist": {
+        "0": 46,
+        "1": 37,
+        "2": 3
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 40,
+          "trials": 100,
+          "rate": 0.4
+        },
+        {
+          "k": 2,
+          "success": 3,
+          "trials": 100,
+          "rate": 0.03
+        },
+        {
+          "k": 3,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 86,
+          "unknown": 14
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 14
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 8
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        0.43,
+        1.13
+      ]
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 8,
+        "planned_max_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "procs_per_gpu_by_shard": [
+          {
+            "shard": "weak_only_a01",
+            "num_envs_actual": 1,
+            "processes_per_gpu": 8,
+            "known_n": 100
+          }
+        ]
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_weak-30k-h8-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_weak-30k-h8-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.28,
+      "mean_phase_ci95": [
+        0.19,
+        0.37
+      ],
+      "phase_hist": {
+        "0": 73,
+        "1": 26,
+        "2": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 27,
+          "trials": 100,
+          "rate": 0.27
+        },
+        {
+          "k": 2,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 3,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        0.28,
+        0.28
+      ]
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_weak-30k-h8-original-rawrgb",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_weak-30k-h8-original-rawrgb",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.7,
+      "mean_phase_ci95": [
+        0.57,
+        0.83
+      ],
+      "phase_hist": {
+        "0": 43,
+        "1": 44,
+        "2": 13
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 57,
+          "trials": 100,
+          "rate": 0.57
+        },
+        {
+          "k": 2,
+          "success": 13,
+          "trials": 100,
+          "rate": 0.13
+        },
+        {
+          "k": 3,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "100/100完整原始日志核验；同场景补跑完成；原生120Hz执行链准入仍待数据",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        0.7,
+        0.7
+      ],
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 62,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "archival_verification_pending": 0,
+      "simulation_completed": 100
+    },
+    {
+      "record": "10-mem0-weak-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": 21,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/21",
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "PIL224_then_training_tensor",
+        "mode": "hidden_PIL_resize_then_tensor_bilinear",
+        "antialias": true,
+        "source": "Preserved invalid legacy input cohort; never a valid method ranking."
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 5,
+          "order_split": null
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "tensor_input_match": {
+          "passed": false,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-mem0_weak-30k-h8-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-mem0_weak-30k-h8-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 15,
+      "failure": 85,
+      "valid_trials": 85,
+      "mean_phase": 0.35294117647058826,
+      "mean_phase_ci95": [
+        0.24705882352941178,
+        0.47058823529411764
+      ],
+      "phase_hist": {
+        "0": 57,
+        "1": 26,
+        "2": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 28,
+          "trials": 100,
+          "rate": 0.28
+        },
+        {
+          "k": 2,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 3,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 85,
+          "unknown": 15
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "legacy_double_resize_invalid",
+      "input_consistent": false,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 15
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 9
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 6
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        0.3,
+        1.05
+      ]
+    },
+    {
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned_weak-30k-h4-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned_weak-30k-h4-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.65,
+      "mean_phase_ci95": [
+        0.52,
+        0.8
+      ],
+      "phase_hist": {
+        "0": 43,
+        "1": 53,
+        "2": 2,
+        "4": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 57,
+          "trials": 100,
+          "rate": 0.57
+        },
+        {
+          "k": 2,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 3,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 4,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 2,
+      "half_task_rate": 0.02,
+      "mean_phase_missing_bounds": [
+        0.65,
+        0.65
+      ]
+    },
+    {
+      "record": "10-ttc-aligned-weak-issue26-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned_weak-30k-h4-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned_weak-30k-h4-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.86,
+      "mean_phase_ci95": [
+        0.74,
+        0.98
+      ],
+      "phase_hist": {
+        "0": 26,
+        "1": 63,
+        "2": 10,
+        "3": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 74,
+          "trials": 100,
+          "rate": 0.74
+        },
+        {
+          "k": 2,
+          "success": 11,
+          "trials": 100,
+          "rate": 0.11
+        },
+        {
+          "k": 3,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 1,
+      "half_task_rate": 0.01,
+      "mean_phase_missing_bounds": [
+        0.86,
+        0.86
+      ]
+    },
+    {
+      "record": "10-ttc-aligned-weak-issue26",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned_weak-30k-h8-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned_weak-30k-h8-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.4,
+      "mean_phase_ci95": [
+        0.28,
+        0.53
+      ],
+      "phase_hist": {
+        "0": 66,
+        "1": 30,
+        "2": 2,
+        "3": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 34,
+          "trials": 100,
+          "rate": 0.34
+        },
+        {
+          "k": 2,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 3,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 2,
+      "half_task_rate": 0.02,
+      "mean_phase_missing_bounds": [
+        0.4,
+        0.4
+      ]
+    },
+    {
+      "record": "10-ttc-aligned-weak-issue26-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": 26,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/26",
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "pending",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned_weak-30k-h8-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned_weak-30k-h8-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "failure": 100,
+      "valid_trials": 100,
+      "mean_phase": 0.68,
+      "mean_phase_ci95": [
+        0.55,
+        0.82
+      ],
+      "phase_hist": {
+        "0": 43,
+        "1": 49,
+        "2": 5,
+        "3": 3
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 57,
+          "trials": 100,
+          "rate": 0.57
+        },
+        {
+          "k": 2,
+          "success": 8,
+          "trials": 100,
+          "rate": 0.08
+        },
+        {
+          "k": 3,
+          "success": 3,
+          "trials": 100,
+          "rate": 0.03
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {},
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 3,
+      "half_task_rate": 0.03,
+      "mean_phase_missing_bounds": [
+        0.68,
+        0.68
+      ]
+    },
+    {
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned-30k-h4-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned-30k-h4-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 1,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 1,
+      "failure": 98,
+      "valid_trials": 99,
+      "mean_phase": 0.47474747474747475,
+      "mean_phase_ci95": [
+        0.32323232323232326,
+        0.6363636363636364
+      ],
+      "phase_hist": {
+        "0": 64,
+        "1": 26,
+        "2": 8,
+        "5": 1
+      },
+      "wilson95": {
+        "low": 0.0017674320641406505,
+        "high": 0.054486196178705315,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 35,
+          "trials": 100,
+          "rate": 0.35
+        },
+        {
+          "k": 2,
+          "success": 9,
+          "trials": 100,
+          "rate": 0.09
+        },
+        {
+          "k": 3,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 4,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 5,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 1,
+          "failure": 98,
+          "unknown": 1
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 1
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 1,
+          "unknown": 1
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 1,
+      "half_task_rate": 0.01,
+      "mean_phase_missing_bounds": [
+        0.47,
+        0.52
+      ]
+    },
+    {
+      "record": "10-ours-aligned-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned-30k-h4-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned-30k-h4-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 24,
+      "failure": 76,
+      "valid_trials": 76,
+      "mean_phase": 0.27631578947368424,
+      "mean_phase_ci95": [
+        0.14473684210526316,
+        0.42105263157894735
+      ],
+      "phase_hist": {
+        "0": 60,
+        "1": 12,
+        "2": 3,
+        "3": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 16,
+          "trials": 100,
+          "rate": 0.16
+        },
+        {
+          "k": 2,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 3,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 76,
+          "unknown": 24
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 24
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 12
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 12
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 1,
+      "half_task_rate": 0.01,
+      "mean_phase_missing_bounds": [
+        0.21,
+        1.41
+      ]
+    },
+    {
+      "record": "10-ours-aligned",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "condition_version": "original-v1",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned-30k-h8-original-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned-30k-h8-original-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 1,
+      "failure": 99,
+      "valid_trials": 99,
+      "mean_phase": 0.3333333333333333,
+      "mean_phase_ci95": [
+        0.23232323232323232,
+        0.4444444444444444
+      ],
+      "phase_hist": {
+        "0": 71,
+        "1": 23,
+        "2": 5
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 28,
+          "trials": 100,
+          "rate": 0.28
+        },
+        {
+          "k": 2,
+          "success": 5,
+          "trials": 100,
+          "rate": 0.05
+        },
+        {
+          "k": 3,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 99,
+          "unknown": 1
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 1
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 1
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        0.33,
+        0.38
+      ]
+    },
+    {
+      "record": "10-ours-aligned-attach",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": 20,
+      "source_issue": "https://github.com/asimfish/safelab-handoff/issues/20",
+      "condition_version": "attach-v2_solver128",
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": null,
+        "planned_procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "source": "per-case source/roster records; historical raw shards include k8 and recoveryk10"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "eval_v1_preprocessing.py; each model compared with its own delivered training Resize and uint8 conversion"
+      },
+      "admission": {
+        "expert_replay": {
+          "passed": false,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-placement-v11-20261103.html",
+          "status": "new placement expert replay and real negative-video validation pending"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 10,
+          "order_split": null
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Original measured training120Hz reference remains unavailable; expert endpoint logs do not prove that parity."
+        },
+        "relaxed_oracle": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-v12-relaxed-20261105.html",
+          "expert_records": 10,
+          "real_negative_windows_each": 5,
+          "parameters_sha256": "297cd35b4a169c4c4290b67a7a01f2712cdc41109cde96242ead251eaaf9f527"
+        },
+        "placement_v13_validation": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106-validation.json",
+          "expert_records": 10,
+          "expert_unique_streams": 6,
+          "negative_per_category": 5
+        }
+      },
+      "id": "task10-v13-lenient-supportproof-r2-20261106-ours_aligned-30k-h8-attachv2-legacy",
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient",
+      "stage": "diagnostic",
+      "metric_role": "rescored_v1.3_lenient_user",
+      "source_evaluation_id": "task10-v12-relaxed-20261105-ours_aligned-30k-h8-attachv2-legacy",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "updated_at": "2026-11-06T10:33:03.223725+00:00",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 20,
+      "failure": 80,
+      "valid_trials": 80,
+      "mean_phase": 0.425,
+      "mean_phase_ci95": [
+        0.275,
+        0.5875
+      ],
+      "phase_hist": {
+        "0": 54,
+        "1": 21,
+        "2": 2,
+        "3": 3
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 26,
+          "trials": 100,
+          "rate": 0.26
+        },
+        {
+          "k": 2,
+          "success": 5,
+          "trials": 100,
+          "rate": 0.05
+        },
+        {
+          "k": 3,
+          "success": 3,
+          "trials": 100,
+          "rate": 0.03
+        },
+        {
+          "k": 4,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 80,
+          "unknown": 20
+        }
+      ],
+      "kind": "CPU离线v1.3用户放宽判定诊断",
+      "status": "CPU重算完成；R2修复持握悬空误计；独立v1.3行，不覆盖旧三口径",
+      "formal_score_eligible": false,
+      "preprocessing_cohort": "training_tensor_consistent",
+      "input_consistent": true,
+      "unknown_reasons": {
+        "missing_or_incomplete_complete_raw120hz_log": 20
+      },
+      "protocol": "用户确认：5杯各先称量再回自己垫；取消杯子间顺序；半任务>=3杯；区域55mm且最近目标；直立cos>=.80；支持/高度15mm；手仍接触时必须有真实目标面支撑接触且不能抬离；1tick；终态不复查；原60度日志截断保留。旧口径10阶段与本口径5杯分别列单位。",
+      "pending_reason": "Independent v1.3 diagnostic protocol; native120Hz execution-parity qualification unchanged. Legacy mismatched input is not ranked.",
+      "offline_rescore": true,
+      "offline_CPU_workers": 8,
+      "GPU_jobs_created": 0,
+      "parameter_sha256": "0f6954a45adea405354edb24f518dae3035ce39ac5dc35b611dead784d9e973e",
+      "oracle_sha256": "2a4f3209b90822fa09da57424f13cea55cdcaa63334b7a9d42974586b4741708",
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 8
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 12
+        }
+      },
+      "phase_count": 5,
+      "stage_unit": "completed_distinct_weighed_and_returned_objects",
+      "half_task_k": 3,
+      "half_task_success": 3,
+      "half_task_rate": 0.03,
+      "mean_phase_missing_bounds": [
+        0.34,
+        1.34
+      ]
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-recovery136-20261106-mem0_original-30k-h4-original-placement-diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": 1,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "100条已核验；诊断计分，原生120Hz执行链准入仍待数据",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "formal_score_eligible": false,
+      "mean_phase": 2.03,
+      "phase_hist": {
+        "0": 32,
+        "1": 19,
+        "2": 22,
+        "3": 5,
+        "4": 1,
+        "5": 13,
+        "6": 4,
+        "7": 2,
+        "8": 1,
+        "10": 1
+      },
+      "wilson95": {
+        "low": 0.0017674320641406505,
+        "high": 0.054486196178705315,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 1,
+          "failure": 99,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 1,
+          "unknown": 0,
+          "failure": 49
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h4",
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 0,
+      "unknown_reasons": {},
+      "valid_trials": 100,
+      "failure": 99,
+      "mean_phase_ci95": [
+        1.61,
+        2.47
+      ],
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 73,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 68,
+          "trials": 100,
+          "rate": 0.68
+        },
+        {
+          "k": 2,
+          "success": 49,
+          "trials": 100,
+          "rate": 0.49
+        },
+        {
+          "k": 3,
+          "success": 27,
+          "trials": 100,
+          "rate": 0.27
+        },
+        {
+          "k": 4,
+          "success": 22,
+          "trials": 100,
+          "rate": 0.22
+        },
+        {
+          "k": 5,
+          "success": 21,
+          "trials": 100,
+          "rate": 0.21
+        },
+        {
+          "k": 6,
+          "success": 8,
+          "trials": 100,
+          "rate": 0.08
+        },
+        {
+          "k": 7,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 8,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 9,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 10,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        }
+      ],
+      "half_task_k": 5,
+      "half_task_success": 21,
+      "half_task_rate": 0.21,
+      "mean_phase_missing_bounds": [
+        2.03,
+        2.03
+      ],
+      "metric_role": "verified_archive_recovery",
+      "source_evaluation_id": "task10-rawrgb-audit20261105-mem0_original-30k-h4-original-placement-A"
+    },
+    {
+      "record": "10-mem0",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": "10",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "checkpoint_issue": null,
+      "source_issue": null,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "shared": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "shared": true,
+          "MAE_range_0_255": [
+            1.811,
+            2.268
+          ],
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html"
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-round4-20261103.html",
+          "completed": 20,
+          "phase0": 7,
+          "order_split": {
+            "12345": 10,
+            "54321": 10
+          }
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-recovery136-20261106-mem0_original-30k-h8-original-placement-diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "100条已核验；诊断计分，原生120Hz执行链准入仍待数据",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "formal_score_eligible": false,
+      "mean_phase": 1.81,
+      "phase_hist": {
+        "0": 31,
+        "1": 28,
+        "2": 18,
+        "3": 4,
+        "4": 3,
+        "5": 8,
+        "6": 5,
+        "7": 1,
+        "8": 2
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_original-off-h8",
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 0,
+      "unknown_reasons": {},
+      "valid_trials": 100,
+      "failure": 100,
+      "mean_phase_ci95": [
+        1.43,
+        2.22
+      ],
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 74,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 69,
+          "trials": 100,
+          "rate": 0.69
+        },
+        {
+          "k": 2,
+          "success": 41,
+          "trials": 100,
+          "rate": 0.41
+        },
+        {
+          "k": 3,
+          "success": 23,
+          "trials": 100,
+          "rate": 0.23
+        },
+        {
+          "k": 4,
+          "success": 19,
+          "trials": 100,
+          "rate": 0.19
+        },
+        {
+          "k": 5,
+          "success": 16,
+          "trials": 100,
+          "rate": 0.16
+        },
+        {
+          "k": 6,
+          "success": 8,
+          "trials": 100,
+          "rate": 0.08
+        },
+        {
+          "k": 7,
+          "success": 3,
+          "trials": 100,
+          "rate": 0.03
+        },
+        {
+          "k": 8,
+          "success": 2,
+          "trials": 100,
+          "rate": 0.02
+        },
+        {
+          "k": 9,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 10,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "half_task_k": 5,
+      "half_task_success": 16,
+      "half_task_rate": 0.16,
+      "mean_phase_missing_bounds": [
+        1.81,
+        1.81
+      ],
+      "metric_role": "verified_archive_recovery",
+      "source_evaluation_id": "task10-rawrgb-audit20261105-mem0_original-30k-h8-original-placement-A"
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 4,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-recovery136-20261106-mem0_weak-30k-h4-original-placement-diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "100条已核验；诊断计分，原生120Hz执行链准入仍待数据",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "formal_score_eligible": false,
+      "mean_phase": 1.3,
+      "phase_hist": {
+        "0": 27,
+        "1": 36,
+        "2": 22,
+        "3": 11,
+        "4": 3,
+        "5": 1
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h4",
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 0,
+      "unknown_reasons": {},
+      "valid_trials": 100,
+      "failure": 100,
+      "mean_phase_ci95": [
+        1.09,
+        1.5202499999999963
+      ],
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 55,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 73,
+          "trials": 100,
+          "rate": 0.73
+        },
+        {
+          "k": 2,
+          "success": 37,
+          "trials": 100,
+          "rate": 0.37
+        },
+        {
+          "k": 3,
+          "success": 15,
+          "trials": 100,
+          "rate": 0.15
+        },
+        {
+          "k": 4,
+          "success": 4,
+          "trials": 100,
+          "rate": 0.04
+        },
+        {
+          "k": 5,
+          "success": 1,
+          "trials": 100,
+          "rate": 0.01
+        },
+        {
+          "k": 6,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 7,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 8,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 9,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 10,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "half_task_k": 5,
+      "half_task_success": 1,
+      "half_task_rate": 0.01,
+      "mean_phase_missing_bounds": [
+        1.3,
+        1.3
+      ],
+      "metric_role": "verified_archive_recovery",
+      "source_evaluation_id": "task10-rawrgb-audit20261105-mem0_weak-30k-h4-original-placement-A"
+    },
+    {
+      "record": "10-mem0-weak",
+      "dataset": "10-weigh",
+      "camera": "chest",
+      "task": 10,
+      "method": "Mem-0 · 削弱版",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "scene_list_hash": "sha256:c30224758a91c52679a7273884f71e17a39c6c09c478c9a9d168512207295a85",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "render_multiframe": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html"
+        },
+        "open_loop": {
+          "passed": true,
+          "status": "passed",
+          "gate_type": "soft",
+          "reference": "original Mem-0 30k on same10 episodes; armRMSE ratio <=1.5",
+          "invalidates_cohort_on_failure": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "arm_rmse_rad": 0.025646819092321353,
+          "ratio_to_original30k": 0.9963987782345419
+        },
+        "smoke20": {
+          "passed": true,
+          "report": "https://asimfish.github.io/safelab-handoff/reports/task10-eval-v1-20261103.html",
+          "status": "complete"
+        },
+        "tensor_input_match": {
+          "passed": true,
+          "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html",
+          "frames": 5,
+          "image_tensor_max_abs": 0,
+          "state_exact": true,
+          "tokens_exact": true,
+          "action_max_abs_rad": 0
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Endpoint expert10/10 and command-target RMSE evidence only; measured native120 joint trajectory not supplied. https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.html"
+        }
+      },
+      "id": "task10-recovery136-20261106-mem0_weak-30k-h8-original-placement-diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "condition_version": "original-v1",
+      "evaluation_started": true,
+      "success": 0,
+      "trials": 100,
+      "target": 100,
+      "completed": 100,
+      "unknown": 0,
+      "kind": "自主闭环",
+      "status": "100条已核验；诊断计分，原生120Hz执行链准入仍待数据",
+      "updated_at": "2026-11-06T11:09:31.217902+00:00",
+      "source": "reports/task10-v13-lenient-supportproof-r2-20261106.json",
+      "report_url": "https://asimfish.github.io/safelab-handoff/reports/task10-v13-lenient-supportproof-r2-20261106.html",
+      "formal_score_eligible": false,
+      "mean_phase": 1.28,
+      "phase_hist": {
+        "0": 29,
+        "1": 36,
+        "2": 20,
+        "3": 8,
+        "4": 7
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "inference_seed": 910100,
+          "trials": 100,
+          "success": 0,
+          "failure": 100,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "label": "12345",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        },
+        "right": {
+          "label": "54321",
+          "trials": 50,
+          "success": 0,
+          "unknown": 0,
+          "failure": 50
+        }
+      },
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 10,
+        "gpu_type": "RTX PRO6000 Blackwell96GB",
+        "readonly_model_pool": true
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "RawRGB LiveObservation bridge fix 1e84c2afa8b55473a41eacb0e4e295d9449de4e4f99501fcb9492b185cbe9035; original dataloader v2.Resize/uint8 conversion; final Qwen tensors exact on5 frames"
+      },
+      "protocol": "原100场景c3022475…；seed0=910100、轨迹seed=910100+scene_index；12345/54321各50交错；原始接触；h4/h8；placement-v1.1及strict/FD副列；仅改隐藏图像预处理。",
+      "pending_reason": "All100 complete logs verified. Native measured120Hz executor-parity qualification remains pending; archive recovery does not grant formal admission.",
+      "expected_start_at": "2026-11-05T14:02:21.442638+00:00",
+      "supersedes_evaluation_id": "task10-eval-v1-20261103-mem0_weak-off-h8",
+      "preprocessing_cohort": "rawRGB_trainresize_v2",
+      "progress_verification": {
+        "policy": "first independently verified closure per case; unsealed and pending never treated as physical failures",
+        "numeric_terminal_sources": [
+          "original source SHA + HTTPS GET SHA seal",
+          "complete uploaded120Hz object + mirrored native RESULT + original contract + independent oracle recomputation"
+        ],
+        "media_may_remain_pending": true,
+        "report": "https://github.com/asimfish/safelab-handoff/blob/c892dc4b44aa5bd237661cfe2927a63cb2196de3/reports/task10-tensor-input-audit-20261105.json"
+      },
+      "active_job_id": null,
+      "last_job_id": "job-ph3nth9dl85h",
+      "job_status": "SUCCEEDED",
+      "simulation_completed": 100,
+      "archival_verification_pending": 0,
+      "unknown_reasons": {},
+      "valid_trials": 100,
+      "failure": 100,
+      "mean_phase_ci95": [
+        1.05,
+        1.51
+      ],
+      "archive_recovery": {
+        "once_retry": true,
+        "original_valid_retained": 62,
+        "first_valid_closure": true,
+        "report": "reports/task10-v13-lenient-supportproof-r2-20261106-recovery136-manifest.json"
+      },
+      "sr_at_k": [
+        {
+          "k": 1,
+          "success": 71,
+          "trials": 100,
+          "rate": 0.71
+        },
+        {
+          "k": 2,
+          "success": 35,
+          "trials": 100,
+          "rate": 0.35
+        },
+        {
+          "k": 3,
+          "success": 15,
+          "trials": 100,
+          "rate": 0.15
+        },
+        {
+          "k": 4,
+          "success": 7,
+          "trials": 100,
+          "rate": 0.07
+        },
+        {
+          "k": 5,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 6,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 7,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 8,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 9,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        },
+        {
+          "k": 10,
+          "success": 0,
+          "trials": 100,
+          "rate": 0.0
+        }
+      ],
+      "half_task_k": 5,
+      "half_task_success": 0,
+      "half_task_rate": 0.0,
+      "mean_phase_missing_bounds": [
+        1.28,
+        1.28
+      ],
+      "metric_role": "verified_archive_recovery",
+      "source_evaluation_id": "task10-rawrgb-audit20261105-mem0_weak-30k-h8-original-placement-A"
     }
   ],
   "agents": [

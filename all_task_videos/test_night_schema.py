@@ -31,6 +31,10 @@ class NightMediaSchema(unittest.TestCase):
         self.assertEqual(self.errors({**self.case,'horizon':30,'stage':'legacy','protocol_version':'legacy'}),[])
     def test_unknown_revision_is_not_implicitly_accepted(self):
         self.assertTrue(self.errors({**self.case,'protocol_version':'SafeLab-Eval-v1.4-r10'}))
+    def test_mapping_index_is_typed_and_not_a_repeat_label(self):
+        self.assertEqual(self.errors({**self.case,'scene_index':0}),[])
+        self.assertTrue(self.errors({**self.case,'scene_index':-1}))
+        self.assertTrue(self.errors({**self.case,'scene_index':'repeat000'}))
     def test_external_video_boundary_is_not_weakened(self):
         c=copy.deepcopy(self.case);c['videos']['chest']['url']='https://unapproved.invalid/not-published.mp4'
         self.assertTrue(self.errors(c))

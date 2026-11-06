@@ -662,7 +662,8 @@
         }
       }
     },
-    "offline_caveat": "No inference of missing posttermination trajectory; XY3/target-only are separate diagnostics, never replace formalv1.1."
+    "offline_caveat": "No inference of missing posttermination trajectory; XY3/target-only are separate diagnostics, never replace formalv1.1.",
+    "paired_TTC_minus_Mem0_source": "Original online/native v1.1 metadata for100cases; priorgrade retained. This is distinct from new CPU raw-trace-supported pairing below, which has97/96 pairs because7 Mem0 rawarchives aremissing."
   },
   "results": [
     {
@@ -2266,5 +2267,75 @@
     "additional_simulations_for_CPU_variants": 0
   },
   "media_report": "task5-t939-media-20261106.json",
-  "media_manifest": "../media/manifests/5/task5-t939-main-20261106.json"
+  "media_manifest": "../media/manifests/5/task5-t939-main-20261106.json",
+  "paired_raw_trace_supported": [
+    {
+      "K": 4,
+      "metric": "placement_v1_1",
+      "target_pairs": 100,
+      "raw_supported_pairs": 97,
+      "unknown_pairs": 3,
+      "forward_pairs": 48,
+      "reverse_pairs": 49,
+      "mean_phase_difference_TTC_minus_Mem0": -0.10309278350515463,
+      "bootstrap95": [
+        -0.25773195876288657,
+        0.05154639175257732
+      ],
+      "replicates": 10000,
+      "bootstrap_seed": 20261106,
+      "resampling": "paired within forward/reverse strata; unknown pairs excluded, never filledzero"
+    },
+    {
+      "K": 4,
+      "metric": "placement_v1_2_relaxed",
+      "target_pairs": 100,
+      "raw_supported_pairs": 97,
+      "unknown_pairs": 3,
+      "forward_pairs": 48,
+      "reverse_pairs": 49,
+      "mean_phase_difference_TTC_minus_Mem0": -0.41237113402061853,
+      "bootstrap95": [
+        -0.5876288659793815,
+        -0.23711340206185566
+      ],
+      "replicates": 10000,
+      "bootstrap_seed": 20261106,
+      "resampling": "paired within forward/reverse strata; unknown pairs excluded, never filledzero"
+    },
+    {
+      "K": 8,
+      "metric": "placement_v1_1",
+      "target_pairs": 100,
+      "raw_supported_pairs": 96,
+      "unknown_pairs": 4,
+      "forward_pairs": 48,
+      "reverse_pairs": 48,
+      "mean_phase_difference_TTC_minus_Mem0": -0.2916666666666667,
+      "bootstrap95": [
+        -0.4270833333333333,
+        -0.15625
+      ],
+      "replicates": 10000,
+      "bootstrap_seed": 20261106,
+      "resampling": "paired within forward/reverse strata; unknown pairs excluded, never filledzero"
+    },
+    {
+      "K": 8,
+      "metric": "placement_v1_2_relaxed",
+      "target_pairs": 100,
+      "raw_supported_pairs": 96,
+      "unknown_pairs": 4,
+      "forward_pairs": 48,
+      "reverse_pairs": 48,
+      "mean_phase_difference_TTC_minus_Mem0": -0.59375,
+      "bootstrap95": [
+        -0.7604166666666666,
+        -0.4166666666666667
+      ],
+      "replicates": 10000,
+      "bootstrap_seed": 20261106,
+      "resampling": "paired within forward/reverse strata; unknown pairs excluded, never filledzero"
+    }
+  ]
 }

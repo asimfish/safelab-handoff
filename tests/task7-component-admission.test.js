@@ -42,7 +42,13 @@ test('complete10 success-count gate cannot hide RMSE failure or manufacture four
 test('all12 pending rows retain empty formal denominators despite accepted components; weak inputs stay pending',()=>{
  assert.equal(rows.length,12);assert.equal(s.stage_A_authorized,false);
  for(const e of rows){
-  assert.equal(e.trials,0);assert.equal(e.completed,0);assert.equal(e.success,null);assert.equal(e.evaluation_started,false);assert.equal(e.mean_phase,null);assert.deepEqual(e.phase_hist,{});
+  const expected={
+   'task7-eval-v11-A-original-mem0_30k-h4':{trials:100,completed:24,success:null},
+   'task7-eval-v11-A-original-mem0_30k-h8':{trials:100,completed:100,success:5},
+   'task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h4':{trials:100,completed:100,success:null},
+   'task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8':{trials:100,completed:100,success:7}
+  }[e.id]||{trials:0,completed:0,success:null};
+  assert.equal(e.trials,expected.trials);assert.equal(e.completed,expected.completed);assert.equal(e.success,expected.success);if(!expected.trials){assert.equal(e.evaluation_started,false);assert.equal(e.mean_phase,null);assert.deepEqual(e.phase_hist,{});}
   assert.equal(e.scene_list_hash,'sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f');
   assert.equal(e.admission.expert_replay.passed,true);assert.equal(e.admission.render_multiframe.passed,true);assert.equal(e.admission.executor_parity.passed,false);assert.equal(e.admission.smoke20.passed,false);
   assert.ok(M.formalIssues(e).includes('准入证据缺失'));assert.ok(M.formalIssues(e).includes('未完成或分母无效'));

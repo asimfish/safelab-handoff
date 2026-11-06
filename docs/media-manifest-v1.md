@@ -139,3 +139,9 @@ R2 实施说明：首批原URL已通过线上双SHA核验，并在后继版本�
 ### 2026-11-06 capacity exception
 
 Explicit user instruction supersedes the compatibility retention window for the R2 backlog: remove verified derived plain JSON copies in the same PR as gzip migration. Original producer archives remain intact; wire and decoded SHA verification remains required. This exception does not assert that R2 was previously published.
+
+### Task5 v2.1 evidence-bound diagnostic pairing
+
+The pinned producer supplement (`d08cfcd4278faa91f46f4207ccb1785692513de038aa963c62033e39461c1793`) upgrades 46 archived cases to strict declared-scene/seed/recorded-optics keys. Four missing original archives remain unavailable. This is diagnostic pairing, not formal A/B admission and not bitwise initial-state equality. The pair key includes protocol, oracle, stage, contact condition, scene list/profile/declared-scene hashes, scene/policy seeds, direction, horizon and recorded render hash; per-case source-bound initial readback evidence remains separately available. Never substitute the four missing videos.
+
+Task order: A→temporary_A, B→temporary_B, C→target_C, A→pad_A, B→pad_B. Model indices 0..4 target physical completions 1..5; a switch is attributed to its **pre-switch** index. MemoryVLA uses global_task, so model-switch mapping is null. Completion probability and TTC completion score are separate measurements: true scores are shown only at producer raw-record timestamps; missing intermediate true scores remain null. Every raw switch is retained at its source timestamp; no physical completion is fabricated as a model switch. Gzip source-evidence assets carry both wire and decoded hashes.

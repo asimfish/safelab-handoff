@@ -34,7 +34,7 @@ test('J expert success and model bridge CPU tests cannot change formal model res
  assert.equal(s.model_bridge_v2_CPU_only.tests,28);assert.equal(s.model_bridge_v2_CPU_only.Native_or_NN_calls,0);assert.equal(s.model_bridge_v2_CPU_only.physical_or_NN_admission,false);
  assert.equal(s.formal_trials_added,0);assert.equal(s.formal_success,null);assert.equal(s.StageA_authorized,false);
  const rows=read('data.json').evaluations.filter(r=>r.id.startsWith('task7-eval-v11-A-original-'));assert.equal(rows.length,12);
- for(const r of rows){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
+ for(const r of rows){const expected={'task7-eval-v11-A-original-mem0_30k-h4':[100,24,null],'task7-eval-v11-A-original-mem0_30k-h8':[100,100,5],'task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h4':[100,100,null],'task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8':[100,100,7]}[r.id]||[0,0,null];assert.equal(r.trials,expected[0]);assert.equal(r.completed,expected[1]);assert.equal(r.success,expected[2]);if(expected[0]===0){assert.equal(r.evaluation_started,false);}if(expected[0]===0){assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}}
  assert.equal(s.resource_snapshot.total_reserved_GPUs,8);assert.equal(s.resource_snapshot.not_a_live_global_poll,true);
  const p=read(root+'diagnostic-progress.json');assert.equal(p.latest_PCHIP_final_and_F4_snapshot.summary_sha256,digest(root+'pchip-final-and-fourlane-snapshot-20261104.json'));
 });

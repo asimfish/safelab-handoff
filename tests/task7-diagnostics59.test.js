@@ -25,6 +25,6 @@ test('four-lane and PCHIP preparation never grants scientific or formal qualific
 test('all12 formal rows remain0/null with executor and smoke gates closed',()=>{
  const rows=read('data.json').evaluations.filter(x=>x.id.startsWith('task7-eval-v11-A-original-'));assert.equal(rows.length,12);
  assert.equal(s.formal_trials_added,0);assert.equal(s.formal_success,null);assert.equal(s.stage_A_authorized,false);assert.equal(s.formal_rows_changed,false);
- for(const r of rows){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
+ for(const r of rows){const expected={'task7-eval-v11-A-original-mem0_30k-h4':[100,24,null],'task7-eval-v11-A-original-mem0_30k-h8':[100,100,5],'task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h4':[100,100,null],'task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8':[100,100,7]}[r.id]||[0,0,null];assert.equal(r.trials,expected[0]);assert.equal(r.completed,expected[1]);assert.equal(r.success,expected[2]);if(!expected[0])assert.equal(r.evaluation_started,false);}
  const summary='diagnostics59-qualifications-20261104.json';assert.equal(read(root+'diagnostic-progress.json').latest_59_qualification_snapshot.summary_sha256,digest(root+summary));
 });

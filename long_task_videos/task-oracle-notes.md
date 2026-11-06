@@ -1,0 +1,9 @@
+# Task-specific source interpretation
+
+Task 7 v1.3 counts four distinct cups supported on the pan; source v1.1 is seven ordered placements. Task 10 frozen R2 v1.3 requires each cup to be weighed before returning to its own pad, for five completed objects; v1.1 has ten ordered placements. Task 5 uses five ordered placements A→temporary_A, B→temporary_B, C→target_C, A→pad_A, B→pad_B. Only producer v1.1/v1.2 are available for Task 5; v1.3 remains unpublished.
+
+All available source summaries and per-tick phase transitions were replayed exactly. Task 10 pi0.5/MemoryVLA R2 CPU rescores are diagnostic and are not promoted to formal producer v1.3 scores. Unknown infrastructure cases stay in the planned denominator and never become model failures.
+
+Release classification uses genuine hand-contact loss followed by stable support. A release that advances an available oracle cannot be wrong. Later regrasp, correct placement or same-cup oracle progress invalidates an older wrong-release candidate. For Task 10, weighing state determines pan versus own-pad expectation. Task 5 latches the current ordered target before grasp/release. Irreversible source catastrophe guards retain their original semantics. A decisive uncorrected event, otherwise last valid progress before timeout, supplies the failure marker. Twenty deterministic random wrong-release samples per task are independently re-read with source SHA, coordinates, support contacts and future correction checks.
+
+Task-specific exact source scripts are task5-classifier.py and task10-classifier.py; their SHA values are bound in each task manifest. The seven-task classifier and correction report remain unchanged. These archived scripts reference producer environments; they are evidence, not a claim of a self-contained simulation package.

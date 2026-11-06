@@ -131,3 +131,7 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 ### 辅助协议展示
 
 `SafeLab-Eval-v1.4-A` 或显式 `assisted:true` / `assistance_protocol` / `time_limit_multiplier`、`timeout_multiplier`、`time_budget_multiplier` 大于1的配置，进入“辅助协议”分区。只读已声明的倍率，不能从录像时长推定倍率。协议/倍率进入配置和物理配对身份，不与同权重的纯物理行合并；v1.4只是重评分时仍按对应来源批次展示。新口径必须填写真实 oracle_version，不猜测或沿用v1.1；原v1.1/strict的oracle约束不变。各口径单列x/n，不拿宽松结果填正式列。辅助均值的阶段上限未发布时分母用“–”，不把杯数误当成子任务数。
+
+R2 实施说明：首批原URL已通过线上双SHA核验，并在后继版本提交前等待≥600秒；仅退役该批GitHub派生JSON。其余185份启用gzip时继续保留各自 frame_log_previous。`scripts/retire-frame-log-compat.py` 默认只预览，apply需要完整线上回执、保留窗口、case绑定、新旧及归档逐字节一致；拒绝符号链接、超2MB解压、重复意图或不匹配归档。归档及TOS原对象永不在此脚本中删除。
+
+既有大报告 `long_task_videos/task7-diagnostics.json`（1,326,742B）已按原字节复制到授权TOS `reports-v1/visualization-gzip-20261106/<sha>/`，匿名GET/SHA核对记录在 `media/migrations/report-task7-diagnostics-20261106.json`。页面下载链接指向TOS，不做跨域fetch；仓库仅保留62KB、带原报告SHA的回归事实摘要。旧完整报告路径保留R2一个发布周期后，仅移除其GitHub副本，归档与TOS原件保留。根 data.json 为实时控制清单，非报告归档，不随报告迁移。

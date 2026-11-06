@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Losslessly copy derived logs to gzip; retain byte-bound old paths for a release."""
-import argparse,gzip,hashlib,json,pathlib,subprocess,datetime
+import argparse,gzip,hashlib,json,pathlib,subprocess,datetime,re
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 def sha(b):return hashlib.sha256(b).hexdigest()
 def main():
  p=argparse.ArgumentParser();p.add_argument('--archive',required=True);p.add_argument('--wire-budget',type=int,default=180000);p.add_argument('--release',required=True);a=p.parse_args();archive=pathlib.Path(a.archive).resolve()
+ if not re.fullmatch(r'[A-Za-z0-9_-]+',a.release):raise SystemExit('Invalid release identity')
  allowed=pathlib.Path('/projects/a02012413/buckets/zenith-a02012413/liyufeng').resolve()
  if not archive.is_relative_to(allowed) or archive.is_relative_to(ROOT):raise SystemExit('Archive must be outside Git in the allowed owned bucket path')
  ledger_path=ROOT/'media/migrations'/('frame-log-'+a.release+'.json')
@@ -20,12 +21,16 @@ def main():
    old=c.get('frame_log')
    if not old or old.get('encoding','identity')!='identity':continue
    rel=old['url'].removeprefix('https://asimfish.github.io/safelab-handoff/')
+   if (ROOT/rel).resolve()!=(ROOT/rel).absolute() or not (ROOT/rel).resolve().is_relative_to(ROOT.resolve()):raise SystemExit('Source log escapes repository')
    if not rel.startswith('media/frame_logs/') or '..' in pathlib.PurePosixPath(rel).parts or not rel.endswith('.json'):raise SystemExit('Bad source log path')
    b=(ROOT/rel).read_bytes()
+   if len(b)>2000000:raise SystemExit('Source log exceeds2MB decoded bound')
    if sha(b)!=old['sha256'].removeprefix('sha256:') or len(b)!=old['bytes']:raise SystemExit('Old identity mismatch')
    obj=json.loads(b)
    if obj['case_id']!=c['case_id']:raise SystemExit('Old case mismatch')
-   dest=archive/rel;dest.parent.mkdir(parents=True,exist_ok=True)
+   dest=archive/rel
+   if not dest.resolve().is_relative_to(archive) or dest.resolve()!=dest.absolute():raise SystemExit('Archive path contains a symlink or escapes archive')
+   dest.parent.mkdir(parents=True,exist_ok=True)
    if dest.exists() and dest.read_bytes()!=b:raise SystemExit('Archive collision')
    if not dest.exists():dest.write_bytes(b)
    if sha(dest.read_bytes())!=sha(b):raise SystemExit('Archive SHA mismatch')

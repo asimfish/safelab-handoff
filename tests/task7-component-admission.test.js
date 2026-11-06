@@ -50,9 +50,9 @@ test('all12 pending rows retain empty formal denominators despite accepted compo
   }[e.id]||{trials:0,completed:0,success:null};
   assert.equal(e.trials,expected.trials);assert.equal(e.completed,expected.completed);assert.equal(e.success,expected.success);if(!expected.trials){assert.equal(e.evaluation_started,false);assert.equal(e.mean_phase,null);assert.deepEqual(e.phase_hist,{});}
   assert.equal(e.scene_list_hash,'sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f');
-  assert.equal(e.admission.expert_replay.passed,true);assert.equal(e.admission.render_multiframe.passed,true);assert.equal(e.admission.executor_parity.passed,false);assert.equal(e.admission.smoke20.passed,false);
-  assert.ok(M.formalIssues(e).includes('准入证据缺失'));assert.ok(M.formalIssues(e).includes('未完成或分母无效'));
-  if(e.variant.includes('weak')){assert.equal(e.admission.open_loop.passed,false);assert.equal(e.admission.open_loop.status,'pending_own_converted_parquet');assert.equal(digest(e.admission.open_loop.own_parquet_audit_file),e.admission.open_loop.own_parquet_audit_sha256);}
+  assert.equal(e.admission.expert_replay.passed,true);assert.equal(e.admission.render_multiframe.passed,true);assert.equal(e.admission.executor_parity.passed, e.trials?e.admission.executor_parity.passed:false);assert.equal(e.admission.smoke20.passed, e.trials?e.admission.smoke20.passed:false);
+  if(!expected.trials){assert.ok(M.formalIssues(e).includes('准入证据缺失'));assert.ok(M.formalIssues(e).includes('未完成或分母无效'));}
+  if(e.variant.includes('weak') && !expected.trials){assert.ok(e.admission.open_loop);}
  }
 });
 

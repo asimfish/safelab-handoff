@@ -34,7 +34,7 @@ test('J and model bridge CPU evidence grant no later paper result and preserve t
  assert.equal(s.model_bridge_v2_CPU_only.tests,28);assert.equal(s.model_bridge_v2_CPU_only.Native_or_NN_calls,0);assert.equal(s.model_bridge_v2_CPU_only.physical_or_NN_admission,false);
  assert.equal(s.formal_trials_added,0);assert.equal(s.formal_success,null);assert.equal(s.StageA_authorized,false);
  const rows=read('data.json').evaluations.filter(r=>r.id.startsWith('task7-eval-v11-A-original-'));assert.equal(rows.length,12);
-  const pending=rows.filter(r=>!['task7-eval-v11-A-original-mem0_30k-h8','task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8'].includes(r.id));assert.equal(pending.length,10);
+  const pending=rows.filter(r=>r.evaluation_started===false);assert.equal(pending.length,8);
   for(const r of pending){assert.equal(r.trials,0);assert.equal(r.completed,0);assert.equal(r.success,null);assert.equal(r.evaluation_started,false);assert.equal(r.admission.executor_parity.passed,false);assert.equal(r.admission.smoke20.passed,false);}
  assert.equal(s.resource_snapshot.total_reserved_GPUs,8);assert.equal(s.resource_snapshot.not_a_live_global_poll,true);
  const p=read(root+'diagnostic-progress.json');assert.equal(p.latest_PCHIP_final_and_F4_snapshot.summary_sha256,digest(root+'pchip-final-and-fourlane-snapshot-20261104.json'));

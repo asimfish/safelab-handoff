@@ -20,8 +20,8 @@ test('only the two root-adjudicated original h8 paper cells supply final task7 s
  }
  const board=M.buildBoard(data),shown=M.formalComparisons(board,'placement-v1.1');
  for(const id of ids)assert.ok(shown.some(e=>e.id===id));
- const pending=data.evaluations.filter(e=>e.id.startsWith('task7-eval-v11-A-original-')&&!ids.includes(e.id));
- assert.equal(pending.length,10);assert.ok(pending.every(e=>e.trials===0&&e.success===null&&e.evaluation_started===false));
+ const pending=data.evaluations.filter(e=>e.id.startsWith('task7-eval-v11-A-original-')&&!ids.includes(e.id)&&e.evaluation_started===false);
+ assert.equal(pending.length,8);assert.ok(pending.every(e=>e.trials===0&&e.success===null&&e.evaluation_started===false));
 });
 
 test('TTC retains one infrastructure unknown, exact positive2/reverse5 and known-only phase statistics',()=>{

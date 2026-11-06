@@ -39,10 +39,10 @@ test('complete10 success-count gate cannot hide RMSE failure or manufacture four
  assert.equal(e.retrospective_cases.length,4);assert.ok(e.retrospective_cases.every(p=>p.original_FINAL_ARCHIVE_present===false&&p.not_original_archive_receipt&&p.current_independent_listed_artifacts_verified));
 });
 
-test('ten untested rows stay empty; the historical weak review does not grant their hard gates',()=>{
+test('eight unstarted rows stay empty; actual h4 progress does not grant their hard gates',()=>{
   assert.equal(rows.length,12);assert.equal(s.stage_A_authorized,false);
-  const pending=rows.filter(e=>!['task7-eval-v11-A-original-mem0_30k-h8','task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h8'].includes(e.id));
-  assert.equal(pending.length,10);
+  const pending=rows.filter(e=>!e.evaluation_started);
+  assert.equal(pending.length,8);
   for(const e of pending){
   assert.equal(e.trials,0);assert.equal(e.completed,0);assert.equal(e.success,null);assert.equal(e.evaluation_started,false);assert.equal(e.mean_phase,null);assert.deepEqual(e.phase_hist,{});
   assert.equal(e.scene_list_hash,'sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f');
@@ -63,6 +63,9 @@ test('ten untested rows stay empty; the historical weak review does not grant th
    assert.equal(digest(gate.prior_review.own_parquet_audit_file),gate.prior_review.own_parquet_audit_sha256);
   }
  }
+ const h4=rows.filter(e=>['task7-eval-v11-A-original-mem0_30k-h4','task7-eval-v11-A-original-ttc_aligned_trainresize_30k-h4'].includes(e.id));
+ assert.equal(h4.length,2);
+ for(const e of h4){assert.equal(e.evaluation_started,true);assert.ok(e.completed>0);assert.equal(e.success,null);assert.equal(e.admission.executor_parity.passed,false);assert.ok(M.formalIssues(e).length>0);}
 });
 
 test('expert infrastructure terminal and recorded utilization do not imply model failure or continuous lifecycle coverage',()=>{

@@ -31,6 +31,11 @@ jobs:
         run: node scripts/check-media-budget.cjs
       - name: Verify dashboard metrics
         run: node --test tests/*.test.js
+      - name: Verify lossless media migration and retained diagnostic facts
+        run: |
+          node --test all_task_videos/*.test.cjs long_task_videos/timeline.test.cjs
+          python3 -m unittest discover -s long_task_videos -p 'test_*.py'
+          python3 -m unittest discover -s tests -p 'test_frame_log_retirement.py'
       - name: Verify rendered oracle switching and checkpoint coverage
         run: |
           python3 -m http.server 8872 --bind 127.0.0.1 >/tmp/safelab-pages-qa.log 2>&1 &

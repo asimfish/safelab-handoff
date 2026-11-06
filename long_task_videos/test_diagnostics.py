@@ -1,8 +1,11 @@
 from pathlib import Path
 import json,unittest,hashlib
 P=Path(__file__).parent
-D=json.loads((P/'task7-diagnostics.json').read_text());A=json.loads((P/'diagnostic-audit.json').read_text());M=json.loads((P/'diagnostic-media.json').read_text())['cases']
+D=json.loads((P/'task7-diagnostic-summary.json').read_text());A=json.loads((P/'diagnostic-audit.json').read_text());M=json.loads((P/'diagnostic-media.json').read_text())['cases']
 class TestRefinement(unittest.TestCase):
+ def test_original_report_binding(self):
+  self.assertEqual(D['source_report']['sha256'],'2fc48ad7db9b0914396c09cb9f9d4dc106766eef5c1ee7600656b7157ecbb143');self.assertTrue(D['source_report']['anonymous_GET_SHA_verified']);self.assertLess((P/'task7-diagnostic-summary.json').stat().st_size,200000)
+  if (P/'task7-diagnostics.json').exists():self.assertEqual(hashlib.sha256((P/'task7-diagnostics.json').read_bytes()).hexdigest(),D['source_report']['sha256'])
  def test_parent_counts_conserved(self):
   self.assertEqual([sum(D['counts'][m].values())for m in ['mem0_30k','ours_aligned_30k','pi05_40k']],[66,40,11]);self.assertEqual(sum(r.get('known',False)for r in D['cases']),285)
  def test_20_independent_checks_and_coverage(self):

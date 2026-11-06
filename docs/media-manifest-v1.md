@@ -119,3 +119,37 @@ gzip使用`.json.gz`和`encoding:"gzip"`；bytes/sha256是仓库中压缩文件�
 旧 `safelab-public/media-v1/` **只在已有素材迁移期间兼容**，不是新发布路径。CI输出 `legacy_public_media_references` 作为待迁移数；收尾后移除旧前缀。十任务/pi0.5迁移PR必须遵循复制→逐文件匿名GET及bytes/SHA核对→更新引用，保持case_id、evaluation_id、协议、stage、视频字节和时钟不变。原对象先保留，删除需用户批准。只改URL但没有完成复制和SHA核验的PR不合并。
 
 同源 `media/frame_logs/` 日志继续适用现有规则，本次不开放未经CORS验收的外部JSON；视频可播不证明JSON可fetch。播放器和完整schema/来源核验要求不变，CI白名单也不代替实际匿名读取和SHA证据。
+
+## 2026-11-06 gzip 容量迁移
+
+现有消费者已通过 `DecompressionStream('gzip')` 的双 SHA、2MB 有界解压和视频时钟验收。仅压缩原文件字节，不改 JSON 序列化、不抽稀、不更改事件或帧数。压缩身份使用 frame_log.bytes/sha256，解压身份使用 decoded_bytes/decoded_sha256（与迁移前原文件完全相同）。
+
+滚动发布保留 `frame_log_previous` 为原同源 identity 资产；CI 同时检查新旧文件、case_id 和解压内容逐字节相等，不能把兼容字段指向不相关日志。旧路径在启用 gzip 的已部署版本中继续可 GET，下一版本且至少跨过一次5分钟同步窗口后才移除；移除仅指 GitHub 的过期派生副本，源日志及已核对的归档不删除。迁移清单记录在 `media/migrations/`，压缩脚本复用意图必须先退出，不能重复改写。
+
+因为首版保留原路径，压缩副本会暂时增加快照，不得把预期节省计作现有余量。先用剩余预算上线第一批，再在后继版本释放该批旧派生副本、上线下一批；每个版本都检查全仓50MB上限。不改变 CORS、bucket ACL、视频路径、评分或配对身份。
+
+### 辅助协议展示
+
+`SafeLab-Eval-v1.4-A` 或显式 `assisted:true` / `assistance_protocol` / `time_limit_multiplier`、`timeout_multiplier`、`time_budget_multiplier` 大于1的配置，进入“辅助协议”分区。只读已声明的倍率，不能从录像时长推定倍率。协议/倍率进入配置和物理配对身份，不与同权重的纯物理行合并；v1.4只是重评分时仍按对应来源批次展示。新口径必须填写真实 oracle_version，不猜测或沿用v1.1；原v1.1/strict的oracle约束不变。各口径单列x/n，不拿宽松结果填正式列。辅助均值的阶段上限未发布时分母用“–”，不把杯数误当成子任务数。
+
+R2 实施说明：首批原URL已通过线上双SHA核验，并在后继版本提交前等待≥600秒；仅退役该批GitHub派生JSON。其余185份启用gzip时继续保留各自 frame_log_previous。`scripts/retire-frame-log-compat.py` 默认只预览，apply需要完整线上回执、保留窗口、case绑定、新旧及归档逐字节一致；拒绝符号链接、超2MB解压、重复意图或不匹配归档。归档及TOS原对象永不在此脚本中删除。
+
+既有大报告 `long_task_videos/task7-diagnostics.json`（1,326,742B）已按原字节复制到授权TOS `reports-v1/visualization-gzip-20261106/<sha>/`，匿名GET/SHA核对记录在 `media/migrations/report-task7-diagnostics-20261106.json`。页面下载链接指向TOS，不做跨域fetch；仓库仅保留62KB、带原报告SHA的回归事实摘要。旧完整报告路径保留R2一个发布周期后，仅移除其GitHub副本，归档与TOS原件保留。根 data.json 为实时控制清单，非报告归档，不随报告迁移。
+
+### 2026-11-06 capacity exception
+
+Explicit user instruction supersedes the compatibility retention window for the R2 backlog: remove verified derived plain JSON copies in the same PR as gzip migration. Original producer archives remain intact; wire and decoded SHA verification remains required. This exception does not assert that R2 was previously published.
+
+### Task5 v2.1 evidence-bound diagnostic pairing
+
+The pinned producer supplement (`d08cfcd4278faa91f46f4207ccb1785692513de038aa963c62033e39461c1793`) upgrades 46 archived cases to strict declared-scene/seed/recorded-optics keys. Four missing original archives remain unavailable. This is diagnostic pairing, not formal A/B admission and not bitwise initial-state equality. The pair key includes protocol, oracle, stage, contact condition, scene list/profile/declared-scene hashes, scene/policy seeds, direction, horizon and recorded render hash; per-case source-bound initial readback evidence remains separately available. Never substitute the four missing videos.
+
+Task order: A→temporary_A, B→temporary_B, C→target_C, A→pad_A, B→pad_B. Model indices 0..4 target physical completions 1..5; a switch is attributed to its **pre-switch** index. MemoryVLA uses global_task, so model-switch mapping is null. Completion probability and TTC completion score are separate measurements: true scores are shown only at producer raw-record timestamps; missing intermediate true scores remain null. Every raw switch is retained at its source timestamp; no physical completion is fabricated as a model switch. Gzip source-evidence assets carry both wire and decoded hashes.
+
+### Night configuration display (h2, v6, v1.4-A/B and r1)
+
+- Published evaluation rows appear immediately as configuration rows; incomplete runs show progress, never a partial success rate. Weight inventory alone remains folded. No synthetic scores are written into the source data.
+- New media may declare horizon2 as well as4/8; horizon30 retains the existing legacy-only rule. Explicit variant/grasp_attachment labels distinguish attachmentv6 from other cohorts.
+- v1.4-A and v1.4-B are assisted execution protocols, shown in their own section. Keep assistance_protocol, time multiplier, attachment/variant, condition, stage and all scene identifiers unchanged across rescorings of the same physical cohort.
+- Publish r1 scoring as protocol_version=SafeLab-Eval-v1.4-r1; it has a separate table column and never aliases v1.4 or replaces v1.1. Its exact scoring/phase rules come from each task report. Include the source oracle_version; missing raw evidence remains unknown. All-unknown scores display “unknown n/n”, not “0/n”. Do not infer r1 from previous scores.
+- Task7/10 fixed scene0/1/50/51 pairing remains gated on the actual producer mapping and complete existing pairing keys. Supply a public mapping URL+bytes+SHA and per-case source binding, then publish canonical scene_index in the manifest. Never reinterpret a trajectory repeat number as the main scene index or weaken a hash/seed match to fill a missing panel.

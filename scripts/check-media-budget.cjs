@@ -4,10 +4,10 @@ const LIMITS={snapshot:50000000,asset:2000000,manifest:1000000,index:256000};
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 // Exact bucket endpoints already used by reviewed media; no arbitrary external hosts.
 const PUBLIC_MEDIA_ORIGINS=new Set(['https://zenith-a02012413.bj.bcebos.com','https://zenith-a02012413.tos-cn-beijing.volces.com']);
-function publicMediaURL(value,task){
+function publicMediaURL(value,task,alias){
  const u=new URL(value);
  if(!PUBLIC_MEDIA_ORIGINS.has(u.origin)||u.href!==value||u.username||u.password||u.search||u.hash||/%(?:2e|2f|5c)/i.test(u.pathname))throw Error('Public media must use a clean approved bucket URL');
- const match=u.pathname.match(/^\/(liyufeng\/)?safelab-public\/media-v1\/(3|5|7|10)\/(?:[^/?#]+\/)*[^/?#]+\.mp4$/);
+ const producerTask5=alias==='task5'&&String(task)==='5'&&/^\/liyufeng\/safelab-public\/media-v1\/task5\/(?:[^/?#]+\/)*[^/?#]+\.mp4$/.test(u.pathname);if(producerTask5)return {legacy:true};const match=u.pathname.match(/^\/(liyufeng\/)?safelab-public\/media-v1\/(3|5|7|10)\/(?:[^/?#]+\/)*[^/?#]+\.mp4$/);
  if(!match||task!=null&&match[2]!==String(task))throw Error('Public media path must use liyufeng/safelab-public/media-v1/<task>/ (old prefix is migration-only)');
  return {legacy:!match[1]};
 }
@@ -60,8 +60,10 @@ function inspect(root,files,limits=LIMITS){
   if(fs.statSync(path.join(root,name)).size>limits.manifest)throw Error('Media manifest exceeds limit');
   const manifest=JSON.parse(fs.readFileSync(path.join(root,name),'utf8'));if(!Array.isArray(manifest.cases))throw Error('Missing manifest cases');report.manifests++;
   for(const item of manifest.cases){
-   for(const asset of Object.values(item.videos||{})){if(!asset)continue;const policy=publicMediaURL(asset.url,item.task);report.public_media_references++;if(policy.legacy)report.legacy_public_media_references++;}
-   if(!item.frame_log)continue;const target=localLogPath(item.frame_log.url);if(!tracked.has(target)||!frames.has(target))throw Error('Frame log is not a tracked local asset');const entry=frames.get(target);validateAsset(item.frame_log,entry);if(entry.log.case_id!==item.case_id)throw Error('Frame-log case binding mismatch');used.add(target);}
+   for(const asset of Object.values(item.videos||{})){if(!asset)continue;const policy=publicMediaURL(asset.url,item.task,asset.publication_prefix_alias);report.public_media_references++;if(policy.legacy)report.legacy_public_media_references++;}
+   if(!item.frame_log)continue;const target=localLogPath(item.frame_log.url);if(!tracked.has(target)||!frames.has(target))throw Error('Frame log is not a tracked local asset');const entry=frames.get(target);validateAsset(item.frame_log,entry);if(entry.log.case_id!==item.case_id)throw Error('Frame-log case binding mismatch');used.add(target);
+   if(item.frame_log_previous){const previous=localLogPath(item.frame_log_previous.url);if(!tracked.has(previous)||!frames.has(previous))throw Error('Previous compatibility log must remain tracked');const old=frames.get(previous);validateAsset(item.frame_log_previous,old);if(!entry.gzip||old.gzip||old.log.case_id!==item.case_id||!entry.decoded.equals(old.decoded))throw Error('Compatibility log must be byte-identical plain predecessor of gzip');used.add(previous);}
+  }
  }
  for(const name of frames.keys())if(!used.has(name))throw Error('Unreferenced frame log: '+name);
  return report;

@@ -1,0 +1,149 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>七任务 r1-released</title><body><h1>七任务：r1 与 r1-released 并列重算</h1><p>原r1允许真实目标支撑存在时仍与机器人接触；它不证明已松手。原成绩保持不变。r1-released只新增：同一12-tick完成窗口内没有附着约束、没有任何正Robot接触。其余r1阈值、lift历史、无顺序计数均不变。</p><p>脚本SHA256 34d55f20ef78ef9095d7e1a9c0c64a9b3f009a71162cd76a6d52d7ac9386af4c；参数SHA256 1fc6d7ed56beefa7239a040e9dd5bc8a2a55d995c9754617db4ce6c506dc7416。10/10条已归档专家回放通过（原始trace不同SHA共3个）；6个CPU测试通过，包含目标上仍附着、仍接触、缺失附着状态、单tick持握重置窗口。</p><table border="1"><tr><th>条件</th><th>方法</th><th>核验/目标</th><th>r1</th><th>r1-released</th><th>unknown</th><th>released平均阶段</th><th>原r1成功中窗口仍持握</th></tr>
+<tr><td>h8A</td><td>Mem-0</td><td>100/100</td><td>7</td><td>7</td><td>0</td><td>3.23</td><td>7</td></tr>
+<tr><td>h8A</td><td>TTC</td><td>100/100</td><td>17</td><td>17</td><td>0</td><td>3.49</td><td>17</td></tr>
+<tr><td>h8B</td><td>Mem-0</td><td>50/50</td><td>1</td><td>1</td><td>0</td><td>2.86</td><td>1</td></tr>
+<tr><td>h8B</td><td>TTC</td><td>50/50</td><td>9</td><td>8</td><td>0</td><td>3.22</td><td>9</td></tr>
+<tr><td>pure_h2</td><td>Mem-0</td><td>60/100</td><td>2</td><td>2</td><td>40</td><td>2.35</td><td>2</td></tr>
+<tr><td>pure_h2</td><td>TTC</td><td>75/100</td><td>11</td><td>10</td><td>25</td><td>3.36</td><td>11</td></tr>
+</table><p>h8A：附着v6、480秒、Robot接触杯倾倒终止；h8B：无附着、480秒；pure_h2：无附着、240秒、h2。纯物理h2尚有缺失槽位，部分源分包首次有效闭合审计仍撤回；仅作已归档子集诊断，不是最终纯物理模型比较。unknown保留在目标分母，平均阶段只按已核验日志计算。</p><h2>同场景配对</h2><pre>{
+  &quot;h8A&quot;: {
+    &quot;r1&quot;: {
+      &quot;trials_each&quot;: 100,
+      &quot;Mem-0&quot;: 7,
+      &quot;TTC&quot;: 17,
+      &quot;four_cells&quot;: [
+        1,
+        16,
+        6,
+        77
+      ],
+      &quot;four_cell_order&quot;: [
+        &quot;both&quot;,
+        &quot;TTC_only&quot;,
+        &quot;Mem0_only&quot;,
+        &quot;neither&quot;
+      ],
+      &quot;difference&quot;: 0.1,
+      &quot;bootstrap95&quot;: [
+        0.01,
+        0.19
+      ],
+      &quot;bootstrap&quot;: {
+        &quot;seed&quot;: 20261107,
+        &quot;replicates&quot;: 20000,
+        &quot;unit&quot;: &quot;paired_scene&quot;,
+        &quot;strata&quot;: [
+          &quot;1234&quot;,
+          &quot;4321&quot;
+        ]
+      }
+    },
+    &quot;r1-released&quot;: {
+      &quot;trials_each&quot;: 100,
+      &quot;Mem-0&quot;: 7,
+      &quot;TTC&quot;: 17,
+      &quot;four_cells&quot;: [
+        1,
+        16,
+        6,
+        77
+      ],
+      &quot;four_cell_order&quot;: [
+        &quot;both&quot;,
+        &quot;TTC_only&quot;,
+        &quot;Mem0_only&quot;,
+        &quot;neither&quot;
+      ],
+      &quot;difference&quot;: 0.1,
+      &quot;bootstrap95&quot;: [
+        0.01,
+        0.19
+      ],
+      &quot;bootstrap&quot;: {
+        &quot;seed&quot;: 20261107,
+        &quot;replicates&quot;: 20000,
+        &quot;unit&quot;: &quot;paired_scene&quot;,
+        &quot;strata&quot;: [
+          &quot;1234&quot;,
+          &quot;4321&quot;
+        ]
+      }
+    }
+  },
+  &quot;h8B&quot;: {
+    &quot;r1&quot;: {
+      &quot;trials_each&quot;: 50,
+      &quot;Mem-0&quot;: 1,
+      &quot;TTC&quot;: 9,
+      &quot;four_cells&quot;: [
+        1,
+        8,
+        0,
+        41
+      ],
+      &quot;four_cell_order&quot;: [
+        &quot;both&quot;,
+        &quot;TTC_only&quot;,
+        &quot;Mem0_only&quot;,
+        &quot;neither&quot;
+      ],
+      &quot;difference&quot;: 0.16,
+      &quot;bootstrap95&quot;: [
+        0.06,
+        0.26
+      ],
+      &quot;bootstrap&quot;: {
+        &quot;seed&quot;: 20261107,
+        &quot;replicates&quot;: 20000,
+        &quot;unit&quot;: &quot;paired_scene&quot;,
+        &quot;strata&quot;: [
+          &quot;1234&quot;,
+          &quot;4321&quot;
+        ]
+      }
+    },
+    &quot;r1-released&quot;: {
+      &quot;trials_each&quot;: 50,
+      &quot;Mem-0&quot;: 1,
+      &quot;TTC&quot;: 8,
+      &quot;four_cells&quot;: [
+        1,
+        7,
+        0,
+        42
+      ],
+      &quot;four_cell_order&quot;: [
+        &quot;both&quot;,
+        &quot;TTC_only&quot;,
+        &quot;Mem0_only&quot;,
+        &quot;neither&quot;
+      ],
+      &quot;difference&quot;: 0.14,
+      &quot;bootstrap95&quot;: [
+        0.06,
+        0.24
+      ],
+      &quot;bootstrap&quot;: {
+        &quot;seed&quot;: 20261107,
+        &quot;replicates&quot;: 20000,
+        &quot;unit&quot;: &quot;paired_scene&quot;,
+        &quot;strata&quot;: [
+          &quot;1234&quot;,
+          &quot;4321&quot;
+        ]
+      }
+    }
+  }
+}</pre><h2>公开证据</h2><ul>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/SUMMARY.35296e7e94e5d827.json">SUMMARY.json</a> 18132 bytes；SHA256 35296e7e94e5d827f48e6013134aa9fa5eb26747fcb6eaf9d5c7ecfcee87c44c</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/FINAL.ed5e86ce120834c9.json">FINAL.json</a> 5058591 bytes；SHA256 ed5e86ce120834c98c9f08ce5ef4b62bb806efc2b3166300ab4bfd053653e521</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/INPUTS.21427c9ae93a13c6.json">INPUTS.json</a> 4118981 bytes；SHA256 21427c9ae93a13c673bdae1f9d32334019ca131125ccfe7b37ae3e33c897352e</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/ORIGINAL_R1_SUCCESS24_HOLD_AUDIT.4e97e1620b87030b.json">ORIGINAL_R1_SUCCESS24_HOLD_AUDIT.json</a> 184846 bytes；SHA256 4e97e1620b87030b643cdf5c5aa19119f3dbafa54b0c0aba189e5ed9c46e71a1</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/FROZEN_PROVENANCE.412327834af40c8d.json">FROZEN_PROVENANCE.json</a> 2820 bytes；SHA256 412327834af40c8dfec1b7f7793913cd868562c094574b41658c16e61e678c4c</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/CPU_REGRESSION.07351037a3ec39f3.json">CPU_REGRESSION.json</a> 270 bytes；SHA256 07351037a3ec39f35b461f60117d5951827cd418b66ea63a66a1350d039c4c76</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/oracle_r1_released.34d55f20ef78ef90.py">oracle_r1_released.py</a> 2287 bytes；SHA256 34d55f20ef78ef9095d7e1a9c0c64a9b3f009a71162cd76a6d52d7ac9386af4c</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/rescore.f281feb8fce17e85.py">rescore.py</a> 8989 bytes；SHA256 f281feb8fce17e85e5f62c760346d958288dab29c4dbf3fca33a201ac8dd5952</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/test_released.28a6417867599201.py">test_released.py</a> 2368 bytes；SHA256 28a64178675992017e2ac8972cd82158f07562f7e003000ce5e75e7979cc4ef7</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/base_oracle_v14.793a602bc324f717.py">base_oracle_v14.py</a> 2957 bytes；SHA256 793a602bc324f717064877fb011970e0f45033513214be2967ab42afef80baed</li>
+<li><a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/r1-released/base_oracle_v14_r1.b5ccc001689ac937.py">base_oracle_v14_r1.py</a> 5905 bytes；SHA256 b5ccc001689ac937aee8b2606108450d5edd487ce1c83bc17488b7aa5c277bb2</li>
+</ul><p>FINAL含逐case原r1事件的完成tick、12tick附着和接触记录，以及两种口径的全部事件。ORIGINAL_R1_SUCCESS24_HOLD_AUDIT专列原24条成功，供人工逐条检查。</p></body></html>

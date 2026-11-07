@@ -1,7 +1,8 @@
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-D = '/tmp/claude-0/-root-lyf-safelab/961e3502-cdbc-46d7-9641-821bb9638ba3/scratchpad/table2/'
+import os
+D = os.path.dirname(os.path.abspath(__file__)) + '/'
 # Table 2 values (v1.2-relaxed, better horizon per method); see compute_table2_v12best.py
 X = [3, 7, 10]
 V = {'TTS-Memory': [67.8, 13.0, 1.0], 'Mem-0': [53.2, 7.3, 1.0]}

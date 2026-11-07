@@ -1,0 +1,29 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>五任务截止冻结结果</title><style>body{max-width:1200px;margin:32px auto;padding:0 16px;font:16px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere}a{color:#145ac2}</style><h1>五任务截止冻结结果</h1><p>辅助条件单列，正式v1.1主表不变。旧本地v1.3全部撤回。未满额不冒充完整100场景。</p><p><a href="task5-t939-deadline-20261107.json">统计与区间</a> · <a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/5/metadata/night_sprint_r1_20261106/TASK5_DEADLINE_RESULTS_20261107_v1.json">逐例完整证据</a> · <a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/5/metadata/night_sprint_r1_20261106/TASK5_OLD_V13_WITHDRAWAL_20261107_v1.json">撤回说明</a> · <a href="https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/media-v1/5/metadata/night_sprint_r1_20261106/TASK5_MEDIA_DELIVERY_20261107_v4.json">视频与元数据清单v4</a></p><pre># 五任务硬截止结果
+
+截止UTC11:30；旧本地v1.3全部撤回，使用冻结r1。所有辅助配置为diagnostic，正式基线不覆盖。unknown计入分母；未闭合/未派发单列，未满额存在完成顺序偏差。
+
+| 方法 / K / 条件 | n / 计划 | unknown | 在途 / 未派发 | 整任务 v1.1 / v1.2 / r1 | 半任务≥3 v1.1 / v1.2 / r1 | 平均完成数 v1.1 / v1.2 / r1 |
+|---|---:|---:|---:|---:|---:|---:|
+| TTC h4 original | 100/100 | 0 | 0/0 | 0 / 0 / 0 | 2 / 2 / 2 | 0.140 / 0.230 / 0.240 |
+| TTC h8 original | 100/100 | 0 | 0/0 | 0 / 0 / 0 | 0 / 2 / 2 | 0.120 / 0.190 / 0.210 |
+| Mem-0 h4 original | 100/100 | 3 | 0/0 | 0 / 0 / 0 | 1 / 2 / 4 | 0.247 / 0.649 / 0.773 |
+| Mem-0 h8 original | 100/100 | 4 | 0/0 | 0 / 0 / 0 | 0 / 3 / 5 | 0.406 / 0.781 / 0.938 |
+| MemoryVLA h4 original | 100/100 | 0 | 0/0 | 0 / 0 / 0 | 0 / 1 / 1 | 1.150 / 1.380 / 1.410 |
+| MemoryVLA h8 original | 100/100 | 0 | 0/0 | 0 / 0 / 0 | 1 / 1 / 1 | 0.100 / 0.120 / 0.250 |
+| MemoryVLA h2 h2_original | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 0 / 0 / 0 | 1.020 / 1.260 / 1.280 |
+| Mem-0 h2 h2_original | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 1 / 1 / 2 | 0.300 / 0.480 / 0.580 |
+| TTC h2 h2_original | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 1 / 1 / 2 | 0.240 / 0.280 / 0.320 |
+| Mem-0 h4 C1_v3_attach_native32_time2_nonheld_exempt | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 0 / 1 / 2 | 0.260 / 0.580 / 0.800 |
+| Mem-0 h8 no_attach_time2_nonheld_exempt | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 2 / 2 / 3 | 0.320 / 0.580 / 0.820 |
+| MemoryVLA h4 no_attach_time2_nonheld_exempt | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 5 / 9 / 14 | 1.160 / 1.580 / 1.720 |
+| Mem-0 h8 expert90_contact_latch3_native32_time2_nonheld_exempt | 50/50 | 0 | 0/0 | 0 / 0 / 0 | 0 / 0 / 1 | 0.200 / 1.000 / 1.240 |
+| TTC h8 expert90_contact_latch3_native32_time2_nonheld_exempt | 34/50 | 0 | 16/0 | 0 / 0 / 0 | 1 / 1 / 1 | 0.265 / 0.500 / 0.588 |
+| MemoryVLA h4 C1_v3_native32_time2_nonheld_exempt | 100/100 | 0 | 0/0 | 0 / 0 / 0 | 7 / 10 / 10 | 1.210 / 1.430 / 1.470 |
+| MemoryVLA h4 expert90_contact_latch3_native32_time2_nonheld_exempt | 83/100 | 16 | 0/17 | 1 / 1 / 1 | 6 / 8 / 26 | 1.343 / 1.597 / 2.313 |
+
+TTC 在途计unknown敏感性：分母50，unknown16，整任务v1.1/v1.2/r1 0 / 0 / 0；在途未记为物理失败。
+
+每项整任务、SR@1..5的Wilson95%、均值bootstrap区间、正反拆分、严格口径、基础设施敏感性、逐例与归档索引见同名JSON。
+旧v1.3成功数字全部撤回。场景52在线/CPU v1.1真成功独立有效，但ever-unknown-as-failure敏感性下不计成功。
+所有Wilson区间使用实际n（含unknown），未满额不能当作完整100场景成功率。
+</pre></html>

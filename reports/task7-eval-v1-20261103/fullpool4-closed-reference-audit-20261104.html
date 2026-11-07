@@ -1,16 +1,1 @@
-<!doctype html>
-<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>七任务：四路模型池闭合与控制参考核对</title>
-<style>body{font:16px/1.65 system-ui,sans-serif;max-width:1000px;margin:2rem auto;padding:0 1rem;color:#17212c}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd5df;padding:.5rem;text-align:left}code{overflow-wrap:anywhere}a{color:#145ab6}</style>
-<main><h1>七任务：四路模型池闭合与控制参考核对</h1>
-<p>这是并行实现与控制参考的诊断记录。新协议阶段A仍未启动，正式成功数为空；专家动作完成七阶段，不计为模型成功。</p>
-<h2>四lane模型池验收通过</h2>
-<table><thead><tr><th>权重与切换方式</th><th>执行步数</th><th>数值对照</th></tr></thead><tbody><tr><td>Mem-0 30k</td><td>4、8</td><td>通过</td></tr><tr><td>TTC 对齐loss 30k，独立分类头切换变体</td><td>4、8</td><td>通过</td></tr></tbody></table>
-<p>每个配置先用四个独立Policy进程建立冷参考，再用共享只读网络的四条私有Policy lane串行交错重放。16个cold tar的成员SHA、64组原始对照、128个独立请求标识、20个进程scope的正常清理及614个镜像文件均已核对。每条Policy至少自然完成三次提交；完整返回值、动作、状态与RNG的语义差异均为0。仅传输层请求ID允许不同。</p>
-<p>此资格限上述四个配置。它不含Isaac物理环境，不外推Gen或削弱版，也不替代N1×4图像一致性、模型加仿真的组合内存、专家执行链和20条闭环冒烟。参数与注册buffer守恒，不宣称所有普通Python属性不可变。双端归档由本代冻结archiver的完整SHA回读收据证明；独立验证另外实际重读了1.77GB镜像。</p>
-<p>平台已确认<code>job-1mmev18panqt</code>为SUCCEEDED，四卡释放。真实采样跨度1821.8秒，全四卡加权均值11.76%；首600秒4.94%，末600秒13.80%。尾部10.01秒未采样，不补零。这次包含重复冷启动和比对的资格实验没有达到80%，也不能作为生产吞吐成绩。</p>
-<h2>原120Hz记录仍待找回</h2>
-<p>采集manifest保留原physics120文件的行数和SHA。已查原Pro的3个精确文件及dataset compact同级1个文件，均未找到；没有遍搜所有存储位置，不代表原120Hz数据全部丢失。</p>
-<p>四个开发episode在18,218个共同实测30Hz时间点的13关节RMSE：原重建参考0.004575rad，线性手零前馈0.008010rad，PCHIP direct 0.008246rad，PCHIP midpoint 0.007805rad。没有插值实测状态或拟合时间偏移。参考本身有残差，候选也仍有实际误差，不能因此放行0.005rad完整120Hz门槛。</p>
-<p>两个PCHIP方法的八条专家回放均完成七阶段，但两种方法均未通过四场景关节误差门槛，不能进入完整十条准入。下一项位置命令×速度前馈对照目前仅在CPU封包准备，未部署或提交。</p>
-<p><a href="fullpool4-closed-reference-audit-20261104.json">完整机器摘要与来源SHA</a> · <a href="pchip-final-and-fourlane-snapshot-20261104.html">此前冻结快照</a> · <a href="../task7-eval-v1-20261103.html">七任务评测入口</a></p>
-</main></html>
+<meta http-equiv="refresh" content="0;url=/safelab-handoff/reports/#340"><a href="/safelab-handoff/reports/#340">Archive / SHA</a>

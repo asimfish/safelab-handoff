@@ -1,12 +1,1 @@
-{
-  "source": "/public_fast_storage/liyufeng/psibot_parallel_flywheel_20261012/search_v61/runtime/audit_whole_t3_stream_liveness_v11.py",
-  "sha256": "43d58adecd639cdcbc5ebbe71314503dbbebf14504fa24165452d4e4c9529721",
-  "released_source": "def released(row,key,pad):\n    obj=row['objects'][key];target=row['supports'][pad]['center_world_m']\n    return (obj['support_contact_points'].get(pad,0)>0 and obj['robot_contact_points']==0\n            and norm(np.asarray(obj['link_position_world_m'])[:2]-target[:2])<=.020\n            and abs(obj['bottom_world_z_m']-target[2])<=.008 and obj['tilt_deg']<=10\n            and obj['hand_clearance_m']>=.030 and obj['hand_origin_clearance_m']>=.120\n            and norm(obj['linear_velocity_m_s'])<.010 and norm(obj['angular_velocity_rad_s'])<.100)\n\n",
-  "restore_condition": [
-    {
-      "line": 74,
-      "text": "        else:condition=released(row,'A','rack_S1')and counts['B']>=.95*self.total;duration=3"
-    }
-  ],
-  "identical_to_eval_source": true
-}
+{"archive_id":196}

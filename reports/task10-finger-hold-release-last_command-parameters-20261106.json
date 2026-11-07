@@ -1,0 +1,20 @@
+{
+  "variant": "stable30_native32_hold_last_command_v1",
+  "stage": "diagnostic",
+  "all_methods_identical": true,
+  "same50balancedscenes_per_method": true,
+  "stable_grasp_gate_unchanged": "postlift30ticks, dual contacts,2mm/.05rad; original native32; retained finger/cup collisions",
+  "change": "Freeze the actual last delivered six finger targets at stable grasp instead of the contact-constrained measured joint angles. Preserve grip-force command at latch; opening is relative to that same frozen target. Raw nominal action sequence and interpolation are unchanged.",
+  "arm_targets_and_model_unchanged": true,
+  "object_pose_or_velocity_writes": false,
+  "oracle_unchanged": true,
+  "expert_native20_required_before_model_cases": true,
+  "reason": "test whether closing fingers against an already fixed grasp overconstrains the joint; rootcause not asserted",
+  "controller_source_sha256": "c8433448f4d9c62c24bc4c12dbb9a265614d131f3706548c6128bbd2259f84f9",
+  "CPU_test_log_sha256": "e5a0252145fb353aad98233a004d737c8caf42d35ae1f1eaa1bfd74a0cb5bca7",
+  "CPU_tests_passed": 9,
+  "parameters_frozen_before_model_rollout": true,
+  "release_reference": "original command-at-latch opening mean and thumb references; same30mrad and2.9rad thresholds",
+  "after_step_release_reference": "commanded_finger_mean at latch",
+  "root_cause_evidence_sha256": "c76491563516ed3e810d6e13c0bee985595f255d4451a9ef87445bdb271d55bd"
+}

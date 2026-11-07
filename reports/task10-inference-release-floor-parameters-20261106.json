@@ -1,0 +1,22 @@
+{
+  "variant": "stable30_native32_measured_hold_release_floor_v1",
+  "composition": "measured-hold-release-floor-expert-slew-v1",
+  "all_methods_identical": true,
+  "hold_reference": "measured finger joint angles while fixed joint active",
+  "release_joint": "immediate original policy-opening or measured-gap gate; unchanged",
+  "post_release_floor": "Thumbbase0 min(raw,held); four flexion1:5 map the policy opening coordinate from nominal latch command onto measured held angles, meeting the pre-existing2.9rad absolute-open reference without an offset; never close through held grasp in opening phase. Sixth DOF receives only8tick transition. Closing intent >30mrad ends floor with8tick restore.",
+  "opening_reference_rad_existing_gate": 2.9,
+  "transition_ticks120Hz": 8,
+  "closing_intent_epsilon_rad": 0.03,
+  "actual_motor_target_validation_max_error_rad": 1e-06,
+  "release_floor_helper_sha256": "1d2090b30f7f1a50c9c7d94e09b663387a42e764827d1512da361ace671b45c9",
+  "controller_sha256": "da409e7080df8195472780f2e85b62af40b9b309792715b79c231adb6d5c2a38",
+  "expert_filter_parameters_sha256": "6a91898d89bb7e8b6ee56a258a1a80c14d622e7105e5c9a9a122596b0044722e",
+  "native_solver_iterations": 32,
+  "finger_collisions_retained": true,
+  "object_pose_writes": false,
+  "object_velocity_writes": false,
+  "oracle_or_task_targets_as_controller_input": false,
+  "fresh_native20_required": true,
+  "all_scoring_thresholds_unchanged": true
+}

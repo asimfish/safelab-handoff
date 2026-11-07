@@ -1,0 +1,133 @@
+from pathlib import Path
+import ast
+import dataclasses
+import sys
+import types
+import unittest
+
+import numpy as np
+import torch
+
+ROOT = Path(sys.argv[1])
+OLD = Path(sys.argv[2])
+sys.argv = [sys.argv[0]]
+sys.path.insert(0, str(ROOT / 'actor_mem0_original'))
+from physx_attachment import PhysXAttachment
+import grasp_gate as gg
+
+IDS = [1, 3, 5, 7, 9, 11, 13, 19, 20, 21, 22, 23, 29]
+HAND = IDS[7:]
+
+
+class Robot:
+    def set_joint_position_target(self, target):
+        self.target = target.clone()
+
+
+class ReleaseTests(unittest.TestCase):
+    def fixture(self, count=1):
+        q = torch.zeros((count, 36), dtype=torch.float32)
+        q[:, IDS] = torch.tensor([.2, -.64, 1.5, -.8, -.3, -1., -.36,
+                                  1.519176959, 2.3033061, 2.3033061, 2.5, 2.5, .5])
+        value = PhysXAttachment.__new__(PhysXAttachment)
+        value.scene = types.SimpleNamespace(command=q, ids=IDS, hand_ids=HAND, robot=Robot())
+        value.config = types.SimpleNamespace(command_open_mean_rad=2.9, command_increase_epsilon_rad=.03)
+        value.active = [{'commanded_open_mean': 2.3033061, 'raw_thumb_command': 1.519176959,
+                         'finger_q': np.array([1.538731456, 2.576589108, 2.426136494, 2.79, 2.76, .4788], np.float32)}] + [None] * (count - 1)
+        value.previous_raw_command = None
+        value.reasons = []
+        def release(i, reason):
+            value.active[i] = None
+            value.reasons.append(reason)
+        value._release = release
+        return value
+
+    def test_recorded_nominal_increase_is_not_an_absolute_opening(self):
+        a = self.fixture()
+        a.scene.command[:, IDS[8:10]] = 2.335261345
+        original = a.scene.command.clone()
+        a.before_step()
+        self.assertIsNotNone(a.active[0])
+        self.assertEqual(a.reasons, [])
+        self.assertTrue(torch.equal(a.scene.command, original))
+        self.assertGreater(float(a.scene.robot.target[0, IDS[8:10]].mean()), 2.49)
+
+    def test_original_implementation_reproduces_the_recorded_bad_release(self):
+        tree = ast.parse((OLD / 'actor_mem0_original/physx_attachment.py').read_text())
+        cls = next(n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == 'PhysXAttachment')
+        fn = next(n for n in cls.body if isinstance(n, ast.FunctionDef) and n.name == 'before_step')
+        ns = {}
+        exec(compile(ast.Module(body=[fn], type_ignores=[]), 'actual-old-before-step', 'exec'), ns)
+        a = self.fixture()
+        a.scene.command[:, IDS[8:10]] = 2.335261345
+        ns['before_step'](a)
+        self.assertIsNone(a.active[0])
+        self.assertLess(float(a.scene.robot.target[0, IDS[8:10]].mean()), 2.34)
+
+    def test_real_absolute_opposing_opening_releases_same_tick(self):
+        a = self.fixture()
+        a.scene.command[:, IDS[8:10]] = 2.55
+        a.before_step()
+        self.assertIsNone(a.active[0])
+        self.assertTrue(torch.equal(a.scene.robot.target, a.scene.command))
+
+    def test_thumb_nominal_delta_but_still_closing_does_not_release(self):
+        a = self.fixture()
+        a.active[0]['finger_q'][0] = 1.3
+        a.active[0]['raw_thumb_command'] = 1.5
+        a.scene.command[:, IDS[7]] = 1.46
+        a.before_step()
+        self.assertIsNotNone(a.active[0])
+
+    def test_real_absolute_thumb_opening_releases_same_tick(self):
+        a = self.fixture()
+        a.active[0]['finger_q'][0] = 1.3
+        a.scene.command[:, IDS[7]] = 1.25
+        a.before_step()
+        self.assertIsNone(a.active[0])
+
+    def test_other_dofs_and_inactive_lanes_are_unmodified(self):
+        a = self.fixture(2)
+        raw = a.scene.command.clone()
+        a.before_step()
+        self.assertTrue(torch.equal(a.scene.robot.target[1], raw[1]))
+        other = [i for i in range(36) if i not in HAND]
+        self.assertTrue(torch.equal(a.scene.robot.target[0, other], raw[0, other]))
+
+    def test_constant_nominal_thumb_with_tracking_error_does_not_release(self):
+        a=self.fixture()
+        a.active[0]['finger_q'][0]=1.5540519953
+        a.active[0]['raw_thumb_command']=1.5199999809
+        a.scene.command[:, IDS[7]]=1.5199999809
+        a.before_step()
+        self.assertIsNotNone(a.active[0])
+        self.assertEqual(a.reasons,[])
+
+    def test_constant_mean_already_above_measured_grasp_does_not_release(self):
+        a=self.fixture()
+        a.active[0]['commanded_open_mean']=2.7
+        a.active[0]['finger_q'][1:3]=2.5
+        a.scene.command[:, IDS[8:10]]=2.7
+        a.before_step()
+        self.assertIsNotNone(a.active[0])
+
+    def test_after_step_gate_uses_the_same_measured_reference(self):
+        classes = [c for c in vars(gg).values() if isinstance(c, type) and c.__module__ == gg.__name__]
+        Gate = next(c for c in classes if hasattr(c, 'update') and hasattr(c, 'release_now'))
+        Config = next(c for c in classes if dataclasses.is_dataclass(c) and 'stable_ticks' in c.__dataclass_fields__)
+        Sample = next(c for c in classes if dataclasses.is_dataclass(c) and 'measured_finger_mean' in c.__dataclass_fields__)
+        gate = Gate(Config())
+        def sample(tick, command):
+            return Sample(tick=tick, key='A', lift_m=.04, thumb_contact=True, opposing_contact=True,
+                          support_contact=False, relative_position=(.05, 0, .12),
+                          relative_quaternion_wxyz=(1, 0, 0, 0), up_cosine=1,
+                          measured_finger_mean=2.5, commanded_finger_mean=command, finger_gap_m=.075)
+        for tick in range(1, 31):
+            result = gate.update(sample(tick, 2.3))
+        self.assertEqual(result, 'attach')
+        self.assertIsNone(gate.update(sample(31, 2.34)))
+        self.assertEqual(gate.update(sample(32, 2.55)), 'release')
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

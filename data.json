@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T22:55:03.555506+00:00",
+  "updated_at": "2026-11-07T07:34:36.996398+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -144618,6 +144618,680 @@
         "verified_archives": 0,
         "target": 50,
         "snapshot_epoch": 1794016605.874902
+      }
+    },
+    {
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "preprocess_resize": null,
+      "id": "t1284-task7-night-mem0-h8-r1-full100",
+      "protocol_version": "SafeLab-Eval-v1.4-r1",
+      "oracle_version": "SafeLab-Eval-v1.4-r1",
+      "stage": "diagnostic",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "condition": "assisted contact-preserving v6, doubled time limit, unheld tilt nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "success": 7,
+      "trials": 100,
+      "completed": 100,
+      "unknown": 0,
+      "evaluation_started": true,
+      "status": "completed",
+      "phase_hist": {
+        "1": 25,
+        "4": 13,
+        "7": 7,
+        "2": 24,
+        "6": 19,
+        "3": 5,
+        "0": 3,
+        "5": 4
+      },
+      "mean_phase": 3.23,
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 3,
+          "unknown": 0
+        }
+      },
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/R1_FIXED_DELIVERY.c08c3ba26fc1b336.json",
+      "report_url": "reports/task7-t1284-r1-20261107/index.html",
+      "source_sha256": "c08c3ba26fc1b3364e3706e1134d8b420d1c1189a7330864e113e41f51f77b52",
+      "source_bytes": 10664,
+      "oracle_parameters_sha256": "806625e2dc6b4468c31b2a5dc6455c4d55e7138f102f601d4432457d0c4c6ad9",
+      "oracle_source_sha256": "b5ccc001689ac937aee8b2606108450d5edd487ce1c83bc17488b7aa5c277bb2",
+      "formal_score_eligible": false,
+      "kind": "diagnostic",
+      "metric_role": "offline_rescore_v1.4_r1",
+      "updated_at": "2026-11-07T07:34:36.996398+00:00",
+      "protocol": "N=7 unique order-specific object/target phases; prior lift; genuine target support OR no robot contact plus height fallback. Corrected observe() dispatch; 200/200 full raw SHA verified. No new simulation. strict/v1.1 retained. left=forward, right=reverse; known 3 outside-region negatives only, explicitly sample-insufficient.",
+      "owner": "codex-T1284",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/R1_FIXED_REAL_VALIDATION.f641b9399755d76c.json",
+          "scope": "five full positive expert traces and actual observe-path negatives; diagnostic scope only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "not_redeclared_for_assisted_diagnostic"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "source-bound frozen render manifest; no new full parity admission claimed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "diagnostic protocol not formal stage A admission"
+        }
+      },
+      "partial_success": {
+        "1": {
+          "success": 97,
+          "trials": 100,
+          "rate": 0.97,
+          "Wilson95": [
+            0.9154806357094724,
+            0.9897454759759611
+          ]
+        },
+        "2": {
+          "success": 72,
+          "trials": 100,
+          "rate": 0.72,
+          "Wilson95": [
+            0.6251197129007884,
+            0.7986031478881379
+          ]
+        },
+        "3": {
+          "success": 48,
+          "trials": 100,
+          "rate": 0.48,
+          "Wilson95": [
+            0.384645517580519,
+            0.5768342223477603
+          ]
+        },
+        "4": {
+          "success": 43,
+          "trials": 100,
+          "rate": 0.43,
+          "Wilson95": [
+            0.33733298524110106,
+            0.5278461045078768
+          ]
+        },
+        "5": {
+          "success": 30,
+          "trials": 100,
+          "rate": 0.3,
+          "Wilson95": [
+            0.2189488529493276,
+            0.3958485463334666
+          ]
+        },
+        "6": {
+          "success": 26,
+          "trials": 100,
+          "rate": 0.26,
+          "Wilson95": [
+            0.18404698464748132,
+            0.3537098944918718
+          ]
+        },
+        "7": {
+          "success": 7,
+          "trials": 100,
+          "rate": 0.07,
+          "Wilson95": [
+            0.03431926106727268,
+            0.137495147390735
+          ]
+        }
+      },
+      "paired_comparison": {
+        "protocol": "SafeLab-Eval-v1.4-r1",
+        "N": 7,
+        "trials_per_method": 100,
+        "bootstrap": {
+          "replicates": 20000,
+          "seed": 20261106,
+          "unit": "paired_scene",
+          "strata": "order1234/order4321"
+        },
+        "SR": {
+          "1": {
+            "mem0": 97,
+            "ttc": 98,
+            "four_cells": [
+              95,
+              3,
+              2,
+              0
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.01,
+            "bootstrap95": [
+              -0.03,
+              0.05
+            ]
+          },
+          "2": {
+            "mem0": 72,
+            "ttc": 64,
+            "four_cells": [
+              42,
+              22,
+              30,
+              6
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": -0.08,
+            "bootstrap95": [
+              -0.19,
+              0.03
+            ]
+          },
+          "3": {
+            "mem0": 48,
+            "ttc": 53,
+            "four_cells": [
+              22,
+              31,
+              26,
+              21
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.05,
+            "bootstrap95": [
+              -0.09,
+              0.18
+            ]
+          },
+          "4": {
+            "mem0": 43,
+            "ttc": 51,
+            "four_cells": [
+              19,
+              32,
+              24,
+              25
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.08,
+            "bootstrap95": [
+              -0.05,
+              0.21
+            ]
+          },
+          "5": {
+            "mem0": 30,
+            "ttc": 39,
+            "four_cells": [
+              12,
+              27,
+              18,
+              43
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.09,
+            "bootstrap95": [
+              -0.04,
+              0.21
+            ]
+          },
+          "6": {
+            "mem0": 26,
+            "ttc": 31,
+            "four_cells": [
+              10,
+              21,
+              16,
+              53
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.05,
+            "bootstrap95": [
+              -0.07,
+              0.16
+            ]
+          },
+          "7": {
+            "mem0": 7,
+            "ttc": 17,
+            "four_cells": [
+              1,
+              16,
+              6,
+              77
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.1,
+            "bootstrap95": [
+              0.01,
+              0.19
+            ]
+          }
+        },
+        "mean_phase": {
+          "mem0": 3.23,
+          "ttc": 3.53,
+          "delta": 0.3,
+          "difference_bootstrap95": [
+            -0.28,
+            0.87
+          ],
+          "mem0_bootstrap95": [
+            2.81975,
+            3.66
+          ],
+          "ttc_bootstrap95": [
+            3.13,
+            3.94
+          ]
+        }
+      }
+    },
+    {
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "prediction": 30,
+      "preprocess_resize": null,
+      "id": "t1284-task7-night-ttc-h8-r1-full100",
+      "protocol_version": "SafeLab-Eval-v1.4-r1",
+      "oracle_version": "SafeLab-Eval-v1.4-r1",
+      "stage": "diagnostic",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "condition": "assisted contact-preserving v6, doubled time limit, unheld tilt nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "success": 17,
+      "trials": 100,
+      "completed": 100,
+      "unknown": 0,
+      "evaluation_started": true,
+      "status": "completed",
+      "phase_hist": {
+        "4": 12,
+        "7": 17,
+        "6": 14,
+        "5": 8,
+        "1": 34,
+        "2": 11,
+        "0": 2,
+        "3": 2
+      },
+      "mean_phase": 3.53,
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "source": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/R1_FIXED_DELIVERY.c08c3ba26fc1b336.json",
+      "report_url": "reports/task7-t1284-r1-20261107/index.html",
+      "source_sha256": "c08c3ba26fc1b3364e3706e1134d8b420d1c1189a7330864e113e41f51f77b52",
+      "source_bytes": 10664,
+      "oracle_parameters_sha256": "806625e2dc6b4468c31b2a5dc6455c4d55e7138f102f601d4432457d0c4c6ad9",
+      "oracle_source_sha256": "b5ccc001689ac937aee8b2606108450d5edd487ce1c83bc17488b7aa5c277bb2",
+      "formal_score_eligible": false,
+      "kind": "diagnostic",
+      "metric_role": "offline_rescore_v1.4_r1",
+      "updated_at": "2026-11-07T07:34:36.996398+00:00",
+      "protocol": "N=7 unique order-specific object/target phases; prior lift; genuine target support OR no robot contact plus height fallback. Corrected observe() dispatch; 200/200 full raw SHA verified. No new simulation. strict/v1.1 retained. left=forward, right=reverse; known 3 outside-region negatives only, explicitly sample-insufficient.",
+      "owner": "codex-T1284",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/7/T1284_20261107/R1_FIXED_REAL_VALIDATION.f641b9399755d76c.json",
+          "scope": "five full positive expert traces and actual observe-path negatives; diagnostic scope only"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "not_redeclared_for_assisted_diagnostic"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "source-bound frozen render manifest; no new full parity admission claimed"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "diagnostic protocol not formal stage A admission"
+        }
+      },
+      "partial_success": {
+        "1": {
+          "success": 98,
+          "trials": 100,
+          "rate": 0.98,
+          "Wilson95": [
+            0.929988209271456,
+            0.9944980324498376
+          ]
+        },
+        "2": {
+          "success": 64,
+          "trials": 100,
+          "rate": 0.64,
+          "Wilson95": [
+            0.5423540245160874,
+            0.7272877959859567
+          ]
+        },
+        "3": {
+          "success": 53,
+          "trials": 100,
+          "rate": 0.53,
+          "Wilson95": [
+            0.4328885697009936,
+            0.6248918204065872
+          ]
+        },
+        "4": {
+          "success": 51,
+          "trials": 100,
+          "rate": 0.51,
+          "Wilson95": [
+            0.4134801193402717,
+            0.6057800106955886
+          ]
+        },
+        "5": {
+          "success": 39,
+          "trials": 100,
+          "rate": 0.39,
+          "Wilson95": [
+            0.3001687400639441,
+            0.4879698295415926
+          ]
+        },
+        "6": {
+          "success": 31,
+          "trials": 100,
+          "rate": 0.31,
+          "Wilson95": [
+            0.22779697212376038,
+            0.40626055719489407
+          ]
+        },
+        "7": {
+          "success": 17,
+          "trials": 100,
+          "rate": 0.17,
+          "Wilson95": [
+            0.10893566114059931,
+            0.25548004767601123
+          ]
+        }
+      },
+      "paired_comparison": {
+        "protocol": "SafeLab-Eval-v1.4-r1",
+        "N": 7,
+        "trials_per_method": 100,
+        "bootstrap": {
+          "replicates": 20000,
+          "seed": 20261106,
+          "unit": "paired_scene",
+          "strata": "order1234/order4321"
+        },
+        "SR": {
+          "1": {
+            "mem0": 97,
+            "ttc": 98,
+            "four_cells": [
+              95,
+              3,
+              2,
+              0
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.01,
+            "bootstrap95": [
+              -0.03,
+              0.05
+            ]
+          },
+          "2": {
+            "mem0": 72,
+            "ttc": 64,
+            "four_cells": [
+              42,
+              22,
+              30,
+              6
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": -0.08,
+            "bootstrap95": [
+              -0.19,
+              0.03
+            ]
+          },
+          "3": {
+            "mem0": 48,
+            "ttc": 53,
+            "four_cells": [
+              22,
+              31,
+              26,
+              21
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.05,
+            "bootstrap95": [
+              -0.09,
+              0.18
+            ]
+          },
+          "4": {
+            "mem0": 43,
+            "ttc": 51,
+            "four_cells": [
+              19,
+              32,
+              24,
+              25
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.08,
+            "bootstrap95": [
+              -0.05,
+              0.21
+            ]
+          },
+          "5": {
+            "mem0": 30,
+            "ttc": 39,
+            "four_cells": [
+              12,
+              27,
+              18,
+              43
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.09,
+            "bootstrap95": [
+              -0.04,
+              0.21
+            ]
+          },
+          "6": {
+            "mem0": 26,
+            "ttc": 31,
+            "four_cells": [
+              10,
+              21,
+              16,
+              53
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.05,
+            "bootstrap95": [
+              -0.07,
+              0.16
+            ]
+          },
+          "7": {
+            "mem0": 7,
+            "ttc": 17,
+            "four_cells": [
+              1,
+              16,
+              6,
+              77
+            ],
+            "four_cells_order": [
+              "both",
+              "TTC_only",
+              "Mem0_only",
+              "neither"
+            ],
+            "delta": 0.1,
+            "bootstrap95": [
+              0.01,
+              0.19
+            ]
+          }
+        },
+        "mean_phase": {
+          "mem0": 3.23,
+          "ttc": 3.53,
+          "delta": 0.3,
+          "difference_bootstrap95": [
+            -0.28,
+            0.87
+          ],
+          "mem0_bootstrap95": [
+            2.81975,
+            3.66
+          ],
+          "ttc_bootstrap95": [
+            3.13,
+            3.94
+          ]
+        }
       }
     }
   ],

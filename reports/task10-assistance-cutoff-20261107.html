@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Task10 A+ 截止辅助诊断</title><style>body{font:15px/1.65 system-ui,sans-serif;max-width:1400px;margin:2rem auto;padding:0 1rem;color:#17212b}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #ccd4df;padding:.6rem;vertical-align:top}th{background:#eef2f7}code{overflow-wrap:anywhere}small{color:#465467}.scroll{overflow:auto}.notice{background:#fff5d6;padding:1rem}h2{margin-top:2rem}</style><body><p><a href="../index.html#task10">返回十任务</a> · <a href="task10-assistance-cutoff-20261107.json">精简JSON</a></p><h1>Task10 A+ 截止辅助诊断</h1><p>精简JSON SHA256：<code>aaaa142db19a9bb7a792049a8e194acb35bac39cf6f0c9133aaec86e10b37f9c</code></p><p>冻结 2026-11-07T11:30:00Z；报告终版不代表计划50条已跑满。正式 v1.1 主表保持原样。</p><p>A+：oldD stable30-h2 latched-v6 native32 + R9 expert slew +600s + non-handheld topple nonterminal</p><p class="notice">计划目标50单列。实际启动分母已确证时，已观测成功/实际启动N与unknown一起显示；unknown保留在分母，不计作测得失败，未知全成功/全不成功情景另列。闭合样本n的成功率和置信区间仅作补充。启动证据只有区间时不发布伪精确全启动SR；未启动pending排除分母。早失败与非随机quarantine会选择闭合样本，不能据此宣布方法排名。</p><p>v11/v12/r1：10个有序动作事件；v13：5个杯，至少一半为≥3/5。不同原始阶段单位分别展示。</p><h2>ours_aligned</h2><p>已核验 n=35；封存闭合 35；已识别启动ID下界 50；启动聚合区间 [50, 50]；未核验启动数区间 [15, 15]。</p><p>全部50条实际已启动，由冻结的逐ID与基数证据确证；master claim仅为旁证。截止已核验35条，未核验U=15；未启动pending=0。</p><div class="scroll"><table><thead><tr><th>口径 / 单位 / 有效n</th><th>全程成功：启动分母与闭合补充</th><th>至少一半：启动分母与闭合补充</th><th>闭合样本平均阶段与bootstrap95</th><th>真实启动场景敏感性范围</th></tr></thead><tbody><tr><td>placement-v1.1<br>ordered subevents，最大10，n=35<br>available</td><td>实际启动 N=50；未核验 U=15<br>已观测成功 0/50；未核验保留分母<br><strong>已观察SR下界 0.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [0.00%, 30.00%]<br>未知全不成功情景 Wilson95 [0.00%, 7.13%]<br>未知全成功情景 Wilson95 [19.10%, 43.75%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>0/35<br>0.00%<br>Wilson95 [0.00%, 9.89%]<br>bootstrap95 [0.00%, 0.00%]</td><td>阈值 ≥5/10<br>实际启动 N=50；未核验 U=15<br>已观测成功 2/50；未核验保留分母<br><strong>已观察SR下界 4.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [4.00%, 34.00%]<br>未知全不成功情景 Wilson95 [1.10%, 13.46%]<br>未知全成功情景 Wilson95 [22.44%, 47.85%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>2/35<br>5.71%<br>Wilson95 [1.58%, 18.61%]<br>bootstrap95 [0.00%, 14.29%]</td><td>原始 1.629 [1.143, 2.229]<br>归一 0.1629 [0.1143, 0.2229]</td><td>全程 [0.00%, 30.00%]<br>至少一半 [4.00%, 34.00%]<br>阶段 [1.14, 4.14]<br>归一 [0.114, 0.414]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr><tr><td>SafeLab-Eval-v1.2-relaxed<br>ordered subevents，最大10，n=35<br>available</td><td>实际启动 N=50；未核验 U=15<br>已观测成功 0/50；未核验保留分母<br><strong>已观察SR下界 0.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [0.00%, 30.00%]<br>未知全不成功情景 Wilson95 [0.00%, 7.13%]<br>未知全成功情景 Wilson95 [19.10%, 43.75%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>0/35<br>0.00%<br>Wilson95 [0.00%, 9.89%]<br>bootstrap95 [0.00%, 0.00%]</td><td>阈值 ≥5/10<br>实际启动 N=50；未核验 U=15<br>已观测成功 4/50；未核验保留分母<br><strong>已观察SR下界 8.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [8.00%, 38.00%]<br>未知全不成功情景 Wilson95 [3.15%, 18.84%]<br>未知全成功情景 Wilson95 [25.86%, 51.85%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>4/35<br>11.43%<br>Wilson95 [4.54%, 25.95%]<br>bootstrap95 [2.86%, 22.86%]</td><td>原始 2.086 [1.429, 2.857]<br>归一 0.2086 [0.1429, 0.2857]</td><td>全程 [0.00%, 30.00%]<br>至少一半 [8.00%, 38.00%]<br>阶段 [1.46, 4.46]<br>归一 [0.146, 0.446]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr><tr><td>SafeLab-Eval-v1.3-lenient<br>cups，最大5，n=35<br>available</td><td>实际启动 N=50；未核验 U=15<br>已观测成功 0/50；未核验保留分母<br><strong>已观察SR下界 0.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [0.00%, 30.00%]<br>未知全不成功情景 Wilson95 [0.00%, 7.13%]<br>未知全成功情景 Wilson95 [19.10%, 43.75%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>0/35<br>0.00%<br>Wilson95 [0.00%, 9.89%]<br>bootstrap95 [0.00%, 0.00%]</td><td>阈值 ≥3/5<br>实际启动 N=50；未核验 U=15<br>已观测成功 3/50；未核验保留分母<br><strong>已观察SR下界 6.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [6.00%, 36.00%]<br>未知全不成功情景 Wilson95 [2.06%, 16.22%]<br>未知全成功情景 Wilson95 [24.14%, 49.86%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>3/35<br>8.57%<br>Wilson95 [2.96%, 22.38%]<br>bootstrap95 [0.00%, 20.00%]</td><td>原始 0.7714 [0.4286, 1.2]<br>归一 0.1543 [0.08571, 0.24]</td><td>全程 [0.00%, 30.00%]<br>至少一半 [6.00%, 36.00%]<br>阶段 [0.54, 2.04]<br>归一 [0.108, 0.408]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr><tr><td>SafeLab-Eval-v1.4-r1<br>ordered subevents，最大10，n=35<br>available</td><td>实际启动 N=50；未核验 U=15<br>已观测成功 0/50；未核验保留分母<br><strong>已观察SR下界 0.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [0.00%, 30.00%]<br>未知全不成功情景 Wilson95 [0.00%, 7.13%]<br>未知全成功情景 Wilson95 [19.10%, 43.75%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>0/35<br>0.00%<br>Wilson95 [0.00%, 9.89%]<br>bootstrap95 [0.00%, 0.00%]</td><td>阈值 ≥5/10<br>实际启动 N=50；未核验 U=15<br>已观测成功 4/50；未核验保留分母<br><strong>已观察SR下界 8.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [8.00%, 38.00%]<br>未知全不成功情景 Wilson95 [3.15%, 18.84%]<br>未知全成功情景 Wilson95 [25.86%, 51.85%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>4/35<br>11.43%<br>Wilson95 [4.54%, 25.95%]<br>bootstrap95 [2.86%, 22.86%]</td><td>原始 2.114 [1.486, 2.886]<br>归一 0.2114 [0.1486, 0.2886]</td><td>全程 [0.00%, 30.00%]<br>至少一半 [8.00%, 38.00%]<br>阶段 [1.48, 4.48]<br>归一 [0.148, 0.448]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr></tbody></table></div><h2>mem0_original</h2><p>已核验 n=18；封存闭合 18；已识别启动ID下界 50；启动聚合区间 [50, 50]；未核验启动数区间 [32, 32]。</p><p>全部50条实际已启动，由冻结的逐ID与基数证据确证；master claim仅为旁证。截止已核验18条，未核验U=32；未启动pending=0。</p><div class="scroll"><table><thead><tr><th>口径 / 单位 / 有效n</th><th>全程成功：启动分母与闭合补充</th><th>至少一半：启动分母与闭合补充</th><th>闭合样本平均阶段与bootstrap95</th><th>真实启动场景敏感性范围</th></tr></thead><tbody><tr><td>placement-v1.1<br>ordered subevents，最大10，n=18<br>available</td><td>实际启动 N=50；未核验 U=32<br>已观测成功 2/50；未核验保留分母<br><strong>已观察SR下界 4.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [4.00%, 68.00%]<br>未知全不成功情景 Wilson95 [1.10%, 13.46%]<br>未知全成功情景 Wilson95 [54.19%, 79.24%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>2/18<br>11.11%<br>Wilson95 [3.10%, 32.80%]<br>bootstrap95 [0.00%, 27.78%]</td><td>阈值 ≥5/10<br>实际启动 N=50；未核验 U=32<br>已观测成功 4/50；未核验保留分母<br><strong>已观察SR下界 8.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [8.00%, 72.00%]<br>未知全不成功情景 Wilson95 [3.15%, 18.84%]<br>未知全成功情景 Wilson95 [58.33%, 82.53%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>4/18<br>22.22%<br>Wilson95 [9.00%, 45.21%]<br>bootstrap95 [5.56%, 44.44%]</td><td>原始 2.444 [1.056, 4.056]<br>归一 0.2444 [0.1056, 0.4056]</td><td>全程 [4.00%, 68.00%]<br>至少一半 [8.00%, 72.00%]<br>阶段 [0.88, 7.28]<br>归一 [0.088, 0.728]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr><tr><td>SafeLab-Eval-v1.2-relaxed<br>ordered subevents，最大10，n=18<br>available</td><td>实际启动 N=50；未核验 U=32<br>已观测成功 2/50；未核验保留分母<br><strong>已观察SR下界 4.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [4.00%, 68.00%]<br>未知全不成功情景 Wilson95 [1.10%, 13.46%]<br>未知全成功情景 Wilson95 [54.19%, 79.24%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>2/18<br>11.11%<br>Wilson95 [3.10%, 32.80%]<br>bootstrap95 [0.00%, 27.78%]</td><td>阈值 ≥5/10<br>实际启动 N=50；未核验 U=32<br>已观测成功 4/50；未核验保留分母<br><strong>已观察SR下界 8.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [8.00%, 72.00%]<br>未知全不成功情景 Wilson95 [3.15%, 18.84%]<br>未知全成功情景 Wilson95 [58.33%, 82.53%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>4/18<br>22.22%<br>Wilson95 [9.00%, 45.21%]<br>bootstrap95 [5.56%, 44.44%]</td><td>原始 2.889 [1.444, 4.5]<br>归一 0.2889 [0.1444, 0.45]</td><td>全程 [4.00%, 68.00%]<br>至少一半 [8.00%, 72.00%]<br>阶段 [1.04, 7.44]<br>归一 [0.104, 0.744]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr><tr><td>SafeLab-Eval-v1.3-lenient<br>cups，最大5，n=18<br>available</td><td>实际启动 N=50；未核验 U=32<br>已观测成功 2/50；未核验保留分母<br><strong>已观察SR下界 4.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [4.00%, 68.00%]<br>未知全不成功情景 Wilson95 [1.10%, 13.46%]<br>未知全成功情景 Wilson95 [54.19%, 79.24%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>2/18<br>11.11%<br>Wilson95 [3.10%, 32.80%]<br>bootstrap95 [0.00%, 27.78%]</td><td>阈值 ≥3/5<br>实际启动 N=50；未核验 U=32<br>已观测成功 4/50；未核验保留分母<br><strong>已观察SR下界 8.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [8.00%, 72.00%]<br>未知全不成功情景 Wilson95 [3.15%, 18.84%]<br>未知全成功情景 Wilson95 [58.33%, 82.53%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>4/18<br>22.22%<br>Wilson95 [9.00%, 45.21%]<br>bootstrap95 [5.56%, 44.44%]</td><td>原始 1.444 [0.7778, 2.222]<br>归一 0.2889 [0.1556, 0.4444]</td><td>全程 [4.00%, 68.00%]<br>至少一半 [8.00%, 72.00%]<br>阶段 [0.52, 3.72]<br>归一 [0.104, 0.744]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr><tr><td>SafeLab-Eval-v1.4-r1<br>ordered subevents，最大10，n=18<br>available</td><td>实际启动 N=50；未核验 U=32<br>已观测成功 2/50；未核验保留分母<br><strong>已观察SR下界 4.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [4.00%, 68.00%]<br>未知全不成功情景 Wilson95 [1.10%, 13.46%]<br>未知全成功情景 Wilson95 [54.19%, 79.24%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>2/18<br>11.11%<br>Wilson95 [3.10%, 32.80%]<br>bootstrap95 [0.00%, 27.78%]</td><td>阈值 ≥5/10<br>实际启动 N=50；未核验 U=32<br>已观测成功 4/50；未核验保留分母<br><strong>已观察SR下界 8.00%</strong>；未知未判失败<br>CPU全启动SR识别界 [8.00%, 72.00%]<br>未知全不成功情景 Wilson95 [3.15%, 18.84%]<br>未知全成功情景 Wilson95 [58.33%, 82.53%]<br><small>未知未被测成失败；情景Wilson与结果缺失识别界分别解释。</small><br><strong>已核验闭合样本补充</strong><br>4/18<br>22.22%<br>Wilson95 [9.00%, 45.21%]<br>bootstrap95 [5.56%, 44.44%]</td><td>原始 2.889 [1.5, 4.5]<br>归一 0.2889 [0.15, 0.45]</td><td>全程 [4.00%, 68.00%]<br>至少一半 [8.00%, 72.00%]<br>阶段 [1.04, 7.44]<br>归一 [0.104, 0.744]<br><small>是缺失结果与分母场景的识别界，不是置信区间。</small></td></tr></tbody></table></div><h2>同场景配对</h2><p>ours_aligned minus mem0_original；当前共同有效子集 16 对；available_conditional_pairs。这是当前共同有效子集的条件bootstrap，不是全部50场景的配对结论。</p><p>Both closures must be valid. Joint closure selection remains informatively censored; no method ranking or full-planned-population effect is inferred.</p><div class="scroll"><table><thead><tr><th>口径 / 配对n</th><th>全程成功差</th><th>至少一半成功差</th><th>原始阶段差</th><th>归一阶段差</th></tr></thead><tbody><tr><td>placement-v1.1 / 16</td><td>-0.0625<br>paired bootstrap95 [-0.1875, 0]</td><td>-0.0625<br>paired bootstrap95 [-0.3125, 0.1875]</td><td>-0.125<br>paired bootstrap95 [-2.062, 1.75]</td><td>-0.0125<br>paired bootstrap95 [-0.2062, 0.175]</td></tr><tr><td>SafeLab-Eval-v1.2-relaxed / 16</td><td>-0.0625<br>paired bootstrap95 [-0.1875, 0]</td><td>0<br>paired bootstrap95 [-0.3125, 0.3125]</td><td>-0.1875<br>paired bootstrap95 [-2.25, 1.812]</td><td>-0.01875<br>paired bootstrap95 [-0.225, 0.1813]</td></tr><tr><td>SafeLab-Eval-v1.3-lenient / 16</td><td>-0.0625<br>paired bootstrap95 [-0.1875, 0]</td><td>-0.0625<br>paired bootstrap95 [-0.3125, 0.1875]</td><td>-0.3125<br>paired bootstrap95 [-1.25, 0.6875]</td><td>-0.0625<br>paired bootstrap95 [-0.25, 0.1375]</td></tr><tr><td>SafeLab-Eval-v1.4-r1 / 16</td><td>-0.0625<br>paired bootstrap95 [-0.1875, 0]</td><td>0<br>paired bootstrap95 [-0.3125, 0.3125]</td><td>-0.125<br>paired bootstrap95 [-2, 1.75]</td><td>-0.0125<br>paired bootstrap95 [-0.2, 0.175]</td></tr></tbody></table></div><p>仅使用CPU给出的精确scene/seed/order/H2匹配，不用非配对组均值差替代；完整pair身份和member SHA见JSON。</p><h2>r1与依赖</h2><pre>{
+  &quot;class_sha256&quot;: &quot;2e1a63729c81c7c3e90d0278945035d22b33a74294c091c356eeead97dd7962b&quot;,
+  &quot;base_RelaxedTen_expected_sha256&quot;: &quot;40683ab936c9e89baadc6c44b6a3cca186b03ee17496752b4883981d1a115890&quot;,
+  &quot;freeze_sha256&quot;: &quot;396403baf88a0cc70be684b2c5584d0ba9e0ac47d195942a1ada5c0694683d03&quot;,
+  &quot;parameters_sha256&quot;: &quot;4b3fb7f3122b6ff6bbeb91b2c2a650c1c2c9b2a1bfeb2c40500c9097142d3c57&quot;,
+  &quot;class_bytes_verified_here&quot;: true,
+  &quot;base_source_bytes_reverified_by_renderer&quot;: false,
+  &quot;base_validation_owner&quot;: &quot;CPU exact dependency guard; report source provenance retains its frozen evidence&quot;,
+  &quot;semantics&quot;: &quot;r1 uses original all-object RelaxedTen safety; no V6 attached-target exemption. Old4607 superseded.&quot;
+}</pre><h2>未完成与失败辅助条件</h2><pre>{
+  &quot;source_epoch&quot;: 1794050295.6252992,
+  &quot;creation_cutoff_UTC&quot;: &quot;2026-11-07T10:15:00Z&quot;,
+  &quot;new_creates_frozen&quot;: true,
+  &quot;S_old_native_failure&quot;: {
+    &quot;state&quot;: &quot;FAILED&quot;,
+    &quot;native_admission&quot;: &quot;failed&quot;,
+    &quot;model_valid_cases&quot;: 0,
+    &quot;new_model_cases&quot;: null,
+    &quot;job_ids&quot;: null,
+    &quot;reason&quot;: null,
+    &quot;evidence&quot;: &quot;CPU S_native_failure/E_RESTORE_PREDICATE_DIAGNOSIS.json&quot;
+  },
+  &quot;S2&quot;: {
+    &quot;state&quot;: &quot;cancelled_before_dispatch_missing_1015_cutoff&quot;,
+    &quot;native_admission&quot;: &quot;not started&quot;,
+    &quot;model_valid_cases&quot;: null,
+    &quot;new_model_cases&quot;: 0,
+    &quot;job_ids&quot;: [],
+    &quot;reason&quot;: null,
+    &quot;evidence&quot;: null
+  },
+  &quot;O_R&quot;: &quot;unfinished; no Native admission or scores; development stopped per deadline&quot;,
+  &quot;unstarted_variants&quot;: [
+    &quot;S2 Mem0&quot;,
+    &quot;S2 weak&quot;,
+    &quot;S+Aplus&quot;,
+    &quot;O&quot;,
+    &quot;R&quot;,
+    &quot;Vens&quot;
+  ],
+  &quot;scope&quot;: &quot;S2/O/R/Vens and other unstarted variants are status only, absent from A+ model scores. Old S Native admission failure is separate.&quot;
+}</pre><p>S2/O/R/Vens没有模型成绩；R没有Native快照或5次恢复验收通过声明。未启动不计失败/unknown分母。</p><h2>证据与限制</h2><p>Known-case bootstrap/Wilson are conditional on verified observations; missing-outcome and denominator sensitivity bounds separately reported.</p><p>Observed closures are selected by termination time; early failures and nonrandom quarantine can overrepresent specific orders. These are not full-50 SRs or method rankings.</p><p>OldD Mem0 H2 and R9 TTC H4 use different controllers and are historical references only, not a same-condition comparison. They are excluded from these A+ methods and paired statistics.</p><pre>[
+  {
+    &quot;role&quot;: &quot;input_manifest&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/cpu_diagnostics/accounting/FREEZE_20261107T113000Z/INPUT_MANIFEST.json&quot;,
+    &quot;bytes&quot;: 451825,
+    &quot;sha256&quot;: &quot;863b11d466ea87a57ca5878c8d8fa4d3165749bef47df9917a0d5befc650414d&quot;
+  },
+  {
+    &quot;role&quot;: &quot;statistics&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/cpu_diagnostics/accounting/FINAL_STATISTICS.json&quot;,
+    &quot;bytes&quot;: 283743,
+    &quot;sha256&quot;: &quot;fa017721ef4f57cb1d2965a2c1d9c33de994e9d9f23f5c5df36fcda89293fde2&quot;
+  },
+  {
+    &quot;role&quot;: &quot;publication_accounting&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/cpu_diagnostics/accounting/PUBLICATION_ACCOUNTING.json&quot;,
+    &quot;bytes&quot;: 34299,
+    &quot;sha256&quot;: &quot;25e2c9b82669f52f53976a8fef7f599fe9a23c6023844cdf3898f09f3b8c2f88&quot;
+  },
+  {
+    &quot;role&quot;: &quot;deadline_ledger&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/ROUND_CURRENT_STATE.json&quot;,
+    &quot;bytes&quot;: 6657,
+    &quot;sha256&quot;: &quot;a7c83234ed52f2babcade17e335100858d9f68cf75c66c6c8923c6cf3d6589a2&quot;
+  },
+  {
+    &quot;role&quot;: &quot;creation_cutoff_ledger&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/NEW_CREATES_FROZEN_1015.json&quot;,
+    &quot;bytes&quot;: 475,
+    &quot;sha256&quot;: &quot;8f7f84cbe906fd347057b4d2cf6c57c11d1f7a810fcfcc79f261f7241ca39e48&quot;
+  },
+  {
+    &quot;role&quot;: &quot;dispatch_cutoff_receipt&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/DISPATCH_CUTOFF_1115_RECEIPT.json&quot;,
+    &quot;bytes&quot;: 1519,
+    &quot;sha256&quot;: &quot;78905d0717b3475c37347a409ed754273f0db2e770b100637904436479d17c78&quot;
+  },
+  {
+    &quot;role&quot;: &quot;all_allocated_GPU_resource_windows&quot;,
+    &quot;path&quot;: &quot;/project_a02012413/public/liyufeng/TASK10_ATTACH_STABLE_20261106/round_SORA_20261107/RESOURCE_WINDOWS_1123.json&quot;,
+    &quot;bytes&quot;: 4828,
+    &quot;sha256&quot;: &quot;3af616e771062c6695534815f55f34b129e1e6f42372887801634e0dcc5a8045&quot;
+  }
+]</pre><p>源路径是审计定位信息；没有匿名GET验证的媒体/档案不标为published。精简JSON保留各输入bytes/SHA，本报告不嵌入完整原始轨迹。</p></body></html>

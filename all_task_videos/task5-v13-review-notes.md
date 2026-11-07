@@ -1,11 +1,7 @@
-# Five-task v1.3-only review media
+# 已撤回：五任务旧 A2 v1.3 判定漏洞示例
 
-Source manifest SHA256: `fec9d9f3adbf79c5de0e6e9745c62bf717fc55ad08b976dc30d3c256b8412c30`.
+旧实现没有检查杯子是否离开原位，误把开局原垫占位计为回垫。五任务所有有效判定下整任务成功仍为0。
 
-These five producer-selected cases have v1.1=false and v1.3=true. They are diagnostic media, **not five new evaluations or formal successes**. The dedicated group is labelled “仅 v1.3 判定成功，逐例核实中”; ordinary success filtering and counters continue to use v1.1. No manual physical-verdict validation is claimed.
+冻结 home&support v2 逐例核实：三个 Mem-0 案例各3/5，MemoryVLA 案例4/5；TTC h2案例未出现在重算中，不能补零。仅有最终完成数，没有冻结逐帧重算记录，因此保留原v1.1阶梯与已撤回旧v1.3历史事件，不伪造新曲线。
 
-All five policy-camera MP4s and original logs/switch receipts were independently anonymous-GET/SHA verified. Videos remain at the producer's TOS URLs; no MP4 is committed. Normalized logs are same-origin gzip with wire and decoded SHA. Producer originals remain public at their original backup URLs.
-
-The physical staircase preserves the original v1.1 phase; protocol-tagged v1.3 events remain separate. Frame identifiers are relative120Hz simulation ticks, with original policy-frame identifiers retained as `source_policy_frame`. Simulation timestamps and physical events are unchanged. TTC's actual `completion_raw_score` is shown as completion_score, using the unique threshold explicitly recorded in raw switch decisions. Completion probability is retained separately. Mem-0/MemoryVLA probabilities are not relabelled as TTC scores. Missing score samples remain null.
-
-No strict pairing admission or bitwise scene equivalence is inferred from this manifest.
+5条视频仅在页面底部审计折叠区显示为判定漏洞示例，从主配置、普通案例与联播素材池排除。原始日志、视频与来源SHA未修改。旧判定保存在withdrawn_oracle_results，不作为有效v1.3结果。data.json未修改。

@@ -1,8 +1,12 @@
 """Table 2 + SR@k from data.json (v1.1, unassisted). Cells not in data.json come from EXTRA (agent-reported)."""
-import json, math, csv, sys
+import json, gzip, math, csv, sys
 import os
 D = os.path.dirname(os.path.abspath(__file__)) + '/'
-d = json.load(open(D + 'data.json'))
+def _load_data():
+    if os.path.exists(D + 'data.json'):
+        return json.load(open(D + 'data.json'))
+    return json.load(gzip.open(D + 'data.json.gz', 'rt', encoding='utf-8'))
+d = _load_data()
 E = {e['id']: e for e in d['evaluations']}
 N = {3: 3, 5: 5, 7: 7, 10: 10}
 # (task, method) -> {horizon: [row ids]}

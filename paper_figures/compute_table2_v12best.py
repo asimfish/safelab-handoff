@@ -1,8 +1,12 @@
 """Table 2 variant: most lenient oracle archived for every cell (SafeLab-Eval-v1.2-relaxed), each method at its better
 execution horizon (h4 or h8) per task. Cells without an archived v1.2 row use the v1.1 value (a lower bound, marked ‡)."""
-import json, os
+import json, gzip, os
 D = os.path.dirname(os.path.abspath(__file__)) + '/'
-E = {e['id']: e for e in json.load(open(D + 'data.json'))['evaluations']}
+def _load_data():
+    if os.path.exists(D + 'data.json'):
+        return json.load(open(D + 'data.json'))
+    return json.load(gzip.open(D + 'data.json.gz', 'rt', encoding='utf-8'))
+E = {e['id']: e for e in _load_data()['evaluations']}
 def r(i): return E[i]['success'], E[i]['trials']
 def pool(ids):
     s = t = 0

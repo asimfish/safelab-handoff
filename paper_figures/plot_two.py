@@ -1,7 +1,8 @@
 import json, sys, matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-D = '/tmp/claude-0/-root-lyf-safelab/961e3502-cdbc-46d7-9641-821bb9638ba3/scratchpad/table2/'
+import os
+D = os.path.dirname(os.path.abspath(__file__)) + '/'
 data = json.load(open(D + 'out/table2_srk.json'))
 STYLE = {'TTS-Memory': ('#2a78d6', 'o', '-', 4), 'Mem-0': ('#eb6834', 's', '--', 3)}
 ORDER = ['TTS-Memory', 'Mem-0']

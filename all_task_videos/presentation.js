@@ -1,5 +1,5 @@
 (function(root){'use strict';const M=root.SafeLab||(typeof require==='function'?require('./model.js'):null);
-const versions=['v1.1','v1.2','v1.3','v1.4','v1.4-r1'];
+const versions=['v1.1','v1.2','v1.3','v1.4','v1.4-r1','v1.4-r1-released'];
 function key(c){return M.config(c);}
 function hasVideo(c){return Object.values(c.videos||{}).some(v=>M.safeURL(v?.url));}
 function verdict(c){for(const p of versions){if(c.oracle_results?.[p]?.unknown===true||c.oracle_results?.[p+'-relaxed']?.unknown===true)return 'unknown';const raw=c.outcomes?.[p]?.verdict??c['verdict'+p.replace('v1.','1')]??c.oracle_results?.[p]?.success??c.oracle_results?.[p+'-relaxed']?.success;if(raw===true||raw==='S')return 'success';if(raw===false||raw==='F')return 'fail';if(raw==='unknown'||raw==='U')return 'unknown';}return M.outcome(c);}

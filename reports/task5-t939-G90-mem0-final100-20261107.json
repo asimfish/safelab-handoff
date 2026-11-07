@@ -1,0 +1,1401 @@
+{
+  "schema": "task5-G90-final-v1",
+  "created_utc": "2026-11-07T18:15:47.421801+00:00",
+  "evaluation_id": "task5_mem0_new30_h8_G90_seed0_100_20261107",
+  "task": 5,
+  "method": "Mem-0",
+  "record": "5-pos-mem0",
+  "checkpoint_step": 30000,
+  "dataset": "psibot_5b_obstruction_pos1cm_v1_20261025",
+  "camera": "third_person",
+  "horizon": 8,
+  "action_target": "current_row",
+  "preprocessing": "training tensor bilinear + antialias; raw-RGB bridge corrected",
+  "stage": "diagnostic",
+  "condition_version": "night_v14A_contact_latch3_expert90_v1_native32",
+  "condition": "G90 expert90 latch; 480s; non-held-topple exemption",
+  "topology": {
+    "num_envs_actual": 1,
+    "processes_per_gpu": 8,
+    "gpu": "PRO6000",
+    "gpus_per_job": 4
+  },
+  "final": true,
+  "trials": 100,
+  "valid": 92,
+  "unknown": 8,
+  "scene_order": "forward/reverse interleaved 50 each",
+  "policy_seed": 0,
+  "score_selection": "first valid closure; exhausted infrastructure retry slots remain unknown in denominator",
+  "mean_phase_denominator": "valid only; unknown are not imputed zero",
+  "bootstrap": {
+    "samples": 10000,
+    "seed": 20261107,
+    "method": "percentile; resample valid episodes within forward/reverse strata; mean only"
+  },
+  "strict_fdvel_v1": "fd_identity: five-task strict oracle uses 121-tick pose drift, not PhysX velocity",
+  "old_v1_3": "withdrawn; excluded from this report and ledger",
+  "original_unassisted_main_table_unchanged": true,
+  "expert_admission": {
+    "success": 10,
+    "trials": 10,
+    "report_sha256": "a2a6bfc66dbc052851a591a06b4917e6ad5056a05b79303db1fb826aedeec7c1"
+  },
+  "limitations": [
+    "Assisted diagnostic, not the unassisted formal main table.",
+    "Latch backend filters attached-object/right-hand collisions; not contact-preserving.",
+    "Historical rendering MAE 1.56\u20132.02/255 remains above 1.0 target; this report does not assert render parity passed.",
+    "Mean phase excludes the eight unknowns; all success-rate denominators include them."
+  ],
+  "jobs": [
+    "job-93z3y0s084n6",
+    "job-q72zoh1o1hzl"
+  ],
+  "tail_platform_status": "SUCCEEDED",
+  "tail_queue_autoexit": true,
+  "metrics": {
+    "strict_v1": {
+      "trials": 100,
+      "valid": 92,
+      "unknown": 8,
+      "success": 0,
+      "failure": 92,
+      "wilson95": [
+        3.469446951953614e-18,
+        0.03699349820698568
+      ],
+      "phase_hist": {
+        "0": 80,
+        "1": 8,
+        "2": 3,
+        "3": 1
+      },
+      "mean_phase": 0.18478260869565216,
+      "mean_completion_fraction": 0.03695652173913044,
+      "SR_at": {
+        "1": {
+          "success": 12,
+          "trials": 100,
+          "wilson95": [
+            0.06999406437019488,
+            0.19812099426711421
+          ]
+        },
+        "2": {
+          "success": 4,
+          "trials": 100,
+          "wilson95": [
+            0.01566330399154762,
+            0.0983707143588792
+          ]
+        },
+        "3": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ]
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "mean_phase_bootstrap95": [
+        0.08695652173913043,
+        0.29347826086956524
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 40,
+            "1": 6
+          },
+          "mean_phase": 0.13043478260869565,
+          "mean_completion_fraction": 0.02608695652173913,
+          "SR_at": {
+            "1": {
+              "success": 6,
+              "trials": 50,
+              "wilson95": [
+                0.05617600150932274,
+                0.23804817383202992
+              ]
+            },
+            "2": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "3": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        },
+        "reverse": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 40,
+            "1": 2,
+            "2": 3,
+            "3": 1
+          },
+          "mean_phase": 0.2391304347826087,
+          "mean_completion_fraction": 0.04782608695652174,
+          "SR_at": {
+            "1": {
+              "success": 6,
+              "trials": 50,
+              "wilson95": [
+                0.05617600150932274,
+                0.23804817383202992
+              ]
+            },
+            "2": {
+              "success": 4,
+              "trials": 50,
+              "wilson95": [
+                0.03154951408859298,
+                0.18838246918342838
+              ]
+            },
+            "3": {
+              "success": 1,
+              "trials": 50,
+              "wilson95": [
+                0.003539259271646236,
+                0.10495443589637815
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        }
+      },
+      "seed_results": {
+        "0": {
+          "trials": 100,
+          "success": 0,
+          "failure": 92,
+          "unknown": 8
+        }
+      },
+      "ever_unknown_as_failure": {
+        "trials": 100,
+        "success": 0,
+        "ever_unknown_count": 72,
+        "wilson95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "placement_v1_1": {
+      "trials": 100,
+      "valid": 92,
+      "unknown": 8,
+      "success": 0,
+      "failure": 92,
+      "wilson95": [
+        3.469446951953614e-18,
+        0.03699349820698568
+      ],
+      "phase_hist": {
+        "0": 80,
+        "1": 8,
+        "2": 3,
+        "3": 1
+      },
+      "mean_phase": 0.18478260869565216,
+      "mean_completion_fraction": 0.03695652173913044,
+      "SR_at": {
+        "1": {
+          "success": 12,
+          "trials": 100,
+          "wilson95": [
+            0.06999406437019488,
+            0.19812099426711421
+          ]
+        },
+        "2": {
+          "success": 4,
+          "trials": 100,
+          "wilson95": [
+            0.01566330399154762,
+            0.0983707143588792
+          ]
+        },
+        "3": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ]
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "mean_phase_bootstrap95": [
+        0.08695652173913043,
+        0.29347826086956524
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 40,
+            "1": 6
+          },
+          "mean_phase": 0.13043478260869565,
+          "mean_completion_fraction": 0.02608695652173913,
+          "SR_at": {
+            "1": {
+              "success": 6,
+              "trials": 50,
+              "wilson95": [
+                0.05617600150932274,
+                0.23804817383202992
+              ]
+            },
+            "2": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "3": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        },
+        "reverse": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 40,
+            "1": 2,
+            "2": 3,
+            "3": 1
+          },
+          "mean_phase": 0.2391304347826087,
+          "mean_completion_fraction": 0.04782608695652174,
+          "SR_at": {
+            "1": {
+              "success": 6,
+              "trials": 50,
+              "wilson95": [
+                0.05617600150932274,
+                0.23804817383202992
+              ]
+            },
+            "2": {
+              "success": 4,
+              "trials": 50,
+              "wilson95": [
+                0.03154951408859298,
+                0.18838246918342838
+              ]
+            },
+            "3": {
+              "success": 1,
+              "trials": 50,
+              "wilson95": [
+                0.003539259271646236,
+                0.10495443589637815
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        }
+      },
+      "seed_results": {
+        "0": {
+          "trials": 100,
+          "success": 0,
+          "failure": 92,
+          "unknown": 8
+        }
+      },
+      "ever_unknown_as_failure": {
+        "trials": 100,
+        "success": 0,
+        "ever_unknown_count": 72,
+        "wilson95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "placement_v1_2_relaxed": {
+      "trials": 100,
+      "valid": 92,
+      "unknown": 8,
+      "success": 0,
+      "failure": 92,
+      "wilson95": [
+        3.469446951953614e-18,
+        0.03699349820698568
+      ],
+      "phase_hist": {
+        "0": 25,
+        "1": 45,
+        "2": 21,
+        "3": 1
+      },
+      "mean_phase": 0.9782608695652174,
+      "mean_completion_fraction": 0.1956521739130435,
+      "SR_at": {
+        "1": {
+          "success": 67,
+          "trials": 100,
+          "wilson95": [
+            0.5730534379509052,
+            0.7543687726587197
+          ]
+        },
+        "2": {
+          "success": 22,
+          "trials": 100,
+          "wilson95": [
+            0.150012823846054,
+            0.31070353514985793
+          ]
+        },
+        "3": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": [
+            0.0017674320641406505,
+            0.054486196178705315
+          ]
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "mean_phase_bootstrap95": [
+        0.8369565217391305,
+        1.1304347826086956
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 7,
+            "1": 28,
+            "2": 11
+          },
+          "mean_phase": 1.0869565217391304,
+          "mean_completion_fraction": 0.21739130434782608,
+          "SR_at": {
+            "1": {
+              "success": 39,
+              "trials": 50,
+              "wilson95": [
+                0.6475845041874634,
+                0.8724608402978559
+              ]
+            },
+            "2": {
+              "success": 11,
+              "trials": 50,
+              "wilson95": [
+                0.1275391597021442,
+                0.3524154958125367
+              ]
+            },
+            "3": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        },
+        "reverse": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 18,
+            "1": 17,
+            "2": 10,
+            "3": 1
+          },
+          "mean_phase": 0.8695652173913043,
+          "mean_completion_fraction": 0.17391304347826086,
+          "SR_at": {
+            "1": {
+              "success": 28,
+              "trials": 50,
+              "wilson95": [
+                0.4230602802165686,
+                0.6883780078874284
+              ]
+            },
+            "2": {
+              "success": 11,
+              "trials": 50,
+              "wilson95": [
+                0.1275391597021442,
+                0.3524154958125367
+              ]
+            },
+            "3": {
+              "success": 1,
+              "trials": 50,
+              "wilson95": [
+                0.003539259271646236,
+                0.10495443589637815
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        }
+      },
+      "seed_results": {
+        "0": {
+          "trials": 100,
+          "success": 0,
+          "failure": 92,
+          "unknown": 8
+        }
+      },
+      "ever_unknown_as_failure": {
+        "trials": 100,
+        "success": 0,
+        "ever_unknown_count": 72,
+        "wilson95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    },
+    "placement_v1_4_r1": {
+      "trials": 100,
+      "valid": 92,
+      "unknown": 8,
+      "success": 0,
+      "failure": 92,
+      "wilson95": [
+        3.469446951953614e-18,
+        0.03699349820698568
+      ],
+      "phase_hist": {
+        "0": 19,
+        "1": 40,
+        "2": 30,
+        "3": 3
+      },
+      "mean_phase": 1.184782608695652,
+      "mean_completion_fraction": 0.23695652173913043,
+      "SR_at": {
+        "1": {
+          "success": 73,
+          "trials": 100,
+          "wilson95": [
+            0.6356788323205499,
+            0.8073041585042365
+          ]
+        },
+        "2": {
+          "success": 33,
+          "trials": 100,
+          "wilson95": [
+            0.24563122734128034,
+            0.4269465620490947
+          ]
+        },
+        "3": {
+          "success": 3,
+          "trials": 100,
+          "wilson95": [
+            0.010254524024038925,
+            0.0845193642905276
+          ]
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": [
+            3.469446951953614e-18,
+            0.03699349820698568
+          ]
+        }
+      },
+      "mean_phase_bootstrap95": [
+        1.0217391304347827,
+        1.3478260869565217
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 6,
+            "1": 22,
+            "2": 18
+          },
+          "mean_phase": 1.2608695652173914,
+          "mean_completion_fraction": 0.25217391304347825,
+          "SR_at": {
+            "1": {
+              "success": 40,
+              "trials": 50,
+              "wilson95": [
+                0.6696289406777459,
+                0.887562499842239
+              ]
+            },
+            "2": {
+              "success": 18,
+              "trials": 50,
+              "wilson95": [
+                0.24138749651846741,
+                0.49858983123887307
+              ]
+            },
+            "3": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        },
+        "reverse": {
+          "trials": 50,
+          "valid": 46,
+          "unknown": 4,
+          "success": 0,
+          "failure": 46,
+          "wilson95": [
+            6.938893903907228e-18,
+            0.07134759913335872
+          ],
+          "phase_hist": {
+            "0": 13,
+            "1": 18,
+            "2": 12,
+            "3": 3
+          },
+          "mean_phase": 1.108695652173913,
+          "mean_completion_fraction": 0.2217391304347826,
+          "SR_at": {
+            "1": {
+              "success": 33,
+              "trials": 50,
+              "wilson95": [
+                0.521538260502326,
+                0.7756305077749992
+              ]
+            },
+            "2": {
+              "success": 15,
+              "trials": 50,
+              "wilson95": [
+                0.19103553500880954,
+                0.437503504644534
+              ]
+            },
+            "3": {
+              "success": 3,
+              "trials": 50,
+              "wilson95": [
+                0.02061497034897397,
+                0.16217091688838173
+              ]
+            },
+            "4": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            },
+            "5": {
+              "success": 0,
+              "trials": 50,
+              "wilson95": [
+                6.938893903907228e-18,
+                0.07134759913335872
+              ]
+            }
+          }
+        }
+      },
+      "seed_results": {
+        "0": {
+          "trials": 100,
+          "success": 0,
+          "failure": 92,
+          "unknown": 8
+        }
+      },
+      "ever_unknown_as_failure": {
+        "trials": 100,
+        "success": 0,
+        "ever_unknown_count": 72,
+        "wilson95": [
+          3.469446951953614e-18,
+          0.03699349820698568
+        ]
+      }
+    }
+  },
+  "source_case_index_sha256": "6726653a1d2f8784afe020ecd1f2a3c49b6b5d74c9ff4edd91c98f52390e0177",
+  "case_ledger_sha256": "455db59648a557018bc1fa588958654c789e234fdc678fc11add88dea1b5d95d",
+  "partial_same_scene_comparison": {
+    "strict_v1": {
+      "paired_n": 50,
+      "scene_indices": "0..49 only; TTC remaining50 pending",
+      "TTC": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 38,
+          "1": 10,
+          "2": 1,
+          "3": 1
+        },
+        "mean_phase": 0.3,
+        "mean_completion_fraction": 0.06,
+        "SR_at": {
+          "1": {
+            "success": 12,
+            "trials": 50,
+            "wilson95": [
+              0.1429739139699173,
+              0.3741268375794292
+            ]
+          },
+          "2": {
+            "success": 2,
+            "trials": 50,
+            "wilson95": [
+              0.011038884327619805,
+              0.1346009068750702
+            ]
+          },
+          "3": {
+            "success": 1,
+            "trials": 50,
+            "wilson95": [
+              0.003539259271646236,
+              0.10495443589637815
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "Mem0": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 42,
+          "1": 6,
+          "2": 2
+        },
+        "mean_phase": 0.2,
+        "mean_completion_fraction": 0.04,
+        "SR_at": {
+          "1": {
+            "success": 8,
+            "trials": 50,
+            "wilson95": [
+              0.08337420678033404,
+              0.2851421606303499
+            ]
+          },
+          "2": {
+            "success": 2,
+            "trials": 50,
+            "wilson95": [
+              0.011038884327619805,
+              0.1346009068750702
+            ]
+          },
+          "3": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "mean_phase_difference_TTC_minus_Mem0": 0.1,
+      "paired_stratified_bootstrap95": [
+        -0.08,
+        0.26
+      ]
+    },
+    "placement_v1_1": {
+      "paired_n": 50,
+      "scene_indices": "0..49 only; TTC remaining50 pending",
+      "TTC": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 38,
+          "1": 10,
+          "2": 1,
+          "3": 1
+        },
+        "mean_phase": 0.3,
+        "mean_completion_fraction": 0.06,
+        "SR_at": {
+          "1": {
+            "success": 12,
+            "trials": 50,
+            "wilson95": [
+              0.1429739139699173,
+              0.3741268375794292
+            ]
+          },
+          "2": {
+            "success": 2,
+            "trials": 50,
+            "wilson95": [
+              0.011038884327619805,
+              0.1346009068750702
+            ]
+          },
+          "3": {
+            "success": 1,
+            "trials": 50,
+            "wilson95": [
+              0.003539259271646236,
+              0.10495443589637815
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "Mem0": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 42,
+          "1": 6,
+          "2": 2
+        },
+        "mean_phase": 0.2,
+        "mean_completion_fraction": 0.04,
+        "SR_at": {
+          "1": {
+            "success": 8,
+            "trials": 50,
+            "wilson95": [
+              0.08337420678033404,
+              0.2851421606303499
+            ]
+          },
+          "2": {
+            "success": 2,
+            "trials": 50,
+            "wilson95": [
+              0.011038884327619805,
+              0.1346009068750702
+            ]
+          },
+          "3": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "mean_phase_difference_TTC_minus_Mem0": 0.1,
+      "paired_stratified_bootstrap95": [
+        -0.08,
+        0.26
+      ]
+    },
+    "placement_v1_2_relaxed": {
+      "paired_n": 50,
+      "scene_indices": "0..49 only; TTC remaining50 pending",
+      "TTC": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 28,
+          "1": 19,
+          "2": 2,
+          "3": 1
+        },
+        "mean_phase": 0.52,
+        "mean_completion_fraction": 0.104,
+        "SR_at": {
+          "1": {
+            "success": 22,
+            "trials": 50,
+            "wilson95": [
+              0.3116219921125717,
+              0.5769397197834315
+            ]
+          },
+          "2": {
+            "success": 3,
+            "trials": 50,
+            "wilson95": [
+              0.02061497034897397,
+              0.16217091688838173
+            ]
+          },
+          "3": {
+            "success": 1,
+            "trials": 50,
+            "wilson95": [
+              0.003539259271646236,
+              0.10495443589637815
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "Mem0": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 13,
+          "1": 24,
+          "2": 13
+        },
+        "mean_phase": 1.0,
+        "mean_completion_fraction": 0.2,
+        "SR_at": {
+          "1": {
+            "success": 37,
+            "trials": 50,
+            "wilson95": [
+              0.6044684273515117,
+              0.8412847250644762
+            ]
+          },
+          "2": {
+            "success": 13,
+            "trials": 50,
+            "wilson95": [
+              0.15871527493552393,
+              0.39553157264848837
+            ]
+          },
+          "3": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "mean_phase_difference_TTC_minus_Mem0": -0.48,
+      "paired_stratified_bootstrap95": [
+        -0.7,
+        -0.26
+      ]
+    },
+    "placement_v1_4_r1": {
+      "paired_n": 50,
+      "scene_indices": "0..49 only; TTC remaining50 pending",
+      "TTC": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 25,
+          "1": 19,
+          "2": 4,
+          "3": 2
+        },
+        "mean_phase": 0.66,
+        "mean_completion_fraction": 0.132,
+        "SR_at": {
+          "1": {
+            "success": 25,
+            "trials": 50,
+            "wilson95": [
+              0.3664451431682858,
+              0.6335548568317142
+            ]
+          },
+          "2": {
+            "success": 6,
+            "trials": 50,
+            "wilson95": [
+              0.05617600150932274,
+              0.23804817383202992
+            ]
+          },
+          "3": {
+            "success": 2,
+            "trials": 50,
+            "wilson95": [
+              0.011038884327619805,
+              0.1346009068750702
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "Mem0": {
+        "trials": 50,
+        "valid": 50,
+        "unknown": 0,
+        "success": 0,
+        "failure": 50,
+        "wilson95": [
+          6.938893903907228e-18,
+          0.07134759913335872
+        ],
+        "phase_hist": {
+          "0": 9,
+          "1": 21,
+          "2": 19,
+          "3": 1
+        },
+        "mean_phase": 1.24,
+        "mean_completion_fraction": 0.248,
+        "SR_at": {
+          "1": {
+            "success": 41,
+            "trials": 50,
+            "wilson95": [
+              0.6920394632569922,
+              0.9022980732976582
+            ]
+          },
+          "2": {
+            "success": 20,
+            "trials": 50,
+            "wilson95": [
+              0.27608389730256544,
+              0.5381856225241064
+            ]
+          },
+          "3": {
+            "success": 1,
+            "trials": 50,
+            "wilson95": [
+              0.003539259271646236,
+              0.10495443589637815
+            ]
+          },
+          "4": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          },
+          "5": {
+            "success": 0,
+            "trials": 50,
+            "wilson95": [
+              6.938893903907228e-18,
+              0.07134759913335872
+            ]
+          }
+        }
+      },
+      "mean_phase_difference_TTC_minus_Mem0": -0.58,
+      "paired_stratified_bootstrap95": [
+        -0.82,
+        -0.32
+      ]
+    }
+  }
+}

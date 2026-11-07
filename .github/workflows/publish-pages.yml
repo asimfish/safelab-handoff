@@ -9,24 +9,86 @@ permissions:
   contents: read
 
 concurrency:
-  group: safelab-pages-publication
+  group: safelab-pages-publication-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Check out the published tree
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+      - name: Restore fixed report fixtures with wire and decoded SHA verification
+        run: |
+          python3 - <<'PYCODE'
+          import concurrent.futures, gzip, hashlib, io, json, os, pathlib, time, urllib.error, urllib.request
+          root = pathlib.Path.cwd().resolve()
+          temp = pathlib.Path(os.environ['RUNNER_TEMP']) / 'safelab-fixtures'
+          temp.mkdir()
+          (temp / 'data.json').write_bytes((root / 'data.json').read_bytes())
+          tests = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((root / 'tests').rglob('*')) if p.is_file() and '__pycache__' not in p.parts}
+          (temp / 'test-hashes.json').write_text(json.dumps(tests))
+          manifest = json.loads((root / '.github/workflows/report-fixtures-v1.json').read_text())
+          objects = manifest['objects']
+          assert manifest['count'] == len(objects) == 81
+          assert len({o['path'] for o in objects}) == 81
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *args, **kwargs):
+                  raise RuntimeError('Redirects are forbidden for pinned fixture URLs')
+          def restore(o):
+              relative = pathlib.PurePosixPath(o['path'])
+              assert relative.parts[0] == 'reports' and '..' not in relative.parts and not relative.is_absolute()
+              target = root.joinpath(*relative.parts)
+              assert target.resolve().is_relative_to(root / 'reports') and not target.is_symlink()
+              assert o['url'].startswith('https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/')
+              assert 0 < o['bytes'] <= 10000000 and 0 < o['decoded_bytes'] <= 10000000
+              opener = urllib.request.build_opener(NoRedirect())
+              for attempt in range(3):
+                  try:
+                      with opener.open(o['url'], timeout=45) as response:
+                          wire = response.read(o['bytes'] + 1)
+                      break
+                  except (urllib.error.URLError, TimeoutError, ConnectionError):
+                      if attempt == 2:
+                          raise
+                      time.sleep(attempt + 1)
+              assert len(wire) == o['bytes'] and hashlib.sha256(wire).hexdigest() == o['sha256'], o['path']
+              if o['encoding'] == 'gzip':
+                  with gzip.GzipFile(fileobj=io.BytesIO(wire)) as gz:
+                      raw = gz.read(o['decoded_bytes'] + 1)
+              else:
+                  assert o['encoding'] in ('identity', 'plain', None)
+                  raw = wire
+              assert len(raw) == o['decoded_bytes'] and hashlib.sha256(raw).hexdigest() == o['decoded_sha256'], o['path']
+              backup = temp / relative
+              backup.parent.mkdir(parents=True, exist_ok=True)
+              if target.exists():
+                  backup.write_bytes(target.read_bytes())
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(raw)
+              return o['path']
+          with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
+              verified = list(pool.map(restore, objects))
+          print('Restored and SHA-verified', len(verified), 'fixed fixtures')
+          PYCODE
       - name: Fill unknown historical metadata without changing results
         run: python3 scripts/fill-legacy-schema.py
       - name: Restore missing reviewed checkpoint bindings without moving identities
         run: node scripts/restore-checkpoint-bindings.cjs
       - name: Fill missing legacy metadata without changing existing evidence
         run: python3 scripts/fill-legacy-schema.py
+      - name: Preserve exact source data bytes after no-op metadata checks
+        run: |
+          python3 - <<'PYCODE'
+          import json, os, pathlib
+          source = (pathlib.Path(os.environ['RUNNER_TEMP']) / 'safelab-fixtures/data.json').read_bytes()
+          target = pathlib.Path('data.json')
+          assert json.loads(source) == json.loads(target.read_bytes()), 'Metadata changed; publish a reviewed source update first'
+          target.write_bytes(source)
+          PYCODE
       - name: Check same-origin media identity and publication byte budget
         run: node scripts/check-media-budget.cjs
       - name: Verify dashboard metrics
@@ -46,12 +108,45 @@ jobs:
           node tests/unknown-browser.mjs
           node tests/coverage-browser.mjs
           python3 -c "import shutil; shutil.rmtree('.qa', ignore_errors=True)"
+      - name: Retire restored fixtures and verify the final publication tree
+        run: |
+          python3 - <<'PYCODE'
+          import gzip, hashlib, json, os, pathlib
+          root = pathlib.Path.cwd()
+          temp = pathlib.Path(os.environ['RUNNER_TEMP']) / 'safelab-fixtures'
+          objects = json.loads(pathlib.Path('.github/workflows/report-fixtures-v1.json').read_text())['objects']
+          directory = json.loads(gzip.decompress(pathlib.Path('reports/directory.json.gz').read_bytes()))
+          indices = {o['path']: o['proof_index'] for o in directory['objects']}
+          for o in objects:
+              target = pathlib.Path(o['path'])
+              assert hashlib.sha256(target.read_bytes()).hexdigest() == o['decoded_sha256'], 'Fixture changed during tests: ' + o['path']
+              if target.suffix == '.json':
+                  target.write_text(json.dumps({'archive_id': indices[o['path']]}, separators=(',', ':')) + '\n')
+              elif target.suffix == '.html':
+                  target.write_text('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/safelab-handoff/reports/#' + str(indices[o['path']]) + '"><a href="/safelab-handoff/reports/#' + str(indices[o['path']]) + '">Archived report</a>\n')
+              else:
+                  backup = temp / o['path']
+                  if backup.exists():
+                      target.write_bytes(backup.read_bytes())
+                  else:
+                      target.unlink()
+          assert pathlib.Path('data.json').read_bytes() == (temp / 'data.json').read_bytes(), 'data.json bytes changed'
+          expected = json.loads((temp / 'test-hashes.json').read_text())
+          actual = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((root.resolve() / 'tests').rglob('*')) if p.is_file() and '__pycache__' not in p.parts}
+          assert actual == expected, 'tests/ changed'
+          files = [p for p in root.rglob('*') if p.is_file() and '.git' not in p.parts]
+          size = sum(p.stat().st_size for p in files)
+          assert size <= 32000000, f'Publication tree exceeds 32MB: {size}'
+          print('Final publication bytes:', size)
+          print('data.json SHA256:', hashlib.sha256(pathlib.Path('data.json').read_bytes()).hexdigest())
+          PYCODE
       - name: Upload the static website
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: .
           retention-days: 1
   deploy:
+    if: github.ref == 'refs/heads/docs/publish'
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10

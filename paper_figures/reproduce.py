@@ -73,6 +73,15 @@ def main():
     if main_rows != frozen['rows']:
         raise RuntimeError('Three-setting main table differs from frozen values')
     (ROOT / 'out/table2_main_verified.json').write_text(json.dumps(main_rows, ensure_ascii=False, indent=2) + '\n')
+    length_source = ast.parse((ROOT / 'plot_len.py').read_text())
+    constants = {node.targets[0].id: ast.literal_eval(node.value) for node in length_source.body
+                 if isinstance(node, ast.Assign) and len(node.targets) == 1
+                 and isinstance(node.targets[0], ast.Name) and node.targets[0].id in ('X', 'V')}
+    if constants['X'] != [3, 7, 10]:
+        raise RuntimeError('Supplied length plot uses unexpected task lengths')
+    for series in frozen['episode_curves']:
+        if constants['V'][series['method']] != series['success_rate']:
+            raise RuntimeError('Length plot source differs from Table 2')
     if not args.no_plots:
         subprocess.run([sys.executable, str(ROOT / 'plot_srk.py')], cwd=ROOT, check=True)
         subprocess.run([sys.executable, str(ROOT / 'portable_plot_two.py')], cwd=ROOT, check=True)

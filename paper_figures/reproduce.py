@@ -1,40 +1,36 @@
 """Portable execution of the supplied scripts, preserving every original source byte.
 Run: python3 reproduce.py [--no-plots]. Requires matplotlib for the PDF/PNG step.
-The pinned snapshot is downloaded only if the adjacent local data.json is absent.
+The pinned snapshot ships locally as data.json.gz; no download is required.
 """
 import argparse
 import ast
 import contextlib
 import hashlib
+import gzip
 import io
 import json
 from pathlib import Path
 import runpy
 import subprocess
 import sys
-import urllib.request
 ROOT = Path(__file__).resolve().parent
 
 def input_snapshot():
     manifest = json.loads((ROOT / 'INPUT_MANIFEST.json').read_text())
     target = ROOT / 'data.json'
-    if target.is_symlink():
-        raise RuntimeError('Refuse a symlink data.json')
+    compressed = ROOT / 'data.json.gz'
+    if target.is_symlink() or compressed.is_symlink():
+        raise RuntimeError('Refuse symlink snapshot inputs')
     if target.exists():
         raw = target.read_bytes()
     else:
-        prefix = 'https://zenith-a02012413.tos-cn-beijing.volces.com/liyufeng/safelab-public/reports-v1/paper_figures/'
-        if not manifest['url'].startswith(prefix):
-            raise RuntimeError('Snapshot URL is outside the fixed public archive')
-        class NoRedirect(urllib.request.HTTPRedirectHandler):
-            def redirect_request(self, *args, **kwargs):
-                raise RuntimeError('Snapshot redirects are not allowed')
-        with urllib.request.build_opener(NoRedirect()).open(manifest['url'], timeout=60) as response:
-            raw = response.read(manifest['bytes'] + 1)
+        wire = compressed.read_bytes()
+        if len(wire) != manifest['wire_bytes'] or hashlib.sha256(wire).hexdigest() != manifest['wire_sha256']:
+            raise RuntimeError('Compressed snapshot byte count or SHA256 mismatch')
+        with gzip.GzipFile(fileobj=io.BytesIO(wire)) as stream:
+            raw = stream.read(manifest['bytes'] + 1)
     if len(raw) != manifest['bytes'] or hashlib.sha256(raw).hexdigest() != manifest['sha256']:
         raise RuntimeError('Snapshot byte count or SHA256 mismatch')
-    if not target.exists():
-        target.write_bytes(raw)
     return manifest
 
 def main():

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-05T22:55:03.555506+00:00",
+  "updated_at": "2026-11-07T03:51:12.816141+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -144618,6 +144618,1048 @@
         "verified_archives": 0,
         "target": 50,
         "snapshot_epoch": 1794016605.874902
+      }
+    },
+    {
+      "id": "t1281-task7-night-mem0_h8-v1_1",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 3,
+      "unknown": 0,
+      "mean_phase": 2.59,
+      "phase_hist": {
+        "3": 16,
+        "1": 32,
+        "4": 10,
+        "5": 10,
+        "0": 9,
+        "7": 3,
+        "2": 13,
+        "6": 7
+      },
+      "total_stages": 7,
+      "phase_unit": "order-specific placement stages",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 1,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 2,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 3,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.010254524024038925,
+        "high": 0.0845193642905276,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "44b74639166adcde6dada1ee435c0116715e8170711088e14a94b933d6d20c50",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-mem0_h8-v1_2",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 7,
+      "unknown": 0,
+      "mean_phase": 3.11,
+      "phase_hist": {
+        "7": 7,
+        "1": 26,
+        "4": 13,
+        "5": 9,
+        "2": 23,
+        "3": 7,
+        "0": 3,
+        "6": 12
+      },
+      "total_stages": 7,
+      "phase_unit": "order-specific placement stages",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 4,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 3,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "44b74639166adcde6dada1ee435c0116715e8170711088e14a94b933d6d20c50",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-mem0_h8-v1_3_four_cups",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient-measured-support",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 7,
+      "unknown": 0,
+      "mean_phase": 1.82,
+      "phase_hist": {
+        "4": 7,
+        "1": 49,
+        "2": 18,
+        "3": 23,
+        "0": 3
+      },
+      "total_stages": 4,
+      "phase_unit": "distinct cups on pan",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 4,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 3,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "44b74639166adcde6dada1ee435c0116715e8170711088e14a94b933d6d20c50",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-mem0_h8-v1_4",
+      "record": "7-mem0",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.4-lenient",
+      "oracle_version": "placement-v1.4-lenient",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/mem0_30k/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Mem0 executor visual stream for action and native classifier; Planner original RGB"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 7,
+      "unknown": 0,
+      "mean_phase": 3.23,
+      "phase_hist": {
+        "7": 7,
+        "1": 25,
+        "4": 13,
+        "6": 19,
+        "2": 24,
+        "3": 5,
+        "0": 3,
+        "5": 4
+      },
+      "total_stages": 7,
+      "phase_unit": "order-specific placement stages",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 4,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 3,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "44b74639166adcde6dada1ee435c0116715e8170711088e14a94b933d6d20c50",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-ttc_h8-v1_1",
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "oracle_version": "placement-v1.1",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 8,
+      "unknown": 0,
+      "mean_phase": 2.91,
+      "phase_hist": {
+        "7": 8,
+        "3": 12,
+        "1": 29,
+        "2": 10,
+        "0": 12,
+        "4": 3,
+        "6": 8,
+        "5": 18
+      },
+      "total_stages": 7,
+      "phase_unit": "order-specific placement stages",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 2,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 6,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 8,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.041093461484380624,
+        "high": 0.14998107700948735,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-ttc_h8-v1_2",
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.2-relaxed",
+      "oracle_version": "placement-v1.2-relaxed",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 17,
+      "unknown": 0,
+      "mean_phase": 3.4,
+      "phase_hist": {
+        "7": 17,
+        "5": 11,
+        "1": 32,
+        "2": 11,
+        "4": 7,
+        "0": 5,
+        "6": 11,
+        "3": 6
+      },
+      "total_stages": 7,
+      "phase_unit": "order-specific placement stages",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 6,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 11,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-ttc_h8-v1_3_four_cups",
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.3-lenient",
+      "oracle_version": "placement-v1.3-lenient-measured-support",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 18,
+      "unknown": 0,
+      "mean_phase": 2.08,
+      "phase_hist": {
+        "4": 18,
+        "3": 21,
+        "1": 45,
+        "2": 14,
+        "0": 2
+      },
+      "total_stages": 4,
+      "phase_unit": "distinct cups on pan",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 6,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 12,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 18,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.1170022549894635,
+        "high": 0.2666735838630073,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
+      }
+    },
+    {
+      "id": "t1281-task7-night-ttc_h8-v1_4",
+      "record": "7-aligned",
+      "dataset": "7-weigh",
+      "task": 7,
+      "data_version": "psibot_7_weigh_4beakers_v180",
+      "camera": "chest",
+      "method": "TTC · 对齐loss",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "protocol_version": "SafeLab-Eval-v1.4-lenient",
+      "oracle_version": "placement-v1.4-lenient",
+      "stage": "diagnostic",
+      "status": "completed",
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "formal_admission_granted": false,
+      "counts_toward_Stage_A": false,
+      "metric_role": "assisted",
+      "kind": "夜间附着辅助诊断",
+      "condition": "contact-preserving attach + 480s + unheld tilt nonterminal",
+      "condition_version": "contact_preserving_native32_v6_time480_unheld_tilt_nonterminal",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 4,
+        "gpu_type": "Pro6000"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/dataset_min_max.py",
+        "verification_status": "source_and_same_runtime_CPU_resize_stage_verified_only",
+        "source_sha256": "6c0c8fb66cc20971f49bb1dee7b261de7ef00215b00942a7fe7c49eb069daf3f",
+        "training_dataset_source": "/home/liyufeng/ops/safelab_mem0_7weigh_eval_20261027/eval_v1_preprocess_20261103/training_snapshots/ours_aligned_30k/code/source/dataloader/safelab_dataset.py",
+        "training_dataset_source_sha256": "243a98322f4f95ad1671a973e2526149ecb5db1e5ea405c69b85e6d7febb9780",
+        "input_layout": "float32 CHW RGB /255",
+        "size": [
+          224,
+          224
+        ],
+        "output_quantization": "HWC *255 then numpy.astype(uint8), truncation",
+        "training_only_augmentation": "ColorJitter(.1,.1,.1,0); not applied for deterministic inference",
+        "scope": "Actor current/initial/keyframe images; Gen unchanged"
+      },
+      "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+      "trials": 100,
+      "completed": 100,
+      "target": 100,
+      "success": 17,
+      "unknown": 0,
+      "mean_phase": 3.53,
+      "phase_hist": {
+        "7": 17,
+        "5": 8,
+        "1": 34,
+        "2": 11,
+        "4": 12,
+        "6": 14,
+        "3": 2,
+        "0": 2
+      },
+      "total_stages": 7,
+      "phase_unit": "order-specific placement stages",
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 6,
+          "label": "order1234"
+        },
+        "right": {
+          "trials": 50,
+          "unknown": 0,
+          "success": 11,
+          "label": "order4321"
+        }
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0,
+          "seed_contract": "739000 + order_repetition + (50 for reverse)"
+        }
+      ],
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "report_url": "reports/task7-night-v14a-20261106/index.html",
+      "source": "reports/task7-night-v14a-20261106/FULL100_FINAL.json",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "report": "reports/task7-night-v14a-20261106/index.html"
+        },
+        "open_loop": {
+          "passed": false,
+          "report": "Inherited original runtime; no new tensor-level equivalence claim."
+        },
+        "render_multiframe": {
+          "passed": false,
+          "report": "No new render parity admission inferred."
+        },
+        "smoke20": {
+          "passed": false,
+          "report": "Auxiliary diagnostic only."
+        },
+        "executor_parity": {
+          "passed": false,
+          "report": "Reused K-cubic; no new numerical RMSE admission inferred."
+        }
+      },
+      "validation_note": "v1.4 literal rule may accept unsupported low-held cup inside height band; broad held-air negative disputed. Outside-region validation has 3 distinct cases, below requested5. Diagnostic only; parameters unchanged.",
+      "checkpoint_sha256": "a9c18655e71e0ff833972ab7276954f9c9dcaf9a1578265d160c36b67527c268",
+      "normalization_sha256": "6411bfa187af58d7924b61f813f41bc1afee74bcf8526dcb44c62b71becce1d8",
+      "time_limit_s": 480,
+      "physics_hz": 120,
+      "policy_hz": 15,
+      "switch_mode": "original_model_completion",
+      "execution_chain": {
+        "name": "K-cubic",
+        "source": "mixed_k_truth_runtime_v1 frozen source manifests in FULL100_FINAL.json",
+        "action_target": "interval_end",
+        "action_units": "absolute radians",
+        "targets_per_observation": 8
       }
     }
   ],

@@ -82,3 +82,9 @@ trials始终是完整分母，unknown属于trials。主表成功率为success/tr
 - 三列按明确关联以及 record/checkpoint、任务、数据、相机、执行步数、阶段、条件、场景哈希、拓扑、预处理和逐 seed 清单核对；不同配置或未能解析的引用不会合并或展示 FD 成绩。同批同口径多行视为歧义，不自动选最佳。不得仅凭场景哈希猜测同批轨迹。
 - trials 包含 unknown；success + failure + unknown = trials；phase_hist 合计 trials − unknown；mean_phase 仅有效轨迹。seed_results、lr_split、Wilson、准入要求与对应 strict 协议相同。未完成 success=null。三口径分别重算 unknown、阶段统计和拆分，不复制数值。
 - 首页“同配置·三口径并列”保留每批次三列；缺少口径显示“未发布”，未准入或未完成只显示状态/进度。FD 不改变正式 placement 优先规则，不计入 v1.1 覆盖，不进入旧版成绩格。
+
+### 七任务终止规则修订与转达审计证据
+
+旧七任务 v1.4-A 附着运行包的真实终止条件与登记描述不完全一致；更正仅见 `condition_note_*` 和 `condition_label_corrections`，不改变成绩、原条件 ID 或配对身份。审计来源须标为“agent 报告，经原总负责转达”；只收到 SHA 前缀时使用 `sha256_prefix`，不能将其写成完整 `sha256` 或声称已本地核验。
+
+修正后的运行包使用独立物理条件，例如 `condition_version: "v1.4-A-fixed-attach-v6-time480"`，并推荐显式提供 `termination_rule_version: "v1.4-A-fixed"`。它与旧 v1.4-A 必须分别展示，不能合并配置或跨规则配对。评分口径（如 placement-v1.1 / v1.4-r1）仍单独记录；修正终止规则本身不授予正式准入。未闭合的 fixed 行保留 `success: null`，不得继承旧行成绩。

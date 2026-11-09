@@ -136,7 +136,21 @@ jobs:
           expected = json.loads((temp / 'test-hashes.json').read_text())
           actual = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((root.resolve() / 'tests').rglob('*')) if p.is_file() and '__pycache__' not in p.parts}
           assert actual == expected, 'tests/ changed'
-          files = [p for p in root.rglob('*') if p.is_file() and '.git' not in p.parts]
+          # Build-only sources remain in Git; publish only the static website.
+          import shutil
+          site = pathlib.Path(os.environ['RUNNER_TEMP']) / 'safelab-static-site'
+          excluded = {'.git', '.github', 'tests', 'scripts'}
+          site.mkdir()
+          for entry in root.iterdir():
+              if entry.name in excluded:
+                  continue
+              target = site / entry.name
+              if entry.is_dir():
+                  shutil.copytree(entry, target, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+              else:
+                  shutil.copy2(entry, target)
+          assert (site / 'data.json').read_bytes() == pathlib.Path('data.json').read_bytes()
+          files = [p for p in site.rglob('*') if p.is_file()]
           size = sum(p.stat().st_size for p in files)
           assert size <= 32000000, f'Publication tree exceeds 32MB: {size}'
           print('Final publication bytes:', size)
@@ -145,7 +159,7 @@ jobs:
       - name: Upload the static website
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
-          path: .
+          path: ${{ runner.temp }}/safelab-static-site
           retention-days: 1
   deploy:
     if: github.ref == 'refs/heads/docs/publish'

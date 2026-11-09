@@ -146,7 +146,7 @@ jobs:
                   continue
               target = site / entry.name
               if entry.is_dir():
-                  shutil.copytree(entry, target, ignore=shutil.ignore_patterns('__pycache__', '*.pyc'))
+                  shutil.copytree(entry, target, ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.test.cjs', '*.test.js', 'test_*.py'))
               else:
                   shutil.copy2(entry, target)
           assert (site / 'data.json').read_bytes() == pathlib.Path('data.json').read_bytes()

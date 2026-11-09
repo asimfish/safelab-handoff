@@ -1,0 +1,36 @@
+{
+  "schema": "task7_normalization_training_fix_handoff.v1",
+  "stage": "diagnostic",
+  "created_at": "2026-11-09T11:50:47.465800+00:00",
+  "existing_30k_weights_and_norm_stats_changed": false,
+  "finding": "Quantile clipping removes arm targets required by the demonstrated D grasp. Four controlled native expert settings produce7,6,6,7 phases, with identical initial states and unchanged physical oracle.",
+  "scope": "one fixed training expert trajectory; not a learned-policy success or all-failures explanation",
+  "source_report": "/project_a02012413/public/liyufeng/task7_rmax_released_20261108/all_methods_acceptance/diagnostic_20261109_inputs_memory/EXPERT_NORMALIZATION_COMPONENT_MATRIX_EP0.json",
+  "source_report_sha256": "65f7dba8b09de641cf6f4af4ba330a62e2d55aa468c04233ecba6d16e85926ad",
+  "old_norm_sha256": "48d95331053f31d053a814b34dc5c9887d767cf6dfaf6029fef9f7196e8a3eb6",
+  "correct_training_dataset_fingerprint": "7f0aa25382e5d183b36683fc11370ff7e4d20cab62ec641d060f963af73095d8",
+  "required_fix_contract": [
+    "Use an action representation that retains all valid grasp targets, including the phase6 arm extrema and startup hand motion; do not treat needed grasp extrema as disposable percentile outliers.",
+    "Rerun the actual frozen training loader over all100 episodes, comparing continuous action labels after normalization and inverse against the original interval_end labels. Separately audit the actual diffusion sampling/denormalization path; do not assume an action-token quantizer.",
+    "A new normalization mapping requires matching training and deployment code and new weights. Replacing norm_stats on this existing30k checkpoint is not a validated fix.",
+    "Before any new learned benchmark, normalize/invert the recorded expert labels through the real new path and replay fixed5 forward+5 reverse experts with unchanged executor and oracle. Require10/10 and save120Hz contact/release evidence."
+  ],
+  "inference_only_frontier": [
+    "A decoder range calibration is an unverified protocol variant; if attempted it must use only a frozen training calibration set, no online oracle phase or expert actions, first pass expert replay, then test the same fixed scenes/seeds separately.",
+    "To explain earlier policy failures, obtain20-episode real30k predictions under actual training memory contexts and deployment contexts; the existing two-episode prediction fixture does not satisfy that check.",
+    "Full16x13 predicted arrays should be saved with each next diagnostic policy refresh; current ModelLane archives only forecast hashes."
+  ],
+  "success_claims_unchanged": {
+    "MemoryVLA_baseline": {
+      "n": 100,
+      "success": 0
+    },
+    "MemoryVLA_clock15": {
+      "n": 50,
+      "success": 0
+    }
+  },
+  "source_component_sha256": "4ab8fa150c699920c21727cea0530072800110166b4bd09f04b0b96debdaa756",
+  "component_preregistration_sha256": "84df5fda76f33a5a42355a29e232a951bd8bd686c40c2207d1b51ef16991ad88",
+  "action_head": "Actual delivery uses a continuous diffusion action head, DDIM10 and CFG1.5; text tokens are not action quantization."
+}

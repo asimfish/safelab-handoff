@@ -1,0 +1,2375 @@
+{
+  "schema": "task7_uniform_h8_four_methods_four_protocols.v1",
+  "generated_at": "2026-11-09T07:09:26.173903+00:00",
+  "condition": {
+    "version": "v14A-attach-v6-current-tick-contact-cos05-time480",
+    "attachment": "contact-preserving native32 v6",
+    "time_limit_seconds": 480,
+    "horizon": 8,
+    "termination": "positive Robot contact at current tick AND cos<0.5; below-table drop remains terminal",
+    "camera": "chest",
+    "scene_list_hash": "sha256:f6d728df04ff3d87927700173aa7f83c5ffa5de699d750f6da819e97156fae6f",
+    "night_parameters_sha256": "d58dc779b9572714f434a36288f52b3d6bbf6756c76dd927712fe6f51d9b0db5",
+    "seed_index": 0,
+    "controller": "K-cubic",
+    "world_index": 0,
+    "num_envs_actual": 1,
+    "preprocessing": "each model actual training-side resize; Mem-0/TTC tensor bilinear antialias, pi0.5 OpenPI PIL.BILINEAR resize_with_pad"
+  },
+  "not_formal_original_condition": true,
+  "old_MemoryVLA_original25_excluded": true,
+  "r028_internal_only_excluded": true,
+  "source_files": [
+    {
+      "path": "/project_a02012413/public/liyufeng/task7_rmax_released_20261108/FINAL_CPU_RESCORE.json",
+      "sha256": "b30a30ef84236e9b7bc520939843318fd39080818c17140fcb139b65e86346c4"
+    },
+    {
+      "path": "/project_a02012413/public/liyufeng/task7_rmax_released_20261108/INDEPENDENT_SUCCESS_AUDIT.json",
+      "sha256": "b95f174f59e1125ccbbc937dce7ea46fefc35e923f5a2b85572af6ae42515af1"
+    },
+    {
+      "path": "/project_a02012413/public/liyufeng/task7_memoryvla_extension50_20261108/approved_scopefix_resubmit_20261108/incremental_scores/FINAL_NEW50_SCORES.json",
+      "sha256": "8bfb079653cb3098ecc882843748809217ad77517087df38f0b002543d82699c"
+    },
+    {
+      "path": "/project_a02012413/public/liyufeng/safelab_pi05_40k_20261101/task7_expand100_20261108/FOUR_COLUMN_FINAL100_SCORED_CASES.json",
+      "sha256": "392872fff56eb2c6adfdcb7a9799fe7a411c925234ca6950f651af11ed59a7af"
+    }
+  ],
+  "audit_scope": {
+    "Mem0_TTC_released_successes_verified": 24,
+    "independent_grasp": "every activation has measured pre-attach dual-finger and lift evidence; frozen helper does not invent a new minimum duration",
+    "independent_release": "all 7 per-protocol completion windows verified against raw contact and manager signals",
+    "backend_USD_joint_removal_state": "not independently logged; not claimed",
+    "pi05_owner_complete100_raw_custody": true,
+    "pi05_duplicate_CPU_replay_completed_snapshot": 30,
+    "pi05_duplicate_CPU_replay_in_progress": true,
+    "pi05_duplicate_transport_timeout_is_not_model_unknown": true
+  },
+  "groups": [
+    {
+      "method": "Mem-0",
+      "protocol": "v1.1",
+      "trials": 100,
+      "success": 3,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 2.59,
+      "phase_hist": {
+        "0": 9,
+        "1": 32,
+        "2": 13,
+        "3": 16,
+        "4": 10,
+        "5": 10,
+        "6": 7,
+        "7": 3
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.21,
+        "high": 2.97,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739100
+      },
+      "wilson95": {
+        "low": 0.010254524024038925,
+        "high": 0.0845193642905276,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 3,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 1,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 2,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 91,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.837737871472837,
+            "high": 0.9519274599974348,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 59,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4920143005341078,
+            "high": 0.6813268697886348,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 46,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.36560808309024106,
+            "high": 0.5573513967663177,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 30,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.2189488529493276,
+            "high": 0.3958485463334666,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 20,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.1333669333310325,
+            "high": 0.2888291655931589,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 10,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.0552291370606751,
+            "high": 0.17436566150491345,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 3,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.010254524024038925,
+            "high": 0.0845193642905276,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r004",
+          "raw_sha256": "fa0a6c6fd8f1ac9fed9e79ced1e1160fd576769d5fa3de682db1b03f7607962f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r022",
+          "raw_sha256": "dfcc15bfcde7f4b447e7e769515c32def128f6a4c96cd98ad8e8ec901e357420"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r042",
+          "raw_sha256": "d76d75ce7f1bc73ef793cbe94b1c86df4042720b59b2a332c25657bec149266c"
+        }
+      ],
+      "ever_unknown_as_failure_success": 3
+    },
+    {
+      "method": "Mem-0",
+      "protocol": "r1",
+      "trials": 100,
+      "success": 7,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 3.23,
+      "phase_hist": {
+        "0": 3,
+        "1": 25,
+        "2": 24,
+        "3": 5,
+        "4": 13,
+        "5": 4,
+        "6": 19,
+        "7": 7
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.82,
+        "high": 3.65,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739101
+      },
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 3,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 97,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.9154806357094724,
+            "high": 0.9897454759759611,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 72,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.6251197129007884,
+            "high": 0.7986031478881379,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 48,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.384645517580519,
+            "high": 0.5768342223477603,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 43,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.33733298524110106,
+            "high": 0.5278461045078768,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 30,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.2189488529493276,
+            "high": 0.3958485463334666,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 26,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.18404698464748132,
+            "high": 0.3537098944918718,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 7,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.03431926106727268,
+            "high": 0.137495147390735,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r000",
+          "raw_sha256": "5de2323e6ed9a23fb4285a24289bdb8640c90c68311954c013326b38f72f8556"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r002",
+          "raw_sha256": "a17b7137c2398ceb8c6bc13807fc3d2dc8b889d6dbe79db7d78583e3241f571f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r004",
+          "raw_sha256": "fa0a6c6fd8f1ac9fed9e79ced1e1160fd576769d5fa3de682db1b03f7607962f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r013",
+          "raw_sha256": "5c43ec02486c0d1d1593cceacc8df73d8150fdeff8265231c3ff99a65bc380e9"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r016",
+          "raw_sha256": "ecf976a84c5b105e3e83a6f4934eadeef2661a639a3eb98ec829a169c615350c"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r022",
+          "raw_sha256": "dfcc15bfcde7f4b447e7e769515c32def128f6a4c96cd98ad8e8ec901e357420"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r042",
+          "raw_sha256": "d76d75ce7f1bc73ef793cbe94b1c86df4042720b59b2a332c25657bec149266c"
+        }
+      ],
+      "ever_unknown_as_failure_success": 7
+    },
+    {
+      "method": "Mem-0",
+      "protocol": "r1-released",
+      "trials": 100,
+      "success": 7,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 3.23,
+      "phase_hist": {
+        "0": 3,
+        "1": 25,
+        "2": 24,
+        "3": 5,
+        "4": 13,
+        "5": 4,
+        "6": 19,
+        "7": 7
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.82,
+        "high": 3.66,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739102
+      },
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 3,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 97,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.9154806357094724,
+            "high": 0.9897454759759611,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 72,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.6251197129007884,
+            "high": 0.7986031478881379,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 48,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.384645517580519,
+            "high": 0.5768342223477603,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 43,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.33733298524110106,
+            "high": 0.5278461045078768,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 30,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.2189488529493276,
+            "high": 0.3958485463334666,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 26,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.18404698464748132,
+            "high": 0.3537098944918718,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 7,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.03431926106727268,
+            "high": 0.137495147390735,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r000",
+          "raw_sha256": "5de2323e6ed9a23fb4285a24289bdb8640c90c68311954c013326b38f72f8556"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r002",
+          "raw_sha256": "a17b7137c2398ceb8c6bc13807fc3d2dc8b889d6dbe79db7d78583e3241f571f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r004",
+          "raw_sha256": "fa0a6c6fd8f1ac9fed9e79ced1e1160fd576769d5fa3de682db1b03f7607962f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r013",
+          "raw_sha256": "5c43ec02486c0d1d1593cceacc8df73d8150fdeff8265231c3ff99a65bc380e9"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r016",
+          "raw_sha256": "ecf976a84c5b105e3e83a6f4934eadeef2661a639a3eb98ec829a169c615350c"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r022",
+          "raw_sha256": "dfcc15bfcde7f4b447e7e769515c32def128f6a4c96cd98ad8e8ec901e357420"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r042",
+          "raw_sha256": "d76d75ce7f1bc73ef793cbe94b1c86df4042720b59b2a332c25657bec149266c"
+        }
+      ],
+      "ever_unknown_as_failure_success": 7
+    },
+    {
+      "method": "Mem-0",
+      "protocol": "r-max-released",
+      "trials": 100,
+      "success": 7,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 3.23,
+      "phase_hist": {
+        "0": 3,
+        "1": 25,
+        "2": 24,
+        "3": 5,
+        "4": 13,
+        "5": 4,
+        "6": 19,
+        "7": 7
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.81,
+        "high": 3.66,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739103
+      },
+      "wilson95": {
+        "low": 0.03431926106727268,
+        "high": 0.137495147390735,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 7,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 4,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 3,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 97,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.9154806357094724,
+            "high": 0.9897454759759611,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 72,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.6251197129007884,
+            "high": 0.7986031478881379,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 48,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.384645517580519,
+            "high": 0.5768342223477603,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 43,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.33733298524110106,
+            "high": 0.5278461045078768,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 30,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.2189488529493276,
+            "high": 0.3958485463334666,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 26,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.18404698464748132,
+            "high": 0.3537098944918718,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 7,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.03431926106727268,
+            "high": 0.137495147390735,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r000",
+          "raw_sha256": "5de2323e6ed9a23fb4285a24289bdb8640c90c68311954c013326b38f72f8556"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r002",
+          "raw_sha256": "a17b7137c2398ceb8c6bc13807fc3d2dc8b889d6dbe79db7d78583e3241f571f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r004",
+          "raw_sha256": "fa0a6c6fd8f1ac9fed9e79ced1e1160fd576769d5fa3de682db1b03f7607962f"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r013",
+          "raw_sha256": "5c43ec02486c0d1d1593cceacc8df73d8150fdeff8265231c3ff99a65bc380e9"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r016",
+          "raw_sha256": "ecf976a84c5b105e3e83a6f4934eadeef2661a639a3eb98ec829a169c615350c"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o1234_r022",
+          "raw_sha256": "dfcc15bfcde7f4b447e7e769515c32def128f6a4c96cd98ad8e8ec901e357420"
+        },
+        {
+          "case_id": "night_v14A__mem0_30k__v180_o4321_r042",
+          "raw_sha256": "d76d75ce7f1bc73ef793cbe94b1c86df4042720b59b2a332c25657bec149266c"
+        }
+      ],
+      "ever_unknown_as_failure_success": 7
+    },
+    {
+      "method": "TTC aligned",
+      "protocol": "v1.1",
+      "trials": 100,
+      "success": 8,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 2.91,
+      "phase_hist": {
+        "0": 12,
+        "1": 29,
+        "2": 10,
+        "3": 12,
+        "4": 3,
+        "5": 18,
+        "6": 8,
+        "7": 8
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.48,
+        "high": 3.36,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739110
+      },
+      "wilson95": {
+        "low": 0.041093461484380624,
+        "high": 0.14998107700948735,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 8,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 2,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 88,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.8018790057328857,
+            "high": 0.9300059356298052,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 59,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4920143005341078,
+            "high": 0.6813268697886348,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 49,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.3942199893044113,
+            "high": 0.5865198806597283,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 37,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.28182360534324524,
+            "high": 0.4677947041905709,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 34,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.25461520797348164,
+            "high": 0.43722271145275377,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 16,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.10095288488804782,
+            "high": 0.24420269389270244,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 8,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.041093461484380624,
+            "high": 0.14998107700948735,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r000",
+          "raw_sha256": "a88830d2050f6e1b8e222d358e7f6d89587876b805f31378244ed8ec6913412a"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r002",
+          "raw_sha256": "17ae29cfbe1bbd326532558b535d0def1d70366b9959c270b8aae089682991a6"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r012",
+          "raw_sha256": "ee8ccb43fd20396646e8f3f731a4361eb06046acbb8addbff5d6d4fea1fb16c4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r020",
+          "raw_sha256": "679aaa8729ce55993ddf7c6404ac32a846c0c124133862bea04a5cfbc94b1c10"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r020",
+          "raw_sha256": "15bc9adc76067935fb3cd5a9efd2e24f0068d346efded34270e3f3d932b88cc4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r027",
+          "raw_sha256": "fd1bf57861fc8a028ac6d6b153bb5442c5e5c401bf01d97f18ee0f5377a8ccd8"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r038",
+          "raw_sha256": "6fa4df8d0e331589aacf96d1db004c7f257366a89e7adca0784ba0e67718c45f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r044",
+          "raw_sha256": "18219449e7ac21bd7eac8df17cdb642e74b4547165cb896e310cd897048e3e29"
+        }
+      ],
+      "ever_unknown_as_failure_success": 8
+    },
+    {
+      "method": "TTC aligned",
+      "protocol": "r1",
+      "trials": 100,
+      "success": 17,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 3.53,
+      "phase_hist": {
+        "0": 2,
+        "1": 34,
+        "2": 11,
+        "3": 2,
+        "4": 12,
+        "5": 8,
+        "6": 14,
+        "7": 17
+      },
+      "mean_phase_bootstrap95": {
+        "low": 3.07,
+        "high": 4.0,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739111
+      },
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 98,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.929988209271456,
+            "high": 0.9944980324498376,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 64,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5423540245160874,
+            "high": 0.7272877959859567,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 53,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4328885697009936,
+            "high": 0.6248918204065872,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 51,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4134801193402717,
+            "high": 0.6057800106955886,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 39,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.3001687400639441,
+            "high": 0.4879698295415926,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 31,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.22779697212376038,
+            "high": 0.40626055719489407,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 17,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.10893566114059931,
+            "high": 0.25548004767601123,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r000",
+          "raw_sha256": "a88830d2050f6e1b8e222d358e7f6d89587876b805f31378244ed8ec6913412a"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r002",
+          "raw_sha256": "17ae29cfbe1bbd326532558b535d0def1d70366b9959c270b8aae089682991a6"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r007",
+          "raw_sha256": "46ee73c8474c738dfc5433184aa0cde011ea41c120fe7da5bfe953823337f07f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r008",
+          "raw_sha256": "9db052e8d379d53d6f026dfe7af9e97eaf1f439b59e4e129464342c5ac8f6823"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r010",
+          "raw_sha256": "a0f55653b844821cb827da0908d4923821c472723cd10e34fbc285afbc9d8727"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r012",
+          "raw_sha256": "ee8ccb43fd20396646e8f3f731a4361eb06046acbb8addbff5d6d4fea1fb16c4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r015",
+          "raw_sha256": "b8a4bd9eccc5ef92f9a1b38b1ca60ceaeca1044c2e29acf6a75d639d274d7729"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r016",
+          "raw_sha256": "611fea72ede8207d61d3876dbefa475d0c5a26fd5b0c32fef43651736b001491"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r020",
+          "raw_sha256": "679aaa8729ce55993ddf7c6404ac32a846c0c124133862bea04a5cfbc94b1c10"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r020",
+          "raw_sha256": "15bc9adc76067935fb3cd5a9efd2e24f0068d346efded34270e3f3d932b88cc4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r027",
+          "raw_sha256": "fd1bf57861fc8a028ac6d6b153bb5442c5e5c401bf01d97f18ee0f5377a8ccd8"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r038",
+          "raw_sha256": "6fa4df8d0e331589aacf96d1db004c7f257366a89e7adca0784ba0e67718c45f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r039",
+          "raw_sha256": "df05de3543d8e6b2aae9bad4521bd497dbed5aec3d15676448a191458337c614"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r041",
+          "raw_sha256": "518ba4ef3c78d44f555e23082b88d9c55f1e590587799bce2e520e85d2063cb4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r043",
+          "raw_sha256": "43f4c78d328101a8bf7abb8b3f7a3832eb34be2406a055a50520c3a21f1636e0"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r044",
+          "raw_sha256": "18219449e7ac21bd7eac8df17cdb642e74b4547165cb896e310cd897048e3e29"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r046",
+          "raw_sha256": "d1bd23be1a1234693b5359b6e481754f2de530a2e97522e89596b83c0d1e4412"
+        }
+      ],
+      "ever_unknown_as_failure_success": 17
+    },
+    {
+      "method": "TTC aligned",
+      "protocol": "r1-released",
+      "trials": 100,
+      "success": 17,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 3.49,
+      "phase_hist": {
+        "0": 4,
+        "1": 33,
+        "2": 10,
+        "3": 3,
+        "4": 11,
+        "5": 8,
+        "6": 14,
+        "7": 17
+      },
+      "mean_phase_bootstrap95": {
+        "low": 3.01,
+        "high": 3.97,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739112
+      },
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 96,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.9016292856411208,
+            "high": 0.9843366960084523,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 63,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5322052958094291,
+            "high": 0.7181763946567546,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 53,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4328885697009936,
+            "high": 0.6248918204065872,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 50,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4038315303659956,
+            "high": 0.5961684696340044,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 39,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.3001687400639441,
+            "high": 0.4879698295415926,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 31,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.22779697212376038,
+            "high": 0.40626055719489407,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 17,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.10893566114059931,
+            "high": 0.25548004767601123,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r000",
+          "raw_sha256": "a88830d2050f6e1b8e222d358e7f6d89587876b805f31378244ed8ec6913412a"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r002",
+          "raw_sha256": "17ae29cfbe1bbd326532558b535d0def1d70366b9959c270b8aae089682991a6"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r007",
+          "raw_sha256": "46ee73c8474c738dfc5433184aa0cde011ea41c120fe7da5bfe953823337f07f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r008",
+          "raw_sha256": "9db052e8d379d53d6f026dfe7af9e97eaf1f439b59e4e129464342c5ac8f6823"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r010",
+          "raw_sha256": "a0f55653b844821cb827da0908d4923821c472723cd10e34fbc285afbc9d8727"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r012",
+          "raw_sha256": "ee8ccb43fd20396646e8f3f731a4361eb06046acbb8addbff5d6d4fea1fb16c4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r015",
+          "raw_sha256": "b8a4bd9eccc5ef92f9a1b38b1ca60ceaeca1044c2e29acf6a75d639d274d7729"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r016",
+          "raw_sha256": "611fea72ede8207d61d3876dbefa475d0c5a26fd5b0c32fef43651736b001491"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r020",
+          "raw_sha256": "679aaa8729ce55993ddf7c6404ac32a846c0c124133862bea04a5cfbc94b1c10"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r020",
+          "raw_sha256": "15bc9adc76067935fb3cd5a9efd2e24f0068d346efded34270e3f3d932b88cc4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r027",
+          "raw_sha256": "fd1bf57861fc8a028ac6d6b153bb5442c5e5c401bf01d97f18ee0f5377a8ccd8"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r038",
+          "raw_sha256": "6fa4df8d0e331589aacf96d1db004c7f257366a89e7adca0784ba0e67718c45f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r039",
+          "raw_sha256": "df05de3543d8e6b2aae9bad4521bd497dbed5aec3d15676448a191458337c614"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r041",
+          "raw_sha256": "518ba4ef3c78d44f555e23082b88d9c55f1e590587799bce2e520e85d2063cb4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r043",
+          "raw_sha256": "43f4c78d328101a8bf7abb8b3f7a3832eb34be2406a055a50520c3a21f1636e0"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r044",
+          "raw_sha256": "18219449e7ac21bd7eac8df17cdb642e74b4547165cb896e310cd897048e3e29"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r046",
+          "raw_sha256": "d1bd23be1a1234693b5359b6e481754f2de530a2e97522e89596b83c0d1e4412"
+        }
+      ],
+      "ever_unknown_as_failure_success": 17
+    },
+    {
+      "method": "TTC aligned",
+      "protocol": "r-max-released",
+      "trials": 100,
+      "success": 17,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 3.53,
+      "phase_hist": {
+        "0": 2,
+        "1": 34,
+        "2": 11,
+        "3": 2,
+        "4": 12,
+        "5": 8,
+        "6": 14,
+        "7": 17
+      },
+      "mean_phase_bootstrap95": {
+        "low": 3.05,
+        "high": 4.0,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739113
+      },
+      "wilson95": {
+        "low": 0.10893566114059931,
+        "high": 0.25548004767601123,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 17,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 6,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 11,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 98,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.929988209271456,
+            "high": 0.9944980324498376,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 64,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5423540245160874,
+            "high": 0.7272877959859567,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 53,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4328885697009936,
+            "high": 0.6248918204065872,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 51,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4134801193402717,
+            "high": 0.6057800106955886,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 39,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.3001687400639441,
+            "high": 0.4879698295415926,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 31,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.22779697212376038,
+            "high": 0.40626055719489407,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 17,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.10893566114059931,
+            "high": 0.25548004767601123,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r000",
+          "raw_sha256": "a88830d2050f6e1b8e222d358e7f6d89587876b805f31378244ed8ec6913412a"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r002",
+          "raw_sha256": "17ae29cfbe1bbd326532558b535d0def1d70366b9959c270b8aae089682991a6"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r007",
+          "raw_sha256": "46ee73c8474c738dfc5433184aa0cde011ea41c120fe7da5bfe953823337f07f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r008",
+          "raw_sha256": "9db052e8d379d53d6f026dfe7af9e97eaf1f439b59e4e129464342c5ac8f6823"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r010",
+          "raw_sha256": "a0f55653b844821cb827da0908d4923821c472723cd10e34fbc285afbc9d8727"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r012",
+          "raw_sha256": "ee8ccb43fd20396646e8f3f731a4361eb06046acbb8addbff5d6d4fea1fb16c4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r015",
+          "raw_sha256": "b8a4bd9eccc5ef92f9a1b38b1ca60ceaeca1044c2e29acf6a75d639d274d7729"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r016",
+          "raw_sha256": "611fea72ede8207d61d3876dbefa475d0c5a26fd5b0c32fef43651736b001491"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r020",
+          "raw_sha256": "679aaa8729ce55993ddf7c6404ac32a846c0c124133862bea04a5cfbc94b1c10"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r020",
+          "raw_sha256": "15bc9adc76067935fb3cd5a9efd2e24f0068d346efded34270e3f3d932b88cc4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r027",
+          "raw_sha256": "fd1bf57861fc8a028ac6d6b153bb5442c5e5c401bf01d97f18ee0f5377a8ccd8"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r038",
+          "raw_sha256": "6fa4df8d0e331589aacf96d1db004c7f257366a89e7adca0784ba0e67718c45f"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r039",
+          "raw_sha256": "df05de3543d8e6b2aae9bad4521bd497dbed5aec3d15676448a191458337c614"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o1234_r041",
+          "raw_sha256": "518ba4ef3c78d44f555e23082b88d9c55f1e590587799bce2e520e85d2063cb4"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r043",
+          "raw_sha256": "43f4c78d328101a8bf7abb8b3f7a3832eb34be2406a055a50520c3a21f1636e0"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r044",
+          "raw_sha256": "18219449e7ac21bd7eac8df17cdb642e74b4547165cb896e310cd897048e3e29"
+        },
+        {
+          "case_id": "night_v14A__ours_aligned_30k__v180_o4321_r046",
+          "raw_sha256": "d1bd23be1a1234693b5359b6e481754f2de530a2e97522e89596b83c0d1e4412"
+        }
+      ],
+      "ever_unknown_as_failure_success": 17
+    },
+    {
+      "method": "MemoryVLA",
+      "protocol": "v1.1",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 0.98,
+      "phase_hist": {
+        "0": 68,
+        "1": 2,
+        "2": 18,
+        "3": 3,
+        "4": 1,
+        "5": 1,
+        "6": 7
+      },
+      "mean_phase_bootstrap95": {
+        "low": 0.65,
+        "high": 1.33,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739120
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 32,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.23669147324999093,
+            "high": 0.41662618610452384,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 30,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.2189488529493276,
+            "high": 0.3958485463334666,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 12,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.06999406437019488,
+            "high": 0.19812099426711421,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 9,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.04807254000256516,
+            "high": 0.1622621285271631,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 8,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.041093461484380624,
+            "high": 0.14998107700948735,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 7,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.03431926106727268,
+            "high": 0.137495147390735,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "MemoryVLA",
+      "protocol": "r1",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 2.86,
+      "phase_hist": {
+        "0": 14,
+        "1": 21,
+        "2": 15,
+        "3": 4,
+        "4": 20,
+        "5": 13,
+        "6": 13
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.46,
+        "high": 3.25,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739121
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 86,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.7786281178903616,
+            "high": 0.9147365634006086,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 65,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5525444329688796,
+            "high": 0.7363575175690247,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 50,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.4038315303659956,
+            "high": 0.5961684696340044,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 46,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.36560808309024106,
+            "high": 0.5573513967663177,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 26,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.18404698464748132,
+            "high": 0.3537098944918718,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 13,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.07757167427240512,
+            "high": 0.20980351440076428,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "MemoryVLA",
+      "protocol": "r1-released",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 2.63,
+      "phase_hist": {
+        "0": 21,
+        "1": 16,
+        "2": 14,
+        "3": 11,
+        "4": 17,
+        "5": 8,
+        "6": 13
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.23,
+        "high": 3.04,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739122
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 79,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.7002003116591013,
+            "high": 0.858343459380847,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 63,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5322052958094291,
+            "high": 0.7181763946567546,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 49,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.3942199893044113,
+            "high": 0.5865198806597283,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 38,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.29097599252478734,
+            "high": 0.47790244704488916,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 21,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.141656540619153,
+            "high": 0.29979968834089865,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 13,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.07757167427240512,
+            "high": 0.20980351440076428,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "MemoryVLA",
+      "protocol": "r-max-released",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 2.58,
+      "phase_hist": {
+        "0": 20,
+        "1": 16,
+        "2": 21,
+        "3": 6,
+        "4": 16,
+        "5": 8,
+        "6": 13
+      },
+      "mean_phase_bootstrap95": {
+        "low": 2.19,
+        "high": 2.98,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739123
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 80,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.7111708344068411,
+            "high": 0.8666330666689676,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 64,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5423540245160874,
+            "high": 0.7272877959859567,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 43,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.33733298524110106,
+            "high": 0.5278461045078768,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 37,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.28182360534324524,
+            "high": 0.4677947041905709,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 21,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.141656540619153,
+            "high": 0.29979968834089865,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 13,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.07757167427240512,
+            "high": 0.20980351440076428,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "pi0.5",
+      "protocol": "v1.1",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 0.46,
+      "phase_hist": {
+        "0": 54,
+        "1": 46
+      },
+      "mean_phase_bootstrap95": {
+        "low": 0.36,
+        "high": 0.56,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739130
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 46,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.36560808309024106,
+            "high": 0.5573513967663177,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "pi0.5",
+      "protocol": "r1",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 0.79,
+      "phase_hist": {
+        "0": 30,
+        "1": 63,
+        "2": 6,
+        "4": 1
+      },
+      "mean_phase_bootstrap95": {
+        "low": 0.67,
+        "high": 0.92,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739131
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 70,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.6041514536665332,
+            "high": 0.7810511470506724,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 7,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.03431926106727268,
+            "high": 0.137495147390735,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.0017674320641406505,
+            "high": 0.054486196178705315,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.0017674320641406505,
+            "high": 0.054486196178705315,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "pi0.5",
+      "protocol": "r1-released",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 0.76,
+      "phase_hist": {
+        "0": 31,
+        "1": 63,
+        "2": 5,
+        "3": 1
+      },
+      "mean_phase_bootstrap95": {
+        "low": 0.65,
+        "high": 0.87,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739132
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 69,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5937394428051057,
+            "high": 0.7722030278762395,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 6,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.027786123963188192,
+            "high": 0.1247681544589592,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.0017674320641406505,
+            "high": 0.054486196178705315,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    },
+    {
+      "method": "pi0.5",
+      "protocol": "r-max-released",
+      "trials": 100,
+      "success": 0,
+      "unknown": 0,
+      "completed": 100,
+      "mean_phase": 0.78,
+      "phase_hist": {
+        "0": 32,
+        "1": 59,
+        "2": 8,
+        "3": 1
+      },
+      "mean_phase_bootstrap95": {
+        "low": 0.66,
+        "high": 0.91,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739133
+      },
+      "wilson95": {
+        "low": 3.469446951953614e-18,
+        "high": 0.03699349820698568,
+        "confidence": 0.95
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 100,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "left": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        },
+        "right": {
+          "trials": 50,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "SR_at_k": {
+        "1": {
+          "success": 68,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.5833738138954762,
+            "high": 0.7633085267500092,
+            "confidence": 0.95
+          }
+        },
+        "2": {
+          "success": 9,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.04807254000256516,
+            "high": 0.1622621285271631,
+            "confidence": 0.95
+          }
+        },
+        "3": {
+          "success": 1,
+          "trials": 100,
+          "wilson95": {
+            "low": 0.0017674320641406505,
+            "high": 0.054486196178705315,
+            "confidence": 0.95
+          }
+        },
+        "4": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "5": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "6": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        },
+        "7": {
+          "success": 0,
+          "trials": 100,
+          "wilson95": {
+            "low": 3.469446951953614e-18,
+            "high": 0.03699349820698568,
+            "confidence": 0.95
+          }
+        }
+      },
+      "success_cases": [],
+      "ever_unknown_as_failure_success": 0
+    }
+  ],
+  "paired_TTC_Mem0": [
+    {
+      "protocol": "v1.1",
+      "n": 100,
+      "difference": "TTC aligned minus Mem-0",
+      "mean_phase_difference": 0.32,
+      "mean_phase_bootstrap95": {
+        "low": -0.26,
+        "high": 0.89,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739800
+      },
+      "success_rate_difference": 0.05,
+      "success_rate_bootstrap95": {
+        "low": -0.01,
+        "high": 0.11,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739900
+      }
+    },
+    {
+      "protocol": "r1",
+      "n": 100,
+      "difference": "TTC aligned minus Mem-0",
+      "mean_phase_difference": 0.3,
+      "mean_phase_bootstrap95": {
+        "low": -0.34,
+        "high": 0.94,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739801
+      },
+      "success_rate_difference": 0.1,
+      "success_rate_bootstrap95": {
+        "low": 0.01,
+        "high": 0.19,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739901
+      }
+    },
+    {
+      "protocol": "r1-released",
+      "n": 100,
+      "difference": "TTC aligned minus Mem-0",
+      "mean_phase_difference": 0.26,
+      "mean_phase_bootstrap95": {
+        "low": -0.4,
+        "high": 0.9,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739802
+      },
+      "success_rate_difference": 0.1,
+      "success_rate_bootstrap95": {
+        "low": 0.01,
+        "high": 0.19,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739902
+      }
+    },
+    {
+      "protocol": "r-max-released",
+      "n": 100,
+      "difference": "TTC aligned minus Mem-0",
+      "mean_phase_difference": 0.3,
+      "mean_phase_bootstrap95": {
+        "low": -0.35,
+        "high": 0.94,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739803
+      },
+      "success_rate_difference": 0.1,
+      "success_rate_bootstrap95": {
+        "low": 0.01,
+        "high": 0.19,
+        "confidence": 0.95,
+        "method": "percentile case bootstrap, 10000 resamples",
+        "seed": 739903
+      }
+    }
+  ],
+  "case_files": [
+    {
+      "method": "Mem-0",
+      "url": "task7-uniform-h8-four-methods-20261109-cases-mem0.json",
+      "case_count": 100,
+      "bytes": 71220,
+      "sha256": "ba8e144738655d6e3b9d93ff22c96b19e47e64365f202421ceed5bb88ab9d33f"
+    },
+    {
+      "method": "TTC aligned",
+      "url": "task7-uniform-h8-four-methods-20261109-cases-ttc-aligned.json",
+      "case_count": 100,
+      "bytes": 76473,
+      "sha256": "00c024b58d87464c84f90e3c4019440f1b1ca15fc89423def88190196833c2e4"
+    },
+    {
+      "method": "MemoryVLA",
+      "url": "task7-uniform-h8-four-methods-20261109-cases-memoryvla83.json",
+      "case_count": 100,
+      "bytes": 80339,
+      "sha256": "abf9feda47a989288e3ff7acfd7d06830d54f7ce733c155f34c631d0a1775838"
+    },
+    {
+      "method": "pi0.5",
+      "url": "task7-uniform-h8-four-methods-20261109-cases-pi05-24.json",
+      "case_count": 100,
+      "bytes": 72665,
+      "sha256": "6bb487e997790398922e8f2ee8547e832c12b21629330f315a1dc8f6c448490a"
+    }
+  ],
+  "source_full_aggregate_sha256": "9ea591fdc702b11507dbf998cbdf526a6992e69fc4416b4b8cbff37199ea8778"
+}

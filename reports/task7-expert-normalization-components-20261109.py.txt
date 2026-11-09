@@ -1,0 +1,61 @@
+from pathlib import Path
+import argparse,json,os,sys,time,traceback,hashlib
+import numpy as np
+def select_targets(z,prefix,variant,n):
+ raw=z[prefix+'raw_endpoints'][:n]
+ projected=z[prefix+'normalized_inverse_endpoints'][:n]
+ phase=np.asarray(z[prefix+'phase'][:n]).reshape(-1)
+ mask=phase==6
+ if variant=='raw':return raw.copy()
+ if variant=='normalized_inverse':return projected.copy()
+ out=(raw if variant=='raw_final_arm46_bounds' else projected).copy()
+ source=projected if variant=='raw_final_arm46_bounds' else raw
+ ix=np.ix_(np.flatnonzero(mask),[4,6])
+ out[ix]=source[ix]
+ return out
+p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--output',required=True);p.add_argument('--ep',type=int,required=True);p.add_argument('--variant',choices=['raw','normalized_inverse','raw_final_arm46_bounds','normalized_restore_final_arm46'],required=True);p.add_argument('--packet',type=Path,required=True);p.add_argument('--trace',type=Path,required=True);p.add_argument('--runtime',type=Path,required=True);a,rest=p.parse_known_args();R=a.runtime;out=Path(a.output);out.mkdir(parents=True,exist_ok=False);src=Path(a.source);repo=src/'source_overlay'
+for n in ['psilab','isaaclab','isaaclab_assets','isaaclab_tasks']:sys.path.insert(0,str(repo/'psilab/source'/n))
+sys.path[:0]=[str(src/'candidate_weigh_contact'),str(src),str(R),str(R/'science_v1')]
+os.environ.update(CHEMBENCH_GPU_PARTICLE_COLLISION_MODE='off',CHEMBENCH_MANUAL_RESET_CONTACTS='0')
+from isaaclab.app import AppLauncher
+ap=argparse.ArgumentParser();AppLauncher.add_app_launcher_args(ap);args=ap.parse_args(rest);args.enable_cameras=True;args.kit_args+=' --ext-folder '+str(repo/'psilab/source');launcher=AppLauncher(args);scene=None;attachment=None;code=1
+try:
+ from weigh_scene import WeighScene,dump
+ from placement_oracle import PlacementSeven
+ from physx_attachment import PhysXAttachment
+ from cubic_expert_context import Context
+ from execution_v11 import apply_recorded
+ from contact_logging import verify_contact_reporting
+ from isaacsim.core.cloner import GridCloner
+ old=GridCloner.clone
+ def positioned(cloner,*values,**kwargs):kwargs['position_offsets']=np.zeros((1,3),np.float32);return old(cloner,*values,**kwargs)
+ GridCloner.clone=positioned
+ try:scene=WeighScene(src,out,1,launcher.app)
+ finally:GridCloner.clone=old
+ assert scene.tick_count==124 and np.array_equal(scene.origins,np.zeros((1,3)))
+ verify_contact_reporting(scene,out);packet_raw=a.packet.read_bytes();assert hashlib.sha256(packet_raw).hexdigest()=='2a200317bc21d14e1813a4c86d66817d9c4392e18db1d2a4b4213394b4483fac';z=np.load(a.packet,allow_pickle=False);prefix=f'ep{a.ep:03d}_';good=np.flatnonzero(z[prefix+'valid']);assert np.array_equal(good,np.arange(len(good)));end=select_targets(z,prefix,a.variant,len(good));valid=z[prefix+'valid_steps'][:len(good)];assert len(end)>0 and end.shape[1:]==(13,) and np.isfinite(end).all() and np.all((valid>=1)&(valid<=8));meta=dict(episode=a.ep,order='1234'if a.ep<50 else'4321',source_arrays_sha256='2a200317bc21d14e1813a4c86d66817d9c4392e18db1d2a4b4213394b4483fac',source_manifest_sha256='517b031e17ca8deca22777054ae416d9efb824ec44c74efebc36ce26f3543db2');initial_error=float(np.max(np.abs(scene.qpos()[0]-z[prefix+'qpos'][0])));assert initial_error<0.005,('initial_state_mismatch',initial_error);dump(out/'TARGET_CONTRACT.json',dict(variant=a.variant,episode=a.ep,targets_sha256=hashlib.sha256(end.tobytes()).hexdigest(),frames=len(end),initial_q13_max_difference=initial_error,model_calls=0,not_a_policy_result=True));oracle=PlacementSeven(scene.profile,meta['order'],scene.origins[0]);attachment=PhysXAttachment(scene,out);native_tick=scene.tick
+ def tick():attachment.before_step();native_tick();attachment.after_step()
+ scene.tick=tick;context=Context(scene.command[:,scene.ids].detach().cpu().numpy().copy(),8);dump(out/'SCENE_READY.json',{'epoch':time.time(),'episode':a.ep,'tick':124});began=time.time()
+ with a.trace.open('x')as f:
+  for frame in range(len(end)):
+   scene.rgb();context.begin_frame(frame,end[frame:frame+30]if context.needs_prediction else None,int(valid[frame]))
+   for step in range(1,int(valid[frame])+1):
+    pos,vel=context.step(step);apply_recorded(scene,pos,vel);poses=scene.poses()[0];contacts=scene.contacts[0].sample();success=oracle.observe(scene.tick_count,poses,contacts);f.write(json.dumps(dict(tick=scene.tick_count,poses=poses.tolist(),contacts=contacts,q13=scene.qpos()[0].tolist(),physical_phase=oracle.phase,contact_sample_observed=True,all_Robot_contact_reporting_contract_verified=True,attached_keys=list(attachment.attached_keys(0))))+'\n')
+    if oracle.failure:break
+    if success:break
+   if success or oracle.failure:break
+   context.finish_frame(scene.command[:,scene.ids].detach().cpu().numpy())
+   if frame%15==0:dump(out/'HEARTBEAT.json',dict(frame=frame,native_tick=scene.tick_count,physical_phase=oracle.phase))
+ assert frame+1==len(end) or success or oracle.failure,('incomplete_driver_loop',frame)
+ dump(out/'RESULT.json',dict(passed=bool(oracle.finish()['success']),contract_completed=True,stage='diagnostic',method='ExpertReplay',variant=a.variant,finite_sequence_duration_s=float(valid.sum()/120),time_limit_unchanged_not_policy_rollout=True,episode=a.ep,order=meta['order'],v11=oracle.finish(),attachment=attachment.summary(),wall_s=time.time()-began,source_arrays_sha256=meta['source_arrays_sha256'],source_manifest_sha256=meta['source_manifest_sha256'],model_calls=0,object_pose_writes=False,object_velocity_writes=False));code=0
+except BaseException as e:
+ (out/'ERROR.json').write_text(json.dumps(dict(error=repr(e),traceback=traceback.format_exc())));traceback.print_exc()
+finally:
+ if attachment:
+  try:attachment.close()
+  except Exception:traceback.print_exc()
+ if scene:
+  try:scene.close()
+  except Exception:traceback.print_exc()
+ launcher.app.close(wait_for_replicator=False)
+raise SystemExit(code)

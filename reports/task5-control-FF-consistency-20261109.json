@@ -1,5 +1,5 @@
 {
-  "snapshot_UTC": "2026-11-09T16:09:56.768142+00:00",
+  "snapshot_UTC": "2026-11-09T16:47:08.227966+00:00",
   "task": 5,
   "scope": "diagnostic; original formal rows unchanged",
   "control_mechanism_current_cohort_CPU": {
@@ -106,7 +106,7 @@
   "source_C1_report_SHA256": "fe3137e3517dccc8bda4f5d56067d16cd8211e21217291191fc7c4a57c9669be",
   "candidate_helper_SHA256": "0b3c2558ad9a220e28543080d991bf732ccc8f2c367f5828535b8827899ed08f",
   "actual_Native_execution": {
-    "epoch": 1794240579.6233962,
+    "epoch": 1794241681.73312,
     "job_id": null,
     "execution_location": "existing shared Pro",
     "PID": 774753,
@@ -119,12 +119,12 @@
     "policy_dispatched": 0,
     "source_archive_sha256": "a3bbe8f553552ced4f63ec9e5ed5cf22823d01309d1b7c7658c161fa784c6a21",
     "source_matches_intent": true,
-    "experts_closed": 0,
+    "experts_closed": 1,
     "unknown": 0,
-    "scene_ready": 1,
+    "scene_ready": 3,
     "expert_status": "expert_admission",
-    "owned_PID_alive": true,
-    "job_status": "RUNNING"
+    "owned_PID_alive": false,
+    "job_status": "STOPPED"
   },
   "actual_expert_source_archive_SHA256": "a3bbe8f553552ced4f63ec9e5ed5cf22823d01309d1b7c7658c161fa784c6a21",
   "actual_expert_launch": {
@@ -144,12 +144,12 @@
     "no_automatic_restart": true
   },
   "independent_native_expert_gate": {
-    "epoch": 1794240590.903066,
+    "epoch": 1794241691.8944638,
     "passed": false,
-    "n": 0,
-    "physical_success": 0,
+    "n": 1,
+    "physical_success": 1,
     "paired_q13_pass": 0,
-    "arm_pass": 0,
+    "arm_pass": 1,
     "helper_SHA256": "597b635e3ceea6265d65a347db171eaf4f7e740af95689ff6d1bb81f2a94f001",
     "requirements_SHA256": "5d338ba0be29a1eebeb93b43139795836fefa0634a76b4294087adbd383485b2",
     "policy_dispatch_allowed": false,
@@ -315,7 +315,8 @@
     "seed": 0,
     "condition": "G2_long_hover_S3_issuedFF3p14_v1_DIAGNOSTIC",
     "new_expert10_required": true,
-    "paired_full_q13_RMSE_limit_rad": 0.005
+    "paired_full_q13_RMSE_limit_rad": 0.005,
+    "status": "Original full-time-FF candidate rejected before model; sparse transition candidate also undispatched and awaits its own independent Native10/10."
   },
   "other_condition_long_hover_fixed50_final": {
     "epoch": 1794234983.764406,
@@ -690,5 +691,243 @@
       "trials": 100
     }
   },
-  "qualification_boundary": "Command discontinuity/FF mismatch reproduced in actual trace. CPU correction is not a Native pass or a policy improvement. Collection speed0.4/0.6,acceleration/jerk/single-peak constraints not certified. Original pi05 full13 gate unchanged. All whole successes still need registered grasp/pose/release/video acceptance."
+  "qualification_boundary": "Command discontinuity/FF mismatch reproduced in actual trace. CPU correction is not a Native pass or a policy improvement. Collection speed0.4/0.6,acceleration/jerk/single-peak constraints not certified. Original pi05 full13 gate unchanged. All whole successes still need registered grasp/pose/release/video acceptance.",
+  "first_candidate_rejected": {
+    "epoch": 1794241677.7059846,
+    "condition_version": "G2_long_hover_S3_issuedFF3p14_v1_DIAGNOSTIC",
+    "source_archive_SHA256": "a3bbe8f553552ced4f63ec9e5ed5cf22823d01309d1b7c7658c161fa784c6a21",
+    "physical_successes_observed": 1,
+    "independent_paired_gate_pass": 0,
+    "paired_q13_RMSE_rad": 0.005275324024385862,
+    "pre_frozen_limit_rad": 0.005,
+    "rejected": true,
+    "no_gate_relaxation": true,
+    "new_model_calls": 0,
+    "own_expert_only_processes_stopped_after_irrecoverable_gate_failure": true,
+    "raw_evidence_preserved": true,
+    "next_candidate": "Sparse transition repair: original nominal FF retained unless original3.14rad/s issued-step boundary is exceeded; own Native gate required"
+  },
+  "old_candidate_no_model_dispatch": true,
+  "sparse_transition_candidate": {
+    "condition_version": "G2_long_hover_S3_sparse_transition_FF_v1_DIAGNOSTIC",
+    "CPU_recorded_input_tests": {
+      "epoch": 1794241315.2194402,
+      "passed": true,
+      "version": "issued_transition_repair_v1_DIAGNOSTIC_NOT_NATIVE_ADMITTED",
+      "parameters": {
+        "physics_hz": 120,
+        "all_arm_joint_speed_rad_s": 3.14,
+        "limit_source": "existing original controller FF bound",
+        "FF": "issued float32 target difference only on clipped and first catch-up tick; otherwise original FF bit-exact",
+        "hand_targets": "bit-exact passthrough before unchanged registered hand assistance",
+        "all_methods_same_parameters": true,
+        "candidate_only": true,
+        "original_scores_unchanged": true,
+        "limiter_source_SHA256": "0b3c2558ad9a220e28543080d991bf732ccc8f2c367f5828535b8827899ed08f"
+      },
+      "helper_SHA256": "fdc0b85796a496c3418cefc57f833528b20cdd67b4e772f8cfa4e96d3878c641",
+      "source_experts": [
+        {
+          "source_expert_id": "expert_000000",
+          "native_ticks": 16504,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "f1d3311368b30d88bf575ac8bfb207a5ef7354953c564124ff1b31a4e1afc4d8",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000001",
+          "native_ticks": 16608,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "bcc5f21f9d8addf6ebf3e526d27fb6f3574392cf39e02445a85b207f6f3716af",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000002",
+          "native_ticks": 15383,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "e95dcf87d1f0f6ba4f5410e857028021f8e7946c96aeaba04754f2c0a4a0e70f",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000003",
+          "native_ticks": 16498,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "9ad75aa28273ae175ece6d4f1cb98adbdd34c44c200b97e6a01a793bc7b114da",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000004",
+          "native_ticks": 18230,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "6a6115f73de704a0ab9331f2f5195dc1f1a5fe6121c6ee5b2e9d6f90cf984368",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000005",
+          "native_ticks": 16600,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "d88b39f577d5de63fd5f426dcda1dd5e5ddd61da8a3ca288989659ce3fd7f739",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000006",
+          "native_ticks": 16011,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "c9599879df1d4450ebd0be39c3df48da197a6972e6587137bb127a771d187040",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000007",
+          "native_ticks": 16493,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "6bd676347c96f7c63cefff8e6aae4bbf08c4b81772a8f1c59090ef437b26aa4b",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000008",
+          "native_ticks": 16130,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "f9e38ca39aa99e6a5defc1c01b1a85dca3cc9bfe6fcdce5a63f551dbe6aace05",
+          "Native_success_not_inferred": true
+        },
+        {
+          "source_expert_id": "expert_000009",
+          "native_ticks": 15792,
+          "full13_position_bit_exact": true,
+          "original_velocity7_bit_exact": true,
+          "repair_active_ticks": 0,
+          "fixture_SHA256": "8308e5850445bdb3d079782574176d9b96f11af2e1e700391440cc45a2249d6f",
+          "Native_success_not_inferred": true
+        }
+      ],
+      "experts_position_and_FF_bit_exact": 10,
+      "current_model_archive_SHA256": "c8a2daef7210f11347da16b0178f724e304e49ef103799a7bf9ad235f6bc1c51",
+      "current_model_native_ticks": 4651,
+      "position_clipped_ticks": 18,
+      "FF_repair_active_ticks": 26,
+      "nominal_FF_preserved_ticks": 4625,
+      "maximum_issued_arm_speed_rad_s": 3.139997720718384,
+      "issued_target_RMSE_vs_original_rad": 0.00257858383429541,
+      "hand_targets_bit_exact": true,
+      "new_Native_calls": 0,
+      "new_model_calls": 0,
+      "physical_admission": false,
+      "policy_success_rate": null,
+      "claim_boundary": "CPU control invariant and exact preservation of source expert inputs only. Own Native paired admission remains required."
+    },
+    "actual_Native_apply_CPU_tests": {
+      "epoch": 1794241423.3231125,
+      "passed": true,
+      "checks": [
+        "actual_Native_method_clamps_position_and_issues_matching_FF_not_old_FF",
+        "original_external_hand_hold_preserved",
+        "first64_real_native_expert_targets_AND_original_FF_readback_bit_exact",
+        "independent_episode_has_no_previous_episode_limiter_state"
+      ],
+      "n_checks": 4,
+      "production_Native_apply_function_exercised": true,
+      "Kit_or_CUDA_imported": false,
+      "physical_success_inferred": false,
+      "expert_target_full_q13_gate_passed": false
+    },
+    "expert_source_archive_SHA256": "9afcb8120e704772dc6f8ce3c90f6d61126fa0a1103b32c59e7ac751b7860d90",
+    "source_boundary_and_download": {
+      "epoch": 1794242545.0273972,
+      "passed": true,
+      "source_archive_SHA256": "9afcb8120e704772dc6f8ce3c90f6d61126fa0a1103b32c59e7ac751b7860d90",
+      "all_source_files_verified": 243,
+      "Native_or_model_calls": 0,
+      "download": "same approved BOS source/prefix over authenticated HTTPS",
+      "credentials_not_persisted": true
+    },
+    "source_density_revision_before_any_Native": {
+      "epoch": 1794242515.0586488,
+      "actual_Native_calls_before_change": 0,
+      "old_GPU_processes": [
+        0,
+        2
+      ],
+      "new_GPU_processes": [
+        0,
+        1
+      ],
+      "reason": "shared effective cgroup has only4GiB headroom; no resource gate waiver and no two-lane reserve assumption",
+      "all_scientific_runtime_fixtures_weights_oracles_unchanged": true,
+      "new_helper_SHA256": "fdc0b85796a496c3418cefc57f833528b20cdd67b4e772f8cfa4e96d3878c641",
+      "source_SHA256": "9afcb8120e704772dc6f8ce3c90f6d61126fa0a1103b32c59e7ac751b7860d90",
+      "old_source_archive_preserved": true,
+      "old_BOS_source_not_overwritten": true
+    },
+    "resource_wait": {
+      "epoch": 1794242815.3277314,
+      "phase": "waiting_existing_Pro_memory_GPU",
+      "resource": {
+        "epoch": 1794242815.2898655,
+        "effective_headroom_bytes": 5083230208,
+        "GPU1_free_MiB": 16990.0,
+        "load1": 17.220703125,
+        "CPU_count": 180,
+        "ready": false
+      },
+      "credentials_expire_epoch": 1794263311.0,
+      "source_SHA256": "9afcb8120e704772dc6f8ce3c90f6d61126fa0a1103b32c59e7ac751b7860d90",
+      "new_cloud_requests": 0,
+      "Native_launches": 0,
+      "minimum_headroom_bytes": 25769803776,
+      "minimum_GPU_free_MiB": 24000
+    },
+    "Native_calls": 0,
+    "model_calls": 0,
+    "frozen_requirements": {
+      "frozen_epoch": 1794237506.85321,
+      "n": 10,
+      "F": 5,
+      "R": 5,
+      "physical_v11_success_required": 10,
+      "paired_same_condition_full_q13_RMSE_max_rad": 0.005,
+      "actual_source_arm_position_targets_bit_exact": true,
+      "original_native_velocity_input_logged_and_bit_exact_to_fixture": true,
+      "actual_velocity_FF_is_issued_float32_backward_difference": true,
+      "all_native_issued_arm_steps_rad_s_max": 3.14,
+      "source_hand_commands_unchanged_before_same_registered_grasp_opening_helper": true,
+      "all_frozen_grasp_release_S3_lifecycle_audits_required": true,
+      "same_condition_measured_reference": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/FF_consistency_same_condition_expert_refs_v1/MANIFEST.json",
+      "new_physical_admission_passed": false,
+      "original_pi05_full13_gate_waived": false,
+      "policy_dispatch_permitted": false,
+      "source_SHA256": "9afcb8120e704772dc6f8ce3c90f6d61126fa0a1103b32c59e7ac751b7860d90",
+      "work_package": "G2_sparse_transition_FF_expert10_existing_Pro_v1",
+      "condition_version": "G2_long_hover_S3_sparse_transition_FF_v1_DIAGNOSTIC",
+      "repair_helper_SHA256": "fdc0b85796a496c3418cefc57f833528b20cdd67b4e772f8cfa4e96d3878c641",
+      "nominal_expert_FF_must_remain_bit_exact": true,
+      "actual_FF_rule": "original FF except clipped transitions and one catch-up tick",
+      "original_005_gate_unchanged": true,
+      "frozen_before_Native_epoch": 1794242359.2314878,
+      "audit_field_semantics": "Conditional repaired FF, not unconditional FD; exact original expert FF required",
+      "frozen_CPU_reader_SHA256": "4f23f6bc58e7b728e3e9ff9839999f66be4dc9dfac7da08cc152c6919d31617c",
+      "instances_per_gpu": [
+        0,
+        1
+      ]
+    },
+    "candidate_model_folder": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/G2_sparse_transition_FF_mem0_first50_v1"
+  }
 }

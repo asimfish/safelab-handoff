@@ -2,8 +2,8 @@
 'use strict';
 const STATES={untested:'待评测',evaluating:'评测中',results:'已有结果',training:'训练中',blocked:'阻塞',verify:'待核验'};
 const CAMERAS={third_person:'第三人称',chest:'胸部相机',unknown:'相机待确认'};
-const TASKS=[{id:'3',name:'三子任务',sub:'抓取 → 倾倒 → 归位',versions:['3-latest','3-v13','3-jitter']},{id:'5',name:'五子任务',sub:'遮挡任务',versions:['5-pos','5-fixed']},{id:'7',name:'七子任务',sub:'四烧杯称重',versions:['7-weigh']},{id:'10',name:'十子任务',sub:'五烧杯称重',versions:['10-weigh']}];
-const VERSIONS={'3-latest':'latest / V14','3-v13':'V13 smooth','3-jitter':'早期 jitter1cm','5-pos':'1025 · pos1cm','5-fixed':'1023 · fixed','7-weigh':'v180 · 四杯','10-weigh':'v180 · 五杯'};
+const TASKS=[{id:'3',name:'三子任务',sub:'抓取 → 倾倒 → 归位',versions:['3-pos3cm-200','3-latest','3-v13','3-jitter']},{id:'5',name:'五子任务',sub:'遮挡任务',versions:['5-pos','5-fixed']},{id:'7',name:'七子任务',sub:'四烧杯称重',versions:['7-weigh']},{id:'10',name:'十子任务',sub:'五烧杯称重',versions:['10-weigh']}];
+const VERSIONS={'3-pos3cm-200':'±3cm · 200条','3-latest':'latest / V14','3-v13':'V13 smooth','3-jitter':'早期 jitter1cm','5-pos':'1025 · pos1cm','5-fixed':'1023 · fixed','7-weigh':'v180 · 四杯','10-weigh':'v180 · 五杯'};
 const key=(record,step)=>record+'@'+step;
 const safeText=(x,max=1500)=>typeof x==='string'&&x.length<=max&&!/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(x);
 function parseScore(s){if(!s)return null;const m=/^(\d{1,7})\/(\d{1,7})$/.exec(s.trim());if(!m||+m[2]<1||+m[1]>+m[2])throw Error('成绩须为 成功数/总次数，例如 21/100');return {success:+m[1],trials:+m[2]};}

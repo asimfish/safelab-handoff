@@ -1,14 +1,14 @@
-<!doctype html><meta charset="utf-8"><title>五任务控制一致性诊断</title>
-<h1>五任务：续跑停止，复用另一套已完成专家准入的修复</h1>
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font:16px/1.6 system-ui;max-width:1100px;margin:24px auto;padding:0 16px;overflow-wrap:anywhere}</style><title>五任务控制一致性诊断</title>
+<p>来源：五任务 agent 报告；交接台核对登记与证据一致性，未独立重放物理轨迹。</p><h1>五任务：原候选续跑停止；另方案10条专家物理复算通过</h1>
 <p>快照 2026-11-10T10:59:42.349124+00:00。以下为隔离诊断；正式主表不改，尚无本轮新增模型成功率。</p>
 <p>真实模型日志中发现目标单tick跳变−0.2533266 rad，等效目标速度−30.3992 rad/s，前馈却为−1.386795 rad/s。这是命令数据，不是实测机器人速度。</p>
 <p>第一版全时段差分前馈因配对完整q13 RMSE 0.005275超出冻结0.005门槛而拒绝，未派发模型。</p>
 <p>新版仅修异常限幅段及首个追平tick，正常前馈不变。已完成首条真实专家并独立核验：5阶段、原始指令与速度前馈逐tick一致；相同辅助条件配对q13 RMSE=0。原始归档SHA256：3292eaeffc555d7ed33fee8866fe5959d60017831d9ac00757599cb08bd24aa4。这不是对未辅助专家的误差；π0.5原准入没有被放宽。</p>
 <p>Pro的进度JSON原子替换出现EBUSY，另有Native停在FUSE等待。已保留首条原始证据。两份互不重叠的4+5续跑均已STOPPED，没有新增有效闭合；当前不是排队或运行。不自动进行第三次补提，模型未派发。</p>
 <ul><li>source1..4：job-g55yl30qlx3h，operation h2rsol8sean82b77lbge52ps8</li><li>source5..9：job-f6hl2bgzzht2，operation tmsvjghuvxlcnh39qj5h87tp3</li></ul>
-<p>C1的另一套辅助控制版本 stepcap_nativeFF_v4 已报告固定10条真实专家全部通过，配对q13误差0。A2正在独立核对原始归档及完整部署入口，当前CPU物理复算 10/10。它采用 supported-release v2，不是本页1/10的long-hover v3稀疏修复。两种条件不混算，专家成绩不计作模型成功率。</p>
-<p>首条实际Mem-0新轨迹已补做逐tick控制、辅助松手、附着生命周期和S3力矩独立重放，检查通过；故意破坏保存的前馈值会被拒绝。该条整任务仍未成功，不能据此报告本轮成功率提升。固定50计划仍在执行或等待资源，四方法使用同一辅助实现，各自的输入及动作标签约定保留。</p>
+<p>C1的另一套辅助控制版本 stepcap_nativeFF_v4 已报告固定10条真实专家全部通过，配对q13误差0。A2正在独立核对原始归档及完整部署入口，当前CPU物理复算 10/10；配对q13误差0引用C1来源，本轮A2脚本未独立重算q13，不等于所有准入门槛已闭合。它采用 supported-release v2，不是本页1/10的long-hover v3稀疏修复。两种条件不混算，专家成绩不计作模型成功率。</p>
+<p>首条实际Mem-0新轨迹已补做逐tick控制、辅助松手、附着生命周期和S3力矩独立重放，记录一致性检查通过；故意破坏保存的前馈值会被拒绝。该CPU检查不证明Native求解器一致；该轨迹记录的policy-open事件为1次，但实测物理释放验证为0次，不能称为真实松手已通过。该条整任务仍未成功，不能据此报告本轮成功率提升。本报告未给出固定50条已闭合统计及当前运行证明，本页不补写成功率或声称正在运行；四方法使用同一辅助实现，各自的输入及动作标签约定保留。</p>
 <p>5090同一授权bucket无本地缓存访问已核验，但其重命名阻塞也已复现，已停止该挂载；本地运行目录例外仍待用户答复。</p>
 <p>另一闭手辅助候选的10条专家已全部核验：物理9/10，反向expert1完成4阶段后480秒超时，原始归档SHA256：00fccd028b98623fae9cb8a4c9f1dc42a56904e9f1dcbf9e1595324a29f57ce1。该候选拒绝放量，模型未跑，不能写成0/50。</p>
 <p>上轮long-hover Mem-0固定50条仍为整任务0/50、unknown0，不扩样。历史G90辅助：MemoryVLA v1.1为1/100（unknown1；曾unknown均失败敏感性为0）；TTC r1-released为1/100、v1.1为0/100；Mem-0为0/100；π0.5待原执行链准入。均不属于本轮新增结果。</p>
-<p><a href="task5-control-FF-consistency-20261109.json">完整证据与冻结口径</a></p>
+<p><a href="task5-control-FF-consistency-20261109.json.gz">完整证据与冻结口径</a></p>

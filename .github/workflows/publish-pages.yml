@@ -139,7 +139,8 @@ jobs:
           # Build-only sources remain in Git; publish only the static website.
           import shutil
           site = pathlib.Path(os.environ['RUNNER_TEMP']) / 'safelab-static-site'
-          excluded = {'.git', '.github', 'tests', 'scripts'}
+          # The repository README stays available on GitHub; no site links target it.
+          excluded = {'.git', '.github', 'tests', 'scripts', 'README.md'}
           site.mkdir()
           for entry in root.iterdir():
               if entry.name in excluded:

@@ -155,6 +155,14 @@ jobs:
                   shutil.copytree(entry, target, ignore=shutil.ignore_patterns(*ignored))
               else:
                   shutil.copy2(entry, target)
+          # Preserve Git/test bytes; serve the old download as lossless gzip plus a pointer.
+          archive = json.loads(pathlib.Path('long_task_videos/classification-audit-gzip.json').read_text())
+          source = pathlib.Path(archive['path']).read_bytes()
+          wire = (site / 'long_task_videos' / archive['url']).read_bytes()
+          assert len(wire) == archive['bytes'] and hashlib.sha256(wire).hexdigest() == archive['sha256']
+          assert gzip.decompress(wire) == source
+          assert len(source) == archive['decoded_bytes'] and hashlib.sha256(source).hexdigest() == archive['decoded_sha256']
+          (site / archive['path']).write_text(json.dumps(archive, separators=(',', ':')) + '\n')
           assert (site / 'data.json').read_bytes() == pathlib.Path('data.json').read_bytes()
           files = [p for p in site.rglob('*') if p.is_file()]
           size = sum(p.stat().st_size for p in files)

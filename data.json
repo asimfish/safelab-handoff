@@ -184562,22 +184562,48 @@
       "metric_role": "actual_native_HTTP_repair_integration_canary",
       "protocol_version": "SafeLab-Eval-v1.1",
       "condition_version": "G90_O_rmax_S3_stepcap_nativeFF_v4_DIAGNOSTIC",
-      "trials": 0,
+      "trials": 4,
       "target": 4,
-      "completed": 0,
-      "success": null,
+      "completed": 4,
+      "success": 0,
       "unknown": 0,
-      "mean_phase": null,
-      "phase_hist": {},
-      "seed_results": [],
-      "lr_split": {},
-      "wilson95": null,
+      "mean_phase": 0.75,
+      "phase_hist": {
+        "0": 2,
+        "1": 1,
+        "2": 1
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 4,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 2,
+          "success": 0,
+          "unknown": 0
+        },
+        "reverse": {
+          "trials": 2,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0,
+        "high": 0.4898908364545973,
+        "confidence": 0.95
+      },
       "evaluation_started": true,
       "formal_score_eligible": false,
       "kind": "真实Native协议修复后的接入诊断",
-      "status": "真实模型GPU五帧通过；REAL_MEMORYVLA_NATIVE_RUNNING",
-      "result_label": "待验收",
-      "pending_reason": "4个固定场景的120Hz闭环及完整归档独立计分尚未完成，不报模型成功率",
+      "status": "4/4 independent raw closures; FIRST4_FINISHED",
+      "result_label": "诊断0/4",
+      "pending_reason": "",
       "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
       "scene_subset_indices": [
         0,
@@ -184593,7 +184619,7 @@
         "procs_per_gpu": 1,
         "gpu_type": "existing RTX5090 model + existing Pro6000 Native",
         "scope": "one model service/one environment; private loopback SSH; no new cloud cards",
-        "planned_not_running": false
+        "planned_not_running": true
       },
       "preprocess_resize": {
         "implementation": "delivered_package",
@@ -184602,10 +184628,10 @@
       "weight_sha256": "16e3e32a4832bc8756714492029536cf329c77c0f6cd879edd559923326211c0",
       "stats_sha256": "7e820aeb81db171d1ed3fafe45f669fbcb35cfd9835364886ff9eb3a1016cb51",
       "job_id": null,
-      "source_code_archive_sha256": "54f8a3dfd1e6c9708634fe88ea1ea18e4e5bfc1f47886e6a4d803274b4225724",
+      "source_code_archive_sha256": "0b47c9722204964b57e7d17c7ae0472176cea2e56b1614d47650d6884915c81d",
       "source": "reports/task5-remote-inference-and-acceptance-20261111.html",
       "report_url": "reports/task5-remote-inference-and-acceptance-20261111.html",
-      "updated_at": "2026-11-11T10:31:09.096426+00:00",
+      "updated_at": "2026-11-11T13:00:32.782455+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
@@ -184643,7 +184669,64 @@
       "evidence": [
         "reports/task5-remote-inference-and-acceptance-20261111.html"
       ],
-      "source_code_sha256": "0b47c9722204964b57e7d17c7ae0472176cea2e56b1614d47650d6884915c81d"
+      "source_code_sha256": "0b47c9722204964b57e7d17c7ae0472176cea2e56b1614d47650d6884915c81d",
+      "oracle_version": "placement-v1.1-night-nonheld-topple-exempt-v1",
+      "historical_infrastructure_unknown_case_ids": [
+        "A2SF4_memoryvla_h8_s0_000"
+      ],
+      "sensitivity_ever_unknown_as_failure": {
+        "trials": 4,
+        "success": 0,
+        "ever_unknown": 1
+      },
+      "all_four_metrics": {
+        "v11_execution_condition": {
+          "success": 0,
+          "mean_phase": 0.75
+        },
+        "frozen_r1": {
+          "success": 0,
+          "mean_phase": 1.5
+        },
+        "frozen_r1_released": {
+          "success": 0,
+          "mean_phase": 1.5
+        },
+        "frozen_rmax_released": {
+          "success": 0,
+          "mean_phase": 1.5
+        }
+      },
+      "raw_archive_receipts": [
+        {
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_000.tar.gz",
+          "key": "liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_000.tar.gz",
+          "bytes": 172940220,
+          "sha256": "388476bf73527accd7fc309dc956492ed535c25e188af05be3c80ab6fa6a446e",
+          "GET_SHA": true
+        },
+        {
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_001.tar.gz",
+          "key": "liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_001.tar.gz",
+          "bytes": 47920793,
+          "sha256": "2e5f0be31390025f32db32a8b0118ad80238cba3f93dd9e99d30bee00345d36b",
+          "GET_SHA": true
+        },
+        {
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_002.tar.gz",
+          "key": "liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_002.tar.gz",
+          "bytes": 173224619,
+          "sha256": "a1a3ab26f32b924e9e9081edc9f22824e7e2600109d3d2d6629c186198a55d3f",
+          "GET_SHA": true
+        },
+        {
+          "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_003.tar.gz",
+          "key": "liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/memoryvla_native_http_contract_fix_20261111/archives_statusio_retry1/A2SF4_memoryvla_h8_s0_003.tar.gz",
+          "bytes": 6479386,
+          "sha256": "9dfefcd01e33c2e77833d76573b299d5c1bd324bd89a9c9c111733b9869134a5",
+          "GET_SHA": true
+        }
+      ]
     }
   ],
   "agents": [
@@ -208344,14 +208427,18 @@
       "new_policy_closures": 0
     },
     "remote_inference_acceptance_snapshot_20261111": {
-      "UTC": "2026-11-11T10:31:09.096426+00:00",
+      "UTC": "2026-11-11T13:00:32.782455+00:00",
       "report": "reports/task5-remote-inference-and-acceptance-20261111.html",
-      "decoded_sha256": "81780cba0d2374883c5c9f889302f20d41260ac36f75caea1662cfcc9f77a612",
-      "new_valid_model_closures": 5,
+      "decoded_sha256": "6e66fd139c70e8957e54032c97d7d0928f63b6fd03ddacbc0b7ecb873a54e8f3",
+      "new_valid_model_closures_this_milestone": 4,
+      "recent_verified_diagnostic_closures_total": 9,
       "hand_slew_NOT_admitted": true,
       "MemoryVLA_actual_Native_HTTP_fixed": true,
       "MemoryVLA_GPU_tensor5_passed": true,
-      "MemoryVLA_native_phase": "REAL_MEMORYVLA_NATIVE_RUNNING",
+      "MemoryVLA_native_phase": "FIRST4_FINISHED",
+      "MemoryVLA_all4_CPU_verified": true,
+      "MemoryVLA_own_GPU_service_released": true,
+      "pi05_local_expert007_qualified": false,
       "pi05_job_id": null,
       "no_formal_scores_changed": true
     }

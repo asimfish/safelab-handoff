@@ -184550,6 +184550,100 @@
           "report": "fixed50 assisted diagnostic in progress"
         }
       }
+    },
+    {
+      "id": "task5-t939-memoryvla-nativeHTTPfixed-h8-first4-20261111-v11",
+      "record": "5-pos-memoryvla-issue74",
+      "dataset": "5-pos",
+      "method": "MemoryVLA",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "metric_role": "actual_native_HTTP_repair_integration_canary",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "condition_version": "G90_O_rmax_S3_stepcap_nativeFF_v4_DIAGNOSTIC",
+      "trials": 0,
+      "target": 4,
+      "completed": 0,
+      "success": null,
+      "unknown": 0,
+      "mean_phase": null,
+      "phase_hist": {},
+      "seed_results": [],
+      "lr_split": {},
+      "wilson95": null,
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "kind": "真实Native协议修复后的接入诊断",
+      "status": "真实模型GPU五帧通过；REAL_MEMORYVLA_NATIVE_RUNNING",
+      "result_label": "待验收",
+      "pending_reason": "4个固定场景的120Hz闭环及完整归档独立计分尚未完成，不报模型成功率",
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "scene_subset_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "camera": "third_person",
+      "action_target": "current_row",
+      "policy_seed": 0,
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "existing RTX5090 model + existing Pro6000 Native",
+        "scope": "one model service/one environment; private loopback SSH; no new cloud cards",
+        "planned_not_running": false
+      },
+      "preprocess_resize": {
+        "implementation": "delivered_package",
+        "input": "raw RGB uint8; no pre-resize, no qpos; package own preprocessing"
+      },
+      "weight_sha256": "16e3e32a4832bc8756714492029536cf329c77c0f6cd879edd559923326211c0",
+      "stats_sha256": "7e820aeb81db171d1ed3fafe45f669fbcb35cfd9835364886ff9eb3a1016cb51",
+      "job_id": null,
+      "source_code_archive_sha256": "54f8a3dfd1e6c9708634fe88ea1ea18e4e5bfc1f47886e6a4d803274b4225724",
+      "source": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "report_url": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "updated_at": "2026-11-11T10:31:09.096426+00:00",
+      "admission": {
+        "expert_replay": {
+          "passed": true,
+          "verified_experts": 10,
+          "target": 10,
+          "scope": "original unmodified v4 current_row executor; new hand-slew candidate NOT used"
+        },
+        "executor_parity": {
+          "passed": true,
+          "status": "Actual30/16-target K4/K8 CPU issued target/FF equality; current_row Native10/10; pi05 gate separate"
+        },
+        "open_loop": {
+          "passed": false,
+          "status": "new-adapter fixture checks pending"
+        },
+        "render_multiframe": {
+          "passed": false,
+          "status": "first4 source contracts pending"
+        },
+        "smoke20": {
+          "passed": false,
+          "status": "not started"
+        },
+        "tensor_parity": {
+          "passed": true,
+          "frames": 5,
+          "image_uint8_equal": true,
+          "final_tensor_max_abs": 0.0,
+          "action_max_abs": 0.0,
+          "scope": "actual NativePolicyPost bridge, portable Torch2.7.1+cu128"
+        }
+      },
+      "original_pi05_gate_waived": false,
+      "operation_id": null,
+      "evidence": [
+        "reports/task5-remote-inference-and-acceptance-20261111.html"
+      ],
+      "source_code_sha256": "0b47c9722204964b57e7d17c7ae0472176cea2e56b1614d47650d6884915c81d"
     }
   ],
   "agents": [
@@ -208250,16 +208344,16 @@
       "new_policy_closures": 0
     },
     "remote_inference_acceptance_snapshot_20261111": {
-      "UTC": "2026-11-11T07:03:38.451603+00:00",
+      "UTC": "2026-11-11T10:31:09.096426+00:00",
       "report": "reports/task5-remote-inference-and-acceptance-20261111.html",
-      "decoded_sha256": "9d2d55b5c247509527cc65c143888505eab906073a53783ef1fcd70e2bbfd5d6",
+      "decoded_sha256": "81780cba0d2374883c5c9f889302f20d41260ac36f75caea1662cfcc9f77a612",
       "new_valid_model_closures": 5,
-      "new_infrastructure_unknown": 1,
-      "same_input_tensor_and_transport5": true,
-      "expert10_is_not_policy_SR": true,
-      "postrelease_handoff_interval_end_gate_passed": false,
-      "issued_hand_capture_v2_retired": true,
-      "currentrow_slew_full10_admission_in_progress": true
+      "hand_slew_NOT_admitted": true,
+      "MemoryVLA_actual_Native_HTTP_fixed": true,
+      "MemoryVLA_GPU_tensor5_passed": true,
+      "MemoryVLA_native_phase": "REAL_MEMORYVLA_NATIVE_RUNNING",
+      "pi05_job_id": null,
+      "no_formal_scores_changed": true
     }
   }
 }

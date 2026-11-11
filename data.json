@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-10T18:34:54.206432+00:00",
+  "updated_at": "2026-11-11T02:52:33.239104+00:00",
   "title": "SafeLab · 实验与数据交接台",
   "snapshot_note": "已发布证据快照；刷新只读取已发布data.json，不会自动进入其他agent或服务器。后台作业状态可能继续变化。",
   "datasets": [
@@ -183594,22 +183594,46 @@
       "metric_role": "uniform_native_model_integration_diagnostic",
       "protocol_version": "SafeLab-Eval-v1.1",
       "condition_version": "G90_O_rmax_S3_stepcap_nativeFF_v4_DIAGNOSTIC",
-      "trials": 0,
+      "trials": 4,
       "target": 4,
-      "completed": 0,
-      "success": null,
+      "completed": 4,
+      "success": 0,
       "unknown": 0,
-      "mean_phase": null,
-      "phase_hist": {},
-      "seed_results": [],
-      "lr_split": null,
-      "wilson95": null,
-      "evaluation_started": false,
+      "mean_phase": 0.0,
+      "phase_hist": {
+        "0": 4
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 4,
+          "success": 0,
+          "unknown": 0
+        }
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 2,
+          "success": 0,
+          "unknown": 0
+        },
+        "reverse": {
+          "trials": 2,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0,
+        "high": 0.4898908364545973,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
       "formal_score_eligible": false,
-      "kind": "接入诊断，未派发",
-      "status": "低优4卡创建中；模型尚未派发",
-      "result_label": "待启动",
-      "pending_reason": "原创建意图仍MAIN_INTENT/PENDING，无job_id；C1密集120Hz专家10/10不能替代15Hz执行链验收。真实current_row15Hz回放独立推进，π0.5完整13维门槛不豁免。模型成功数保持空值。",
+      "kind": "已完成接入诊断",
+      "status": "4条有效闭合，冻结CPU复核完成，整任务0/4",
+      "result_label": "诊断0/4",
+      "pending_reason": "",
       "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
       "scene_subset_indices": [
         0,
@@ -183626,7 +183650,7 @@
         "gpu_type": "Pro6000-96GB",
         "planned_not_running": true,
         "requested_gpus": 4,
-        "scope": "bounded native integration canary; no sustained utilization claimed"
+        "scope": "bounded first4 N1×1/GPU diagnostic, now terminal; no utilization claim"
       },
       "preprocess_resize": {
         "implementation": "training_tensor",
@@ -183636,21 +183660,21 @@
       },
       "weight_sha256": "15552d968a55f46a477af7a059f5fdef8b82e64ef6c1512d13ee8d5546faa3ca",
       "stats_sha256": "936d572a775758c3b50395e9449fd13b2ed2f12a1fdedf2378cb8cb74d60eb05",
-      "job_id": null,
+      "job_id": "job-fo9q0gwgxwhj",
       "source_code_archive_sha256": "83693841f19fc49810b044041decef5b42e530fad0371286ab64a20a33e57e0c",
-      "source": "reports/task5-execution-admission-progress-20261110.html",
-      "report_url": "reports/task5-execution-admission-progress-20261110.html",
-      "updated_at": "2026-11-10T18:34:54.206432+00:00",
+      "source": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "report_url": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "updated_at": "2026-11-11T04:37:32.648893+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
           "verified_experts": 10,
           "target": 10,
-          "scope": "Dense recorded120Hz common assisted replay only; not15Hz endpoint admission"
+          "scope": "actual current_row15Hz Native replay, full13 measured RMSE max4.216367712800892e-8rad"
         },
         "executor_parity": {
-          "passed": false,
-          "status": "Actual16/30-window CPU target/FF equality passed;15Hz Native execution admission still pending; no pi05 waiver"
+          "passed": true,
+          "status": "Actual30/16-target K4/K8 CPU issued target/FF equality; current_row Native10/10; pi05 gate separate"
         },
         "open_loop": {
           "passed": false,
@@ -183662,11 +183686,14 @@
         },
         "smoke20": {
           "passed": false,
-          "status": "not started"
+          "status": "first4 diagnostic only; not20"
         }
       },
       "original_pi05_gate_waived": false,
-      "operation_id": "rkrp9tdjydfixj3cmj76c28vc"
+      "operation_id": "bufz7k5bvqextbyg1y5xznbv6",
+      "evidence": [
+        "reports/task5-remote-inference-and-acceptance-20261111.html"
+      ]
     },
     {
       "id": "task5-t939-uniform-nativeFF-v4-memoryvla-h8-first4-20261110-v11",
@@ -183691,10 +183718,10 @@
       "wilson95": null,
       "evaluation_started": false,
       "formal_score_eligible": false,
-      "kind": "接入诊断，未派发",
-      "status": "低优4卡创建中；模型尚未派发",
-      "result_label": "待启动",
-      "pending_reason": "原创建意图仍MAIN_INTENT/PENDING，无job_id；C1密集120Hz专家10/10不能替代15Hz执行链验收。真实current_row15Hz回放独立推进，π0.5完整13维门槛不豁免。模型成功数保持空值。",
+      "kind": "基础设施中断，未派发",
+      "status": "STOPPED于交付包下载，0有效闭合；补提已用完",
+      "result_label": "待验收",
+      "pending_reason": "平台未提供STOPPED根因，未到策略派发；不计模型失败率，不再盲目补提。",
       "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
       "scene_subset_indices": [
         0,
@@ -183711,7 +183738,7 @@
         "gpu_type": "Pro6000-96GB",
         "planned_not_running": true,
         "requested_gpus": 4,
-        "scope": "bounded native integration canary; no sustained utilization claimed"
+        "scope": "bounded first4 N1×1/GPU diagnostic, now terminal; no utilization claim"
       },
       "preprocess_resize": {
         "implementation": "delivered_package",
@@ -183719,21 +183746,21 @@
       },
       "weight_sha256": "16e3e32a4832bc8756714492029536cf329c77c0f6cd879edd559923326211c0",
       "stats_sha256": "7e820aeb81db171d1ed3fafe45f669fbcb35cfd9835364886ff9eb3a1016cb51",
-      "job_id": null,
+      "job_id": "job-aybk0gl93za2",
       "source_code_archive_sha256": "54f8a3dfd1e6c9708634fe88ea1ea18e4e5bfc1f47886e6a4d803274b4225724",
-      "source": "reports/task5-execution-admission-progress-20261110.html",
-      "report_url": "reports/task5-execution-admission-progress-20261110.html",
-      "updated_at": "2026-11-10T18:34:54.206432+00:00",
+      "source": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "report_url": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "updated_at": "2026-11-11T04:37:32.648893+00:00",
       "admission": {
         "expert_replay": {
           "passed": true,
           "verified_experts": 10,
           "target": 10,
-          "scope": "Dense recorded120Hz common assisted replay only; not15Hz endpoint admission"
+          "scope": "actual current_row15Hz Native replay, full13 measured RMSE max4.216367712800892e-8rad"
         },
         "executor_parity": {
-          "passed": false,
-          "status": "Actual16/30-window CPU target/FF equality passed;15Hz Native execution admission still pending; no pi05 waiver"
+          "passed": true,
+          "status": "Actual30/16-target K4/K8 CPU issued target/FF equality; current_row Native10/10; pi05 gate separate"
         },
         "open_loop": {
           "passed": false,
@@ -183749,7 +183776,10 @@
         }
       },
       "original_pi05_gate_waived": false,
-      "operation_id": "yei0xv0p47xhg4h6jt0w6gsh0"
+      "operation_id": "gkysictc1apn4nrp58sfxaso9",
+      "evidence": [
+        "reports/task5-remote-inference-and-acceptance-20261111.html"
+      ]
     },
     {
       "id": "task5-t939-G90OR-mem0-h8-first50-20261108-v11",
@@ -184442,6 +184472,84 @@
           "report": "fixed50 assisted diagnostic in progress"
         }
       }
+    },
+    {
+      "id": "task5-t939-mem0-root4090-native-h8-pair-20261111-v11",
+      "record": "5-pos-mem0",
+      "dataset": "5-pos",
+      "method": "Mem-0",
+      "checkpoint": 30000,
+      "horizon": 8,
+      "stage": "diagnostic",
+      "metric_role": "remote_NN_native_integration_diagnostic",
+      "protocol_version": "SafeLab-Eval-v1.1",
+      "condition_version": "G90_O_rmax_S3_stepcap_nativeFF_v4_DIAGNOSTIC",
+      "target": 2,
+      "trials": 2,
+      "completed": 2,
+      "success": 0,
+      "unknown": 1,
+      "mean_phase": 0.0,
+      "phase_hist": {
+        "0": 1
+      },
+      "seed_results": [
+        {
+          "seed": 0,
+          "trials": 2,
+          "success": 0,
+          "unknown": 1
+        }
+      ],
+      "lr_split": {
+        "forward": {
+          "trials": 1,
+          "success": 0,
+          "unknown": 1
+        },
+        "reverse": {
+          "trials": 1,
+          "success": 0,
+          "unknown": 0
+        }
+      },
+      "wilson95": {
+        "low": 0,
+        "high": 0.6576197724933469,
+        "confidence": 0.95
+      },
+      "evaluation_started": true,
+      "formal_score_eligible": false,
+      "camera": "third_person",
+      "action_target": "current_row",
+      "policy_seed": 0,
+      "scene_list_hash": "sha256:6ca333670c246fc21762596fe89adba7e3ff5a2718af8dbd8c6cb00901559449",
+      "scene_subset_indices": [
+        0,
+        1
+      ],
+      "kind": "独立远程推理诊断",
+      "status": "反向1条有效闭合；正向1条基础设施unknown；原始Planner/Executor真实推理，未并入C1待核来源",
+      "topology": {
+        "num_envs_actual": 1,
+        "procs_per_gpu": 1,
+        "gpu_type": "Pro6000 Native + ROOT4090 executor",
+        "scope": "private SSH remote inference, single lane, now terminal"
+      },
+      "preprocess_resize": {
+        "implementation": "training_tensor",
+        "mode": "bilinear",
+        "antialias": true,
+        "scope": "5-frame final tensors and transport exact"
+      },
+      "weight_sha256": "7ef522848f766b5ef9dbcaa32caea467f00dc9eb33f15b15d63cb30e8eeb4736",
+      "stats_sha256": "822394584b3f7b655cb7ab0816b3fbc986d9de00a9dcddb2c4bfda0209bac068",
+      "unknown_reasons": {
+        "infrastructure_video_call_or_partial_heartbeat": 1
+      },
+      "source": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "report_url": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "updated_at": "2026-11-11T04:37:32.648893+00:00"
     }
   ],
   "agents": [
@@ -208140,6 +208248,16 @@
       "report_decoded_sha256": "527771d94effe6151bd018552b676e56d67389bce052b39bc1570e66150045ab",
       "formal_promotions": 0,
       "new_policy_closures": 0
+    },
+    "remote_inference_acceptance_snapshot_20261111": {
+      "UTC": "2026-11-11T04:37:32.648893+00:00",
+      "report": "reports/task5-remote-inference-and-acceptance-20261111.html",
+      "decoded_sha256": "d0fdfa9f56b3241fc2cab7a0317badf32bc58ad8ad91959e2c4632b31f68846d",
+      "new_valid_model_closures": 5,
+      "new_infrastructure_unknown": 1,
+      "same_input_tensor_and_transport5": true,
+      "expert10_is_not_policy_SR": true,
+      "postrelease_handoff_expert_pair_pending": true
     }
   }
 }

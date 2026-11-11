@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>五任务全方法验收：真实闭合与松手衔接</title><style>body{font:16px/1.6 system-ui;max-width:1050px;margin:24px auto;padding:0 16px;overflow-wrap:anywhere}td,th{border:1px solid #aaa;padding:9px}table{border-collapse:collapse;display:block;max-width:100%;overflow-x:auto}</style><a href="../">交接台</a><p>来源：五任务agent报告。交接台核对报告汇总和SHA，未独立重放全部原始轨迹；以下均为辅助诊断。</p><h1>五任务全方法验收进度</h1>
+<p>快照 2026-11-11T07:03:38.451603+00:00。本里程碑新增5条有效模型闭合，整任务成功均为0。另有1个基础设施unknown。四方法尚未全部验收，正式无辅助主表保持不变；专家通过率不作为模型成功率。</p>
+<table><tr><th>方法</th><th>当前状态</th></tr><tr><td>Mem-0 new30 / h8</td><td>独立远程推理诊断2个固定场景：反向1条有效闭合，跑满480秒，四口径整任务均失败；正向1条因视频调用/监控器错误中断，保留基础设施unknown，不自动第三次重试。原模型和Planner保持，ROOT4090及Pro上的自有推理服务已在终止后释放。</td></tr><tr><td>TTC ours30 / h8</td><td>job-fo9q0gwgxwhj已SUCCEEDED。4条原始120Hz归档均GET/SHA并经冻结CPU判定：v1.1、r1、r1-released、r-max-released整任务均0/4；r1完成阶段[1,1,0,1]，释放口径[1,0,0,0]（按场景0–3）。属于小批接入诊断，不是100条正式主表。</td></tr><tr><td>MemoryVLA #74 / h8</td><td>同源码补提job-aybk0gl93za2在交付包下载期STOPPED，0有效闭合。平台没有提供终止根因，不将其记为模型0%成功率；该分包的一次补提已用完，停止重复创建。</td></tr><tr><td>π0.5 #23</td><td>原完整13维门槛9/10未豁免，统一v4下interval_end也未通过。新的源插值编码边界映射已完成10条专家164249 tick的CPU契约检查；四卡低优仅跑专家10条，不下载模型、不派发策略。操作号b0h8yqpfzd122v7jw3kb1ace4，job_id=等待分配。模型成功数继续留空。</td></tr></table>
+<h2>新定位：支持松手退出时，手部命令出现跳变</h2>
+<p>TTC场景0在tick2242完成12个零Robot接触、零附着的释放窗口；tick2243辅助退出，旧动作块的手部目标在单个120Hz tick跳了1.5393rad（约184.7rad/s），新阶段推理要到tick2248才发生。随后手指再接触杯子并将其撞出。这是辅助执行层的具体不连续，不能外推为所有旧基线失败的唯一原因。</p>
+<p>五条有效策略轨迹里，4条已把A抓起并带到真实目标表面；这4条的松手辅助退出均有1.539–1.553rad/tick手部目标跳变。另一条TTC没有触发抓取。r1下4/5完成第一阶段，要求完整释放窗口后为1/5。这里只描述已闭合的小样本，不能据此认定跳变解释全部失败。</p>
+<p>统一限速候选只在支持松手退出后对六个手部目标应用既有3.14rad/s限速，直到下一次附着；七个手臂目标、原生前馈、模型、物理和判定均不变。原生和15Hz interval_end专家007都完成5/5阶段，但两者完整13维关节RMSE为0.0163834rad（手臂0.0006789、手部0.0241046），超过0.005，interval_end没有通过。辅助前目标RMSE仅4.45e-7rad，差异在附着与释放后被放大。没有派发策略。</p>
+<p>另一对照把附着后的持握目标改为最后下发命令，接触门和释放阈值不变；CPU契约通过，但原生专家跑满480秒仍为0/5，已停用。失败归档SHA256为<code>b85fd2b85479b3abcb3fb10f42bd459561a60a961914a73b62df4f47a6d7dc6a</code>。没有将其用于任何模型成绩。</p>
+<p>限速候选的current_row链已单独进入全套准入：先用实际15Hz专家007对照已通过的新原生参考，若合格，再执行其余9组原生/15Hz配对，覆盖固定正反各5条。之前合格的原生007不重跑。它对应Mem-0/TTC/MemoryVLA，π0.5的interval_end门槛不豁免；任一失败自动停止。没有新开云端卡，使用现有Pro的一路独立Native进程。</p>
+<p>首包误配了只接受16目标的窗口，30目标专家在首个控制动作前被拒绝，已保留为基础设施错误。恢复原来已验证的30目标窗口后，10条固定专家、K4/K8共41068个连续观测帧均通过实际窗口回放；16/30窗口的四个控制节点逐值一致，960个子步的位置与前馈对照通过。科学参数不变，补启动一次；再次在派发动作前失败就停止。</p>
+<p>首次入口因bucket挂载权限报告为0666而被凭据权限检查拦下，GPU未启动。只把同一份凭据迁到自有700目录/600文件，清单仅改credential_file，科学源码不变，按基础设施规则补启动一次。</p>
+<p>本次快照中，限速current_row专家通过 2/2（目标10），原生参考通过 3/3。完整10条未通过前不派发该候选策略。</p>
+<p>π0.5另一路仅修正初始化边界的推断：按源current_row插值对endpoint的编码来拟合初始节点，并遵守源链首个previous=current。原入口、原生插值、关节后端、G90门、判定及0.005rad门槛逐字节保持。CPU的前64目标RMSE从1.63e-6降至1.20e-7，但这不代表物理验收已过；四卡专家任务和独立原始归档CPU复核正在进行。</p>
+<h2>输入与执行证据的范围</h2>
+<p>Mem-0训练episode000000的5帧原始解码RGB及实测q13、原始文本：冻结SafeLabDataset.__getitem__、训练归一化和Qwen输入构建均实际执行。图像、state、token以及最终pixel_values/attention_mask/image_grid_thw逐元素差值全部为0；颜色随机增强关闭，上游LeRobot读盘/查询调度由真实帧夹具代表。Pro→PNG→SSH→同一ROOT4090实例的5帧动作差也全部为0。这不证明评测渲染与训练视频的图像域相同。</p>
+<p>此前v4部署current_row 15Hz→120Hz专家相对C1同条件参考10/10通过，完整13维实测关节RMSE最大4.21637e-8rad（门槛0.005）；新增限速辅助必须另行通过准入，不沿用该许可。30/16目标块K4/K8的CPU目标与前馈逐值一致。π0.5 interval_end有独立门槛；旧“初始锚点部署bug”解释保持撤回。关闭附着期手部保持的另一候选原生专家失败，已退休。</p>
+<p><a href="task5-remote-inference-and-acceptance-20261111.json.gz">完整证据快照</a>（解压SHA256 <code>9d2d55b5c247509527cc65c143888505eab906073a53783ef1fcd70e2bbfd5d6</code>）。原始失败、unknown、来源待核及旧版本记录保留，不合并未证实的归档。</p></html>

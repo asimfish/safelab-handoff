@@ -1,0 +1,13 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>五任务固定20条续跑状态</title><style>body{font:16px/1.7 system-ui;max-width:1050px;margin:24px auto;padding:0 16px;overflow-wrap:anywhere}table{border-collapse:collapse}td,th{border:1px solid #aaa;padding:8px}.note{padding:12px;background:#fff4cf}</style>
+<a href="../">交接台</a> · <a href="task5-smoke20-and-pi05-admission-20261111.html">前一批完整终表及训练帧对照</a>
+<h1>五任务：固定20条辅助诊断续跑</h1><p>快照 2026-11-12T10:50:34.560727+00:00。这是诊断进度，不是全方法已验收。正式无辅助主表、冻结物理和计分参数均未改变。</p>
+<table><tr><th>方法</th><th>作业</th><th>平台状态</th><th>独立CPU已验原始日志</th><th>已闭合unknown</th><th>成绩</th></tr><tr><td>TTC ours30 h8</td><td>job-zfriblpigimq</td><td>RUNNING</td><td>4/20</td><td>0</td><td>未完成，成功率留空</td></tr><tr><td>Mem-0 new30 h8</td><td>job-z34c7atu5ajn</td><td>PENDING</td><td>1/20</td><td>1</td><td>未完成，成功率留空</td></tr>
+<tr><td>MemoryVLA #74 30k h8</td><td>前一批已退出</td><td>闭合</td><td>20/20</td><td>0</td><td>v1.1 0/20；r1-released 1/20</td></tr>
+<tr><td>π0.5 40k</td><td>现有Pro单卡纯推理</td><td>训练输入检查</td><td>无新策略仿真</td><td>不适用</td><td>原准入未通过，成功数留空</td></tr></table>
+<p>统一诊断条件为 G90_O_rmax_S3_stepcap_nativeFF_v4_DIAGNOSTIC。TTC保留scene0..3的4条有效闭合，仅续跑4..19；Mem-0保留scene1有效闭合和scene0耗尽重试的unknown，仅派发2..19。两者都是N1独立进程和只读模型池，原seed0/h8，同一20场景，未扩到100条。</p>
+<h2>Mem-0验收记录类型修复</h2><p>首次续跑的辅助验收脚本遗漏remote_NN_integration_diagnostic白名单项，全部18条会在物理复算前被拒绝。没有新增已验收结果。仅停止自己的该作业job-2sqx4d68krkq，读回STOPPED后使用已授权的一次基础设施补提。修复只增加已有记录类型，错误类型、checkpoint、variant和scored状态仍被拒绝。模型、rollout、控制/物理辅助和oracle源码未改；旧记录保留，不能把它们报为策略失败或成功。</p>
+<h2>π0.5边界</h2><p>使用原40k权重及其训练读取器，自己的third_person原始FFV1输入、q13、完整global_task，以及interval_end标签；不借用Mem-0/TTC的current_row。实际cu128解释器检查、原始训练元数据SHA已通过；完整权重SHA及五帧最终张量/固定噪声输出检查会随进度记录。纯NN不构成闭环准入，原full13专家轨迹门仍为9/10，未获准放宽。</p>
+<p>当前纯推理阶段：LOADING_ORIGINAL_PI05_40K。完整状态压缩文件：<a href="task5-fixed20-continuation-20261112.json.gz">JSON gzip</a>；解压SHA256 <code>7e5f4af5fa180c857f3b945139f716a0dd2cc166c51183d85a87dfedb6465315</code>。</p>
+<p class="note">未完成格子不填写成功率。unknown留在最终20条分母，未开始或在途场景不伪记unknown。MemoryVLA非零只发生在放宽辅助口径，正式v1.1仍是0/20。</p>
+</html>

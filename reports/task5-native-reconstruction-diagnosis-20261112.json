@@ -1,0 +1,161 @@
+{
+  "schema": "task5_source_edge_execution_diagnosis_v1",
+  "epoch": 1794515959.3622265,
+  "stage": "diagnostic",
+  "expert_id": "expert_000007",
+  "policy_trials": 0,
+  "full10_admission": false,
+  "formal_policy_success_rows_changed": false,
+  "original_gate_full13_rad": 0.005,
+  "old_interval_end_common_v4": {
+    "v11_phase": 3,
+    "v11_success": false,
+    "full13_RMSE_common_ticks": 0.012868916792196844,
+    "overlap_fraction": 0.2863715277777778,
+    "archive": {
+      "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_last_issued_origin_v4_native10_prepared_20261110/archives/T939_pi05_lastissued_v4_expert_000007.tar.gz",
+      "bytes": 138332313,
+      "sha256": "ba562b3e2a14f188b5967a74da55f9368d3d90ce6b57e9cc2001a1ee4d7b0504",
+      "GET_SHA": true
+    }
+  },
+  "exact_native120_repeats": {
+    "repetitions": 2,
+    "physical_successes": 2,
+    "full13_RMSE_rad": [
+      0.0,
+      0.0
+    ],
+    "completion_ticks": [
+      3508,
+      6927,
+      9936,
+      12830,
+      16623
+    ],
+    "archives": [
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/native_bitexact_reference_probe_20261112/archives/T939_exact120_expert007_repeat0.tar.gz",
+        "bytes": 45778087,
+        "sha256": "db1cc2bb8614f9c2a0db0ecfb97b0be25a54b4a91f52c469c1d8096ed4b63944",
+        "GET_SHA": true
+      },
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/native_bitexact_reference_probe_20261112/archives/T939_exact120_expert007_repeat1.tar.gz",
+        "bytes": 45761821,
+        "sha256": "d421da3f9cbcbc48e7ec1a41bf6af3c6667c59393c4fa1ff4ab0686f4a5f1e24",
+        "GET_SHA": true
+      }
+    ],
+    "ROOT_independent_SHA_and_oracle_checks": true
+  },
+  "source_edge_single_K4": {
+    "case_id": "T939_pi05_source_edge_expert_000007",
+    "archive": {
+      "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_source_edge_initialization_expert007_20261112/archives/T939_pi05_source_edge_expert_000007.tar.gz",
+      "bytes": 47354559,
+      "sha256": "034e382564199bc5210c8f8cbbb65fa14a72c5e58dc0650f56b47789938bf995",
+      "GET_SHA": true
+    },
+    "code_package_SHA256": "948fa74f564edae646eaf43ffba6a0a433c2e1c793501f8ccef6d304f289a254",
+    "independent_v11_physical_success": true,
+    "v11_phase": 5,
+    "full13_RMSE_rad": 0.002594358190472709,
+    "arm7_RMSE_rad": 6.450138821510718e-05,
+    "hand6_RMSE_rad": 0.0038181562841807792,
+    "overlap_fraction": 0.999939379243453,
+    "original_full13_gate_passed": true
+  },
+  "cause_scope": "Matched source and reset, exact raw120 commands reproducible twice. Old interval_end bootstrap extrapolated negative-time history although the source clamps the previous knot to origin. Source-aware initial estimate from current10 endpoints plus previous=origin passed the previously failing expert under the same gate. Other inverse/rounding error remains; full fixed10 regression is required before policy rollout.",
+  "CPU_fixed10_first64_full13_command_RMSE_rad": {
+    "old": 1.6347181418797278e-06,
+    "source_edge": 1.20426541202046e-07
+  },
+  "prediction_contract": "original10x13 interval_end; no q13 or action semantic changes; no teacher data accessed by candidate initializer",
+  "unchanged": [
+    "model weights and input preprocessing",
+    "physics and scene/reset",
+    "G90/S3/support release helpers",
+    "v1.1 oracle and time_limit",
+    "full13 0.005 threshold"
+  ],
+  "regression_status": "STOPPED_ORIGINAL_GATE_FAILED: H4 verified3/10,2 passed;H8 verified1/10,0 passed. All4 physically complete5 but no full10 admission. No policy rollout.",
+  "withdrawn_inference": "The matched-case discrepancy cannot be dismissed as irreducible contact noise; no contact-partition gate waiver applied.",
+  "expert_regression_final": {
+    "4": {
+      "target": 10,
+      "verified": 3,
+      "passed_original_gate": 2,
+      "all10_original_gate_passed": false,
+      "cases": [
+        {
+          "expert": "expert_000007",
+          "v11_success": true,
+          "r1_success": true,
+          "home_v2_success": true,
+          "full13_RMSE_rad": 0.002594358190472709,
+          "original_gate_passed": true,
+          "archive": {
+            "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_source_edge_initialization_expert007_20261112/archives/T939_pi05_source_edge_expert_000007.tar.gz",
+            "bytes": 47354559,
+            "sha256": "034e382564199bc5210c8f8cbbb65fa14a72c5e58dc0650f56b47789938bf995",
+            "GET_SHA": true
+          }
+        },
+        {
+          "expert": "expert_000000",
+          "v11_success": true,
+          "r1_success": true,
+          "home_v2_success": true,
+          "full13_RMSE_rad": 0.003676964871582474,
+          "original_gate_passed": true,
+          "archive": {
+            "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_source_edge_expert_regression_20261112/h4_remaining9/archives/T939_source_edge_h4_expert_000000.tar.gz",
+            "bytes": 47879032,
+            "sha256": "0143f4335a8878f85f9db1f8b7aec651db289ba02de5816f729b272ed85debd0",
+            "GET_SHA": true
+          }
+        },
+        {
+          "expert": "expert_000001",
+          "v11_success": true,
+          "r1_success": true,
+          "home_v2_success": true,
+          "full13_RMSE_rad": 0.017529007411373466,
+          "original_gate_passed": false,
+          "archive": {
+            "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_source_edge_expert_regression_20261112/h4_remaining9/archives/T939_source_edge_h4_expert_000001.tar.gz",
+            "bytes": 47783178,
+            "sha256": "74d0409a309883bbc53bb3589af5d2598554998a5838c0197d26e1763bda5165",
+            "GET_SHA": true
+          }
+        }
+      ]
+    },
+    "8": {
+      "target": 10,
+      "verified": 1,
+      "passed_original_gate": 0,
+      "all10_original_gate_passed": false,
+      "cases": [
+        {
+          "expert": "expert_000007",
+          "v11_success": true,
+          "r1_success": true,
+          "home_v2_success": true,
+          "full13_RMSE_rad": 0.01960930634745179,
+          "original_gate_passed": false,
+          "archive": {
+            "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_source_edge_expert_regression_20261112/h8_first007/archives/T939_source_edge_h8_expert_000007.tar.gz",
+            "bytes": 47643814,
+            "sha256": "22f7b945b075e4a308a5a0b0a391e6eaf4dcbbc403e436c2cf8abe9ce0033c39",
+            "GET_SHA": true
+          }
+        }
+      ]
+    }
+  },
+  "updated_epoch": 1794518282.1500483,
+  "diagnostic_exception_requested": "Pending user decision: complete all10 physical experts, then at most20 explicitly unqualified policy diagnostic cases; original full13 admission remains failed and formal table unchanged.",
+  "contact_partition_note": "Does not solve new expert001: even both-no-joint q13 RMSE is0.0205926rad; do not reuse the old contact-only waiver proposal as a pass."
+}

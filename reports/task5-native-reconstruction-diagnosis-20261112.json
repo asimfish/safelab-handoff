@@ -1,0 +1,84 @@
+{
+  "schema": "task5_source_edge_execution_diagnosis_v1",
+  "epoch": 1794515959.3622265,
+  "stage": "diagnostic",
+  "expert_id": "expert_000007",
+  "policy_trials": 0,
+  "full10_admission": false,
+  "formal_policy_success_rows_changed": false,
+  "original_gate_full13_rad": 0.005,
+  "old_interval_end_common_v4": {
+    "v11_phase": 3,
+    "v11_success": false,
+    "full13_RMSE_common_ticks": 0.012868916792196844,
+    "overlap_fraction": 0.2863715277777778,
+    "archive": {
+      "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_last_issued_origin_v4_native10_prepared_20261110/archives/T939_pi05_lastissued_v4_expert_000007.tar.gz",
+      "bytes": 138332313,
+      "sha256": "ba562b3e2a14f188b5967a74da55f9368d3d90ce6b57e9cc2001a1ee4d7b0504",
+      "GET_SHA": true
+    }
+  },
+  "exact_native120_repeats": {
+    "repetitions": 2,
+    "physical_successes": 2,
+    "full13_RMSE_rad": [
+      0.0,
+      0.0
+    ],
+    "completion_ticks": [
+      3508,
+      6927,
+      9936,
+      12830,
+      16623
+    ],
+    "archives": [
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/native_bitexact_reference_probe_20261112/archives/T939_exact120_expert007_repeat0.tar.gz",
+        "bytes": 45778087,
+        "sha256": "db1cc2bb8614f9c2a0db0ecfb97b0be25a54b4a91f52c469c1d8096ed4b63944",
+        "GET_SHA": true
+      },
+      {
+        "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/native_bitexact_reference_probe_20261112/archives/T939_exact120_expert007_repeat1.tar.gz",
+        "bytes": 45761821,
+        "sha256": "d421da3f9cbcbc48e7ec1a41bf6af3c6667c59393c4fa1ff4ab0686f4a5f1e24",
+        "GET_SHA": true
+      }
+    ],
+    "ROOT_independent_SHA_and_oracle_checks": true
+  },
+  "source_edge_single_K4": {
+    "case_id": "T939_pi05_source_edge_expert_000007",
+    "archive": {
+      "path": "/projects/a02012413/buckets/zenith-a02012413/liyufeng/safelab_task5_phase2_uniform_20261108_v1/inference_rescue_20261108/pi05_source_edge_initialization_expert007_20261112/archives/T939_pi05_source_edge_expert_000007.tar.gz",
+      "bytes": 47354559,
+      "sha256": "034e382564199bc5210c8f8cbbb65fa14a72c5e58dc0650f56b47789938bf995",
+      "GET_SHA": true
+    },
+    "code_package_SHA256": "948fa74f564edae646eaf43ffba6a0a433c2e1c793501f8ccef6d304f289a254",
+    "independent_v11_physical_success": true,
+    "v11_phase": 5,
+    "full13_RMSE_rad": 0.002594358190472709,
+    "arm7_RMSE_rad": 6.450138821510718e-05,
+    "hand6_RMSE_rad": 0.0038181562841807792,
+    "overlap_fraction": 0.999939379243453,
+    "original_full13_gate_passed": true
+  },
+  "cause_scope": "Matched source and reset, exact raw120 commands reproducible twice. Old interval_end bootstrap extrapolated negative-time history although the source clamps the previous knot to origin. Source-aware initial estimate from current10 endpoints plus previous=origin passed the previously failing expert under the same gate. Other inverse/rounding error remains; full fixed10 regression is required before policy rollout.",
+  "CPU_fixed10_first64_full13_command_RMSE_rad": {
+    "old": 1.6347181418797278e-06,
+    "source_edge": 1.20426541202046e-07
+  },
+  "prediction_contract": "original10x13 interval_end; no q13 or action semantic changes; no teacher data accessed by candidate initializer",
+  "unchanged": [
+    "model weights and input preprocessing",
+    "physics and scene/reset",
+    "G90/S3/support release helpers",
+    "v1.1 oracle and time_limit",
+    "full13 0.005 threshold"
+  ],
+  "regression_status": "H4 remaining9 and H8 failed-expert check, independent existing-GPU processes; no policy trial until full gate",
+  "withdrawn_inference": "The matched-case discrepancy cannot be dismissed as irreducible contact noise; no contact-partition gate waiver applied."
+}

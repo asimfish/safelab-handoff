@@ -1,0 +1,1083 @@
+{
+  "stage": "diagnostic",
+  "formal_score_eligible": false,
+  "new_model_queries": 0,
+  "new_physical_steps": 0,
+  "source_sha256": "2f276921960308f26eb2f59de4820ac926c70240cb5f5c0f292869cc793c0858",
+  "source_path": "/project_a02012413/public/liyufeng/task7_night_takeover_20261106/memoryvla83_localspool_20261110/storage_recovery_20261113/CPU_FIRST_DIVERGENCE_WARM24_V1.json",
+  "rows": [
+    {
+      "episode": 0,
+      "case_id": "diag_uniform_raw15_pi05warm24full2_warm24_h4__v180_o1234_r001",
+      "order": "1234",
+      "closed_seed": 739001,
+      "teacher_prediction_seed": 739000,
+      "data_pairing_proven": {
+        "q13_cache_equals_actual_Parquet_observation_state": true,
+        "q13_cache_equals_exact_shared_native_ticks_from_prior_30Hz_physics_extract": true,
+        "no_state_interpolation": true,
+        "target_cache_equals_last_valid_of_8_native_ticks": true,
+        "state_and_render_tick_ids_match_between_source_and_live": true,
+        "deployment_full_text_equals_training_global_task_first300": true,
+        "postprocessed_selected_forecast_equals_endpoint_first300": true,
+        "actual_SDK_interval_end_vs_endpoint": {
+          "arm_RMSE_rad": 0.0,
+          "hand_RMSE_rad": 0.0,
+          "arm_max_abs_rad": 0.0,
+          "hand_max_abs_rad": 0.0
+        }
+      },
+      "same_time_not_same_state_limit": "Tick IDs pair exactly; after actions diverge they are different trajectories/states. Teacher and deployment images and RNG differ; this is not a controlled image-only A/B.",
+      "state_error_first_threshold_crossing_frame": {
+        "arm": {
+          "1e-06": 5,
+          "0.001": 24,
+          "0.005": 25,
+          "0.01": 33,
+          "0.05": 47,
+          "0.1": 53
+        },
+        "hand": {
+          "1e-06": 1,
+          "0.001": 2,
+          "0.005": 5,
+          "0.01": 6,
+          "0.05": 8,
+          "0.1": 112
+        }
+      },
+      "postprocessed_target_error_first_threshold_crossing_frame": {
+        "arm": {
+          "1e-06": 24,
+          "0.001": 24,
+          "0.005": 24,
+          "0.01": 32,
+          "0.05": 46,
+          "0.1": 52
+        },
+        "hand": {
+          "1e-06": 0,
+          "0.001": 0,
+          "0.005": 0,
+          "0.01": 0,
+          "0.05": 4,
+          "0.1": 4
+        }
+      },
+      "original_NN_selected_target_error_first_threshold_crossing_frame": {
+        "arm": {
+          "1e-06": 0,
+          "0.001": 0,
+          "0.005": 0,
+          "0.01": 1,
+          "0.05": 46,
+          "0.1": 52
+        },
+        "hand": {
+          "1e-06": 0,
+          "0.001": 0,
+          "0.005": 0,
+          "0.01": 0,
+          "0.05": 4,
+          "0.1": 4
+        }
+      },
+      "actual_NN_queries_in_first300_frames": 75,
+      "whole_prefix_metric": {
+        "live_state_vs_training": {
+          "arm_RMSE_rad": 0.6807897841456138,
+          "hand_RMSE_rad": 0.08335895357596705,
+          "arm_max_abs_rad": 2.2095851004123688,
+          "hand_max_abs_rad": 0.3312819004058838
+        },
+        "selected_endpoint_vs_training_interval_end": {
+          "arm_RMSE_rad": 0.6816822937263516,
+          "hand_RMSE_rad": 0.11112584472389325,
+          "arm_max_abs_rad": 2.208985775709152,
+          "hand_max_abs_rad": 0.4911525249481201
+        },
+        "original_NN_selected_vs_training_interval_end": {
+          "arm_RMSE_rad": 0.6816859491931023,
+          "hand_RMSE_rad": 0.11112584472389325,
+          "arm_max_abs_rad": 2.208985775709152,
+          "hand_max_abs_rad": 0.4911525249481201
+        },
+        "teacher_frame_NN_first_vs_training_interval_end": {
+          "arm_RMSE_rad": 0.00570863674741347,
+          "hand_RMSE_rad": 0.005122477323071382,
+          "arm_max_abs_rad": 0.04729485511779785,
+          "hand_max_abs_rad": 0.08275607228279114
+        }
+      },
+      "movement_boundary": {
+        "first_arm_label_diff_from_initial_target_gt1e6_frame": 26,
+        "first_arm_label_diff_gt5mrad_frame": 32,
+        "first_hand_label_diff_gt1e6_frame": 1,
+        "training_arm_target_first24_exact_constant": true
+      },
+      "requested_frame_table": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "observation_native_tick": 124,
+          "render_native_tick": 121,
+          "target_interval_end_native_tick": 132,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 1.8300745315294008e-07,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 4.3213367462158203e-07
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.03128789198936094,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.07597007788717747
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.03128789198936094,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.07597007788717747
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.009436878324625777,
+            "hand_RMSE_rad": 0.03128789198936094,
+            "arm_max_abs_rad": 0.01808488368988037,
+            "hand_max_abs_rad": 0.07597007788717747
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.011380065714733545,
+            "hand_RMSE_rad": 0.022318787083687494,
+            "arm_max_abs_rad": 0.021632790565490723,
+            "hand_max_abs_rad": 0.053253958001732826
+          },
+          "last_actual_NN_call_frame": 0,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": true
+        },
+        {
+          "frame": 23,
+          "seconds": 1.5333333333333334,
+          "observation_native_tick": 308,
+          "render_native_tick": 305,
+          "target_interval_end_native_tick": 316,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.00032931890228702206,
+            "hand_RMSE_rad": 0.031628659356063536,
+            "arm_max_abs_rad": 0.0007894039154052734,
+            "hand_max_abs_rad": 0.07713210582733154
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.0030173549097120473,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.0061686038970947266
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.0030173549097120473,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.0061686038970947266
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.004470693913569131,
+            "hand_RMSE_rad": 0.0030173549097120473,
+            "arm_max_abs_rad": 0.010755300521850586,
+            "hand_max_abs_rad": 0.0061686038970947266
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.004652763243919703,
+            "hand_RMSE_rad": 0.004953624595919331,
+            "arm_max_abs_rad": 0.008162647485733032,
+            "hand_max_abs_rad": 0.011233329772949219
+          },
+          "last_actual_NN_call_frame": 20,
+          "selected_forecast_age_frames": 3,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": true
+        },
+        {
+          "frame": 24,
+          "seconds": 1.6,
+          "observation_native_tick": 316,
+          "render_native_tick": 313,
+          "target_interval_end_native_tick": 324,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0013651946273118875,
+            "hand_RMSE_rad": 0.02772047976836263,
+            "arm_max_abs_rad": 0.0032799243927001953,
+            "hand_max_abs_rad": 0.06755805015563965
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.007209015203454267,
+            "hand_RMSE_rad": 0.010402710040010183,
+            "arm_max_abs_rad": 0.014390110969543457,
+            "hand_max_abs_rad": 0.023406624794006348
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.007209015203454267,
+            "hand_RMSE_rad": 0.010402710040010183,
+            "arm_max_abs_rad": 0.014390110969543457,
+            "hand_max_abs_rad": 0.023406624794006348
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.007209015203454267,
+            "hand_RMSE_rad": 0.010402710040010183,
+            "arm_max_abs_rad": 0.014390110969543457,
+            "hand_max_abs_rad": 0.023406624794006348
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.0037666747678746274,
+            "hand_RMSE_rad": 0.0026656108916641155,
+            "arm_max_abs_rad": 0.005553513765335083,
+            "hand_max_abs_rad": 0.006088733673095703
+          },
+          "last_actual_NN_call_frame": 24,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 30,
+          "seconds": 2.0,
+          "observation_native_tick": 364,
+          "render_native_tick": 361,
+          "target_interval_end_native_tick": 372,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.00739536790760455,
+            "hand_RMSE_rad": 0.015498891674163245,
+            "arm_max_abs_rad": 0.01245543360710144,
+            "hand_max_abs_rad": 0.0375213623046875
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.008872153346576594,
+            "hand_RMSE_rad": 0.0067846819838167935,
+            "arm_max_abs_rad": 0.015245944261550903,
+            "hand_max_abs_rad": 0.016301751136779785
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.008872153346576594,
+            "hand_RMSE_rad": 0.0067846819838167935,
+            "arm_max_abs_rad": 0.015245944261550903,
+            "hand_max_abs_rad": 0.016301751136779785
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.008872153346576594,
+            "hand_RMSE_rad": 0.0067846819838167935,
+            "arm_max_abs_rad": 0.015245944261550903,
+            "hand_max_abs_rad": 0.016301751136779785
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.002859485472001431,
+            "hand_RMSE_rad": 0.0029347923638235293,
+            "arm_max_abs_rad": 0.004590272903442383,
+            "hand_max_abs_rad": 0.0045899152755737305
+          },
+          "last_actual_NN_call_frame": 28,
+          "selected_forecast_age_frames": 2,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 50,
+          "seconds": 3.3333333333333335,
+          "observation_native_tick": 524,
+          "render_native_tick": 521,
+          "target_interval_end_native_tick": 532,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.07787602653586997,
+            "hand_RMSE_rad": 0.004867490289354673,
+            "arm_max_abs_rad": 0.1027776449918747,
+            "hand_max_abs_rad": 0.010611772537231445
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.08683138672081189,
+            "hand_RMSE_rad": 0.002697021614314666,
+            "arm_max_abs_rad": 0.11908401548862457,
+            "hand_max_abs_rad": 0.005074858665466309
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.08683138672081189,
+            "hand_RMSE_rad": 0.002697021614314666,
+            "arm_max_abs_rad": 0.11908401548862457,
+            "hand_max_abs_rad": 0.005074858665466309
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.08683138672081189,
+            "hand_RMSE_rad": 0.002697021614314666,
+            "arm_max_abs_rad": 0.11908401548862457,
+            "hand_max_abs_rad": 0.005074858665466309
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.0030211028295470425,
+            "hand_RMSE_rad": 0.004995702733828146,
+            "arm_max_abs_rad": 0.005777716636657715,
+            "hand_max_abs_rad": 0.012142062187194824
+          },
+          "last_actual_NN_call_frame": 48,
+          "selected_forecast_age_frames": 2,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 100,
+          "seconds": 6.666666666666667,
+          "observation_native_tick": 924,
+          "render_native_tick": 921,
+          "target_interval_end_native_tick": 932,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.6877975458881544,
+            "hand_RMSE_rad": 0.0034053013551973337,
+            "arm_max_abs_rad": 1.1811589300632477,
+            "hand_max_abs_rad": 0.004904031753540039
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.705310751792487,
+            "hand_RMSE_rad": 0.017957534473533068,
+            "arm_max_abs_rad": 1.1995744407176971,
+            "hand_max_abs_rad": 0.030054569244384766
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.705310751792487,
+            "hand_RMSE_rad": 0.017957534473533068,
+            "arm_max_abs_rad": 1.1995744407176971,
+            "hand_max_abs_rad": 0.030054569244384766
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.705310751792487,
+            "hand_RMSE_rad": 0.017957534473533068,
+            "arm_max_abs_rad": 1.1995744407176971,
+            "hand_max_abs_rad": 0.030054569244384766
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.005594480489472803,
+            "hand_RMSE_rad": 0.0025538970949901736,
+            "arm_max_abs_rad": 0.009218215942382812,
+            "hand_max_abs_rad": 0.0057294368743896484
+          },
+          "last_actual_NN_call_frame": 100,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 150,
+          "seconds": 10.0,
+          "observation_native_tick": 1324,
+          "render_native_tick": 1321,
+          "target_interval_end_native_tick": 1332,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 1.0485323690121748,
+            "hand_RMSE_rad": 0.05273933053168771,
+            "arm_max_abs_rad": 2.204465925693512,
+            "hand_max_abs_rad": 0.08395767211914062
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 1.048510679735764,
+            "hand_RMSE_rad": 0.012306762647438664,
+            "arm_max_abs_rad": 2.207842230796814,
+            "hand_max_abs_rad": 0.019923925399780273
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 1.048510679735764,
+            "hand_RMSE_rad": 0.012306762647438664,
+            "arm_max_abs_rad": 2.207842230796814,
+            "hand_max_abs_rad": 0.019923925399780273
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 1.048510679735764,
+            "hand_RMSE_rad": 0.012306762647438664,
+            "arm_max_abs_rad": 2.207842230796814,
+            "hand_max_abs_rad": 0.019923925399780273
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.006736126988317,
+            "hand_RMSE_rad": 0.001988806622564232,
+            "arm_max_abs_rad": 0.009142637252807617,
+            "hand_max_abs_rad": 0.0035288333892822266
+          },
+          "last_actual_NN_call_frame": 148,
+          "selected_forecast_age_frames": 2,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 200,
+          "seconds": 13.333333333333334,
+          "observation_native_tick": 1724,
+          "render_native_tick": 1721,
+          "target_interval_end_native_tick": 1732,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.9577328979458664,
+            "hand_RMSE_rad": 0.10239745030700269,
+            "arm_max_abs_rad": 1.7207388579845428,
+            "hand_max_abs_rad": 0.15471148490905762
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.9585352658282602,
+            "hand_RMSE_rad": 0.06348484505075415,
+            "arm_max_abs_rad": 1.722757551819086,
+            "hand_max_abs_rad": 0.10200285911560059
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.9585352658282602,
+            "hand_RMSE_rad": 0.06348484505075415,
+            "arm_max_abs_rad": 1.722757551819086,
+            "hand_max_abs_rad": 0.10200285911560059
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.9585352658282602,
+            "hand_RMSE_rad": 0.06348484505075415,
+            "arm_max_abs_rad": 1.722757551819086,
+            "hand_max_abs_rad": 0.10200285911560059
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.003602044521498639,
+            "hand_RMSE_rad": 0.0022200591402493676,
+            "arm_max_abs_rad": 0.008700132369995117,
+            "hand_max_abs_rad": 0.003389596939086914
+          },
+          "last_actual_NN_call_frame": 200,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 299,
+          "seconds": 19.933333333333334,
+          "observation_native_tick": 2516,
+          "render_native_tick": 2513,
+          "target_interval_end_native_tick": 2524,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.23943587213341538,
+            "hand_RMSE_rad": 0.03392942665705736,
+            "arm_max_abs_rad": 0.44300417602062225,
+            "hand_max_abs_rad": 0.0659656822681427
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.2555937943815402,
+            "hand_RMSE_rad": 0.01419681600311219,
+            "arm_max_abs_rad": 0.4655512422323227,
+            "hand_max_abs_rad": 0.023415565490722656
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.2555937943815402,
+            "hand_RMSE_rad": 0.01419681600311219,
+            "arm_max_abs_rad": 0.4655512422323227,
+            "hand_max_abs_rad": 0.023415565490722656
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.2555937943815402,
+            "hand_RMSE_rad": 0.01419681600311219,
+            "arm_max_abs_rad": 0.4655512422323227,
+            "hand_max_abs_rad": 0.023415565490722656
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.0054551065574366,
+            "hand_RMSE_rad": 0.00160313188337555,
+            "arm_max_abs_rad": 0.008401215076446533,
+            "hand_max_abs_rad": 0.003505706787109375
+          },
+          "last_actual_NN_call_frame": 296,
+          "selected_forecast_age_frames": 3,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        }
+      ]
+    },
+    {
+      "episode": 50,
+      "case_id": "diag_uniform_raw15_pi05warm24full2_warm24_h4__v180_o4321_r001",
+      "order": "4321",
+      "closed_seed": 739051,
+      "teacher_prediction_seed": 739050,
+      "data_pairing_proven": {
+        "q13_cache_equals_actual_Parquet_observation_state": true,
+        "q13_cache_equals_exact_shared_native_ticks_from_prior_30Hz_physics_extract": true,
+        "no_state_interpolation": true,
+        "target_cache_equals_last_valid_of_8_native_ticks": true,
+        "state_and_render_tick_ids_match_between_source_and_live": true,
+        "deployment_full_text_equals_training_global_task_first300": true,
+        "postprocessed_selected_forecast_equals_endpoint_first300": true,
+        "actual_SDK_interval_end_vs_endpoint": {
+          "arm_RMSE_rad": 0.0,
+          "hand_RMSE_rad": 0.0,
+          "arm_max_abs_rad": 0.0,
+          "hand_max_abs_rad": 0.0
+        }
+      },
+      "same_time_not_same_state_limit": "Tick IDs pair exactly; after actions diverge they are different trajectories/states. Teacher and deployment images and RNG differ; this is not a controlled image-only A/B.",
+      "state_error_first_threshold_crossing_frame": {
+        "arm": {
+          "1e-06": 3,
+          "0.001": 24,
+          "0.005": 30,
+          "0.01": 33,
+          "0.05": 53,
+          "0.1": 123
+        },
+        "hand": {
+          "1e-06": 1,
+          "0.001": 2,
+          "0.005": 4,
+          "0.01": 6,
+          "0.05": 93,
+          "0.1": 97
+        }
+      },
+      "postprocessed_target_error_first_threshold_crossing_frame": {
+        "arm": {
+          "1e-06": 24,
+          "0.001": 24,
+          "0.005": 25,
+          "0.01": 32,
+          "0.05": 52,
+          "0.1": 122
+        },
+        "hand": {
+          "1e-06": 0,
+          "0.001": 0,
+          "0.005": 0,
+          "0.01": 0,
+          "0.05": 4,
+          "0.1": 89
+        }
+      },
+      "original_NN_selected_target_error_first_threshold_crossing_frame": {
+        "arm": {
+          "1e-06": 0,
+          "0.001": 0,
+          "0.005": 0,
+          "0.01": 0,
+          "0.05": 52,
+          "0.1": 122
+        },
+        "hand": {
+          "1e-06": 0,
+          "0.001": 0,
+          "0.005": 0,
+          "0.01": 0,
+          "0.05": 4,
+          "0.1": 89
+        }
+      },
+      "actual_NN_queries_in_first300_frames": 75,
+      "whole_prefix_metric": {
+        "live_state_vs_training": {
+          "arm_RMSE_rad": 0.10260496815045508,
+          "hand_RMSE_rad": 0.05326617777718263,
+          "arm_max_abs_rad": 0.4981750249862671,
+          "hand_max_abs_rad": 0.34879016876220703
+        },
+        "selected_endpoint_vs_training_interval_end": {
+          "arm_RMSE_rad": 0.10338835548850224,
+          "hand_RMSE_rad": 0.08253946239891667,
+          "arm_max_abs_rad": 0.5015392303466797,
+          "hand_max_abs_rad": 0.6727275848388672
+        },
+        "original_NN_selected_vs_training_interval_end": {
+          "arm_RMSE_rad": 0.10340305702849596,
+          "hand_RMSE_rad": 0.08253946239891667,
+          "arm_max_abs_rad": 0.5015392303466797,
+          "hand_max_abs_rad": 0.6727275848388672
+        },
+        "teacher_frame_NN_first_vs_training_interval_end": {
+          "arm_RMSE_rad": 0.006498023214903991,
+          "hand_RMSE_rad": 0.006080252634734733,
+          "arm_max_abs_rad": 0.03070266917347908,
+          "hand_max_abs_rad": 0.10923711489886045
+        }
+      },
+      "movement_boundary": {
+        "first_arm_label_diff_from_initial_target_gt1e6_frame": 26,
+        "first_arm_label_diff_gt5mrad_frame": 30,
+        "first_hand_label_diff_gt1e6_frame": 1,
+        "training_arm_target_first24_exact_constant": true
+      },
+      "requested_frame_table": [
+        {
+          "frame": 0,
+          "seconds": 0.0,
+          "observation_native_tick": 124,
+          "render_native_tick": 121,
+          "target_interval_end_native_tick": 132,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 1.8300745315294008e-07,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 4.3213367462158203e-07
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.021784788257603806,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.05142258666455746
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.021784788257603806,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.05142258666455746
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.013356621641922679,
+            "hand_RMSE_rad": 0.021784788257603806,
+            "arm_max_abs_rad": 0.023153841495513916,
+            "hand_max_abs_rad": 0.05142258666455746
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.012104927199563041,
+            "hand_RMSE_rad": 0.034755290358933794,
+            "arm_max_abs_rad": 0.02551412582397461,
+            "hand_max_abs_rad": 0.08393623121082783
+          },
+          "last_actual_NN_call_frame": 0,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": true
+        },
+        {
+          "frame": 23,
+          "seconds": 1.5333333333333334,
+          "observation_native_tick": 308,
+          "render_native_tick": 305,
+          "target_interval_end_native_tick": 316,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0002564704280206218,
+            "hand_RMSE_rad": 0.01627659529749548,
+            "arm_max_abs_rad": 0.00035512447357177734,
+            "hand_max_abs_rad": 0.03971457481384277
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.0037826666254841507,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.009172201156616211
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0,
+            "hand_RMSE_rad": 0.0037826666254841507,
+            "arm_max_abs_rad": 0.0,
+            "hand_max_abs_rad": 0.009172201156616211
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.005120684386426156,
+            "hand_RMSE_rad": 0.0037826666254841507,
+            "arm_max_abs_rad": 0.006733357906341553,
+            "hand_max_abs_rad": 0.009172201156616211
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.0035787675096978755,
+            "hand_RMSE_rad": 0.0025371355837670857,
+            "arm_max_abs_rad": 0.009019017219543457,
+            "hand_max_abs_rad": 0.0051163434982299805
+          },
+          "last_actual_NN_call_frame": 20,
+          "selected_forecast_age_frames": 3,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": true
+        },
+        {
+          "frame": 24,
+          "seconds": 1.6,
+          "observation_native_tick": 316,
+          "render_native_tick": 313,
+          "target_interval_end_native_tick": 324,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0012450899425376046,
+            "hand_RMSE_rad": 0.014640525900280369,
+            "arm_max_abs_rad": 0.0019030570983886719,
+            "hand_max_abs_rad": 0.035736918449401855
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0039976660145600385,
+            "hand_RMSE_rad": 0.00483916668786313,
+            "arm_max_abs_rad": 0.007799029350280762,
+            "hand_max_abs_rad": 0.011206626892089844
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.0039976660145600385,
+            "hand_RMSE_rad": 0.00483916668786313,
+            "arm_max_abs_rad": 0.007799029350280762,
+            "hand_max_abs_rad": 0.011206626892089844
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.0039976660145600385,
+            "hand_RMSE_rad": 0.00483916668786313,
+            "arm_max_abs_rad": 0.007799029350280762,
+            "hand_max_abs_rad": 0.011206626892089844
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.006207855329655784,
+            "hand_RMSE_rad": 0.0034456617605177534,
+            "arm_max_abs_rad": 0.012097299098968506,
+            "hand_max_abs_rad": 0.004736542701721191
+          },
+          "last_actual_NN_call_frame": 24,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 30,
+          "seconds": 2.0,
+          "observation_native_tick": 364,
+          "render_native_tick": 361,
+          "target_interval_end_native_tick": 372,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0053780745714166215,
+            "hand_RMSE_rad": 0.008115070125180047,
+            "arm_max_abs_rad": 0.009648621082305908,
+            "hand_max_abs_rad": 0.01978933811187744
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.007358016423933737,
+            "hand_RMSE_rad": 0.004431366477654714,
+            "arm_max_abs_rad": 0.011899083852767944,
+            "hand_max_abs_rad": 0.010251641273498535
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.007358016423933737,
+            "hand_RMSE_rad": 0.004431366477654714,
+            "arm_max_abs_rad": 0.011899083852767944,
+            "hand_max_abs_rad": 0.010251641273498535
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.007358016423933737,
+            "hand_RMSE_rad": 0.004431366477654714,
+            "arm_max_abs_rad": 0.011899083852767944,
+            "hand_max_abs_rad": 0.010251641273498535
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.0014184382833590295,
+            "hand_RMSE_rad": 0.0020290952989155337,
+            "arm_max_abs_rad": 0.0028579235076904297,
+            "hand_max_abs_rad": 0.004605650901794434
+          },
+          "last_actual_NN_call_frame": 28,
+          "selected_forecast_age_frames": 2,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 50,
+          "seconds": 3.3333333333333335,
+          "observation_native_tick": 524,
+          "render_native_tick": 521,
+          "target_interval_end_native_tick": 532,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.041253307442051634,
+            "hand_RMSE_rad": 0.003279178519776528,
+            "arm_max_abs_rad": 0.05301189422607422,
+            "hand_max_abs_rad": 0.005986690521240234
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.042353050681010716,
+            "hand_RMSE_rad": 0.003211742208519313,
+            "arm_max_abs_rad": 0.054830074310302734,
+            "hand_max_abs_rad": 0.004713535308837891
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.042353050681010716,
+            "hand_RMSE_rad": 0.003211742208519313,
+            "arm_max_abs_rad": 0.054830074310302734,
+            "hand_max_abs_rad": 0.004713535308837891
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.042353050681010716,
+            "hand_RMSE_rad": 0.003211742208519313,
+            "arm_max_abs_rad": 0.054830074310302734,
+            "hand_max_abs_rad": 0.004713535308837891
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.00561611965637466,
+            "hand_RMSE_rad": 0.0025361626124665517,
+            "arm_max_abs_rad": 0.011916577816009521,
+            "hand_max_abs_rad": 0.00351870059967041
+          },
+          "last_actual_NN_call_frame": 48,
+          "selected_forecast_age_frames": 2,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 100,
+          "seconds": 6.666666666666667,
+          "observation_native_tick": 924,
+          "render_native_tick": 921,
+          "target_interval_end_native_tick": 932,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.0278943065522554,
+            "hand_RMSE_rad": 0.12704381420426838,
+            "arm_max_abs_rad": 0.036250919103622437,
+            "hand_max_abs_rad": 0.2034447193145752
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.019955856763200677,
+            "hand_RMSE_rad": 0.06097361943272009,
+            "arm_max_abs_rad": 0.0274735689163208,
+            "hand_max_abs_rad": 0.0966799259185791
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.019955856763200677,
+            "hand_RMSE_rad": 0.06097361943272009,
+            "arm_max_abs_rad": 0.0274735689163208,
+            "hand_max_abs_rad": 0.0966799259185791
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.019955856763200677,
+            "hand_RMSE_rad": 0.06097361943272009,
+            "arm_max_abs_rad": 0.0274735689163208,
+            "hand_max_abs_rad": 0.0966799259185791
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.005137940041737575,
+            "hand_RMSE_rad": 0.00032486791287858425,
+            "arm_max_abs_rad": 0.008220434188842773,
+            "hand_max_abs_rad": 0.0006368160247802734
+          },
+          "last_actual_NN_call_frame": 100,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 150,
+          "seconds": 10.0,
+          "observation_native_tick": 1324,
+          "render_native_tick": 1321,
+          "target_interval_end_native_tick": 1332,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.037267223628361046,
+            "hand_RMSE_rad": 0.0018778768339091335,
+            "arm_max_abs_rad": 0.07419417053461075,
+            "hand_max_abs_rad": 0.0023059844970703125
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.030355312862562583,
+            "hand_RMSE_rad": 0.005973849768626015,
+            "arm_max_abs_rad": 0.05730673670768738,
+            "hand_max_abs_rad": 0.009575128555297852
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.030355312862562583,
+            "hand_RMSE_rad": 0.005973849768626015,
+            "arm_max_abs_rad": 0.05730673670768738,
+            "hand_max_abs_rad": 0.009575128555297852
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.030355312862562583,
+            "hand_RMSE_rad": 0.005973849768626015,
+            "arm_max_abs_rad": 0.05730673670768738,
+            "hand_max_abs_rad": 0.009575128555297852
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.00460112499136789,
+            "hand_RMSE_rad": 0.0024674533222254357,
+            "arm_max_abs_rad": 0.010674238204956055,
+            "hand_max_abs_rad": 0.004714250564575195
+          },
+          "last_actual_NN_call_frame": 148,
+          "selected_forecast_age_frames": 2,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 200,
+          "seconds": 13.333333333333334,
+          "observation_native_tick": 1724,
+          "render_native_tick": 1721,
+          "target_interval_end_native_tick": 1732,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.26842217141595437,
+            "hand_RMSE_rad": 0.015073680565236214,
+            "arm_max_abs_rad": 0.4262019395828247,
+            "hand_max_abs_rad": 0.02540886402130127
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.26624990623214545,
+            "hand_RMSE_rad": 0.003272042112072863,
+            "arm_max_abs_rad": 0.4216725826263428,
+            "hand_max_abs_rad": 0.006305217742919922
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.26624990623214545,
+            "hand_RMSE_rad": 0.003272042112072863,
+            "arm_max_abs_rad": 0.4216725826263428,
+            "hand_max_abs_rad": 0.006305217742919922
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.26624990623214545,
+            "hand_RMSE_rad": 0.003272042112072863,
+            "arm_max_abs_rad": 0.4216725826263428,
+            "hand_max_abs_rad": 0.006305217742919922
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.004268696437500215,
+            "hand_RMSE_rad": 0.0008362186617224639,
+            "arm_max_abs_rad": 0.007521539926528931,
+            "hand_max_abs_rad": 0.0016481876373291016
+          },
+          "last_actual_NN_call_frame": 200,
+          "selected_forecast_age_frames": 0,
+          "selected_forecast_is_new_NN_on_this_frame": true,
+          "warm_arm_mask_applied_to_current_target": false
+        },
+        {
+          "frame": 299,
+          "seconds": 19.933333333333334,
+          "observation_native_tick": 2516,
+          "render_native_tick": 2513,
+          "target_interval_end_native_tick": 2524,
+          "training_label_valid_steps": 8,
+          "state_live_vs_training": {
+            "arm_RMSE_rad": 0.027022611042144044,
+            "hand_RMSE_rad": 0.06492794605976944,
+            "arm_max_abs_rad": 0.044297099113464355,
+            "hand_max_abs_rad": 0.10670804977416992
+          },
+          "selected_endpoint_live_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.02708560596083715,
+            "hand_RMSE_rad": 0.002005668301502686,
+            "arm_max_abs_rad": 0.04528641700744629,
+            "hand_max_abs_rad": 0.003562450408935547
+          },
+          "actual_SDK_end_target_vs_training_interval_end_label": {
+            "arm_RMSE_rad": 0.02708560596083715,
+            "hand_RMSE_rad": 0.002005668301502686,
+            "arm_max_abs_rad": 0.04528641700744629,
+            "hand_max_abs_rad": 0.003562450408935547
+          },
+          "original_NN_selected_forecast_vs_training_label": {
+            "arm_RMSE_rad": 0.02708560596083715,
+            "hand_RMSE_rad": 0.002005668301502686,
+            "arm_max_abs_rad": 0.04528641700744629,
+            "hand_max_abs_rad": 0.003562450408935547
+          },
+          "teacher_frame_cached_NN_first_prediction_vs_label": {
+            "arm_RMSE_rad": 0.006197943555830582,
+            "hand_RMSE_rad": 0.0004682700043951564,
+            "arm_max_abs_rad": 0.013629287481307983,
+            "hand_max_abs_rad": 0.0005698204040527344
+          },
+          "last_actual_NN_call_frame": 296,
+          "selected_forecast_age_frames": 3,
+          "selected_forecast_is_new_NN_on_this_frame": false,
+          "warm_arm_mask_applied_to_current_target": false
+        }
+      ]
+    }
+  ],
+  "crossorder_target_proximity": {
+    "stage": "diagnostic",
+    "new_model_queries": 0,
+    "new_raw_reads": 0,
+    "source": "/project_a02012413/public/liyufeng/task7_night_takeover_20261106/memoryvla83_localspool_20261110/storage_recovery_20261113/CPU_FIRST_DIVERGENCE_WARM24_V1.json",
+    "source_sha256": "2f276921960308f26eb2f59de4820ac926c70240cb5f5c0f292869cc793c0858",
+    "n": 2,
+    "rows": [
+      {
+        "frame": 0,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.009436878324625777,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.009436878324625777,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.013356621641922679,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.013356621641922679,
+        "training_forward_reverse_target_arm_separation": 0.0
+      },
+      {
+        "frame": 23,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.004470693913569131,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.004470693913569131,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.005120684386426156,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.005120684386426156,
+        "training_forward_reverse_target_arm_separation": 0.0
+      },
+      {
+        "frame": 24,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.007209015203454267,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.007209015203454267,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.0039976660145600385,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.0039976660145600385,
+        "training_forward_reverse_target_arm_separation": 0.0
+      },
+      {
+        "frame": 30,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.008872153346576594,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.005954490337783745,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.01022328069354952,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.007358016423933737,
+        "training_forward_reverse_target_arm_separation": 0.003632074816260343
+      },
+      {
+        "frame": 50,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.08683138672081189,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.14283443457872247,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.2696385526865639,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.042353050681010716,
+        "training_forward_reverse_target_arm_separation": 0.22752534625288937
+      },
+      {
+        "frame": 100,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.705310751792487,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.017920708813901846,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.7004705304413333,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.019955856763200677,
+        "training_forward_reverse_target_arm_separation": 0.7028699100013246
+      },
+      {
+        "frame": 150,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 1.048510679735764,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.05147952162258892,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 1.0503916657837733,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.030355312862562583,
+        "training_forward_reverse_target_arm_separation": 1.0371722841199116
+      },
+      {
+        "frame": 200,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.9585352658282602,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.021474227142789144,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 1.0728368884965873,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.26624990623214545,
+        "training_forward_reverse_target_arm_separation": 0.9666531315679857
+      },
+      {
+        "frame": 299,
+        "forward_actual_original_NN_arm_distance_to_forward_label": 0.2555937943815402,
+        "forward_actual_original_NN_arm_distance_to_reverse_label": 0.36406454772555236,
+        "reverse_actual_original_NN_arm_distance_to_forward_label": 0.2517129239045424,
+        "reverse_actual_original_NN_arm_distance_to_reverse_label": 0.02708560596083715,
+        "training_forward_reverse_target_arm_separation": 0.2749919714720016
+      }
+    ],
+    "scope": "Numerical joint-target reference proximity at matched native ticks; not Cartesian intent or a proof of ignored order. Forward/reverse expert trajectories have different operation timing after the common start, which limits interpretation.",
+    "no_new_scores": true
+  },
+  "limitations": [
+    "This compares matched clock indices from two different closed-loop trajectories; same-time does not imply same-state after divergence.",
+    "Cached teacher predictions are newly sampled on every training frame with seed739000+episode; actual deployment predicts every4 frames with seed739001/739051, so noises and model inputs are not identical.",
+    "State q13 belongs to tick124+8f while camera render index is121+8f on both paths; original full render-state is unavailable.",
+    "No claim of text/numbering bug or image-domain cause from this table.",
+    "SDK prefix is streamed only first2400rows, provenance is original full archive SHA receipt and prior actual SDK audit; no whole-file rehash claimed.",
+    "All frozen source, score records and live workers unchanged."
+  ],
+  "interpretation": "A matched-clock CPU comparison localizes early closed-loop divergence; it does not prove image-domain, text, numbering or label-timing causation. No new scores or rollout variants."
+}
